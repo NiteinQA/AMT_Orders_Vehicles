@@ -1,0 +1,9 @@
+com\amt\test\Acquisition_Quotes_Broker_BCH_Test.class
+com\amt\test\Acquisition_Quotes_Outright_BCH_with_maintenance_Test.class
+com\amt\test\LoginTest.class
+com\amt\test\Acquisition_Quotes_Outright_BCH_without_maintenance_Test.class
+com\amt\test\Acquisition_Quotes_Outright_BCH_OTR_Calculation_Test.class
+com\amt\test\Acquisition_Quotes_Outright_PCH_without_maintenance_Test.class
+com\amt\test\Acquisition_Quotes_Broker_HPR_Test.class
+com\amt\test\Acquisition_Quotes_Outright_PCH_with_maintenance_Test.class
+com\amt\test\Acquisition_Quotes_Outright_Outright_Test.class
