@@ -109,7 +109,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		
 		System.out.println(i+" "+list.get(i).getText());	
 			
-	    Click.on(driver, maintenance_toggle_button, 20);
+	    Click.on(driver, maintenance_toggle_button, 40);
 
 		Click.on(driver, customer_quote_funder, 60);
 		

@@ -1,5 +1,6 @@
 package com.amt.test;
 
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
 import org.testng.Assert;
@@ -53,7 +54,7 @@ public class Acquisition_Quotes_Outright_BCH_OTR_Calculation_Test extends TestBa
 	
 		
 	@Test(priority=0, dataProvider="testData")
-	public void aquisition_quotes_outright_BCH_OTR_Calcution_test(String manufacturer, String model, String sheet_name) throws InterruptedException, IOException {
+	public void aquisition_quotes_outright_BCH_OTR_Calcution_test(String manufacturer, String model, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 		
 		
 		obj_acq_listing_page=new AcquisitionListingPage();

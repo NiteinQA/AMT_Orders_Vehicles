@@ -1,4 +1,52 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 521.406 s - in TestSuite
+Tests run: 8, Failures: 4, Errors: 0, Skipped: 4, Time elapsed: 40.77 s <<< FAILURE! - in TestSuite
+setup(com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test)  Time elapsed: 24.722 s  <<< FAILURE!
+org.openqa.selenium.NoSuchWindowException: 
+no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=107.0.5304.88)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [26f3e9d029c4bb47501c34cef3d6f729, findElement {using=xpath, value=//input[@placeholder='Email']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57804}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57804/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 26f3e9d029c4bb47501c34cef3d6f729
+
+setup(com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test)  Time elapsed: 6.386 s  <<< FAILURE!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [eac20779e174313579bccb5654929e29, get {url=https://amtmaasapp.azurewebsites.net/login}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57855}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57855/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: eac20779e174313579bccb5654929e29
+Caused by: java.io.UncheckedIOException: java.net.SocketException: Connection reset
+Caused by: java.net.SocketException: Connection reset
+
+setup(com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test)  Time elapsed: 4.698 s  <<< FAILURE!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [932bb1fb83be4bb52a297ce60ca2ddbf, deleteAllCookies {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57880}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57880/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 932bb1fb83be4bb52a297ce60ca2ddbf
+Caused by: java.io.UncheckedIOException: java.net.SocketException: Connection reset
+Caused by: java.net.SocketException: Connection reset
+
+setup(com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test)  Time elapsed: 4.835 s  <<< FAILURE!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [59ac9a752fcba71ea0d72e17c31860f8, deleteAllCookies {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57897}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57897/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 59ac9a752fcba71ea0d72e17c31860f8
+Caused by: java.io.UncheckedIOException: java.net.SocketException: Connection reset
+Caused by: java.net.SocketException: Connection reset
+

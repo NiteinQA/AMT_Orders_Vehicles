@@ -1,4 +1,5 @@
 package com.amt.pages.AcquisitionOutrightPage;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePageOutrightBCHPage;
@@ -21,7 +22,7 @@ public class AcquisitionQuoteOutrightBCHownbookCalculationPage extends TestBase 
 	HoldingCostOutrightBCHPage obj_holding_cost_Outright_BCH_page;
 	CustomerQuotePageOutrightBCHPage obj_customer_quote_page;
 	
-	public void acquisition_quote_geneartion_outright_BCH_OwnbookCalculation(String manufacturer, String model, String sheet_name) throws InterruptedException, IOException {
+	public void acquisition_quote_geneartion_outright_BCH_OwnbookCalculation(String manufacturer, String model, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 		
 		obj_acq_listing_page=new AcquisitionListingPage();
 		obj_vehicle_selection_page=new VehicleSelectionPage();

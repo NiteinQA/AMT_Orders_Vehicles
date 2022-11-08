@@ -18,8 +18,8 @@ public class VehicleSelectionPage extends TestBase {
 	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-fleet-selector[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/ng-select[1]/div[1]/div[1]/div[3]/input[1]")
 	private WebElement select_model_range;
 
-	@FindBy(xpath = "//*[@class='ng-option ng-option-marked']")
-	private WebElement select_model_range_option;
+//	@FindBy(xpath = "//*[@class='ng-option ng-option-marked']")
+//	private WebElement select_model_range_option;
 
 	@FindBy(xpath = "//*[@placeholder='Select model']")
 	private WebElement select_model;
@@ -32,7 +32,7 @@ public class VehicleSelectionPage extends TestBase {
 	@FindBy(xpath = "//input[@placeholder='Select derivative']")
 	private WebElement select_derivative;
 	
-	@FindBy(xpath = "//*[@id=\"divVehicleTable\"]/div[1]")
+	@FindBy(xpath = "//*[@id=\"divVehicleTable\"]/div[1]/div/div[1]/div/div[1]/div[2]")
 	private WebElement vehile_table_option;
 	
 	
@@ -46,6 +46,7 @@ public class VehicleSelectionPage extends TestBase {
 		
 		Actions act=new Actions(driver);
 		Thread.sleep(5000);
+		
 		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 40);
 		
 		LO.print("Manufacture ="+manufacturer+" has been selected");
@@ -74,7 +75,7 @@ public class VehicleSelectionPage extends TestBase {
 		//act.sendKeys(Keys.ARROW_DOWN).build().perform();
 		//act.sendKeys(Keys.ENTER).perform();
 		
-		Click.on(driver, vehile_table_option, 50);
+		act.doubleClick(vehile_table_option).build().perform();
 		
 		LO.print("Vehicle has been selected");
 		System.out.println("Vehicle has been selected");

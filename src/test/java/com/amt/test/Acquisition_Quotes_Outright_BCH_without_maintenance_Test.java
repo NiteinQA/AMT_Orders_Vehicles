@@ -1,5 +1,6 @@
 package com.amt.test;
 
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -60,7 +61,7 @@ public class Acquisition_Quotes_Outright_BCH_without_maintenance_Test extends Te
 			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException {
+			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();

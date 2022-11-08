@@ -52,6 +52,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 	
 	@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']")
 	private WebElement monthly_maintenance_rental;
+	
 
 	@FindBy(xpath = "//input[@id='pencePerExcessMileageFinance']")
 	private WebElement pence_Per_ExcessMileage_Finance;
@@ -117,7 +118,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 	
 		System.out.println(i+" "+list.get(i).getText());	
 			
-	    Click.on(driver, maintenance_toggle_button, 20);
+	    Click.on(driver, maintenance_toggle_button, 50);
 
 		Click.on(driver, customer_quote_funder, 60);
 		
@@ -150,6 +151,13 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
  
 		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintenanceRental, 60);
 		
+		ExplicitWait.visibleElement(driver, finalBalloonPayment, 20);
+		
+		finalBalloonPayment.clear();
+		
+		Click.sendKeys(driver, finalBalloonPayment, finalBallonPayment, 60);
+		
+		
 		Click.sendKeys(driver, pence_Per_ExcessMileage_Finance, pensePerExcessMileFinance, 60);
 
 		Click.sendKeys(driver, pence_Per_ExcessMileage_maintenance, pensePerExcessMileMaintenance , 60);
@@ -162,7 +170,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 
 		Click.on(driver, add, 60);
 		
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 		
 		count++;
 		}
@@ -241,6 +249,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		Click.sendKeys(driver, commission, commission2, 60);
 
 		Click.on(driver, add, 60);
+		Thread.sleep(8000);
 		count++;
 		}
 		

@@ -1,5 +1,6 @@
 package com.amt.test;
 
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
 import org.testng.Assert;
@@ -45,7 +46,7 @@ public class Acquisition_Quotes_Broker_FL_with_maintenance_Test extends TestBase
 	public void aquisition_quotes_user_flow_broker_pch_with_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
 		String initialFinanceRental,String initialMaintenanceRental, String monthlyFinanceRental,String monthlyMaintenanceRental, String finalBallonPayment, String pensePerExcessMileFinance,
 		String pensePerExcessMileMaintenance, String percentageOfSaleProceedsOfCustomer, String secondaryHirePeriodRental,
-		String commission, String sheet_name) throws InterruptedException, IOException {
+		String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 		
 		 obj_acq_listing_page = new AcquisitionListingPage();

@@ -37,17 +37,21 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 	
 	@FindBy(xpath = "//div[@class='acc-head havebtns']")
 	private WebElement holding_cost_summary;
-	
-	@FindBy(xpath = "//*[@id=\"vehicleSummery\"]/div/div[2]/div[2]/div[5]/div[2]/div[2]/p")
-	private WebElement holding_cost_summary_terms;
-	
-	@FindBy(xpath = "//*[@id=\"vehicleSummery\"]/div/div[2]/div[2]/div[5]/div[2]/div[3]/p")
-	private WebElement holding_cost_summary_mileage;
+
 	
 	@FindBy(xpath = "//div[@class='vehicleDetails ownBookHolding']//div[7]//p[1]")
 	private WebElement holding_cost_summary_residual_value_used;
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-vehicle-summary[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[2]/div[5]/p[1]")
+	@FindBy(xpath = "//*[@id='ResidualValue']")
+	private WebElement holding_cost_summary_residual_value_used_input_field;
+	
+	@FindBy(xpath = "//*[@id=\"headingCustomerQuote\"]/div[2]/div/div[1]/div/p/strong")
+	private WebElement holding_cost_summary_terms;
+	
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[2]/div/p/strong")
+	private WebElement holding_cost_summary_mileage;	
+	
+	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[1]/div/p/strong")
 	private WebElement total_monthly_holding_cost;
 	
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/label[1]/span[1]")
@@ -93,6 +97,36 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
+		
+		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		return obj_read_excel_calculation_page.verify_holding_cost_without_maintenance(driver,
+				holding_cost_summary_terms, holding_cost_summary_mileage, 
+				holding_cost_summary_residual_value_used, total_monthly_holding_cost, 
+				sheet_name);
+			}
+	
+	public boolean verify_holding_cost_without_maintenance_edited(String residual_value_used,String sheet_name) throws IOException, InterruptedException {
+		Click.on(driver, holding_cost, 30);
+		
+		LO.print("***********Entered in holding cost page ***********");
+		System.out.println("***********Entered in holding cost page ***********");
+		
+		Click.on(driver, holding_cost_summary, 30);
+		
+		 LO.print("Clicked on holding cost summary");
+		  System.out.println("Clicked on holding cost summary");
+		  
+		  ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used_input_field, 20);
+		  
+		  System.out.println("residual_value_used from test data "+residual_value_used);
+		  holding_cost_summary_residual_value_used_input_field.click();
+		  holding_cost_summary_residual_value_used_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		  Click.sendKeys(driver, holding_cost_summary_residual_value_used_input_field, residual_value_used , 30);
+		 Actions act = new Actions(driver);
+		 act.sendKeys(Keys.TAB).build().perform();
+		 
+		 Thread.sleep(5000);
+		  
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		return obj_read_excel_calculation_page.verify_holding_cost_without_maintenance(driver,

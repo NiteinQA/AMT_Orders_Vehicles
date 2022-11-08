@@ -11,8 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 
 import com.amt.pages.LoginPage;
 import com.amt.testUtil.Logger;
@@ -29,7 +28,7 @@ public class TestBase {
     	try
     	{
     		prop=new Properties();
-    		FileInputStream ip = new FileInputStream("D:\\workspace\\amt\\AMT3\\src\\main\\java\\configs\\config.properties");
+    		FileInputStream ip = new FileInputStream("D:\\workspace\\amt\\AMT_STAGING\\src\\main\\java\\configs\\config.properties");
     		prop.load(ip);                            
     	}
     	catch(FileNotFoundException e)
@@ -73,11 +72,11 @@ public class TestBase {
 		 driver.get(prop.getProperty("url"));		 
 	}
 	
-	@BeforeMethod
+	@BeforeClass
 	public void setup() throws InterruptedException, IOException {
      
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\workspace\\amt\\AMT3\\src\\main\\java\\configs\\config.properties");
+		FileInputStream ip = new FileInputStream("D:\\workspace\\amt\\AMT_STAGING\\src\\main\\java\\configs\\config.properties");
 		prop.load(ip); 
 		  
 	    TestBase.initialization(prop.getProperty("browser"));

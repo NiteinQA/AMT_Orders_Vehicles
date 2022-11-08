@@ -38,16 +38,17 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 	@FindBy(xpath = "//div[@class='acc-head havebtns']")
 	private WebElement holding_cost_summary;
 	
-	@FindBy(xpath = "//*[@id=\"vehicleSummery\"]/div/div[2]/div[2]/div[5]/div[2]/div[2]/p")
-	private WebElement holding_cost_summary_terms;
-	
-	@FindBy(xpath = "//*[@id=\"vehicleSummery\"]/div/div[2]/div[2]/div[5]/div[2]/div[3]/p")
-	private WebElement holding_cost_summary_mileage;
 	
 	@FindBy(xpath = "//div[@class='vehicleDetails ownBookHolding']//div[7]//p[1]")
 	private WebElement holding_cost_summary_residual_value_used;
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-vehicle-summary[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[2]/div[5]/p[1]")
+	@FindBy(xpath = "//*[@id=\"headingCustomerQuote\"]/div[2]/div/div[1]/div/p/strong")
+	private WebElement holding_cost_summary_terms;
+	
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[2]/div/p/strong")
+	private WebElement holding_cost_summary_mileage;	
+	
+	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[1]/div/p/strong")
 	private WebElement total_monthly_holding_cost;
 	
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/label[1]/span[1]")

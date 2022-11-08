@@ -11,7 +11,7 @@ import com.amt.testUtil.Click;
 
 public class ContractTypesAndOTR_HPNR_BCHPage extends TestBase {
 	
-	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/p[1]")
+	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;
 	
 	@FindBy(xpath = "//p[contains(text(),'Broker')]")
@@ -20,9 +20,6 @@ public class ContractTypesAndOTR_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/div[7]/div[1]/div[1]/div[3]/div[1]/button[1]")
 	private WebElement quote_alert;	
    
-	//@FindBy(xpath = "//*[@id=\"customer_contract_change_supplier\"]//div[@class='modal-dialog modal-dialog-centered']//div//div/button[contains(text(),'Yes')]")
-	//private WebElement quote_alert;
-	
 	@FindBy(xpath = "//p[contains(text(),'Hire Purchase Regulated')]")
 	private WebElement acq_contractTypes_cust_HPR;	
 	
@@ -35,6 +32,18 @@ public class ContractTypesAndOTR_HPNR_BCHPage extends TestBase {
 	
 	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/p[1]")
 	private WebElement acq_cutomer_contractTypes_outright;
+	
+	@FindBy(xpath = "//p[@class='text-left text-muted pr-1']")
+	private WebElement acq_contractTypes_OTR_price;
+	  
+	@FindBy(xpath = "//*[@id=\"ListingPriceNew\"]")
+	private WebElement acq_contractTypes_table_calculation_basic_vehicle_price;
+	
+	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[3]")
+	private WebElement acq_contractTypes_table_calculation_basic_paint_price;
+	
+	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[4]")
+	private WebElement acq_contractTypes_table_calculation_basic_options_price;
 	
 	
 	

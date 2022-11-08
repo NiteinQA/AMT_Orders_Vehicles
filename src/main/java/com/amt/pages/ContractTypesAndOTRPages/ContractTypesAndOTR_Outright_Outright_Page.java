@@ -11,7 +11,7 @@ import com.amt.testUtil.Click;
 
 public class ContractTypesAndOTR_Outright_Outright_Page extends TestBase {
 	
-	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/p[1]")
+	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;
 	
 	@FindBy(xpath = "//p[contains(text(),'Broker')]")

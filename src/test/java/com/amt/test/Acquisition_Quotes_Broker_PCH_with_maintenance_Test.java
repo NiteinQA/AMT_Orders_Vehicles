@@ -1,25 +1,19 @@
 package com.amt.test;
 
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.amt.CustomerQuotePackage.CustomerQuotePageBrokerBCHPage;
 import com.amt.CustomerQuotePackage.CustomerQuotePageBrokerPCHPage;
-import com.amt.QuoteSummaryPages.QuoteSummaryBrokerBCHPage;
 import com.amt.QuoteSummaryPages.QuoteSummaryBrokerPCHPage;
 import com.amt.pages.AcquisitionListingPage;
-import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
 import com.amt.pages.AcquisitionBrokerPages.AcquisitionQuotesBrokerBCHPage;
-import com.amt.pages.AcquisitionBrokerPages.AcquisitionQuotesBrokerHPRPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Broker_BCH_Page;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Broker_PCH_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
@@ -40,7 +34,7 @@ public class Acquisition_Quotes_Broker_PCH_with_maintenance_Test extends TestBas
 		
 	@Test(priority=0, dataProvider="testData")
 	public void aquisition_quotes_user_flow_broker_pch_with_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
-		String initialFinanceRental,String initialMaintenanceRental, String monthlyFinanceRental,String monthlyMaintenanceRental, String pensePerExcessMileFinance,String pensePerExcessMileMaintenance, String commission, String sheet_name) throws InterruptedException, IOException {
+		String initialFinanceRental,String initialMaintenanceRental, String monthlyFinanceRental,String monthlyMaintenanceRental, String pensePerExcessMileFinance,String pensePerExcessMileMaintenance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 		
 		 obj_acq_listing_page = new AcquisitionListingPage();
