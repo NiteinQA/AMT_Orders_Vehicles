@@ -22,7 +22,6 @@ import com.amt.testUtil.ReadExcelData;
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
 public class Acquisition_Quotes_Broker_PCH_without_maintenance_Test extends TestBase {
 	
-	public AcquisitionQuotesBrokerBCHPage obj_aquisition_quotes_page_broker_bch;
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
@@ -32,37 +31,65 @@ public class Acquisition_Quotes_Broker_PCH_without_maintenance_Test extends Test
 	
 	
 		
-	@Test(priority=0, dataProvider="testData")
-	public void aquisition_quotes_user_flow_broker_pch_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
+	@Test(priority=1, dataProvider="testData")
+	public void aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
 		String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 		
 		 obj_acq_listing_page = new AcquisitionListingPage();
 		 obj_vehicle_selection_page = new VehicleSelectionPage();
 	     obj_options_accessories = new OptionsAccessoriesPage();
-		 obj_contract_types_and_OTR_Broker_PCH = new ContractTypesAndOTR_Broker_PCH_Page();
-		 obj_customer_quote_page = new CustomerQuotePageBrokerPCHPage();
-		 obj_quote_summary_page =new QuoteSummaryBrokerPCHPage();
-		
-		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle(manufacturer, model);
-		obj_options_accessories.options_And_Accessories_selection();
+		 obj_contract_types_and_OTR_Broker_PCH = new ContractTypesAndOTR_Broker_PCH_Page();	
+		 
+			obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
+			obj_vehicle_selection_page.select_vehicle(manufacturer, model);
+			obj_options_accessories.options_And_Accessories_selection();
 		boolean subtotal_after_discount=obj_contract_types_and_OTR_Broker_PCH.contractTypes_and_OTR_selection_broker_pch(sheet_name);
-		Assert.assertTrue(subtotal_after_discount);
-		
-		boolean otr_price_check = obj_contract_types_and_OTR_Broker_PCH
-				.verify_after_discount_calculations_contract_types_page(sheet_name);
-		Assert.assertTrue(otr_price_check);
-		
-		boolean customer_quote_check=obj_customer_quote_page.customer_Quote_broker_pch_without_maintenance(quoteRef, quoteExpiryDate,term, milesperannum, 
-				initialFinanceRental,monthlyFinanceRental, pensePerExcessMileFinance, commission);	
-		
-		Assert.assertTrue(customer_quote_check);
-		
-		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_broker_PCH_without_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_page_status);
-		
+		Assert.assertTrue(subtotal_after_discount);		
 	}
+	
+	
+	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test" })
+	
+	public void aquisition_quotes_user_flow_broker_pch_after_discount_calculations_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
+			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+				
+			 obj_contract_types_and_OTR_Broker_PCH = new ContractTypesAndOTR_Broker_PCH_Page();	
+			
+			boolean otr_price_check = obj_contract_types_and_OTR_Broker_PCH
+					.verify_after_discount_calculations_contract_types_page(sheet_name);
+			Assert.assertTrue(otr_price_check);						
+		}
+	
+	
+	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_after_discount_calculations_without_maintenance_test" })
+
+	public void aquisition_quotes_user_flow_broker_pch_funder_quote_addition_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
+			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+				
+		
+			 obj_customer_quote_page = new CustomerQuotePageBrokerPCHPage();
+			
+			boolean customer_quote_check=obj_customer_quote_page.customer_Quote_broker_pch_without_maintenance(quoteRef, quoteExpiryDate,term, milesperannum, 
+					initialFinanceRental,monthlyFinanceRental, pensePerExcessMileFinance, commission);	
+			
+			Assert.assertTrue(customer_quote_check);
+			
+	
+			
+		}
+	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_funder_quote_addition_without_maintenance_test" })
+
+	public void aquisition_quotes_user_flow_broker_pch_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
+			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+				
+
+			 obj_quote_summary_page =new QuoteSummaryBrokerPCHPage();
+			
+			boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_broker_PCH_without_maintenance(sheet_name);
+			Assert.assertTrue(quote_summary_page_status);
+			
+		}
 	
 	
 	

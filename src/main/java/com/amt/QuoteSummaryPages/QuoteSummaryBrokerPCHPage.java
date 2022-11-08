@@ -133,9 +133,12 @@ public class QuoteSummaryBrokerPCHPage extends TestBase {
 		System.out.println("*************Calculations for Quote Summary page gas been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		
+		Thread.sleep(5000);
+		
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(20000);
+		Thread.sleep(15000);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		

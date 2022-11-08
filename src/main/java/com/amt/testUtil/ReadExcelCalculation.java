@@ -28,7 +28,7 @@ public class ReadExcelCalculation extends TestBase {
 	    	try
 	    	{
 	    		prop=new Properties();
-	    		FileInputStream ip = new FileInputStream("D:\\workspace\\amt\\AMT_STAGING\\src\\main\\java\\configs\\excelValues.properties");
+	    		FileInputStream ip = new FileInputStream("D:\\newWorkspaceStaging\\AutomationStaging\\src\\main\\java\\configs\\excelValues.properties");
 	    		prop.load(ip);
 	    	}
 	    	catch(FileNotFoundException e)
@@ -976,7 +976,7 @@ public class ReadExcelCalculation extends TestBase {
 		System.out.println("***********Holding Cost Calculations has been Started*************");
 		
 		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 30);
-		double duration = Double.parseDouble(holding_cost_summary_terms.getText());
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
 		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
 		String mileage= holding_cost_summary_mileage.getText();
 		
@@ -985,9 +985,9 @@ public class ReadExcelCalculation extends TestBase {
 		double annual_mileage = Double.parseDouble(holding_cost_annual_mileage);
 		
 		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 30);
-		String reidual_value_used=holding_cost_summary_residual_value_used.getText().substring(2);
+		String residual_value_used=holding_cost_summary_residual_value_used.getText().substring(2);
 		
-		String reidual_value_used_converted=RemoveComma.of(reidual_value_used);
+		String reidual_value_used_converted=RemoveComma.of(residual_value_used);
 		
 		double used_residual_value = Double.parseDouble(reidual_value_used_converted);
 		

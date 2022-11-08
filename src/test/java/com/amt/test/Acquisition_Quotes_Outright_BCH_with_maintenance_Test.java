@@ -31,28 +31,9 @@ import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
 public class Acquisition_Quotes_Outright_BCH_with_maintenance_Test extends TestBase {
-//	Acquisition_Quotes_Outright_BCH_with_maintenance_Test(){
-//	try
-//	{
-//		prop=new Properties();
-//		FileInputStream ip = new FileInputStream("D:\\workspace\\amt\\AMT3\\src\\main\\java\\configs\\config.properties");
-//		prop.load(ip);                            
-//	}
-//	catch(FileNotFoundException e)
-//	{
-//		e.printStackTrace();
-//	}
-//	catch(IOException e)
-//	{
-//		e.printStackTrace();
-//	}
-//	}
-
-	
      
 	
-	TestBase TB;
-	LoginPage obj_Login_Page;
+    LoginPage obj_Login_Page;
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;

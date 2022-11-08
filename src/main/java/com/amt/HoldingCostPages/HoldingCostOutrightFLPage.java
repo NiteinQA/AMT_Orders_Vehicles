@@ -41,7 +41,7 @@ public class HoldingCostOutrightFLPage extends TestBase {
 	@FindBy(xpath = "//div[@class='vehicleDetails ownBookHolding']//div[7]//p[1]")
 	private WebElement holding_cost_summary_residual_value_used;
 	
-	@FindBy(xpath = "//*[@id=\"headingCustomerQuote\"]/div[2]/div/div[1]/div/p/strong")
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
 	private WebElement holding_cost_summary_terms;
 	
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[2]/div/p/strong")
