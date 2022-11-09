@@ -32,7 +32,7 @@ public class Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test extends 
 	
 		
 	@Test(priority=1, dataProvider="testData")
-	public void aquisition_quotes_user_flow_broker_pch_with_maintenance_vehicle_price_edited_test(String manufacturer, String model,
+	public void aquisition_quotes_user_flow_broker_pch_vehicle_price_edited_with_maintenance_test(String manufacturer, String model,
 		String vehicleBasicPrice,String roadTaxForFirstYear, String otrPriceForINvoice,
 		String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
 		String initialFinanceRental,String initialMaintenanceRental, String monthlyFinanceRental,
@@ -56,9 +56,9 @@ public class Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test extends 
 	}
 	
 	
-	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_with_maintenance_vehicle_price_edited_test" })
+	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_vehicle_price_edited_with_maintenance_test" })
 
-	public void aquisition_quotes_user_flow_broker_pch_with_maintenance_road_tax_for_first_year_edited_test(String manufacturer, String model,
+	public void aquisition_quotes_user_flow_broker_pch_road_tax_for_first_year_edited_with_maintenance_test(String manufacturer, String model,
 			String vehicleBasicPrice,String roadTaxForFirstYear, String otrPriceForINvoice,
 			String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
 			String initialFinanceRental,String initialMaintenanceRental, String monthlyFinanceRental,
@@ -76,8 +76,8 @@ public class Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test extends 
 		}
 	
 	
-	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_with_maintenance_road_tax_for_first_year_edited_test" })
-	public void aquisition_quotes_user_flow_broker_pch_with_maintenance_customer_quote_funder_quote_addition_test(String manufacturer, String model,
+	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_road_tax_for_first_year_edited_with_maintenance_test" })
+	public void aquisition_quotes_user_flow_broker_pch_customer_quote_funder_quote_addition_with_maintenance_test(String manufacturer, String model,
 			String vehicleBasicPrice,String roadTaxForFirstYear, String otrPriceForINvoice,
 			String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
 			String initialFinanceRental,String initialMaintenanceRental, String monthlyFinanceRental,
@@ -93,7 +93,7 @@ public class Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test extends 
 		Assert.assertTrue(customer_quote_check);			
 		}
 	
-	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_with_maintenance_customer_quote_funder_quote_addition_test" })
+	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_customer_quote_funder_quote_addition_with_maintenance_test" })
 	public void aquisition_quotes_user_flow_broker_pch_with_maintenance_quote_summary_page_value_verification_test(String manufacturer, String model,
 			String vehicleBasicPrice,String roadTaxForFirstYear, String otrPriceForINvoice,
 			String quoteRef, String quoteExpiryDate, String term, String milesperannum, 

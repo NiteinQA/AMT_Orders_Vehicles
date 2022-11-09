@@ -217,6 +217,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		Click.sendKeys(driver, commission, commission2, 60);
 
 		Click.on(driver, add, 60);
+		
+		Thread.sleep(3000);
 		count++;
 		}
 		

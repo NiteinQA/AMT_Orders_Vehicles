@@ -32,7 +32,7 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_edited_Test extend
 	
 		
 	@Test(priority=1, dataProvider="testData")
-	public void aquisition_quotes_user_flow_broker_FL_without_maintenance_vehicle_price_edited_test(String manufacturer, String model, 
+	public void aquisition_quotes_user_flow_broker_FL_vehicle_price_edited_without_maintenance_test(String manufacturer, String model, 
 			String vehicleBasicPrice,String roadTaxForFirstYear, String otrPriceForINvoice, String quoteRef, String quoteExpiryDate,
 			String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental,String finalBallonPayment,  String pensePerExcessMileFinance,
 			String percentageOfSaleProceedsToCustomer, String secondaryHirePeriodRental,String commission, String partExchangeActual, String partExchangeGiven,
@@ -51,8 +51,8 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_edited_Test extend
 		Assert.assertTrue(subtotal_after_discount);
 		
 	}
-	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_FL_without_maintenance_vehicle_price_edited_test" })
-	public void aquisition_quotes_user_flow_broker_FL_without_maintenance_road_tax_for_first_year_edited_test(String manufacturer, String model, 
+	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_FL_vehicle_price_edited_without_maintenance_test" })
+	public void aquisition_quotes_user_flow_broker_FL_road_tax_for_first_year_edited_without_maintenance_test(String manufacturer, String model, 
 			String vehicleBasicPrice,String roadTaxForFirstYear, String otrPriceForINvoice, String quoteRef, String quoteExpiryDate,
 			String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental,String finalBallonPayment,  String pensePerExcessMileFinance,
 			String percentageOfSaleProceedsToCustomer, String secondaryHirePeriodRental,String commission, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement,String oderDeposit, String documentFee,String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -65,8 +65,8 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_edited_Test extend
 
 		}
 	
-	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_FL_without_maintenance_road_tax_for_first_year_edited_test" })
-	public void aquisition_quotes_user_flow_broker_FL_without_maintenance_customer_quote_funder_quote_addition_test(String manufacturer, String model, 
+	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_FL_road_tax_for_first_year_edited_without_maintenance_test" })
+	public void aquisition_quotes_user_flow_broker_FL_customer_quote_funder_quote_addition_without_maintenance_test(String manufacturer, String model, 
 			String vehicleBasicPrice,String roadTaxForFirstYear, String otrPriceForINvoice, String quoteRef, String quoteExpiryDate,
 			String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental,String finalBallonPayment,  String pensePerExcessMileFinance,
 			String percentageOfSaleProceedsToCustomer, String secondaryHirePeriodRental,String commission, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement,String oderDeposit, String documentFee,String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -78,7 +78,7 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_edited_Test extend
 			Assert.assertTrue(customer_quote_check);			
 		}
 	
-	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_FL_without_maintenance_customer_quote_funder_quote_addition_test" })
+	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_FL_customer_quote_funder_quote_addition_without_maintenance_test" })
 	public void aquisition_quotes_user_flow_broker_FL_without_maintenance_quote_summary_page_value_verification_test(String manufacturer, String model, 
 			String vehicleBasicPrice,String roadTaxForFirstYear, String otrPriceForINvoice, String quoteRef, String quoteExpiryDate,
 			String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental,String finalBallonPayment,  String pensePerExcessMileFinance,
