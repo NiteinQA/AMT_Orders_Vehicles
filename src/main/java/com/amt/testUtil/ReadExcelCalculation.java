@@ -689,17 +689,17 @@ public class ReadExcelCalculation extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		 
-		wb.getSheet(sheet_name).getRow(61).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
-		wb.getSheet(sheet_name).getRow(64).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
-		wb.getSheet(sheet_name).getRow(67).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("contingency_insurance_multiplier_holding_cost")));
-		wb.getSheet(sheet_name).getRow(68).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("insurance_premium_tax")));
-		wb.getSheet(sheet_name).getRow(70).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_cost_ex_vat")));
-		wb.getSheet(sheet_name).getRow(71).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
+		//wb.getSheet(sheet_name).getRow(61).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
+		//wb.getSheet(sheet_name).getRow(64).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
+		//wb.getSheet(sheet_name).getRow(67).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("contingency_insurance_multiplier_holding_cost")));
+		//wb.getSheet(sheet_name).getRow(68).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("insurance_premium_tax")));
+		//wb.getSheet(sheet_name).getRow(70).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_cost_ex_vat")));
+		//wb.getSheet(sheet_name).getRow(71).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
 		wb.getSheet(sheet_name).getRow(73).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
 		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum")));
-		wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
-		wb.getSheet(sheet_name).getRow(78).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
-		wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
+		//wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
+		//wb.getSheet(sheet_name).getRow(78).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
+		//wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
 				
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);	
@@ -726,7 +726,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(71).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
 		wb.getSheet(sheet_name).getRow(73).getCell(1).setCellValue(0);//these values are hard coded because in finance lease rfl values are not considered
 		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
+		//wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
 		wb.getSheet(sheet_name).getRow(78).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
 		wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
 				

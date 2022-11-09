@@ -314,9 +314,9 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		
 		double balance_to_finance_expected =(otr_screen_price_converted-Double.parseDouble(cahDeposit));
 		
-		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);
+		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);		
 		
-		double balance_to_finance_actual = Double.parseDouble(customer_quote_summary_balance_to_finance.getText().trim().substring(2));	
+		double balance_to_finance_actual = Double.parseDouble(RemoveComma.of(customer_quote_summary_balance_to_finance.getText().trim().substring(2)));	
 	    
 		boolean balance_to_finance_status=false;
 		if((balance_to_finance_expected-balance_to_finance_actual)==0)
