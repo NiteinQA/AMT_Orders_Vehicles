@@ -67,25 +67,25 @@ public class ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage extends Tes
 	@FindBy(xpath = "//*[@id='roadTaxFirstYear']")
 	private WebElement acq_contractTypes_road_tax_first_year_input;
 
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[2]/div/div[2]/div[2]")
+	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[2]/div/div[2]/div[2]")
 	private WebElement acq_contractTypes_manufacturer_delivery_charges;
 
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[2]/div/div[5]/div[2]")
+	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[2]/div/div[5]/div[2]")
 	private WebElement acq_contractTypes_first_registration_fee;
 
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[2]/div/div[7]/div/div[2]")
+	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[2]/div/div[7]/div/div[2]")
 	private WebElement acq_contractTypes_rebate;
 	
-	@FindBy(xpath = "//*[@id=\"vehicleSummery\"]/div/div[2]/div[2]/div[5]/div/div[1]/p")
+	@FindBy(xpath = "//*[@id='vehicleSummery']/div/div[2]/div[2]/div[6]/div/div[1]/p")
 	private WebElement acq_contractTypes_OTR_price;
 	
-	@FindBy(xpath = "//*[@id=\"ListingPriceNew\"]")
+	@FindBy(xpath = "//*[@id='ListingPriceNew']")
 	private WebElement acq_contractTypes_table_calculation_basic_vehicle_price;
 	
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[3]")
+	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[3]")
 	private WebElement acq_contractTypes_table_calculation_basic_paint_price;
 	
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[4]")
+	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[4]")
 	private WebElement acq_contractTypes_table_calculation_basic_options_price;
 	
    
@@ -103,6 +103,11 @@ public class ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage extends Tes
 
 		LO.print(" Acquisition Contract type option = Outright has been selected");
 		System.out.println("Contract type option = Outright has been selected");
+		
+		Thread.sleep(3000);
+
+	    Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB).sendKeys(Keys.ENTER).build().perform();
 		
 		Click.on(driver, acq_contractTypes_customer_contract_FL, 50);
 		

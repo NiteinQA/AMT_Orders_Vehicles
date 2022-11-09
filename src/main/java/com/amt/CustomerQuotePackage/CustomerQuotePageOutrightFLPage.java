@@ -17,13 +17,14 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 	CustomerQuotePageOutrightFLPage obj_cust_quote_outright_FLPage;
 	ReadExcelCalculation obj_read_excel_calculation_page; 
 
+
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
 	
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-all-customer-quotes[1]/div[1]/app-aquisition-hire-agreement[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[6]/div[4]")
 	private WebElement customer_quote_matrix_default_cell;
     
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-all-customer-quotes[1]/div[1]/app-aquisition-hire-agreement[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/app-acquisition-quote-summary[1]/div[1]/div[2]/app-hire-customer-quote-summary-header[1]/div[1]/div[4]/div[1]/p[1]/strong[1]")
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
 	private WebElement customer_quote_monthly_finance_reantal;
 	
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[2]/div[3]/button[1]")
@@ -32,28 +33,29 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 	@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
 	private WebElement customer_quote_payment_profile_dropdown;
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-all-customer-quotes[1]/div[1]/app-aquisition-hire-agreement[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/app-acquisition-quote-summary[1]/div[1]/div[2]/app-hire-customer-quote-summary-header[1]/div[1]/div[4]/div[1]/p[1]/strong[1]")
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
 	private WebElement customer_quote_monthly_finance_rental;
 	
-	@FindBy(xpath = "//*[@id=\"partExchange_1\"]/button/div")
+	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
 	private WebElement part_exchange_payment;
 	
-	@FindBy(xpath = "//*[@id=\"otrPartExchange\"]")
+	@FindBy(xpath = "//*[@id='otrPartExchange']")
 	private WebElement actual_part_exchange_value;
 	
-	@FindBy(xpath = "//*[@id=\"partExchange\"]")
+	@FindBy(xpath = "//*[@id='partExchange']")
 	private WebElement given_part_exchange_value;
 	
-	@FindBy(xpath = "//*[@id=\"lessFinanceSettlement\"]")
+	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
 	private WebElement less_finance_settlement;
 	
-	@FindBy(xpath = "//*[@id=\"partExchange_2\"]/div/div/div[2]/ul/li[1]/div/input")
+	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[2]/ul/li[1]/div/input")
 	private WebElement order_deposit;
 	
-	@FindBy(xpath = "//*[@id=\"DocumentFee\"]")
-	private WebElement document_fee;	
+	@FindBy(xpath = "//*[@id='DocumentFee']")
+	private WebElement document_fee;
 	
-	@FindBy(xpath = "//*[@id=\"collapseOneOwnBookMatrix\"]/div/div/div/div[1]/label/span")
+	
+	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
 	private WebElement customer_quote_maintenance_toggle_button;
 	
 	@FindBy(xpath = "//*[@id=\"headingCustomerQuote\"]/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
@@ -61,6 +63,7 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 	
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
+
 	
 	
 

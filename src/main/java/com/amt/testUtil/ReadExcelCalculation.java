@@ -591,12 +591,13 @@ public class ReadExcelCalculation extends TestBase {
 	public boolean verify_holding_cost_without_maintenance(WebDriver driver,
 			WebElement holding_cost_summary_terms, WebElement holding_cost_summary_mileage,
 			WebElement holding_cost_summary_residual_value_used, WebElement total_monthly_holding_cost,
-			String sheet_name) throws IOException 
+			String sheet_name) throws IOException, InterruptedException 
 	{
 		
 		LO.print("***********Holding Cost Calculations has been Started*************");
 		System.out.println("***********Holding Cost Calculations has been Started*************");
 		
+		Thread.sleep(4000);
 		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 60);
 		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
 		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 60);
@@ -974,9 +975,11 @@ public class ReadExcelCalculation extends TestBase {
 		
 		LO.print("***********Holding Cost Calculations has been Started*************");
 		System.out.println("***********Holding Cost Calculations has been Started*************");
+		Thread.sleep(3000);		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
 		
-		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 30);
 		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+		
 		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
 		String mileage= holding_cost_summary_mileage.getText();
 		

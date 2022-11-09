@@ -41,26 +41,27 @@ public class HoldingCostOutrightFLPage extends TestBase {
 	@FindBy(xpath = "//div[@class='vehicleDetails ownBookHolding']//div[7]//p[1]")
 	private WebElement holding_cost_summary_residual_value_used;
 	
+	@FindBy(xpath = "//*[@id='ResidualValue']")
+	private WebElement holding_cost_summary_residual_value_used_input_field;
+	
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
 	private WebElement holding_cost_summary_terms;
 	
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[2]/div/p/strong")
 	private WebElement holding_cost_summary_mileage;	
 	
-	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[1]/div/p/strong")
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[3]/div/p/strong")
 	private WebElement total_monthly_holding_cost;
 	
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/label[1]/span[1]")
 	private WebElement holding_cost_maintenance_toggle_button;
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-vehicle-summary[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[2]/div[10]/p[1]")
+	@FindBy(xpath = "//*[@id='ResidualPercentage']")
 	private WebElement holding_cost_maintenance_cost_used;
 	
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")
 	private WebElement holding_cost_percentage_cap_residual_value_used;
-	
-	
-	
+		
 	@FindBy(xpath = "//input[@id='CapMaintenancePercentage']")
 	private WebElement percentage_maintenance_cost_used;
 	
@@ -69,11 +70,8 @@ public class HoldingCostOutrightFLPage extends TestBase {
 	
 	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
 	private WebElement maintenance_cost_used;
-	
-	@FindBy(xpath = "//div[@class='bold subSectionTitle border-0']")
-	private WebElement click_on_dead_element;
-	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-vehicle-summary[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[2]/div[9]/p[1]")
+		
+	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong")
 	private WebElement total_cap_maintenance_value;
 	
 	
@@ -83,7 +81,7 @@ public class HoldingCostOutrightFLPage extends TestBase {
 	
 	
 
-	public boolean verify_holding_cost_without_maintenance(String sheet_name) throws IOException {
+	public boolean verify_holding_cost_without_maintenance(String sheet_name) throws IOException, InterruptedException {
 		Click.on(driver, holding_cost, 30);
 		
 		LO.print("***********Entered in holding cost page ***********");

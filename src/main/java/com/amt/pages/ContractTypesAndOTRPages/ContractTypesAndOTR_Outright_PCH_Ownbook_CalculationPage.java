@@ -97,9 +97,13 @@ public class ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage extends Te
 		Click.on(driver, acq_contractTypes, 50);
 		Thread.sleep(2000);
 		Click.on(driver, acq_acq_contractTypes_outright, 50);
+		Thread.sleep(3000);
+		 Actions act = new Actions(driver);
+	    act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB).sendKeys(Keys.ENTER).build().perform();
 
 		LO.print(" Acquisition Contract type option = Outright has been selected");
 		System.out.println("Contract type option = Outright has been selected");
+		
 		
 		Click.on(driver, acq_contractTypes_customer_contract_PCH, 50);
 		
