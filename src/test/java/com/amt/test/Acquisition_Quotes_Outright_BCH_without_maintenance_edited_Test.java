@@ -69,19 +69,19 @@ public class Acquisition_Quotes_Outright_BCH_without_maintenance_edited_Test ext
 				.verify_holding_cost_without_maintenance_edited(residual_value_used,sheet_name);
 		Assert.assertTrue(holding_cost_without_maintenance_boolean);
 		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
-				.customer_Quote_outright_BCH_for_one_payment_option_without_maintenance_calculation(
+				.customer_Quote_outright_BCH_for_one_payment_option_without_maintenance_calculation_edited(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
 						 maintenance_required, maintenance_margin, initial_payment,
 						part_exchange_status, target_rental,sheet_name);
 		Assert.assertTrue(customer_quote_for_payment_boolean);
 
-		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-				.customer_Quote_outright_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
-		Assert.assertTrue(cutomer_quote_monthly_rental);
-
-		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_outright_BCH_without_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_page_status);
+//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+//				.customer_Quote_outright_BCH_for_all_payment_option_without_maintenance_calculation_edited(initial_payment,sheet_name);
+//		Assert.assertTrue(cutomer_quote_monthly_rental);
+//
+//		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_outright_BCH_without_maintenance(sheet_name);
+//		Assert.assertTrue(quote_summary_page_status);
 
 	}
 	

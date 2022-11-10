@@ -837,6 +837,111 @@ public class ReadExcelCalculation extends TestBase {
 		
 	}
 	
+	public boolean verify_customer_quote_calculations_for_one_payment_options_without_maintenance_edited(WebDriver driver,
+			WebElement customer_quote_payment_profile_dropdown, WebElement part_exchange_payment, 
+			WebElement actual_part_exchange_value, String actual_part_exchange_value_from_excel, 
+			WebElement given_part_exchange_value, String given_part_exchange_value_from_excel,
+			WebElement less_finance_settlement,String less_finance_settlement_from_excel,
+			WebElement order_deposit, String order_deposit_from_excel,
+			WebElement document_fee, String document_fee_from_excel, WebElement matrix_upsell_input_field, String upsell,
+			WebElement customer_quote_monthly_finance_rental,  String maintenance_required,
+			String maintenance_margin, String initial_payment, String part_exchange_status, String target_rental,String sheet_name
+			) throws IOException {
+		
+		LO.print("************Calculations for Customer Quote Page has been started***********" );
+		System.out.println("************Calculations for Customer Quote Page has been started***********" );
+		
+		Actions act = new Actions (driver);
+		
+		ExplicitWait.clickableElement(driver, customer_quote_payment_profile_dropdown, 30);
+		Select select=new Select(customer_quote_payment_profile_dropdown);
+		select.selectByIndex(0);
+		
+		LO.print("Payment Profile Monthly in Advance option has been selected" );
+		System.out.println("Payment Profile Monthly in Advance option has been selected" );
+		
+		List<WebElement> list_dropdown_options = select.getOptions();
+		String dropdown_option=list_dropdown_options.get(0).getText();
+		
+		ExplicitWait.visibleElement(driver, matrix_upsell_input_field, 30);
+		matrix_upsell_input_field.sendKeys((Keys.chord(Keys.CONTROL,"a", Keys.DELETE)));		
+        Click.sendKeys(driver, matrix_upsell_input_field, upsell, 50);
+        act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		Click.on(driver, part_exchange_payment, 70);
+		LO.print("Clicked on Part Exchange panel" );
+		System.out.println("Clicked on Part Exchange panel" );
+		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
+		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
+		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
+		ExplicitWait.visibleElement(driver, document_fee, 30);
+		document_fee.clear();
+		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
+		
+        act.sendKeys(Keys.TAB).build().perform();
+		
+		LO.print("Writing values to Excel for customer quote calculation -started" );
+		System.out.println("Writing values to Excel for customer quote calculation -started" );
+		 
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		System.out.println(dropdown_option);
+		System.out.println(sheet_name);
+		wb.getSheet(sheet_name).getRow(98).getCell(1).setCellValue(" "+dropdown_option+" ");
+		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
+		wb.getSheet(sheet_name).getRow(101).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
+		wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(Double.parseDouble(upsell));
+		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue(maintenance_required);
+		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
+		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(initial_payment));
+		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue(part_exchange_status);
+		//wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
+		//wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
+		//wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
+		wb.getSheet(sheet_name).getRow(123).getCell(1).setCellValue(Double.parseDouble(target_rental));
+		//wb.getSheet(sheet_name).getRow(57).getCell(1).setCellFormula("IF(B99=Y97,H29-B57,IF(B99=Y98,H29-B57,IF(B99=Y99,H29-1,IF(B99=Y100,H29-1,IF(B99=Y101,H29-1,IF(B99=Y102,H29-1,IF(B99=Y103,H29-B57,IF(B99=Y104,H29-B57,IF(B99=Y105,H29-B57,0)))))))))");
+		//wb.getSheet(sheet_name).getRow(56).getCell(1).setCellFormula("IF(B99=Y97,1,IF(B99=Y98,1,IF(B99=Y99,3,IF(B99=Y100,6,IF(B99=Y101,9,IF(B99=Y102,12,IF(B99=Y103,3,IF(B99=Y104,6,IF(B99=Y105,9,0)))))))))");
+
+		//wb.getSheet(sheet_name).getRow(151).getCell(1).setCellFormula("B91");
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing values to Excel for customer quote calculation -completed" );
+		System.out.println("Writing values to Excel for customer quote calculation -completed" );
+		
+		
+		LO.print("Reading  Monthly Finance Rental from  Excel   -started" );
+		System.out.println("Reading  Monthly Finance Rental from  Excel   -started" );
+		 
+		double monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+		
+		LO.print("Reading  Monthly Finance Rental from  Excel   -completed" );
+		System.out.println("Reading  Monthly Finance Rental from  Excel   -completed" );
+        
+		LO.print("Monthly Finance Rental from Excel is ="+monthly_finance_rental_expected );
+		System.out.println("Monthly Finance Rental from Excel is ="+monthly_finance_rental_expected );
+        
+		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 30);
+		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
+		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
+		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
+	    System.out.println("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
+	    
+		
+		boolean flag=false;
+		
+		double diff=Difference.of_two_Double_Values(monthly_finance_rental_expected, monthly_finance_rental_actual_converted);
+		
+    	if(diff<0.2)
+        {flag=true;}		
+		return flag;		
+		
+	}
+	
 	public boolean verify_customer_quote_calculations_for_all_payment_options_without_maintenance(WebDriver driver, 
 			WebElement customer_quote_payment_profile_dropdown, WebElement customer_quote_monthly_finance_rental,
 			WebElement initial_payment_input_field, String initial_payment_from_test_data, String sheet_name ) throws IOException, InterruptedException {
@@ -895,6 +1000,63 @@ public class ReadExcelCalculation extends TestBase {
 		return flag;	
 	}
 	
+	public boolean verify_customer_quote_calculations_for_all_payment_options_without_maintenance_edited(WebDriver driver, 
+			WebElement customer_quote_payment_profile_dropdown, WebElement customer_quote_monthly_finance_rental,
+			WebElement initial_payment_input_field, String initial_payment_from_test_data, String sheet_name ) throws IOException, InterruptedException {
+		
+		
+		LO.print("Calculations with different payment profiles for customer quote has been started" );
+		System.out.println("Calculations with different payment profiles for customer quote has been started" );
+		
+		ExplicitWait.clickableElement(driver, customer_quote_payment_profile_dropdown, 50);
+		
+		Select select=new Select(customer_quote_payment_profile_dropdown);
+		List<WebElement> list_dropdown_options = select.getOptions();
+	    int dropdown_options_number= list_dropdown_options.size();
+		int count=0;
+		boolean flag=false;
+		for(int i=0; i<list_dropdown_options.size(); i++)
+		{
+		select.selectByIndex(i);
+		String dropdown_option=list_dropdown_options.get(i).getText();
+		if(i==1) {Click.sendKeys(driver, initial_payment_input_field, initial_payment_from_test_data, 40);
+		Actions act= new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+		Thread.sleep(5000);}
+		
+	
+		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 50);
+		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
+		
+		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
+		
+		//System.out.println("Monthly finance rental actual "+monthly_finance_rental_actual);
+
+		double monthly_finance_rental_actual_converted =Double.parseDouble(monthly_finance_rental_actual);
+       
+        FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		 
+		wb.getSheet(sheet_name).getRow(98).getCell(1).setCellValue(" "+dropdown_option+" ");
+		if(i==1){wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(initial_payment_from_test_data);}			
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+			
+		double monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(90, 1, sheet_name);
+			
+		double diff=Difference.of_two_Double_Values(monthly_finance_rental_actual_converted, monthly_finance_rental_expected);
+		//System.out.println(diff);
+		if(diff<0.2)
+        {	count++;	}
+		if(count==dropdown_options_number)
+		{flag=true;	}	
+		
+		}
+		
+		LO.print("Calculations with different payment profiles for customer quote has been ended" );
+		System.out.println("Calculations with different payment profiles for customer quote has been ended" );
+		return flag;	
+	}
 	public boolean verify_quote_summary_values_from_excel_without_maintenance(double quote_summary_cost_otr_price_from_screen_converted,
 			double quote_summary_total_monthly_holding_cost_from_screen_converted,
 			double quote_summary_monthly_finance_rental_from_screen_converted,			

@@ -1,118 +1,36 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 81, Failures: 9, Errors: 0, Skipped: 17, Time elapsed: 2,860.655 s <<< FAILURE! - in TestSuite
-aquisition_quotes_outright_PCH_OTR_calculation_with_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test)  Time elapsed: 46.616 s  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]"}
-  (Session info: chrome=107.0.5304.88)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f289aa6d683fc4638e1fef00ac89785e, findElement {using=xpath, value=//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57064}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57064/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: f289aa6d683fc4638e1fef00ac89785e
-	at com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test.aquisition_quotes_outright_PCH_OTR_calculation_with_maintenance_test(Acquisition_Quotes_Outright_PCH_with_maintenance_Test.java:57)
-
-aquisition_quotes_user_flow_broker_bch_with_maintenance_customer_quote_funder_quote_addition_test(com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test)  Time elapsed: 118.497 s  <<< FAILURE!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='monthlyMaintenanceRental']' (tried for 60 second(s) with 500 milliseconds interval)
-	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.aquisition_quotes_user_flow_broker_bch_with_maintenance_customer_quote_funder_quote_addition_test(Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.java:93)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='monthlyMaintenanceRental']"}
-  (Session info: chrome=107.0.5304.88)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bcc7df16db3feba57f09cd113b945a11, findElement {using=xpath, value=//input[@id='monthlyMaintenanceRental']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57607}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57607/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: bcc7df16db3feba57f09cd113b945a11
-	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.aquisition_quotes_user_flow_broker_bch_with_maintenance_customer_quote_funder_quote_addition_test(Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.java:93)
-
-aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test)  Time elapsed: 99.457 s  <<< FAILURE!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='monthlyMaintenanceRental']' (tried for 60 second(s) with 500 milliseconds interval)
+Tests run: 37, Failures: 3, Errors: 0, Skipped: 10, Time elapsed: 1,004.511 s <<< FAILURE! - in TestSuite
+aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test)  Time elapsed: 81.376 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='initialMaintenanceRental']' (tried for 60 second(s) with 500 milliseconds interval)
 	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(Acquisition_Quotes_Broker_BCH_with_maintenance_Test.java:80)
 Caused by: org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='monthlyMaintenanceRental']"}
-  (Session info: chrome=107.0.5304.88)
+no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='initialMaintenanceRental']"}
+  (Session info: chrome=107.0.5304.106)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1e4ff8c8f3650626e3d902c7b36fa065, findElement {using=xpath, value=//input[@id='monthlyMaintenanceRental']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57828}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57828/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 1e4ff8c8f3650626e3d902c7b36fa065
+Command: [ad233353a41510885a61cde434214cc0, findElement {using=xpath, value=//input[@id='initialMaintenanceRental']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.106, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:58722}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58722/devtoo..., se:cdpVersion: 107.0.5304.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ad233353a41510885a61cde434214cc0
 	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(Acquisition_Quotes_Broker_BCH_with_maintenance_Test.java:80)
 
-aquisition_quotes_outright_PCH_OTR_calculation_without_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test)  Time elapsed: 63.413 s  <<< FAILURE!
+aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test)  Time elapsed: 2.97 s  <<< FAILURE!
 org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <a href="javascript:;" id="acqOTRHeader">...</a> is not clickable at point (559, 88). Other element would receive the click: <div _ngcontent-bea-c0="" class="loader_div">...</div>
-  (Session info: chrome=107.0.5304.88)
+element click intercepted: Element <div _ngcontent-afy-c18="" class="acc-head">...</div> is not clickable at point (695, 297). Other element would receive the click: <div _ngcontent-afy-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.106)
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [aeeafc7b2c00e4a0d725d98d6ee525da, clickElement {id=2d615103-0598-4ddf-9369-48e8d0da8671}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:58497}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58497/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (aeeafc7b2c00e4a0d725d98d6ee525da)] -> xpath: //*[@id ='acqOTRHeader']]
-Session ID: aeeafc7b2c00e4a0d725d98d6ee525da
-	at com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test.aquisition_quotes_outright_PCH_OTR_calculation_without_maintenance_test(Acquisition_Quotes_Outright_PCH_without_maintenance_Test.java:60)
+Command: [213249452dc241f53da99067fd89fe0f, clickElement {id=91fea7aa-5a4d-462f-b5f2-040436e5c5b1}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.106, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:59010}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59010/devtoo..., se:cdpVersion: 107.0.5304.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (213249452dc241f53da99067fd89fe0f)] -> xpath: //*[@id='partExchange_1']/button/div]
+Session ID: 213249452dc241f53da99067fd89fe0f
+	at com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(Acquisition_Quotes_Outright_BCH_without_maintenance_Test.java:115)
 
-aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test)  Time elapsed: 4.519 s  <<< FAILURE!
-java.lang.AssertionError: expected [true] but found [false]
-	at com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(Acquisition_Quotes_Outright_BCH_without_maintenance_Test.java:120)
-
-aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test)  Time elapsed: 1.558 s  <<< FAILURE!
-org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <p>...</p> is not clickable at point (812, 97). Other element would receive the click: <div _ngcontent-hvu-c0="" class="loader_div">...</div>
-  (Session info: chrome=107.0.5304.88)
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [39337d3d6a1f44a35170f3c8260a69ca, clickElement {id=86ca3951-44ca-4eea-9075-a780f4b365c1}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:60161}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60161/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (39337d3d6a1f44a35170f3c8260a69ca)] -> xpath: //p[normalize-space()='Quote summary']]
-Session ID: 39337d3d6a1f44a35170f3c8260a69ca
-	at com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Broker_BCH_without_maintenance_Test.java:93)
-
-aquisition_quotes_user_flow_broker_bch_without_maintenance_quote_summary_page_value_verification_test(com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test)  Time elapsed: 1.557 s  <<< FAILURE!
-org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <p>...</p> is not clickable at point (812, 97). Other element would receive the click: <div _ngcontent-fxa-c0="" class="loader_div">...</div>
-  (Session info: chrome=107.0.5304.88)
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [061f66f6f8617bf8a9738156f038c0c4, clickElement {id=e4f85986-1ffb-4c98-af5f-8193022fccc4}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:60688}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60688/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (061f66f6f8617bf8a9738156f038c0c4)] -> xpath: //p[normalize-space()='Quote summary']]
-Session ID: 061f66f6f8617bf8a9738156f038c0c4
-	at com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test.aquisition_quotes_user_flow_broker_bch_without_maintenance_quote_summary_page_value_verification_test(Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test.java:93)
-
-aquisition_quotes_user_flow_broker_pch_with_maintenance_vehicle_price_edited_test(com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test)  Time elapsed: 42.268 s  <<< FAILURE!
-org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <input autocomplete="off" type="text" placeholder="Select model" class="ng-untouched ng-pristine ng-valid"> is not clickable at point (1077, 303). Other element would receive the click: <div _ngcontent-xln-c0="" class="loader_div">...</div>
-  (Session info: chrome=107.0.5304.88)
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [541d4095da6b338b01065f436005a568, clickElement {id=53130a64-6994-49bf-9ee2-e77d7a605d56}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:60921}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60921/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (541d4095da6b338b01065f436005a568)] -> xpath: //*[@placeholder='Select model']]
-Session ID: 541d4095da6b338b01065f436005a568
-	at com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test.aquisition_quotes_user_flow_broker_pch_with_maintenance_vehicle_price_edited_test(Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test.java:50)
-
-aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test)  Time elapsed: 40.235 s  <<< FAILURE!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //*[@id ='acqOTRHeader']' (tried for 40 second(s) with 500 milliseconds interval)
-	at com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test(Acquisition_Quotes_Broker_PCH_with_maintenance_Test.java:45)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id ='acqOTRHeader']"}
-  (Session info: chrome=107.0.5304.88)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ff095606e38dae7b154b49961b413777, findElement {using=xpath, value=//*[@id ='acqOTRHeader']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.88, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61058}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61058/devtoo..., se:cdpVersion: 107.0.5304.88, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: ff095606e38dae7b154b49961b413777
-	at com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test(Acquisition_Quotes_Broker_PCH_with_maintenance_Test.java:45)
+setup(com.amt.test.LoginTest)  Time elapsed: 38.633 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "String.equalsIgnoreCase(String)" because "browser" is null
+	at com.amt.test.LoginTest.setup(LoginTest.java:29)
 

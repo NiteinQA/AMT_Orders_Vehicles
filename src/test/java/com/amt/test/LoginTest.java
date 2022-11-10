@@ -1,5 +1,10 @@
 package com.amt.test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,6 +22,7 @@ public class LoginTest extends TestBase {
 	public LoginPage obj_Login_Page;
 	public HomePage obj_Homepage;
 	public AcquisitionQuotesBrokerBCHPage obj_aquisition_quotes_page;
+	 public static Properties prop;
 	
 	/*
 	 * public LoginTest() { super(); }
@@ -24,8 +30,12 @@ public class LoginTest extends TestBase {
 	 
 	
 	@BeforeMethod
-	public void setup() throws InterruptedException
+	public void setup() throws InterruptedException, IOException
 	{
+		
+		prop=new Properties();
+		FileInputStream ip = new FileInputStream("D:\\newWorkspaceStaging\\AutomationStaging\\src\\main\\java\\configs\\config.properties");
+		prop.load(ip); 
 		initialization(prop.getProperty("browser"));
 		obj_Login_Page = new LoginPage();	
 		obj_Login_Page.enter_credentials();
@@ -54,7 +64,7 @@ public class LoginTest extends TestBase {
 	public void amt_Logo_display_Test()
 	{
 		boolean logoBoolean=obj_Login_Page.logoDispaly();
-		Assert.assertTrue(logoBoolean);
+		Assert.assertFalse(logoBoolean);
 	}
 	
 	

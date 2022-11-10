@@ -148,7 +148,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 
 		Click.on(driver, add, 60);
 		
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		
 		count++;
 		}

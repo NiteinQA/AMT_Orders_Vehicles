@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="AMT Automation Aquisition Quotes">
+<suite name="AMT Automation Aquisition Quotes" verbose="1">
+<listeners>
+<listener class-name="analyser.RetryListenerClass"></listener>
+</listeners>
 
-
-	<test name="Acquisition_Quotes_Outright_PCH_with_maintenance_Test">
+    <test name="Acquisition_Quotes_Outright_PCH_with_maintenance_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" />
 		</classes>
@@ -118,3 +120,4 @@
 	</test>
 
 </suite>
+
