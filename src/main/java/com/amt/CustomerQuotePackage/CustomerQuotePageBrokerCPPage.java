@@ -20,7 +20,7 @@ import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.RemoveComma;
 
-public class CustomerQuotePageBrokerPCPPage extends TestBase {
+public class CustomerQuotePageBrokerCPPage extends TestBase {
 
 	
 	JavascriptExecutor jse;
@@ -132,7 +132,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 
 
 
-	public CustomerQuotePageBrokerPCPPage() {
+	public CustomerQuotePageBrokerCPPage() {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -217,7 +217,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 //		return flag;
 //	}
 	
-	public boolean customer_Quote_vehicle_profit_checking_broker_pcp_without_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
+	public boolean customer_Quote_vehicle_profit_checking_broker_cp_without_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
 			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
 			String optionalFinalPayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String aPR,
 			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
@@ -264,7 +264,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 	return vehicle_profit_status;
 	}	
 	
-	public boolean customer_Quote_balance_to_finance_checking_broker_pcp_without_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
+	public boolean customer_Quote_balance_to_finance_checking_broker_cp_without_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
 			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
 			String optionalFinalPayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String aPR,
 			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)

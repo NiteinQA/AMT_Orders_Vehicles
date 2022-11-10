@@ -2,6 +2,7 @@ package com.amt.testUtil;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
@@ -15,8 +16,11 @@ public class GetExcelFormulaValue extends ReadExcelCalculation {
 	
 	
 	public static double get_formula_value(int rounum, int columnnum, String sheet_name) throws IOException {
-		
 	
+		
+		prop=new Properties();
+		FileInputStream ip = new FileInputStream("D:\\newWorkspaceStaging\\AutomationStaging\\src\\main\\java\\configs\\excelValues.properties");
+		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
 	XSSFWorkbook book = new XSSFWorkbook(fis);

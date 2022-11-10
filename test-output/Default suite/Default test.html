@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/1/1</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Nov 10 12:14:32 IST 2022</td>
+<td>Started on:</td><td>Thu Nov 10 15:32:33 IST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>236 seconds (236673 ms)</td>
+<tr><td>Total time:</td><td>116 seconds (116727 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,98 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 1200, REF001, 02/02/23, 12, 5000, 3000, 900, , 2000, 1000, 100, Yes, 2, 1, 5, 1000, 600, 200, Formula1-BCH<br/>
+<a href="#Output-737196947" onClick='toggleBox("Output-737196947", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-737196947" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-737196947">
+<b>Funder quote added successfully</b> <br /><br/>
+<b>xxx -Please check Balance to finance value from customer quote summary</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\newWorkspaceStaging\AutomationStaging\target\surefire-reports\html\failure_screenshots\aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test_10_11_2022_03_34_29.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test(Acquisition_Quotes_Broker_PCP_without_maintenance_Test.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace737196947", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace737196947'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test(Acquisition_Quotes_Broker_PCP_without_maintenance_Test.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>12</td>
+<td>com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test@242b836</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,66 +167,11 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_after_discount_calculations_with_maintenance_test()'><b>aquisition_quotes_user_flow_broker_bch_after_discount_calculations_with_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 02/02/23, 12, 5000, 1000, 20, 2000, 400, 2, 3, 20, Formula1-BCH<br/>
-<a href="#Output-1715781109" onClick='toggleBox("Output-1715781109", this, "Show output", "Hide output");'>Show output</a>
+<td title='com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_OTR_calculation_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_PCP_OTR_calculation_without_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 1200, REF001, 02/02/23, 12, 5000, 3000, 900, , 2000, 1000, 100, Yes, 2, 1, 5, 1000, 600, 200, Formula1-BCH<br/>
+<a href="#Output-1342198213" onClick='toggleBox("Output-1342198213", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1715781109" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1715781109">
-<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
-<b>Started getting On screen values from after discount table </b> <br /><br/>
-<b>Manufacture_delivery_charges =550.00</b> <br /><br/>
-<b>Road_tax_first_year =585.00</b> <br /><br/>
-<b>First_registration_fee =55.00</b> <br /><br/>
-<b>Rebate =0.00</b> <br /><br/>
-<b>Writing After discount values to excel has been started</b> <br /><br/>
-<b>Writing After discount values to excel has been completed</b> <br /><br/>
-<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
-<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
-<b>Expected on the road price from excel is =58525.0</b> <br /><br/>
-<b>Actual on the road price from screen is =58525.00</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>1</td>
-<td>com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test@2d52216b</td></tr>
-<tr>
-<td title='com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test()'><b>aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 02/02/23, 12, 5000, 1000, 20, 2000, 400, 2, 3, 20, Formula1-BCH<br/>
-<a href="#Output-1393647328" onClick='toggleBox("Output-1393647328", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1393647328" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1393647328">
-<b>Funder quote added successfully</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>105</td>
-<td>com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test@2d52216b</td></tr>
-<tr>
-<td title='com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_with_maintenance_test()'><b>aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_with_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 02/02/23, 12, 5000, 1000, 20, 2000, 400, 2, 3, 20, Formula1-BCH<br/>
-<a href="#Output-1406381705" onClick='toggleBox("Output-1406381705", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1406381705" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1406381705">
-<b>*************Calculations for Quote Summary page gas been started************</b> <br /><br/>
-<b>Reading values from sceen -Quote Summary Page</b> <br /><br/>
-<b>Getting values from screen</b> <br /><br/>
-<b>Quote_summary_cost_otr_price =58,525.00</b> <br /><br/>
-<b>Customer contract_type =Business Contract Hire</b> <br /><br/>
-<b>Customer Quote generated successfully and Quote_ref_no =BRJ49688</b> <br /><br/>
-<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br /><br/>
-<b>Comparing excel values with actual values on screen</b> <br /><br/>
-<b>OTR price compared</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>34</td>
-<td>com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test@2d52216b</td></tr>
-<tr>
-<td title='com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_OTR_calculation_with_maintenance_test()'><b>aquisition_quotes_user_flow_broker_bch_OTR_calculation_with_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 02/02/23, 12, 5000, 1000, 20, 2000, 400, 2, 3, 20, Formula1-BCH<br/>
-<a href="#Output-12706127" onClick='toggleBox("Output-12706127", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-12706127" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-12706127">
+<a href="#Output-1342198213" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1342198213">
 <b>Clicked on Quote button </b> <br /><br/>
 <b>Manufacture =AUDI has been selected</b> <br /><br/>
 <b>Model range =A7 has been selected</b> <br /><br/>
@@ -160,8 +197,99 @@ function toggleAllBoxes() {
 </div>
 </td>
 <td></td>
-<td>82</td>
-<td>com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test@2d52216b</td></tr>
+<td>73</td>
+<td>com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test@242b836</td></tr>
+<tr>
+<td title='com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_after_discount_calculations_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_PCP_after_discount_calculations_without_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 1200, REF001, 02/02/23, 12, 5000, 3000, 900, , 2000, 1000, 100, Yes, 2, 1, 5, 1000, 600, 200, Formula1-BCH<br/>
+<a href="#Output-1121023149" onClick='toggleBox("Output-1121023149", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1121023149" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1121023149">
+<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
+<b>Started getting On screen values from after discount table </b> <br /><br/>
+<b>Manufacture_delivery_charges =550.00</b> <br /><br/>
+<b>Road_tax_first_year =585.00</b> <br /><br/>
+<b>First_registration_fee =55.00</b> <br /><br/>
+<b>Rebate =0.00</b> <br /><br/>
+<b>Writing After discount values to excel has been started</b> <br /><br/>
+<b>Writing After discount values to excel has been completed</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
+<b>Expected on the road price from excel is =58525.0</b> <br /><br/>
+<b>Actual on the road price from screen is =58525.00</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test@242b836</td></tr>
+<tr>
+<td title='com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_vehicle_profit_check_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_PCP_vehicle_profit_check_without_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 1200, REF001, 02/02/23, 12, 5000, 3000, 900, , 2000, 1000, 100, Yes, 2, 1, 5, 1000, 600, 200, Formula1-BCH<br/>
+<a href="#Output-342424709" onClick='toggleBox("Output-342424709", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-342424709" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-342424709">
+<b>Vehicle profit from test data 1200.0 added to otr cost price 58525.0</b> <br /><br/>
+<b>After adding profit to cost price 58525.0 sales price is shown as (considering VAT%) 59965.0</b> <br /><br/>
+<b>Vehicle profit verified</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>16</td>
+<td>com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test@242b836</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_PCP_quote_summary_values_verification_without_maintenance_test</b><br>Test class: com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test@242b836] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1797553910", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1797553910'><pre>java.lang.Throwable: Method Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test@242b836] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test@242b836</td></tr>
 </table><p>
 </body>
 </html>
