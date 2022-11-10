@@ -13,8 +13,6 @@ import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.AcquisitionBrokerPages.AcquisitionQuotesBrokerBCHPage;
-import com.amt.pages.AcquisitionBrokerPages.AcquisitionQuotesBrokerHPRPage;
 import com.amt.pages.AcquisitionOutrightPage.AcquisitionQuotesOutrightOutrightPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_Outright_Page;
 import com.amt.testBase.TestBase;
