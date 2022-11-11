@@ -122,19 +122,19 @@
       <![CDATA[<br>----------Screenshot---------<br>]]>
     </line>
     <line>
-      <![CDATA[<img src="D:\newWorkspaceStaging\AutomationStaging\target\surefire-reports\html\failure_screenshots\aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_without_maintenance_test_10_11_2022_06_12_38.png" height="800" width="1000">]]>
+      <![CDATA[<img src="D:\newWorkspaceStaging\AutomationStaging\target\surefire-reports\html\failure_screenshots\aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test_11_11_2022_10_45_51.png" height="800" width="1000">]]>
     </line>
   </reporter-output>
-  <suite started-at="2022-11-10T18:10:46 IST" name="Default suite" finished-at="2022-11-10T18:12:38 IST" duration-ms="112454">
+  <suite started-at="2022-11-11T10:43:55 IST" name="Default suite" finished-at="2022-11-11T10:45:51 IST" duration-ms="115946">
     <groups>
     </groups>
-    <test started-at="2022-11-10T18:10:46 IST" name="Default test" finished-at="2022-11-10T18:12:38 IST" duration-ms="112454">
+    <test started-at="2022-11-11T10:43:55 IST" name="Default test" finished-at="2022-11-11T10:45:51 IST" duration-ms="115946">
       <class name="com.amt.test.Acquisition_Quotes_Broker_HPR_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-10T18:10:46 IST" name="setup" finished-at="2022-11-10T18:10:57 IST" duration-ms="11083" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-11T10:43:55 IST" name="setup" finished-at="2022-11-11T10:44:13 IST" duration-ms="18152" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPR_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-10T18:10:58 IST" name="aquisition_quotes_user_flow_broker_HPR_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2022-11-10T18:12:14 IST" duration-ms="76380" status="PASS">
+        <test-method signature="aquisition_quotes_user_flow_broker_HPR_OTR_calculation(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-11T10:44:14 IST" name="aquisition_quotes_user_flow_broker_HPR_OTR_calculation" data-provider="testData" finished-at="2022-11-11T10:45:27 IST" duration-ms="73038" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -310,8 +310,8 @@
               <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_OTR_calculation_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-10T18:12:15 IST" name="aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-11-10T18:12:16 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_OTR_calculation_without_maintenance_test" duration-ms="1087" status="PASS">
+        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_OTR_calculation -->
+        <test-method signature="aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-11T10:45:27 IST" name="aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_test" data-provider="testData" finished-at="2022-11-11T10:45:28 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_OTR_calculation" duration-ms="1056" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -457,8 +457,8 @@
               <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-10T18:12:16 IST" name="aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_without_maintenance_test" data-provider="testData" finished-at="2022-11-10T18:12:22 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_without_maintenance_test" duration-ms="6443" status="PASS">
+        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_test -->
+        <test-method signature="aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-11T10:45:28 IST" name="aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_test" data-provider="testData" finished-at="2022-11-11T10:45:35 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_test" duration-ms="6312" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -577,8 +577,8 @@
               <![CDATA[<b>Vehicle profit verified</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-10T18:12:22 IST" name="aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_without_maintenance_test" data-provider="testData" finished-at="2022-11-10T18:12:38 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_without_maintenance_test" duration-ms="15735" status="FAIL">
+        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_test -->
+        <test-method signature="aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-11T10:45:35 IST" name="aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test" data-provider="testData" finished-at="2022-11-11T10:45:51 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_test" duration-ms="15944" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -696,7 +696,7 @@ at org.testng.Assert.fail(Assert.java:99)
 at org.testng.Assert.failNotEquals(Assert.java:1037)
 at org.testng.Assert.assertTrue(Assert.java:45)
 at org.testng.Assert.assertTrue(Assert.java:55)
-at com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_without_maintenance_test(Acquisition_Quotes_Broker_HPR_Test.java:101)
+at com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test(Acquisition_Quotes_Broker_HPR_Test.java:101)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -739,17 +739,17 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
               <![CDATA[<br>----------Screenshot---------<br>]]>
             </line>
             <line>
-              <![CDATA[<img src="D:\newWorkspaceStaging\AutomationStaging\target\surefire-reports\html\failure_screenshots\aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_without_maintenance_test_10_11_2022_06_12_38.png" height="800" width="1000">]]>
+              <![CDATA[<img src="D:\newWorkspaceStaging\AutomationStaging\target\surefire-reports\html\failure_screenshots\aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test_11_11_2022_10_45_51.png" height="800" width="1000">]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-10T18:12:38 IST" name="aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_without_maintenance_test" finished-at="2022-11-10T18:12:38 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_without_maintenance_test" duration-ms="0" status="SKIP">
+        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test -->
+        <test-method signature="aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836]" started-at="2022-11-11T10:45:51 IST" name="aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_test" finished-at="2022-11-11T10:45:51 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836] depends on not successfully finished methods]]>
+              <![CDATA[Method Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_Broker_HPR_Test.aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_HPR_Test@242b836] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -774,7 +774,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_without_maintenance_test -->
+        </test-method> <!-- aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_test -->
       </class> <!-- com.amt.test.Acquisition_Quotes_Broker_HPR_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

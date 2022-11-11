@@ -20,7 +20,7 @@ import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.RemoveComma;
 
-public class CustomerQuotePageBrokerHPRPage extends TestBase {
+public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 	
 	JavascriptExecutor jse;
@@ -128,7 +128,7 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 	private WebElement customer_quote_summary;
 		
 	                 
-	@FindBy(xpath = "//app-broker-hpr-customer-quote-summary-detail/div/div[7]/div/p/strong")
+	@FindBy(xpath = "//app-broker-hpnr-customer-quote-summary-detail/div/div[7]/div/p/strong")
 	private WebElement customer_quote_summary_balance_to_finance;
 	
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
@@ -137,7 +137,7 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 
 
 
-	public CustomerQuotePageBrokerHPRPage() {
+	public CustomerQuotePageBrokerHPNRPage() {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -222,7 +222,7 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 //		return flag;
 //	}
 	
-	public boolean customer_Quote_vehicle_profit_checking_broker_hpr(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
+	public boolean customer_Quote_vehicle_profit_checking_broker_hpnr(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
 			String milesperannum, String contractMileage,String cahDeposit,  String noOfMonthlyPayments,String monthlyFinancePayment,
 			String finalBallonPayment, String optionToPurchaseFee,String rflIncluded, String aPR,
 			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
@@ -269,7 +269,7 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 	return vehicle_profit_status;
 	}	
 	
-	public boolean customer_Quote_balance_to_finance_checking_broker_hpr(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
+	public boolean customer_Quote_balance_to_finance_checking_broker_hpnr(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
 			String milesperannum, String contractMileage,String cahDeposit, String financeCharges,String noOfMonthlyPayments,String monthlyFinancePayment,
 			String finalBallonPayment, String optionToPurchaseFee,String rflIncluded, String aPR,
 			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
