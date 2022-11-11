@@ -59,7 +59,7 @@ public class ContractTypesAndOTR_Broker_CP_Page extends TestBase {
 	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[2]/div/div[7]/div/div[2]")
 	private WebElement acq_contractTypes_rebate;
 	
-	@FindBy(xpath = "//div[@id='customerContractType.contractTypeId']//p[@class='text-center'][normalize-space()='Contract Purchase']")
+	@FindBy(xpath = "(//p[normalize-space()='Contract Purchase'])[2]")
 	private WebElement acq_contractTypes_customer_contract_CP;
    
 	@FindBy(xpath = "//p[@class='text-left text-muted pr-1']")

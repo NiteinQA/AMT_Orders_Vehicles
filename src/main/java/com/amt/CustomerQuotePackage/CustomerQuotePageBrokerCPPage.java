@@ -120,14 +120,17 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 	@FindBy(xpath = "//span[@class='slider round']")
 	private WebElement maintenance_toggle_button;
 	
-	@FindBy(xpath = "//div[@id='headingPcpSummary']//button[@type='button']//div[1]")
+	@FindBy(xpath = "//*[contains(text(),' Customer quote summary ')]")
 	private WebElement customer_quote_summary;
 		
-	@FindBy(xpath = "//*[@id=\"collapseCustomerQuote\"]/div/div/div/div/div/div/div/app-broker-pcp-customer-quote-summary-detail/div/div[7]/div/p/strong")
+	@FindBy(xpath = "//app-broker-cp-customer-quote-summary-detail/div/div[7]/div/p/strong")
 	private WebElement customer_quote_summary_balance_to_finance;
 	
-	@FindBy(xpath = "//*[@id=\"partExchange_2\"]/div/div/div[1]/ul/li[4]/span[1]")
+	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
 	private WebElement part_exchange_profit;
+	
+	@FindBy(xpath = "//input[@id='monthlyMaintenancePayment']")
+	private WebElement monthly_maintenance_payment;
 	 
 
 
@@ -136,87 +139,6 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-//	public boolean customer_Quote_broker_pcp_with_maintenance( String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
-//			String initialFinanceRental,String initialMaintenanceRental, String monthlyFinanceRental,String monthlyMaintenanceRental,
-//			String pensePerExcessMileFinance,String pensePerExcessMileMaintenance, String commission2)
-//			throws InterruptedException {
-//
-//		Click.on(driver, customer_quote, 25);
-//
-//		Thread.sleep(8000);
-//		
-//		Select sl = new Select(payment_profile_dropdown);
-//		
-//		List<WebElement> list =sl.getOptions();
-//		
-//		int dropdown_lenth=list.size();
-//		
-//		System.out.println("dropdown_lenth"+dropdown_lenth);
-//		
-//		int count=0;
-//		
-//		for(int i=1; i<=dropdown_lenth-1; i++) {
-//			
-////		if(maintenance_toggle_button.isSelected()) {}
-////		else {Click.on(driver, maintenance_toggle_button, 20);}
-//		
-//		System.out.println(i+" "+list.get(i).getText());	
-//			
-//	    Click.on(driver, maintenance_toggle_button, 20);
-//
-//		Click.on(driver, customer_quote_funder, 60);
-//		
-//		Actions act = new Actions(driver);
-//		act.sendKeys(Keys.ENTER).build().perform();
-//
-//		//LO.print("Customer quote option has been selected");
-//		
-//		Click.sendKeys(driver, quote_reference, quoteRef, 60);
-//
-//		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
-//
-//		Dropdown.select(driver, payment_profile_dropdown, i , 60);
-//				
-//		int term_converted=Integer.parseInt(term);
-//
-//		Click.sendKeysint(driver, term_period, (term_converted+i), 60);
-//
-//		Click.sendKeys(driver, miles_per_annum, milesperannum, 60);
-//
-//		Click.on(driver, contract_miles, 60);
-//		
-//		if(i==2) {Click.sendKeys(driver, initial_finance_rental , initialFinanceRental , 60);
-//		          Click.sendKeys(driver, initial_maintenance_rental , initialMaintenanceRental , 60);
-//                 }
-//
-//		Click.sendKeys(driver, monthly_finance_rental, monthlyFinanceRental, 60);
-// 
-//		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintenanceRental, 60);
-//		
-//		Click.sendKeys(driver, pence_Per_ExcessMileage_Finance, pensePerExcessMileFinance, 60);
-//
-//		Click.sendKeys(driver, pence_Per_ExcessMileage_maintenance, pensePerExcessMileMaintenance , 60);
-//		
-//		Click.sendKeys(driver, commission, commission2, 60);
-//
-//		Click.on(driver, add, 60);
-//		
-//		Thread.sleep(3000);
-//		
-//		count++;
-//		}
-//		
-//		System.out.println("Funder quote added successfully");
-//		LO.print("Funder quote added successfully");
-//	 
-//		boolean flag=false;
-//		if(count==(dropdown_lenth-1) && save_button.isEnabled() )
-//		{
-//			flag=true;	
-//		}
-//		return flag;
-//	}
-	
 	public boolean customer_Quote_vehicle_profit_checking_broker_cp_without_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
 			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
 			String optionalFinalPayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String aPR,
@@ -357,6 +279,156 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		}
 		return status;
 	}
+	
+	
+	public boolean customer_Quote_vehicle_profit_checking_broker_cp_with_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
+			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
+			String optionalFinalPayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String aPR,
+			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
+			throws InterruptedException, IOException {
+
+		Click.on(driver, customer_quote, 25);
+
+		Thread.sleep(5000);
+		
+			
+		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
+		String otr_screen_price=otrScreenPrice.getText().trim().substring(2);
+		String otr=RemoveComma.of(otr_screen_price);
+		double otr_screen_price_converted=Double.parseDouble(otr);
+	
+			
+		ExplicitWait.visibleElement(driver, vehicleprofit, 60);
+		
+		vehicleprofit.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		
+		int profit=Integer.parseInt(vehicleProfit);	 
+	
+		Click.sendKeysint(driver, vehicleprofit, profit , 40);
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		double vehicleProfit_converted=Double.parseDouble(vehicleProfit);
+		ExplicitWait.visibleElement(driver, vehicle_sale_price, 20);
+		String vehicle_sale_price_from_screen=RemoveComma.of(vehicle_sale_price.getText().trim().substring(2));
+		double vehicle_sale_price_from_screen_converted=Double.parseDouble(vehicle_sale_price_from_screen);
+		
+		double diff2=Difference.of_two_Double_Values(otr_screen_price_converted, vehicle_sale_price_from_screen_converted);
+			
+		LO.print("Vehicle profit from test data "+vehicleProfit_converted+" added to otr cost price "+otr_screen_price_converted);
+		System.out.println("Vehicle profit from test data "+vehicleProfit_converted+" added to otr cost price "+otr_screen_price_converted);
+		
+		LO.print("After adding profit to cost price "+otr_screen_price_converted+" sales price is shown as (considering VAT%) "+vehicle_sale_price_from_screen_converted);
+		System.out.println("After adding profit to cost price "+otr_screen_price_converted+" sales price is shown as (considering VAT%) "+vehicle_sale_price_from_screen_converted);
+		
+		boolean vehicle_profit_status=false;
+		
+		if(diff2==(vehicleProfit_converted*1.2)) {vehicle_profit_status=true;LO.print("Vehicle profit verified");System.out.println("Vehicle profit verified");}
+		
+	return vehicle_profit_status;
+	}	
+	
+	public boolean customer_Quote_balance_to_finance_checking_broker_cp_with_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
+			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
+			String optionalFinalPayment,String monthlyMaintenancePayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String pensePerExcessMileMaintenance, String aPR,
+			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
+			throws InterruptedException, IOException {
+      
+				
+		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
+		String otr_screen_price=otrScreenPrice.getText().trim().substring(2);
+		String otr=RemoveComma.of(otr_screen_price);
+		double otr_screen_price_converted=Double.parseDouble(otr);
+         
+		double on_road_price_for_invoice=GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
+		
+		double diff=Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
+		
+        Click.on(driver, maintenance_toggle_button, 20);
+        
+		Click.on(driver, customer_quote_funder, 60);		 
+		
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.ENTER).build().perform();
+		
+		Thread.sleep(2000);
+		
+		Click.sendKeys(driver, quote_reference, quoteRef, 60);
+
+		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);		 
+
+		Click.sendKeys(driver, term_period, term, 60);
+
+		Click.sendKeys(driver, miles_per_annum, milesperannum, 60);
+		
+		Click.on(driver, contract_miles, 20);
+				
+		Click.sendKeys(driver, cashdeposit, cahDeposit, 60);
+		
+		Click.sendKeys(driver, noOfMonthlyPayment, noOfMonthlyPayments, 60);
+		
+		Click.sendKeys(driver, monthlyfinancePayment, monthlyFinancePayment, 60);
+		
+		Click.sendKeys(driver, optionalfinalPayment, optionalFinalPayment , 60);
+		
+		Click.sendKeys(driver, monthly_maintenance_payment, monthlyMaintenancePayment , 60);
+		
+		Click.sendKeys(driver, optiontoPurchaseFee, optionToPurchaseFee , 60);
+		
+		Dropdown.selectByVisibleText(driver, rFLIncluded, rflIncluded , 60);		
+
+		Click.sendKeys(driver, pence_Per_ExcessMileage_Finance, pensePerExcessMileFinance, 60);		
+		
+		Click.sendKeys(driver, pence_Per_ExcessMileage_maintenance , pensePerExcessMileMaintenance , 60);
+		
+		Click.sendKeys(driver, apr, aPR, 60);
+
+		Click.sendKeys(driver, commission, commission2, 60);
+
+		Click.on(driver, add, 60);
+		
+		Thread.sleep(3000);
+		
+		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
+		
+		Click.sendKeys(driver, partExchangegiven ,  partExchangeGiven, 60);
+		
+		Click.sendKeys(driver, lessFinancesettlement ,  lessFinanceSettlement, 60);	
+		
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.visibleElement(driver, part_exchange_profit, 30);
+		
+		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_profit.getText().trim().substring(2)));
+				
+		
+		LO.print("Funder quote added successfully");
+		System.out.println("Funder quote added successfully");
+		
+		Click.on(driver, customer_quote_summary , 60);		
+		
+		double balance_to_finance_expected =(otr_screen_price_converted-Double.parseDouble(cahDeposit)-part_exchange_profit_from_screen);
+		
+		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);		
+		
+		double balance_to_finance_actual = Double.parseDouble(RemoveComma.of(customer_quote_summary_balance_to_finance.getText().trim().substring(2)));	
+	    
+		boolean balance_to_finance_status=false;
+		if((balance_to_finance_expected-balance_to_finance_actual)==0)
+		{balance_to_finance_status=true;LO.print("Balance to finance value from customer quote summary - verified");System.out.println("Balance to finance value from customer quote summary - verified");}
+		else {LO.print("xxx -Please check Balance to finance value from customer quote summary");System.out.println("xxx -Please check Balance to finance value from customer quote summary");}
+		
+				
+		
+		boolean status=false;
+		if(balance_to_finance_status&& diff<0.2 && save_button.isEnabled() )
+		{
+			status=true;
+			
+		}
+		return status;
+	}
+
 
 }
 		

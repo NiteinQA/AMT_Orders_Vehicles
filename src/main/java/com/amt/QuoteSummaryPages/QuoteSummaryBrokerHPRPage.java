@@ -64,7 +64,7 @@ public class QuoteSummaryBrokerHPRPage extends TestBase {
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
 	private WebElement quote_summary_acq_contract_type;
 	
-	@FindBy(xpath = "//strong[normalize-space()='Business Contract Hire']")
+	@FindBy(xpath = "//strong[normalize-space()='Hire Purchase Regulated']")
 	private WebElement quote_summary_customer_contract_type;
 	
 	@FindBy(xpath = "//div[@id='headingHoldingCost']//div[7]//div[1]//div[1]//p[1]//strong[1]")

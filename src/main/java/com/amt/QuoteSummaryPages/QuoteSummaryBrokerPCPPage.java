@@ -64,11 +64,21 @@ public class QuoteSummaryBrokerPCPPage extends TestBase {
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
 	private WebElement quote_summary_acq_contract_type;
 	
-	@FindBy(xpath = "//strong[normalize-space()='Business Contract Hire']")
+	@FindBy(xpath = "//strong[normalize-space()='Personal Contract Purchase']")
 	private WebElement quote_summary_customer_contract_type;
 	
 	@FindBy(xpath = "//div[@id='headingHoldingCost']//div[7]//div[1]//div[1]//p[1]//strong[1]")
 	private WebElement quote_summary_total_monthly_holding_cost_without_maintenance;
+	
+	@FindBy(xpath = "//app-broker-pcp-customer-quote-summary-header/div/div[4]/div/p/strong")
+	private WebElement quote_summary_monthly_finance_payment;
+	
+	@FindBy(xpath = "//app-broker-pcp-customer-quote-summary-header/div/div[5]/div/p/strong")
+	private WebElement quote_summary_monthly_maintenance_payment;
+	 
+	@FindBy(xpath = "//app-broker-pcp-customer-quote-summary-header/div/div[6]/div/p/strong")
+	private WebElement quote_summary_total_monthly_payment;
+	 
 
 	
 	
@@ -173,5 +183,48 @@ public class QuoteSummaryBrokerPCPPage extends TestBase {
                                                  sheet_name);	
 
 	}	
+	
+public boolean quote_summary_broker_PCP_check_maintenance_values_displayed(String monthlyFinancePayment, String monthlyMaintenancePayment,String sheet_name) throws InterruptedException, IOException {
+		
+		 
+			 		
+	    ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_payment, 120);
+	    ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_payment, 120);
+	    ExplicitWait.visibleElement(driver, quote_summary_total_monthly_payment, 120);		
+		
+		
+		LO.print("Reading values from sceen -Quote Summary Page");
+		System.out.println("Reading values from sceen -Quote Summary Page");
+		
+	   
+		String temp_quote_summary_monthly_finance_payment=quote_summary_monthly_finance_payment.getText().trim().substring(2);
+		String temp_quote_summary_monthly_maintenanace_payment =quote_summary_monthly_maintenance_payment.getText().trim().substring(2);
+		String temp_quote_summary_total_monthly_payment=quote_summary_total_monthly_payment.getText().trim().substring(2);
+
+		
+		
+		LO.print("Getting values from screen");
+		System.out.println("Getting values from screen");
+		
+	   double monthly_finance_payment_from_screen =Double.parseDouble(RemoveComma.of(temp_quote_summary_monthly_finance_payment));
+	   double monthly_maintenance_payment_from_screen =Double.parseDouble(RemoveComma.of(temp_quote_summary_monthly_maintenanace_payment));
+	   double total_monthly_payment_from_screen =Double.parseDouble(RemoveComma.of(temp_quote_summary_total_monthly_payment));
+	
+	   double monthlyFinancePaymantFromTestData=Double.parseDouble(monthlyFinancePayment);
+	   double monthlyMaintenancePaymantFromTestData=Double.parseDouble(monthlyMaintenancePayment);
+	   
+	   boolean status=false;
+	   if(((monthly_finance_payment_from_screen-monthlyFinancePaymantFromTestData)==0)&&((monthly_finance_payment_from_screen+monthly_maintenance_payment_from_screen)==total_monthly_payment_from_screen))
+	   {
+		   status=true; LO.print(" Verified --Maintenance values from sceen -Quote Summary Page");
+			            System.out.println("Verified --Maintenance values from sceen -Quote Summary Page");
+	   } 
+	   else
+	   {
+		   LO.print(" xxx -- Please check Maintenance values from sceen -Quote Summary Page");
+           System.out.println("xxx --Please check Maintenance values from sceen -Quote Summary Page");
+	   }	     
+	   return status;			
+	}
 
 }
