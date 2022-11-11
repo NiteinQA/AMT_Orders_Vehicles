@@ -132,6 +132,9 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
 	private WebElement part_exchange_profit;
 	
+	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
+	private WebElement part_exchange_value;
+	
 
 	
 	 

@@ -133,6 +133,9 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 	
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
 	private WebElement part_exchange_profit;
+	
+	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
+	private WebElement part_exchange_value;
 	 
 
 
@@ -141,86 +144,6 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-//	public boolean customer_Quote_broker_pcp_with_maintenance( String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
-//			String initialFinanceRental,String initialMaintenanceRental, String monthlyFinanceRental,String monthlyMaintenanceRental,
-//			String pensePerExcessMileFinance,String pensePerExcessMileMaintenance, String commission2)
-//			throws InterruptedException {
-//
-//		Click.on(driver, customer_quote, 25);
-//
-//		Thread.sleep(8000);
-//		
-//		Select sl = new Select(payment_profile_dropdown);
-//		
-//		List<WebElement> list =sl.getOptions();
-//		
-//		int dropdown_lenth=list.size();
-//		
-//		System.out.println("dropdown_lenth"+dropdown_lenth);
-//		
-//		int count=0;
-//		
-//		for(int i=1; i<=dropdown_lenth-1; i++) {
-//			
-////		if(maintenance_toggle_button.isSelected()) {}
-////		else {Click.on(driver, maintenance_toggle_button, 20);}
-//		
-//		System.out.println(i+" "+list.get(i).getText());	
-//			
-//	    Click.on(driver, maintenance_toggle_button, 20);
-//
-//		Click.on(driver, customer_quote_funder, 60);
-//		
-//		Actions act = new Actions(driver);
-//		act.sendKeys(Keys.ENTER).build().perform();
-//
-//		//LO.print("Customer quote option has been selected");
-//		
-//		Click.sendKeys(driver, quote_reference, quoteRef, 60);
-//
-//		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
-//
-//		Dropdown.select(driver, payment_profile_dropdown, i , 60);
-//				
-//		int term_converted=Integer.parseInt(term);
-//
-//		Click.sendKeysint(driver, term_period, (term_converted+i), 60);
-//
-//		Click.sendKeys(driver, miles_per_annum, milesperannum, 60);
-//
-//		Click.on(driver, contract_miles, 60);
-//		
-//		if(i==2) {Click.sendKeys(driver, initial_finance_rental , initialFinanceRental , 60);
-//		          Click.sendKeys(driver, initial_maintenance_rental , initialMaintenanceRental , 60);
-//                 }
-//
-//		Click.sendKeys(driver, monthly_finance_rental, monthlyFinanceRental, 60);
-// 
-//		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintenanceRental, 60);
-//		
-//		Click.sendKeys(driver, pence_Per_ExcessMileage_Finance, pensePerExcessMileFinance, 60);
-//
-//		Click.sendKeys(driver, pence_Per_ExcessMileage_maintenance, pensePerExcessMileMaintenance , 60);
-//		
-//		Click.sendKeys(driver, commission, commission2, 60);
-//
-//		Click.on(driver, add, 60);
-//		
-//		Thread.sleep(3000);
-//		
-//		count++;
-//		}
-//		
-//		System.out.println("Funder quote added successfully");
-//		LO.print("Funder quote added successfully");
-//	 
-//		boolean flag=false;
-//		if(count==(dropdown_lenth-1) && save_button.isEnabled() )
-//		{
-//			flag=true;	
-//		}
-//		return flag;
-//	}
 	
 	public boolean customer_Quote_vehicle_profit_checking_broker_hpnr(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
 			String milesperannum, String contractMileage,String cahDeposit,  String noOfMonthlyPayments,String monthlyFinancePayment,
