@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="1,004.511" tests="37" errors="0" skipped="10" failures="3">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="4,227.357" tests="149" errors="0" skipped="53" failures="15">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Users\nitein.kurane\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.4.v20220903-1038\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\NITEIN~1.KUR\AppData\Local\Temp\surefire9894399805364631668\surefirebooter18037847049084644946.jar C:\Users\nitein.kurane\AppData\Local\Temp\surefire9894399805364631668 2022-11-10T11-40-37_291-jvmRun1 surefire12975207860734706956tmp surefire_09080159624514044819tmp"/>
+    <property name="sun.java.command" value="C:\Users\NITEIN~1.KUR\AppData\Local\Temp\surefire8589031074610460014\surefirebooter2779564899848699893.jar C:\Users\nitein.kurane\AppData\Local\Temp\surefire8589031074610460014 2022-11-14T20-26-24_078-jvmRun1 surefire502364246621306600tmp surefire_018410829156233514501tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\newWorkspaceStaging\AutomationStaging\target\test-classes;D:\newWorkspaceStaging\AutomationStaging\target\classes;C:\Users\nitein.kurane\.m2\repository\org\testng\testng\7.4.0\testng-7.4.0.jar;C:\Users\nitein.kurane\.m2\repository\com\beust\jcommander\1.78\jcommander-1.78.jar;C:\Users\nitein.kurane\.m2\repository\org\webjars\jquery\3.5.1\jquery-3.5.1.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-java\4.0.0\selenium-java-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-api\4.0.0\selenium-api-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.0.0\selenium-chrome-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\com\google\auto\service\auto-service-annotations\1.0\auto-service-annotations-1.0.jar;C:\Users\nitein.kurane\.m2\repository\com\google\auto\service\auto-service\1.0\auto-service-1.0.jar;C:\Users\nitein.kurane\.m2\repository\com\google\auto\auto-common\1.0\auto-common-1.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.0.0\selenium-chromium-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-json\4.0.0\selenium-json-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.0.0\selenium-devtools-v85-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v93\4.0.0\selenium-devtools-v93-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v94\4.0.0\selenium-devtools-v94-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v95\4.0.0\selenium-devtools-v95-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.0.0\selenium-edge-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.0.0\selenium-firefox-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-firefox-xpi-driver\4.0.0\selenium-firefox-xpi-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.0.0\selenium-ie-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\4.0.0\selenium-opera-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.0.0\selenium-remote-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-buffer\4.1.68.Final\netty-buffer-4.1.68.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-codec-http\4.1.67.Final\netty-codec-http-4.1.67.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-codec\4.1.67.Final\netty-codec-4.1.67.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-handler\4.1.67.Final\netty-handler-4.1.67.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-common\4.1.68.Final\netty-common-4.1.68.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-transport-native-epoll\4.1.67.Final\netty-transport-native-epoll-4.1.67.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-transport-native-kqueue\4.1.67.Final\netty-transport-native-kqueue-4.1.67.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-transport-native-unix-common\4.1.67.Final\netty-transport-native-unix-common-4.1.67.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-transport\4.1.68.Final\netty-transport-4.1.68.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-resolver\4.1.68.Final\netty-resolver-4.1.68.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-api\1.6.0\opentelemetry-api-1.6.0.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-context\1.6.0\opentelemetry-context-1.6.0.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.6.0\opentelemetry-exporter-logging-1.6.0.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.6.0-alpha\opentelemetry-sdk-metrics-1.6.0-alpha.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.6.0\opentelemetry-sdk-common-1.6.0.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.6.0\opentelemetry-sdk-extension-autoconfigure-spi-1.6.0.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.6.0-alpha\opentelemetry-sdk-extension-autoconfigure-1.6.0-alpha.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.6.0\opentelemetry-sdk-trace-1.6.0.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-api-metrics\1.6.0-alpha\opentelemetry-api-metrics-1.6.0-alpha.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.6.0\opentelemetry-sdk-1.6.0.jar;C:\Users\nitein.kurane\.m2\repository\io\opentelemetry\opentelemetry-semconv\1.6.0-alpha\opentelemetry-semconv-1.6.0-alpha.jar;C:\Users\nitein.kurane\.m2\repository\io\ous\jtoml\2.0.0\jtoml-2.0.0.jar;C:\Users\nitein.kurane\.m2\repository\net\bytebuddy\byte-buddy\1.11.19\byte-buddy-1.11.19.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\nitein.kurane\.m2\repository\org\asynchttpclient\async-http-client\2.12.3\async-http-client-2.12.3.jar;C:\Users\nitein.kurane\.m2\repository\org\asynchttpclient\async-http-client-netty-utils\2.12.3\async-http-client-netty-utils-2.12.3.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-codec-socks\4.1.60.Final\netty-codec-socks-4.1.60.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-handler-proxy\4.1.60.Final\netty-handler-proxy-4.1.60.Final.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-transport-native-epoll\4.1.60.Final\netty-transport-native-epoll-4.1.60.Final-linux-x86_64.jar;C:\Users\nitein.kurane\.m2\repository\io\netty\netty-transport-native-kqueue\4.1.60.Final\netty-transport-native-kqueue-4.1.60.Final-osx-x86_64.jar;C:\Users\nitein.kurane\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar;C:\Users\nitein.kurane\.m2\repository\com\typesafe\netty\netty-reactive-streams\2.0.4\netty-reactive-streams-2.0.4.jar;C:\Users\nitein.kurane\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-http\4.0.0\selenium-http-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.0.0\selenium-safari-driver-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\seleniumhq\selenium\selenium-support\4.0.0\selenium-support-4.0.0.jar;C:\Users\nitein.kurane\.m2\repository\org\uncommons\reportng\1.1.4\reportng-1.1.4.jar;C:\Users\nitein.kurane\.m2\repository\velocity\velocity\1.4\velocity-1.4.jar;C:\Users\nitein.kurane\.m2\repository\velocity\velocity-dep\1.4\velocity-dep-1.4.jar;C:\Users\nitein.kurane\.m2\repository\io\github\bonigarcia\webdrivermanager\5.3.0\webdrivermanager-5.3.0.jar;C:\Users\nitein.kurane\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\nitein.kurane\.m2\repository\com\google\code\gson\gson\2.9.1\gson-2.9.1.jar;C:\Users\nitein.kurane\.m2\repository\com\github\docker-java\docker-java\3.2.13\docker-java-3.2.13.jar;C:\Users\nitein.kurane\.m2\repository\com\github\docker-java\docker-java-core\3.2.13\docker-java-core-3.2.13.jar;C:\Users\nitein.kurane\.m2\repository\com\github\docker-java\docker-java-api\3.2.13\docker-java-api-3.2.13.jar;C:\Users\nitein.kurane\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\nitein.kurane\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\nitein.kurane\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\nitein.kurane\.m2\repository\org\bouncycastle\bcpkix-jdk15on\1.64\bcpkix-jdk15on-1.64.jar;C:\Users\nitein.kurane\.m2\repository\org\bouncycastle\bcprov-jdk15on\1.64\bcprov-jdk15on-1.64.jar;C:\Users\nitein.kurane\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\nitein.kurane\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.2.13\docker-java-transport-httpclient5-3.2.13.jar;C:\Users\nitein.kurane\.m2\repository\com\github\docker-java\docker-java-transport\3.2.13\docker-java-transport-3.2.13.jar;C:\Users\nitein.kurane\.m2\repository\net\java\dev\jna\jna\5.8.0\jna-5.8.0.jar;C:\Users\nitein.kurane\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.1.3\httpclient5-5.1.3.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.1.3\httpcore5-5.1.3.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.1.3\httpcore5-h2-5.1.3.jar;C:\Users\nitein.kurane\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\poi\poi-ooxml\5.2.3\poi-ooxml-5.2.3.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\poi\poi\5.2.3\poi-5.2.3.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\nitein.kurane\.m2\repository\com\zaxxer\SparseBitSet\1.2\SparseBitSet-1.2.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.3\poi-ooxml-lite-5.2.3.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\xmlbeans\xmlbeans\5.1.1\xmlbeans-5.1.1.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\commons\commons-compress\1.21\commons-compress-1.21.jar;C:\Users\nitein.kurane\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\nitein.kurane\.m2\repository\com\github\virtuald\curvesapi\1.07\curvesapi-1.07.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\logging\log4j\log4j-api\2.18.0\log4j-api-2.18.0.jar;C:\Users\nitein.kurane\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\nitein.kurane\.m2\repository\com\google\inject\guice\4.2.3\guice-4.2.3.jar;C:\Users\nitein.kurane\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\nitein.kurane\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\nitein.kurane\.m2\repository\com\google\guava\guava\27.1-jre\guava-27.1-jre.jar;C:\Users\nitein.kurane\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\nitein.kurane\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\nitein.kurane\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\nitein.kurane\.m2\repository\org\checkerframework\checker-qual\2.5.2\checker-qual-2.5.2.jar;C:\Users\nitein.kurane\.m2\repository\com\google\errorprone\error_prone_annotations\2.2.0\error_prone_annotations-2.2.0.jar;C:\Users\nitein.kurane\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\nitein.kurane\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.17\animal-sniffer-annotations-1.17.jar;C:\Users\nitein.kurane\.m2\repository\org\libreoffice\libreoffice\7.3.6\libreoffice-7.3.6.jar;C:\Users\nitein.kurane\.m2\repository\org\libreoffice\ridl\7.4.1\ridl-7.4.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\NITEIN~1.KUR\AppData\Local\Temp\surefire9894399805364631668\surefirebooter18037847049084644946.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\NITEIN~1.KUR\AppData\Local\Temp\surefire8589031074610460014\surefirebooter2779564899848699893.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.4.1+1"/>
@@ -58,79 +58,259 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="aquisition_quotes_outright_PCH_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="88.876"/>
-  <testcase name="aquisition_quotes_outright_PCH_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="1.071"/>
-  <testcase name="aquisition_quotes_outright_PCH_holding_cost_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="5.348"/>
-  <testcase name="aquisition_quotes_outright_PCH_customer_quote_payment_profile_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="19.762"/>
-  <testcase name="aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="36.996"/>
-  <testcase name="aquisition_quotes_outright_FL_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="75.458"/>
-  <testcase name="aquisition_quotes_outright_FL_after_discount_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="0.752"/>
-  <testcase name="aquisition_quotes_outright_FL_holding_cost_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="5.242"/>
-  <testcase name="aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="17.276"/>
-  <testcase name="aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="37.45"/>
-  <testcase name="aquisition_quotes_user_flow_broker_bch_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test" time="74.007"/>
-  <testcase name="aquisition_quotes_user_flow_broker_bch_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test" time="0.683"/>
-  <testcase name="aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test" time="81.376">
-    <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //input[@id=&apos;initialMaintenanceRental&apos;]&apos; (tried for 60 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='initialMaintenanceRental']' (tried for 60 second(s) with 500 milliseconds interval)
-	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(Acquisition_Quotes_Broker_BCH_with_maintenance_Test.java:80)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='initialMaintenanceRental']"}
-  (Session info: chrome=107.0.5304.106)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ad233353a41510885a61cde434214cc0, findElement {using=xpath, value=//input[@id='initialMaintenanceRental']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.106, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:58722}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58722/devtoo..., se:cdpVersion: 107.0.5304.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: ad233353a41510885a61cde434214cc0
-	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(Acquisition_Quotes_Broker_BCH_with_maintenance_Test.java:80)
-</failure>
-    <system-out><![CDATA[dropdown_lenth10
-1 Monthly in advance
-2 Spread rentals initial payment
+  <testcase name="aquisition_quotes_outright_PCH_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="70.514"/>
+  <testcase name="aquisition_quotes_outright_PCH_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="1.417"/>
+  <testcase name="aquisition_quotes_outright_PCH_holding_cost_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="5.359"/>
+  <testcase name="aquisition_quotes_outright_PCH_customer_quote_payment_profile_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="20.985"/>
+  <testcase name="aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="0">
+    <skipped message="expected [true] but found [false]"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =49,320.86
+Quote_summary_total_monthly_holding_cost =712.77
+Quote_summary_monthly_finance_rental =1,091.25
+Quote_summary_monthly_finance_rental =41.20
+Quote_summary_monthly_finance_rental =1,132.45
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Personal Contract Hire
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Maintenance Rental compared
+total Rental compared
+Retrying aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test again and the count is 1
 ]]></system-out>
   </testcase>
-  <testcase name="aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test" time="0">
-    <skipped message="Method Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test@33065d67] depends on not successfully finished methods"/>
+  <testcase name="aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="0">
+    <skipped message="expected [true] but found [false]"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =54,943.35
+Quote_summary_total_monthly_holding_cost =712.77
+Quote_summary_monthly_finance_rental =1,091.25
+Quote_summary_monthly_finance_rental =41.20
+Quote_summary_monthly_finance_rental =1,132.45
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Personal Contract Hire
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Maintenance Rental compared
+total Rental compared
+Retrying aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test again and the count is 2
+]]></system-out>
   </testcase>
-  <testcase name="aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="75.642"/>
-  <testcase name="aquisition_quotes_outright_BCH_after_discount_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="0.663"/>
-  <testcase name="aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="5.753"/>
-  <testcase name="aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="2.97">
-    <failure message="element click intercepted: Element &lt;div _ngcontent-afy-c18=&quot;&quot; class=&quot;acc-head&quot;&gt;...&lt;/div&gt; is not clickable at point (695, 297). Other element would receive the click: &lt;div _ngcontent-afy-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.106)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [213249452dc241f53da99067fd89fe0f, clickElement {id=91fea7aa-5a4d-462f-b5f2-040436e5c5b1}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.106, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:59010}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59010/devtoo..., se:cdpVersion: 107.0.5304.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (213249452dc241f53da99067fd89fe0f)] -&gt; xpath: //*[@id=&apos;partExchange_1&apos;]/button/div]&#10;Session ID: 213249452dc241f53da99067fd89fe0f" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <div _ngcontent-afy-c18="" class="acc-head">...</div> is not clickable at point (695, 297). Other element would receive the click: <div _ngcontent-afy-c0="" class="loader_div">...</div>
-  (Session info: chrome=107.0.5304.106)
+  <testcase name="aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" time="1.361">
+    <failure message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (783, 97). Other element would receive the click: &lt;div _ngcontent-xff-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [7e043c1f078d35dc209b15cc7849b9e0, clickElement {id=5d98861a-64bd-431f-b3bf-1c5d27a4f3ef}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54978}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54978/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (7e043c1f078d35dc209b15cc7849b9e0)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 7e043c1f078d35dc209b15cc7849b9e0" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (783, 97). Other element would receive the click: <div _ngcontent-xff-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [213249452dc241f53da99067fd89fe0f, clickElement {id=91fea7aa-5a4d-462f-b5f2-040436e5c5b1}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.106, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:59010}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59010/devtoo..., se:cdpVersion: 107.0.5304.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (213249452dc241f53da99067fd89fe0f)] -> xpath: //*[@id='partExchange_1']/button/div]
-Session ID: 213249452dc241f53da99067fd89fe0f
-	at com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(Acquisition_Quotes_Outright_BCH_without_maintenance_Test.java:115)
+Command: [7e043c1f078d35dc209b15cc7849b9e0, clickElement {id=5d98861a-64bd-431f-b3bf-1c5d27a4f3ef}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54978}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54978/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (7e043c1f078d35dc209b15cc7849b9e0)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 7e043c1f078d35dc209b15cc7849b9e0
+	at com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test.aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test(Acquisition_Quotes_Outright_PCH_with_maintenance_Test.java:133)
 ]]></failure>
-    <system-out><![CDATA[Writing configuration values from property file to Excel for customer quote calculation -started
-Writing configuration values from property file to Excel for customer quote calculation -completed
-************Calculations for Customer Quote Page has been started***********
-Payment Profile Monthly in Advance option has been selected
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
 ]]></system-out>
   </testcase>
-  <testcase name="aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="0">
-    <skipped message="Method Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@4c60d6e9] depends on not successfully finished methods"/>
+  <testcase name="aquisition_quotes_user_flow_broker_fl_vehicle_price_edited_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_edited_Test" time="71.729"/>
+  <testcase name="aquisition_quotes_user_flow_broker_fl_road_tax_for_first_year_edited_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_edited_Test" time="1.151"/>
+  <testcase name="aquisition_quotes_user_flow_broker_fl_customer_quote_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_edited_Test" time="114.936"/>
+  <testcase name="aquisition_quotes_user_flow_broker_fl_quote_summary_page_value_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_edited_Test" time="56.358"/>
+  <testcase name="aquisition_quotes_outright_FL_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="68.572"/>
+  <testcase name="aquisition_quotes_outright_FL_after_discount_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="0.705"/>
+  <testcase name="aquisition_quotes_outright_FL_holding_cost_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="5.306"/>
+  <testcase name="aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="16.756"/>
+  <testcase name="aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="0">
+    <skipped message="expected [true] but found [false]"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =52,084.10
+Quote_summary_total_monthly_holding_cost =684.16
+Quote_summary_monthly_finance_rental =880.30
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Finance Lease
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Retrying aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test again and the count is 1
+]]></system-out>
   </testcase>
-  <testcase name="aquisition_quotes_user_flow_broker_bch_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="77.719"/>
-  <testcase name="aquisition_quotes_user_flow_broker_bch_after_discount_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="0.761"/>
-  <testcase name="aquisition_quotes_user_flow_broker_bch_funder_quote_addition_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="64.044"/>
-  <testcase name="aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="33.123"/>
-  <testcase name="aquisition_quotes_outright_BCH_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="75.376"/>
-  <testcase name="aquisition_quotes_outright_BCH_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="1.077"/>
-  <testcase name="aquisition_quotes_outright_BCH_holding_cost_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="6.921"/>
-  <testcase name="aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="26.718"/>
-  <testcase name="aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="38.421"/>
-  <testcase name="setup" classname="com.amt.test.LoginTest" time="38.633">
-    <failure message="Cannot invoke &quot;String.equalsIgnoreCase(String)&quot; because &quot;browser&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "String.equalsIgnoreCase(String)" because "browser" is null
-	at com.amt.test.LoginTest.setup(LoginTest.java:29)
+  <testcase name="aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="0">
+    <skipped message="expected [true] but found [false]"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =54,943.35
+Quote_summary_total_monthly_holding_cost =684.16
+Quote_summary_monthly_finance_rental =880.30
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Finance Lease
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Retrying aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" time="1.335">
+    <failure message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (783, 97). Other element would receive the click: &lt;div _ngcontent-pvj-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [52c58f5f05ea1b0cd10c843a79a60df6, clickElement {id=aa67bf58-d03c-4bbd-9925-336fe6edcb3d}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55206}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55206/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (52c58f5f05ea1b0cd10c843a79a60df6)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 52c58f5f05ea1b0cd10c843a79a60df6" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (783, 97). Other element would receive the click: <div _ngcontent-pvj-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [52c58f5f05ea1b0cd10c843a79a60df6, clickElement {id=aa67bf58-d03c-4bbd-9925-336fe6edcb3d}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55206}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55206/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (52c58f5f05ea1b0cd10c843a79a60df6)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 52c58f5f05ea1b0cd10c843a79a60df6
+	at com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test.aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Outright_FL_without_maintenance_Test.java:132)
+]]></failure>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test" time="0">
+    <skipped message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]&quot;}&#10;  (Session info: chrome=107.0.5304.107)&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [4bc0f42bb1ca1de8f4e9b542e59a00e7, findElement {using=xpath, value=//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55300}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55300/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 4bc0f42bb1ca1de8f4e9b542e59a00e7"/>
+    <system-out><![CDATA[Manufacture =AUDI has been selected
+Model range =A7 has been selected
+Vehicle has been selected
+Paint option has been selected
+Retrying aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_with_maintenance_test again and the count is 1
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 107.0.5304.62 (1eec40d3a5764881c92085aaee66d25075c159aa-refs/branch-heads/5304@{#942}) on port 54081
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Nov 14, 2022 8:36:18 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Nov 14, 2022 8:36:18 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: a no-op implementation
+Nov 14, 2022 8:36:18 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Unable to find CDP implementation matching 107.
+Nov 14, 2022 8:36:18 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.0.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test" time="0">
+    <skipped message="Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //span[normalize-space()=&apos;New quote&apos;]&apos; (tried for 50 second(s) with 500 milliseconds interval)"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_with_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test" time="6.372">
+    <failure message="element click intercepted: Element &lt;a class=&quot;nav-link nav-toggle active&quot; href=&quot;javascript:;&quot;&gt;...&lt;/a&gt; is not clickable at point (47, 667). Other element would receive the click: &lt;div class=&quot;modal fade show&quot; data-backdrop=&quot;static&quot; data-keyboard=&quot;false&quot; id=&quot;vehicle_confirmation_selector_popup&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot; aria-modal=&quot;true&quot; style=&quot;display: block;&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [4bc0f42bb1ca1de8f4e9b542e59a00e7, clickElement {id=cafb7692-45ca-438b-8e7e-9686ec5e16e6}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55300}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55300/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (4bc0f42bb1ca1de8f4e9b542e59a00e7)] -&gt; link text: Acquisition quotes]&#10;Session ID: 4bc0f42bb1ca1de8f4e9b542e59a00e7" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <a class="nav-link nav-toggle active" href="javascript:;">...</a> is not clickable at point (47, 667). Other element would receive the click: <div class="modal fade show" data-backdrop="static" data-keyboard="false" id="vehicle_confirmation_selector_popup" role="dialog" tabindex="-1" aria-modal="true" style="display: block;">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [4bc0f42bb1ca1de8f4e9b542e59a00e7, clickElement {id=cafb7692-45ca-438b-8e7e-9686ec5e16e6}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55300}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55300/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (4bc0f42bb1ca1de8f4e9b542e59a00e7)] -> link text: Acquisition quotes]
+Session ID: 4bc0f42bb1ca1de8f4e9b542e59a00e7
+	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_with_maintenance_test(Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.java:49)
+]]></failure>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_road_tax_for_first_year_edited_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.aquisition_quotes_user_flow_broker_bch_road_tax_for_first_year_edited_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test@4c60d6e9] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_customer_quote_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.aquisition_quotes_user_flow_broker_bch_customer_quote_funder_quote_addition_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test@4c60d6e9] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_quote_summary_page_value_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.aquisition_quotes_user_flow_broker_bch_quote_summary_page_value_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test@4c60d6e9] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test" time="69.973"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test" time="0.716"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test" time="168.661"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test" time="33.989"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCH_vehicle_price_edited_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_edited_Test" time="71.317"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCH_road_tax_for_first_year_edited_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_edited_Test" time="1.204"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCH_customer_quote_funder_quote_addition_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_edited_Test" time="59.245"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCH_without_maintenance_quote_summary_page_value_verification_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_edited_Test" time="44.689"/>
+  <testcase name="aquisition_quotes_user_flow_broker_FL_vehicle_price_edited_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_without_maintenance_edited_Test" time="73.49"/>
+  <testcase name="aquisition_quotes_user_flow_broker_FL_road_tax_for_first_year_edited_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_without_maintenance_edited_Test" time="1.169"/>
+  <testcase name="aquisition_quotes_user_flow_broker_FL_customer_quote_funder_quote_addition_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_without_maintenance_edited_Test" time="106.663"/>
+  <testcase name="aquisition_quotes_user_flow_broker_FL_without_maintenance_quote_summary_page_value_verification_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_without_maintenance_edited_Test" time="45.688"/>
+  <testcase name="aquisition_quotes_outright_PCH_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" time="68.384"/>
+  <testcase name="aquisition_quotes_outright_PCH_after_discount_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" time="0.704"/>
+  <testcase name="aquisition_quotes_outright_PCH_holding_cost_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" time="5.285"/>
+  <testcase name="aquisition_quotes_outright_PCH_customer_quote_payment_profile_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" time="16.042"/>
+  <testcase name="aquisition_quotes_outright_PCH_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" time="0">
+    <skipped message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@class=&apos;right-fix vechile-summery&apos;]/div/div[2]/div[2]/div[3]/span[2]&apos; (tried for 120 second(s) with 500 milliseconds interval)"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Retrying aquisition_quotes_outright_PCH_quote_summary_values_verification_without_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_PCH_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (906, 97). Other element would receive the click: &lt;div _ngcontent-osv-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [b971208834452afecd86aa23ebe15f80, clickElement {id=ee296587-9c3a-4ffe-a023-d11e7f2a6980}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55747}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55747/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (b971208834452afecd86aa23ebe15f80)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: b971208834452afecd86aa23ebe15f80"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Retrying aquisition_quotes_outright_PCH_quote_summary_values_verification_without_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_PCH_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" time="1.299">
+    <failure message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (906, 97). Other element would receive the click: &lt;div _ngcontent-osv-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [b971208834452afecd86aa23ebe15f80, clickElement {id=ee296587-9c3a-4ffe-a023-d11e7f2a6980}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55747}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55747/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (b971208834452afecd86aa23ebe15f80)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: b971208834452afecd86aa23ebe15f80" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (906, 97). Other element would receive the click: <div _ngcontent-osv-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b971208834452afecd86aa23ebe15f80, clickElement {id=ee296587-9c3a-4ffe-a023-d11e7f2a6980}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55747}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55747/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (b971208834452afecd86aa23ebe15f80)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: b971208834452afecd86aa23ebe15f80
+	at com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test.aquisition_quotes_outright_PCH_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Outright_PCH_without_maintenance_Test.java:137)
+]]></failure>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+]]></system-out>
+  </testcase>
+  <testcase name="setup" classname="com.amt.test.LoginTest" time="3.631">
+    <failure message="null value in entry: url=null" type="java.lang.NullPointerException">java.lang.NullPointerException: null value in entry: url=null
+	at com.amt.test.LoginTest.setup(LoginTest.java:39)
 </failure>
+    <system-err><![CDATA[Nov 14, 2022 8:56:07 PM org.openqa.selenium.remote.http.WebSocket$Listener onError
+WARNING: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Starting ChromeDriver 107.0.5304.62 (1eec40d3a5764881c92085aaee66d25075c159aa-refs/branch-heads/5304@{#942}) on port 59481
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Nov 14, 2022 8:56:08 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Nov 14, 2022 8:56:08 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: a no-op implementation
+Nov 14, 2022 8:56:08 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Unable to find CDP implementation matching 107.
+Nov 14, 2022 8:56:08 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.0.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
   </testcase>
   <testcase name="setup" classname="com.amt.test.LoginTest" time="0">
     <skipped/>
@@ -139,7 +319,7 @@ Payment Profile Monthly in Advance option has been selected
     <skipped/>
   </testcase>
   <testcase name="login_Test" classname="com.amt.test.LoginTest" time="0">
-    <skipped message="Cannot invoke &quot;String.equalsIgnoreCase(String)&quot; because &quot;browser&quot; is null"/>
+    <skipped message="null value in entry: url=null"/>
   </testcase>
   <testcase name="tearDown" classname="com.amt.test.LoginTest" time="0">
     <skipped/>
@@ -151,9 +331,616 @@ Payment Profile Monthly in Advance option has been selected
     <skipped/>
   </testcase>
   <testcase name="pageTitle_Test" classname="com.amt.test.LoginTest" time="0">
-    <skipped message="Cannot invoke &quot;String.equalsIgnoreCase(String)&quot; because &quot;browser&quot; is null"/>
+    <skipped message="null value in entry: url=null"/>
   </testcase>
   <testcase name="amt_Logo_display_Test" classname="com.amt.test.LoginTest" time="0">
-    <skipped message="Cannot invoke &quot;String.equalsIgnoreCase(String)&quot; because &quot;browser&quot; is null"/>
+    <skipped message="null value in entry: url=null"/>
   </testcase>
+  <testcase name="aquisition_quotes_outright_FL_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" time="68.21"/>
+  <testcase name="aquisition_quotes_outright_FL_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" time="0.729"/>
+  <testcase name="aquisition_quotes_outright_FL_holding_cost_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" time="4.937"/>
+  <testcase name="aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" time="18.992"/>
+  <testcase name="aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" time="0">
+    <skipped message="expected [true] but found [false]"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =49,320.86
+Quote_summary_total_monthly_holding_cost =712.77
+Quote_summary_monthly_finance_rental =880.30
+Quote_summary_monthly_finance_rental =34.33
+Quote_summary_monthly_finance_rental =914.63
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Finance Lease
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Maintenance Rental compared
+total Rental compared
+Retrying aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (783, 97). Other element would receive the click: &lt;div _ngcontent-jgv-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [8302e6b5c1aa0aab09395b766064ffb8, clickElement {id=ec4cec69-770f-493a-bcdf-a4d75b74ee98}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55880}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55880/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (8302e6b5c1aa0aab09395b766064ffb8)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 8302e6b5c1aa0aab09395b766064ffb8"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Retrying aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" time="23.058">
+    <failure message="expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: expected [true] but found [false]
+	at com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test.aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test(Acquisition_Quotes_Outright_FL_with_maintenance_Test.java:142)
+</failure>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =54,943.35
+Quote_summary_total_monthly_holding_cost =712.77
+Quote_summary_monthly_finance_rental =880.30
+Quote_summary_monthly_finance_rental =34.33
+Quote_summary_monthly_finance_rental =914.63
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Finance Lease
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Maintenance Rental compared
+total Rental compared
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;input autocomplete=&quot;off&quot; type=&quot;text&quot; placeholder=&quot;Select model&quot; class=&quot;ng-untouched ng-pristine ng-valid&quot;&gt; is not clickable at point (1077, 303). Other element would receive the click: &lt;div _ngcontent-ufr-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [2ad97db08280d250fdc2d49f928a4aa1, clickElement {id=c607d4a0-5b6e-4634-93c2-785ebfba3e4d}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55993}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55993/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (2ad97db08280d250fdc2d49f928a4aa1)] -&gt; xpath: //*[@placeholder=&apos;Select model&apos;]]&#10;Session ID: 2ad97db08280d250fdc2d49f928a4aa1"/>
+    <system-out><![CDATA[Manufacture =AUDI has been selected
+Model range =A7 has been selected
+Retrying aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test again and the count is 1
+]]></system-out>
+    <system-err><![CDATA[Nov 14, 2022 8:58:56 PM org.openqa.selenium.remote.http.WebSocket$Listener onError
+WARNING: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Starting ChromeDriver 107.0.5304.62 (1eec40d3a5764881c92085aaee66d25075c159aa-refs/branch-heads/5304@{#942}) on port 56517
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Nov 14, 2022 8:58:57 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Nov 14, 2022 8:58:57 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: a no-op implementation
+Nov 14, 2022 8:58:57 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Unable to find CDP implementation matching 107.
+Nov 14, 2022 8:58:57 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.0.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;a class=&quot;nav-link nav-toggle active&quot; href=&quot;javascript:;&quot;&gt;...&lt;/a&gt; is not clickable at point (47, 667). Other element would receive the click: &lt;div _ngcontent-ufr-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [2ad97db08280d250fdc2d49f928a4aa1, clickElement {id=7862b252-c3c7-42bb-b304-3f19cda0eeb7}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55993}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55993/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (2ad97db08280d250fdc2d49f928a4aa1)] -&gt; link text: Acquisition quotes]&#10;Session ID: 2ad97db08280d250fdc2d49f928a4aa1"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="66.384"/>
+  <testcase name="aquisition_quotes_outright_BCH_after_discount_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="0.73"/>
+  <testcase name="aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="5.283"/>
+  <testcase name="aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="15.995"/>
+  <testcase name="aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="0">
+    <skipped message="expected [true] but found [false]"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =52,084.10
+Quote_summary_total_monthly_holding_cost =684.16
+Quote_summary_monthly_finance_rental =910.65
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Business Contract Hire
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Retrying aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="0">
+    <skipped message="expected [true] but found [false]"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =54,943.35
+Quote_summary_total_monthly_holding_cost =684.16
+Quote_summary_monthly_finance_rental =910.65
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Business Contract Hire
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Retrying aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" time="1.327">
+    <failure message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (783, 97). Other element would receive the click: &lt;div _ngcontent-ufr-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [2ad97db08280d250fdc2d49f928a4aa1, clickElement {id=638bc505-b54c-4374-bdfe-a534046f683d}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55993}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55993/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (2ad97db08280d250fdc2d49f928a4aa1)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 2ad97db08280d250fdc2d49f928a4aa1" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (783, 97). Other element would receive the click: <div _ngcontent-ufr-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2ad97db08280d250fdc2d49f928a4aa1, clickElement {id=638bc505-b54c-4374-bdfe-a534046f683d}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55993}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55993/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (2ad97db08280d250fdc2d49f928a4aa1)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 2ad97db08280d250fdc2d49f928a4aa1
+	at com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Outright_BCH_without_maintenance_Test.java:141)
+]]></failure>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test" time="71.313"/>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_after_discount_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test" time="0.704"/>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;span class=&quot;slider round&quot;&gt;&lt;/span&gt; is not clickable at point (533, 290). Other element would receive the click: &lt;div _ngcontent-kwj-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [1d6bf134a595f9678a0e0d1755d15f2e, clickElement {id=bcd499ae-21b2-4a8f-bc2f-7c34d7e3fcab}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56098}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56098/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (1d6bf134a595f9678a0e0d1755d15f2e)] -&gt; xpath: //span[@class=&apos;slider round&apos;]]&#10;Session ID: 1d6bf134a595f9678a0e0d1755d15f2e"/>
+    <system-out><![CDATA[dropdown_lenth10
+1 Monthly in advance
+2 Spread rentals initial payment
+3 Spread rentals with 3 down
+Retrying aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (693, 97). Other element would receive the click: &lt;div _ngcontent-kwj-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [1d6bf134a595f9678a0e0d1755d15f2e, clickElement {id=c2689492-28b9-4fdb-8c71-ab7738d4b31a}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56098}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56098/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (1d6bf134a595f9678a0e0d1755d15f2e)] -&gt; xpath: //p[normalize-space()=&apos;Customer Quote&apos;]]&#10;Session ID: 1d6bf134a595f9678a0e0d1755d15f2e"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test" time="1.312">
+    <failure message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (693, 97). Other element would receive the click: &lt;div _ngcontent-kwj-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [1d6bf134a595f9678a0e0d1755d15f2e, clickElement {id=c2689492-28b9-4fdb-8c71-ab7738d4b31a}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56098}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56098/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (1d6bf134a595f9678a0e0d1755d15f2e)] -&gt; xpath: //p[normalize-space()=&apos;Customer Quote&apos;]]&#10;Session ID: 1d6bf134a595f9678a0e0d1755d15f2e" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (693, 97). Other element would receive the click: <div _ngcontent-kwj-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1d6bf134a595f9678a0e0d1755d15f2e, clickElement {id=c2689492-28b9-4fdb-8c71-ab7738d4b31a}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56098}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56098/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (1d6bf134a595f9678a0e0d1755d15f2e)] -> xpath: //p[normalize-space()='Customer Quote']]
+Session ID: 1d6bf134a595f9678a0e0d1755d15f2e
+	at com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test(Acquisition_Quotes_Broker_FL_with_maintenance_Test.java:82)
+]]></failure>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_quote_summary_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_FL_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_quote_summary_calculation_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test@17fc391b] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_fl_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_without_maintenance_Test" time="71.012"/>
+  <testcase name="aquisition_quotes_user_flow_broker_fl_after_discount_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_without_maintenance_Test" time="0.706"/>
+  <testcase name="aquisition_quotes_user_flow_broker_fl_funder_quote_addition_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_without_maintenance_Test" time="107.963"/>
+  <testcase name="aquisition_quotes_user_flow_broker_fl_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_FL_without_maintenance_Test" time="34"/>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;a href=&quot;javascript:;&quot; id=&quot;acqOTRHeader&quot;&gt;...&lt;/a&gt; is not clickable at point (559, 88). Other element would receive the click: &lt;div class=&quot;modal modal-custom fade show&quot; data-backdrop=&quot;static&quot; data-keyboard=&quot;false&quot; id=&quot;Rule_Modal&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot; aria-modal=&quot;true&quot; style=&quot;display: block;&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [ca84b82ab22dfac9aed6e58214a001e2, clickElement {id=230767c9-cfae-459d-b3f9-8dd0031a6510}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56344}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56344/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (ca84b82ab22dfac9aed6e58214a001e2)] -&gt; xpath: //*[@id =&apos;acqOTRHeader&apos;]]&#10;Session ID: ca84b82ab22dfac9aed6e58214a001e2"/>
+    <system-out><![CDATA[Manufacture =AUDI has been selected
+Model range =A7 has been selected
+Vehicle has been selected
+Paint option has been selected
+Retrying aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test again and the count is 1
+]]></system-out>
+    <system-err><![CDATA[Nov 14, 2022 9:08:00 PM org.openqa.selenium.remote.http.WebSocket$Listener onError
+WARNING: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Starting ChromeDriver 107.0.5304.62 (1eec40d3a5764881c92085aaee66d25075c159aa-refs/branch-heads/5304@{#942}) on port 60942
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Nov 14, 2022 9:08:02 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Nov 14, 2022 9:08:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: a no-op implementation
+Nov 14, 2022 9:08:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Unable to find CDP implementation matching 107.
+Nov 14, 2022 9:08:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.0.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a data-toggle="tab" href="aquision_option_interior_tab_">...</a> is not clickable at point (533, 154). Other element would receive the click: <div class="modal modal-custom fade show" data-backdrop="static" data-keyboard="false" id="Rule_Modal" role="dialog" tabindex="-1" aria-modal="true" style="display: block;">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ca84b82ab22dfac9aed6e58214a001e2, clickElement {id=da0ad4da-849d-431a-b86c-766ed4e86508}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56344}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56344/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (ca84b82ab22dfac9aed6e58214a001e2)] -> link text: Interior]
+Session ID: ca84b82ab22dfac9aed6e58214a001e2
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
+	at com.amt.testUtil.Click.on(Click.java:18)
+	at com.amt.pages.OptionsAccessoriesPage.options_And_Accessories_selection(OptionsAccessoriesPage.java:47)
+	at com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test(Acquisition_Quotes_Broker_PCH_without_maintenance_Test.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+]]></system-err>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;a class=&quot;nav-link nav-toggle active&quot; href=&quot;javascript:;&quot;&gt;...&lt;/a&gt; is not clickable at point (47, 667). Other element would receive the click: &lt;div class=&quot;modal modal-custom fade show&quot; data-backdrop=&quot;static&quot; data-keyboard=&quot;false&quot; id=&quot;Rule_Modal&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot; aria-modal=&quot;true&quot; style=&quot;display: block;&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [ca84b82ab22dfac9aed6e58214a001e2, clickElement {id=5c01de80-d018-41ce-b0cf-4930956c1f33}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56344}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56344/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (ca84b82ab22dfac9aed6e58214a001e2)] -&gt; link text: Acquisition quotes]&#10;Session ID: ca84b82ab22dfac9aed6e58214a001e2"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test" time="6.363">
+    <failure message="element click intercepted: Element &lt;a class=&quot;nav-link nav-toggle active&quot; href=&quot;javascript:;&quot;&gt;...&lt;/a&gt; is not clickable at point (47, 667). Other element would receive the click: &lt;div class=&quot;modal modal-custom fade show&quot; data-backdrop=&quot;static&quot; data-keyboard=&quot;false&quot; id=&quot;Rule_Modal&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot; aria-modal=&quot;true&quot; style=&quot;display: block;&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [ca84b82ab22dfac9aed6e58214a001e2, clickElement {id=5c01de80-d018-41ce-b0cf-4930956c1f33}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56344}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56344/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (ca84b82ab22dfac9aed6e58214a001e2)] -&gt; link text: Acquisition quotes]&#10;Session ID: ca84b82ab22dfac9aed6e58214a001e2" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <a class="nav-link nav-toggle active" href="javascript:;">...</a> is not clickable at point (47, 667). Other element would receive the click: <div class="modal modal-custom fade show" data-backdrop="static" data-keyboard="false" id="Rule_Modal" role="dialog" tabindex="-1" aria-modal="true" style="display: block;">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ca84b82ab22dfac9aed6e58214a001e2, clickElement {id=5c01de80-d018-41ce-b0cf-4930956c1f33}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56344}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56344/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (ca84b82ab22dfac9aed6e58214a001e2)] -> link text: Acquisition quotes]
+Session ID: ca84b82ab22dfac9aed6e58214a001e2
+	at com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test(Acquisition_Quotes_Broker_PCH_without_maintenance_Test.java:44)
+]]></failure>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_after_discount_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_PCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_pch_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test@1040be71] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_funder_quote_addition_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_PCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_pch_funder_quote_addition_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test@1040be71] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_PCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_pch_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test@1040be71] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="71.292"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_after_discount_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="0.728"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_funder_quote_addition_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="60.46"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (812, 97). Other element would receive the click: &lt;div _ngcontent-tyf-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [91564b7b9a19a591b3eab3a17262e52e, clickElement {id=cab1ad00-03bb-4834-bc5a-9c3e08dda75e}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56425}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56425/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (91564b7b9a19a591b3eab3a17262e52e)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 91564b7b9a19a591b3eab3a17262e52e"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Retrying aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (812, 97). Other element would receive the click: &lt;div _ngcontent-tyf-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [91564b7b9a19a591b3eab3a17262e52e, clickElement {id=cab1ad00-03bb-4834-bc5a-9c3e08dda75e}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56425}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56425/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (91564b7b9a19a591b3eab3a17262e52e)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 91564b7b9a19a591b3eab3a17262e52e"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Retrying aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" time="1.281">
+    <failure message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (812, 97). Other element would receive the click: &lt;div _ngcontent-tyf-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [91564b7b9a19a591b3eab3a17262e52e, clickElement {id=cab1ad00-03bb-4834-bc5a-9c3e08dda75e}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56425}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56425/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (91564b7b9a19a591b3eab3a17262e52e)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 91564b7b9a19a591b3eab3a17262e52e" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (812, 97). Other element would receive the click: <div _ngcontent-tyf-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [91564b7b9a19a591b3eab3a17262e52e, clickElement {id=cab1ad00-03bb-4834-bc5a-9c3e08dda75e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56425}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56425/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (91564b7b9a19a591b3eab3a17262e52e)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 91564b7b9a19a591b3eab3a17262e52e
+	at com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Broker_BCH_without_maintenance_Test.java:89)
+]]></failure>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;input autocomplete=&quot;off&quot; type=&quot;text&quot; placeholder=&quot;Select model&quot; class=&quot;ng-untouched ng-pristine ng-valid&quot;&gt; is not clickable at point (1077, 303). Other element would receive the click: &lt;div _ngcontent-xgt-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [0e81b491314e4bf667cbece534766443, clickElement {id=727e3107-8df8-42eb-aa78-a2bded61d163}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56540}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56540/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (0e81b491314e4bf667cbece534766443)] -&gt; xpath: //*[@placeholder=&apos;Select model&apos;]]&#10;Session ID: 0e81b491314e4bf667cbece534766443"/>
+    <system-out><![CDATA[Manufacture =AUDI has been selected
+Model range =A7 has been selected
+Retrying aquisition_quotes_outright_BCH_OTR_calculation_with_maintenance_test again and the count is 1
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 107.0.5304.62 (1eec40d3a5764881c92085aaee66d25075c159aa-refs/branch-heads/5304@{#942}) on port 58971
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Nov 14, 2022 9:11:58 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Nov 14, 2022 9:11:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: a no-op implementation
+Nov 14, 2022 9:11:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Unable to find CDP implementation matching 107.
+Nov 14, 2022 9:11:58 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.0.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="67.729"/>
+  <testcase name="aquisition_quotes_outright_BCH_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="0.808"/>
+  <testcase name="aquisition_quotes_outright_BCH_holding_cost_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="4.796"/>
+  <testcase name="aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="18.682"/>
+  <testcase name="aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="0">
+    <skipped message="expected [true] but found [false]"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Reading values from sceen -Quote Summary Page
+Getting values from screen
+Quote_summary_cost_otr_price =49,320.86
+Quote_summary_total_monthly_holding_cost =712.77
+Quote_summary_monthly_finance_rental =910.65
+Quote_summary_monthly_finance_rental =34.33
+Quote_summary_monthly_finance_rental =944.98
+Acquisition contract_type =Outright Purchase
+Customer contract_type =Business Contract Hire
+Reading values from excel sheet to compare it with quote summary on screen values
+Comparing excel values with actual values on screen
+Found difference between OTR actual price and OTR expected price on Quote Summary Page
+Total monthly holding cost compared
+Finance Rental compared
+Maintenance Rental compared
+total Rental compared
+Retrying aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (783, 97). Other element would receive the click: &lt;div _ngcontent-xgt-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [0e81b491314e4bf667cbece534766443, clickElement {id=60c214f2-3bd3-4c4f-bdf7-749fbab35a9e}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56540}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56540/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (0e81b491314e4bf667cbece534766443)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 0e81b491314e4bf667cbece534766443"/>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+Retrying aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" time="1.662">
+    <failure message="element click intercepted: Element &lt;p&gt;...&lt;/p&gt; is not clickable at point (783, 97). Other element would receive the click: &lt;div _ngcontent-xgt-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [0e81b491314e4bf667cbece534766443, clickElement {id=60c214f2-3bd3-4c4f-bdf7-749fbab35a9e}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56540}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56540/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (0e81b491314e4bf667cbece534766443)] -&gt; xpath: //p[normalize-space()=&apos;Quote summary&apos;]]&#10;Session ID: 0e81b491314e4bf667cbece534766443" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (783, 97). Other element would receive the click: <div _ngcontent-xgt-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0e81b491314e4bf667cbece534766443, clickElement {id=60c214f2-3bd3-4c4f-bdf7-749fbab35a9e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56540}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56540/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (0e81b491314e4bf667cbece534766443)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 0e81b491314e4bf667cbece534766443
+	at com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test.aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test(Acquisition_Quotes_Outright_BCH_with_maintenance_Test.java:142)
+]]></failure>
+    <system-out><![CDATA[*************Calculations for Quote Summary page gas been started************
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test" time="72.76"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_road_tax_for_first_year_edited_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test" time="1.142"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_customer_quote_funder_quote_addition_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test" time="58.742"/>
+  <testcase name="aquisition_quotes_user_flow_broker_bch_without_maintenance_quote_summary_page_value_verification_test" classname="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test" time="35.813"/>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_vehicle_price_edited_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test" time="73.697"/>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_road_tax_for_first_year_edited_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test" time="1.151"/>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_customer_quote_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test" time="79.849"/>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_with_maintenance_quote_summary_page_value_verification_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test" time="32.336"/>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test" time="0">
+    <skipped message="Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id =&apos;acqOTRHeader&apos;]&apos; (tried for 40 second(s) with 500 milliseconds interval)"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test again and the count is 1
+]]></system-out>
+    <system-err><![CDATA[Nov 14, 2022 9:22:00 PM org.openqa.selenium.remote.http.WebSocket$Listener onError
+WARNING: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Starting ChromeDriver 107.0.5304.62 (1eec40d3a5764881c92085aaee66d25075c159aa-refs/branch-heads/5304@{#942}) on port 50469
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Nov 14, 2022 9:22:02 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Nov 14, 2022 9:22:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: a no-op implementation
+Nov 14, 2022 9:22:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Unable to find CDP implementation matching 107.
+Nov 14, 2022 9:22:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.0.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test" time="0">
+    <skipped message="Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id =&apos;acqOTRHeader&apos;]&apos; (tried for 40 second(s) with 500 milliseconds interval)"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test" time="40.614">
+    <failure message="Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id =&apos;acqOTRHeader&apos;]&apos; (tried for 40 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //*[@id ='acqOTRHeader']' (tried for 40 second(s) with 500 milliseconds interval)
+	at com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test(Acquisition_Quotes_Broker_PCH_with_maintenance_Test.java:45)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id ='acqOTRHeader']"}
+  (Session info: chrome=107.0.5304.107)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0fd01cb76bc9d3d7e4b69ee375477c2c, findElement {using=xpath, value=//*[@id ='acqOTRHeader']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56848}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56848/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 0fd01cb76bc9d3d7e4b69ee375477c2c
+	at com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test(Acquisition_Quotes_Broker_PCH_with_maintenance_Test.java:45)
+</failure>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_after_discount_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_after_discount_calculation_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test@2a8448fa] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test@2a8448fa] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_pch_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test@2a8448fa] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_with_maintenance_Test" time="72.088"/>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_with_maintenance_Test" time="0.723"/>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_with_maintenance_Test" time="6.369"/>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_with_maintenance_Test" time="15.588"/>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_with_maintenance_Test" time="30.245"/>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" time="71.899"/>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_after_discount_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" time="0.715"/>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" time="6.332"/>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;span class=&quot;ng-arrow-wrapper&quot;&gt;...&lt;/span&gt; is not clickable at point (424, 725). Other element would receive the click: &lt;div _ngcontent-tix-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [e01e33a59853e46370851381dd06a707, clickElement {id=66b0cefc-e700-4cef-9ae5-6c126fbeb364}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57002}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57002/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (e01e33a59853e46370851381dd06a707)] -&gt; xpath: //*[@class=&apos;ng-select-container&apos;]//*[@class=&apos;ng-arrow-wrapper&apos;]]&#10;Session ID: e01e33a59853e46370851381dd06a707"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;span class=&quot;ng-arrow-wrapper&quot;&gt;...&lt;/span&gt; is not clickable at point (424, 725). Other element would receive the click: &lt;div _ngcontent-tix-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [e01e33a59853e46370851381dd06a707, clickElement {id=66b0cefc-e700-4cef-9ae5-6c126fbeb364}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57002}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57002/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (e01e33a59853e46370851381dd06a707)] -&gt; xpath: //*[@class=&apos;ng-select-container&apos;]//*[@class=&apos;ng-arrow-wrapper&apos;]]&#10;Session ID: e01e33a59853e46370851381dd06a707"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" time="1.477">
+    <failure message="element click intercepted: Element &lt;span class=&quot;ng-arrow-wrapper&quot;&gt;...&lt;/span&gt; is not clickable at point (424, 725). Other element would receive the click: &lt;div _ngcontent-tix-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [e01e33a59853e46370851381dd06a707, clickElement {id=66b0cefc-e700-4cef-9ae5-6c126fbeb364}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57002}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57002/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (e01e33a59853e46370851381dd06a707)] -&gt; xpath: //*[@class=&apos;ng-select-container&apos;]//*[@class=&apos;ng-arrow-wrapper&apos;]]&#10;Session ID: e01e33a59853e46370851381dd06a707" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <span class="ng-arrow-wrapper">...</span> is not clickable at point (424, 725). Other element would receive the click: <div _ngcontent-tix-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e01e33a59853e46370851381dd06a707, clickElement {id=66b0cefc-e700-4cef-9ae5-6c126fbeb364}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57002}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57002/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (e01e33a59853e46370851381dd06a707)] -> xpath: //*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']]
+Session ID: e01e33a59853e46370851381dd06a707
+	at com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test.aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test(Acquisition_Quotes_Broker_CP_without_maintenance_Test.java:102)
+]]></failure>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_CP_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_CP_without_maintenance_Test.aquisition_quotes_user_flow_broker_CP_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test@38467116] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_OTR_calculation_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" time="71.382"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_after_discount_calculations_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" time="0.706"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_vehicle_profit_check_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" time="6.336"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" time="0">
+    <skipped message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //app-broker-hpr-customer-quote-summary-detail/div/div[7]/div/p/strong&apos; (tried for 20 second(s) with 500 milliseconds interval)"/>
+    <system-out><![CDATA[Funder quote added successfully
+Retrying aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_with_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;span class=&quot;slider round&quot;&gt;&lt;/span&gt; is not clickable at point (907, 7). Other element would receive the click: &lt;div class=&quot;page-header-inner&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [2fcba5e56cd4145a48b86ddfa6474b81, clickElement {id=1d2cc11b-3483-4f47-9503-e9f563fc0a1a}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57081}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57081/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (2fcba5e56cd4145a48b86ddfa6474b81)] -&gt; xpath: //span[@class=&apos;slider round&apos;]]&#10;Session ID: 2fcba5e56cd4145a48b86ddfa6474b81"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_with_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" time="1.536">
+    <failure message="element click intercepted: Element &lt;span class=&quot;slider round&quot;&gt;&lt;/span&gt; is not clickable at point (907, 7). Other element would receive the click: &lt;div class=&quot;page-header-inner&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [2fcba5e56cd4145a48b86ddfa6474b81, clickElement {id=1d2cc11b-3483-4f47-9503-e9f563fc0a1a}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57081}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57081/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (2fcba5e56cd4145a48b86ddfa6474b81)] -&gt; xpath: //span[@class=&apos;slider round&apos;]]&#10;Session ID: 2fcba5e56cd4145a48b86ddfa6474b81" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <span class="slider round"></span> is not clickable at point (907, 7). Other element would receive the click: <div class="page-header-inner">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2fcba5e56cd4145a48b86ddfa6474b81, clickElement {id=1d2cc11b-3483-4f47-9503-e9f563fc0a1a}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57081}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57081/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (2fcba5e56cd4145a48b86ddfa6474b81)] -> xpath: //span[@class='slider round']]
+Session ID: 2fcba5e56cd4145a48b86ddfa6474b81
+	at com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_with_maintenance_test(Acquisition_Quotes_Broker_PCP_with_maintenance_Test.java:102)
+]]></failure>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_quote_summary_values_verification_with_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_PCP_with_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test@15888343] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_OTR_calculation_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" time="70.639"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_after_discount_calculations_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" time="0.777"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_vehicle_profit_check_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" time="6.348"/>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" time="0">
+    <skipped message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //app-broker-hpr-customer-quote-summary-detail/div/div[7]/div/p/strong&apos; (tried for 20 second(s) with 500 milliseconds interval)"/>
+    <system-out><![CDATA[Funder quote added successfully
+Retrying aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;span class=&quot;ng-arrow-wrapper&quot;&gt;...&lt;/span&gt; is not clickable at point (424, 9). Other element would receive the click: &lt;div class=&quot;page-header-inner&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [571c515f8ac39d6b5a7ea9a444e3ee68, clickElement {id=cf4c3ec4-64ad-4a36-8dab-24d1943b6708}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57166}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57166/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (571c515f8ac39d6b5a7ea9a444e3ee68)] -&gt; xpath: //*[@class=&apos;ng-select-container&apos;]//*[@class=&apos;ng-arrow-wrapper&apos;]]&#10;Session ID: 571c515f8ac39d6b5a7ea9a444e3ee68"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test again and the count is 2
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" time="1.516">
+    <failure message="element click intercepted: Element &lt;span class=&quot;ng-arrow-wrapper&quot;&gt;...&lt;/span&gt; is not clickable at point (424, 9). Other element would receive the click: &lt;div class=&quot;page-header-inner&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [571c515f8ac39d6b5a7ea9a444e3ee68, clickElement {id=cf4c3ec4-64ad-4a36-8dab-24d1943b6708}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57166}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57166/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (571c515f8ac39d6b5a7ea9a444e3ee68)] -&gt; xpath: //*[@class=&apos;ng-select-container&apos;]//*[@class=&apos;ng-arrow-wrapper&apos;]]&#10;Session ID: 571c515f8ac39d6b5a7ea9a444e3ee68" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <span class="ng-arrow-wrapper">...</span> is not clickable at point (424, 9). Other element would receive the click: <div class="page-header-inner">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [571c515f8ac39d6b5a7ea9a444e3ee68, clickElement {id=cf4c3ec4-64ad-4a36-8dab-24d1943b6708}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57166}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57166/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (571c515f8ac39d6b5a7ea9a444e3ee68)] -> xpath: //*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']]
+Session ID: 571c515f8ac39d6b5a7ea9a444e3ee68
+	at com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test(Acquisition_Quotes_Broker_PCP_without_maintenance_Test.java:102)
+]]></failure>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_PCP_quote_summary_values_verification_without_maintenance_test" classname="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" time="0">
+    <skipped message="Method Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test@30f842ca] depends on not successfully finished methods"/>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_HPR_OTR_calculation" classname="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" time="70.371"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" time="0.702"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" time="6.474"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" time="15.846"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" time="30.986"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPNR_OTR_calculation_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" time="71.333"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPNR_after_discount_calculations_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" time="0.677"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPNR_vehicle_profit_check_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" time="6.4"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" time="0">
+    <skipped message="element click intercepted: Element &lt;span class=&quot;ng-arrow-wrapper&quot;&gt;...&lt;/span&gt; is not clickable at point (424, 752). Other element would receive the click: &lt;div _ngcontent-wfh-c0=&quot;&quot; class=&quot;loader_div&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=107.0.5304.107)&#10;Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;&#10;System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [ff9250bc4ed57c041f8f9d5d9ff2f89c, clickElement {id=5e27945d-4aec-4340-9865-ea81267d0f92}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57357}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57357/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (ff9250bc4ed57c041f8f9d5d9ff2f89c)] -&gt; xpath: //*[@class=&apos;ng-select-container&apos;]//*[@class=&apos;ng-arrow-wrapper&apos;]]&#10;Session ID: ff9250bc4ed57c041f8f9d5d9ff2f89c"/>
+    <system-out><![CDATA[Retrying aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test again and the count is 1
+]]></system-out>
+  </testcase>
+  <testcase name="aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" time="16.104"/>
+  <testcase name="aquisition_quotes_user_flow_broker_HPNR_quote_summary_values_verification_test" classname="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" time="31.097"/>
 </testsuite>

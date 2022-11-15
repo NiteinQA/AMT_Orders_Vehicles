@@ -35,11 +35,12 @@ import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
+import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
 
-public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends TestBase {
-	ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage obj_contract_types_outright_bch_ownbook_calculation_page;
-	ReadExcelCalculation obj_read_excel_calculation_page;
+public class ContractTypesAndOTR_Outright_HPNR_Page extends TestBase {
+	ContractTypesAndOTR_Outright_HPNR_Page obj_contract_types_outright_bch_ownbook_calculation_page;
+	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
 	Actions act;
 
 	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
@@ -57,7 +58,7 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[4]")
 	private WebElement acq_contractTypes_calculation_table_additional_discount;
 
-	@FindBy(xpath = "(//p[contains(text(),'Business Contract Hire')])[2]")
+	@FindBy(xpath = "(//p[contains(text(),'Hire Purchase Non-Regulated')])[2]")
 	private WebElement acq_contractTypes_customer_contract_BCH;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[2]/div[1]/div[1]/div[2]")
@@ -92,11 +93,11 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 	private WebElement acq_contractTypes_table_calculation_basic_options_price;
 	
 
-	public ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage() {
+	public ContractTypesAndOTR_Outright_HPNR_Page() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean contractTypes_and_OTR_selection_outright_BCH_Ownbook_calculation(String sheet_name)
+	public boolean contractTypes_and_OTR_selection_outright_HPNR_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
 		Thread.sleep(2000);
@@ -123,7 +124,7 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 	       String vehicle_price_copied =(String) clipboard.getData(DataFlavor.stringFlavor);      
 	           
 	       
-		   obj_read_excel_calculation_page =new ReadExcelCalculation();
+		   obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		   
 		   double subtotal_after_discount_excel= obj_read_excel_calculation_page.verify_table_calculations_contract_types_page(driver, vehicle_price_copied, acq_contractTypes_table_calculation_basic_paint_price,acq_contractTypes_table_calculation_basic_options_price, acq_contractTypes_calculation_table_discount, acq_contractTypes_calculation_table_additional_discount, sheet_name);	
 
@@ -150,7 +151,7 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 	}
 	
 	
-	public boolean contractTypes_and_OTR_selection_outright_bch_vehicle_price_edited(String vehicleBasicPrice,
+	public boolean contractTypes_and_OTR_selection_outright_hpnr_vehicle_price_edited(String vehicleBasicPrice,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 			Click.on(driver, acq_contractTypes, 40);
@@ -177,7 +178,7 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 		   
 		   act.sendKeys(Keys.TAB).build().perform();
 	       
-		   obj_read_excel_calculation_page =new ReadExcelCalculation();
+		   obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		   
 		   double subtotal_after_discount_excel= obj_read_excel_calculation_page.verify_table_calculations_contract_types_page_edited(driver, vehicleBasicPrice, acq_contractTypes_table_calculation_basic_paint_price,acq_contractTypes_table_calculation_basic_options_price, acq_contractTypes_calculation_table_discount, acq_contractTypes_calculation_table_additional_discount, sheet_name);
 		   
@@ -211,7 +212,7 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 			act=new Actions(driver);
 			act.sendKeys(Keys.TAB).build().perform();
 			
-			obj_read_excel_calculation_page =new ReadExcelCalculation();		
+			obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();		
 			return obj_read_excel_calculation_page.verify_after_discount_calculations_contract_types_page_edited(driver, 
 				 
 					acq_contractTypes_manufacturer_delivery_charges, 
@@ -228,7 +229,7 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 
 	public boolean verify_after_discount_calculations_contract_types_page(String sheet_name) throws IOException {
 		
-		obj_read_excel_calculation_page =new ReadExcelCalculation();		
+		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();		
 		return obj_read_excel_calculation_page.verify_after_discount_calculations_contract_types_page(driver, 
 				acq_contractTypes_calculation_table_basic_price, 
 				acq_contractTypes_calculation_table_discount,

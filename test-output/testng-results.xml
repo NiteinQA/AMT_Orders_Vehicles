@@ -20,7 +20,10 @@
       <![CDATA[<b>Interior option has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Contract type option has been selected</b> <br />]]>
+      <![CDATA[<b> Acquisition Contract type option = Outright has been selected</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -32,22 +35,22 @@
       <![CDATA[<b>Getting  Basic Price - Options value is   =833.33</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Discount- Vehicle value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Getting Discount- Vehicle value is  =15.00</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting   Discount - Paint value is   =0.00</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Discount- Options value is   =0.00</b> <br />]]>
+      <![CDATA[<b>Getting  Discount- Options value is   =9.00</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Getting Additional Discount- Vehicle value is  =52.00</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting  Additional Discount - paint value is  =0.00</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Additional Discount - Options value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Getting  Additional Discount - Options value is  =15.00</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Writing OTR table values to excel sheet -Started </b> <br />]]>
@@ -62,10 +65,10 @@
       <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Subtotal After Discount from excel sheet is =47687.5</b> <br />]]>
+      <![CDATA[<b>Subtotal After Discount from excel sheet is =40517.3748</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
+      <![CDATA[<b>Subtotal after discount actual value from screen =£ 40,517.38</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>*********Calculations for On Road Price has been started***********</b> <br />]]>
@@ -74,7 +77,7 @@
       <![CDATA[<b>Started getting On screen values from after discount table </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Manufacture_delivery_charges =550.00</b> <br />]]>
+      <![CDATA[<b>Manufacture_delivery_charges =50.00</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Road_tax_first_year =585.00</b> <br />]]>
@@ -83,7 +86,7 @@
       <![CDATA[<b>First_registration_fee =55.00</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Rebate =0.00</b> <br />]]>
+      <![CDATA[<b>Rebate =120.00</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Writing After discount values to excel has been started</b> <br />]]>
@@ -98,61 +101,85 @@
       <![CDATA[<b>Reading On Road Price for invoice from excel has been completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Expected on the road price from excel is =58525.0</b> <br />]]>
+      <![CDATA[<b>Expected on the road price from excel is =49320.85</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
+      <![CDATA[<b>Actual on the road price from screen is =49320.86</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Vehicle profit from test data 1200.0 added to otr cost price 58525.0</b> <br />]]>
+      <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>After adding profit to cost price 58525.0 sales price is shown as (considering VAT%) 59965.0</b> <br />]]>
+      <![CDATA[<b>Clicked on holding cost summary</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Vehicle profit verified</b> <br />]]>
+      <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Funder quote added successfully</b> <br />]]>
+      <![CDATA[<b>Getting on screen values from Holding Cost Page</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>xxx -Please check Balance to finance value from customer quote summary</b> <br />]]>
+      <![CDATA[<b>Duration(Terms) =36.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>*************Calculations for Quote Summary page gas been started************</b> <br />]]>
+      <![CDATA[<b>Annual_mileage =10000.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading values from sceen -Quote Summary Page</b> <br />]]>
+      <![CDATA[<b>Cap_residual_value =27500.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting values from screen</b> <br />]]>
+      <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote_summary_cost_otr_price =58,525.00</b> <br />]]>
+      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Customer contract_type =Hire Purchase Non-Regulated</b> <br />]]>
+      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br />]]>
+      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Comparing excel values with actual values on screen</b> <br />]]>
+      <![CDATA[<b>Total_monthly_holding_cost_from_screen =684.16</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>OTR price compared</b> <br />]]>
+      <![CDATA[<b>Total_monthly_holding_cost_from_excel =684.1612948978569</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Clicked on Customer Quote Page</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Matrix credit type A1 Credit has been selected</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b> Actual Monthly Maintenance Rental from screen is 914.52</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Writing screen values to Excel for customer quote calculation -started</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Writing screen values to Excel for customer quote calculation -completed</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Expected Monthly Maintenance Rental from excel is 914.5242971765457</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2022-11-11T16:03:56 IST" name="Default suite" finished-at="2022-11-11T16:06:41 IST" duration-ms="165638">
+  <suite started-at="2022-11-15T18:59:21 IST" name="Default suite" finished-at="2022-11-15T19:01:18 IST" duration-ms="116542">
     <groups>
     </groups>
-    <test started-at="2022-11-11T16:03:56 IST" name="Default test" finished-at="2022-11-11T16:06:41 IST" duration-ms="165638">
-      <class name="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.Acquisition_Quotes_Broker_HPNR_Test@242b836]" started-at="2022-11-11T16:03:56 IST" name="setup" finished-at="2022-11-11T16:04:26 IST" duration-ms="30197" status="PASS">
+    <test started-at="2022-11-15T18:59:21 IST" name="Default test" finished-at="2022-11-15T19:01:18 IST" duration-ms="116542">
+      <class name="com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test@121314f7]" started-at="2022-11-15T18:59:21 IST" name="setup" finished-at="2022-11-15T18:59:33 IST" duration-ms="12365" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPNR_OTR_calculation_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.Acquisition_Quotes_Broker_HPNR_Test@242b836]" started-at="2022-11-11T16:04:27 IST" name="aquisition_quotes_user_flow_broker_HPNR_OTR_calculation_test" data-provider="testData" finished-at="2022-11-11T16:05:44 IST" duration-ms="76867" status="PASS">
+        <test-method signature="aquisition_quotes_outright_HPNR_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test@121314f7]" started-at="2022-11-15T18:59:36 IST" name="aquisition_quotes_outright_HPNR_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2022-11-15T19:00:47 IST" duration-ms="71776" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -166,97 +193,92 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[1200]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[REF001]]>
+                <![CDATA[630]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[02/02/23]]>
+                <![CDATA[30]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[12]]>
+                <![CDATA[20000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[5000]]>
+                <![CDATA[22]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[3000]]>
+                <![CDATA[22000]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[900]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[20]]>
+                <![CDATA[NO]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[]]>
+                <![CDATA[A1 Credit]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[100]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[YES]]>
               </value>
             </param>
             <param index="13">
               <value>
-                <![CDATA[100]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="14">
               <value>
-                <![CDATA[Yes]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="15">
               <value>
-                <![CDATA[1]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="16">
               <value>
-                <![CDATA[5]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="17">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="18">
               <value>
-                <![CDATA[600]]>
+                <![CDATA[199.99]]>
               </value>
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[Formula1-BCH]]>
+                <![CDATA[HP(N) - HP(N),HP,CP,PCP]]>
               </value>
             </param>
           </params>
@@ -280,7 +302,10 @@
               <![CDATA[<b>Interior option has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Contract type option has been selected</b> <br />]]>
+              <![CDATA[<b> Acquisition Contract type option = Outright has been selected</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -292,22 +317,22 @@
               <![CDATA[<b>Getting  Basic Price - Options value is   =833.33</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Discount- Vehicle value is  =0.00</b> <br />]]>
+              <![CDATA[<b>Getting Discount- Vehicle value is  =15.00</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting   Discount - Paint value is   =0.00</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting  Discount- Options value is   =0.00</b> <br />]]>
+              <![CDATA[<b>Getting  Discount- Options value is   =9.00</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br />]]>
+              <![CDATA[<b>Getting Additional Discount- Vehicle value is  =52.00</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting  Additional Discount - paint value is  =0.00</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting  Additional Discount - Options value is  =0.00</b> <br />]]>
+              <![CDATA[<b>Getting  Additional Discount - Options value is  =15.00</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Writing OTR table values to excel sheet -Started </b> <br />]]>
@@ -322,14 +347,14 @@
               <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Subtotal After Discount from excel sheet is =47687.5</b> <br />]]>
+              <![CDATA[<b>Subtotal After Discount from excel sheet is =40517.3748</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
+              <![CDATA[<b>Subtotal after discount actual value from screen =£ 40,517.38</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPNR_OTR_calculation_test -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPNR_after_discount_calculations_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_Broker_HPNR_Test@242b836]" started-at="2022-11-11T16:05:44 IST" name="aquisition_quotes_user_flow_broker_HPNR_after_discount_calculations_test" data-provider="testData" finished-at="2022-11-11T16:05:45 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test.aquisition_quotes_user_flow_broker_HPNR_OTR_calculation_test" duration-ms="1282" status="PASS">
+        </test-method> <!-- aquisition_quotes_outright_HPNR_OTR_calculation_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_outright_HPNR_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test@121314f7]" started-at="2022-11-15T19:00:47 IST" name="aquisition_quotes_outright_HPNR_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-11-15T19:00:49 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test.aquisition_quotes_outright_HPNR_OTR_calculation_without_maintenance_test" duration-ms="1173" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -343,97 +368,92 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[1200]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[REF001]]>
+                <![CDATA[630]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[02/02/23]]>
+                <![CDATA[30]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[12]]>
+                <![CDATA[20000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[5000]]>
+                <![CDATA[22]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[3000]]>
+                <![CDATA[22000]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[900]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[20]]>
+                <![CDATA[NO]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[]]>
+                <![CDATA[A1 Credit]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[100]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[YES]]>
               </value>
             </param>
             <param index="13">
               <value>
-                <![CDATA[100]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="14">
               <value>
-                <![CDATA[Yes]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="15">
               <value>
-                <![CDATA[1]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="16">
               <value>
-                <![CDATA[5]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="17">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="18">
               <value>
-                <![CDATA[600]]>
+                <![CDATA[199.99]]>
               </value>
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[Formula1-BCH]]>
+                <![CDATA[HP(N) - HP(N),HP,CP,PCP]]>
               </value>
             </param>
           </params>
@@ -445,7 +465,7 @@
               <![CDATA[<b>Started getting On screen values from after discount table </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Manufacture_delivery_charges =550.00</b> <br />]]>
+              <![CDATA[<b>Manufacture_delivery_charges =50.00</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Road_tax_first_year =585.00</b> <br />]]>
@@ -454,7 +474,7 @@
               <![CDATA[<b>First_registration_fee =55.00</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Rebate =0.00</b> <br />]]>
+              <![CDATA[<b>Rebate =120.00</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Writing After discount values to excel has been started</b> <br />]]>
@@ -469,14 +489,14 @@
               <![CDATA[<b>Reading On Road Price for invoice from excel has been completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Expected on the road price from excel is =58525.0</b> <br />]]>
+              <![CDATA[<b>Expected on the road price from excel is =49320.85</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
+              <![CDATA[<b>Actual on the road price from screen is =49320.86</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPNR_after_discount_calculations_test -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPNR_vehicle_profit_check_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_Broker_HPNR_Test@242b836]" started-at="2022-11-11T16:05:45 IST" name="aquisition_quotes_user_flow_broker_HPNR_vehicle_profit_check_test" data-provider="testData" finished-at="2022-11-11T16:05:52 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test.aquisition_quotes_user_flow_broker_HPNR_after_discount_calculations_test" duration-ms="6512" status="PASS">
+        </test-method> <!-- aquisition_quotes_outright_HPNR_after_discount_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_outright_HPNR_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test@121314f7]" started-at="2022-11-15T19:00:49 IST" name="aquisition_quotes_outright_HPNR_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-11-15T19:00:55 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test.aquisition_quotes_outright_HPNR_after_discount_calculations_without_maintenance_test" duration-ms="6106" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -490,113 +510,138 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[1200]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[REF001]]>
+                <![CDATA[630]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[02/02/23]]>
+                <![CDATA[30]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[12]]>
+                <![CDATA[20000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[5000]]>
+                <![CDATA[22]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[3000]]>
+                <![CDATA[22000]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[900]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[20]]>
+                <![CDATA[NO]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[]]>
+                <![CDATA[A1 Credit]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[100]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[YES]]>
               </value>
             </param>
             <param index="13">
               <value>
-                <![CDATA[100]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="14">
               <value>
-                <![CDATA[Yes]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="15">
               <value>
-                <![CDATA[1]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="16">
               <value>
-                <![CDATA[5]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="17">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="18">
               <value>
-                <![CDATA[600]]>
+                <![CDATA[199.99]]>
               </value>
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[Formula1-BCH]]>
+                <![CDATA[HP(N) - HP(N),HP,CP,PCP]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[<b>Vehicle profit from test data 1200.0 added to otr cost price 58525.0</b> <br />]]>
+              <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>After adding profit to cost price 58525.0 sales price is shown as (considering VAT%) 59965.0</b> <br />]]>
+              <![CDATA[<b>Clicked on holding cost summary</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Vehicle profit verified</b> <br />]]>
+              <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Getting on screen values from Holding Cost Page</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Duration(Terms) =36.0</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Annual_mileage =10000.0</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Cap_residual_value =27500.0</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Total_monthly_holding_cost_from_screen =684.16</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Total_monthly_holding_cost_from_excel =684.1612948978569</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPNR_vehicle_profit_check_test -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_Broker_HPNR_Test@242b836]" started-at="2022-11-11T16:05:52 IST" name="aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test" data-provider="testData" finished-at="2022-11-11T16:06:08 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test.aquisition_quotes_user_flow_broker_HPNR_vehicle_profit_check_test" duration-ms="16402" status="PASS">
+        </test-method> <!-- aquisition_quotes_outright_HPNR_holding_cost_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_outright_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test@121314f7]" started-at="2022-11-15T19:00:55 IST" name="aquisition_quotes_outright_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test" data-provider="testData" finished-at="2022-11-15T19:01:14 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test.aquisition_quotes_outright_HPNR_holding_cost_calculations_without_maintenance_test" duration-ms="19426" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -610,110 +655,123 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[1200]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[REF001]]>
+                <![CDATA[630]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[02/02/23]]>
+                <![CDATA[30]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[12]]>
+                <![CDATA[20000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[5000]]>
+                <![CDATA[22]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[3000]]>
+                <![CDATA[22000]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[900]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[20]]>
+                <![CDATA[NO]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[]]>
+                <![CDATA[A1 Credit]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[100]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[YES]]>
               </value>
             </param>
             <param index="13">
               <value>
-                <![CDATA[100]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="14">
               <value>
-                <![CDATA[Yes]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="15">
               <value>
-                <![CDATA[1]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="16">
               <value>
-                <![CDATA[5]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="17">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="18">
               <value>
-                <![CDATA[600]]>
+                <![CDATA[199.99]]>
               </value>
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[Formula1-BCH]]>
+                <![CDATA[HP(N) - HP(N),HP,CP,PCP]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[<b>Funder quote added successfully</b> <br />]]>
+              <![CDATA[<b>Clicked on Customer Quote Page</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>xxx -Please check Balance to finance value from customer quote summary</b> <br />]]>
+              <![CDATA[<b>Matrix credit type A1 Credit has been selected</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b> Actual Monthly Maintenance Rental from screen is 914.52</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Writing screen values to Excel for customer quote calculation -started</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Writing screen values to Excel for customer quote calculation -completed</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Expected Monthly Maintenance Rental from excel is 914.5242971765457</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test -->
-        <test-method signature="aquisition_quotes_user_flow_broker_HPNR_quote_summary_values_verification_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Broker_HPNR_Test@242b836]" started-at="2022-11-11T16:06:08 IST" name="aquisition_quotes_user_flow_broker_HPNR_quote_summary_values_verification_test" data-provider="testData" finished-at="2022-11-11T16:06:41 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test.aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test" duration-ms="33049" status="PASS">
+        </test-method> <!-- aquisition_quotes_outright_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_outright_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test@121314f7]" started-at="2022-11-15T19:01:14 IST" name="aquisition_quotes_outright_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test" data-provider="testData" finished-at="2022-11-15T19:01:18 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test.aquisition_quotes_outright_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test" duration-ms="3352" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -727,128 +785,99 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[1200]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[REF001]]>
+                <![CDATA[630]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[02/02/23]]>
+                <![CDATA[30]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[12]]>
+                <![CDATA[20000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[5000]]>
+                <![CDATA[22]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[3000]]>
+                <![CDATA[22000]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[900]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[20]]>
+                <![CDATA[NO]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[]]>
+                <![CDATA[A1 Credit]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[100]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[YES]]>
               </value>
             </param>
             <param index="13">
               <value>
-                <![CDATA[100]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="14">
               <value>
-                <![CDATA[Yes]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="15">
               <value>
-                <![CDATA[1]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="16">
               <value>
-                <![CDATA[5]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="17">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[0]]>
               </value>
             </param>
             <param index="18">
               <value>
-                <![CDATA[600]]>
+                <![CDATA[199.99]]>
               </value>
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[Formula1-BCH]]>
+                <![CDATA[HP(N) - HP(N),HP,CP,PCP]]>
               </value>
             </param>
           </params>
           <reporter-output>
-            <line>
-              <![CDATA[<b>*************Calculations for Quote Summary page gas been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading values from sceen -Quote Summary Page</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Getting values from screen</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Quote_summary_cost_otr_price =58,525.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Customer contract_type =Hire Purchase Non-Regulated</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Comparing excel values with actual values on screen</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>OTR price compared</b> <br />]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_user_flow_broker_HPNR_quote_summary_values_verification_test -->
-      </class> <!-- com.amt.test.Acquisition_Quotes_Broker_HPNR_Test -->
+        </test-method> <!-- aquisition_quotes_outright_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test -->
+      </class> <!-- com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

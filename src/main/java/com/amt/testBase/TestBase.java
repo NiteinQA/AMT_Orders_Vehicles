@@ -69,7 +69,7 @@ public class TestBase {
 		}
 		 
 		 driver.manage().window().maximize();
-		 driver.manage().deleteAllCookies();
+		 //driver.manage().deleteAllCookies();
 		 //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
 		 driver.get(prop.getProperty("url"));		 
 	}
@@ -87,7 +87,7 @@ public class TestBase {
 		obj_Login_Page.enter_credentials();
 	}
 
-  // @AfterClass public void tearDown() { driver.close(); }
+   //@AfterClass public void tearDown() { driver.close(); }
 	
 	
 	}

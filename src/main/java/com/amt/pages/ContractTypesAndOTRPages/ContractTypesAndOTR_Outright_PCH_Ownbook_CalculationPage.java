@@ -43,7 +43,7 @@ public class ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage extends Te
 	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;
 
-	@FindBy(xpath = "//div[@id='supplierContractType.contractTypeId']//p[@class='text-center'][normalize-space()='Outright Purchase']")
+	@FindBy(xpath = "(//p[contains(text(),'Outright Purchase')])[1]")
 	private WebElement acq_acq_contractTypes_outright;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[2]")
@@ -98,8 +98,9 @@ public class ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage extends Te
 		Thread.sleep(2000);
 		Click.on(driver, acq_acq_contractTypes_outright, 50);
 		Thread.sleep(3000);
-		 Actions act = new Actions(driver);
-	    act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB).sendKeys(Keys.ENTER).build().perform();
+		
+//		 Actions act = new Actions(driver);
+//	    act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB).sendKeys(Keys.ENTER).build().perform();
 
 		LO.print(" Acquisition Contract type option = Outright has been selected");
 		System.out.println("Contract type option = Outright has been selected");

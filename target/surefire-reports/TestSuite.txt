@@ -1,36 +1,183 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 37, Failures: 3, Errors: 0, Skipped: 10, Time elapsed: 1,004.511 s <<< FAILURE! - in TestSuite
-aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test)  Time elapsed: 81.376 s  <<< FAILURE!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='initialMaintenanceRental']' (tried for 60 second(s) with 500 milliseconds interval)
-	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(Acquisition_Quotes_Broker_BCH_with_maintenance_Test.java:80)
+Tests run: 149, Failures: 15, Errors: 0, Skipped: 53, Time elapsed: 4,227.357 s <<< FAILURE! - in TestSuite
+aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test)  Time elapsed: 1.361 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (783, 97). Other element would receive the click: <div _ngcontent-xff-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7e043c1f078d35dc209b15cc7849b9e0, clickElement {id=5d98861a-64bd-431f-b3bf-1c5d27a4f3ef}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54978}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54978/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (7e043c1f078d35dc209b15cc7849b9e0)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 7e043c1f078d35dc209b15cc7849b9e0
+	at com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test.aquisition_quotes_outright_PCH_quote_summary_values_verification_with_maintenance_test(Acquisition_Quotes_Outright_PCH_with_maintenance_Test.java:133)
+
+aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test)  Time elapsed: 1.335 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (783, 97). Other element would receive the click: <div _ngcontent-pvj-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [52c58f5f05ea1b0cd10c843a79a60df6, clickElement {id=aa67bf58-d03c-4bbd-9925-336fe6edcb3d}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55206}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55206/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (52c58f5f05ea1b0cd10c843a79a60df6)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 52c58f5f05ea1b0cd10c843a79a60df6
+	at com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test.aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Outright_FL_without_maintenance_Test.java:132)
+
+aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_with_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test)  Time elapsed: 6.372 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <a class="nav-link nav-toggle active" href="javascript:;">...</a> is not clickable at point (47, 667). Other element would receive the click: <div class="modal fade show" data-backdrop="static" data-keyboard="false" id="vehicle_confirmation_selector_popup" role="dialog" tabindex="-1" aria-modal="true" style="display: block;">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [4bc0f42bb1ca1de8f4e9b542e59a00e7, clickElement {id=cafb7692-45ca-438b-8e7e-9686ec5e16e6}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55300}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55300/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (4bc0f42bb1ca1de8f4e9b542e59a00e7)] -> link text: Acquisition quotes]
+Session ID: 4bc0f42bb1ca1de8f4e9b542e59a00e7
+	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.aquisition_quotes_user_flow_broker_bch_vehicle_price_edited_with_maintenance_test(Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test.java:49)
+
+aquisition_quotes_outright_PCH_quote_summary_values_verification_without_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test)  Time elapsed: 1.299 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (906, 97). Other element would receive the click: <div _ngcontent-osv-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b971208834452afecd86aa23ebe15f80, clickElement {id=ee296587-9c3a-4ffe-a023-d11e7f2a6980}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55747}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55747/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (b971208834452afecd86aa23ebe15f80)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: b971208834452afecd86aa23ebe15f80
+	at com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test.aquisition_quotes_outright_PCH_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Outright_PCH_without_maintenance_Test.java:137)
+
+setup(com.amt.test.LoginTest)  Time elapsed: 3.631 s  <<< FAILURE!
+java.lang.NullPointerException: null value in entry: url=null
+	at com.amt.test.LoginTest.setup(LoginTest.java:39)
+
+aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test)  Time elapsed: 23.058 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test.aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test(Acquisition_Quotes_Outright_FL_with_maintenance_Test.java:142)
+
+aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test)  Time elapsed: 1.327 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (783, 97). Other element would receive the click: <div _ngcontent-ufr-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2ad97db08280d250fdc2d49f928a4aa1, clickElement {id=638bc505-b54c-4374-bdfe-a534046f683d}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55993}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55993/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (2ad97db08280d250fdc2d49f928a4aa1)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 2ad97db08280d250fdc2d49f928a4aa1
+	at com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Outright_BCH_without_maintenance_Test.java:141)
+
+aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test)  Time elapsed: 1.312 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (693, 97). Other element would receive the click: <div _ngcontent-kwj-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1d6bf134a595f9678a0e0d1755d15f2e, clickElement {id=c2689492-28b9-4fdb-8c71-ab7738d4b31a}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56098}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56098/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (1d6bf134a595f9678a0e0d1755d15f2e)] -> xpath: //p[normalize-space()='Customer Quote']]
+Session ID: 1d6bf134a595f9678a0e0d1755d15f2e
+	at com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_funder_quote_addition_with_maintenance_test(Acquisition_Quotes_Broker_FL_with_maintenance_Test.java:82)
+
+aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test)  Time elapsed: 6.363 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <a class="nav-link nav-toggle active" href="javascript:;">...</a> is not clickable at point (47, 667). Other element would receive the click: <div class="modal modal-custom fade show" data-backdrop="static" data-keyboard="false" id="Rule_Modal" role="dialog" tabindex="-1" aria-modal="true" style="display: block;">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ca84b82ab22dfac9aed6e58214a001e2, clickElement {id=5c01de80-d018-41ce-b0cf-4930956c1f33}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56344}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56344/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (ca84b82ab22dfac9aed6e58214a001e2)] -> link text: Acquisition quotes]
+Session ID: ca84b82ab22dfac9aed6e58214a001e2
+	at com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test(Acquisition_Quotes_Broker_PCH_without_maintenance_Test.java:44)
+
+aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test)  Time elapsed: 1.281 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (812, 97). Other element would receive the click: <div _ngcontent-tyf-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [91564b7b9a19a591b3eab3a17262e52e, clickElement {id=cab1ad00-03bb-4834-bc5a-9c3e08dda75e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56425}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56425/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (91564b7b9a19a591b3eab3a17262e52e)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 91564b7b9a19a591b3eab3a17262e52e
+	at com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test(Acquisition_Quotes_Broker_BCH_without_maintenance_Test.java:89)
+
+aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test)  Time elapsed: 1.662 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <p>...</p> is not clickable at point (783, 97). Other element would receive the click: <div _ngcontent-xgt-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0e81b491314e4bf667cbece534766443, clickElement {id=60c214f2-3bd3-4c4f-bdf7-749fbab35a9e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56540}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56540/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (0e81b491314e4bf667cbece534766443)] -> xpath: //p[normalize-space()='Quote summary']]
+Session ID: 0e81b491314e4bf667cbece534766443
+	at com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test.aquisition_quotes_outright_BCH_quote_summary_values_verification_with_maintenance_test(Acquisition_Quotes_Outright_BCH_with_maintenance_Test.java:142)
+
+aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test)  Time elapsed: 40.614 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //*[@id ='acqOTRHeader']' (tried for 40 second(s) with 500 milliseconds interval)
+	at com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test(Acquisition_Quotes_Broker_PCH_with_maintenance_Test.java:45)
 Caused by: org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='initialMaintenanceRental']"}
-  (Session info: chrome=107.0.5304.106)
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id ='acqOTRHeader']"}
+  (Session info: chrome=107.0.5304.107)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ad233353a41510885a61cde434214cc0, findElement {using=xpath, value=//input[@id='initialMaintenanceRental']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.106, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:58722}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58722/devtoo..., se:cdpVersion: 107.0.5304.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: ad233353a41510885a61cde434214cc0
-	at com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test(Acquisition_Quotes_Broker_BCH_with_maintenance_Test.java:80)
+Command: [0fd01cb76bc9d3d7e4b69ee375477c2c, findElement {using=xpath, value=//*[@id ='acqOTRHeader']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:56848}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56848/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 0fd01cb76bc9d3d7e4b69ee375477c2c
+	at com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test.aquisition_quotes_user_flow_broker_pch_OTR_calculation_with_maintenance_test(Acquisition_Quotes_Broker_PCH_with_maintenance_Test.java:45)
 
-aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test)  Time elapsed: 2.97 s  <<< FAILURE!
+aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test)  Time elapsed: 1.477 s  <<< FAILURE!
 org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <div _ngcontent-afy-c18="" class="acc-head">...</div> is not clickable at point (695, 297). Other element would receive the click: <div _ngcontent-afy-c0="" class="loader_div">...</div>
-  (Session info: chrome=107.0.5304.106)
+element click intercepted: Element <span class="ng-arrow-wrapper">...</span> is not clickable at point (424, 725). Other element would receive the click: <div _ngcontent-tix-c0="" class="loader_div">...</div>
+  (Session info: chrome=107.0.5304.107)
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [213249452dc241f53da99067fd89fe0f, clickElement {id=91fea7aa-5a4d-462f-b5f2-040436e5c5b1}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.106, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:59010}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59010/devtoo..., se:cdpVersion: 107.0.5304.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (213249452dc241f53da99067fd89fe0f)] -> xpath: //*[@id='partExchange_1']/button/div]
-Session ID: 213249452dc241f53da99067fd89fe0f
-	at com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(Acquisition_Quotes_Outright_BCH_without_maintenance_Test.java:115)
+Command: [e01e33a59853e46370851381dd06a707, clickElement {id=66b0cefc-e700-4cef-9ae5-6c126fbeb364}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57002}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57002/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (e01e33a59853e46370851381dd06a707)] -> xpath: //*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']]
+Session ID: e01e33a59853e46370851381dd06a707
+	at com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test.aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test(Acquisition_Quotes_Broker_CP_without_maintenance_Test.java:102)
 
-setup(com.amt.test.LoginTest)  Time elapsed: 38.633 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "String.equalsIgnoreCase(String)" because "browser" is null
-	at com.amt.test.LoginTest.setup(LoginTest.java:29)
+aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_with_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test)  Time elapsed: 1.536 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <span class="slider round"></span> is not clickable at point (907, 7). Other element would receive the click: <div class="page-header-inner">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2fcba5e56cd4145a48b86ddfa6474b81, clickElement {id=1d2cc11b-3483-4f47-9503-e9f563fc0a1a}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57081}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57081/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (2fcba5e56cd4145a48b86ddfa6474b81)] -> xpath: //span[@class='slider round']]
+Session ID: 2fcba5e56cd4145a48b86ddfa6474b81
+	at com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_with_maintenance_test(Acquisition_Quotes_Broker_PCP_with_maintenance_Test.java:102)
+
+aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test(com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test)  Time elapsed: 1.516 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <span class="ng-arrow-wrapper">...</span> is not clickable at point (424, 9). Other element would receive the click: <div class="page-header-inner">...</div>
+  (Session info: chrome=107.0.5304.107)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [571c515f8ac39d6b5a7ea9a444e3ee68, clickElement {id=cf4c3ec4-64ad-4a36-8dab-24d1943b6708}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:57166}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57166/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (571c515f8ac39d6b5a7ea9a444e3ee68)] -> xpath: //*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']]
+Session ID: 571c515f8ac39d6b5a7ea9a444e3ee68
+	at com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test.aquisition_quotes_user_flow_broker_PCP_balance_to_finance_check_without_maintenance_test(Acquisition_Quotes_Broker_PCP_without_maintenance_Test.java:102)
 

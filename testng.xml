@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="AMT Automation Aquisition Quotes" verbose="1">
-<listeners>
-<listener class-name="analyser.RetryListenerClass"></listener>
-</listeners>
+	<listeners>
+		<listener class-name="analyser.RetryListenerClass"></listener>
+	</listeners>
 
-    <test name="Acquisition_Quotes_Outright_PCH_with_maintenance_Test">
+	<test name="Acquisition_Quotes_Outright_PCH_with_maintenance_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" />
 		</classes>
@@ -119,5 +119,40 @@
 		</classes>
 	</test>
 
-</suite>
+	<test name="Acquisition_Quotes_Broker_CP_with_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Broker_CP_with_maintenance_Test" />
+		</classes>
+	</test>
 
+	<test name="Acquisition_Quotes_Broker_CP_without_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Broker_PCP_with_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Broker_PCP_without_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Broker_HPR_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Broker_HPNR_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" />
+		</classes>
+	</test>
+
+</suite>

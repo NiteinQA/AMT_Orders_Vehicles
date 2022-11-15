@@ -73,6 +73,7 @@ public class QuoteSummaryBrokerFLPage extends TestBase {
 	
 	
 	public QuoteSummaryBrokerFLPage() {
+		
 		PageFactory.initElements(driver, this);
 	}
 
