@@ -31,9 +31,9 @@ import com.amt.testUtil.RemoveComma;
 import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.NgWebDriver;
 
-public class CustomerQuotePageOutrightHPNRPage extends TestBase {
+public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	
-	CustomerQuotePageOutrightHPNRPage obj_cust_quote_outright_bchPage;
+	CustomerQuotePageOutrightHPRPage obj_cust_quote_outright_bchPage;
 	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page; 
 	
 	 Clipboard clipboard;
@@ -133,9 +133,10 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 	
 	
 
-	public CustomerQuotePageOutrightHPNRPage() {
-		PageFactory.initElements(driver, this);	
-	}
+	public CustomerQuotePageOutrightHPRPage() {
+		PageFactory.initElements(driver, this);
+	
+		}
 
 	
 	public boolean check_monthly_finance_payment_on_customer_quote(WebDriver driver,String maintenance_status,String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException

@@ -1545,6 +1545,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(4).setCellValue(maintenance_status);
 		wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(matrix_credit_type);
 		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue(balloon_payment_status);
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("YES");
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(121).getCell(2).setCellValue(Double.parseDouble(vehicle_discount_copied));
@@ -1594,21 +1595,31 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(Double.parseDouble(finance_deposit));
 		wb.getSheet(sheet_name).getRow(113).getCell(1).setCellValue(document_fee_copied);
 
-		
-		
-		
+			
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);	
-		out.close();
-		
-		double [] twoValues = new double[2];
-		
+		out.close();		
+		double [] twoValues = new double[2];		
 		twoValues [0] =GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 		twoValues [1] =GetExcelFormulaValue.get_formula_value(157, 6, sheet_name);	
 		
 		
-		return twoValues;
+		return twoValues;		
+	}
+	
+	
+	public double get_monthly_finance_payment_after_making_balloon_payment_off(String sheet_name) throws IOException
+	{
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("NO");
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
 		
+		
+		return GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);		
+
 	}
 	
 
