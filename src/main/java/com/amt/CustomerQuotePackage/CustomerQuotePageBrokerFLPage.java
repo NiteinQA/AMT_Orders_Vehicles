@@ -170,7 +170,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 
 		Click.on(driver, add, 60);
 		
-		Thread.sleep(8000);
+		Thread.sleep(12000);
 		
 		count++;
 		}

@@ -36,22 +36,19 @@ public class LoginPage extends TestBase {
 	
 	
  
-	public HomePage enter_credentials() throws InterruptedException {
+	public void enter_credentials() throws InterruptedException {
 		
 		Thread.sleep(2000);
 		
 		HelperClass.highlightElement(driver,email);
-		email.sendKeys(prop.getProperty("username"));		
-		 
-				
-			
+		email.sendKeys(prop.getProperty("username"));			
 		
 		HelperClass.highlightElement(driver,password);
 		password.sendKeys(prop.getProperty("password"));
 		
 		
 		submit.click();
-		return new HomePage();
+		 
 	}
 	
 	public String pageTitle_validation()

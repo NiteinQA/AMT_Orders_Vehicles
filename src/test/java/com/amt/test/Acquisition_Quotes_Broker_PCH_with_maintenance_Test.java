@@ -41,6 +41,9 @@ public class Acquisition_Quotes_Broker_PCH_with_maintenance_Test extends TestBas
 		obj_options_accessories = new OptionsAccessoriesPage();
 		obj_contract_types_and_OTR_Broker_BCH = new ContractTypesAndOTR_Broker_PCH_Page();
 
+		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
+		obj_vehicle_selection_page.select_vehicle(manufacturer, model);
+		obj_options_accessories.options_And_Accessories_selection();
 		boolean subtotal_after_discount = obj_contract_types_and_OTR_Broker_BCH
 				.contractTypes_and_OTR_selection_broker_pch(sheet_name);
 		Assert.assertTrue(subtotal_after_discount);

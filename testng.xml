@@ -5,23 +5,14 @@
 		<listener class-name="analyser.RetryListenerClass"></listener>
 	</listeners>
 
-	<test name="Acquisition_Quotes_Outright_PCH_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" />
-		</classes>
-	</test>
-
+	
 	<test name="Acquisition_Quotes_Broker_FL_with_maintenance_edited_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_Broker_FL_with_maintenance_edited_Test" />
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_Outright_FL_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" />
-		</classes>
-	</test>
+	
 
 	<test name="Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test">
 		<classes>
@@ -47,29 +38,8 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_Outright_PCH_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" />
-		</classes>
-	</test>
 
-	<test name="LoginTest">
-		<classes>
-			<class name="com.amt.test.LoginTest" />
-		</classes>
-	</test>
 
-	<test name="Acquisition_Quotes_Outright_FL_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_Outright_BCH_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" />
-		</classes>
-	</test>
 
 	<test name="Acquisition_Quotes_Broker_FL_with_maintenance_Test">
 		<classes>
@@ -95,12 +65,6 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_Outright_BCH_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" />
-		</classes>
-	</test>
-
 	<test name="Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test" />
@@ -119,40 +83,7 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_Broker_CP_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_CP_with_maintenance_Test" />
-		</classes>
-	</test>
 
-	<test name="Acquisition_Quotes_Broker_CP_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_CP_without_maintenance_Test" />
-		</classes>
-	</test>
 
-	<test name="Acquisition_Quotes_Broker_PCP_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_Broker_PCP_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_Broker_HPR_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_Broker_HPNR_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" />
-		</classes>
-	</test>
 
 </suite>

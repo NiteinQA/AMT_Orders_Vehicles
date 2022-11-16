@@ -59,7 +59,7 @@ public class ContractTypesAndOTR_Outright_HPNR_Page extends TestBase {
 	private WebElement acq_contractTypes_calculation_table_additional_discount;
 
 	@FindBy(xpath = "(//p[contains(text(),'Hire Purchase Non-Regulated')])[2]")
-	private WebElement acq_contractTypes_customer_contract_BCH;
+	private WebElement acq_contractTypes_customer_contract_HPNR;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[2]/div[1]/div[1]/div[2]")
 	private WebElement acq_contractTypes_subtotal_after_discounts;
@@ -108,10 +108,10 @@ public class ContractTypesAndOTR_Outright_HPNR_Page extends TestBase {
 		LO.print(" Acquisition Contract type option = Outright has been selected");
 		System.out.println("Contract type option = Outright has been selected");
 		
-		Click.on(driver, acq_contractTypes_customer_contract_BCH, 30);
+		Click.on(driver, acq_contractTypes_customer_contract_HPNR, 30);
 		
-		LO.print(" Customer Contract type option = Business Contract Hire(BCH) has been selected");		 
-		System.out.println(" Customer Contract type option = Business Contract Hire(BCH) has been selected");
+		LO.print(" Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected");		 
+		System.out.println(" Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected");
 		
 			
          

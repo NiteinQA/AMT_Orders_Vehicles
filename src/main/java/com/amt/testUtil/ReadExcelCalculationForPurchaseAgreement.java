@@ -1015,7 +1015,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
 		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(20, 4, sheet_name);
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 			
 		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
 			
@@ -1060,7 +1060,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
 		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(20, 4, sheet_name);
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 			
     	LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");
@@ -1082,7 +1082,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
 		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(20, 4, sheet_name);
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 			
     	LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");
@@ -1419,7 +1419,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		LO.print("Reading values from excel sheet to compare it with quote summary on screen values");
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
-		double otr_price_expected = GetExcelFormulaValue.get_formula_value(20, 4, sheet_name);
+		double otr_price_expected = GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 		double total_monthly_holding_cost_expected = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
 		double finance_rental_expected = GetExcelFormulaValue.get_formula_value(126, 0, sheet_name);
 		double maintenance_rental_expected = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
@@ -1465,7 +1465,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
 		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(20, 4, sheet_name);
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 			
     	LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");
@@ -1487,7 +1487,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
 		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(20, 4, sheet_name);
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 			
     	LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");
@@ -1545,15 +1545,18 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(4).setCellValue(maintenance_status);
 		wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(matrix_credit_type);
 		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue(balloon_payment_status);
-		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(order_deposit));
-		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(Double.parseDouble(finance_deposit));
-		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(Double.parseDouble(finance_deposit));
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(121).getCell(2).setCellValue(Double.parseDouble(vehicle_discount_copied));
 		wb.getSheet(sheet_name).getRow(121).getCell(4).setCellValue(Double.parseDouble(paint_discount_copied));
 		wb.getSheet(sheet_name).getRow(121).getCell(6).setCellValue(Double.parseDouble(options_discount_copied));
 		wb.getSheet(sheet_name).getRow(122).getCell(2).setCellValue(Double.parseDouble(vehicle_additional_copied));
 		wb.getSheet(sheet_name).getRow(122).getCell(4).setCellValue(Double.parseDouble(paint_additional_copied));
 		wb.getSheet(sheet_name).getRow(122).getCell(6).setCellValue(Double.parseDouble(options_additional_copied));
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);	
+		
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);	
@@ -1576,6 +1579,36 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.write(out);	
 		out.close();
 		return GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);		
+	}
+	
+	public double[] get_monthly_finance_payment_and_balance_to_finance_payment_after_editing_part_exchange_values(String part_exchange_actual, String part_exchange_given,String less_finance_settlement,
+			String order_deposit, String finance_deposit, String document_fee_copied, String sheet_name) throws IOException
+	{
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(Double.parseDouble(part_exchange_actual));
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(Double.parseDouble(part_exchange_given));
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(Double.parseDouble(less_finance_settlement));
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(order_deposit));
+		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(Double.parseDouble(finance_deposit));
+		wb.getSheet(sheet_name).getRow(113).getCell(1).setCellValue(document_fee_copied);
+
+		
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+		
+		double [] twoValues = new double[2];
+		
+		twoValues [0] =GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		twoValues [1] =GetExcelFormulaValue.get_formula_value(157, 6, sheet_name);	
+		
+		
+		return twoValues;
+		
 	}
 	
 
