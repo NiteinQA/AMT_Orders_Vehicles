@@ -35,16 +35,21 @@ public class QuoteSummaryOutrightHPNRPage extends TestBase {
 	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[7]/div/div/p/strong")
 	private WebElement quote_summary_total_monthly_holding_cost;
 	
+	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[8]/div/div/p/strong")
+	private WebElement quote_summary_total_monthly_holding_cost_with_maintenance;
+	
+	
+	
 
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']//div[4]/div/p/strong")
 	private WebElement quote_summary_monthly_finance_rental;
 	
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[5]/div/p/strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
 	
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement quote_summary_monthly_total_rental;
 	
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
@@ -139,16 +144,14 @@ public class QuoteSummaryOutrightHPNRPage extends TestBase {
 		
 		Thread.sleep(20000);
 		
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-	
+//		Actions act = new Actions(driver);
+//		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 		
-		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+//		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 120);
-//		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 120);
 		
@@ -157,7 +160,7 @@ public class QuoteSummaryOutrightHPNRPage extends TestBase {
 		
 //	    String quote_ref_no = quote_summary_ref_no.getText();
 		String temp_quote_summary_cost_otr_price=quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost=quote_summary_total_monthly_holding_cost.getText().trim().substring(2);
+		String temp_quote_summary_total_monthly_holding_cost=quote_summary_total_monthly_holding_cost_with_maintenance.getText().trim().substring(2);
 		String temp_quote_summary_monthly_finance_rental=quote_summary_monthly_finance_rental.getText().trim().substring(2);
 		String temp_quote_summary_monthly_maintenance_rental=quote_summary_monthly_maintenance_rental.getText().trim().substring(2);
 		String temp_quote_summary_monthly_total_rental=quote_summary_monthly_total_rental.getText().trim().substring(2);
