@@ -162,9 +162,7 @@ public class HoldingCostOutrightHPRPage extends TestBase {
 				holding_cost_percentage_cap_residual_value_used,total_cap_maintenance_value,  maintenance_required,target_rental,
 				residual_value_used_from_excel,maintenance_cost_used_from_excel, percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel,
 				sheet_name);
-		
-		
-		
+			
 		
 	}
 }
