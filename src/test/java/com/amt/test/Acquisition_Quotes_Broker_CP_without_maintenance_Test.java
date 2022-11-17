@@ -24,7 +24,7 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_Broker_CP_Page obj_contract_types_and_OTR;
+	ContractTypesAndOTR_Broker_CP_Page obj_contract_types_and_OTR_page;
 	CustomerQuotePageBrokerCPPage obj_customer_quote_page;
 	QuoteSummaryBrokerCPPage  obj_quote_summary_page;
 	
@@ -41,12 +41,12 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 		 obj_acq_listing_page = new AcquisitionListingPage();
 		 obj_vehicle_selection_page = new VehicleSelectionPage();
 	     obj_options_accessories = new OptionsAccessoriesPage();
-		 obj_contract_types_and_OTR = new ContractTypesAndOTR_Broker_CP_Page();
+	     obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Broker_CP_Page();
 				
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
 		obj_vehicle_selection_page.select_vehicle(manufacturer, model);
 		obj_options_accessories.options_And_Accessories_selection();
-		boolean subtotal_after_discount=obj_contract_types_and_OTR.contractTypes_and_OTR_selection_broker_cp(sheet_name);
+		boolean subtotal_after_discount=obj_contract_types_and_OTR_page.contractTypes_and_OTR_selection_broker_cp(sheet_name);
 		Assert.assertTrue(subtotal_after_discount);	
 	}
 	
@@ -60,9 +60,9 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 			String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 	
-		obj_contract_types_and_OTR = new ContractTypesAndOTR_Broker_CP_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Broker_CP_Page();
 			
-		boolean otr_price_check = obj_contract_types_and_OTR
+		boolean otr_price_check = obj_contract_types_and_OTR_page
 				.verify_after_discount_calculations_contract_types_page(sheet_name);
 		Assert.assertTrue(otr_price_check);
 	

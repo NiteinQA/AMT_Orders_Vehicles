@@ -26,7 +26,7 @@ public class Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test exten
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_Broker_BCH_Page obj_contract_types_and_OTR_Broker_BCH;
+	ContractTypesAndOTR_Broker_BCH_Page obj_contract_types_and_OTR_page;
 	CustomerQuotePageBrokerBCHPage obj_customer_quote_page;
 	QuoteSummaryBrokerBCHPage  obj_quote_summary_page;
 	
@@ -42,12 +42,12 @@ public class Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test exten
 		 obj_acq_listing_page = new AcquisitionListingPage();
 		 obj_vehicle_selection_page = new VehicleSelectionPage();
 	     obj_options_accessories = new OptionsAccessoriesPage();
-		 obj_contract_types_and_OTR_Broker_BCH = new ContractTypesAndOTR_Broker_BCH_Page();	
+	     obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Broker_BCH_Page();	
 		
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
 		obj_vehicle_selection_page.select_vehicle(manufacturer, model);
 		obj_options_accessories.options_And_Accessories_selection();
-		boolean subtotal_after_discount=obj_contract_types_and_OTR_Broker_BCH.contractTypes_and_OTR_selection_broker_bch_vehicle_price_edited( vehicleBasicPrice, sheet_name);
+		boolean subtotal_after_discount=obj_contract_types_and_OTR_page.contractTypes_and_OTR_selection_broker_bch_vehicle_price_edited( vehicleBasicPrice, sheet_name);
 		Assert.assertTrue(subtotal_after_discount);
 		
 	}
@@ -57,9 +57,9 @@ public class Acquisition_Quotes_Broker_BCH_without_maintenance_edited_Test exten
 			String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance,
 			String commission, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement,String oderDeposit, String documentFee,String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 				
-		obj_contract_types_and_OTR_Broker_BCH = new ContractTypesAndOTR_Broker_BCH_Page();	
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Broker_BCH_Page();	
 			
-			boolean otr_price_check = obj_contract_types_and_OTR_Broker_BCH
+			boolean otr_price_check = obj_contract_types_and_OTR_page
 					.verify_after_discount_calculations_contract_types_page_edited(roadTaxForFirstYear,sheet_name);
 			Assert.assertTrue(otr_price_check);
 

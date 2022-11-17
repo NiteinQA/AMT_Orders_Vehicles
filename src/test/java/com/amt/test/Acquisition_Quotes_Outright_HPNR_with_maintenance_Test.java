@@ -28,8 +28,8 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_Outright_HPNR_Page obj_contract_types_and_OTR_Outright_HPNR_page;
-	HoldingCostOutrightHPNRPage obj_holding_cost_Outright_HPNR_page;
+	ContractTypesAndOTR_Outright_HPNR_Page obj_contract_types_and_OTR_page;
+	HoldingCostOutrightHPNRPage obj_holding_cost_page;
 	CustomerQuotePageOutrightHPNRPage obj_customer_quote_page;
 	QuoteSummaryOutrightHPNRPage obj_quote_summary_page;
 
@@ -45,13 +45,13 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_Outright_HPNR_page = new ContractTypesAndOTR_Outright_HPNR_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_HPNR_Page();
 		
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
 		obj_vehicle_selection_page.select_vehicle(manufacturer, model);
 		obj_options_accessories.options_And_Accessories_selection();
-		boolean subtotal_after_discount = obj_contract_types_and_OTR_Outright_HPNR_page
+		boolean subtotal_after_discount = obj_contract_types_and_OTR_page
 				.contractTypes_and_OTR_selection_outright_HPNR_Ownbook_calculation(sheet_name);
 		Assert.assertTrue(subtotal_after_discount);
 
@@ -66,9 +66,9 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_contract_types_and_OTR_Outright_HPNR_page = new ContractTypesAndOTR_Outright_HPNR_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_HPNR_Page();
 
-		boolean otr_price_check = obj_contract_types_and_OTR_Outright_HPNR_page
+		boolean otr_price_check = obj_contract_types_and_OTR_page
 				.verify_after_discount_calculations_contract_types_page(sheet_name);
 		Assert.assertTrue(otr_price_check);
 
@@ -84,9 +84,9 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_holding_cost_Outright_HPNR_page = new HoldingCostOutrightHPNRPage();
+		obj_holding_cost_page = new HoldingCostOutrightHPNRPage();
 	
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_Outright_HPNR_page
+		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_page
 				.verify_holding_cost_with_maintenance( percentage_cap_maint_value, 
 					 residual_value_used,  maint_cost_used, percentage_cap_residual_value,
 				     maintenance_status,  target_rental,  sheet_name );
@@ -180,8 +180,7 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 		
 		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_outright_HPNR_with_maintenance(sheet_name);		
         
-		Assert.assertTrue(quote_summary_value_check);
-       
+		Assert.assertTrue(quote_summary_value_check);       
 	}
 	
 	
