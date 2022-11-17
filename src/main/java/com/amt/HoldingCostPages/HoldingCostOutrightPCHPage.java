@@ -26,11 +26,8 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 	ReadExcelCalculation obj_read_excel_calculation_page;
 		
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/p[1]")
+	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
 	private WebElement holding_cost;	
-	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[6]/div[4]")
-	private WebElement ownbook_holding_cost_matrix_default_cell;
 	
 	@FindBy(xpath = "//span[@class='slider round sliderRed']")
 	private WebElement maintenance_toggle_button;
@@ -53,7 +50,7 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[3]/div/p/strong")
 	private WebElement total_monthly_holding_cost;
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/label[1]/span[1]")
+	@FindBy(xpath = "//*[@class='slider round sliderRed']")
 	private WebElement holding_cost_maintenance_toggle_button;
 	
 	@FindBy(xpath = "//*[@id='vehicleSummery']/div/div[2]/div[2]/div[6]/div[2]/div[10]/p")
@@ -88,7 +85,7 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 		System.out.println("***********Entered in holding cost page ***********");
 		
 		Click.on(driver, holding_cost_summary, 30);
-		
+		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
 		
@@ -112,7 +109,7 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 		  System.out.println("***********Entered in holding cost page ***********");
 		  
 		Click.on(driver, holding_cost_summary, 30);
-		
+		Thread.sleep(3000);
 		  LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
 		  
@@ -126,32 +123,6 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 		  ExplicitWait.visibleElement(driver, percentage_maintenance_cost_used, 50);		  
 		  ExplicitWait.visibleElement(driver, residual_value_used, 50);
 		  
-//		  holding_cost_percentage_cap_residual_value_used.clear();
-//		  percentage_maintenance_cost_used.clear();
-//		  residual_value_used.clear();
-//		  
-//		  act.sendKeys(Keys.TAB).build().perform();
-//		  
-//		  Click.sendKeys(driver, holding_cost_percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel, 30);
-//		  
-//		  act.sendKeys(Keys.TAB).build().perform();
-//		  Thread.sleep(5000);
-//		  
-//		  Click.sendKeys(driver, percentage_maintenance_cost_used, percentage_maintenance_cost_used_from_excel, 30);
-//		  		  
-//		  act.sendKeys(Keys.TAB).build().perform();
-//		  Thread.sleep(5000);
-//		  
-//		  LO.print("Percentage_cap_maintenance_cost_used value ="+percentage_maintenance_cost_used_from_excel+" sent to input field -% CAP maint. cost used");
-//		  System.out.println("Percentage_cap_maintenance_cost_used value ="+percentage_maintenance_cost_used_from_excel+" sent to input field -% CAP maint. cost used");
-//		  
-//		   
-//		  Click.sendKeys(driver, residual_value_used, residual_value_used_from_excel , 30);
-//		  act.sendKeys(Keys.TAB).build().perform();
-//		  Thread.sleep(5000);
-		  
-		  
-		 // Click.sendKeys(driver, maintenance_cost_used, maintenance_cost_used_from_excel , 30);
 		   
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		return  obj_read_excel_calculation_page.verify_holding_cost_with_maintenance(driver,

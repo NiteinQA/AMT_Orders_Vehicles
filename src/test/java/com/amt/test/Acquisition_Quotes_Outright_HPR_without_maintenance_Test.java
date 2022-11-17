@@ -1,35 +1,20 @@
 package com.amt.test;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.amt.CustomerQuotePackage.CustomerQuotePageOutrightBCHPage;
-import com.amt.CustomerQuotePackage.CustomerQuotePageOutrightHPNRPage;
 import com.amt.CustomerQuotePackage.CustomerQuotePageOutrightHPRPage;
-import com.amt.HoldingCostPages.HoldingCostOutrightBCHPage;
-import com.amt.HoldingCostPages.HoldingCostOutrightHPNRPage;
 import com.amt.HoldingCostPages.HoldingCostOutrightHPRPage;
-import com.amt.QuoteSummaryPages.QuoteSummaryOutrightBCHPage;
-import com.amt.QuoteSummaryPages.QuoteSummaryOutrightHPNRPage;
 import com.amt.QuoteSummaryPages.QuoteSummaryOutrightHPRPage;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.AcquisitionOutrightPage.AcquisitionQuoteOutrightBCHownbookCalculationPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_HPNR_Page;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_HPR_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;

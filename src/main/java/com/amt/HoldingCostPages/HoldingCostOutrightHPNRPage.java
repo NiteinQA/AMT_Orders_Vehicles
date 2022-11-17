@@ -27,11 +27,8 @@ public class HoldingCostOutrightHPNRPage extends TestBase {
 	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
 		
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/p[1]")
+	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
 	private WebElement holding_cost;	
-	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[6]/div[4]")
-	private WebElement ownbook_holding_cost_matrix_default_cell;
 	
 	@FindBy(xpath = "//span[@class='slider round sliderRed']")
 	private WebElement maintenance_toggle_button;
@@ -54,7 +51,7 @@ public class HoldingCostOutrightHPNRPage extends TestBase {
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[3]/div/p/strong")
 	private WebElement total_monthly_holding_cost;
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-holding-cost[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/label[1]/span[1]")
+	@FindBy(xpath = "//*[@class='slider round sliderRed']")
 	private WebElement holding_cost_maintenance_toggle_button;
 	
 	@FindBy(xpath = "//*[@id='vehicleSummery']/div/div[2]/div[2]/div[6]/div[2]/div[10]/p")
@@ -89,7 +86,7 @@ public class HoldingCostOutrightHPNRPage extends TestBase {
 		System.out.println("***********Entered in holding cost page ***********");
 		
 		Click.on(driver, holding_cost_summary, 30);
-		
+		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
 		
@@ -107,7 +104,7 @@ public class HoldingCostOutrightHPNRPage extends TestBase {
 		System.out.println("***********Entered in holding cost page ***********");
 		
 		Click.on(driver, holding_cost_summary, 30);
-		
+		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
 		  
@@ -143,7 +140,7 @@ public class HoldingCostOutrightHPNRPage extends TestBase {
 		  System.out.println("***********Entered in holding cost page ***********");
 		  
 		Click.on(driver, holding_cost_summary, 30);
-		
+		Thread.sleep(3000);
 		  LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
 		  

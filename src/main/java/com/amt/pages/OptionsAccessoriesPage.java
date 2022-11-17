@@ -14,14 +14,18 @@ public class OptionsAccessoriesPage extends TestBase {
 
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
-	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]")
-	private WebElement paint;
-
+	@FindBy(xpath = "//*[@id='child2_0016']/div/div[1]/div[1]/label")
+	private WebElement paint;  
+	//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]
+	
+	
 	@FindBy(linkText = "Interior")
 	private WebElement acq_interior;
 
-	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/label[1]")
-	private WebElement acq_interior_trim;
+	@FindBy(xpath = "//*[@id=\"child2_1014\"]/div[1]/div[1]/div[1]/label")
+	private WebElement acq_interior_trim; 
+	
+	//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/label[1]
 	
 	public OptionsAccessoriesPage() {
 		PageFactory.initElements(driver, this);

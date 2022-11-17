@@ -21,9 +21,10 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
+import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 
-public class HoldingCostOutrightBCHPage extends TestBase {
-	ReadExcelCalculation obj_read_excel_calculation_page;
+public class HoldingCostOutrightPCPPage extends TestBase {
+	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
 		
 	
 	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
@@ -66,14 +67,13 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 	private WebElement residual_value_used;
 	
 	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
-	private WebElement maintenance_cost_used;
-	
+	private WebElement maintenance_cost_used;	
 	
 	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong")
 	private WebElement total_cap_maintenance_value;
 	
 	
-	public HoldingCostOutrightBCHPage() {
+	public HoldingCostOutrightPCPPage() {
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -86,13 +86,11 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		System.out.println("***********Entered in holding cost page ***********");
 		
 		Click.on(driver, holding_cost_summary, 30);
-		
 		Thread.sleep(3000);
-		
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
 		
-		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		return obj_read_excel_calculation_page.verify_holding_cost_without_maintenance(driver,
 				holding_cost_summary_terms, holding_cost_summary_mileage, 
 				holding_cost_summary_residual_value_used, total_monthly_holding_cost, 
@@ -100,6 +98,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 			}
 	
 	public boolean verify_holding_cost_without_maintenance_edited(String residual_value_used,String sheet_name) throws IOException, InterruptedException {
+		
 		Click.on(driver, holding_cost, 30);
 		
 		LO.print("***********Entered in holding cost page ***********");
@@ -122,7 +121,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		 Thread.sleep(5000);
 		  
 		
-		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		return obj_read_excel_calculation_page.verify_holding_cost_without_maintenance(driver,
 				holding_cost_summary_terms, holding_cost_summary_mileage, 
 				holding_cost_summary_residual_value_used, total_monthly_holding_cost, 
@@ -156,7 +155,8 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		  ExplicitWait.visibleElement(driver, percentage_maintenance_cost_used, 20);		  
 		  ExplicitWait.visibleElement(driver, residual_value_used, 20);
 		  
-		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		   
+		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		return  obj_read_excel_calculation_page.verify_holding_cost_with_maintenance(driver,
 				holding_cost_summary_terms, holding_cost_summary_mileage, 
 				holding_cost_summary_residual_value_used, total_monthly_holding_cost, holding_cost_maintenance_cost_used,

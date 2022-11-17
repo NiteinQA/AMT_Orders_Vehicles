@@ -17,9 +17,7 @@ import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
 
-public class QuoteSummaryOutrightHPRPage extends TestBase {
-	
-	
+public class QuoteSummaryOutrightCPPage extends TestBase {	
 	
 	ReadExcelCalculation obj_read_excel_calculation_page; 
 
@@ -58,11 +56,11 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 
 	
 	
-	public QuoteSummaryOutrightHPRPage() {
+	public QuoteSummaryOutrightCPPage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean quote_summary_outright_HPR_without_maintenance(String sheet_name) throws InterruptedException, IOException {
+	public boolean quote_summary_outright_CP_without_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
 		
 		
@@ -131,7 +129,7 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 
 	}
 
-	public boolean quote_summary_outright_HPR_with_maintenance(String sheet_name) throws InterruptedException, IOException {
+	public boolean quote_summary_outright_CP_with_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
 		LO.print("*************Calculations for Quote Summary page gas been started************");
 		System.out.println("*************Calculations for Quote Summary page gas been started************");
