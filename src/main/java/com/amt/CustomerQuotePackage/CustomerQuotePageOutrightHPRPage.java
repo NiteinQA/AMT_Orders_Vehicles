@@ -38,8 +38,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	
 	 Clipboard clipboard;
 	
-	JavascriptExecutor jse;
-    NgWebDriver ngDriver;
+
     
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
@@ -83,7 +82,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	
 	
 	
-	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
+	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[1]/label")
 	private WebElement customer_quote_maintenance_toggle_button;
 	
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")

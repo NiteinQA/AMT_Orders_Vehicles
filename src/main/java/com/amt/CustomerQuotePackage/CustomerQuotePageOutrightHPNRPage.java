@@ -37,9 +37,6 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page; 
 	
 	 Clipboard clipboard;
-	
-	JavascriptExecutor jse;
-    NgWebDriver ngDriver;
     
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
@@ -131,11 +128,7 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 	private WebElement balloon_payment_toggle;
 	
 	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")
-	private WebElement total_monthly_payment;
-	
-	
-	
-	
+	private WebElement total_monthly_payment;	
 	
 
 	public CustomerQuotePageOutrightHPNRPage() {

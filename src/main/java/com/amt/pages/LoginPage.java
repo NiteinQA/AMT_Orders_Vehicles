@@ -51,21 +51,29 @@ public class LoginPage extends TestBase {
 		 
 	}
 	
-	public String pageTitle_validation()
+	public boolean pageTitle_validation() throws InterruptedException
 	{
 		
-		
+		Thread.sleep(5000);
 		String login_Page_Tittle=driver.getTitle();
 		LO.print("Page Title After login is "+login_Page_Tittle);
-		return login_Page_Tittle;
+        
+		
+		boolean flag = false;
+		if(login_Page_Tittle.contains("AMT"))
+		{
+			flag = true;
+		}
+		return flag;
 		
 	}
 	
-	public boolean logoDispaly()
+	public boolean logoDisplay()
 	{
 		ExplicitWait.visibleElement(driver, logoImage, 30);
 		boolean flag=logoImage.isDisplayed();
 		LO.print("AMT-Logo is displayed");
+		System.out.println("logo display boolean "+flag);
 		return flag;
 		
 	}
@@ -74,7 +82,10 @@ public class LoginPage extends TestBase {
 		LO.print("Login screen is being displayed");
 		LO.print("User has entered Username ");
 		LO.print("User has entered Password ");
+		
 		ExplicitWait.visibleElement(driver, profile_icon, 50);
+		
+		
 		return profile_icon.isDisplayed();
 	}
 

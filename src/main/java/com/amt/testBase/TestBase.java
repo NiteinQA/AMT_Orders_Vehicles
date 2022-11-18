@@ -79,9 +79,9 @@ public class TestBase {
      
 		prop=new Properties();
 		FileInputStream ip = new FileInputStream("D:\\newWorkspaceStaging\\AutomationStaging\\src\\main\\java\\configs\\config.properties");
-		prop.load(ip); 
+		prop.load(ip);		
 		  
-	    TestBase.initialization(prop.getProperty("browser"));
+	    initialization(prop.getProperty("browser"));
 	 
 		obj_Login_Page = new LoginPage();
 		obj_Login_Page.enter_credentials();

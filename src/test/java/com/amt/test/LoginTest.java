@@ -24,51 +24,32 @@ public class LoginTest extends TestBase {
 	public AcquisitionQuotesBrokerBCHPage obj_aquisition_quotes_page;
 	 public static Properties prop;
 	
-	/*
-	 * public LoginTest() { super(); }
-	 */
-	 
-	
-	@BeforeMethod
-	public void setup() throws InterruptedException, IOException
-	{
-		
-		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\newWorkspaceStaging\\AutomationStaging\\src\\main\\java\\configs\\config.properties");
-		prop.load(ip); 
-		initialization(prop.getProperty("browser"));
-		obj_Login_Page = new LoginPage();	
-		obj_Login_Page.enter_credentials();
-	}
-	
-	@AfterMethod public void tearDown() { driver.quit(); }
-	 
+ 
 	
 	@Test(priority=1)
 	public void login_Test() throws InterruptedException  
 	{
-		
+		obj_Login_Page = new LoginPage();
 		boolean flag=obj_Login_Page.verify_Login();
 		Assert.assertTrue(flag);		
 	}
 	
 	@Test(priority=2)
-	public void pageTitle_Test()
+	public void pageTitle_Test() throws InterruptedException
 	{
+		obj_Login_Page = new LoginPage();
+	    boolean  loginpageTitle=obj_Login_Page.pageTitle_validation();
+		Assert.assertTrue(loginpageTitle);
 		 
-		String loginpageTitle=obj_Login_Page.pageTitle_validation();
-		Assert.assertEquals(loginpageTitle,"Login-AMT");		
 	}
 	
 	@Test(priority=3)
 	public void amt_Logo_display_Test()
 	{
-		boolean logoBoolean=obj_Login_Page.logoDispaly();
-		Assert.assertFalse(logoBoolean);
+		obj_Login_Page = new LoginPage();
+		boolean logoBoolean=obj_Login_Page.logoDisplay();
+		Assert.assertTrue(logoBoolean);
 	}
-	
-	
-	
-	
+		
 
 }

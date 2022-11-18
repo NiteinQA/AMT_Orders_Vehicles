@@ -32,7 +32,7 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 	@FindBy(xpath = "//*[@id='headingTwo']//div[4]/div/p/strong")
 	private WebElement quote_summary_cost_otr_price;	
 	
-	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[7]/div/div/p/strong")
+	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[8]/div/div/p/strong")
 	private WebElement quote_summary_total_monthly_holding_cost;
 	
 
@@ -40,11 +40,11 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 	private WebElement quote_summary_monthly_finance_rental;
 	
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[5]/div/p/strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
 	
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement quote_summary_monthly_total_rental;
 	
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
@@ -55,7 +55,6 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 	
 	@FindBy(xpath = "//div[@id='headingHoldingCost']//div[7]//div[1]//div[1]//p[1]//strong[1]")
 	private WebElement quote_summary_total_monthly_holding_cost_without_maintenance;
-
 	
 	
 	public QuoteSummaryOutrightPCPPage() {
@@ -141,11 +140,10 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 		
 		Thread.sleep(20000);
 		
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
+//		Actions act = new Actions(driver);
+//		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 	
-		
-		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+//	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 120);

@@ -21,7 +21,6 @@ import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.RemoveComma;
 
 public class CustomerQuotePageBrokerHPNRPage extends TestBase {
-
 	
 	JavascriptExecutor jse;
 	
@@ -131,8 +130,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 	@FindBy(xpath = "//app-broker-hpnr-customer-quote-summary-detail/div/div[7]/div/p/strong")
 	private WebElement customer_quote_summary_balance_to_finance;
 	
-	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
-	private WebElement part_exchange_profit;
+//	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
+//	private WebElement part_exchange_profit;
 	
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
 	private WebElement part_exchange_value;
@@ -259,9 +258,9 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		
 		act.sendKeys(Keys.TAB).build().perform();
 		
-		ExplicitWait.visibleElement(driver, part_exchange_profit, 30);
+		ExplicitWait.visibleElement(driver, part_exchange_value, 30);
 		
-		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_profit.getText().trim().substring(2)));
+		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_value.getText().trim().substring(2)));
 				
 		
 		LO.print("Funder quote added successfully");
