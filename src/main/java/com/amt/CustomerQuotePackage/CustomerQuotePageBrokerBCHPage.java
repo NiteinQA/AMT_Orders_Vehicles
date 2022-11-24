@@ -1,14 +1,18 @@
 package com.amt.CustomerQuotePackage;
 
 import java.sql.Date;
+import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
@@ -107,7 +111,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 //		if(maintenance_toggle_button.isSelected()) {}
 //		else {Click.on(driver, maintenance_toggle_button, 20);}
 		
-		System.out.println(i+" "+list.get(i).getText());	
+	//	System.out.println(i+" "+list.get(i).getText());	
 			
 	    Click.on(driver, maintenance_toggle_button, 40);
 
@@ -118,11 +122,15 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 
 		//LO.print("Customer quote option has been selected");
 		
+		Thread.sleep(3000);
+		
 		Click.sendKeys(driver, quote_reference, quoteRef, 60);
 
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 
 		Dropdown.select(driver, payment_profile_dropdown, i , 60);
+		
+		Thread.sleep(6000);
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -187,8 +195,12 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 			
 		String dropdown_option=list.get(i).getText();	
 
-		Click.on(driver, customer_quote_funder, 60);
 		
+		
+	    WebElement funder = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']"))));
+		
+	    Click.on(driver, funder, 10);
+	    
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ENTER).build().perform();
 
@@ -199,6 +211,8 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 
 		Dropdown.select(driver, payment_profile_dropdown, i , 60);
+		
+		Thread.sleep(4000);
 				
 		int term_converted=Integer.parseInt(term);
 

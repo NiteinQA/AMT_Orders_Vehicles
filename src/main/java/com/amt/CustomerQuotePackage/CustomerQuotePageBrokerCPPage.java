@@ -96,7 +96,7 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[9]/div[2]/p") 
 	private WebElement otrScreenPrice;
 	
-	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[10]/div[3]/p") 
+	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[10]/div[3]/p")  
 	private WebElement vehicle_sale_price;
 	 
 

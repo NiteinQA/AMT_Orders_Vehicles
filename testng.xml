@@ -1,12 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test"/>
-      <class name="com.amt.test.Acquisition_Quotes_Outright_PCP_without_maintenance_Test"/>
-      <class name="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test"/>
-      <class name="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test"/>
+<suite name="AMT Automation">
+
+
+	<test name="Acquisition_Quotes_Outright_PCH_with_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" />
+		</classes>
+	</test>
+	<test name="Acquisition_Quotes_Outright_PCP_without_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_PCP_without_maintenance_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Outright_FL_without_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Outright_HPR_without_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_HPR_without_maintenance_Test" />
+		</classes>
+	</test>
+
+
+	<test name="Acquisition_Quotes_Outright_CP_with_maintenance_Normal_Save_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_CP_with_maintenance_Normal_Save_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Outright_PCP_without_maintenance_Normal_Save_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_PCP_without_maintenance_Normal_Save_Test" />
+		</classes>
+	</test>
+
+
+	<test name="Acquisition_Quotes_Outright_CP_without_maintenance_Normal_Save_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_CP_without_maintenance_Normal_Save_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Outright_PCP_with_maintenance_Normal_Save_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_PCP_with_maintenance_Normal_Save_Test" />
+		</classes>
+	</test>
+
+
+	<test name="Acquisition_Quotes_Outright_HPR_with_maintenance_Normal_Save_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_HPR_with_maintenance_Normal_Save_Test" />
+		</classes>
+	</test>
+
+
+	<test name="Acquisition_Quotes_Outright_HPNR_with_maintenance_Normal_Save_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_HPNR_with_maintenance_Normal_Save_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Outright_HPR_without_maintenance_Normal_Save_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_HPR_without_maintenance_Normal_Save_Test" />
+		</classes>
+	</test>
+
+
+	<test name="Acquisition_Quotes_Outright_HPNR_without_maintenance_Normal_Save_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Normal_Save_Test" />
+		</classes>
+	</test>
+	<test name="Acquisition_Quotes_Broker_HPR_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_Broker_HPNR_Test">
+		<classes>
+			<class name="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" />
+		</classes>
+	</test>
+
+
+	<!-- <class name="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test"/>
       <class name="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test"/>
       <class name="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_edited_Test"/>
       <class name="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test"/>
@@ -36,7 +121,7 @@
       <class name="com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test"/>
       <class name="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test"/>
       <class name="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_Test"/>
-      <class name="com.amt.test.Acquisition_Quotes_Outright_CP_without_maintenance_Test"/>
-    </classes>
-  </test> <!-- Test -->
+      <class name="com.amt.test.Acquisition_Quotes_Outright_CP_without_maintenance_Test"/>-->
+
+
 </suite> <!-- Suite -->

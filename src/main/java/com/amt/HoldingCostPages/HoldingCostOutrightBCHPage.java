@@ -84,7 +84,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		
+		Thread.sleep(4000);
 		Click.on(driver, holding_cost_summary, 30);
 		
 		Thread.sleep(3000);
@@ -104,7 +104,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		
+		 Thread.sleep(4000);
 		Click.on(driver, holding_cost_summary, 30);
 		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
@@ -140,7 +140,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		
 		  LO.print("***********Entered in holding cost page ***********");
 		  System.out.println("***********Entered in holding cost page ***********");
-		  
+		  Thread.sleep(4000);
 		Click.on(driver, holding_cost_summary, 30);
 		Thread.sleep(3000);
 		  LO.print("Clicked on holding cost summary");
@@ -162,10 +162,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 				holding_cost_summary_residual_value_used, total_monthly_holding_cost, holding_cost_maintenance_cost_used,
 				holding_cost_percentage_cap_residual_value_used,total_cap_maintenance_value,  maintenance_required,target_rental,
 				residual_value_used_from_excel,maintenance_cost_used_from_excel, percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel,
-				sheet_name);
-		
-		
-		
+				sheet_name);		
 		
 	}
 }

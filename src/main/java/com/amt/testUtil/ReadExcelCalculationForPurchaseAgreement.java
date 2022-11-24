@@ -442,10 +442,10 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		//wb.getSheet(sheet_name).getRow(8).getCell(4).setCellValue(subtotal_price);
-		wb.getSheet(sheet_name).getRow(9).getCell(4).setCellValue(manufacture_delivery_charges_converted);
-		wb.getSheet(sheet_name).getRow(12).getCell(4).setCellValue(road_tax_first_year_converted);
-		wb.getSheet(sheet_name).getRow(13).getCell(4).setCellValue(first_registration_fee_converted);
-		wb.getSheet(sheet_name).getRow(15).getCell(4).setCellValue(rebate_converted);
+		wb.getSheet(sheet_name).getRow(9).getCell(7).setCellValue(manufacture_delivery_charges_converted);
+		wb.getSheet(sheet_name).getRow(12).getCell(7).setCellValue(road_tax_first_year_converted);
+		wb.getSheet(sheet_name).getRow(13).getCell(7).setCellValue(first_registration_fee_converted);
+		wb.getSheet(sheet_name).getRow(15).getCell(7).setCellValue(rebate_converted);
 
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));

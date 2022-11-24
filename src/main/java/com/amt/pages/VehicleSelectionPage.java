@@ -54,14 +54,17 @@ public class VehicleSelectionPage extends TestBase {
 		
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
+		
 		Click.sendKeys(driver, select_model_range, model , 40);	
 		
 		LO.print("Model range ="+model+" has been selected");
 		System.out.println("Model range ="+model+" has been selected");
 		
+		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
-	
+	    
+		Thread.sleep(6000);
 		Click.on(driver, select_model, 50);
 		
 		Thread.sleep(6000);

@@ -26,7 +26,7 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//*[@id='vehicleSummery']/div/div[2]/div[2]/div[4]/span[2]")
 	private WebElement quote_summary_ref_no;
 	
 	@FindBy(xpath = "//*[@id='headingTwo']//div[4]/div/p/strong")
@@ -40,11 +40,11 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 	private WebElement quote_summary_monthly_finance_rental;
 	
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
+	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[5]/div/p/strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
 	
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
+	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement quote_summary_monthly_total_rental;
 	
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
@@ -73,10 +73,10 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 		System.out.println("*************Calculations for Quote Summary page gas been started************");
 	
 		Thread.sleep(10000);
-//		Actions act = new Actions(driver);
-//		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-//		Thread.sleep(20000);		
-	   // ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
+		Thread.sleep(20000);		
+	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
@@ -87,7 +87,7 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 		LO.print("Reading values from sceen -Quote Summary Page");
 		System.out.println("Reading values from sceen -Quote Summary Page");
 		
-	   // String quote_ref_no = quote_summary_ref_no.getText();
+	    String quote_ref_no = quote_summary_ref_no.getText();
 		String temp_quote_summary_cost_otr_price=quote_summary_cost_otr_price.getText().trim().substring(2);
 		String temp_quote_summary_total_monthly_holding_cost=quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2);
 		String temp_quote_summary_monthly_finance_rental=quote_summary_monthly_finance_rental.getText().trim().substring(2);
@@ -113,8 +113,8 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 		LO.print("Customer contract_type ="+customer_contract_type);
 		System.out.println("Customer contract_type ="+customer_contract_type);	
 		
-//		LO.print("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
-//		System.out.println("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
+	   LO.print("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
+    	System.out.println("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
 		
 		String quote_summary_cost_otr_price_from_screen=RemoveComma.of(temp_quote_summary_cost_otr_price);
 		String quote_summary_total_monthly_holding_cost_from_screen=RemoveComma.of(temp_quote_summary_total_monthly_holding_cost);
@@ -150,14 +150,13 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 120);
-//		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 120);
 		
 		LO.print("Reading values from sceen -Quote Summary Page");
 		System.out.println("Reading values from sceen -Quote Summary Page");
 		
-//	    String quote_ref_no = quote_summary_ref_no.getText();
+	    String quote_ref_no = quote_summary_ref_no.getText();
 		String temp_quote_summary_cost_otr_price=quote_summary_cost_otr_price.getText().trim().substring(2);
 		String temp_quote_summary_total_monthly_holding_cost=quote_summary_total_monthly_holding_cost.getText().trim().substring(2);
 		String temp_quote_summary_monthly_finance_rental=quote_summary_monthly_finance_rental.getText().trim().substring(2);
@@ -191,8 +190,8 @@ public class QuoteSummaryOutrightHPRPage extends TestBase {
 		LO.print("Customer contract_type ="+customer_contract_type);
 		System.out.println("Customer contract_type ="+customer_contract_type);	
 		
-//		LO.print("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
-//		System.out.println("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
+	    LO.print("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
+     	System.out.println("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
 		
 		
 		String quote_summary_cost_otr_price_from_screen=RemoveComma.of(temp_quote_summary_cost_otr_price);

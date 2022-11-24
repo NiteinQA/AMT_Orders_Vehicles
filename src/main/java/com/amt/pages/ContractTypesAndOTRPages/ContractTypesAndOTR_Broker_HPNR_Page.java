@@ -93,8 +93,8 @@ public class ContractTypesAndOTR_Broker_HPNR_Page extends TestBase {
 	   
 	   Thread.sleep(5000);
 	   
-	   Actions act = new Actions(driver);
-	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+//	   Actions act = new Actions(driver);
+//	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 	    
 	    Click.on(driver, acq_contractTypes_customer_contract_HPNR , 50);
 	   

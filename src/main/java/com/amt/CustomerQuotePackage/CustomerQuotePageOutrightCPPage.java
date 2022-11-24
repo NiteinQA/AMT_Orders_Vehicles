@@ -19,6 +19,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.amt.testBase.TestBase;
@@ -152,11 +154,16 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
 		
 		Thread.sleep(15000);
 		 
-        Actions act = new Actions(driver);
+       Actions act = new Actions(driver);
         
-        act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
-        		,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+       act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
+       		,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
         
+		
+//		WebElement creditDropdown = driver.findElement(By.xpath("//*[@id='collapseFirst']/div/div/div[2]/div/div/div/ng-select/div/div/div[1]"));
+//		new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(creditDropdown));
+//		jse.executeScript("arguments[0].click();", creditDropdown);
+		
         Thread.sleep(3000);
         try {
 		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
@@ -254,8 +261,13 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
         Actions act = new Actions(driver);
         
         act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
-        		,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+        		,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
         
+//		WebElement creditDropdown = driver.findElement(By.xpath("//*[@id='collapseFirst']/div/div/div[2]/div/div/div/ng-select/div/div/div[1]"));
+//		new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(creditDropdown));
+//		jse = (JavascriptExecutor)driver;
+//		jse.executeScript("arguments[0].click();", creditDropdown);
+		
         Thread.sleep(3000);
         try {
 		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));

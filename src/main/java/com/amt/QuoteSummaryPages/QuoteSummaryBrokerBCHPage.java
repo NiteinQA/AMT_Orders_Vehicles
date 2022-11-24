@@ -29,7 +29,7 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 //	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-vehicle-details[1]/div[1]/div[1]/div[2]/div[1]/div[2]/app-vehicle-summery[1]/div[1]/div[1]/div[2]/div[2]/div[3]/span[2]")
 //	private WebElement quote_summary_ref_no;
 	
-	@FindBy(xpath = "//*[@class='right-fix vechile-summery']/div/div[2]/div[2]/div[3]/span[2]")
+	@FindBy(xpath = "//*[@class='right-fix vechile-summery']/div/div[2]/div[2]/div[4]/span[2]")
 	private WebElement quote_summary_ref_no;
 	
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingTwo']/div/div/div[4]/div/p/strong")
@@ -155,6 +155,8 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		
 		LO.print("Quote_summary_cost_otr_price ="+temp_quote_summary_cost_otr_price);
 		System.out.println("Quote_summary_cost_otr_price ="+temp_quote_summary_cost_otr_price);
+		
+		
 		
 		LO.print("Customer contract_type ="+customer_contract_type);
 		System.out.println("Customer contract_type ="+customer_contract_type);	
