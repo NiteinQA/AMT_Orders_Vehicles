@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -153,7 +154,9 @@ public class ContractTypesAndOTR_Outright_HPNR_Page extends TestBase {
 	
 	public boolean contractTypes_and_OTR_selection_outright_hpnr_vehicle_price_edited(String vehicleBasicPrice,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
-
+            
+		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		    
 			Click.on(driver, acq_contractTypes, 40);
 			
 			Thread.sleep(2000);
@@ -163,9 +166,9 @@ public class ContractTypesAndOTR_Outright_HPNR_Page extends TestBase {
 		   Thread.sleep(5000);
 		   
 		   act = new Actions(driver);
-		   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+//		   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 		    
-		   // Click.on(driver, acq_contractTypes_customer_contract_BCH , 50);
+		   Click.on(driver, acq_contractTypes_customer_contract_HPNR , 50);
 		   
 		   LO.print("Contract type option has been selected");
 		   

@@ -3,6 +3,7 @@ package com.amt.QuoteSummaryPages;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.Keys;
@@ -85,10 +86,11 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		
 		Click.on(driver, quote_summary, 90);		
 	
-		Thread.sleep(10000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-		Thread.sleep(20000);
+		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
@@ -132,10 +134,12 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(20000);
+		 Thread.sleep(5000);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 	
 		
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);

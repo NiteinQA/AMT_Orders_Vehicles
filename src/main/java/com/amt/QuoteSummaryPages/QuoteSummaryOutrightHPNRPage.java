@@ -180,11 +180,11 @@ public class QuoteSummaryOutrightHPNRPage extends TestBase {
 		LO.print("Quote_summary_monthly_finance_rental ="+temp_quote_summary_monthly_finance_rental);
 		System.out.println("Quote_summary_monthly_finance_rental ="+temp_quote_summary_monthly_finance_rental);
 		
-		LO.print("Quote_summary_monthly_finance_rental ="+temp_quote_summary_monthly_maintenance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental ="+temp_quote_summary_monthly_maintenance_rental);
+		LO.print("Quote_summary_monthly_maintenance_rental ="+temp_quote_summary_monthly_maintenance_rental);
+		System.out.println("Quote_summary_monthly_maintenance_rental ="+temp_quote_summary_monthly_maintenance_rental);
 		
-		LO.print("Quote_summary_monthly_finance_rental ="+temp_quote_summary_monthly_total_rental);
-		System.out.println("Quote_summary_monthly_finance_rental ="+temp_quote_summary_monthly_total_rental);
+		LO.print("Quote_summary_monthly_total_rental ="+temp_quote_summary_monthly_total_rental);
+		System.out.println("Quote_summary_monthly_total_rental ="+temp_quote_summary_monthly_total_rental);
 		
 		LO.print("Acquisition contract_type ="+acq_contract_type);
 		System.out.println("Acquisition contract_type ="+acq_contract_type);

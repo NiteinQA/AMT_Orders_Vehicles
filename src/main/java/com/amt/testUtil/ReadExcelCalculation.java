@@ -1404,8 +1404,13 @@ public class ReadExcelCalculation extends TestBase {
 		{
 		select.selectByIndex(i);
 		String dropdown_option=list_dropdown_options.get(i).getText();
-		if(i==1) {Click.sendKeys(driver, initial_payment_input_field, initial_payment_from_test_data, 40);
-		Actions act= new Actions(driver);
+		if(i==1) {
+			Click.on(driver, initial_payment_input_field, 20);
+		Actions act = new Actions(driver);
+		initial_payment_input_field.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		
+		Click.sendKeys(driver, initial_payment_input_field, initial_payment_from_test_data, 40);
+		 
 		act.sendKeys(Keys.TAB).build().perform();
 		Thread.sleep(5000);}
 		

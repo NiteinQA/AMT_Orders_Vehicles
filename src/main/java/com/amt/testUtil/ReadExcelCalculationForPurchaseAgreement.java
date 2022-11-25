@@ -369,7 +369,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Reading Subtotal After Discount from excel sheet -Started ");
 		
 	
-		double subtotal_after_discount_excel = GetExcelFormulaValue.get_formula_value(8, 4, sheet_name);
+		double subtotal_after_discount_excel = GetExcelFormulaValue.get_formula_value(8, 7, sheet_name);
 		 		 
 		 
 		System.out.println("subtotal_after_discount_excel = " + subtotal_after_discount_excel);
@@ -558,7 +558,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		LO.print("Reading On Road Price for invoice from excel has been Started");
 		System.out.println("Reading On Road Price for invoice from excel has been Started");
 
-		double on_the_road_price_for_invoice=GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
+		double on_the_road_price_for_invoice=GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
 		
 		LO.print("Reading On Road Price for invoice from excel has been completed");
 		System.out.println("Reading On Road Price for invoice from excel has been completed");

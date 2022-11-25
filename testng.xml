@@ -3,26 +3,17 @@
 <suite name="AMT Automation">
 
 
-	<test name="Acquisition_Quotes_Outright_PCH_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" />
-		</classes>
-	</test>
+
 	<test name="Acquisition_Quotes_Outright_PCP_without_maintenance_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_Outright_PCP_without_maintenance_Test" />
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_Outright_FL_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" />
-		</classes>
-	</test>
 
-	<test name="Acquisition_Quotes_Outright_HPR_without_maintenance_Test">
+	<test name="Acquisition_Quotes_Outright_HPR_without_maintenance_Normal_Save_Test">
 		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_HPR_without_maintenance_Test" />
+			<class name="com.amt.test.Acquisition_Quotes_Outright_HPR_without_maintenance_Normal_Save_Test" />
 		</classes>
 	</test>
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -196,27 +197,74 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		String dropdown_option=list.get(i).getText();	
 
 		
-		
-	    WebElement funder = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']"))));
-		
-	    Click.on(driver, funder, 10);
+		try {
+	      WebElement funder = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']"))));
+	      Click.on(driver, funder, 10);
+		}
+		catch(StaleElementReferenceException e)
+		{
+			   WebElement funder = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']"))));
+			    Click.on(driver, funder, 10);			
+		}
+	    
 	    
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ENTER).build().perform();
 
 		//LO.print("Customer quote option has been selected");
 		
-		Click.sendKeys(driver, quote_reference, quoteRef, 60);
+		try {
+		      WebElement quoteReference = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@id='quoteReferenceNo']"))));
+		      Click.on(driver, quoteReference, 10);
+			}
+			catch(StaleElementReferenceException e)
+			{
+				   WebElement quoteReference = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@id='quoteReferenceNo']"))));
+				    Click.on(driver, quoteReference, 10);			
+			}
+		
+		//Click.sendKeys(driver, quote_reference, quoteRef, 60);
+		
+		try {
+		      WebElement expiryDate = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@placeholder='dd/mm/yyyy']"))));
+		      Click.on(driver, expiryDate, 10);
+			}
+			catch(StaleElementReferenceException e)
+			{
+				   WebElement expiryDate = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@placeholder='dd/mm/yyyy']"))));
+				    Click.on(driver, expiryDate, 10);			
+			}
+		
 
-		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
-
-		Dropdown.select(driver, payment_profile_dropdown, i , 60);
+		//Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
+		
+		try {
+		      WebElement paymentProfoleDropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+		      Dropdown.select(driver, paymentProfoleDropdown, i , 60);
+			}
+			catch(StaleElementReferenceException e)
+			{
+				   WebElement paymentProfoleDropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+				   Dropdown.select(driver, paymentProfoleDropdown, i , 60); 
+			}
+		//Dropdown.select(driver, payment_profile_dropdown, i , 60);
 		
 		Thread.sleep(4000);
 				
 		int term_converted=Integer.parseInt(term);
+		
+		try {
+		      WebElement termPeriod = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@id='duration']"))));
+		      Dropdown.select(driver, termPeriod, i , 60);
+			}
+			catch(StaleElementReferenceException e)
+			{
+				   WebElement termPeriod = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@id='duration']"))));
+				   Dropdown.select(driver, termPeriod, i , 60); 
+			}	
+		
 
-		Click.sendKeysint(driver, term_period, (term_converted+i), 60);
+		//Click.sendKeysint(driver, term_period, (term_converted+i), 60);
 
 		Click.sendKeys(driver, miles_per_annum, milesperannum, 60);
 

@@ -20,7 +20,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_Outright_HPNR_with_maintenance_edited_Test extends TestBase {
 
 
 
@@ -35,7 +35,7 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 
 
 	@Test(priority = 1, dataProvider = "testData")
-	public void aquisition_quotes_user_flow_broker_hpnr_vehicle_price_edited_with_maintenance_test(String manufacturer, String model, 
+	public void aquisition_quotes_outright_HPNR_OTR_calculation_with_maintenance_test(String manufacturer, String model, 
 			String Vehicle_Basic_price, String  road_tax_for_first_year, String percentage_cap_residual_value, String percentage_cap_maint_value,
 			String residual_value_used, String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
 			String vehicle_profit ,String  maintenance_status,String matrix_credit_type, String security_deposit, 
@@ -52,12 +52,12 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 		obj_vehicle_selection_page.select_vehicle(manufacturer, model);
 		obj_options_accessories.options_And_Accessories_selection();
 		boolean subtotal_after_discount = obj_contract_types_and_OTR_page
-				.contractTypes_and_OTR_selection_outright_hpnr_vehicle_price_edited(Vehicle_Basic_price, sheet_name);
+				.contractTypes_and_OTR_selection_outright_HPNR_Ownbook_calculation(sheet_name);
 		Assert.assertTrue(subtotal_after_discount);
 
 	}
 	
-	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_hpnr_vehicle_price_edited_with_maintenance_test" })
+	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_outright_HPNR_OTR_calculation_with_maintenance_test" })
 
 	public void aquisition_quotes_outright_HPNR_after_discount_calculations_with_maintenance_test(String manufacturer, String model, 
 			String Vehicle_Basic_price, String  road_tax_for_first_year, String percentage_cap_residual_value, String percentage_cap_maint_value,
@@ -69,7 +69,7 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_HPNR_Page();
 
 		boolean otr_price_check = obj_contract_types_and_OTR_page
-				.verify_after_discount_calculations_contract_types_page_edited(road_tax_for_first_year, sheet_name);
+				.verify_after_discount_calculations_contract_types_page(sheet_name);
 		Assert.assertTrue(otr_price_check);
 
 
@@ -187,7 +187,7 @@ public class Acquisition_Quotes_Outright_HPNR_with_maintenance_Test extends Test
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("OutrightHPNRwithMaintenanceEdit");
+		Object[][] data = ReadExcelData.getTestData("OutrightHPNRwithMaintenance");
 		return data;
 	}
 
