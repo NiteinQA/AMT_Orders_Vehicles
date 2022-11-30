@@ -92,7 +92,6 @@ public class Acquisition_Quotes_Broker_PCH_without_maintenance_Test extends Test
 		}
 	
 	
-	
 	@DataProvider(name="testData")
 	public Object[][] getTestData() throws IOException {		
 		Object[][] data=ReadExcelData.getTestData("BrokerPCHwithoutMaintenance");
