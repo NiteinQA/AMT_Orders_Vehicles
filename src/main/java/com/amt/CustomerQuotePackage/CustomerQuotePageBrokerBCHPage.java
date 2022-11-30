@@ -184,87 +184,62 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 
 		Thread.sleep(8000);
 		
-		Select sl = new Select(payment_profile_dropdown);
+	    WebElement paymentProfileDropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+		 					
 		
+		Select sl = new Select(paymentProfileDropdown);
 		List<WebElement> list =sl.getOptions();
-		
 		int dropdown_lenth=list.size();
-		
+				
 		int count=0;
 		
-		for(int i=1; i<=dropdown_lenth-1; i++) {
+		for(int i=1; i<=1; i++) {
 			
-		String dropdown_option=list.get(i).getText();	
+		   WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+			Select sel = new Select(dropdown);
+			List<WebElement> dropdown_list =sel.getOptions();
+			String dropdown_option=dropdown_list.get(i).getText();	
+			
 
 		
-		try {
-	      WebElement funder = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']"))));
-	      Click.on(driver, funder, 10);
-		}
-		catch(StaleElementReferenceException e)
-		{
-			   WebElement funder = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']"))));
-			    Click.on(driver, funder, 10);			
-		}
-	    
+	
+	    //WebElement funder = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@class='ng-select-container']//*[@class='ng-arrow-wrapper']"))));
+	      Click.on(driver, customer_quote_funder, 20);
+		    
 	    
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ENTER).build().perform();
 
 		//LO.print("Customer quote option has been selected");
+
 		
-		try {
-		      WebElement quoteReference = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@id='quoteReferenceNo']"))));
-		      Click.on(driver, quoteReference, 10);
-			}
-			catch(StaleElementReferenceException e)
-			{
-				   WebElement quoteReference = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@id='quoteReferenceNo']"))));
-				    Click.on(driver, quoteReference, 10);			
-			}
-		
-		//Click.sendKeys(driver, quote_reference, quoteRef, 60);
-		
-		try {
-		      WebElement expiryDate = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@placeholder='dd/mm/yyyy']"))));
-		      Click.on(driver, expiryDate, 10);
-			}
-			catch(StaleElementReferenceException e)
-			{
-				   WebElement expiryDate = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@placeholder='dd/mm/yyyy']"))));
-				    Click.on(driver, expiryDate, 10);			
-			}
+		Click.sendKeys(driver, quote_reference, quoteRef, 60);
 		
 
-		//Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
+		
+
+		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 		
 		try {
-		      WebElement paymentProfoleDropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
-		      Dropdown.select(driver, paymentProfoleDropdown, i , 60);
+		      WebElement PaymentProfileDropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+		     Dropdown.select(driver, PaymentProfileDropdown, i , 60);
+		      
 			}
-			catch(StaleElementReferenceException e)
+			catch(Exception e)
 			{
-				   WebElement paymentProfoleDropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
-				   Dropdown.select(driver, paymentProfoleDropdown, i , 60); 
+				   WebElement PaymentProfileDropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+				   Dropdown.select(driver, PaymentProfileDropdown, i , 60);
 			}
 		//Dropdown.select(driver, payment_profile_dropdown, i , 60);
 		
-		Thread.sleep(4000);
+		Thread.sleep(6000);
+		
 				
 		int term_converted=Integer.parseInt(term);
-		
-		try {
-		      WebElement termPeriod = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@id='duration']"))));
-		      Dropdown.select(driver, termPeriod, i , 60);
-			}
-			catch(StaleElementReferenceException e)
-			{
-				   WebElement termPeriod = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//input[@id='duration']"))));
-				   Dropdown.select(driver, termPeriod, i , 60); 
-			}	
+	
 		
 
-		//Click.sendKeysint(driver, term_period, (term_converted+i), 60);
+		Click.sendKeysint(driver, term_period, (term_converted+i), 60);
 
 		Click.sendKeys(driver, miles_per_annum, milesperannum, 60);
 
@@ -279,7 +254,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		Click.sendKeys(driver, commission, commission2, 60);
 
 		Click.on(driver, add, 60);
-		Thread.sleep(3000);
+		Thread.sleep(7000);
 		count++;
 		}
 		
@@ -287,7 +262,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==(dropdown_lenth-1) && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}

@@ -22,6 +22,8 @@ public class Click extends TestBase {
 	{
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
 		
+		element.clear();
+		
 		element.sendKeys(values);
 	}
 	

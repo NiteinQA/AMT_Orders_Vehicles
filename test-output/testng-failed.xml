@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test">
+      <class name="com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_user_flow_broker_bch_OTR_calculation_with_maintenance_test"/>
-          <include name="aquisition_quotes_user_flow_broker_bch_funder_quote_addition_with_maintenance_test"/>
-          <include name="aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_user_flow_broker_bch_after_discount_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_user_flow_broker_pch_funder_quote_addition_without_maintenance_test"/>
+          <include name="aquisition_quotes_user_flow_broker_pch_after_discount_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_user_flow_broker_pch_quote_summary_values_verification_without_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.Acquisition_Quotes_Broker_BCH_with_maintenance_Test -->
+      </class> <!-- com.amt.test.Acquisition_Quotes_Broker_PCH_without_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

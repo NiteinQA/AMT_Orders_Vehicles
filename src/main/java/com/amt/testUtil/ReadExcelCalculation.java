@@ -748,13 +748,15 @@ public class ReadExcelCalculation extends TestBase {
 			WebElement document_fee, String document_fee_from_excel, String upsell,
 			WebElement customer_quote_monthly_finance_rental,  String maintenance_required,
 			String maintenance_margin, String initial_payment, String part_exchange_status, String target_rental,String sheet_name
-			) throws IOException {
+			) throws IOException, InterruptedException {
 		
 		LO.print("************Calculations for Customer Quote Page has been started***********" );
 		System.out.println("************Calculations for Customer Quote Page has been started***********" );
-				
+		
+		Thread.sleep(3000);
 		ExplicitWait.clickableElement(driver, customer_quote_payment_profile_dropdown, 30);
 		Select select=new Select(customer_quote_payment_profile_dropdown);
+		
 		select.selectByIndex(0);
 		
 		LO.print("Payment Profile Monthly in Advance option has been selected" );
@@ -763,11 +765,13 @@ public class ReadExcelCalculation extends TestBase {
 		List<WebElement> list_dropdown_options = select.getOptions();
 		String dropdown_option=list_dropdown_options.get(0).getText();
 		
+		Thread.sleep(3000);
 		
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
 		Click.on(driver, part_exchange_payment, 70);
 		LO.print("Clicked on Part Exchange panel" );
 		System.out.println("Clicked on Part Exchange panel" );
+	
 		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
 		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
 		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
@@ -963,7 +967,10 @@ public class ReadExcelCalculation extends TestBase {
 		{
 		select.selectByIndex(i);
 		String dropdown_option=list_dropdown_options.get(i).getText();
-		if(i==1) {Click.sendKeys(driver, initial_payment_input_field, initial_payment_from_test_data, 40);
+		if(i==1) {
+			Thread.sleep(4000);
+			Click.sendKeys(driver, initial_payment_input_field, initial_payment_from_test_data, 40);
+			
 		Actions act= new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 		Thread.sleep(5000);}

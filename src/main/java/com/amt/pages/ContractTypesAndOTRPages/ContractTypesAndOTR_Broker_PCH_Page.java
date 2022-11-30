@@ -96,7 +96,7 @@ public class ContractTypesAndOTR_Broker_PCH_Page extends TestBase {
 	   Thread.sleep(5000);
 	   
 	   act = new Actions(driver);
-	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+//	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 	    
 	    Click.on(driver, acq_contractTypes_customer_contract_PCH , 50);
 	   

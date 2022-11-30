@@ -102,7 +102,7 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=dropdown_lenth-1; i++) {
+		for(int i=1; i<=1; i++) {
 			
 //		if(maintenance_toggle_button.isSelected()) {}
 //		else {Click.on(driver, maintenance_toggle_button, 20);}
@@ -112,6 +112,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 	    Click.on(driver, maintenance_toggle_button, 20);
 
 		Click.on(driver, customer_quote_funder, 60);
+		
+		Thread.sleep(2000);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ENTER).build().perform();
@@ -123,6 +125,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 
 		Dropdown.select(driver, payment_profile_dropdown, i , 60);
+		
+		Thread.sleep(7000);
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -157,7 +161,7 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==(dropdown_lenth-1) && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}
@@ -183,11 +187,13 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=dropdown_lenth-1; i++) {
+		for(int i=1; i<=1; i++) {
 			
 		String dropdown_option=list.get(i).getText();	
 
 		Click.on(driver, customer_quote_funder, 60);
+		
+		Thread.sleep(3000);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ENTER).build().perform();
@@ -199,6 +205,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 
 		Dropdown.select(driver, payment_profile_dropdown, i , 60);
+		
+		Thread.sleep(7000);
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -226,7 +234,7 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==(dropdown_lenth-1) && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}

@@ -4,13 +4,31 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.util.CellAddress;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.internal.collections.ArrayIterator;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
@@ -19,21 +37,17 @@ import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
 
-public class ContractTypesAndOTR_Broker_FL_Page extends TestBase {
-	
+public class ContractTypesAndOTR_FL_BCH_Page extends TestBase {
+	ContractTypesAndOTR_FL_BCH_Page obj_contract_types_outright_bch_ownbook_calculation_page;
 	ReadExcelCalculation obj_read_excel_calculation_page;
-	
 	Actions act;
-	
+
 	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;
-	
-	@FindBy(xpath = "//p[contains(text(),'Broker')]")
-	private WebElement acq_contractTypes_option_broker;
-	
-	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/div[7]/div[1]/div[1]/div[3]/div[1]/button[1]")
-	private WebElement quote_alert;	
-	
+
+	@FindBy(xpath = "(//p[contains(text(),'Finance Lease')])[1]")
+	private WebElement acq_acq_contractTypes_FL;
+
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[2]")
 	private WebElement acq_contractTypes_calculation_table_basic_price;
 
@@ -42,10 +56,13 @@ public class ContractTypesAndOTR_Broker_FL_Page extends TestBase {
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[4]")
 	private WebElement acq_contractTypes_calculation_table_additional_discount;
-	
+
+	@FindBy(xpath = "(//p[contains(text(),'Business Contract Hire')])[2]")
+	private WebElement acq_contractTypes_customer_contract_BCH;
+
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[2]/div[1]/div[1]/div[2]")
 	private WebElement acq_contractTypes_subtotal_after_discounts;
-	
+
 	@FindBy(xpath = "//*[@id='otrBlock']/div[6]/div/p")
 	private WebElement acq_contractTypes_road_tax_first_year;
 	
@@ -60,13 +77,8 @@ public class ContractTypesAndOTR_Broker_FL_Page extends TestBase {
 
 	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[2]/div/div[7]/div/div[2]")
 	private WebElement acq_contractTypes_rebate;
+
 	
-//	@FindBy(xpath = "//*[@id=\"vehicleSummery\"]/div/div[2]/div[2]/div[5]/div/div[1]/p")
-//	private WebElement acq_contractTypes_OTR_price;
-	
-	@FindBy(xpath = "//div[@id='customerContractType.contractTypeId']//p[@class='text-center'][normalize-space()='Finance Lease']")
-	private WebElement acq_contractTypes_customer_contract_FL;
-   
 	@FindBy(xpath = "//p[@class='text-left text-muted pr-1']")
 	private WebElement acq_contractTypes_OTR_price;
 	  
@@ -79,44 +91,43 @@ public class ContractTypesAndOTR_Broker_FL_Page extends TestBase {
 	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[4]")
 	private WebElement acq_contractTypes_table_calculation_basic_options_price;
 	
-		
-	
-	public ContractTypesAndOTR_Broker_FL_Page() {
+
+	public ContractTypesAndOTR_FL_BCH_Page() {
 		PageFactory.initElements(driver, this);
 	}
 
-	
-	
-	
-	public boolean contractTypes_and_OTR_selection_broker_fl(String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
-
-		Click.on(driver, acq_contractTypes, 40);
-		
+	public boolean contractTypes_and_OTR_selection_FL_BCH_OTR_calculations(String sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
+		Click.on(driver, acq_contractTypes, 50);
 		Thread.sleep(2000);
+		Click.on(driver, acq_acq_contractTypes_FL, 50);
 
-	   Click.on(driver, acq_contractTypes_option_broker, 50);
-	   
-	   Thread.sleep(5000);
-	   
-	    act = new Actions(driver);
-//	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
-	    
-	    Click.on(driver, acq_contractTypes_customer_contract_FL , 50);
-	   
-	   LO.print("Contract type option has been selected");
-	   
-	   ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_vehicle_price, 30);
-	   acq_contractTypes_table_calculation_basic_vehicle_price.click();
-       
-	   acq_contractTypes_table_calculation_basic_vehicle_price.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Thread.sleep(4000);
 
-       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
-       String vehicle_price_copied =(String) clipboard.getData(DataFlavor.stringFlavor);      
-           
-       
-	   obj_read_excel_calculation_page =new ReadExcelCalculation();
-	   
-	   double subtotal_after_discount_excel= obj_read_excel_calculation_page.verify_table_calculations_contract_types_page(driver, vehicle_price_copied, acq_contractTypes_table_calculation_basic_paint_price,acq_contractTypes_table_calculation_basic_options_price, acq_contractTypes_calculation_table_discount, acq_contractTypes_calculation_table_additional_discount, sheet_name);   String subtotal_after_discount_actual = acq_contractTypes_subtotal_after_discounts.getText();
+		LO.print(" Acquisition Contract type option = Outright has been selected");
+		System.out.println("Contract type option = Outright has been selected");
+		
+		Click.on(driver, acq_contractTypes_customer_contract_BCH, 30);
+		
+		LO.print(" Customer Contract type option = Business Contract Hire(BCH) has been selected");		 
+		System.out.println(" Customer Contract type option = Business Contract Hire(BCH) has been selected");
+		
+			
+         
+		ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_vehicle_price, 30);
+		   acq_contractTypes_table_calculation_basic_vehicle_price.click();
+	       
+		   acq_contractTypes_table_calculation_basic_vehicle_price.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+
+	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
+	       String vehicle_price_copied =(String) clipboard.getData(DataFlavor.stringFlavor);      
+	           
+	       
+		   obj_read_excel_calculation_page =new ReadExcelCalculation();
+		   
+		   double subtotal_after_discount_excel= obj_read_excel_calculation_page.verify_table_calculations_contract_types_page(driver, vehicle_price_copied, acq_contractTypes_table_calculation_basic_paint_price,acq_contractTypes_table_calculation_basic_options_price, acq_contractTypes_calculation_table_discount, acq_contractTypes_calculation_table_additional_discount, sheet_name);	
+
+		String subtotal_after_discount_actual = acq_contractTypes_subtotal_after_discounts.getText();
 		
 		LO.print("Subtotal after discount actual value from screen ="+subtotal_after_discount_actual);		 
 		System.out.println("Subtotal after discount actual value from screen ="+subtotal_after_discount_actual);
@@ -125,35 +136,35 @@ public class ContractTypesAndOTR_Broker_FL_Page extends TestBase {
 		String str = subtotal_after_discount_actual.substring(2);
 		 
 		String subtotal_after_discount_actual_converted=RemoveComma.of(str);
-       
+        
 		
 		double subtotal_after_discount_actual_from_screen=Double.parseDouble(subtotal_after_discount_actual_converted);
 		boolean flag=false;
 		double diff=Difference.of_two_Double_Values(subtotal_after_discount_excel, subtotal_after_discount_actual_from_screen);
 		if(diff<0.2)
-         {
+          {
 	       flag =true;
-         }
+          }
 
 		return flag;
-		
 	}
 	
-	public boolean contractTypes_and_OTR_selection_broker_fl_vehicle_price_edited(String vehicleBasicPrice,
+	
+	public boolean contractTypes_and_OTR_selection_outright_bch_vehicle_price_edited(String vehicleBasicPrice,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 			Click.on(driver, acq_contractTypes, 40);
 			
 			Thread.sleep(2000);
 
-		   Click.on(driver, acq_contractTypes_option_broker, 50);
+			Click.on(driver, acq_acq_contractTypes_FL, 50);
 		   
 		   Thread.sleep(5000);
 		   
 		   act = new Actions(driver);
 		   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 		    
-		    Click.on(driver, acq_contractTypes_customer_contract_FL , 50);
+		   // Click.on(driver, acq_contractTypes_customer_contract_BCH , 50);
 		   
 		   LO.print("Contract type option has been selected");
 		   
@@ -211,6 +222,10 @@ public class ContractTypesAndOTR_Broker_FL_Page extends TestBase {
 		}
 		
 	
+	
+
+	
+
 	public boolean verify_after_discount_calculations_contract_types_page(String sheet_name) throws IOException {
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();		
@@ -224,6 +239,7 @@ public class ContractTypesAndOTR_Broker_FL_Page extends TestBase {
 				acq_contractTypes_rebate, acq_contractTypes_OTR_price, 
 				sheet_name);		
 	}
-	
+
+
 
 }

@@ -88,9 +88,7 @@ public class Acquisition_Quotes_Broker_BCH_without_maintenance_Test extends Test
 			
 			boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_broker_BCH_without_maintenance(sheet_name);
 			Assert.assertTrue(quote_summary_page_status);			
-		}
-	
-	
+		}	
 	
 	@DataProvider(name="testData")
 	public Object[][] getTestData() throws IOException {		

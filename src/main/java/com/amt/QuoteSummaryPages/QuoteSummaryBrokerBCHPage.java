@@ -86,11 +86,11 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		
 		Click.on(driver, quote_summary, 90);		
 	
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+		Thread.sleep(6000);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+		Thread.sleep(15000);		
 		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
@@ -134,13 +134,13 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
 		
-		 Thread.sleep(5000);
+		 Thread.sleep(7000);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
-	
+		 Thread.sleep(15000);
+			
 		
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);

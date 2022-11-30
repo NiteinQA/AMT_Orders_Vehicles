@@ -12,9 +12,9 @@ import com.amt.testUtil.Click;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
 
-public class CustomerQuotePageOutrightBCHPage extends TestBase {
+public class CustomerQuotePage_FL_BCHPage extends TestBase {
 	
-	CustomerQuotePageOutrightBCHPage obj_cust_quote_outright_bchPage;
+	CustomerQuotePage_FL_BCHPage obj_cust_quote_outright_bchPage;
 	ReadExcelCalculation obj_read_excel_calculation_page; 
 
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
@@ -67,39 +67,13 @@ public class CustomerQuotePageOutrightBCHPage extends TestBase {
 	private WebElement matrix_upsell_input_field;
 	
 
-	public CustomerQuotePageOutrightBCHPage() {
+	public CustomerQuotePage_FL_BCHPage() {
 		PageFactory.initElements(driver, this);
 	}
 
     
-	public boolean customer_Quote_outright_BCH_OTR_calculation() throws InterruptedException {
-
-		Click.on(driver, customer_quote, 50);
-		ExplicitWait.clickableElement(driver, save_button, 0);
-		Click.on(driver, save_button, 60);
-		
-		String page_title_after_save=driver.getTitle();
-		System.out.println(page_title_after_save);
-		return page_title_after_save.contains("Customer Quote");
-	}
-
-	public boolean verify_cutomer_quote_matrix_value() {
-		
-		Click.on(driver, customer_quote, 30);
-		ExplicitWait.visibleElement(driver, customer_quote_matrix_default_cell, 30);
-		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_reantal, 30);
-		String customer_quote_matrix_value=customer_quote_matrix_default_cell.getText();
-		String monthly_finance_rental=customer_quote_monthly_finance_reantal.getText();
-		boolean status =false;
-		if(customer_quote_matrix_value.equals(monthly_finance_rental))
-		{
-			status =true;
-		}
-		return status;
-	}
-
 	
-	public boolean customer_Quote_outright_BCH_for_one_payment_option_without_maintenance_calculation(String actual_part_exchange_value_from_excel,
+	public boolean customer_Quote_FL_BCH_for_one_payment_option_without_maintenance_calculation(String actual_part_exchange_value_from_excel,
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
@@ -118,14 +92,14 @@ public class CustomerQuotePageOutrightBCHPage extends TestBase {
 				maintenance_required, maintenance_margin , initial_payment, part_exchange_status, target_rental,sheet_name);
  		}
 
-	public boolean customer_Quote_outright_BCH_for_all_payment_option_without_maintenance_calculation(String initial_payment,String sheet_name) throws IOException, InterruptedException {
-			 
+	public boolean customer_Quote_FL_BCH_for_all_payment_option_without_maintenance_calculation(String initial_payment,String sheet_name) throws IOException, InterruptedException {
+		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		return obj_read_excel_calculation_page.
 		verify_customer_quote_calculations_for_all_payment_options_without_maintenance(driver, customer_quote_payment_profile_dropdown,
 				 customer_quote_monthly_finance_rental,initial_payment_input_field, initial_payment,sheet_name);
 }
 	
-	public boolean customer_Quote_outright_BCH_for_one_payment_option_without_maintenance_calculation_edited(String actual_part_exchange_value_from_excel,
+	public boolean customer_Quote_FL_BCH_for_one_payment_option_without_maintenance_calculation_edited(String actual_part_exchange_value_from_excel,
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
@@ -144,7 +118,7 @@ public class CustomerQuotePageOutrightBCHPage extends TestBase {
 				maintenance_required, maintenance_margin , initial_payment, part_exchange_status, target_rental,sheet_name);
  		}
 	
-	public boolean customer_Quote_outright_BCH_for_all_payment_option_without_maintenance_calculation_edited(String initial_payment,String sheet_name) throws IOException, InterruptedException {
+	public boolean customer_Quote_FL_BCH_for_all_payment_option_without_maintenance_calculation_edited(String initial_payment,String sheet_name) throws IOException, InterruptedException {
 		 
 		return obj_read_excel_calculation_page.
 		verify_customer_quote_calculations_for_all_payment_options_without_maintenance_edited(driver, customer_quote_payment_profile_dropdown,
@@ -152,7 +126,7 @@ public class CustomerQuotePageOutrightBCHPage extends TestBase {
 }
 	
 	
-	public boolean customer_Quote_outright_BCH_for_one_payment_option_with_maintenance_calculation(String actual_part_exchange_value_from_excel,
+	public boolean customer_Quote_FL_BCH_for_one_payment_option_with_maintenance_calculation(String actual_part_exchange_value_from_excel,
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
@@ -175,7 +149,7 @@ public class CustomerQuotePageOutrightBCHPage extends TestBase {
  		
 
 
-	public boolean customer_Quote_outright_BCH_for_all_payment_option_with_maintenance_calculation(String initial_payment,String sheet_name) throws IOException, InterruptedException {
+	public boolean customer_Quote_FL_BCH_for_all_payment_option_with_maintenance_calculation(String initial_payment,String sheet_name) throws IOException, InterruptedException {
 		
 		return obj_read_excel_calculation_page.
 				verify_customer_quote_calculations_for_all_payment_options_with_maintenance(driver, customer_quote_payment_profile_dropdown,  customer_quote_monthly_finance_rental, customer_quote_monthly_maintenance_rental,initial_payment_input_field,initial_payment, sheet_name);

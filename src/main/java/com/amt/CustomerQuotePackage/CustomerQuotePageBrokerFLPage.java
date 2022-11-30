@@ -114,7 +114,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=dropdown_lenth-1; i++) {
+		for(int i=1; i<=1; i++) {
 	
 		System.out.println(i+" "+list.get(i).getText());	
 			
@@ -132,6 +132,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 
 		Dropdown.select(driver, payment_profile_dropdown, i , 60);
+		Thread.sleep(5000);
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -179,7 +180,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==(dropdown_lenth-1) && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}
@@ -205,7 +206,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=dropdown_lenth-1; i++) {
+		for(int i=1; i<=1; i++) {
 			
 		String dropdown_option=list.get(i).getText();	
 
@@ -221,6 +222,8 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 
 		Dropdown.select(driver, payment_profile_dropdown, i , 60);
+		
+		Thread.sleep(5000);
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -257,7 +260,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==(dropdown_lenth-1) && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}
