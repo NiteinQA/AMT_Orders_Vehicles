@@ -90,7 +90,7 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 		
-		Thread.sleep(15000);		
+		Thread.sleep(35000);		
 		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
@@ -139,7 +139,7 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 		
-		 Thread.sleep(15000);
+		 Thread.sleep(35000);
 			
 		
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);

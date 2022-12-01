@@ -2,15 +2,22 @@ package com.amt.CustomerQuotePackage;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.time.Duration;
 import java.util.List;
+import java.util.function.Function;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
@@ -117,13 +124,13 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement save_button;
 	
-	@FindBy(xpath = "//span[@class='slider round']")
+	@FindBy(xpath = "//label[@for='maintenanceIncluded']//span[@class='slider round']")
 	private WebElement maintenance_toggle_button;
 	
 	@FindBy(xpath = "//*[contains(text(),' Customer quote summary ')]")
 	private WebElement customer_quote_summary;
 		
-	@FindBy(xpath = "//app-broker-cp-customer-quote-summary-detail/div/div[7]/div/p/strong")
+	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[3]/div/span")
 	private WebElement customer_quote_summary_balance_to_finance;
 	
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
@@ -204,9 +211,10 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		double on_road_price_for_invoice=GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 		
 		double diff=Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
-		
 
-		Click.on(driver, customer_quote_funder, 60);		 
+        Thread.sleep(25000);
+        
+    	Click.on(driver,customer_quote_funder, 60);		 
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ENTER).build().perform();
@@ -253,7 +261,7 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		
 		ExplicitWait.visibleElement(driver, part_exchange_profit, 30);
 		
-		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_profit.getText().trim().substring(2)));
+		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_value.getText().trim().substring(2)));
 				
 		
 		LO.print("Funder quote added successfully");
@@ -347,6 +355,8 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		
 		double diff=Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
 		
+		Thread.sleep(3000);
+		
         Click.on(driver, maintenance_toggle_button, 20);
         
 		Click.on(driver, customer_quote_funder, 60);		 
@@ -402,7 +412,7 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		
 		ExplicitWait.visibleElement(driver, part_exchange_profit, 30);
 		
-		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_profit.getText().trim().substring(2)));
+		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_value.getText().trim().substring(2)));
 				
 		
 		LO.print("Funder quote added successfully");
@@ -412,10 +422,15 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		
 		double balance_to_finance_expected =(otr_screen_price_converted-Double.parseDouble(cahDeposit)-part_exchange_profit_from_screen);
 		
+		System.out.println("balance_to_finance_expected "+balance_to_finance_expected);
+		
+				
 		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);		
 		
 		double balance_to_finance_actual = Double.parseDouble(RemoveComma.of(customer_quote_summary_balance_to_finance.getText().trim().substring(2)));	
 	    
+		System.out.println("balance_to_finance_actual "+balance_to_finance_actual);
+		
 		boolean balance_to_finance_status=false;
 		if((balance_to_finance_expected-balance_to_finance_actual)==0)
 		{balance_to_finance_status=true;LO.print("Balance to finance value from customer quote summary - verified");System.out.println("Balance to finance value from customer quote summary - verified");}

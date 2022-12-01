@@ -1,14 +1,18 @@
 package com.amt.CustomerQuotePackage;
 
 import java.sql.Date;
+import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
@@ -114,10 +118,9 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=1; i++) {
+		for(int i=1; i<=9; i++) {
 	
-		System.out.println(i+" "+list.get(i).getText());	
-			
+	 		
 	    Click.on(driver, maintenance_toggle_button, 50);
 
 		Click.on(driver, customer_quote_funder, 60);
@@ -131,8 +134,17 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 
-		Dropdown.select(driver, payment_profile_dropdown, i , 60);
-		Thread.sleep(5000);
+        try {
+			   WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+			   Dropdown.select(driver, dropdown, i , 60);
+			}
+        catch(Exception e)
+        {
+        	 WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+			  Dropdown.select(driver, dropdown, i , 60);
+        }
+        
+		Thread.sleep(15000);
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -180,7 +192,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==1 && save_button.isEnabled() )
+		if(count==9 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}
@@ -206,10 +218,9 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=1; i++) {
+		for(int i=1; i<=9; i++) {
 			
-		String dropdown_option=list.get(i).getText();	
-
+	
 		Click.on(driver, customer_quote_funder, 60);
 		
 		Actions act = new Actions(driver);
@@ -221,9 +232,17 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
 
-		Dropdown.select(driver, payment_profile_dropdown, i , 60);
+        try {
+			   WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+			   Dropdown.select(driver, dropdown, i , 60);
+			}
+        catch(Exception e)
+        {
+        	 WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+			  Dropdown.select(driver, dropdown, i , 60);
+        }
 		
-		Thread.sleep(5000);
+		Thread.sleep(15000);
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -252,7 +271,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		Click.sendKeys(driver, commission, commission2, 60);
 
 		Click.on(driver, add, 60);
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		count++;
 		}
 		
@@ -260,7 +279,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==1 && save_button.isEnabled() )
+		if(count==9 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}

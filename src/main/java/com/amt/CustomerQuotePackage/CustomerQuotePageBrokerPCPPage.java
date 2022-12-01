@@ -120,13 +120,13 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement save_button;
 	
-	@FindBy(xpath = "//span[@class='slider round']")
+	@FindBy(xpath = "//label[@for='maintenanceIncluded']//span[@class='slider round']")
 	private WebElement maintenance_toggle_button;
 	
 	@FindBy(xpath = "//*[contains(text(),' Customer quote summary ')]")
 	private WebElement customer_quote_summary;
 		
-	@FindBy(xpath = "//app-broker-hpr-customer-quote-summary-detail/div/div[7]/div/p/strong")
+	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[3]/div/span")
 	private WebElement customer_quote_summary_balance_to_finance;
 	
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
@@ -210,7 +210,8 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		
 		double diff=Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
 		
-
+        Thread.sleep(3000);
+        
 		Click.on(driver, customer_quote_funder, 60);		 
 		
 		Actions act = new Actions(driver);
@@ -260,7 +261,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		
 		ExplicitWait.visibleElement(driver, part_exchange_profit, 30);
 		
-		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_profit.getText().trim().substring(2)));
+		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_value.getText().trim().substring(2)));
 				
 		
 		LO.print("Funder quote added successfully");
@@ -353,8 +354,11 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		double on_road_price_for_invoice=GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 		
 		double diff=Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
+		Thread.sleep(4000);
 		
         Click.on(driver, maintenance_toggle_button, 20);
+        
+        Thread.sleep(2000);
         
 		Click.on(driver, customer_quote_funder, 60);		 
 		
@@ -409,7 +413,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		
 		ExplicitWait.visibleElement(driver, part_exchange_profit, 30);
 		
-		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_profit.getText().trim().substring(2)));
+		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_value.getText().trim().substring(2)));
 				
 		
 		LO.print("Funder quote added successfully");

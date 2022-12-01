@@ -104,8 +104,8 @@ public class ContractTypesAndOTR_FL_BCH_Page extends TestBase {
 
 		Thread.sleep(4000);
 
-		LO.print(" Acquisition Contract type option = Outright has been selected");
-		System.out.println("Contract type option = Outright has been selected");
+		LO.print(" Acquisition Contract type option = Finance Lease has been selected");
+		System.out.println("Contract type option = Finance Lease has been selected");
 		
 		Click.on(driver, acq_contractTypes_customer_contract_BCH, 30);
 		

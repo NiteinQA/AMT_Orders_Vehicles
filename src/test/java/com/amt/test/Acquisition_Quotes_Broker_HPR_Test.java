@@ -98,7 +98,7 @@ public class Acquisition_Quotes_Broker_HPR_Test extends TestBase {
 		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_hpr(vehicleProfit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit, financeCharges,noOfMonthlyPayments, monthlyFinancePayment, finalBallonPayment, optionToPurchaseFee, 
 			rflIncluded,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
-		//Assert.assertTrue(customer_quote_balance_to_finance_check);
+		Assert.assertTrue(customer_quote_balance_to_finance_check);
 		//this assertion is commented because this fails test as part exchange profit is not updated in runtime, when this will be solved then this assertion will be uncommented
 
 				

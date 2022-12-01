@@ -91,6 +91,9 @@ public class ContractTypesAndOTR_Broker_CP_Page extends TestBase {
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
 	   
+	   LO.print("Acquisition Contract type option selected = Broker ");
+	   System.out.println("Acquisition Contract type option selected = Broker ");
+	   
 	   Thread.sleep(5000);
 	   
 //	   Actions act = new Actions(driver);
@@ -98,7 +101,9 @@ public class ContractTypesAndOTR_Broker_CP_Page extends TestBase {
 	    
 	    Click.on(driver, acq_contractTypes_customer_contract_CP , 50);
 	   
-	   LO.print("Contract type option has been selected");
+		   
+	    LO.print("Customer Contract type option selected = Contract Purchase(CP)");
+		System.out.println("Customer Contract type option selected = Contract Purchase(CP)");
 	   
 	   ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_vehicle_price, 30);
 	   acq_contractTypes_table_calculation_basic_vehicle_price.click();

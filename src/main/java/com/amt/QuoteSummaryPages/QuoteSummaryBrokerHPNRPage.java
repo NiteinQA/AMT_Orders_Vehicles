@@ -29,7 +29,7 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 //	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-vehicle-details[1]/div[1]/div[1]/div[2]/div[1]/div[2]/app-vehicle-summery[1]/div[1]/div[1]/div[2]/div[2]/div[3]/span[2]")
 //	private WebElement quote_summary_ref_no;
 	
-	@FindBy(xpath = "//*[@class='right-fix vechile-summery']/div/div[2]/div[2]/div[3]/span[2]")
+	@FindBy(xpath = "//*[@class='right-fix vechile-summery']/div/div[2]/div[2]/div[4]/span[2]")
 	private WebElement quote_summary_ref_no;
 	
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingTwo']/div/div/div[4]/div/p/strong")
@@ -88,7 +88,7 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 		Thread.sleep(10000);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-		Thread.sleep(20000);
+		Thread.sleep(35000);
 		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
@@ -111,8 +111,8 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 		LO.print("Customer contract_type ="+customer_contract_type);
 		System.out.println("Customer contract_type ="+customer_contract_type);	
 		
-//		LO.print("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
-//		System.out.println("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
+		LO.print("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
+		System.out.println("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
 		
 		String quote_summary_cost_otr_price_from_screen=RemoveComma.of(temp_quote_summary_cost_otr_price);
 			

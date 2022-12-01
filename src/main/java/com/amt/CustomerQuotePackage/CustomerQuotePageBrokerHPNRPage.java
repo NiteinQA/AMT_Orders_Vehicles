@@ -127,7 +127,7 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 	private WebElement customer_quote_summary;
 		
 	                 
-	@FindBy(xpath = "//app-broker-hpnr-customer-quote-summary-detail/div/div[7]/div/p/strong")
+	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[3]/div/span")
 	private WebElement customer_quote_summary_balance_to_finance;
 	
 //	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
@@ -207,7 +207,7 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		
 		double diff=Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
 		
-
+        Thread.sleep(4000);
 		Click.on(driver, customer_quote_funder, 60);		 
 		
 		Actions act = new Actions(driver);

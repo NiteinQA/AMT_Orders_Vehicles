@@ -29,7 +29,7 @@ public class QuoteSummaryBrokerPCPPage extends TestBase {
 //	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-vehicle-details[1]/div[1]/div[1]/div[2]/div[1]/div[2]/app-vehicle-summery[1]/div[1]/div[1]/div[2]/div[2]/div[3]/span[2]")
 //	private WebElement quote_summary_ref_no;
 	
-	@FindBy(xpath = "//*[@class='right-fix vechile-summery']/div/div[2]/div[2]/div[3]/span[2]")
+	@FindBy(xpath = "//*[@class='right-fix vechile-summery']/div/div[2]/div[2]/div[4]/span[2]")
 	private WebElement quote_summary_ref_no;
 	
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingTwo']/div/div/div[4]/div/p/strong")
@@ -95,12 +95,13 @@ public class QuoteSummaryBrokerPCPPage extends TestBase {
 		
 		Click.on(driver, quote_summary, 90);		
 	
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
+		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+		
 		Thread.sleep(20000);
 		
-	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 30);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
 		
@@ -142,12 +143,12 @@ public class QuoteSummaryBrokerPCPPage extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(20000);
+		Thread.sleep(10000);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 	
-		
+		Thread.sleep(20000);
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 120);
@@ -187,7 +188,7 @@ public class QuoteSummaryBrokerPCPPage extends TestBase {
 public boolean quote_summary_broker_PCP_check_maintenance_values_displayed(String monthlyFinancePayment, String monthlyMaintenancePayment,String sheet_name) throws InterruptedException, IOException {
 		
 		 
-			 		
+	    Thread.sleep(5000);	 		
 	    ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_payment, 120);
 	    ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_payment, 120);
 	    ExplicitWait.visibleElement(driver, quote_summary_total_monthly_payment, 120);		

@@ -193,7 +193,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 				
 		int count=0;
 		
-		for(int i=1; i<=1; i++) {
+		for(int i=1; i<=dropdown_lenth-1; i++) {
 			
 		   WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
 			Select sel = new Select(dropdown);
@@ -254,7 +254,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		Click.sendKeys(driver, commission, commission2, 60);
 
 		Click.on(driver, add, 60);
-		Thread.sleep(7000);
+		Thread.sleep(12000);
 		count++;
 		}
 		
@@ -262,7 +262,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==1 && save_button.isEnabled() )
+		if(count==dropdown_lenth-1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}

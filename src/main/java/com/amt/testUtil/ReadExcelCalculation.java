@@ -969,7 +969,9 @@ public class ReadExcelCalculation extends TestBase {
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
 			Thread.sleep(4000);
-			Click.sendKeys(driver, initial_payment_input_field, initial_payment_from_test_data, 40);
+			Click.on(driver, initial_payment_input_field, 40);
+			initial_payment_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+			Click.sendKeys(driver, initial_payment_input_field, initial_payment_from_test_data, 20);
 			
 		Actions act= new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
@@ -981,7 +983,9 @@ public class ReadExcelCalculation extends TestBase {
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
 		
-		//System.out.println("Monthly finance rental actual "+monthly_finance_rental_actual);
+		System.out.println("dropdown option "+dropdown_option);
+		
+		System.out.println("Monthly finance rental actual "+monthly_finance_rental_actual);
 
 		double monthly_finance_rental_actual_converted =Double.parseDouble(monthly_finance_rental_actual);
        
@@ -993,10 +997,12 @@ public class ReadExcelCalculation extends TestBase {
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);	
 			
-		double monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(90, 1, sheet_name);
+		double monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+		
+		System.out.println("Monthly finance rental expected "+monthly_finance_rental_expected);
 			
 		double diff=Difference.of_two_Double_Values(monthly_finance_rental_actual_converted, monthly_finance_rental_expected);
-		//System.out.println(diff);
+		System.out.println("Difference is" +diff);
 		if(diff<0.2)
         {	count++;	}
 		if(count==dropdown_options_number)
@@ -1075,11 +1081,11 @@ public class ReadExcelCalculation extends TestBase {
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
 		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 			
 		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
 			
-		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 		
 		LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");
@@ -1423,7 +1429,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
-		
+		Thread.sleep(2000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
@@ -1431,6 +1437,7 @@ public class ReadExcelCalculation extends TestBase {
 		double monthly_finance_rental_actual_converted =Double.parseDouble(monthly_finance_rental_actual);
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
+		Thread.sleep(2000);
 		String monthly_maintenance_rental =   customer_quote_monthly_maintenance_rental.getText().substring(2);
 		
 		String monthly_maintenance_rental_actual=RemoveComma.of(monthly_maintenance_rental);
@@ -1482,11 +1489,11 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Reading values from excel sheet to compare it with quote summary on screen values");
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
-		double otr_price_expected = GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
+		double otr_price_expected = GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 		double total_monthly_holding_cost_expected = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
-		double finance_rental_expected = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
-		double maintenance_rental_expected = GetExcelFormulaValue.get_formula_value(93, 1, sheet_name);
-		double total_rental_expected = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);	
+		double finance_rental_expected = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+		double maintenance_rental_expected = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
+		double total_rental_expected = GetExcelFormulaValue.get_formula_value(90, 1, sheet_name);	
 		
 		LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");
