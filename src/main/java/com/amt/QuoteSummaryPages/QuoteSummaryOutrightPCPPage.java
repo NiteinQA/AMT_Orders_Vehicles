@@ -15,13 +15,14 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
+import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
 
 public class QuoteSummaryOutrightPCPPage extends TestBase {
 	
 	
 	
-	ReadExcelCalculation obj_read_excel_calculation_page; 
+	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page; 
 
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
@@ -32,8 +33,14 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 	@FindBy(xpath = "//*[@id='headingTwo']//div[4]/div/p/strong")
 	private WebElement quote_summary_cost_otr_price;	
 	
+//	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[8]/div/div/p/strong")
+//	private WebElement quote_summary_total_monthly_holding_cost;
+	
 	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[8]/div/div/p/strong")
-	private WebElement quote_summary_total_monthly_holding_cost;
+	private WebElement quote_summary_total_monthly_holding_cost_with_maintenance;
+	
+	@FindBy(xpath = "//div[@id='headingHoldingCost']//div[7]//div[1]//div[1]//p[1]//strong[1]")
+	private WebElement quote_summary_total_monthly_holding_cost_without_maintenance;
 	
 
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']//div[4]/div/p/strong")
@@ -53,8 +60,7 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[1]/div/p/strong")
 	private WebElement quote_summary_customer_contract_type;
 	
-	@FindBy(xpath = "//div[@id='headingHoldingCost']//div[7]//div[1]//div[1]//p[1]//strong[1]")
-	private WebElement quote_summary_total_monthly_holding_cost_without_maintenance;
+
 	
 	
 	public QuoteSummaryOutrightPCPPage() {
@@ -65,7 +71,7 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 		
 		
 		
-		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		Click.on(driver, quote_summary, 60);
 		
 		LO.print("*************Calculations for Quote Summary page gas been started************");
@@ -135,10 +141,10 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 		LO.print("*************Calculations for Quote Summary page gas been started************");
 		System.out.println("*************Calculations for Quote Summary page gas been started************");
 		
-		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(20000);
+		Thread.sleep(35000);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
@@ -146,7 +152,7 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 120);
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_with_maintenance, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 120);
@@ -157,7 +163,7 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 		
 	    String quote_ref_no = quote_summary_ref_no.getText();
 		String temp_quote_summary_cost_otr_price=quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost=quote_summary_total_monthly_holding_cost.getText().trim().substring(2);
+		String temp_quote_summary_total_monthly_holding_cost=quote_summary_total_monthly_holding_cost_with_maintenance.getText().trim().substring(2);
 		String temp_quote_summary_monthly_finance_rental=quote_summary_monthly_finance_rental.getText().trim().substring(2);
 		String temp_quote_summary_monthly_maintenance_rental=quote_summary_monthly_maintenance_rental.getText().trim().substring(2);
 		String temp_quote_summary_monthly_total_rental=quote_summary_monthly_total_rental.getText().trim().substring(2);

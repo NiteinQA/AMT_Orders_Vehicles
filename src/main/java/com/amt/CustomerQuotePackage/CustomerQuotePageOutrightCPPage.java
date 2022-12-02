@@ -152,7 +152,7 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		 
        Actions act = new Actions(driver);
         
@@ -256,7 +256,7 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		 
         Actions act = new Actions(driver);
         

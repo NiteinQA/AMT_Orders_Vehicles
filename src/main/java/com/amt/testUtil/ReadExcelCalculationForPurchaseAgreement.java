@@ -1014,11 +1014,11 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
 		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
 			
 		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
 			
-		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(126, 0, sheet_name);
+		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
 		
 		LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");
@@ -1416,11 +1416,11 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		LO.print("Reading values from excel sheet to compare it with quote summary on screen values");
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
-		double otr_price_expected = GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
+		double otr_price_expected = GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
 		double total_monthly_holding_cost_expected = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
-		double finance_rental_expected = GetExcelFormulaValue.get_formula_value(126, 0, sheet_name);
-		double maintenance_rental_expected = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
-		double total_rental_expected = GetExcelFormulaValue.get_formula_value(126, 3, sheet_name);	
+		double finance_rental_expected = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+		double maintenance_rental_expected = GetExcelFormulaValue.get_formula_value(93, 1, sheet_name);
+		double total_rental_expected = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);	
 		
 		LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");
