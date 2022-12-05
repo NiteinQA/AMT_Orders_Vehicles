@@ -22,7 +22,7 @@ import com.amt.testUtil.Click;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
 
-public class HoldingCostOutrightFLPage extends TestBase {
+public class HoldingCost_HPNR_FL_Page extends TestBase {
 	ReadExcelCalculation obj_read_excel_calculation_page;
 		
 	
@@ -72,7 +72,7 @@ public class HoldingCostOutrightFLPage extends TestBase {
 	private WebElement total_cap_maintenance_value;
 	
 	
-	public HoldingCostOutrightFLPage() {
+	public HoldingCost_HPNR_FL_Page() {
 		PageFactory.initElements(driver, this);
 	}
 	

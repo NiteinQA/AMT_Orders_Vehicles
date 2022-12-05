@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.Acquisition_Quotes_HPNR_PCH_with_maintenance_Test">
+      <class name="com.amt.test.Acquisition_Quotes_HPNR_HPNR_with_maintenance_Normal_Save_Test">
         <methods>
-          <include name="aquisition_quotes_HPNR_PCH_holding_cost_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCH_quote_summary_values_verification_with_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCH_after_discount_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCH_customer_quote_payment_profile_calculations_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_HPNR_PCH_OTR_calculation_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_after_discount_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_OTR_calculation_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_holding_cost_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_with_maintenance_test" invocation-numbers="0"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.Acquisition_Quotes_HPNR_PCH_with_maintenance_Test -->
+      </class> <!-- com.amt.test.Acquisition_Quotes_HPNR_HPNR_with_maintenance_Normal_Save_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

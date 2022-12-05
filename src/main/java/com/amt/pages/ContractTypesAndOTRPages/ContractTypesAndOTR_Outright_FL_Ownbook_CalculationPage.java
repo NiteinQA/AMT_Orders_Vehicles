@@ -102,7 +102,7 @@ public class ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage extends Tes
 		
 
 		LO.print(" Acquisition Contract type option = Outright has been selected");
-		System.out.println("Contract type option = Outright has been selected");
+		System.out.println("Acquisition Contract type option = Outright has been selected");
 		
 		Thread.sleep(3000);
 
@@ -110,7 +110,7 @@ public class ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage extends Tes
 		Click.on(driver, acq_contractTypes_customer_contract_FL, 50);
 		
 		LO.print(" Customer Contract type option = Finance Lease(FL) has been selected");		 
-		System.out.println(" Customer Contract type option = Finance Lease(FL) has been selected");
+		System.out.println("Customer Contract type option = Finance Lease(FL) has been selected");
 
 		ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_vehicle_price, 30);
 		   acq_contractTypes_table_calculation_basic_vehicle_price.click();

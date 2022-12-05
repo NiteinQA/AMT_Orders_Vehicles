@@ -28,7 +28,7 @@ public class Acquisition_Quotes_HPNR_PCH_with_maintenance_Test extends TestBase 
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_HPNR_PCH_Page obj_contract_types_and_OTR_page;
-	HoldingCost_HPNR_PCHPage obj_holding_cost_HPNR_PCH_page;
+	HoldingCost_HPNR_PCHPage obj_holding_cost_page;
 	CustomerQuotePage_HPNR_PCHPage obj_customer_quote_page;
 	QuoteSummary_HPNR_PCHPage obj_quote_summary_page;
 
@@ -90,10 +90,10 @@ public class Acquisition_Quotes_HPNR_PCH_with_maintenance_Test extends TestBase 
 			String part_exchange_status, String target_rental,String sheet_name ) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 
-		obj_holding_cost_HPNR_PCH_page = new HoldingCost_HPNR_PCHPage();
+		obj_holding_cost_page = new HoldingCost_HPNR_PCHPage();
 		
 
-		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_HPNR_PCH_page
+		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page
 				.verify_holding_cost_with_maintenance(percentage_cap_maintenance_cost_used,residual_value_used,
 				                                      main_cost_used, percentage_cap_residual_value_used, maintenance_required,target_rental,sheet_name);
 		Assert.assertTrue(holding_cost_with_maintenance_boolean);

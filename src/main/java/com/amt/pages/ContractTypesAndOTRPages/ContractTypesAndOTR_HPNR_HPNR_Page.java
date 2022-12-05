@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -38,16 +39,16 @@ import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
 
-public class ContractTypesAndOTR_Outright_PCP_Page extends TestBase {
-	ContractTypesAndOTR_Outright_PCP_Page obj_contract_types_outright_bch_ownbook_calculation_page;
+public class ContractTypesAndOTR_HPNR_HPNR_Page extends TestBase {
+	ContractTypesAndOTR_HPNR_HPNR_Page obj_contract_types_outright_bch_ownbook_calculation_page;
 	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
 	Actions act;
 
 	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;
 
-	@FindBy(xpath = "(//p[contains(text(),'Outright Purchase')])[1]")
-	private WebElement acq_acq_contractTypes_outright;
+	@FindBy(xpath = "(//p[contains(text(),' Hire Purchase Non-Regulated')])[1]")
+	private WebElement acq_acq_contractTypes_HPNR;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[2]")
 	private WebElement acq_contractTypes_calculation_table_basic_price;
@@ -58,10 +59,8 @@ public class ContractTypesAndOTR_Outright_PCP_Page extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[4]")
 	private WebElement acq_contractTypes_calculation_table_additional_discount;
 
-	@FindBy(xpath = "//p[contains(text(),'Personal Contract Purchase')]")
-	private WebElement acq_contractTypes_customer_contract_PCP;
-	
-	
+	@FindBy(xpath = "(//p[contains(text(),'Hire Purchase Non-Regulated')])[2]")
+	private WebElement acq_contractTypes_customer_contract_HPNR;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[2]/div[1]/div[1]/div[2]")
 	private WebElement acq_contractTypes_subtotal_after_discounts;
@@ -95,25 +94,25 @@ public class ContractTypesAndOTR_Outright_PCP_Page extends TestBase {
 	private WebElement acq_contractTypes_table_calculation_basic_options_price;
 	
 
-	public ContractTypesAndOTR_Outright_PCP_Page() {
+	public ContractTypesAndOTR_HPNR_HPNR_Page() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean contractTypes_and_OTR_selection_outright_PCP_Ownbook_calculation(String sheet_name)
+	public boolean contractTypes_and_OTR_selection_HPNR_HPNR_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
 		Thread.sleep(2000);
-		Click.on(driver, acq_acq_contractTypes_outright, 50);
+		Click.on(driver, acq_acq_contractTypes_HPNR, 50);
 
 		Thread.sleep(4000);
 
-		LO.print(" Acquisition Contract type option = Outright has been selected");
-		System.out.println("Acquisition Contract type option = Outright has been selected");
+		LO.print(" Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected");
+		System.out.println("Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected");
 		
-		Click.on(driver, acq_contractTypes_customer_contract_PCP, 30);
+		Click.on(driver, acq_contractTypes_customer_contract_HPNR, 30);
 		
-		LO.print(" Customer Contract type option = Personal Contract Purchase (PCP) has been selected");		 
-		System.out.println(" Customer Contract type option =Personal Contract Purchase (PCP) has been selected");
+		LO.print(" Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected");		 
+		System.out.println(" Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected");
 		
 			
          
@@ -153,21 +152,23 @@ public class ContractTypesAndOTR_Outright_PCP_Page extends TestBase {
 	}
 	
 	
-	public boolean contractTypes_and_OTR_selection_outright_cp_vehicle_price_edited(String vehicleBasicPrice,
+	public boolean contractTypes_and_OTR_selection_hpnr_hpnr_vehicle_price_edited(String vehicleBasicPrice,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
-
+            
+		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		    
 			Click.on(driver, acq_contractTypes, 40);
 			
 			Thread.sleep(2000);
 
-			Click.on(driver, acq_acq_contractTypes_outright, 50);
+			Click.on(driver, acq_acq_contractTypes_HPNR, 50);
 		   
 		   Thread.sleep(5000);
 		   
 		   act = new Actions(driver);
-		   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+//		   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 		    
-		   // Click.on(driver, acq_contractTypes_customer_contract_BCH , 50);
+		   Click.on(driver, acq_contractTypes_customer_contract_HPNR , 50);
 		   
 		   LO.print("Contract type option has been selected");
 		   

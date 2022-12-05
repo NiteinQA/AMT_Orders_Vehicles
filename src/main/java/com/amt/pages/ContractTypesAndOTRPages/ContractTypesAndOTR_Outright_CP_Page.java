@@ -108,7 +108,7 @@ public class ContractTypesAndOTR_Outright_CP_Page extends TestBase {
 		Thread.sleep(4000);
 
 		LO.print(" Acquisition Contract type option = Outright has been selected");
-		System.out.println("Contract type option = Outright has been selected");
+		System.out.println("Acquisition Contract type option = Outright has been selected");
 		
 		Click.on(driver, acq_contractTypes_customer_contract_CP, 30);
 		

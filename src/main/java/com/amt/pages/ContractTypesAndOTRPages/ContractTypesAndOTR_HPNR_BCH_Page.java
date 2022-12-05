@@ -105,7 +105,7 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		Thread.sleep(4000);
 
 		LO.print(" Acquisition Contract type option = HPNR has been selected");
-		System.out.println("Contract type option = HPNR has been selected");
+		System.out.println("Acquisition Contract type option = HPNR has been selected");
 		
 		Click.on(driver, acq_contractTypes_customer_contract_BCH, 30);
 		

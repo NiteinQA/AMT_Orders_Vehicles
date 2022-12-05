@@ -105,7 +105,7 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 		Thread.sleep(4000);
 
 		LO.print(" Acquisition Contract type option = Outright has been selected");
-		System.out.println("Contract type option = Outright has been selected");
+		System.out.println("Acquisition Contract type option = Outright has been selected");
 		
 		Click.on(driver, acq_contractTypes_customer_contract_BCH, 30);
 		
