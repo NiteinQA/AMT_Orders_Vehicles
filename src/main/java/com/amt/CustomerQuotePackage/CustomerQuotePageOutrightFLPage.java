@@ -106,7 +106,7 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_outright_purchase_finance_lease(sheet_name);
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_finance_lease(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_without_maintenance(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,
 				actual_part_exchange_value,actual_part_exchange_value_from_excel,
@@ -132,11 +132,11 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
 		Click.on(driver, customer_quote_maintenance_toggle_button, 40);
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_outright_purchase_finance_lease(sheet_name);
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_finance_lease(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_with_maintenance(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,
 				actual_part_exchange_value,actual_part_exchange_value_from_excel,

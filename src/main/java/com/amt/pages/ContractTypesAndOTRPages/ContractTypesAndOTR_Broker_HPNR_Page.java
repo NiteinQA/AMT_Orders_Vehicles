@@ -91,14 +91,20 @@ public class ContractTypesAndOTR_Broker_HPNR_Page extends TestBase {
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
 	   
+	   LO.print("Acquisition Contract type option selected = Broker ");
+	   System.out.println("Acquisition Contract type option selected = Broker ");
+	   
 	   Thread.sleep(5000);
 	   
 //	   Actions act = new Actions(driver);
 //	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 	    
 	    Click.on(driver, acq_contractTypes_customer_contract_HPNR , 50);
+	    
+	    LO.print("Customer Contract type option selected =  Hire Purchase Non Regulated(HPNR)");
+	  		System.out.println("Customer Contract type option selected = Hire Purchase Non Regulated(HPNR)");
 	   
-	   LO.print("Contract type option has been selected");
+	  
 	   
 	   ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_vehicle_price, 30);
 	   acq_contractTypes_table_calculation_basic_vehicle_price.click();

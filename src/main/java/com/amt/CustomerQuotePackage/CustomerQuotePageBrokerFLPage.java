@@ -108,17 +108,10 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 
 		Thread.sleep(8000);
 		
-		Select sl = new Select(payment_profile_dropdown);
-		
-		List<WebElement> list =sl.getOptions();
-		
-		int dropdown_lenth=list.size();
-		
-		System.out.println("dropdown_lenth"+dropdown_lenth);
 		
 		int count=0;
 		
-		for(int i=1; i<=9; i++) {
+		for(int i=1; i<=1; i++) {
 	
 	 		
 	    Click.on(driver, maintenance_toggle_button, 50);
@@ -128,7 +121,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ENTER).build().perform();
 
-		//LO.print("Customer quote option has been selected");
+		 
 		
 		Click.sendKeys(driver, quote_reference, quoteRef, 60);
 
@@ -192,7 +185,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==9 && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}
@@ -218,7 +211,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=9; i++) {
+		for(int i=1; i<=1; i++) {
 			
 	
 		Click.on(driver, customer_quote_funder, 60);
@@ -279,7 +272,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==9 && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}

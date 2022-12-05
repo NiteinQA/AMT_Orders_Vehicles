@@ -132,7 +132,7 @@ public class CustomerQuotePageOutrightPCHPage extends TestBase {
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
 		Click.on(driver, customer_quote_maintenance_toggle_button, 40);

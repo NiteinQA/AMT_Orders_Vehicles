@@ -84,8 +84,17 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		Thread.sleep(4000);
+		
+		Thread.sleep(7000);
+		
+		try {
 		Click.on(driver, holding_cost_summary, 30);
+		}
+		catch(Exception e)
+		{
+			Thread.sleep(4000);
+			Click.on(driver, holding_cost_summary, 30);			
+		}
 		
 		Thread.sleep(3000);
 		
@@ -104,8 +113,15 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		 Thread.sleep(4000);
-		Click.on(driver, holding_cost_summary, 30);
+		 Thread.sleep(7000);
+			try {
+				Click.on(driver, holding_cost_summary, 30);
+				}
+				catch(Exception e)
+				{
+					Thread.sleep(4000);
+					Click.on(driver, holding_cost_summary, 30);			
+				}
 		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
@@ -140,8 +156,15 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 		
 		  LO.print("***********Entered in holding cost page ***********");
 		  System.out.println("***********Entered in holding cost page ***********");
-		  Thread.sleep(4000);
-		Click.on(driver, holding_cost_summary, 30);
+		  Thread.sleep(7000);
+			try {
+				Click.on(driver, holding_cost_summary, 30);
+				}
+				catch(Exception e)
+				{
+					Thread.sleep(4000);
+					Click.on(driver, holding_cost_summary, 30);			
+				}
 		Thread.sleep(3000);
 		  LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");

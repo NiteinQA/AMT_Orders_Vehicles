@@ -98,7 +98,7 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=9; i++) {
+		for(int i=1; i<=1; i++) {
 						
 	
 		Thread.sleep(3000);
@@ -165,7 +165,7 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==9 && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}
@@ -191,7 +191,7 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		
 		int count=0;
 		
-		for(int i=1; i<=9; i++) {
+		for(int i=1; i<=1; i++) {
 			
 				
 		Thread.sleep(3000);
@@ -248,7 +248,7 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		LO.print("Funder quote added successfully");
 	 
 		boolean flag=false;
-		if(count==9 && save_button.isEnabled() )
+		if(count==1 && save_button.isEnabled() )
 		{
 			flag=true;	
 		}

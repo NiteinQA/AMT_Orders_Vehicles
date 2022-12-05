@@ -45,9 +45,15 @@ public class AcquisitionListingPage extends TestBase {
 			Click.on(driver, aquisition_quotes_button, 50);
 			
 			 Thread.sleep(5000);
-			
+			try {
 			Click.on(driver, new_quote_button, 50);		
-
+			}
+			catch(Exception e)
+			{
+				Thread.sleep(5000);
+				Click.on(driver, new_quote_button, 50);	
+				
+			}
 			LO.print("Clicked on Quote button ");
 		}
 		

@@ -711,7 +711,7 @@ public class ReadExcelCalculation extends TestBase {
 		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
 	}
 	
-	public void set_global_variables_to_excel_for_outright_purchase_finance_lease(String sheet_name) throws IOException {
+	public void set_global_variables_to_excel_for_finance_lease(String sheet_name) throws IOException {
 		//write / take global variables and set to excel sheet for calculation
 		 
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
@@ -966,6 +966,7 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
+		Thread.sleep(4000);
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
 			Thread.sleep(4000);
@@ -1289,7 +1290,7 @@ public class ReadExcelCalculation extends TestBase {
 			WebElement document_fee, String document_fee_from_excel, String upsell,
 			WebElement customer_quote_monthly_finance_rental,  WebElement customer_quote_monthly_maintenance_rental, String maintenance_required,
 			String maintenance_margin, String initial_payment, String part_exchange_status, String target_rental,String sheet_name
-			) throws IOException {
+			) throws IOException, InterruptedException {
 		
 		LO.print("************Calculations for Customer Quote Page has been started***********" );
 		System.out.println("************Calculations for Customer Quote Page has been started***********" );		
@@ -1373,6 +1374,7 @@ public class ReadExcelCalculation extends TestBase {
 		
         
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		Thread.sleep(2000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
@@ -1380,6 +1382,7 @@ public class ReadExcelCalculation extends TestBase {
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 60);
+		Thread.sleep(2000);
 		String monthly_maintenance_rental =   customer_quote_monthly_maintenance_rental.getText().substring(2);
 		
 		String monthly_maintenance_rental_actual=RemoveComma.of(monthly_maintenance_rental);
@@ -1417,9 +1420,10 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
+		Thread.sleep(3000);
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
-			Click.on(driver, initial_payment_input_field, 20);
+		Click.on(driver, initial_payment_input_field, 20);
 		Actions act = new Actions(driver);
 		initial_payment_input_field.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
 		
@@ -1430,7 +1434,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
@@ -1438,7 +1442,7 @@ public class ReadExcelCalculation extends TestBase {
 		double monthly_finance_rental_actual_converted =Double.parseDouble(monthly_finance_rental_actual);
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		String monthly_maintenance_rental =   customer_quote_monthly_maintenance_rental.getText().substring(2);
 		
 		String monthly_maintenance_rental_actual=RemoveComma.of(monthly_maintenance_rental);
