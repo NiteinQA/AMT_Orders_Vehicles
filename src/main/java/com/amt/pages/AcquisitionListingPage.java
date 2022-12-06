@@ -3,12 +3,18 @@ package com.amt.pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
+import com.amt.testUtil.ExplicitWait;
+
+import net.bytebuddy.agent.builder.AgentBuilder.RedefinitionStrategy.DiscoveryStrategy.Explicit;
 
 public class AcquisitionListingPage extends TestBase {
 
@@ -45,16 +51,16 @@ public class AcquisitionListingPage extends TestBase {
 			Click.on(driver, aquisition_quotes_button, 50);
 			
 			 Thread.sleep(5000);
-			try {
+			
 			Click.on(driver, new_quote_button, 50);		
-			}
-			catch(Exception e)
-			{
-				Thread.sleep(5000);
-				Click.on(driver, new_quote_button, 50);	
-				
-			}
+			
+			 
+			WebElement advance_search =driver.findElement(By.xpath("//*[@id='divVehicleSummary']/div/div/div/div[2]/div/div[1]/div/div[3]/div/div[2]/button")); 
+			ExplicitWait.clickableElement(driver, advance_search, 30);
+			
+			
 			LO.print("Clicked on Quote button ");
+			System.out.println("Clicked on Quote button ");
 		}
 		
 

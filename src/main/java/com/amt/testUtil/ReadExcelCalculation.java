@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -15,11 +16,14 @@ import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.amt.testBase.TestBase;
 
@@ -768,6 +772,7 @@ public class ReadExcelCalculation extends TestBase {
 		Thread.sleep(3000);
 		
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		Thread.sleep(3000);
 		Click.on(driver, part_exchange_payment, 70);
 		LO.print("Clicked on Part Exchange panel" );
 		System.out.println("Clicked on Part Exchange panel" );
@@ -966,7 +971,7 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
-		Thread.sleep(4000);
+		Thread.sleep(7000);
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
 			Thread.sleep(4000);
@@ -980,7 +985,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 	
 		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 50);
-		Thread.sleep(3000);
+		Thread.sleep(7000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
@@ -1043,6 +1048,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 	
 		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 50);
+		Thread.sleep(5000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
@@ -1298,8 +1304,9 @@ public class ReadExcelCalculation extends TestBase {
 		
 		ExplicitWait.clickableElement(driver, customer_quote_payment_profile_dropdown, 30);
 		Select select=new Select(customer_quote_payment_profile_dropdown);
+		Thread.sleep(5000);
 		select.selectByIndex(0);
-		
+		Thread.sleep(4000);
 		LO.print("Payment Profile Monthly in Advance option has been selected" );
 		System.out.println("Payment Profile Monthly in Advance option has been selected" );
 		
@@ -1309,6 +1316,7 @@ public class ReadExcelCalculation extends TestBase {
 	    int dropdown_options_number= list_dropdown_options.size();
 		
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		Thread.sleep(4000);
 		Click.on(driver, part_exchange_payment, 70);
 		LO.print("Clicked on Part Exchange panel" );
 		System.out.println("Clicked on Part Exchange panel" );
@@ -1420,9 +1428,11 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
-		Thread.sleep(3000);
+		WebElement set_target_rental =new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@id='btnSubmitTargetRental']"))));
+		if(set_target_rental.isDisplayed());
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
+			Thread.sleep(2000);
 		Click.on(driver, initial_payment_input_field, 20);
 		Actions act = new Actions(driver);
 		initial_payment_input_field.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));

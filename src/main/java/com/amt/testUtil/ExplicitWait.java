@@ -22,5 +22,6 @@ public class ExplicitWait extends TestBase {
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
 		
 	}
-
+	
+	
 }

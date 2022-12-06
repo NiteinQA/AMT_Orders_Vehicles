@@ -103,7 +103,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		
 		for(int i=1; i<=1; i++) {
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 			
 	    Click.on(driver, maintenance_toggle_button, 40);
 

@@ -1,10 +1,15 @@
 package com.amt.pages;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
@@ -35,6 +40,11 @@ public class VehicleSelectionPage extends TestBase {
 	@FindBy(xpath = "//*[@id=\"divVehicleTable\"]/div[1]/div/div[1]/div/div[1]/div[2]")
 	private WebElement vehile_table_option;
 	
+	@FindBy(xpath = "//*[@id='divVehicleSummary']/div/div/div/div[2]/div/div[1]/div/div[3]/div/div[2]/button")
+	private WebElement advance_search;
+	
+	
+	
 	
 	
 	public VehicleSelectionPage() {
@@ -49,25 +59,28 @@ public class VehicleSelectionPage extends TestBase {
 		
 		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 40);
 		
+
 		LO.print("Manufacture ="+manufacturer+" has been selected");
 		System.out.println("Manufacture ="+manufacturer+" has been selected");
 		
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
-		Thread.sleep(6000);
+		 
+		//WebElement advance_search =new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[normalize-space()='Advanced search']"))));
 		
+		Thread.sleep(5000);
 		Click.sendKeys(driver, select_model_range, model , 40);	
-		
+		 
 		LO.print("Model range ="+model+" has been selected");
 		System.out.println("Model range ="+model+" has been selected");
 		
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
 	    
+	
 		Thread.sleep(6000);
-		Click.on(driver, select_model, 50);
 		
-		Thread.sleep(6000);
+		Click.on(driver, select_model, 30);
 		
 		act.sendKeys(Keys.ARROW_DOWN).build().perform();
 		act.sendKeys(Keys.ENTER).perform();

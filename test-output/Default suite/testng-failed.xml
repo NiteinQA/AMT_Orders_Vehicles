@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.Acquisition_Quotes_HPNR_PCP_without_maintenance_Normal_Save_Test">
+      <class name="com.amt.test.Acquisition_Quotes_CP_PCH_without_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_HPNR_PCP_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_after_discount_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_holding_cost_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_OTR_calculation_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_quote_summary_values_verification_without_maintenance_test"/>
+          <include name="aquisition_quotes_CP_PCH_holding_cost_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_CP_PCH_OTR_calculation_without_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_CP_PCH_after_discount_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_CP_PCH_customer_quote_payment_profile_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_CP_PCH_quote_summary_values_verification_without_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.Acquisition_Quotes_HPNR_PCP_without_maintenance_Normal_Save_Test -->
+      </class> <!-- com.amt.test.Acquisition_Quotes_CP_PCH_without_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
