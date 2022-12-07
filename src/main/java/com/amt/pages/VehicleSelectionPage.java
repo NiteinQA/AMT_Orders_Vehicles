@@ -1,15 +1,10 @@
 package com.amt.pages;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
@@ -65,10 +60,10 @@ public class VehicleSelectionPage extends TestBase {
 		
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
-		 
-		//WebElement advance_search =new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[normalize-space()='Advanced search']"))));
+	
+
+		Thread.sleep(10000);
 		
-		Thread.sleep(5000);
 		Click.sendKeys(driver, select_model_range, model , 40);	
 		 
 		LO.print("Model range ="+model+" has been selected");
@@ -76,8 +71,7 @@ public class VehicleSelectionPage extends TestBase {
 		
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
-	    
-	
+
 		Thread.sleep(6000);
 		
 		Click.on(driver, select_model, 30);
