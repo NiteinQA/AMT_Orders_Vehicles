@@ -18,7 +18,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_BCH_PCH_without_maintenance_Test extends TestBase {
 
 
 
@@ -33,7 +33,7 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 
 
 	@Test(priority = 1, dataProvider = "testData")
-	public void aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test(String manufacturer, String model,
+	public void aquisition_quotes_BCH_PCH_OTR_calculation_without_maintenance_test(String manufacturer, String model,
 			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
 			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -55,9 +55,9 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 
 	}
 	
-	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test" })
+	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_PCH_OTR_calculation_without_maintenance_test" })
 
-	public void aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test(String manufacturer, String model,
+	public void aquisition_quotes_BCH_PCH_after_discount_calculations_without_maintenance_test(String manufacturer, String model,
 			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
 			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -73,9 +73,9 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 
 	}
 	
-	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test" })
+	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_PCH_after_discount_calculations_without_maintenance_test" })
 
-	public void aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test(String manufacturer, String model,
+	public void aquisition_quotes_BCH_PCH_holding_cost_calculations_without_maintenance_test(String manufacturer, String model,
 			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
 			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -86,15 +86,15 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 	
 		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_BCH_BCH_page
 				.verify_holding_cost_without_maintenance( quoteReference,  quoteExpiryDate,
-						 terms, milesPerAnnum,maintenance_required,  monthlyFinanceRental,  documentFee,  penceperExcessMileFinance,  sheet_name);
+						 terms, milesPerAnnum, maintenance_required, monthlyFinanceRental,  documentFee,  penceperExcessMileFinance,  sheet_name);
 		Assert.assertTrue(holding_cost_without_maintenance_boolean);
 	
 
 	}
 	
-//	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test" })
+//	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_PCH_holding_cost_calculations_without_maintenance_test" })
 //
-//	public void aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(String manufacturer, String model,
+//	public void aquisition_quotes_BCH_PCH_customer_quote_payment_profile_calculations_without_maintenance_test(String manufacturer, String model,
 //			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
 //			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 //			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -121,7 +121,7 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 	
 //	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" })
 //
-//	public void aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model,
+//	public void aquisition_quotes_BCH_PCH_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model,
 //			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
 //			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 //			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,

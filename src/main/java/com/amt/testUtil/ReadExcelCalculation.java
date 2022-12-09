@@ -1586,7 +1586,54 @@ public class ReadExcelCalculation extends TestBase {
 		
 		return flag;
 		
-	}	
+	}
+	
+	
+	public void write_test_data_values_to_excel_for_bch_flow_without_maintenance(String quoteReference, String quoteExpiryDate,
+			String terms,String milesPerAnnum,String  maintenance_required, String monthlyFinanceRental,
+			String documentFee, String penceperExcessMileFinance, String sheet_name) throws IOException {
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(Double.parseDouble(terms));
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(Double.parseDouble(milesPerAnnum));
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue(maintenance_required);
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(Double.parseDouble(monthlyFinanceRental));
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(Double.parseDouble(documentFee));
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(Double.parseDouble(penceperExcessMileFinance));
+		wb.getSheet(sheet_name).getRow(43).getCell(1).setCellValue(0);	
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		
+	}
+	
+	public void write_test_data_values_to_excel_for_bch_flow_with_maintenance(String quoteReference, String quoteExpiryDate,
+			String terms,String milesPerAnnum,String  maintenance_required, String monthlyFinanceRental, String monthlyMaintenanceRental,
+			String documentFee, String penceperExcessMileFinance,String penceperExcessMileMaintenance, String sheet_name) throws IOException {
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(Double.parseDouble(terms));
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(Double.parseDouble(milesPerAnnum));
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue(maintenance_required);
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(Double.parseDouble(monthlyFinanceRental));
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(Double.parseDouble(monthlyMaintenanceRental));
+		wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(Double.parseDouble(documentFee));
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(Double.parseDouble(penceperExcessMileFinance));
+		wb.getSheet(sheet_name).getRow(43).getCell(1).setCellValue(Double.parseDouble(penceperExcessMileMaintenance));	
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		
+	}
 
 }	
 	

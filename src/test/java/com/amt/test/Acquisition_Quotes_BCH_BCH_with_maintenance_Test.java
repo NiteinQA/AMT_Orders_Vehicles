@@ -18,7 +18,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_BCH_BCH_with_maintenance_Test extends TestBase {
 
 
 
@@ -33,9 +33,9 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 
 
 	@Test(priority = 1, dataProvider = "testData")
-	public void aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test(String manufacturer, String model,
-			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
-			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+	public void aquisition_quotes_BCH_BCH_OTR_calculation_with_maintenance_test(String manufacturer, String model,
+			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental,String monthlyMaintenanceRental, String documentFee, 
+			String penceperExcessMileFinance, String penceperExcessMileMaintenance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -55,11 +55,11 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 
 	}
 	
-	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test" })
+	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_OTR_calculation_with_maintenance_test" })
 
-	public void aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test(String manufacturer, String model,
-			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
-			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+	public void aquisition_quotes_BCH_BCH_after_discount_calculations_with_maintenance_test(String manufacturer, String model,
+			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental,String monthlyMaintenanceRental, String documentFee, 
+			String penceperExcessMileFinance, String penceperExcessMileMaintenance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -73,28 +73,28 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 
 	}
 	
-	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test" })
+	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_after_discount_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test(String manufacturer, String model,
-			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
-			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+	public void aquisition_quotes_BCH_BCH_holding_cost_calculations_with_maintenance_test(String manufacturer, String model,
+			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental,String monthlyMaintenanceRental, String documentFee, 
+			String penceperExcessMileFinance, String penceperExcessMileMaintenance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_holding_cost_BCH_BCH_page = new HoldingCost_BCH_BCH_Page();
 	
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_BCH_BCH_page
-				.verify_holding_cost_without_maintenance( quoteReference,  quoteExpiryDate,
-						 terms, milesPerAnnum,maintenance_required,  monthlyFinanceRental,  documentFee,  penceperExcessMileFinance,  sheet_name);
-		Assert.assertTrue(holding_cost_without_maintenance_boolean);
+		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_BCH_BCH_page
+				.verify_holding_cost_with_maintenance( quoteReference,  quoteExpiryDate, terms, milesPerAnnum,maintenance_required,  monthlyFinanceRental,monthlyMaintenanceRental,  documentFee,
+						penceperExcessMileFinance, penceperExcessMileMaintenance,  sheet_name);
+		Assert.assertTrue(holding_cost_with_maintenance_boolean);
 	
 
 	}
 	
-//	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test" })
+//	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_holding_cost_calculations_with_maintenance_test" })
 //
-//	public void aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(String manufacturer, String model,
+//	public void aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_with_maintenance_test(String manufacturer, String model,
 //			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
 //			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 //			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -105,7 +105,7 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 //		obj_customer_quote_page = new CustomerQuotePageBCHBCHPage();
 //
 //		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
-//				.customer_Quote_BCH_BCH_for_one_payment_option_without_maintenance_calculation(
+//				.customer_Quote_BCH_BCH_for_one_payment_option_with_maintenance_calculation(
 //						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 //						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
 //						 maintenance_required, maintenance_margin, initial_payment,
@@ -113,15 +113,15 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 //		Assert.assertTrue(customer_quote_for_payment_boolean);
 //
 //		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-//				.customer_Quote_BCH_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
+//				.customer_Quote_BCH_BCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
 //		Assert.assertTrue(cutomer_quote_monthly_rental);
 //
 //
 //	}
 	
-//	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" })
+//	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_with_maintenance_test" })
 //
-//	public void aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model,
+//	public void aquisition_quotes_BCH_BCH_quote_summary_values_verification_with_maintenance_test(String manufacturer, String model,
 //			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
 //			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 //			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -131,7 +131,7 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 //		obj_quote_summary_page = new QuoteSummaryBCHBCHPage();
 //
 //
-//		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_BCH_BCH_without_maintenance(sheet_name);
+//		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_BCH_BCH_with_maintenance(sheet_name);
 //		Assert.assertTrue(quote_summary_page_status);
 //
 //	}
@@ -140,7 +140,7 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("BCH_BCH_withoutMaintenance");
+		Object[][] data = ReadExcelData.getTestData("BCH_BCH_withMaintenance");
 		return data;
 	}
 
