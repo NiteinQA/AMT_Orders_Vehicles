@@ -19,7 +19,7 @@ public class GetExcelFormulaValue extends ReadExcelCalculation {
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\newWorkspaceStaging\\AutomationStaging\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream("D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
