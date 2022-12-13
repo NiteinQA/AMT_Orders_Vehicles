@@ -99,7 +99,7 @@ public class ContractTypesAndOTR_BCH_PCH_Page extends TestBase {
 	public boolean contractTypes_and_OTR_selection_BCH_PCH_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
-		Thread.sleep(2000);
+		Thread.sleep(12000);
 		Click.on(driver, acq_acq_contractTypes_BCH, 50);
 
 		Thread.sleep(4000);
@@ -110,8 +110,7 @@ public class ContractTypesAndOTR_BCH_PCH_Page extends TestBase {
 		Click.on(driver, acq_contractTypes_customer_contract_PCH, 30);
 		
 		LO.print(" Customer Contract type option = Personal Contract Hire(PCH) has been selected");		 
-		System.out.println(" Customer Contract type option = Personal Contract Hire(PCH) has been selected");
-		
+		System.out.println(" Customer Contract type option = Personal Contract Hire(PCH) has been selected");		
 			
          
 		ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_vehicle_price, 30);

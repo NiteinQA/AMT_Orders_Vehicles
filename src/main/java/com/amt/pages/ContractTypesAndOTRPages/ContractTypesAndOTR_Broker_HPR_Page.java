@@ -87,7 +87,7 @@ public class ContractTypesAndOTR_Broker_HPR_Page extends TestBase {
 
 		Click.on(driver, acq_contractTypes, 40);
 		
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
 	   

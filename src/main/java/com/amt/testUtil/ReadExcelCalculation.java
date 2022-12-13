@@ -785,7 +785,7 @@ public class ReadExcelCalculation extends TestBase {
 		document_fee.clear();
 		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
 		Actions act = new Actions (driver);
-		act.sendKeys(Keys.ENTER).perform();
+		act.sendKeys(Keys.TAB).perform();
 		
 		LO.print("Writing values to Excel for customer quote calculation -started" );
 		System.out.println("Writing values to Excel for customer quote calculation -started" );
@@ -802,7 +802,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(initial_payment));
-		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue(part_exchange_status);
+		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("NO");
 		//wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
 		//wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
 		//wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
@@ -842,7 +842,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		double diff=Difference.of_two_Double_Values(monthly_finance_rental_expected, monthly_finance_rental_actual_converted);
 		
-    	if(diff<0.2)
+    	if(diff<0.3)
         {flag=true;}		
 		return flag;		
 		
@@ -898,8 +898,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-		System.out.println(dropdown_option);
-		System.out.println(sheet_name);
+ 
 		wb.getSheet(sheet_name).getRow(98).getCell(1).setCellValue(" "+dropdown_option+" ");
 		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(101).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
@@ -907,11 +906,11 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(initial_payment));
-		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue(part_exchange_status);
+		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("NO");
 		//wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
 		//wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
 		//wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
-		wb.getSheet(sheet_name).getRow(123).getCell(1).setCellValue(Double.parseDouble(target_rental));
+		//wb.getSheet(sheet_name).getRow(123).getCell(1).setCellValue(Double.parseDouble(target_rental));
 		//wb.getSheet(sheet_name).getRow(57).getCell(1).setCellFormula("IF(B99=Y97,H29-B57,IF(B99=Y98,H29-B57,IF(B99=Y99,H29-1,IF(B99=Y100,H29-1,IF(B99=Y101,H29-1,IF(B99=Y102,H29-1,IF(B99=Y103,H29-B57,IF(B99=Y104,H29-B57,IF(B99=Y105,H29-B57,0)))))))))");
 		//wb.getSheet(sheet_name).getRow(56).getCell(1).setCellFormula("IF(B99=Y97,1,IF(B99=Y98,1,IF(B99=Y99,3,IF(B99=Y100,6,IF(B99=Y101,9,IF(B99=Y102,12,IF(B99=Y103,3,IF(B99=Y104,6,IF(B99=Y105,9,0)))))))))");
 
@@ -927,7 +926,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		LO.print("Reading  Monthly Finance Rental from  Excel   -started" );
 		System.out.println("Reading  Monthly Finance Rental from  Excel   -started" );
-		 
+				 
 		double monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 		
 		LO.print("Reading  Monthly Finance Rental from  Excel   -completed" );
@@ -942,8 +941,8 @@ public class ReadExcelCalculation extends TestBase {
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
 	    System.out.println("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
 	    
-		
-		boolean flag=false;
+	    
+	    boolean flag=false;
 		
 		double diff=Difference.of_two_Double_Values(monthly_finance_rental_expected, monthly_finance_rental_actual_converted);
 		
@@ -1010,7 +1009,7 @@ public class ReadExcelCalculation extends TestBase {
 			
 		double diff=Difference.of_two_Double_Values(monthly_finance_rental_actual_converted, monthly_finance_rental_expected);
 		System.out.println("Difference is" +diff);
-		if(diff<0.2)
+		if(diff<0.3)
         {	count++;	}
 		if(count==dropdown_options_number)
 		{flag=true;	}	

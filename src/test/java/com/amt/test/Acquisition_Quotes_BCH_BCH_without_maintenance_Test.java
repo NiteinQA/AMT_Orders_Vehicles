@@ -8,7 +8,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.amt.CustomerQuotePackage.CustomerQuotePage_BCH_BCH_Page;
 import com.amt.HoldingCostPages.HoldingCost_BCH_BCH_Page;
+import com.amt.QuoteSummaryPages.QuoteSummary_BCH_BCH_Page;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
@@ -28,8 +30,8 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_BCH_BCH_Page obj_contract_types_and_OTR_page;
 	HoldingCost_BCH_BCH_Page obj_holding_cost_BCH_BCH_page;
-	//CustomerQuotePageBCHBCHPage obj_customer_quote_page;
-	//QuoteSummaryBCHBCHPage obj_quote_summary_page;
+	CustomerQuotePage_BCH_BCH_Page obj_customer_quote_page;
+	QuoteSummary_BCH_BCH_Page obj_quote_summary_page;
 
 
 	@Test(priority = 1, dataProvider = "testData")
@@ -92,49 +94,62 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 
 	}
 	
-//	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test" })
-//
-//	public void aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(String manufacturer, String model,
-//			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
-//			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-//			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-//			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
-//			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
-//
-//
-//		obj_customer_quote_page = new CustomerQuotePageBCHBCHPage();
-//
-//		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
-//				.customer_Quote_BCH_BCH_for_one_payment_option_without_maintenance_calculation(
-//						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
-//						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
-//						 maintenance_required, maintenance_margin, initial_payment,
-//						part_exchange_status, target_rental,sheet_name);
-//		Assert.assertTrue(customer_quote_for_payment_boolean);
-//
-//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-//				.customer_Quote_BCH_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
-//		Assert.assertTrue(cutomer_quote_monthly_rental);
-//
-//
-//	}
+	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test" })
+
+	public void aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(String manufacturer, String model,
+			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
+			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+
+
+		obj_customer_quote_page = new CustomerQuotePage_BCH_BCH_Page();
+
+		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
+				.customer_Quote_BCH_BCH_for_one_payment_option_without_maintenance_calculation(
+						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
+						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
+						 maintenance_required, maintenance_margin, initial_payment,
+						part_exchange_status, target_rental,sheet_name);
+		
+		Assert.assertTrue(customer_quote_for_payment_boolean);
+		
+		
+		boolean balance_due_value = obj_customer_quote_page.customer_quote_part_balance_due_value_verification(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel,
+				order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
+		
+		Assert.assertTrue(balance_due_value);
+		
+		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel,
+				document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
+		
+		Assert.assertTrue(monthly_finance_rental);
+		
+			
+		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+				.customer_Quote_BCH_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
+		Assert.assertTrue(cutomer_quote_monthly_rental);
+
+
+	}
 	
-//	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" })
-//
-//	public void aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model,
-//			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
-//			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-//			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-//			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
-//			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
-//
-//		obj_quote_summary_page = new QuoteSummaryBCHBCHPage();
-//
-//
-//		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_BCH_BCH_without_maintenance(sheet_name);
-//		Assert.assertTrue(quote_summary_page_status);
-//
-//	}
+	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" })
+
+	public void aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model,
+			String quoteReference, String quoteExpiryDate,String terms,String milesPerAnnum, String monthlyFinanceRental, String documentFee, 
+			String penceperExcessMileFinance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+
+		obj_quote_summary_page = new QuoteSummary_BCH_BCH_Page();
+
+
+		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_BCH_BCH_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_page_status);
+
+	}
 	
 	
 
