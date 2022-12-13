@@ -176,7 +176,7 @@ public class CustomerQuotePage_BCH_PCH_Page extends TestBase {
         System.out.println("Difference between expected and actual ="+diff);
         
         boolean balance_value_when_part_exchange_toggle_off = false;
-       if(diff<0.2) 
+       if(diff<0.3) 
        {
     	   balance_value_when_part_exchange_toggle_off = true ;    	   
    		LO.print("Balance due value (when part exchange toggle is OFF) is verified and found ok");
@@ -208,7 +208,7 @@ public class CustomerQuotePage_BCH_PCH_Page extends TestBase {
         System.out.println("Difference between expected and actual ="+diff1);
 		       
         boolean balance_value_when_part_exchange_toggle_off1 = false;
-       if(diff1<0.2) 
+       if(diff1<0.3) 
        {
     	   balance_value_when_part_exchange_toggle_off1 = true ;
     	   LO.print("Balance due value (when part exchange toggle is ON) is verified and found ok");
