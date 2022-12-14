@@ -683,6 +683,51 @@ public class ReadExcelCalculation extends TestBase {
 	}
 	
 	
+	public double verify_holding_cost_after_adding_funder_without_maintenance(String term,String milesPerAnnum,String monthlyFinanceRental,
+			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,
+			String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
+			String secondaryHirePeriodRental, String sheet_name) throws IOException, InterruptedException 
+	{
+		
+		LO.print("***********Holding Cost Calculations has been Started*************");
+		System.out.println("***********Holding Cost Calculations has been Started*************");				
+			
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyFinanceRental);
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(monthlyMaintenanceRental);
+		wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
+		wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
+		wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
+		wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
+
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel");
+		System.out.println("Reading Monthly Holding Cost value from excel");
+
+
+		return GetExcelFormulaValue.get_formula_value(57, 1, sheet_name);		
+				
+	}
+
+	
 	
 	public void set_global_variables_to_excel(String sheet_name) throws IOException {
 		//write / take global variables and set to excel sheet for calculation
@@ -1363,7 +1408,7 @@ public class ReadExcelCalculation extends TestBase {
 		System.out.println("Reading  Monthly Finance Rental and monthly maintenance cost from  Excel   -started" );
 		 
 		
-		double monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(126, 0, sheet_name);
+		double monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 		
 		double monthly_maintenance_rental_expected=GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);		
 		
@@ -1400,7 +1445,7 @@ public class ReadExcelCalculation extends TestBase {
 		 double diff2=Difference.of_two_Double_Values(monthly_maintenance_rental_expected,monthly_mainte_rental_converted_actual);
 		 int count=0;	
 		 boolean flag=false;
-		 if((diff1<0.2)&&(diff2<0.2))
+		 if((diff1<0.3)&&(diff2<0.3))
 			{
 		flag=true;	
 			}	
@@ -1408,6 +1453,8 @@ public class ReadExcelCalculation extends TestBase {
 		return flag;		
 		
 	}	
+	
+	
 	
 
 	public boolean verify_customer_quote_calculations_for_all_payment_options_with_maintenance(WebDriver driver,
@@ -1443,7 +1490,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
@@ -1451,7 +1498,7 @@ public class ReadExcelCalculation extends TestBase {
 		double monthly_finance_rental_actual_converted =Double.parseDouble(monthly_finance_rental_actual);
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		String monthly_maintenance_rental =   customer_quote_monthly_maintenance_rental.getText().substring(2);
 		
 		String monthly_maintenance_rental_actual=RemoveComma.of(monthly_maintenance_rental);
@@ -1466,7 +1513,7 @@ public class ReadExcelCalculation extends TestBase {
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);	
 		
-		double temp_monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(126, 0, sheet_name);
+		double temp_monthly_finance_rental_expected=GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 		double temp_monthly_maintenance_rental_expected=GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
 		
 		double monthly_finance_rental_expected= Math.round(temp_monthly_finance_rental_expected*100.0)/100.0;
@@ -1483,7 +1530,7 @@ public class ReadExcelCalculation extends TestBase {
 		 double diff1=Difference.of_two_Double_Values(monthly_finance_rental_expected,monthly_finance_rental_actual_converted);
 		 double diff2=Difference.of_two_Double_Values(monthly_maintenance_rental_expected,monthly_mainte_rental_converted_actual);
 		System.out.println("diff1 "+diff1);System.out.println("diff2 "+diff2);
-		if((diff1<0.2)&&(diff2<0.2))
+		if((diff1<0.3)&&(diff2<0.3))
 		{count++;}
 		if(count==dropdown_options_number)
 		{flag=true;}	

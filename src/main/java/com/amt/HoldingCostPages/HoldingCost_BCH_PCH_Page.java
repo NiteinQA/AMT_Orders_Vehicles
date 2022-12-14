@@ -205,6 +205,8 @@ public class HoldingCost_BCH_PCH_Page extends TestBase {
 		
 		Click.on(driver, common_maintenance_toggle, 30);
 		
+		Thread.sleep(5000);
+		
 		Click.on(driver, funder, 30);
 		
 		Actions act = new Actions(driver);

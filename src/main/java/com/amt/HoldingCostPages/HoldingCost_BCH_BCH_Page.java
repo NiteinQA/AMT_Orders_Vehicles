@@ -205,6 +205,8 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 		
 		Click.on(driver, common_maintenance_toggle, 30);
 		
+		Thread.sleep(5000);
+		
 		Click.on(driver, funder, 30);
 		
 		Actions act = new Actions(driver);
@@ -251,6 +253,11 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 	    double holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
 	    
 		double diff = Difference.of_two_Double_Values(holding_cost_from_screen, holding_cost_from_excel);
+		
+		System.out.println("holding_cost_from_screen"+holding_cost_from_screen);
+		
+		System.out.println("holding_cost_from_excel"+holding_cost_from_excel);
+		
 		boolean status = false;
 		if(diff<0.2)
 		{
