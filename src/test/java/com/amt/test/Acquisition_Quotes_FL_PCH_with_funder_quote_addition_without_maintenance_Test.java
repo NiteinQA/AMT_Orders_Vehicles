@@ -20,7 +20,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_FL_PCH_without_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_FL_PCH_with_funder_quote_addition_without_maintenance_Test extends TestBase {
 
 
 
@@ -36,8 +36,9 @@ public class Acquisition_Quotes_FL_PCH_without_maintenance_Test extends TestBase
 
 	@Test(priority = 1, dataProvider = "testData")
 	public void aquisition_quotes_FL_PCH_OTR_calculation_without_maintenance_test(String manufacturer, String model,
-			String  vehicle_Basic_Price,String  road_tax_for_first_year, String percentage_cap_residual_value_used,
-			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String quoteRef, String expiryDate,String term,String milesPerAnnum,String monthlyFinanceRental,
+			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
+			String secondaryHirePeriodRental, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -59,8 +60,9 @@ public class Acquisition_Quotes_FL_PCH_without_maintenance_Test extends TestBase
 	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_FL_PCH_OTR_calculation_without_maintenance_test" })
 
 	public void aquisition_quotes_FL_PCH_after_discount_calculations_without_maintenance_test(String manufacturer, String model,
-			String  vehicle_Basic_Price,String  road_tax_for_first_year, String percentage_cap_residual_value_used,
-			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String quoteRef, String expiryDate,String term,String milesPerAnnum,String monthlyFinanceRental,
+			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
+			String secondaryHirePeriodRental, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -76,8 +78,9 @@ public class Acquisition_Quotes_FL_PCH_without_maintenance_Test extends TestBase
 	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_FL_PCH_after_discount_calculations_without_maintenance_test" })
 
 	public void aquisition_quotes_FL_PCH_holding_cost_calculations_without_maintenance_test(String manufacturer, String model,
-			String  vehicle_Basic_Price,String  road_tax_for_first_year, String percentage_cap_residual_value_used,
-			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String quoteRef, String expiryDate,String term,String milesPerAnnum,String monthlyFinanceRental,
+			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
+			String secondaryHirePeriodRental, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -85,15 +88,18 @@ public class Acquisition_Quotes_FL_PCH_without_maintenance_Test extends TestBase
 		obj_holding_cost_FL_PCH_page = new HoldingCost_FL_PCHPage();
 	
 		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_FL_PCH_page
-				.verify_holding_cost_without_maintenance(sheet_name);
+				.verify_holding_cost_after_adding_funder_quote_without_maintenance( quoteRef,  expiryDate, term ,milesPerAnnum, monthlyFinanceRental,
+						 monthlyMaintenanceRental, finalBallonPayment,  documentFee , pencePerExcessMileFinance, pencePerExcessMileMaintenance, percentageOfSaleProceedToCustomer,
+						 secondaryHirePeriodRental, sheet_name);
 		Assert.assertTrue(holding_cost_without_maintenance_boolean);
 	}
 	
 	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_FL_PCH_holding_cost_calculations_without_maintenance_test" })
 
 	public void aquisition_quotes_FL_PCH_customer_quote_payment_profile_calculations_without_maintenance_test(String manufacturer, String model,
-			String  vehicle_Basic_Price,String  road_tax_for_first_year, String percentage_cap_residual_value_used,
-			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String quoteRef, String expiryDate,String term,String milesPerAnnum,String monthlyFinanceRental,
+			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
+			String secondaryHirePeriodRental, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -102,38 +108,52 @@ public class Acquisition_Quotes_FL_PCH_without_maintenance_Test extends TestBase
 		obj_customer_quote_page = new CustomerQuotePage_FL_PCHPage();
 
 		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
-				.customer_Quote_FL_PCH_for_one_payment_option_without_maintenance_calculation(
+				.customer_Quote_FL_PCH_for_one_payment_option_for_funder_quote_addition_without_maintenance_calculation(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
 						 maintenance_required, maintenance_margin, initial_payment,
 						part_exchange_status, target_rental,sheet_name);
 		Assert.assertTrue(customer_quote_for_payment_boolean);
+		
+		
+		boolean balance_due_value =obj_customer_quote_page.customer_quote_part_balance_due_value_verification(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, 
+				less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
 
+		Assert.assertTrue(balance_due_value);
+		
+		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on(actual_part_exchange_value_from_excel,
+				given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
+		
+		Assert.assertTrue(monthly_finance_rental);
+		
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-				.customer_Quote_FL_PCH_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
+				.customer_Quote_FL_PCH_for_all_payment_option_for_funder_quote_addition_without_maintenance_calculation(initial_payment,sheet_name);
 		Assert.assertTrue(cutomer_quote_monthly_rental);
+
+
 	}
 	
 	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_FL_PCH_customer_quote_payment_profile_calculations_without_maintenance_test" })
 
 	public void aquisition_quotes_FL_PCH_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model,
-			String  vehicle_Basic_Price,String  road_tax_for_first_year, String percentage_cap_residual_value_used,
-			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String quoteRef, String expiryDate,String term,String milesPerAnnum,String monthlyFinanceRental,
+			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
+			String secondaryHirePeriodRental, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_quote_summary_page = new QuoteSummary_FL_PCHPage();
 
-		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_FL_PCH_without_maintenance(sheet_name);
+
+		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_FL_PCH_for_funder_quote_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_page_status);
+
 	}
 	
-	
-
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("FL_PCHwithoutMaintenance");
+		Object[][] data = ReadExcelData.getTestData("FL_PCH_funder_withoutMaintenanc");
 		return data;
 	}
 

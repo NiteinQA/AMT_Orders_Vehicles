@@ -99,7 +99,7 @@ public class ContractTypesAndOTR_FL_BCH_Page extends TestBase {
 	public boolean contractTypes_and_OTR_selection_FL_BCH_OTR_calculations(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		Click.on(driver, acq_acq_contractTypes_FL, 50);
 
 		Thread.sleep(4000);

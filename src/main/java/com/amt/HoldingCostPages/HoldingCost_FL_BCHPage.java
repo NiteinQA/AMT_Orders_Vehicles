@@ -78,7 +78,7 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 	@FindBy(xpath = "//button[@class='btn btn-outline-secondary px-4 mr-2']")
 	private WebElement add_funder_quote;
 	
-	@FindBy(xpath = "//span[@class='slider round sliderRed ng-star-inserted']")
+	@FindBy(xpath = "//label[@class='switch ml-1 mr-1']//span[@class='slider round sliderRed']")
 	private WebElement holding_cost_based_on_funder_quote_toggle_button;
 	
 	@FindBy(xpath = "//input[@role='combobox']")
@@ -149,7 +149,7 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 	}
 	
 	
-	public boolean verify_holding_cost_after_adding_funder_quote_without_maintenance(String term,String milesPerAnnum,String monthlyFinanceRental,
+	public boolean verify_holding_cost_after_adding_funder_quote_without_maintenance(String quoteRef, String expiryDate ,String term,String milesPerAnnum,String monthlyFinanceRental,
 			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
 			String secondaryHirePeriodRental, String sheet_name) throws InterruptedException, IOException
 	{
@@ -158,44 +158,50 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
 		
-		Thread.sleep(4000);
+		Thread.sleep(10000);	
 		
 		Click.on(driver, add_funder_quote, 30);
 		
 		Thread.sleep(3000);
 		
-		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);		
+		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);	
+		
+		
+		
+		Thread.sleep(3000);
+		
+		 Click.on(driver, funder, 30);
 		
 		 Actions act = new Actions(driver);
 		 act.sendKeys(Keys.ENTER).build().perform();
 		 
-		 Click.sendKeys(driver, quote_ref, sheet_name, 30);
+		 Click.sendKeys(driver, quote_ref, quoteRef, 30);
 		 
-		 Click.sendKeys(driver, expiry_date, sheet_name, 30);
+		 Click.sendKeys(driver, expiry_date, expiryDate, 30);
 		 
 		 Dropdown.select(driver, payment_profile_dropdown, 1, 30);
 		 
-		 Click.sendKeys(driver, duration, sheet_name, 30);
+		 Click.sendKeys(driver, duration, term, 30);
 		 
-		 Click.sendKeys(driver, miles_per_annum, sheet_name, 30);
+		 Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
 
 		 Click.on(driver, contract_mileage, 30);
 		 
-		 Click.sendKeys(driver, monthly_finance_rental, sheet_name, 30);
+		 Click.sendKeys(driver, monthly_finance_rental, monthlyFinanceRental, 30);
 
-		 Click.sendKeys(driver, final_balloon_payment, sheet_name, 30);
+		 Click.sendKeys(driver, final_balloon_payment, finalBallonPayment, 30);
 		
-		 Click.sendKeys(driver, document_fee, sheet_name, 30);
+		 Click.sendKeys(driver, document_fee, documentFee, 30);
 		 
-		 Click.sendKeys(driver, pense_per_excess_mile_finance, sheet_name, 30);
+		 Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
 		
-		 Click.sendKeys(driver, percentage_of_sale_proceed_to_customer, sheet_name, 30);
+		 Click.sendKeys(driver, percentage_of_sale_proceed_to_customer, percentageOfSaleProceedToCustomer, 30);
 		 
-		 Click.sendKeys(driver, secondary_hire_period_rental, sheet_name, 30);
+		 Click.sendKeys(driver, secondary_hire_period_rental, secondaryHirePeriodRental, 30);
 		 
 		 Click.on(driver, add, 30);	 
 		 
-		 
+		 Thread.sleep(10000);
 		 
 		 obj_read_excel_calculation_page =new ReadExcelCalculation();
 		 
@@ -204,7 +210,7 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 					 monthlyMaintenanceRental, finalBallonPayment,  documentFee , pencePerExcessMileFinance, pencePerExcessMileMaintenance, percentageOfSaleProceedToCustomer,
 					 secondaryHirePeriodRental,  sheet_name);
 		 
-		 
+		 ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
 		 String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);
 			
 			String total_monthly_holding_cost_from_screen=RemoveComma.of(monthly_holding_cost);

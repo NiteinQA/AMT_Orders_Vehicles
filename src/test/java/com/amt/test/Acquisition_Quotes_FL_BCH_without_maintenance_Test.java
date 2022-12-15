@@ -39,7 +39,7 @@ public class Acquisition_Quotes_FL_BCH_without_maintenance_Test extends TestBase
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_FL_BCH_Page obj_contract_types_and_OTR_page;
-	HoldingCost_FL_BCHPage obj_holding_cost_Outright_BCH_page;
+	HoldingCost_FL_BCHPage obj_holding_cost_FL_BCH_page;
 	CustomerQuotePage_FL_BCHPage obj_customer_quote_page;
 	QuoteSummary_FL_BCHPage obj_quote_summary_page;
 
@@ -92,9 +92,9 @@ public class Acquisition_Quotes_FL_BCH_without_maintenance_Test extends TestBase
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_holding_cost_Outright_BCH_page = new HoldingCost_FL_BCHPage();
+		obj_holding_cost_FL_BCH_page = new HoldingCost_FL_BCHPage();
 	
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_Outright_BCH_page
+		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_FL_BCH_page
 				.verify_holding_cost_without_maintenance(sheet_name);
 		Assert.assertTrue(holding_cost_without_maintenance_boolean);
 	}

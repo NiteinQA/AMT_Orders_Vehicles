@@ -237,7 +237,6 @@ public class CustomerQuotePage_BCH_BCH_Page extends TestBase {
 	{
 		
 		
-		
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue(part_exchange_status);
