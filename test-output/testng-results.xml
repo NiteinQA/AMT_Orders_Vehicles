@@ -23,7 +23,7 @@
       <![CDATA[<b> Acquisition Contract type option = Finance Lease has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
+      <![CDATA[<b> Customer Contract type option = Finance Lease(FL) has been selected</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -152,7 +152,7 @@
       <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Monthly Finance Rental from Excel is =904.706478866925</b> <br />]]>
+      <![CDATA[<b>Monthly Finance Rental from Excel is =901.0647774640333</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Started verifying Balance Due value</b> <br />]]>
@@ -185,16 +185,16 @@
       <![CDATA[<b>Quote_summary_total_monthly_holding_cost =501.00</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote_summary_monthly_finance_rental =571.54</b> <br />]]>
+      <![CDATA[<b>Quote_summary_monthly_finance_rental =567.90</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Acquisition contract_type =Finance Lease</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Customer contract_type =Business Contract Hire</b> <br />]]>
+      <![CDATA[<b>Customer contract_type =Finance Lease</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =FFA04529</b> <br />]]>
+      <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =MFJ03082</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br />]]>
@@ -212,16 +212,16 @@
       <![CDATA[<b>Finance Rental compared</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2022-12-14T19:14:05 IST" name="Default suite" finished-at="2022-12-14T19:20:10 IST" duration-ms="364473">
+  <suite started-at="2022-12-15T10:53:26 IST" name="Default suite" finished-at="2022-12-15T10:59:58 IST" duration-ms="391822">
     <groups>
     </groups>
-    <test started-at="2022-12-14T19:14:05 IST" name="Default test" finished-at="2022-12-14T19:20:10 IST" duration-ms="364473">
-      <class name="com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-14T19:14:05 IST" name="setup" finished-at="2022-12-14T19:14:14 IST" duration-ms="9326" status="PASS">
+    <test started-at="2022-12-15T10:53:26 IST" name="Default test" finished-at="2022-12-15T10:59:58 IST" duration-ms="391822">
+      <class name="com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-15T10:53:26 IST" name="setup" finished-at="2022-12-15T10:53:47 IST" duration-ms="21108" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_FL_BCH_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-14T19:14:16 IST" name="aquisition_quotes_FL_BCH_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2022-12-14T19:15:41 IST" duration-ms="85498" status="PASS">
+        <test-method signature="aquisition_quotes_FL_FL_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-15T10:53:49 IST" name="aquisition_quotes_FL_FL_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2022-12-15T10:55:31 IST" duration-ms="102074" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -350,7 +350,7 @@
             </param>
             <param index="25">
               <value>
-                <![CDATA[FL (Formula 3) - BCH]]>
+                <![CDATA[FL (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -377,7 +377,7 @@
               <![CDATA[<b> Acquisition Contract type option = Finance Lease has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
+              <![CDATA[<b> Customer Contract type option = Finance Lease(FL) has been selected</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -425,8 +425,8 @@
               <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_FL_BCH_OTR_calculation_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_FL_BCH_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-14T19:15:42 IST" name="aquisition_quotes_FL_BCH_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-14T19:15:43 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_FL_BCH_OTR_calculation_without_maintenance_test" duration-ms="1913" status="PASS">
+        </test-method> <!-- aquisition_quotes_FL_FL_OTR_calculation_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_FL_FL_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-15T10:55:31 IST" name="aquisition_quotes_FL_FL_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-15T10:55:33 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_FL_FL_OTR_calculation_without_maintenance_test" duration-ms="1756" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -555,7 +555,7 @@
             </param>
             <param index="25">
               <value>
-                <![CDATA[FL (Formula 3) - BCH]]>
+                <![CDATA[FL (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -597,8 +597,8 @@
               <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_FL_BCH_after_discount_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_FL_BCH_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-14T19:15:44 IST" name="aquisition_quotes_FL_BCH_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-14T19:16:15 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_FL_BCH_after_discount_calculations_without_maintenance_test" duration-ms="31675" status="PASS">
+        </test-method> <!-- aquisition_quotes_FL_FL_after_discount_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_FL_FL_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-15T10:55:33 IST" name="aquisition_quotes_FL_FL_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-15T10:56:05 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_FL_FL_after_discount_calculations_without_maintenance_test" duration-ms="31754" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -727,7 +727,7 @@
             </param>
             <param index="25">
               <value>
-                <![CDATA[FL (Formula 3) - BCH]]>
+                <![CDATA[FL (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -751,8 +751,8 @@
               <![CDATA[<b>Total_monthly_holding_cost_from_excel =500.8333333333333</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_FL_BCH_holding_cost_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_FL_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-14T19:16:15 IST" name="aquisition_quotes_FL_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-14T19:19:27 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_FL_BCH_holding_cost_calculations_without_maintenance_test" duration-ms="191246" status="PASS">
+        </test-method> <!-- aquisition_quotes_FL_FL_holding_cost_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_FL_FL_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-15T10:56:05 IST" name="aquisition_quotes_FL_FL_customer_quote_payment_profile_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-15T10:59:16 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_FL_FL_holding_cost_calculations_without_maintenance_test" duration-ms="190886" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -881,7 +881,7 @@
             </param>
             <param index="25">
               <value>
-                <![CDATA[FL (Formula 3) - BCH]]>
+                <![CDATA[FL (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -914,7 +914,7 @@
               <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Monthly Finance Rental from Excel is =904.706478866925</b> <br />]]>
+              <![CDATA[<b>Monthly Finance Rental from Excel is =901.0647774640333</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Started verifying Balance Due value</b> <br />]]>
@@ -932,8 +932,8 @@
               <![CDATA[<b>Calculations with different payment profiles for customer quote has been ended</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_FL_BCH_customer_quote_payment_profile_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_FL_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-14T19:19:27 IST" name="aquisition_quotes_FL_BCH_quote_summary_values_verification_without_maintenance_test" data-provider="testData" finished-at="2022-12-14T19:20:10 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_FL_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" duration-ms="42790" status="PASS">
+        </test-method> <!-- aquisition_quotes_FL_FL_customer_quote_payment_profile_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_FL_FL_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-15T10:59:16 IST" name="aquisition_quotes_FL_FL_quote_summary_values_verification_without_maintenance_test" data-provider="testData" finished-at="2022-12-15T10:59:58 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_FL_FL_customer_quote_payment_profile_calculations_without_maintenance_test" duration-ms="42448" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1062,7 +1062,7 @@
             </param>
             <param index="25">
               <value>
-                <![CDATA[FL (Formula 3) - BCH]]>
+                <![CDATA[FL (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -1083,16 +1083,16 @@
               <![CDATA[<b>Quote_summary_total_monthly_holding_cost =501.00</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote_summary_monthly_finance_rental =571.54</b> <br />]]>
+              <![CDATA[<b>Quote_summary_monthly_finance_rental =567.90</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Acquisition contract_type =Finance Lease</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Customer contract_type =Business Contract Hire</b> <br />]]>
+              <![CDATA[<b>Customer contract_type =Finance Lease</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =FFA04529</b> <br />]]>
+              <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =MFJ03082</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br />]]>
@@ -1110,8 +1110,8 @@
               <![CDATA[<b>Finance Rental compared</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_FL_BCH_quote_summary_values_verification_without_maintenance_test -->
-      </class> <!-- com.amt.test.Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test -->
+        </test-method> <!-- aquisition_quotes_FL_FL_quote_summary_values_verification_without_maintenance_test -->
+      </class> <!-- com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

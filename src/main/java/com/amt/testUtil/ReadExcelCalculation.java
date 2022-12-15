@@ -819,6 +819,35 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -completed" );
 		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
 	}
+	
+	public void set_global_variables_to_excel_for_finance_lease_for_funder_quote_addition(String sheet_name) throws IOException {
+		//write / take global variables and set to excel sheet for calculation
+		 
+		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
+		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -started" );
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		 
+		wb.getSheet(sheet_name).getRow(67).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
+		wb.getSheet(sheet_name).getRow(70).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
+		wb.getSheet(sheet_name).getRow(73).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("contingency_insurance_multiplier_holding_cost")));
+		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("insurance_premium_tax")));
+		wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_cost_ex_vat")));
+		wb.getSheet(sheet_name).getRow(77).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
+		wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(0);//these values are hard coded because in finance lease rfl values are not considered
+		wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(0);
+		//wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
+		wb.getSheet(sheet_name).getRow(84).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
+		wb.getSheet(sheet_name).getRow(85).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
+				
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+		
+		LO.print("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+	}
 	public boolean verify_customer_quote_calculations_for_one_payment_options_without_maintenance(WebDriver driver,
 			WebElement customer_quote_payment_profile_dropdown, WebElement part_exchange_payment, 
 			WebElement actual_part_exchange_value, String actual_part_exchange_value_from_excel, 
