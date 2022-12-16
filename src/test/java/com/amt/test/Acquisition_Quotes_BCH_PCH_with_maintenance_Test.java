@@ -114,7 +114,7 @@ public class Acquisition_Quotes_BCH_PCH_with_maintenance_Test extends TestBase {
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
 						 maintenance_required, maintenance_margin, initial_payment,
 						part_exchange_status, target_rental,sheet_name);
-		//Assert.assertTrue(customer_quote_for_payment_boolean);
+		Assert.assertTrue(customer_quote_for_payment_boolean);
 		
 		boolean balance_due_value = obj_customer_quote_page.customer_quote_part_balance_due_value_verification(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel,
 				order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
@@ -124,13 +124,13 @@ public class Acquisition_Quotes_BCH_PCH_with_maintenance_Test extends TestBase {
 		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel,
 				document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
 		
-		//Assert.assertTrue(monthly_finance_rental);
+		Assert.assertTrue(monthly_finance_rental);
 		
 		
 
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
 				.customer_Quote_BCH_PCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
-		//Assert.assertTrue(cutomer_quote_monthly_rental);
+		Assert.assertTrue(cutomer_quote_monthly_rental);
 	
 	}
 	

@@ -102,7 +102,7 @@ public class ContractTypesAndOTR_CP_PCP_Page extends TestBase {
 	public boolean contractTypes_and_OTR_selection_CP_PCP_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
-		Thread.sleep(2000);
+		Thread.sleep(12000);
 		Click.on(driver, acq_acq_contractTypes_CP, 50);
 
 		Thread.sleep(4000);

@@ -101,7 +101,7 @@ public class ContractTypesAndOTR_HPNR_HPNR_Page extends TestBase {
 	public boolean contractTypes_and_OTR_selection_HPNR_HPNR_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
-		Thread.sleep(2000);
+		Thread.sleep(12000);
 		Click.on(driver, acq_acq_contractTypes_HPNR, 50);
 
 		Thread.sleep(4000);

@@ -96,7 +96,7 @@ public class ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage extends Tes
 	public boolean contractTypes_and_OTR_selection_outright_FL_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
-		Thread.sleep(2000);
+		Thread.sleep(12000);
 		Click.on(driver, acq_acq_contractTypes_outright, 50);
 
 		

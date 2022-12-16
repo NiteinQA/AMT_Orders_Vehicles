@@ -760,6 +760,37 @@ public class ReadExcelCalculation extends TestBase {
 		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
 	}
 	
+	public void set_global_variables_to_excel_for_bch_pch_scenario(String sheet_name) throws IOException {
+		//write / take global variables and set to excel sheet for calculation
+		 
+		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
+		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -started" );
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		 
+		//rfl values fakt on hotya baki sarv comment hotya 
+
+		wb.getSheet(sheet_name).getRow(61).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
+		wb.getSheet(sheet_name).getRow(64).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
+		wb.getSheet(sheet_name).getRow(67).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("contingency_insurance_multiplier_holding_cost")));
+		wb.getSheet(sheet_name).getRow(68).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("insurance_premium_tax")));
+		wb.getSheet(sheet_name).getRow(70).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_cost_ex_vat")));
+		wb.getSheet(sheet_name).getRow(71).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
+		wb.getSheet(sheet_name).getRow(73).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
+		wb.getSheet(sheet_name).getRow(78).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
+		wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
+				
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+		
+		LO.print("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+	}
+	
 	public void set_global_variables_to_excel_for_fl_bch_pch_scenario_with_funder_quote_addition(String sheet_name) throws IOException {
 		//write / take global variables and set to excel sheet for calculation
 		 
@@ -1667,7 +1698,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(initial_payment));
-		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue(part_exchange_status);
+		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("NO");
 		//wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
 		//wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
 		//wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
@@ -1707,7 +1738,7 @@ public class ReadExcelCalculation extends TestBase {
 		
         
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
@@ -1715,12 +1746,19 @@ public class ReadExcelCalculation extends TestBase {
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 60);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		String monthly_maintenance_rental =   customer_quote_monthly_maintenance_rental.getText().substring(2);
 		
 		String monthly_maintenance_rental_actual=RemoveComma.of(monthly_maintenance_rental);
 
 		 double monthly_mainte_rental_converted_actual =Double.parseDouble(monthly_maintenance_rental_actual);
+		 
+			LO.print("Monthly Finance Rental from screen is ="+monthly_finance_rental_actual_converted );
+			System.out.println("Monthly Finance Rental from screen is ="+monthly_finance_rental_actual_converted );
+			
+			LO.print("Monthly maintenance Rental from screen is ="+monthly_mainte_rental_converted_actual );
+			System.out.println("Monthly maintenance Rental from screen is ="+monthly_mainte_rental_converted_actual );
+		 
 		 
 		 double diff1=Difference.of_two_Double_Values(monthly_finance_rental_expected,monthly_finance_rental_actual_converted);
 		 double diff2=Difference.of_two_Double_Values(monthly_maintenance_rental_expected,monthly_mainte_rental_converted_actual);
