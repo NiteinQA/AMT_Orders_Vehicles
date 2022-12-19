@@ -1,6 +1,7 @@
 package com.amt.testUtil;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +22,16 @@ public class ExplicitWait extends TestBase {
 	{
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
 		
+	}
+	
+	public static void waitTillLoadingIconDisappears(WebDriver driver, List<WebElement> element , int timeout) throws InterruptedException
+	{
+   		int count = 0;
+   		while(element.size()!=0 && count <timeout)
+   		{
+   		Thread.sleep(1000);
+   		count++;
+   		}
 	}
 	
 	

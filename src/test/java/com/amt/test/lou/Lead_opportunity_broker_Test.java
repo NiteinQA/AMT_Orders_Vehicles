@@ -17,6 +17,7 @@ import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_BCH_BCH_Page;
+import com.amt.test.Acquisition_Quotes_Broker_BCH_without_maintenance_Test;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
@@ -27,6 +28,9 @@ public class Lead_opportunity_broker_Test extends TestBase {
 
 	
     Leads obj_Leads_Page;
+    Acquisition_Quotes_Broker_BCH_without_maintenance_Test obj_Broker_BCH_without_maintenance ;
+    
+    
 
 
 	@Test(priority = 1)
@@ -35,9 +39,15 @@ public class Lead_opportunity_broker_Test extends TestBase {
 		 obj_Leads_Page = new  Leads();
 		 
 		 obj_Leads_Page.add_new_lead("Broker");
-
-
 	}
+	
+//	@Test(priority = 2)
+//	public void Lead_opportunity_broker_Test() throws InterruptedException, IOException, UnsupportedFlavorException {
+//
+//		 obj_Leads_Page = new  Leads();
+//		 
+//		 obj_Leads_Page.add_new_lead("Broker");
+//	}
 	
 
 	

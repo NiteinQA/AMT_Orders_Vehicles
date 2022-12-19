@@ -37,4 +37,24 @@ public class GetExcelFormulaValue extends ReadExcelCalculation {
 	return cell.getNumericCellValue();
 
 }
+	
+	
+	public static String get_cell_value(int rounum, int columnnum, String sheet_name) throws IOException {
+	
+		
+		prop=new Properties();
+		FileInputStream ip = new FileInputStream("D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+		prop.load(ip);
+	
+	FileInputStream fis = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+	XSSFWorkbook book = new XSSFWorkbook(fis);
+	XSSFSheet sheet = book.getSheet(sheet_name);// selecting sheet with its name as a parameter
+	
+	
+	XSSFRow row = sheet.getRow(rounum);// read data from first row as 0th row contains header
+	XSSFCell cell = row.getCell(columnnum);// read data from first cell
+		
+	return cell.getStringCellValue();
+
+}
 }

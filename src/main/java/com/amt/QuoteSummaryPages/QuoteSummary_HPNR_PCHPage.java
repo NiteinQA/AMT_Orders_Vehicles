@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -87,8 +88,11 @@ public class QuoteSummary_HPNR_PCHPage extends TestBase {
 	
 		Thread.sleep(10000);
 		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-		Thread.sleep(20000);
+		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
+		if (js.executeScript("return document.readyState").toString().equals("complete")){
 		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
@@ -96,7 +100,7 @@ public class QuoteSummary_HPNR_PCHPage extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
-		
+		}
 		LO.print("Reading values from sceen -Quote Summary Page");
 		System.out.println("Reading values from sceen -Quote Summary Page");
 		
@@ -126,8 +130,8 @@ public class QuoteSummary_HPNR_PCHPage extends TestBase {
 		LO.print("Customer contract_type ="+customer_contract_type);
 		System.out.println("Customer contract_type ="+customer_contract_type);	
 		
-//		LO.print("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
-//		System.out.println("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
+		LO.print("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
+		System.out.println("Customer Quote generated successfully and Quote_ref_no ="+quote_ref_no);
 		
 		String quote_summary_cost_otr_price_from_screen=RemoveComma.of(temp_quote_summary_cost_otr_price);
 		String quote_summary_total_monthly_holding_cost_from_screen=RemoveComma.of(temp_quote_summary_total_monthly_holding_cost);
