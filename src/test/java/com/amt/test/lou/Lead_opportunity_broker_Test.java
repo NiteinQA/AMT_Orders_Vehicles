@@ -35,7 +35,6 @@ public class Lead_opportunity_broker_Test extends TestBase {
 		 obj_Leads_Page = new  Leads();
 		 
 		 obj_Leads_Page.add_new_lead("Broker");
-		
 
 
 	}
