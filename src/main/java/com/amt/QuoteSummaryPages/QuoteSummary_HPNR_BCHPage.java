@@ -3,6 +3,7 @@ package com.amt.QuoteSummaryPages;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.Keys;
@@ -22,6 +23,9 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 	
 	
 	ReadExcelCalculation obj_read_excel_calculation_page; 
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
@@ -85,10 +89,10 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		Click.on(driver, quote_summary, 60);
 		
 	
-		Thread.sleep(10000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);

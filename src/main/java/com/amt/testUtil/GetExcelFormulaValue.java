@@ -53,7 +53,11 @@ public class GetExcelFormulaValue extends ReadExcelCalculation {
 	
 	XSSFRow row = sheet.getRow(rounum);// read data from first row as 0th row contains header
 	XSSFCell cell = row.getCell(columnnum);// read data from first cell
-		
+	FormulaEvaluator evaluator = book.getCreationHelper().createFormulaEvaluator();		
+	XSSFFormulaEvaluator.evaluateAllFormulaCells(book);// existing Sheet, Row, and Cell setup		
+	if (cell.getCellType() == CellType.FORMULA) {
+		evaluator.evaluateFormulaCell(cell);			
+	}
 	return cell.getStringCellValue();
 
 }

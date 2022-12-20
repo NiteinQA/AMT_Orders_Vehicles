@@ -3,6 +3,7 @@ package com.amt.CustomerQuotePackage;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,10 @@ public class CustomerQuotePage_FL_PCHPage extends TestBase {
 	CustomerQuotePage_FL_PCHPage obj_cust_quote_outright_bchPage;
 	ReadExcelCalculation obj_read_excel_calculation_page; 
 
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
+	
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
 	

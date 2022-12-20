@@ -41,6 +41,10 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 	JavascriptExecutor jse;
     NgWebDriver ngDriver;
     
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
+	
+    
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
 	

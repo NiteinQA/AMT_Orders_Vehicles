@@ -1,5 +1,7 @@
 package com.amt.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
+import com.amt.testUtil.ExplicitWait;
 
 public class OptionsAccessoriesPage extends TestBase {
 
@@ -16,7 +19,6 @@ public class OptionsAccessoriesPage extends TestBase {
 
 	@FindBy(xpath = "//*[@id='child2_0016']/div/div[1]/div[1]/label")
 	private WebElement paint;  
-	//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]
 	
 	
 	@FindBy(linkText = "Interior")
@@ -25,7 +27,9 @@ public class OptionsAccessoriesPage extends TestBase {
 	@FindBy(xpath = "//*[@id=\"child2_1014\"]/div[1]/div[1]/div[1]/label")
 	private WebElement acq_interior_trim; 
 	
-	//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-detail[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-aquisition-optional-extras[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/label[1]
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
+	
 	
 	public OptionsAccessoriesPage() {
 		PageFactory.initElements(driver, this);
@@ -38,28 +42,28 @@ public class OptionsAccessoriesPage extends TestBase {
 		LO.print("Paint option has been selected");
 		System.out.println("Paint option has been selected");
 
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 
 		js.executeScript("arguments[0].click();", paint);
 
 		
 
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 
-		// HelperClass.highlightElement(driver, acq_interior);
-		try {
-			Click.on(driver, acq_interior, 40);
-			js.executeScript("arguments[0].click();", acq_interior_trim);
+
+		Click.on(driver, acq_interior, 40);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		js.executeScript("arguments[0].click();", acq_interior_trim);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 			
-			LO.print("Interior option has been selected");
+		LO.print("Interior option has been selected");
 			System.out.println("Interior option has been selected");
 			
-			Thread.sleep(5000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		Thread.sleep(5000);
-
+	
+		
 		
 	}
 

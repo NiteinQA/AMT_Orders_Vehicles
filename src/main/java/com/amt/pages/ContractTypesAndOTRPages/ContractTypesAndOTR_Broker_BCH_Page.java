@@ -5,6 +5,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,8 @@ public class ContractTypesAndOTR_Broker_BCH_Page extends TestBase {
 	
 	ReadExcelCalculation obj_read_excel_calculation_page;
 	Actions act; 
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 	
 	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;
@@ -89,7 +92,7 @@ public class ContractTypesAndOTR_Broker_BCH_Page extends TestBase {
 
 		Click.on(driver, acq_contractTypes, 40);
 		
-		Thread.sleep(10000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
 	   

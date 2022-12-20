@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -40,6 +41,9 @@ public class ContractTypesAndOTR_CP_PCH_Page extends TestBase {
 	ContractTypesAndOTR_CP_PCH_Page obj_contract_types_CP_PCH_ownbook_calculation_page;
 	ReadExcelCalculation obj_read_excel_calculation_page;
 
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
+	
 	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;
 
@@ -95,7 +99,7 @@ public class ContractTypesAndOTR_CP_PCH_Page extends TestBase {
 	public boolean contractTypes_and_OTR_selection_CP_PCH_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		Click.on(driver, acq_acq_contractTypes_CP, 50);
 		Thread.sleep(3000);
 		

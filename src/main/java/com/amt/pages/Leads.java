@@ -20,6 +20,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.ExplicitWait;
+import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.Dropdown;
 
 public class Leads extends TestBase {
@@ -105,6 +106,11 @@ public class Leads extends TestBase {
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
 	
+	@FindBy(xpath = "//*[contains(text(),'Update & Exit')]")
+	private WebElement update_and_exit;
+	
+	
+	
 
 	
 	public Leads() {
@@ -127,7 +133,7 @@ public class Leads extends TestBase {
 		
     	}
 	
-	public void add_new_lead(String channelOptions) throws InterruptedException, IOException
+	public String add_new_lead(String sheet_name) throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);
 		
@@ -139,6 +145,8 @@ public class Leads extends TestBase {
 		ExplicitWait.visibleElement(driver, add_lead, 40);
 		
 		Click.on(driver, add_lead, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
    		LO.print("Clicked on add lead");
    		System.out.println("Clicked on add lead");
@@ -221,15 +229,7 @@ public class Leads extends TestBase {
    		
    		
 	    
-	    FileInputStream fis = new FileInputStream(prop.getProperty("quote_save_excel_path"));
-		XSSFWorkbook book = new XSSFWorkbook(fis);
-		XSSFSheet sheet = book.getSheet("BrokerPCHQuoteNo");// selecting sheet with its name as a parameter
-		
-		
-		XSSFRow row = sheet.getRow(0);// read data from first row as 0th row contains header
-		XSSFCell cell = row.getCell(0);// read data from first cell
-	    
-		String quote_no=cell.getStringCellValue();
+   		String quote_no = GetExcelFormulaValue.get_cell_value(0,0,sheet_name);
 		
 		
 		
@@ -275,7 +275,7 @@ public class Leads extends TestBase {
  		
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		
-		wb.getSheet("BrokerPCHQuoteNo").createRow(0).createCell(1).setCellValue(opportunityRefNo);
+		wb.getSheet(sheet_name).getRow(0).getCell(1).setCellValue(opportunityRefNo);
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
 		
@@ -284,35 +284,18 @@ public class Leads extends TestBase {
 		out.close();
 		
  		LO.print("Lead converted to opportuninty successfully");
- 		System.out.println("Lead converted to opportuninty successfully"); 		
+ 		System.out.println("Lead converted to opportuninty successfully"); 	
  		
-	   	
-	}
+ 		Thread.sleep(4000);
+ 		
+ 		js.executeScript("arguments[0].click();", update_and_exit);
+ 		
+ 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+ 		
+ 		return driver.getTitle();
+ 		
+  }
 
 }
 
 
-//
-//List<WebElement> channel_options = driver.findElements(By.xpath("//*[@id='vehiclinfo2']/div/div/div/div[1]/div/ng-multiselect-dropdown/div/div[2]/ul[2]"));
-//	
-//for(int i=0; i<=channel_options.size()-1;i++)
-//{
-//
-//System.out.println(channel_options.get(i).getText());
-//    	
-//String temp_channel_option =channel_options.get(i).getText();
-//
-//Thread.sleep(5000);
-//
-//System.out.println(temp_channel_option.equals(channelOptions));
-//
-//	
-//
-//if(temp_channel_option.equals(channelOptions)) 
-//{	
-//	ExplicitWait.clickableElement(driver, channel_options.get(i), 30);
-//	channel_options.get(i).click();
-//	System.out.println("option selected");
-//	break;	    		
-//}
-//}

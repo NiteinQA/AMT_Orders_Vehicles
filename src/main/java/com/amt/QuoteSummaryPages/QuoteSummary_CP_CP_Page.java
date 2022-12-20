@@ -3,6 +3,7 @@ package com.amt.QuoteSummaryPages;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.Keys;
@@ -21,6 +22,9 @@ import com.amt.testUtil.RemoveComma;
 public class QuoteSummary_CP_CP_Page extends TestBase {	
 	
 	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page; 
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
@@ -76,10 +80,16 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 		LO.print("*************Calculations for Quote Summary page gas been started************");
 		System.out.println("*************Calculations for Quote Summary page gas been started************");
 	
-		Thread.sleep(10000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		
+		
 		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-		Thread.sleep(35000);		
+		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+		
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		
+		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
@@ -143,12 +153,12 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 	
-		Thread.sleep(35000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);

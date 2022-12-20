@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
@@ -26,6 +27,9 @@ public class QuoteSummary_CP_BCH_Page extends TestBase {
 	
 	
 	ReadExcelCalculation obj_read_excel_calculation_page; 
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
@@ -89,17 +93,13 @@ public class QuoteSummary_CP_BCH_Page extends TestBase {
 		Click.on(driver, quote_summary, 60);
 		
 	
-		//Thread.sleep(10000);
-		 new WebDriverWait(driver , Duration.ofSeconds(35)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[@type='button'][normalize-space()='Create order']"))));
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 				
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 		 
-		//Thread.sleep(20000);
-		 new WebDriverWait(driver , Duration.ofSeconds(35)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[@type='button'][normalize-space()='Create order']"))));
-
-		 			
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
@@ -162,12 +162,12 @@ public class QuoteSummary_CP_BCH_Page extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 	    
-		Thread.sleep(35000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);

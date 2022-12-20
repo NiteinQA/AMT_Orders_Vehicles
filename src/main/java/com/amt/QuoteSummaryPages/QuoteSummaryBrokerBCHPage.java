@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -25,6 +26,9 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 	
 	
 	ReadExcelCalculation obj_read_excel_calculation_page; 
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
@@ -86,13 +90,15 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		
-		Click.on(driver, quote_summary, 90);		
+		Click.on(driver, quote_summary, 90);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 	
-		Thread.sleep(6000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 		
-		Thread.sleep(35000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);

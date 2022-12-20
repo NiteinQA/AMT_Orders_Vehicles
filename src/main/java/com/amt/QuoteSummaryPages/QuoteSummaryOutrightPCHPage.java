@@ -2,6 +2,7 @@ package com.amt.QuoteSummaryPages;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Keys;
@@ -19,6 +20,9 @@ import com.amt.testUtil.RemoveComma;
 public class QuoteSummaryOutrightPCHPage extends TestBase {
 	
 	ReadExcelCalculation obj_read_excel_calculation_page; 
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
@@ -75,11 +79,11 @@ public class QuoteSummaryOutrightPCHPage extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(15000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		
@@ -145,12 +149,12 @@ public class QuoteSummaryOutrightPCHPage extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(10000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 	
-		Thread.sleep(10000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);

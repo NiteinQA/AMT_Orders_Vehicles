@@ -1,27 +1,20 @@
 package com.amt.test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.amt.pages.HomePage;
 import com.amt.pages.LoginPage;
-import com.amt.pages.AcquisitionBrokerPages.AcquisitionQuotesBrokerBCHPage;
 import com.amt.testBase.TestBase;
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
 public class LoginTest extends TestBase {
 	
 	public LoginPage obj_Login_Page;
 	public HomePage obj_Homepage;
-	public AcquisitionQuotesBrokerBCHPage obj_aquisition_quotes_page;
+	
 	 public static Properties prop;
 	
  

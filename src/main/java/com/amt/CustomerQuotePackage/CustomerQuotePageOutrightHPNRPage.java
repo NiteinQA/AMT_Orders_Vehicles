@@ -37,6 +37,9 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page; 
 	
 	 Clipboard clipboard;
+	 
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
     
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;

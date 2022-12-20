@@ -2,6 +2,7 @@ package com.amt.pages;
 
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -26,10 +27,10 @@ public class AcquisitionListingPage extends TestBase {
 		
 		@FindBy(linkText = "Acquisition quotes")
 		private WebElement aquisition_quotes_button;
-	
 		
-//		@FindBy(xpath = "//*[@id=\"cWraper\"]/div/app-aquisition-list/div[2]/div/div/div/div[1]/div[3]/ul/li[1]/a/span")
-//		private WebElement new_quote_button;
+		@FindBy(xpath = "//img[@alt='Loading...']")
+		private List<WebElement> loading_icon;	
+
 		
 		@FindBy(xpath = "//span[normalize-space()='New quote']")
 		private WebElement new_quote_button;
@@ -50,9 +51,11 @@ public class AcquisitionListingPage extends TestBase {
 			
 			Click.on(driver, aquisition_quotes_button, 50);
 			
-			 Thread.sleep(5000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 			
-			Click.on(driver, new_quote_button, 50);		
+			Click.on(driver, new_quote_button, 50);	
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 			
 			 
 			WebElement advance_search =driver.findElement(By.xpath("//*[@id='divVehicleSummary']/div/div/div/div[2]/div/div[1]/div/div[3]/div/div[2]/button")); 

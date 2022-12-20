@@ -9,15 +9,11 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePageBrokerFLPage;
-import com.amt.CustomerQuotePackage.CustomerQuotePageBrokerPCHPage;
 import com.amt.QuoteSummaryPages.QuoteSummaryBrokerFLPage;
-import com.amt.QuoteSummaryPages.QuoteSummaryBrokerPCHPage;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.AcquisitionBrokerPages.AcquisitionQuotesBrokerBCHPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Broker_FL_Page;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Broker_PCH_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
@@ -25,7 +21,7 @@ import com.amt.testUtil.ReadExcelData;
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
 public class Acquisition_Quotes_Broker_FL_without_maintenance_Test extends TestBase {
 	
-	public AcquisitionQuotesBrokerBCHPage obj_aquisition_quotes_page_broker_bch;
+	
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;

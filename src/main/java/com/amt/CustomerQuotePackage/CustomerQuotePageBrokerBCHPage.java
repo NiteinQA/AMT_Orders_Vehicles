@@ -22,6 +22,10 @@ import com.amt.testUtil.ExplicitWait;
 
 public class CustomerQuotePageBrokerBCHPage extends TestBase {
 
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
+	
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
 

@@ -3,6 +3,7 @@ package com.amt.HoldingCostPages;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
@@ -25,7 +26,9 @@ import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 
 public class HoldingCostOutrightHPRPage extends TestBase {
 	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
-		
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 	
 	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
 	private WebElement holding_cost;	

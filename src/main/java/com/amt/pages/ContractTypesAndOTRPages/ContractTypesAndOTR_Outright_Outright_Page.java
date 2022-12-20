@@ -1,5 +1,7 @@
 package com.amt.pages.ContractTypesAndOTRPages;
 
+import java.util.List;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,6 +12,10 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 
 public class ContractTypesAndOTR_Outright_Outright_Page extends TestBase {
+	
+	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 	
 	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;

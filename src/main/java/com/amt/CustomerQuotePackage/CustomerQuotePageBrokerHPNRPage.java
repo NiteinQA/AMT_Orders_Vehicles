@@ -24,6 +24,10 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 	
 	JavascriptExecutor jse;
 	
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
+	
+	
 	@FindBy(xpath = "//input[@id='profit']")
 	private WebElement vehicleprofit;
 	

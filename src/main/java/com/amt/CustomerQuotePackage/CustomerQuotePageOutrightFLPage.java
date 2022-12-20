@@ -1,6 +1,7 @@
 package com.amt.CustomerQuotePackage;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +18,9 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 	CustomerQuotePageOutrightFLPage obj_cust_quote_outright_FLPage;
 	ReadExcelCalculation obj_read_excel_calculation_page; 
 
-
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
+	
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
 	

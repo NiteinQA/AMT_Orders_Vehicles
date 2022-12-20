@@ -38,7 +38,8 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	
 	 Clipboard clipboard;
 	
-
+		@FindBy(xpath = "//img[@alt='Loading...']")
+		private List<WebElement> loading_icon;
     
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;

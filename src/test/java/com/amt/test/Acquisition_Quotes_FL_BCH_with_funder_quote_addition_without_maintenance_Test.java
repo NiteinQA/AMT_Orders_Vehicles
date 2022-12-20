@@ -1,31 +1,21 @@
 package com.amt.test;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.amt.CustomerQuotePackage.CustomerQuotePageOutrightBCHPage;
 import com.amt.CustomerQuotePackage.CustomerQuotePage_FL_BCHPage;
-import com.amt.HoldingCostPages.HoldingCostOutrightBCHPage;
 import com.amt.HoldingCostPages.HoldingCost_FL_BCHPage;
-import com.amt.QuoteSummaryPages.QuoteSummaryOutrightBCHPage;
 import com.amt.QuoteSummaryPages.QuoteSummary_FL_BCHPage;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.AcquisitionOutrightPage.AcquisitionQuoteOutrightBCHownbookCalculationPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_FL_BCH_Page;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 

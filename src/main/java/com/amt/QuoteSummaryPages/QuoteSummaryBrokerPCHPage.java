@@ -77,14 +77,15 @@ public class QuoteSummaryBrokerPCHPage extends TestBase {
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		
-		Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		Click.on(driver, quote_summary, 90);		
 	
-		Thread.sleep(10000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
-		//Thread.sleep(20000);
+		 
 		
 	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
@@ -126,7 +127,7 @@ public class QuoteSummaryBrokerPCHPage extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		
-		wb.getSheet("BrokerPCHQuoteNo").createRow(0).createCell(0).setCellValue(quote_ref_no);
+		wb.getSheet("BrokerPCHQuoteNo").getRow(0).getCell(0).setCellValue(quote_ref_no);
 		
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
@@ -146,11 +147,11 @@ public class QuoteSummaryBrokerPCHPage extends TestBase {
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(15000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		

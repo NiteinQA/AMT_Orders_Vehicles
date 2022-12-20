@@ -34,5 +34,11 @@ public class ExplicitWait extends TestBase {
    		}
 	}
 	
+	public static void waitForListOfVisibleElements(WebDriver driver, List<WebElement> element , int timeout )
+	{
+		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOfAllElements(element));
+		
+	}
+	
 	
 }
