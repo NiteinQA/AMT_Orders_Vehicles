@@ -24,14 +24,22 @@ public class ExplicitWait extends TestBase {
 		
 	}
 	
-	public static void waitTillLoadingIconDisappears(WebDriver driver, List<WebElement> element , int timeout) throws InterruptedException
+	public static void waitTillLoadingIconDisappears(WebDriver driver, List<WebElement> elementList , int timeout) throws InterruptedException
 	{
+	 
+	 try {
    		int count = 0;
-   		while(element.size()!=0 && count <timeout)
+   		while(elementList.size()!=0 && count <timeout)
    		{
    		Thread.sleep(1000);
    		count++;
    		}
+   		Thread.sleep(1000);
+	 }
+	 catch(Exception e) 
+	 {
+		
+	 }
 	}
 	
 	public static void waitForListOfVisibleElements(WebDriver driver, List<WebElement> element , int timeout )

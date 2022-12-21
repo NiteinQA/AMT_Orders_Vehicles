@@ -326,15 +326,17 @@ public class Opportunities extends TestBase {
 	ExplicitWait.visibleElement(newEmailTab, junk_box_count, 30);
 	
 	double junkBoxCount = Double.parseDouble(junk_box_count.getText());
+	double junkBoxCount1 = Double.parseDouble(junk_box_count.getText());
 	
-	while(junkBoxCount==0) {
+	while(junkBoxCount==junkBoxCount1) {
 	newEmailTab.navigate().refresh();	
 	ExplicitWait.visibleElement(newEmailTab, junk_box_count, 30);
 	Thread.sleep(2000);
-	double junkBoxCount1 = Double.parseDouble(junk_box_count.getText());
-	junkBoxCount = junkBoxCount1 ;
+	double junkBoxCount2 = Double.parseDouble(junk_box_count.getText());
+	junkBoxCount = junkBoxCount2;
 	}
 	
+	Thread.sleep(3000);
 	
 	Click.sendKeys(newEmailTab, email_search_field, "AMT Auto has sent you a document to sign", 30);
 	

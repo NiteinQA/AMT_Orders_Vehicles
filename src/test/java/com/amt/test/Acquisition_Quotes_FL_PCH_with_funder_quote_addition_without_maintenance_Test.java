@@ -121,7 +121,7 @@ public class Acquisition_Quotes_FL_PCH_with_funder_quote_addition_without_mainte
 
 		Assert.assertTrue(balance_due_value);
 		
-		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on(actual_part_exchange_value_from_excel,
+		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on_without_maintenance(actual_part_exchange_value_from_excel,
 				given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
 		
 		Assert.assertTrue(monthly_finance_rental);

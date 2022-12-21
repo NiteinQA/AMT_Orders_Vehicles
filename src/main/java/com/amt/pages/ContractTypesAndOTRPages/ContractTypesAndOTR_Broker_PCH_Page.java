@@ -155,7 +155,7 @@ public class ContractTypesAndOTR_Broker_PCH_Page extends TestBase {
 		   Thread.sleep(5000);
 		   
 		   act = new Actions(driver);
-		   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
+		 // act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 		    
 		    Click.on(driver, acq_contractTypes_customer_contract_PCH , 50);
 		   
@@ -167,6 +167,8 @@ public class ContractTypesAndOTR_Broker_PCH_Page extends TestBase {
 		   acq_contractTypes_table_calculation_basic_vehicle_price.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	        
 		   acq_contractTypes_table_calculation_basic_vehicle_price.sendKeys(vehicleBasicPrice);
+		   
+		   Thread.sleep(2000);
 		   
 		   act.sendKeys(Keys.TAB).build().perform();
 	       
