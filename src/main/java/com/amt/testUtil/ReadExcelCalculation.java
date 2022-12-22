@@ -732,6 +732,49 @@ public class ReadExcelCalculation extends TestBase {
 				
 	}
 	
+	public double verify_holding_cost_after_adding_funder_without_maintenance_for_hpnr_bch_pch( String term, String milesPerAnnum,String monthlyPayment,
+			String finalBalloonPayment, String documentFee ,String sheet_name) throws IOException, InterruptedException 
+	{
+		
+		LO.print("***********Holding Cost Calculations has been Started*************");
+		System.out.println("***********Holding Cost Calculations has been Started*************");				
+			
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(0);
+	  //wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
+		//wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
+		//wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
+		//wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
+		//wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
+
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel");
+		System.out.println("Reading Monthly Holding Cost value from excel");
+
+
+		return GetExcelFormulaValue.get_formula_value(57, 1, sheet_name);		
+				
+	}
+
+	
 	public double verify_holding_cost_after_adding_funder_with_maintenance(String term,String milesPerAnnum,String monthlyFinanceRental,
 			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,
 			String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
@@ -757,6 +800,50 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
 		wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
 		wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
+
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel");
+		System.out.println("Reading Monthly Holding Cost value from excel");
+
+
+		return GetExcelFormulaValue.get_formula_value(57, 1, sheet_name);		
+				
+	}
+	
+	public double verify_holding_cost_after_adding_funder_with_maintenance_for_hpnr_bch_pch(String term,String milesPerAnnum,String monthlyFinanceRental,
+			String monthlyMaintenanceRental,String finalBallonPayment, String documentFee ,String pencePerExcessMileFinance,
+			String pencePerExcessMileMaintenance,String percentageOfSaleProceedToCustomer,
+			String secondaryHirePeriodRental, String sheet_name) throws IOException, InterruptedException 
+	{
+		
+		LO.print("***********Holding Cost Calculations has been Started*************");
+		System.out.println("***********Holding Cost Calculations has been Started*************");				
+			
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyFinanceRental);
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(monthlyMaintenanceRental);
+		//wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
+		//wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
+		//wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
+		//wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
+		//wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
 
 
 		
@@ -1927,6 +2014,10 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value_used);
 		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(percentage_cap_maintenance_cost_used);
+		
+		if(sheet_name.equals("Formula1-FL"))
+			{wb.getSheet(sheet_name).getRow(106).getCell(2).setCellValue("YES");}
+
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);

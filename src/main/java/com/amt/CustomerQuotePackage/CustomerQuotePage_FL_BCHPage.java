@@ -102,7 +102,7 @@ public class CustomerQuotePage_FL_BCHPage extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
 		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
-		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_without_maintenance(driver, 
+		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_without_maintenance(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,
 				actual_part_exchange_value,actual_part_exchange_value_from_excel,
 				given_part_exchange_value, given_part_exchange_value_from_excel,

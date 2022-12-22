@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test">
+      <class name="com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_user_flow_broker_pch_vehicle_price_edited_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_user_flow_broker_pch_road_tax_for_first_year_edited_with_maintenance_test"/>
-          <include name="aquisition_quotes_user_flow_broker_pch_with_maintenance_quote_summary_page_value_verification_test"/>
-          <include name="aquisition_quotes_user_flow_broker_pch_customer_quote_funder_quote_addition_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_BCH_after_discount_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_BCH_OTR_calculation_without_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_BCH_holding_cost_calculations_without_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.Acquisition_Quotes_Broker_PCH_with_maintenance_edited_Test -->
+      </class> <!-- com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
