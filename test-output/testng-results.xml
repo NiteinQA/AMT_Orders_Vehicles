@@ -23,7 +23,7 @@
       <![CDATA[<b> Acquisition Contract type option = HPNR has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
+      <![CDATA[<b> Customer Contract type option = Finance Lease(FL) has been selected</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -119,10 +119,10 @@
       <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =501.00</b> <br />]]>
+      <![CDATA[<b>Total_monthly_holding_cost_from_screen =506.28</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =501.0</b> <br />]]>
+      <![CDATA[<b>Total_monthly_holding_cost_from_excel =506.28</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br />]]>
@@ -146,13 +146,22 @@
       <![CDATA[<b>Writing values to Excel for customer quote calculation -completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -started</b> <br />]]>
+      <![CDATA[<b>Reading  Monthly Finance and Maintenance Rental from  Excel   -started</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -completed</b> <br />]]>
+      <![CDATA[<b>Reading  Monthly Finance and Maintenance Rental from  Excel   -completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Monthly Finance Rental from Excel is =904.8745573932167</b> <br />]]>
+      <![CDATA[<b>Monthly Finance Rental from Excel is =901.2328559903167</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Monthly Finance Rental from screen is 901.23</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Monthly Maintenance Rental from Excel is =6.336</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Monthly Maintenance Rental from screen is 6.34</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Started verifying Balance Due value</b> <br />]]>
@@ -182,19 +191,19 @@
       <![CDATA[<b>Quote_summary_cost_otr_price =58,525.00</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote_summary_total_monthly_holding_cost =501.00</b> <br />]]>
+      <![CDATA[<b>Quote_summary_total_monthly_holding_cost =506.28</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote_summary_monthly_finance_rental =571.54</b> <br />]]>
+      <![CDATA[<b>Quote_summary_monthly_finance_rental =567.90</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Acquisition contract_type =Hire Purchase Non-Regulated</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Customer contract_type =Business Contract Hire</b> <br />]]>
+      <![CDATA[<b>Customer contract_type =Finance Lease</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =NSL56104</b> <br />]]>
+      <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =RIW18148</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br />]]>
@@ -211,17 +220,20 @@
     <line>
       <![CDATA[<b>Finance Rental compared</b> <br />]]>
     </line>
+    <line>
+      <![CDATA[<b>Maintenance Rental compared</b> <br />]]>
+    </line>
   </reporter-output>
-  <suite started-at="2022-12-22T13:28:25 IST" name="Default suite" finished-at="2022-12-22T13:33:34 IST" duration-ms="309235">
+  <suite started-at="2022-12-22T20:13:36 IST" name="Default suite" finished-at="2022-12-22T20:17:07 IST" duration-ms="211150">
     <groups>
     </groups>
-    <test started-at="2022-12-22T13:28:25 IST" name="Default test" finished-at="2022-12-22T13:33:34 IST" duration-ms="309235">
-      <class name="com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-22T13:28:25 IST" name="setup" finished-at="2022-12-22T13:28:34 IST" duration-ms="9592" status="PASS">
+    <test started-at="2022-12-22T20:13:36 IST" name="Default test" finished-at="2022-12-22T20:17:07 IST" duration-ms="211150">
+      <class name="com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test@3527942a]" started-at="2022-12-22T20:13:36 IST" name="setup" finished-at="2022-12-22T20:13:47 IST" duration-ms="10765" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_HPNR_BCH_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-22T13:28:36 IST" name="aquisition_quotes_HPNR_BCH_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2022-12-22T13:29:27 IST" duration-ms="51338" status="PASS">
+        <test-method signature="aquisition_quotes_HPNR_FL_OTR_calculation_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test@3527942a]" started-at="2022-12-22T20:13:48 IST" name="aquisition_quotes_HPNR_FL_OTR_calculation_with_maintenance_test" data-provider="testData" finished-at="2022-12-22T20:14:37 IST" duration-ms="48703" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -320,7 +332,7 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[20]]>
               </value>
             </param>
             <param index="20">
@@ -340,7 +352,7 @@
             </param>
             <param index="23">
               <value>
-                <![CDATA[HPNR (Formula 3) - BCH]]>
+                <![CDATA[HPNR (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -367,7 +379,7 @@
               <![CDATA[<b> Acquisition Contract type option = HPNR has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
+              <![CDATA[<b> Customer Contract type option = Finance Lease(FL) has been selected</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -415,8 +427,8 @@
               <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_HPNR_BCH_OTR_calculation_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_HPNR_BCH_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-22T13:29:27 IST" name="aquisition_quotes_HPNR_BCH_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-22T13:29:29 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_HPNR_BCH_OTR_calculation_without_maintenance_test" duration-ms="1989" status="PASS">
+        </test-method> <!-- aquisition_quotes_HPNR_FL_OTR_calculation_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_HPNR_FL_after_discount_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test@3527942a]" started-at="2022-12-22T20:14:37 IST" name="aquisition_quotes_HPNR_FL_after_discount_calculations_with_maintenance_test" data-provider="testData" finished-at="2022-12-22T20:14:39 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_FL_OTR_calculation_with_maintenance_test" duration-ms="2184" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -515,7 +527,7 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[20]]>
               </value>
             </param>
             <param index="20">
@@ -535,7 +547,7 @@
             </param>
             <param index="23">
               <value>
-                <![CDATA[HPNR (Formula 3) - BCH]]>
+                <![CDATA[HPNR (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -577,8 +589,8 @@
               <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_HPNR_BCH_after_discount_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_HPNR_BCH_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-22T13:29:29 IST" name="aquisition_quotes_HPNR_BCH_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-22T13:29:44 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_HPNR_BCH_after_discount_calculations_without_maintenance_test" duration-ms="15023" status="PASS">
+        </test-method> <!-- aquisition_quotes_HPNR_FL_after_discount_calculations_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_HPNR_FL_holding_cost_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test@3527942a]" started-at="2022-12-22T20:14:40 IST" name="aquisition_quotes_HPNR_FL_holding_cost_calculations_with_maintenance_test" data-provider="testData" finished-at="2022-12-22T20:14:59 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_FL_after_discount_calculations_with_maintenance_test" duration-ms="19218" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -677,7 +689,7 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[20]]>
               </value>
             </param>
             <param index="20">
@@ -697,7 +709,7 @@
             </param>
             <param index="23">
               <value>
-                <![CDATA[HPNR (Formula 3) - BCH]]>
+                <![CDATA[HPNR (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -715,14 +727,14 @@
               <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =501.00</b> <br />]]>
+              <![CDATA[<b>Total_monthly_holding_cost_from_screen =506.28</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =501.0</b> <br />]]>
+              <![CDATA[<b>Total_monthly_holding_cost_from_excel =506.28</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_HPNR_BCH_holding_cost_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-22T13:29:45 IST" name="aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" data-provider="testData" finished-at="2022-12-22T13:32:58 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_HPNR_BCH_holding_cost_calculations_without_maintenance_test" duration-ms="193003" status="PASS">
+        </test-method> <!-- aquisition_quotes_HPNR_FL_holding_cost_calculations_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_HPNR_FL_customer_quote_payment_profile_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test@3527942a]" started-at="2022-12-22T20:14:59 IST" name="aquisition_quotes_HPNR_FL_customer_quote_payment_profile_calculations_with_maintenance_test" data-provider="testData" finished-at="2022-12-22T20:16:44 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_FL_holding_cost_calculations_with_maintenance_test" duration-ms="105181" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -821,7 +833,7 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[20]]>
               </value>
             </param>
             <param index="20">
@@ -841,7 +853,7 @@
             </param>
             <param index="23">
               <value>
-                <![CDATA[HPNR (Formula 3) - BCH]]>
+                <![CDATA[HPNR (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -868,13 +880,22 @@
               <![CDATA[<b>Writing values to Excel for customer quote calculation -completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -started</b> <br />]]>
+              <![CDATA[<b>Reading  Monthly Finance and Maintenance Rental from  Excel   -started</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -completed</b> <br />]]>
+              <![CDATA[<b>Reading  Monthly Finance and Maintenance Rental from  Excel   -completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Monthly Finance Rental from Excel is =904.8745573932167</b> <br />]]>
+              <![CDATA[<b>Monthly Finance Rental from Excel is =901.2328559903167</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Monthly Finance Rental from screen is 901.23</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Monthly Maintenance Rental from Excel is =6.336</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Monthly Maintenance Rental from screen is 6.34</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Started verifying Balance Due value</b> <br />]]>
@@ -892,8 +913,8 @@
               <![CDATA[<b>Calculations with different payment profiles for customer quote has been ended</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_HPNR_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test@3527942a]" started-at="2022-12-22T13:32:58 IST" name="aquisition_quotes_HPNR_BCH_quote_summary_values_verification_without_maintenance_test" data-provider="testData" finished-at="2022-12-22T13:33:34 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" duration-ms="36338" status="PASS">
+        </test-method> <!-- aquisition_quotes_HPNR_FL_customer_quote_payment_profile_calculations_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_HPNR_FL_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test@3527942a]" started-at="2022-12-22T20:16:44 IST" name="aquisition_quotes_HPNR_FL_quote_summary_values_verification_with_maintenance_test" data-provider="testData" finished-at="2022-12-22T20:17:07 IST" depends-on-methods="com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_FL_customer_quote_payment_profile_calculations_with_maintenance_test" duration-ms="22755" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -992,7 +1013,7 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[20]]>
               </value>
             </param>
             <param index="20">
@@ -1012,7 +1033,7 @@
             </param>
             <param index="23">
               <value>
-                <![CDATA[HPNR (Formula 3) - BCH]]>
+                <![CDATA[HPNR (Formula 3) - FL]]>
               </value>
             </param>
           </params>
@@ -1030,19 +1051,19 @@
               <![CDATA[<b>Quote_summary_cost_otr_price =58,525.00</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote_summary_total_monthly_holding_cost =501.00</b> <br />]]>
+              <![CDATA[<b>Quote_summary_total_monthly_holding_cost =506.28</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote_summary_monthly_finance_rental =571.54</b> <br />]]>
+              <![CDATA[<b>Quote_summary_monthly_finance_rental =567.90</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Acquisition contract_type =Hire Purchase Non-Regulated</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Customer contract_type =Business Contract Hire</b> <br />]]>
+              <![CDATA[<b>Customer contract_type =Finance Lease</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =NSL56104</b> <br />]]>
+              <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =RIW18148</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br />]]>
@@ -1059,9 +1080,12 @@
             <line>
               <![CDATA[<b>Finance Rental compared</b> <br />]]>
             </line>
+            <line>
+              <![CDATA[<b>Maintenance Rental compared</b> <br />]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_HPNR_BCH_quote_summary_values_verification_without_maintenance_test -->
-      </class> <!-- com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test -->
+        </test-method> <!-- aquisition_quotes_HPNR_FL_quote_summary_values_verification_with_maintenance_test -->
+      </class> <!-- com.amt.test.Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

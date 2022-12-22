@@ -91,7 +91,7 @@ public class Acquisition_Quotes_FL_FL_with_funder_quote_addition_with_maintenanc
 				.verify_holding_cost_after_adding_funder_quote_with_maintenance( quoteRef,  expiryDate, term ,milesPerAnnum, monthlyFinanceRental,
 						 monthlyMaintenanceRental, finalBallonPayment,  documentFee , pencePerExcessMileFinance, pencePerExcessMileMaintenance, percentageOfSaleProceedToCustomer,
 						 secondaryHirePeriodRental, sheet_name);
-		//Assert.assertTrue(holding_cost_with_maintenance_boolean);
+		Assert.assertTrue(holding_cost_with_maintenance_boolean);
 	}
 	
 	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_FL_FL_holding_cost_calculations_with_maintenance_test" })
@@ -113,22 +113,22 @@ public class Acquisition_Quotes_FL_FL_with_funder_quote_addition_with_maintenanc
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
 						 maintenance_required, maintenance_margin, initial_payment,
 						part_exchange_status, target_rental,sheet_name);
-		//Assert.assertTrue(customer_quote_for_payment_boolean);
+		Assert.assertTrue(customer_quote_for_payment_boolean);
 		
 		
 		boolean balance_due_value =obj_customer_quote_page.customer_quote_part_balance_due_value_verification(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, 
 				less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
 
-		//Assert.assertTrue(balance_due_value);
+		Assert.assertTrue(balance_due_value);
 		
 		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on_with_maintenance(actual_part_exchange_value_from_excel,
 				given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
 		
-		//Assert.assertTrue(monthly_finance_rental);
+		Assert.assertTrue(monthly_finance_rental);
 		
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
 				.customer_Quote_FL_FL_for_all_payment_option_for_funder_quote_addition_with_maintenance_calculation(initial_payment,sheet_name);
-		//Assert.assertTrue(cutomer_quote_monthly_rental);
+		Assert.assertTrue(cutomer_quote_monthly_rental);
 
 
 	}
@@ -147,7 +147,7 @@ public class Acquisition_Quotes_FL_FL_with_funder_quote_addition_with_maintenanc
 
 
 		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_FL_FL_for_funder_quote_with_maintenance(sheet_name);
-		//Assert.assertTrue(quote_summary_page_status);
+		Assert.assertTrue(quote_summary_page_status);
 
 	}
 	
