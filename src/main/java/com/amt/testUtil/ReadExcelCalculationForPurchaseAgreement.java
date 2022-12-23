@@ -8,12 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -679,7 +673,52 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 	
 	
 	
-	
+	public double verify_holding_cost_after_adding_funder_without_maintenance_for_hpnr_bch_pch( String totalCashPrice,String cashDeposit,String term, String milesPerAnnum,String monthlyPayment,
+			String finalBalloonPayment, String documentFee ,String sheet_name) throws IOException, InterruptedException 
+	{
+		
+		LO.print("***********Holding Cost Calculations has been Started*************");
+		System.out.println("***********Holding Cost Calculations has been Started*************");				
+			
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
+		wb.getSheet(sheet_name).getRow(31).getCell(10).setCellValue(totalCashPrice);
+		wb.getSheet(sheet_name).getRow(33).getCell(10).setCellValue(cashDeposit);
+		
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
+		wb.getSheet(sheet_name).getRow(35).getCell(7).setCellValue(0);
+	  //wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
+		
+		//wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
+		//wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
+		//wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
+		//wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
+
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel");
+		System.out.println("Reading Monthly Holding Cost value from excel");
+
+
+		return GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);		
+				
+	}
+
 	
 	
 	
@@ -1162,10 +1201,10 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue(maintenance_required);
-		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
-		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
+		wb.getSheet(sheet_name).getRow(28).getCell(10).setCellValue(duration);
+		wb.getSheet(sheet_name).getRow(29).getCell(10).setCellValue(annual_mileage);
 	
-		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(used_residual_value);
 		wb.getSheet(sheet_name).getRow(31).getCell(10).setCellValue(total_cap_maintenance_value_annual_converted_double);		
 		
 		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
@@ -1529,6 +1568,37 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
 	}
 	
+	public void set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(String matrixCreditType, String sheet_name) throws IOException {
+		//write / take global variables and set to excel sheet for calculation
+		 
+		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
+		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -started" );
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		//rfl values fakt on hotya baki sarv comment hotya 
+		wb.getSheet(sheet_name).getRow(59).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("option_to_purchase_fee")));
+		wb.getSheet(sheet_name).getRow(61).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
+		wb.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
+		if(matrixCreditType.contains("A1 Credit")) {wb.getSheet(sheet_name).getRow(63).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_A1")));}
+		else{wb.getSheet(sheet_name).getRow(63).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));}
+		wb.getSheet(sheet_name).getRow(65).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("min_margin_percentage_for_broker_vrb")));
+		wb.getSheet(sheet_name).getRow(107).getCell(0).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
+		wb.getSheet(sheet_name).getRow(68).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(69).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(71).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(72).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(75).getCell(1).setCellValue(0);
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+		
+		LO.print("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+	}
+	
 	public double get_monthly_finanace_payment_from_excel(String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee,String vehicle_discount_copied, 
 			String paint_discount_copied, String options_discount_copied, String vehicle_additional_copied, String paint_additional_copied, String options_additional_copied, String sheet_name) throws IOException
@@ -1570,6 +1640,41 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 				
 	}
 	
+	public double get_monthly_finanace_payment_from_excel_for_funder_addition(String maintenance_status,
+			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee, String sheet_name) throws IOException
+	{
+		
+		LO.print("Writing screen values to Excel for customer quote calculation -started" );
+		System.out.println("Writing screen values to Excel for customer quote calculation -started" );
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		
+				 
+		wb.getSheet(sheet_name).getRow(104).getCell(4).setCellValue(maintenance_status);
+		wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(matrix_credit_type);
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue(balloon_payment_status);
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);	
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+			
+		LO.print("Writing screen values to Excel for customer quote calculation -completed" );
+		System.out.println("Writing screen values to Excel for customer quote calculation -completed" );
+		
+		return GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+				
+	}
+	
+
 	
 	public double get_monthly_total_payment_from_excel(String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee,String vehicle_discount_copied, 
@@ -1713,6 +1818,54 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		return GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);		
 
 	}
+	
+	public boolean verify_quote_summary_values_from_excel_for_funder_quote_addition_without_maintenance(double quote_summary_cost_otr_price_from_screen_converted,
+			double quote_summary_total_monthly_holding_cost_from_screen_converted,
+			double quote_summary_monthly_finance_rental_from_screen_converted,			
+			String sheet_name) throws IOException {
+		
+		LO.print("Reading values from excel sheet to compare it with quote summary on screen values");
+		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
+		
+		
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
+			
+		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
+			
+		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		
+		LO.print("Comparing excel values with actual values on screen");
+		System.out.println("Comparing excel values with actual values on screen");
+		
+		int count=0;
+		boolean flag=false;
+		
+		double diff1=Difference.of_two_Double_Values(otr_price_expected, quote_summary_cost_otr_price_from_screen_converted);
+		
+		
+		if(diff1<0.3)
+        {LO.print("OTR price compared");System.out.println("OTR price compared"); count++;}
+		else {LO.print("Found difference between OTR actual price and OTR expected price on Quote Summary Page");System.out.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");}
+		
+		double diff2=Difference.of_two_Double_Values(total_monthly_holding_cost_expected, quote_summary_total_monthly_holding_cost_from_screen_converted);
+
+		if(diff2<0.3)
+        {LO.print("Total monthly holding cost compared");System.out.println("Total monthly holding cost compared");count++;}
+		else {LO.print("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");System.out.println("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");}
+		
+		
+		double diff3 = Difference.of_two_Double_Values(finance_rental_expected, quote_summary_monthly_finance_rental_from_screen_converted);
+
+		if(diff3<0.3)
+        {LO.print("Finance Rental compared");System.out.println("Finance Rental compared");count++;}
+		else {LO.print("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");System.out.println("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");}
+				
+		if(count==3)
+		{flag=true;}
+		
+		return flag;
+	}
+	
 	
 
 }	

@@ -157,7 +157,7 @@ public class ContractTypesAndOTR_BCH_PCH_Page extends TestBase {
 
 			Click.on(driver, acq_contractTypes, 40);
 			
-			Thread.sleep(2000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 			Click.on(driver, acq_acq_contractTypes_BCH, 50);
 		   

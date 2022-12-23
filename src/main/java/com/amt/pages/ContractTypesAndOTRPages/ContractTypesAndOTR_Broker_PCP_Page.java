@@ -70,13 +70,13 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 	@FindBy(xpath = "//p[@class='text-left text-muted pr-1']")
 	private WebElement acq_contractTypes_OTR_price;
 	  
-	@FindBy(xpath = "//*[@id=\"ListingPriceNew\"]")
+	@FindBy(xpath = "//*[@id='ListingPriceNew']")
 	private WebElement acq_contractTypes_table_calculation_basic_vehicle_price;
 	
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[3]")
+	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[3]")
 	private WebElement acq_contractTypes_table_calculation_basic_paint_price;
 	
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[4]")
+	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[4]")
 	private WebElement acq_contractTypes_table_calculation_basic_options_price;
 	
 		

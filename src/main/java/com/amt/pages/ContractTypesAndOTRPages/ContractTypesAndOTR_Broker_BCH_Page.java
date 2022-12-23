@@ -152,7 +152,7 @@ public class ContractTypesAndOTR_Broker_BCH_Page extends TestBase {
 
 		Click.on(driver, acq_contractTypes, 40);
 		
-		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
 	   
