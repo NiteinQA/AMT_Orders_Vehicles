@@ -145,7 +145,78 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 	
 		}
 
-	
+	public boolean check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition(WebDriver driver,String maintenance_status,String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException
+	{
+		
+		Thread.sleep(2000);	
+		
+		Click.on(driver, customer_quote, 30);
+		
+		LO.print("***********Entered in Customer Quote page ***********");
+		System.out.println("***********Entered in Customer Quote page ***********");
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		 
+        Actions act = new Actions(driver);
+//        
+//        act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
+//        		,Keys.TAB,Keys.ENTER).build().perform();
+//        
+//        Thread.sleep(10000);
+//        try {
+//		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-star-inserted ng-select-bottom']/div/div/div"));
+//        
+//	     Thread.sleep(3000);
+//		 
+//		for(WebElement e: list)
+//		{
+//
+//			if(e.getText().equalsIgnoreCase(matrix_credit_type))
+//			{
+//				
+//				Click.on(driver, e, 20);				 
+//				Thread.sleep(3000);
+//				break;
+//			}
+//		}
+//        }
+//        catch(Exception e){
+//        	e.printStackTrace();       	
+//        }
+//        
+//        LO.print("Matrix credit type "+matrix_credit_type+" has been selected" );
+//		System.out.println("Matrix credit type "+matrix_credit_type+" has been selected" );
+         
+        obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+        
+        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(matrix_credit_type ,sheet_name);
+        
+             
+       ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+       
+       Thread.sleep(7000);
+       
+       double monthly_finance_payment_actual_from_screen=Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+       
+       LO.print("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
+       System.out.println("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
+       
+        double monthly_finance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_finanace_payment_from_excel_for_funder_addition(maintenance_status,
+        		matrix_credit_type, balloon_payment_status,order_deposit,finance_deposit, document_fee,sheet_name);
+       
+        LO.print("Expected Monthly Finance Rental from excel is "+monthly_finance_payment_expected_from_excel);
+        System.out.println("Expected Monthly Finance Rental from excel is "+monthly_finance_payment_expected_from_excel);
+        
+               
+        double diff= Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen, monthly_finance_payment_expected_from_excel) ;    
+       boolean status = false; 
+       if (diff<0.2)
+       {
+    	   status = true; 
+       }
+       return status;
+	}
+
 	public boolean check_monthly_finance_payment_on_customer_quote(WebDriver driver,String maintenance_status,String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException
 	{
 		

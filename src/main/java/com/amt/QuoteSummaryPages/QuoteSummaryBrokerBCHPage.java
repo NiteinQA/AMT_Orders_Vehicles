@@ -132,7 +132,7 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		
-		wb.getSheet("BrokerBCHQuoteNo.").createRow(0).createCell(0).setCellValue(quote_ref_no);
+		wb.getSheet("BrokerBCHQuoteNo").createRow(0).createCell(0).setCellValue(quote_ref_no);
 		
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));

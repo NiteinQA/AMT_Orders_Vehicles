@@ -2255,8 +2255,8 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
-		WebElement set_target_rental =new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@id='btnSubmitTargetRental']"))));
-		if(set_target_rental.isDisplayed());
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+ 
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
 			Thread.sleep(2000);

@@ -111,7 +111,7 @@ public class ContractTypesAndOTR_HPNR_CP_Page extends TestBase {
 
 		Click.on(driver, acq_acq_contractTypes_HPNR, 50);
 		
-		Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 
 		LO.print(" Acquisition Contract type option = HPNR has been selected");

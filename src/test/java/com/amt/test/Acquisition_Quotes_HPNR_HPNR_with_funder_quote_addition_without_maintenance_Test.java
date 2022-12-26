@@ -102,7 +102,7 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 	@Test(priority = 4, dataProvider = "testData", dependsOnMethods = {
 			"aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test" })
 
-	public void aquisition_quotes_outright_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(String manufacturer,
+	public void aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(String manufacturer,
 			String model, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBallonPayment,
 			String optionToPurchaseFee, String actual_part_exchange_value_from_excel,
@@ -119,14 +119,14 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 				.check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition(driver, maintenance_required,
 						matrix_credit_type, balloon_payment_status, order_deposit_from_excel, finance_deposit, document_fee_from_excel,
 						sheet_name);
-		//Assert.assertTrue(monthly_finance_payment_check);
+		Assert.assertTrue(monthly_finance_payment_check);
 
 	}
 
 	@Test(priority = 7, dataProvider = "testData", dependsOnMethods = {
 			"aquisition_quotes_outright_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test" })
 
-	public void aquisition_quotes_outright_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test(String manufacturer,
+	public void aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test(String manufacturer,
 			String model, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBallonPayment,
 			String optionToPurchaseFee, String actual_part_exchange_value_from_excel,
