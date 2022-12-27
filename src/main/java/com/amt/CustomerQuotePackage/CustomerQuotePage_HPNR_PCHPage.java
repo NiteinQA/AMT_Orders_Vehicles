@@ -128,6 +128,7 @@ public class CustomerQuotePage_HPNR_PCHPage extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_without_maintenance(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,
@@ -176,6 +177,7 @@ public class CustomerQuotePage_HPNR_PCHPage extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		obj_read_excel_calculation_page.set_global_variables_to_excel_for_fl_bch_pch_scenario_with_funder_quote_addition(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_without_maintenance(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,

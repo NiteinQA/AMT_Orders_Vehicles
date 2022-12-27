@@ -179,15 +179,9 @@ public class HoldingCost_HPNR_CP_Page extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		Thread.sleep(8000);
-		try {
-		Click.on(driver, holding_cost_summary, 30);
-		}
-		catch(Exception e)
-		{
-			Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 			Click.on(driver, holding_cost_summary, 30);			
-		}
+		
 		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
@@ -205,15 +199,9 @@ public class HoldingCost_HPNR_CP_Page extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		Thread.sleep(8000);
-		try {
-		Click.on(driver, holding_cost_summary, 30);
-		}
-		catch(Exception e)
-		{
-			Thread.sleep(4000);
-			Click.on(driver, holding_cost_summary, 30);			
-		}
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Click.on(driver, holding_cost_summary, 30);			
+		
 		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
@@ -248,15 +236,9 @@ public class HoldingCost_HPNR_CP_Page extends TestBase {
 		
 		  LO.print("***********Entered in holding cost page ***********");
 		  System.out.println("***********Entered in holding cost page ***********");
-		  Thread.sleep(8000);
-			try {
-				Click.on(driver, holding_cost_summary, 30);
-				}
-				catch(Exception e)
-				{
-					Thread.sleep(4000);
-					Click.on(driver, holding_cost_summary, 30);			
-				}
+		  ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+			Click.on(driver, holding_cost_summary, 30);			
+			
 		Thread.sleep(3000);
 		  LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
@@ -297,7 +279,7 @@ public class HoldingCost_HPNR_CP_Page extends TestBase {
 		
 		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);	
 		
-		Thread.sleep(3000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
 		
 		
 		 Click.on(driver, funder, 30);
@@ -361,6 +343,99 @@ public class HoldingCost_HPNR_CP_Page extends TestBase {
 			return flag;	 
 		 
 	}
+	
+	public boolean verify_holding_cost_after_adding_funder_quote_with_maintenance(String quoteRef, String expiryDate ,String term,String milesPerAnnum,String cashDeposit,
+			String financeCharges,String documentFee, String monthlyPayment ,String finalBalloonPayment,String optionToPurchaseFee, String sheet_name) throws InterruptedException, IOException
+	{
+		Click.on(driver, holding_cost, 30);
+		
+		LO.print("***********Entered in holding cost page ***********");
+		System.out.println("***********Entered in holding cost page ***********");
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
+		
+		Click.on(driver, add_funder_quote, 30);
+		
+		Thread.sleep(3000);
+		
+		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);	
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
+
+		
+		
+		 Click.on(driver, funder, 30);
+		
+		 Actions act = new Actions(driver);
+		 act.sendKeys(Keys.ENTER).build().perform();
+		 
+		 Click.sendKeys(driver, quote_ref, quoteRef, 30);
+		 
+		 Click.sendKeys(driver, expiry_date, expiryDate, 30);
+		 
+		 Click.sendKeys(driver, duration, term, 30);
+		 
+		 Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
+
+		 Click.on(driver, contract_mileage, 30);
+		 
+		 Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+		 
+		 Click.sendKeys(driver, finance_charges, financeCharges, 30);
+		 
+		 Click.sendKeys(driver, document_fee, documentFee, 30);
+		 
+		 Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+		 
+		 Click.sendKeys(driver, final_balloon_payment, finalBalloonPayment, 30);
+		 
+		 Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+		 
+		 ExplicitWait.visibleElement(driver, total_cash_price, 10);
+
+		String totalCashPrice = RemoveComma.of(total_cash_price.getText().trim().substring(2));
+				 
+		 Click.on(driver, add, 30);	 
+		 
+		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		 
+		 Click.on(driver, maintenance_toggle_button, 30);
+		 
+		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		 
+		 Click.on(driver, holding_cost_summary, 30);
+		 
+		 ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+		 
+		 String totalCapMaintenanceValue =  RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2));
+		 
+		 obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
+		 
+			obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
+		   double monthly_holding_cost_expected=  obj_read_excel_calculation_page.verify_holding_cost_after_adding_funder_with_maintenance_for_hpnr_hire_purchase( totalCashPrice, cashDeposit , term, milesPerAnnum, monthlyPayment,
+				   totalCapMaintenanceValue, finalBalloonPayment, documentFee , sheet_name);
+		 
+		 ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		 String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);
+			
+			String total_monthly_holding_cost_from_screen=RemoveComma.of(monthly_holding_cost);
+			
+			LO.print("Total_monthly_holding_cost_from_screen ="+monthly_holding_cost);
+			System.out.println("Total_monthly_holding_cost_from_screen "+monthly_holding_cost);
+			
+			LO.print("Total_monthly_holding_cost_from_excel ="+monthly_holding_cost_expected);
+			System.out.println("Total_monthly_holding_cost_from_excel "+monthly_holding_cost_expected);
+			
+			double total_monthly_holding_cost_actual1=Double.parseDouble(total_monthly_holding_cost_from_screen);	
+			double diff=Difference.of_two_Double_Values(total_monthly_holding_cost_actual1, monthly_holding_cost_expected);
+	        boolean flag=false;
+			if(diff<0.2)
+	        {	flag=true;	}				 
+			
+			return flag;	 
+		 
+	}
+	
 	
 
 }

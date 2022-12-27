@@ -107,7 +107,7 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		Click.on(driver, acq_acq_contractTypes_HPNR, 50);
 
-		Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		LO.print(" Acquisition Contract type option = HPNR has been selected");
 		System.out.println("Acquisition Contract type option = HPNR has been selected");
@@ -116,7 +116,7 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		
 		LO.print(" Customer Contract type option = Business Contract Hire(BCH) has been selected");		 
 		System.out.println(" Customer Contract type option = Business Contract Hire(BCH) has been selected");
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 			
          
 		ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_vehicle_price, 30);

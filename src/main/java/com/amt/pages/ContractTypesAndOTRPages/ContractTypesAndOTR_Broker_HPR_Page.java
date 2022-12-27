@@ -99,12 +99,14 @@ public class ContractTypesAndOTR_Broker_HPR_Page extends TestBase {
 	   LO.print("Acquisition Contract type option selected = Broker ");
 	   System.out.println("Acquisition Contract type option selected = Broker ");
 	   
-	   Thread.sleep(5000);
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 	   
 //	   Actions act = new Actions(driver);
 //	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 	    
 	    Click.on(driver, acq_contractTypes_customer_contract_HPR , 50);
+	    
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 	    
 	    LO.print("Customer Contract type option selected = Hire Purchase Regulated(HPR)");
 	   System.out.println("Customer Contract type option selected = Hire Purchase Regulated(HPR)");		   

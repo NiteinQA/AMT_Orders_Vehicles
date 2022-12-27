@@ -107,6 +107,7 @@ public class ContractTypesAndOTR_HPNR_CP_Page extends TestBase {
 	public boolean contractTypes_and_OTR_selection_HPNR_CP_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
+		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		Click.on(driver, acq_acq_contractTypes_HPNR, 50);
@@ -118,6 +119,8 @@ public class ContractTypesAndOTR_HPNR_CP_Page extends TestBase {
 		System.out.println("Acquisition Contract type option = HPNR has been selected");
 		
 		Click.on(driver, acq_contractTypes_customer_contract_CP, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		LO.print(" Customer Contract type option = Contract Purchase (CP) has been selected");		 
 		System.out.println(" Customer Contract type option = Contract Purchase (CP) has been selected");

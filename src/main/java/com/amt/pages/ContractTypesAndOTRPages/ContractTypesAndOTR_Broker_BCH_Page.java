@@ -99,7 +99,7 @@ public class ContractTypesAndOTR_Broker_BCH_Page extends TestBase {
 	   LO.print("Acquisition Contract type option selected = Broker ");
 	   System.out.println("Acquisition Contract type option selected = Broker ");
 	   
-	   Thread.sleep(5000);
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 	   
 //	   act = new Actions(driver);
 //	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
@@ -156,12 +156,14 @@ public class ContractTypesAndOTR_Broker_BCH_Page extends TestBase {
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
 	   
-	   Thread.sleep(5000);
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 	   
 	   act = new Actions(driver);
 	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 	    
 	    Click.on(driver, acq_contractTypes_customer_contract_BCH , 50);
+	    
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 	   
 	   LO.print("Contract type option has been selected");
 	   

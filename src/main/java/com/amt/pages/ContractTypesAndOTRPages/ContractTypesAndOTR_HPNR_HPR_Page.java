@@ -108,12 +108,14 @@ public class ContractTypesAndOTR_HPNR_HPR_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		Click.on(driver, acq_acq_contractTypes_HPNR, 50);
 
-		Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		LO.print(" Acquisition Contract type option = HPNR has been selected");
 		System.out.println("Acquisition Contract type option = HPNR has been selected");
 		
 		Click.on(driver, acq_contractTypes_customer_contract_HPR, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		LO.print(" Customer Contract type option = Hire Purchase Regulated (HPR) has been selected");		 
 		System.out.println(" Customer Contract type option = Hire Purchase Regulated (HPR) has been selected");

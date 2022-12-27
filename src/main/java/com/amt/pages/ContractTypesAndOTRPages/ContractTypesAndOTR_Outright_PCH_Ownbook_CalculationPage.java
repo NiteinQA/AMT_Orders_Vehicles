@@ -102,7 +102,7 @@ public class ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage extends Te
 		Click.on(driver, acq_contractTypes, 50);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		Click.on(driver, acq_acq_contractTypes_outright, 50);
-		Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 //		 Actions act = new Actions(driver);
 //	    act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB).sendKeys(Keys.ENTER).build().perform();
@@ -112,6 +112,8 @@ public class ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage extends Te
 		
 		
 		Click.on(driver, acq_contractTypes_customer_contract_PCH, 50);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		LO.print(" Customer Contract type option = Purchase Contract Hire(PCH) has been selected");		 
 		System.out.println(" Customer Contract type option = Purchase Contract Hire(PCH) has been selected");

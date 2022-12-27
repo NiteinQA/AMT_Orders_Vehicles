@@ -97,7 +97,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		
 		int count=0;
 		
@@ -108,7 +109,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 			
 	    Click.on(driver, maintenance_toggle_button, 20);
 	    
-	    Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 
 		Click.on(driver, customer_quote_funder, 60);
 		
@@ -133,7 +135,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
         }
 		
 		
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -159,7 +162,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 
 		Click.on(driver, add, 60);
 		
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		
 		count++;
 		}
@@ -184,7 +188,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		
 //		Select sl = new Select(payment_profile_dropdown);
 //		
@@ -223,7 +228,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 			  Dropdown.select(driver, dropdown, i , 60);
       }
 		
-		Thread.sleep(7000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 				
 		int term_converted=Integer.parseInt(term);
 
@@ -243,7 +249,8 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 
 		Click.on(driver, add, 60);
 		
-		Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		count++;
 		}
 		

@@ -193,7 +193,7 @@ public class CustomerQuotePage_BCH_PCH_Page extends TestBase {
         
 		Click.on(driver, part_exchange_toggle, 30);
 		
-		Thread.sleep(5000);	
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		double partExchangeAllowanceFromScreen1 = Double.parseDouble(RemoveComma.of(part_exchange_allowance.getText().trim().substring(2)));
 		

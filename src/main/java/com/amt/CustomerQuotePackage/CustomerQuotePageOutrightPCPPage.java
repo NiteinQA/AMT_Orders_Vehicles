@@ -155,7 +155,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		 
         Actions act = new Actions(driver);
         
@@ -174,7 +174,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 			{
 				Click.on(driver, e, 20);
 				 
-				Thread.sleep(3000);
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 				break;
 			}
 		}
@@ -254,7 +254,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		 
         Actions act = new Actions(driver);
         
@@ -273,7 +273,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 			{
 				Click.on(driver, e, 20);
 				 
-				Thread.sleep(3000);
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 				break;
 			}
 		}
@@ -285,13 +285,13 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
         LO.print("Matrix credit type "+matrix_credit_type+" has been selected" );
 		System.out.println("Matrix credit type "+matrix_credit_type+" has been selected" );
 		
-		Thread.sleep(12000);
+		 
 		
 	         
 	    Click.on(driver, customer_quote_maintenance_toggle_button, 40); 
 	    
 	    
-		Thread.sleep(10000);
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
          
         obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
         
@@ -360,7 +360,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		Click.sendKeys(driver, vehicle_profit_input, vehicle_profit, 30);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
-		Thread.sleep(12000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);		
 		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -390,7 +390,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		Click.sendKeys(driver, vehicle_profit_input, vehicle_profit, 30);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
-		Thread.sleep(12000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);		
 		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -423,27 +423,27 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual , 30);
 		
 		Click.on(driver, given_part_exchange_value, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given , 30);
 		
 		Click.on(driver, less_finance_Settlement, 30);		
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		
 		Click.on(driver, order_Deposit, 30);		
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		
 		Click.on(driver, finance_Deposit, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, finance_Deposit ,finance_deposit, 30);
 		
 		Click.on(driver, document_fee, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		
@@ -492,27 +492,27 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual , 30);
 		
 		Click.on(driver, given_part_exchange_value, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given , 30);
 		
 		Click.on(driver, less_finance_Settlement, 30);		
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		
 		Click.on(driver, order_Deposit, 30);		
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		
 		Click.on(driver, finance_Deposit, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, finance_Deposit ,finance_deposit, 30);
 		
 		Click.on(driver, document_fee, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		

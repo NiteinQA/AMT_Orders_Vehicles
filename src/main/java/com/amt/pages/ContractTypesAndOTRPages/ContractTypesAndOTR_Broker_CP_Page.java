@@ -98,13 +98,14 @@ public class ContractTypesAndOTR_Broker_CP_Page extends TestBase {
 	   LO.print("Acquisition Contract type option selected = Broker ");
 	   System.out.println("Acquisition Contract type option selected = Broker ");
 	   
-	   Thread.sleep(5000);
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 	   
 //	   Actions act = new Actions(driver);
 //	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 	    
 	    Click.on(driver, acq_contractTypes_customer_contract_CP , 50);
 	   
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		   
 	    LO.print("Customer Contract type option selected = Contract Purchase(CP)");
 		System.out.println("Customer Contract type option selected = Contract Purchase(CP)");

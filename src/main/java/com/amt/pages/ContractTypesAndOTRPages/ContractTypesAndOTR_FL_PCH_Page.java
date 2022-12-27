@@ -107,7 +107,7 @@ public class ContractTypesAndOTR_FL_PCH_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		Click.on(driver, acq_acq_contractTypes_FL, 50);
 
-		Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		LO.print(" Acquisition Contract type option = Finance Lease has been selected");
 		System.out.println("Contract type option = Finance Lease has been selected");
@@ -164,7 +164,7 @@ public class ContractTypesAndOTR_FL_PCH_Page extends TestBase {
 
 			Click.on(driver, acq_acq_contractTypes_FL, 50);
 		   
-		   Thread.sleep(5000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		   
 		   act = new Actions(driver);
 		   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();

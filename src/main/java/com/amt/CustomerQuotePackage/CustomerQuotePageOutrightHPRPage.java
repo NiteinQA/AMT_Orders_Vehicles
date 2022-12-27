@@ -152,7 +152,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		 
         Actions act = new Actions(driver);
         
@@ -171,7 +171,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 			{
 				Click.on(driver, e, 20);
 				 
-				Thread.sleep(3000);
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 				break;
 			}
 		}
@@ -251,7 +251,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		 
         Actions act = new Actions(driver);
         
@@ -270,7 +270,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 			{
 				Click.on(driver, e, 20);
 				 
-				Thread.sleep(3000);
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 				break;
 			}
 		}
@@ -288,7 +288,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	    Click.on(driver, customer_quote_maintenance_toggle_button, 40); 
 	    
 	    
-		Thread.sleep(10000);
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
          
         obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
         
@@ -357,7 +357,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 		Click.sendKeys(driver, vehicle_profit_input, vehicle_profit, 30);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
-		Thread.sleep(12000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);		
 		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -387,7 +387,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 		Click.sendKeys(driver, vehicle_profit_input, vehicle_profit, 30);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
-		Thread.sleep(12000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);		
 		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -417,27 +417,27 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual , 30);
 		
 		Click.on(driver, given_part_exchange_value, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given , 30);
 		
 		Click.on(driver, less_finance_Settlement, 30);		
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		
 		Click.on(driver, order_Deposit, 30);		
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		
 		Click.on(driver, finance_Deposit, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, finance_Deposit ,finance_deposit, 30);
 		
 		Click.on(driver, document_fee, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		
@@ -447,7 +447,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 		clipboard =Toolkit.getDefaultToolkit().getSystemClipboard(); 
         String document_fee_copied =(String) clipboard.getData(DataFlavor.stringFlavor);
 		
-        Thread.sleep(3000);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 				
 		ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 		
@@ -485,27 +485,27 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual , 30);
 		
 		Click.on(driver, given_part_exchange_value, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given , 30);
 		
 		Click.on(driver, less_finance_Settlement, 30);		
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		
 		Click.on(driver, order_Deposit, 30);		
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		
 		Click.on(driver, finance_Deposit, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, finance_Deposit ,finance_deposit, 30);
 		
 		Click.on(driver, document_fee, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		
@@ -550,7 +550,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	{
 		Click.on(driver, balloon_payment_toggle, 40);
 		
-		Thread.sleep(6000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 40);
 		
@@ -580,7 +580,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	{
 		Click.on(driver, balloon_payment_toggle, 40);
 		
-		Thread.sleep(6000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		double monthly_finance_payment_actual_from_screen=Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 	

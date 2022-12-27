@@ -105,12 +105,13 @@ public class ContractTypesAndOTR_BCH_PCH_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		Click.on(driver, acq_acq_contractTypes_BCH, 50);
 
-		Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		LO.print(" Acquisition Contract type option = Business Contract Hire(BCH) has been selected");
 		System.out.println("Acquisition Contract type option = Business Contract Hire(BCH) has been selected");
 		
 		Click.on(driver, acq_contractTypes_customer_contract_PCH, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		LO.print(" Customer Contract type option = Personal Contract Hire(PCH) has been selected");		 
 		System.out.println(" Customer Contract type option = Personal Contract Hire(PCH) has been selected");		
@@ -161,7 +162,7 @@ public class ContractTypesAndOTR_BCH_PCH_Page extends TestBase {
 
 			Click.on(driver, acq_acq_contractTypes_BCH, 50);
 		   
-		   Thread.sleep(5000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		   
 		   act = new Actions(driver);
 		   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();

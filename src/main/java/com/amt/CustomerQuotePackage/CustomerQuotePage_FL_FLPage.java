@@ -102,6 +102,8 @@ public class CustomerQuotePage_FL_FLPage extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
 		obj_read_excel_calculation_page.set_global_variables_to_excel_for_finance_lease(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_without_maintenance(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,
@@ -121,6 +123,8 @@ public class CustomerQuotePage_FL_FLPage extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		obj_read_excel_calculation_page.set_global_variables_to_excel_for_finance_lease_for_funder_quote_addition(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_without_maintenance(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,
@@ -151,9 +155,10 @@ public class CustomerQuotePage_FL_FLPage extends TestBase {
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_without_maintenance_edited(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,
@@ -181,7 +186,7 @@ public class CustomerQuotePage_FL_FLPage extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		Click.on(driver, customer_quote_maintenance_toggle_button, 40);
 		obj_read_excel_calculation_page.set_global_variables_to_excel_for_finance_lease(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_with_maintenance(driver, 
@@ -253,7 +258,7 @@ public class CustomerQuotePage_FL_FLPage extends TestBase {
         
 		Click.on(driver, part_exchange_toggle, 30);
 		
-		Thread.sleep(5000);	
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		double partExchangeAllowanceFromScreen1 = Double.parseDouble(RemoveComma.of(part_exchange_allowance.getText().trim().substring(2)));
 		
@@ -337,6 +342,7 @@ public class CustomerQuotePage_FL_FLPage extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		obj_read_excel_calculation_page.set_global_variables_to_excel_for_finance_lease_for_funder_quote_addition(sheet_name);
 		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_with_maintenance(driver, 
 				customer_quote_payment_profile_dropdown, part_exchange_payment,

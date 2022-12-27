@@ -129,7 +129,7 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
 		
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.on(driver, add_funder_button, 30);
 		Thread.sleep(2000);
@@ -161,7 +161,7 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 		LO.print("Funder added successfully");
 		System.out.println("Funder added successfully");
 		
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 30);
 		double holding_cost_from_screen =Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().trim().substring(2)));
@@ -197,18 +197,18 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
 		
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.on(driver, add_funder_button, 30);
 		Thread.sleep(2000);
 		
 		Click.on(driver, funder_maintenance_toggle, 30);
 		
-		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.on(driver, common_maintenance_toggle, 30);
 		
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.on(driver, funder, 30);
 		
@@ -242,7 +242,7 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 		LO.print("Funder added successfully");
 		System.out.println("Funder added successfully");
 		
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 30);
 		double holding_cost_from_screen =Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().trim().substring(2)));

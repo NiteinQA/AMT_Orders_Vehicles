@@ -116,6 +116,8 @@ public class ContractTypesAndOTR_HPNR_HPNR_Page extends TestBase {
 		
 		Click.on(driver, acq_contractTypes_customer_contract_HPNR, 30);
 		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
 		LO.print(" Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected");		 
 		System.out.println(" Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected");
 		

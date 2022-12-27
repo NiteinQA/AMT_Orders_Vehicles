@@ -161,7 +161,7 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
 		
-		Thread.sleep(10000);	
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.on(driver, add_funder_quote, 30);
 		
@@ -171,7 +171,7 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 		
 		
 		
-		Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		 Click.on(driver, funder, 30);
 		
@@ -204,7 +204,7 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 		 
 		 Click.on(driver, add, 30);	 
 		 
-		 Thread.sleep(10000);
+		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		 
 		 obj_read_excel_calculation_page =new ReadExcelCalculation();
 		 
@@ -260,7 +260,7 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 		
         Click.on(driver, funder_maintenance_toggle, 30);
 		
-		Thread.sleep(2000);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		
 		 Click.on(driver, funder, 30);
@@ -339,16 +339,9 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		Thread.sleep(4000);
-		try {
-		Click.on(driver, holding_cost_summary, 30);
-		}
-		catch(Exception e)
-		{
-			Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 			Click.on(driver, holding_cost_summary, 30);			
-		}
-		
+				
 		Thread.sleep(3000);
 		
 		 LO.print("Clicked on holding cost summary");
@@ -366,15 +359,9 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		 Thread.sleep(4000);
-			try {
-				Click.on(driver, holding_cost_summary, 30);
-				}
-				catch(Exception e)
-				{
-					Thread.sleep(4000);
-					Click.on(driver, holding_cost_summary, 30);			
-				}
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Click.on(driver, holding_cost_summary, 30);			
+		
 		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
@@ -409,15 +396,9 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 		
 		  LO.print("***********Entered in holding cost page ***********");
 		  System.out.println("***********Entered in holding cost page ***********");
-		  Thread.sleep(4000);
-			try {
-				Click.on(driver, holding_cost_summary, 30);
-				}
-				catch(Exception e)
-				{
-					Thread.sleep(4000);
-					Click.on(driver, holding_cost_summary, 30);			
-				}
+		  ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Click.on(driver, holding_cost_summary, 30);			
+		
 		Thread.sleep(3000);
 		  LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");

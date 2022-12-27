@@ -99,8 +99,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		Thread.sleep(8000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		
 		int count=0;
@@ -110,6 +109,10 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		Thread.sleep(5000);
 			
 	    Click.on(driver, maintenance_toggle_button, 40);
+	    
+	    
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 
 		Click.on(driver, customer_quote_funder, 60);
 		
@@ -175,7 +178,8 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		
 	    WebElement paymentProfileDropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
 		 					
@@ -209,8 +213,8 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 			}
 		//Dropdown.select(driver, payment_profile_dropdown, i , 60);
 		
-		Thread.sleep(6000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 				
 		int term_converted=Integer.parseInt(term);	
 		
@@ -230,7 +234,8 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		Click.sendKeys(driver, commission, commission2, 60);
 
 		Click.on(driver, add, 60);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		count++;
 		}
 		

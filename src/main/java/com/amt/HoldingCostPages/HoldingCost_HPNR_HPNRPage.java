@@ -39,9 +39,7 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 	private WebElement maintenance_toggle_button;
 	
 	@FindBy(xpath = "//div[@class='acc-head havebtns']")
-	private WebElement holding_cost_summary;
-	
-	
+	private WebElement holding_cost_summary;	
 	
 	@FindBy(xpath = "//div[@class='vehicleDetails ownBookHolding']//div[7]//p[1]")
 	private WebElement holding_cost_summary_residual_value_used;
@@ -183,15 +181,8 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
 		
-		Thread.sleep(8000);
-		try {
-		Click.on(driver, holding_cost_summary, 30);
-		}
-		catch(Exception e)
-		{
-			Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 			Click.on(driver, holding_cost_summary, 30);			
-		}
 		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
@@ -208,15 +199,9 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 		
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-		Thread.sleep(8000);
-		try {
-		Click.on(driver, holding_cost_summary, 30);
-		}
-		catch(Exception e)
-		{
-			Thread.sleep(4000);
-			Click.on(driver, holding_cost_summary, 30);			
-		}
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Click.on(driver, holding_cost_summary, 30);			
+		
 		Thread.sleep(3000);
 		 LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
@@ -251,15 +236,9 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 		
 		  LO.print("***********Entered in holding cost page ***********");
 		  System.out.println("***********Entered in holding cost page ***********");
-		  Thread.sleep(8000);
-			try {
-				Click.on(driver, holding_cost_summary, 30);
-				}
-				catch(Exception e)
-				{
-					Thread.sleep(4000);
-					Click.on(driver, holding_cost_summary, 30);			
-				}
+		  ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Click.on(driver, holding_cost_summary, 30);			
+		
 		Thread.sleep(3000);
 		  LO.print("Clicked on holding cost summary");
 		  System.out.println("Clicked on holding cost summary");
@@ -305,7 +284,8 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 		
 		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);	
 		
-		Thread.sleep(3000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
+
 		
 		
 		 Click.on(driver, funder, 30);
@@ -386,8 +366,7 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 		
 		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);	
 		
-		Thread.sleep(3000);		
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);			
 		
 		 Click.on(driver, funder, 30);
 		

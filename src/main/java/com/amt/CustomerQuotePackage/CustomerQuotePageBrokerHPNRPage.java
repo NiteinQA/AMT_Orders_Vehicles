@@ -156,7 +156,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		
 			
 		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
@@ -252,7 +253,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		Click.on(driver, add, 60);	
 		
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		
 		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
 		

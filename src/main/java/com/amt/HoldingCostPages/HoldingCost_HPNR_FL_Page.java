@@ -183,7 +183,7 @@ public class HoldingCost_HPNR_FL_Page extends TestBase {
 		
 		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);	
 		
-		Thread.sleep(3000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
 		
 		
 		 Click.on(driver, funder, 30);
@@ -261,7 +261,7 @@ public class HoldingCost_HPNR_FL_Page extends TestBase {
 		
 		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);	
 		
-		Thread.sleep(3000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
 		
 		
 		 Click.on(driver, funder, 30);
@@ -361,11 +361,11 @@ public class HoldingCost_HPNR_FL_Page extends TestBase {
 		
 		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);			
 		
-		Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
         Click.on(driver, funder_maintenance_toggle, 30);
 		
-		Thread.sleep(2000);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		
 		 Click.on(driver, funder, 30);

@@ -158,7 +158,8 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		
 			
 		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
@@ -213,10 +214,11 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		
 		double diff=Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
 		
-        Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
         
 		Click.on(driver, customer_quote_funder, 60);		 
-		
+		Thread.sleep(2000);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ENTER).build().perform();
 		
@@ -252,7 +254,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 
 		Click.on(driver, add, 60);	
 		
-		Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
 		
@@ -303,7 +305,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 			
 		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
@@ -361,7 +363,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		
         Click.on(driver, maintenance_toggle_button, 20);
         
-        Thread.sleep(2000);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
         
 		Click.on(driver, customer_quote_funder, 60);		 
 		
@@ -404,7 +406,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 
 		Click.on(driver, add, 60);
 		
-		Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
 		

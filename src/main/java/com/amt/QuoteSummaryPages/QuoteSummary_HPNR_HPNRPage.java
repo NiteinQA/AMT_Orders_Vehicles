@@ -143,7 +143,7 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 
 	}
     
-public boolean quote_summary_HPNR_HPNR_for_funder_quote_with_maintenance(String sheet_name) throws InterruptedException, IOException {
+   public boolean quote_summary_HPNR_HPNR_for_funder_quote_with_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
 		LO.print("*************Calculations for Quote Summary page gas been started************");
 		System.out.println("*************Calculations for Quote Summary page gas been started************");
