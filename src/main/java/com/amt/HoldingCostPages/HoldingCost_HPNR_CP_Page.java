@@ -338,7 +338,7 @@ public class HoldingCost_HPNR_CP_Page extends TestBase {
 		 obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		 
 			obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
-		   double monthly_holding_cost_expected=  obj_read_excel_calculation_page.verify_holding_cost_after_adding_funder_without_maintenance_for_hpnr_bch_pch( totalCashPrice, cashDeposit , term, milesPerAnnum, monthlyPayment,
+		   double monthly_holding_cost_expected=  obj_read_excel_calculation_page.verify_holding_cost_after_adding_funder_without_maintenance_for_hpnr_hire_purchase( totalCashPrice, cashDeposit , term, milesPerAnnum, monthlyPayment,
 				   finalBalloonPayment, documentFee , sheet_name);
 		 
 		 ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);

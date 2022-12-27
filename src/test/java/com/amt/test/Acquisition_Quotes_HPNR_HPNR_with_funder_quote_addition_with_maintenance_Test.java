@@ -20,7 +20,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test extends TestBase {
 
 	LoginPage obj_Login_Page;
 	AcquisitionListingPage obj_acq_listing_page;
@@ -32,7 +32,7 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 	QuoteSummary_HPNR_HPNRPage obj_quote_summary_page;
 
 	@Test(priority = 1, dataProvider = "testData")
-	public void aquisition_quotes_HPNR_HPNR_OTR_calculation_without_maintenance_test(String manufacturer,
+	public void aquisition_quotes_HPNR_HPNR_OTR_calculation_with_maintenance_test(String manufacturer,
 			String model, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBallonPayment,
 			String optionToPurchaseFee, String actual_part_exchange_value_from_excel,
@@ -56,9 +56,9 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 	}
 
 	@Test(priority = 2, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_HPNR_OTR_calculation_without_maintenance_test" })
+			"aquisition_quotes_HPNR_HPNR_OTR_calculation_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test(String manufacturer,
+	public void aquisition_quotes_HPNR_HPNR_after_discount_calculations_with_maintenance_test(String manufacturer,
 			String model, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBallonPayment,
 			String optionToPurchaseFee, String actual_part_exchange_value_from_excel,
@@ -77,9 +77,9 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 	}
 
 	@Test(priority = 3, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test" })
+			"aquisition_quotes_HPNR_HPNR_after_discount_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test(String manufacturer,
+	public void aquisition_quotes_HPNR_HPNR_holding_cost_calculations_with_maintenance_test(String manufacturer,
 			String model, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBallonPayment,
 			String optionToPurchaseFee, String actual_part_exchange_value_from_excel,
@@ -91,18 +91,18 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 
 		obj_holding_cost_HPNR_HPNR_page = new HoldingCost_HPNR_HPNRPage();
 
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_HPNR_HPNR_page
-				.verify_holding_cost_after_adding_funder_quote_without_maintenance(quoteRef, expiryDate, term,
+		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_HPNR_HPNR_page
+				.verify_holding_cost_after_adding_funder_quote_with_maintenance(quoteRef, expiryDate, term,
 						milesPerAnnum, cashDeposit, financeCharges, documentFee, monthlyPayment, finalBallonPayment,
 						optionToPurchaseFee, sheet_name);
-		Assert.assertTrue(holding_cost_without_maintenance_boolean);
+		Assert.assertTrue(holding_cost_with_maintenance_boolean);
 
 	}
 
 	@Test(priority = 4, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test" })
+			"aquisition_quotes_HPNR_HPNR_holding_cost_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(String manufacturer,
+	public void aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(String manufacturer,
 			String model, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBallonPayment,
 			String optionToPurchaseFee, String actual_part_exchange_value_from_excel,
@@ -116,7 +116,7 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPNRPage();
 
 		boolean monthly_finance_payment_check = obj_customer_quote_page
-				.check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition_without_maintenance(driver, maintenance_required,
+				.check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition_with_miantenance(driver, maintenance_required,
 						matrix_credit_type, balloon_payment_status, order_deposit_from_excel, finance_deposit, document_fee_from_excel,
 						sheet_name);
 		Assert.assertTrue(monthly_finance_payment_check);
@@ -124,9 +124,9 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 	}
 
 	@Test(priority = 7, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_outright_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test" })
+			"aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test(String manufacturer,
+	public void aquisition_quotes_HPNR_HPNR_customer_quote_monthly_total_payment_after_balloon_payment_off_with_maintenance_test(String manufacturer,
 			String model, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBallonPayment,
 			String optionToPurchaseFee, String actual_part_exchange_value_from_excel,
@@ -140,15 +140,15 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPNRPage();
 
 		boolean monthlyFinancePaymentCheckAfterBalloonPaymentOff = obj_customer_quote_page
-				.check_monthly_finance_payment_after_making_balloon_payment_off(sheet_name);
+				.check_monthly_total_payment_after_making_balloon_payment_off_with_maintenance(sheet_name);
 
-		//Assert.assertTrue(monthlyFinancePaymentCheckAfterBalloonPaymentOff);
+		Assert.assertTrue(monthlyFinancePaymentCheckAfterBalloonPaymentOff);
 	}
 
 	@Test(priority = 5, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_outright_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test" })
+			"aquisition_quotes_HPNR_HPNR_customer_quote_monthly_total_payment_after_balloon_payment_off_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test(String manufacturer,
+	public void aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_with_maintenance_test(String manufacturer,
 			String model, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBallonPayment,
 			String optionToPurchaseFee, String actual_part_exchange_value_from_excel,
@@ -161,14 +161,16 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 		obj_quote_summary_page = new QuoteSummary_HPNR_HPNRPage();
 
 		boolean quote_summary_page_status = obj_quote_summary_page
-				.quote_summary_HPNR_HPNR_for_funder_quote_without_maintenance(sheet_name);
+				.quote_summary_HPNR_HPNR_for_funder_quote_with_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_page_status);
+		
+		//finance rental value is showing wrong
 
 	}
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("HPNR_HPNR_funder_withoutMainten");
+		Object[][] data = ReadExcelData.getTestData("HPNR_HPNR_funder_withMaintenanc");
 		return data;
 	}
 

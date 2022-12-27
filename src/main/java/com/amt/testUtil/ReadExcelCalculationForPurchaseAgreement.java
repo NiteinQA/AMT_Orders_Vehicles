@@ -673,7 +673,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 	
 	
 	
-	public double verify_holding_cost_after_adding_funder_without_maintenance_for_hpnr_bch_pch( String totalCashPrice,String cashDeposit,String term, String milesPerAnnum,String monthlyPayment,
+	public double verify_holding_cost_after_adding_funder_without_maintenance_for_hpnr_hire_purchase( String totalCashPrice,String cashDeposit,String term, String milesPerAnnum,String monthlyPayment,
 			String finalBalloonPayment, String documentFee ,String sheet_name) throws IOException, InterruptedException 
 	{
 		
@@ -693,6 +693,52 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
 		wb.getSheet(sheet_name).getRow(35).getCell(7).setCellValue(0);
+	  //wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
+		
+		//wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
+		//wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
+		//wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
+		//wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
+
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel");
+		System.out.println("Reading Monthly Holding Cost value from excel");
+
+
+		return GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);		
+				
+	}
+
+	public double verify_holding_cost_after_adding_funder_with_maintenance_for_hpnr_hire_purchase( String totalCashPrice,String cashDeposit,String term, String milesPerAnnum,String monthlyPayment,
+			String totalCapMaintenanceValue ,String finalBalloonPayment, String documentFee ,String sheet_name) throws IOException, InterruptedException 
+	{
+		
+		LO.print("***********Holding Cost Calculations has been Started*************");
+		System.out.println("***********Holding Cost Calculations has been Started*************");				
+			
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
+		wb.getSheet(sheet_name).getRow(31).getCell(10).setCellValue(totalCashPrice);
+		wb.getSheet(sheet_name).getRow(33).getCell(10).setCellValue(cashDeposit);
+		
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
+		wb.getSheet(sheet_name).getRow(35).getCell(7).setCellValue(totalCapMaintenanceValue);
 	  //wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
 		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
 		
@@ -1494,6 +1540,55 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		
 		return flag;
 	}
+	
+	public boolean verify_quote_summary_values_from_excel_for_funder_quote_addition_with_maintenance(double quote_summary_cost_otr_price_from_screen_converted,
+			double quote_summary_total_monthly_holding_cost_from_screen_converted,
+			double quote_summary_monthly_finance_rental_from_screen_converted,
+			double quote_summary_monthly_maintenance_rental_from_screen_converted,
+			double quote_summary_monthly_total_rental_from_screen_converted, String sheet_name) throws IOException {
+		LO.print("Reading values from excel sheet to compare it with quote summary on screen values");
+		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
+		
+		double otr_price_expected = GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
+		double total_monthly_holding_cost_expected = GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
+		double finance_rental_expected = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+		double maintenance_rental_expected = GetExcelFormulaValue.get_formula_value(93, 1, sheet_name);
+		double total_rental_expected = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);	
+		
+		LO.print("Comparing excel values with actual values on screen");
+		System.out.println("Comparing excel values with actual values on screen");
+		
+		double diff1=Difference.of_two_Double_Values(otr_price_expected,quote_summary_cost_otr_price_from_screen_converted);
+		double diff2=Difference.of_two_Double_Values(total_monthly_holding_cost_expected,quote_summary_total_monthly_holding_cost_from_screen_converted);
+		double diff3=Difference.of_two_Double_Values(finance_rental_expected,quote_summary_monthly_finance_rental_from_screen_converted);
+		double diff4=Difference.of_two_Double_Values(maintenance_rental_expected,quote_summary_monthly_maintenance_rental_from_screen_converted);
+		double diff5=Difference.of_two_Double_Values(total_rental_expected,quote_summary_monthly_total_rental_from_screen_converted);
+		
+		
+		int count=0;
+		boolean flag=false;
+		if(diff1<0.2)
+        {LO.print("OTR price compared");System.out.println("OTR price compared"); count++;}else {System.out.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");}
+		
+		if(diff2<0.2)
+        {LO.print("Total monthly holding cost compared");System.out.println("Total monthly holding cost compared");count++;}else {System.out.println("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");}
+		
+		if(diff3<0.2)
+        {LO.print("Finance Rental compared");System.out.println("Finance Rental compared");count++;}else {System.out.println("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");}
+		
+		if(diff4<0.2)
+        {LO.print("Maintenance Rental compared");System.out.println("Maintenance Rental compared");count++;}else {System.out.println("Found difference between Maintenance Rental actual and Maintenance Rental expected on Quote Summary Page");}
+		
+		if(diff5<0.2)
+        {LO.print("total Rental compared");System.out.println("total Rental compared");count++;}else {System.out.println("Found difference between total Rental actual and total Rental expected on Quote Summary Page");}
+			
+		
+		if(count==5)
+		{flag=true;	}
+		
+		return flag;
+	}
+
 
 	public boolean verify_quote_summary_values_for_broker_bch_pch_fl_from_excel_with_maintenance(
 			double quote_summary_cost_otr_price_from_screen_converted, String sheet_name) throws IOException {
@@ -1670,9 +1765,36 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		LO.print("Writing screen values to Excel for customer quote calculation -completed" );
 		System.out.println("Writing screen values to Excel for customer quote calculation -completed" );
 		
-		return GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		return GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
 				
 	}
+	public double get_monthly_maintenance_payment_from_excel_for_funder_addition(String sheet_name) throws IOException
+	{
+		
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);	
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+			
+		LO.print("Writing screen values to Excel for customer quote calculation -completed" );
+		System.out.println("Writing screen values to Excel for customer quote calculation -completed" );
+		
+		return GetExcelFormulaValue.get_formula_value(93, 1, sheet_name);
+				
+	}
+
 	
 
 	
@@ -1828,11 +1950,16 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
 		
 		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
+		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
+		
+ 
 			
 		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
-			
+		
+ 
 		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		
+ 
 		
 		LO.print("Comparing excel values with actual values on screen");
 		System.out.println("Comparing excel values with actual values on screen");

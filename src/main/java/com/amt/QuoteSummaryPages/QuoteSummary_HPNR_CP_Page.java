@@ -86,16 +86,16 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 			
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 			JavascriptExecutor js = (JavascriptExecutor)driver;
-			if (js.executeScript("return document.readyState").toString().equals("complete")){
+		 
 			
-			Thread.sleep(2000);
+	 
 		    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 			ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
 			ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
 			ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
 			ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
 			ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
-			}
+		 
 			LO.print("Reading values from sceen -Quote Summary Page");
 			System.out.println("Reading values from sceen -Quote Summary Page");
 			
