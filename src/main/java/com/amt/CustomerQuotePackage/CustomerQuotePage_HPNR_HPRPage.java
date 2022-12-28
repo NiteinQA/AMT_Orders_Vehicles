@@ -297,7 +297,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
        LO.print("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
        System.out.println("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
        
-        double monthly_finance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_finanace_payment_from_excel_for_funder_addition(maintenance_status,
+        double monthly_finance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status,
         		matrix_credit_type, balloon_payment_status,order_deposit,finance_deposit, document_fee,sheet_name);
        
         LO.print("Expected Monthly Finance Rental from excel is "+monthly_finance_payment_expected_from_excel);
@@ -380,7 +380,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
        LO.print("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
        System.out.println("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
        
-        double monthly_finance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_finanace_payment_from_excel_for_funder_addition(maintenance_status,
+        double monthly_finance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status,
         		matrix_credit_type, balloon_payment_status,order_deposit,finance_deposit, document_fee,sheet_name);
        
         LO.print("Expected Monthly Finannce Rental from excel is "+monthly_finance_payment_expected_from_excel);

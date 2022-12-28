@@ -116,7 +116,7 @@ public class Acquisition_Quotes_HPNR_CP_with_funder_quote_addition_with_maintena
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_CP_Page();
 
 		boolean monthly_finance_payment_check = obj_customer_quote_page
-				.check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition_with_miantenance(driver, maintenance_required,
+				.check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition_with_maintenance(driver, maintenance_required,
 						matrix_credit_type, balloon_payment_status, order_deposit_from_excel, finance_deposit, document_fee_from_excel,
 						sheet_name);
 		Assert.assertTrue(monthly_finance_payment_check);

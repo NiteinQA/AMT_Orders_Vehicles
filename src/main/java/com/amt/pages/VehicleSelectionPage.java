@@ -55,7 +55,7 @@ public class VehicleSelectionPage extends TestBase {
 		
 		Actions act=new Actions(driver);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 40);
 		
@@ -67,7 +67,7 @@ public class VehicleSelectionPage extends TestBase {
 		act.sendKeys(Keys.ENTER).perform();
 	
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		
 		Click.sendKeys(driver, select_model_range, model , 40);	
@@ -78,7 +78,7 @@ public class VehicleSelectionPage extends TestBase {
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		
 		Click.on(driver, select_model, 30);

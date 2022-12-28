@@ -2124,7 +2124,7 @@ public class ReadExcelCalculation extends TestBase {
 		Select select=new Select(customer_quote_payment_profile_dropdown);
 		Thread.sleep(5000);
 		select.selectByIndex(0);
-		Thread.sleep(4000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		LO.print("Payment Profile Monthly in Advance option has been selected" );
 		System.out.println("Payment Profile Monthly in Advance option has been selected" );
 		
@@ -2255,7 +2255,7 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
-        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
  
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
