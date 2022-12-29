@@ -139,6 +139,32 @@ public class CustomerQuotePage_CP_BCH_Page extends TestBase {
 				customer_quote_monthly_finance_rental, 
 				maintenance_required, maintenance_margin , initial_payment, part_exchange_status, target_rental,sheet_name);
  		}
+	
+	public boolean customer_Quote_CP_BCH_for_one_payment_option_for_funder_quote_addition_with_maintenance_calculation(String actual_part_exchange_value_from_excel,
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
+			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
+			String maintenance_required, String maintenance_margin, String initial_payment,
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
+		obj_read_excel_calculation_page =new ReadExcelCalculation();	
+		Click.on(driver, customer_quote, 50);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		Click.on(driver, customer_quote_maintenance_toggle_button, 30);
+		
+		
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_fl_bch_pch_scenario_with_funder_quote_addition(sheet_name);
+		return obj_read_excel_calculation_page.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_with_maintenance(driver, 
+				customer_quote_payment_profile_dropdown, part_exchange_payment,
+				actual_part_exchange_value,actual_part_exchange_value_from_excel,
+				given_part_exchange_value, given_part_exchange_value_from_excel,
+				less_finance_settlement, less_finance_settlement_from_excel,
+				order_deposit, order_deposit_from_excel,
+				document_fee, document_fee_from_excel, upsell,
+				customer_quote_monthly_finance_rental, customer_quote_monthly_maintenance_rental, 
+				maintenance_required, maintenance_margin , initial_payment, part_exchange_status, target_rental,sheet_name);
+ 		}
+
 
 	public boolean customer_Quote_CP_BCH_for_one_payment_option_for_funder_quote_addition_without_maintenance_calculation(String actual_part_exchange_value_from_excel,
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
@@ -347,6 +373,51 @@ public class CustomerQuotePage_CP_BCH_Page extends TestBase {
 	 	}
 	 	return monthlyFinanceRentalExpected;
 	}
+	
+	public boolean customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on_with_maintenance(String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
+			String order_deposit_from_excel, String document_fee_from_excel,String upsell,String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException
+	{	
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue(part_exchange_status);
+		wb.getSheet(sheet_name).getRow(117).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
+		wb.getSheet(sheet_name).getRow(117).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
+		wb.getSheet(sheet_name).getRow(118).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
+		wb.getSheet(sheet_name).getRow(129).getCell(1).setCellValue(Double.parseDouble(target_rental));
+	    
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	 	wb.write(out);
+	 	
+	 	double monthly_finance_rental_expected_with_part_exchange=GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+	 	
+	 	ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 30);
+	 	
+	 	Thread.sleep(5000);
+	 		 	
+	 	double monthlyFinanceRentalFromScreen = Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+	 	
+	 	double diff1 = Difference.of_two_Double_Values(monthly_finance_rental_expected_with_part_exchange, monthlyFinanceRentalFromScreen);
+	 	
+	 	double monthly_mainte_rental_expected_with_part_exchange=GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+	 	
+	 	ExplicitWait.clickableElement(driver, customer_quote_monthly_maintenance_rental, 30);
+	 	
+	 	Thread.sleep(5000);
+	 		 	
+	 	double monthlyMaintenanceRentalFromScreen = Double.parseDouble(RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().trim().substring(2)));
+	 	
+	 	double diff2 = Difference.of_two_Double_Values(monthly_mainte_rental_expected_with_part_exchange, monthlyMaintenanceRentalFromScreen);
+	 	
+	 	boolean status =false ;
+	 	
+	 	if(diff1<0.3&&diff2<0.3)
+	 	{
+	 		status =true ;
+	 	}
+	 	return status;
+	}
+
 
 
 	public boolean customer_Quote_CP_BCH_for_all_payment_option_for_funder_quote_addition_without_maintenance_calculation(String initial_payment,String sheet_name) throws IOException, InterruptedException {
@@ -355,6 +426,14 @@ public class CustomerQuotePage_CP_BCH_Page extends TestBase {
 		verify_customer_quote_calculations_for_all_payment_options_for_funder_quote_addition_without_maintenance(driver, customer_quote_payment_profile_dropdown,
 				 customer_quote_monthly_finance_rental,initial_payment_input_field, initial_payment,sheet_name);
 }
+	
+	public boolean customer_Quote_CP_BCH_for_all_payment_option_for_funder_quote_addition_with_maintenance_calculation(String initial_payment,String sheet_name) throws IOException, InterruptedException {
+		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		return obj_read_excel_calculation_page.
+		verify_customer_quote_calculations_for_all_payment_options_for_funder_quote_addition_with_maintenance(driver, customer_quote_payment_profile_dropdown,
+				 customer_quote_monthly_finance_rental, customer_quote_monthly_maintenance_rental, initial_payment_input_field, initial_payment,sheet_name);
+}
+
 	
 	
 }
