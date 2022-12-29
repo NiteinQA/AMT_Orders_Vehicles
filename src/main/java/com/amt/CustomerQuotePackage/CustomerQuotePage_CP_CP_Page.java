@@ -292,7 +292,7 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
              
        ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
        
-       Thread.sleep(7000);
+       Thread.sleep(3000);
        
        double monthly_finance_payment_actual_from_screen=Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
        

@@ -120,7 +120,7 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 	@FindBy(xpath = "//input[@id='monthlyFinanceRental']")
 	private WebElement monthly_finance_rental;
 	
-	@FindBy(xpath = "//input[@id='finalBalloonPayment']")
+	@FindBy(xpath = "//input[@id='optionalFinalPayment']")
 	private WebElement final_balloon_payment;
 	
 	@FindBy(xpath = "//input[@id='optionToPurchaseFee']")
@@ -170,7 +170,7 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 	
 	
 	public boolean verify_holding_cost_after_adding_funder_quote_without_maintenance(String quoteRef, String expiryDate ,String term,String milesPerAnnum,String cashDeposit,
-			String financeCharges,String documentFee, String monthlyPayment ,String finalBalloonPayment,String optionToPurchaseFee, String sheet_name) throws InterruptedException, IOException
+			String documentFee, String monthlyPayment , String optionalFinalPayment , String optionToPurchaseFee, String pencePerExcessMileFinance , String sheet_name) throws InterruptedException, IOException
 	{
 		Click.on(driver, holding_cost, 30);
 		
@@ -207,15 +207,15 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 		 
 		 Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
 		 
-		 Click.sendKeys(driver, finance_charges, financeCharges, 30);
-		 
-		 Click.sendKeys(driver, document_fee, documentFee, 30);
+	 	 Click.sendKeys(driver, document_fee, documentFee, 30);
 		 
 		 Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
 		 
-		 Click.sendKeys(driver, final_balloon_payment, finalBalloonPayment, 30);
+		 Click.sendKeys(driver, final_balloon_payment, optionalFinalPayment, 30);
 		 
 		 Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+		 
+		 Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance , 30);
 		 
 		 Click.on(driver, add, 30);	 
 		 
@@ -224,8 +224,8 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 		 obj_read_excel_calculation_page =new ReadExcelCalculation();
 		 
 			obj_read_excel_calculation_page =new ReadExcelCalculation();
-		   double monthly_holding_cost_expected=  obj_read_excel_calculation_page.verify_holding_cost_after_adding_funder_without_maintenance_for_hpnr_bch_pch( term, milesPerAnnum, monthlyPayment,
-				   finalBalloonPayment, documentFee , sheet_name);
+		   double monthly_holding_cost_expected=  obj_read_excel_calculation_page.verify_holding_cost_after_adding_funder_without_maintenance_for_cp_bch_pch(  term,  milesPerAnnum,  cashDeposit , monthlyPayment,
+					 optionalFinalPayment,  optionToPurchaseFee ,  pencePerExcessMileFinance ,  documentFee , sheet_name);
 		 
 		 ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
 		 String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);

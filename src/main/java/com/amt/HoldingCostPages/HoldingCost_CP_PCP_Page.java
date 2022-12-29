@@ -174,6 +174,84 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 	}
 	
 	
+	public boolean verify_holding_cost_after_adding_funder_quote_without_maintenance(String quoteRef, String expiryDate ,String term,String milesPerAnnum,String cashDeposit,
+			String financeCharges,String documentFee, String monthlyPayment ,String optionalFinalPayment,String optionToPurchaseFee, String pencePerExcessMileFinance,String sheet_name) throws InterruptedException, IOException
+	{
+		Click.on(driver, holding_cost, 30);
+		
+		LO.print("***********Entered in holding cost page ***********");
+		System.out.println("***********Entered in holding cost page ***********");
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
+		
+		Click.on(driver, add_funder_quote, 30);
+		
+		Thread.sleep(3000);
+		
+		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);	
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
+		
+		
+		 Click.on(driver, funder, 30);
+		
+		 Actions act = new Actions(driver);
+		 act.sendKeys(Keys.ENTER).build().perform();
+		 
+		 Click.sendKeys(driver, quote_ref, quoteRef, 30);
+		 
+		 Click.sendKeys(driver, expiry_date, expiryDate, 30);
+		 
+		 Click.sendKeys(driver, duration, term, 30);
+		 
+		 Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
+
+		 Click.on(driver, contract_mileage, 30);
+		 
+		 Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+		 
+		 Click.sendKeys(driver, document_fee, documentFee, 30);
+		 
+		 Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+		 
+		 Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+		 
+		 Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+		 
+		 Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+		 
+		 Click.on(driver, add, 30);	 
+		 
+		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		 
+		 obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
+		 
+			obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
+		   double monthly_holding_cost_expected=  obj_read_excel_calculation_page.verify_holding_cost_after_adding_funder_without_maintenance_for_cp_purchase( cashDeposit , term, milesPerAnnum, monthlyPayment,
+				   optionalFinalPayment, optionToPurchaseFee, documentFee , sheet_name);
+		 
+		 ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		 String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);
+			
+			String total_monthly_holding_cost_from_screen=RemoveComma.of(monthly_holding_cost);
+			
+			LO.print("Total_monthly_holding_cost_from_screen ="+monthly_holding_cost);
+			System.out.println("Total_monthly_holding_cost_from_screen "+monthly_holding_cost);
+			
+			LO.print("Total_monthly_holding_cost_from_excel ="+monthly_holding_cost_expected);
+			System.out.println("Total_monthly_holding_cost_from_excel "+monthly_holding_cost_expected);
+			
+			double total_monthly_holding_cost_actual1=Double.parseDouble(total_monthly_holding_cost_from_screen);	
+			double diff=Difference.of_two_Double_Values(total_monthly_holding_cost_actual1, monthly_holding_cost_expected);
+	        boolean flag=false;
+			if(diff<0.2)
+	        {	flag=true;	}				 
+			
+			return flag;	 
+		 
+	}
+
+	
 
 	public boolean verify_holding_cost_without_maintenance(String sheet_name) throws IOException, InterruptedException {
 		Click.on(driver, holding_cost, 30);

@@ -11,37 +11,8 @@
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_Outright_HPR_with_maintenance_Normal_Save_Test" />
 		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Outright_HPNR_with_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_HPNR_with_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Outright_HPR_without_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_HPR_without_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Outright_HPNR_without_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_HPNR_without_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Outright_PCP_without_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_PCP_without_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Outright_CP_without_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_CP_without_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Outright_PCP_with_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_PCP_with_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
+	</test>	
+	
 	<test name="Acquisition_Quotes_Outright_PCH_without_maintenance_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_Outright_PCH_without_maintenance_Test" />
@@ -52,21 +23,7 @@
 			<class name="com.amt.test.Acquisition_Quotes_Outright_PCH_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_Outright_BCH_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Outright_BCH_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_BCH_with_maintenance_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Outright_FL_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Outright_FL_without_maintenance_Test" />
-		</classes>
-	</test>
+	
 	<test name="Acquisition_Quotes_Outright_FL_with_maintenance_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_Outright_FL_with_maintenance_Test" />
@@ -121,38 +78,13 @@
 			<class name="com.amt.test.Acquisition_Quotes_Broker_HPR_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_Broker_HPNR_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_HPNR_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Broker_PCP_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_PCP_with_maintenance_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Broker_PCP_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_Broker_PCP_without_maintenance_Test" />
-		</classes>
-	</test>
-
-
+	
 	<test name="Acquisition_Quotes_HPNR_HPNR_without_maintenance_Normal_Save_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_HPNR_HPNR_without_maintenance_Normal_Save_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_PCP_without_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_PCP_without_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_HPNR_CP_without_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_CP_without_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
+
 
 	<test name="Acquisition_Quotes_HPNR_HPNR_with_maintenance_Normal_Save_Test">
 		<classes>
@@ -165,22 +97,7 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_HPNR_PCP_with_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_PCP_with_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
 
-	<test name="Acquisition_Quotes_HPNR_HPR_with_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_HPR_with_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_HPNR_CP_with_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_CP_with_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
 
 	<test name="Acquisition_Quotes_HPNR_BCH_with_maintenance_Test">
 		<classes>
@@ -212,11 +129,6 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test" />
-		</classes>
-	</test>
 
 	<test name="Acquisition_Quotes_HPNR_PCH_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
@@ -260,23 +172,7 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_HPNR_CP_with_funder_quote_addition_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_CP_with_funder_quote_addition_with_maintenance_Test" />
-		</classes>
-	</test>
 
-	<test name="Acquisition_Quotes_HPNR_PCP_with_funder_quote_addition_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_PCP_with_funder_quote_addition_without_maintenance_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_HPNR_PCP_with_funder_quote_addition_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_HPNR_PCP_with_funder_quote_addition_with_maintenance_Test" />
-		</classes>
-	</test>
 
 
 	<test name="Acquisition_Quotes_FL_PCH_with_maintenance_Test">
@@ -289,28 +185,7 @@
 			<class name="com.amt.test.Acquisition_Quotes_FL_FL_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_FL_FL_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_FL_FL_with_maintenance_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_FL_BCH_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_FL_BCH_with_maintenance_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_FL_BCH_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_FL_BCH_without_maintenance_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_FL_PCH_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_FL_PCH_without_maintenance_Test" />
-		</classes>
-	</test>
+	
 
 	<test name="Acquisition_Quotes_FL_BCH_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
@@ -318,11 +193,7 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_FL_PCH_with_funder_quote_addition_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_FL_PCH_with_funder_quote_addition_without_maintenance_Test" />
-		</classes>
-	</test>
+
 
 	<test name="Acquisition_Quotes_FL_FL_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
@@ -339,25 +210,6 @@
 	<test name="Acquisition_Quotes_FL_PCH_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
 			<class name="com.amt.test.Acquisition_Quotes_FL_PCH_with_funder_quote_addition_with_maintenance_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_FL_FL_with_funder_quote_addition_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_FL_FL_with_funder_quote_addition_with_maintenance_Test" />
-		</classes>
-	</test>
-
-
-	<test name="Acquisition_Quotes_CP_PCH_with_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_CP_PCH_with_maintenance_Test" />
-		</classes>
-	</test>
-
-	<test name="Acquisition_Quotes_CP_BCH_without_maintenance_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_CP_BCH_without_maintenance_Test" />
 		</classes>
 	</test>
 
@@ -384,17 +236,7 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_CP_PCP_with_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_CP_PCP_with_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
 
-	<test name="Acquisition_Quotes_CP_PCP_without_maintenance_Normal_Save_Test">
-		<classes>
-			<class name="com.amt.test.Acquisition_Quotes_CP_PCP_without_maintenance_Normal_Save_Test" />
-		</classes>
-	</test>
 
 
 	<test name="Acquisition_Quotes_BCH_BCH_with_maintenance_Test">

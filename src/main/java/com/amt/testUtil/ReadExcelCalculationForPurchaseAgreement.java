@@ -2167,10 +2167,10 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		
  
 			
-		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
+		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(59, 1, sheet_name);
 		
  
-		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(104, 1, sheet_name);
 		
  
 		
@@ -2206,57 +2206,6 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		return flag;
 	}
 	
-	public boolean verify_quote_summary_values_from_excel_for_funder_quote_addition_without_maintenance_for_CP_purchase(double quote_summary_cost_otr_price_from_screen_converted,
-			double quote_summary_total_monthly_holding_cost_from_screen_converted,
-			double quote_summary_monthly_finance_rental_from_screen_converted,			
-			String sheet_name) throws IOException {
-		
-		LO.print("Reading values from excel sheet to compare it with quote summary on screen values");
-		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
-		
-		
-		double otr_price_expected= GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
-		
- 
-			
-		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(59, 1, sheet_name);
-		
- 
-		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(103, 1, sheet_name);
-		
- 
-		
-		LO.print("Comparing excel values with actual values on screen");
-		System.out.println("Comparing excel values with actual values on screen");
-		
-		int count=0;
-		boolean flag=false;
-		
-		double diff1=Difference.of_two_Double_Values(otr_price_expected, quote_summary_cost_otr_price_from_screen_converted);
-		
-		
-		if(diff1<0.3)
-        {LO.print("OTR price compared");System.out.println("OTR price compared"); count++;}
-		else {LO.print("Found difference between OTR actual price and OTR expected price on Quote Summary Page");System.out.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");}
-		
-		double diff2=Difference.of_two_Double_Values(total_monthly_holding_cost_expected, quote_summary_total_monthly_holding_cost_from_screen_converted);
-
-		if(diff2<0.3)
-        {LO.print("Total monthly holding cost compared");System.out.println("Total monthly holding cost compared");count++;}
-		else {LO.print("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");System.out.println("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");}
-		
-		
-		double diff3 = Difference.of_two_Double_Values(finance_rental_expected, quote_summary_monthly_finance_rental_from_screen_converted);
-
-		if(diff3<0.3)
-        {LO.print("Finance Rental compared");System.out.println("Finance Rental compared");count++;}
-		else {LO.print("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");System.out.println("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");}
-				
-		if(count==3)
-		{flag=true;}
-		
-		return flag;
-	}
 	
 	
 

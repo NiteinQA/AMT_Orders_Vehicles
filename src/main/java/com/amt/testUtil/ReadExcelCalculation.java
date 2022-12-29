@@ -225,6 +225,176 @@ public class ReadExcelCalculation extends TestBase {
 	
 
 	}
+	
+	public double verify_table_calculations_contract_types_page_cp_hire(WebDriver driver,String vehicle_price_copied, 
+			WebElement acq_contractTypes_table_calculation_basic_paint_price, 
+			WebElement acq_contractTypes_table_calculation_basic_options_price, WebElement acq_contractTypes_calculation_table_discount,
+			WebElement acq_contractTypes_calculation_table_additional_discount, String sheet_name  ) throws IOException {
+
+		ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_paint_price, 30);
+		ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_options_price, 30);
+		ExplicitWait.visibleElement(driver, acq_contractTypes_calculation_table_discount, 30);
+		ExplicitWait.visibleElement(driver, acq_contractTypes_calculation_table_additional_discount, 30);
+		String calculation_table_dicount_data = acq_contractTypes_calculation_table_discount.getText();
+		String calculation_table_basic_add_dicount_data = acq_contractTypes_calculation_table_additional_discount
+				.getText();
+
+
+		String discount[] = calculation_table_dicount_data.split("\\s+");
+		String additional_discount[] = calculation_table_basic_add_dicount_data.split("\\s+");
+
+//**************First (Basic price) row data fetching and variable assigning  code***********************************************			 
+	
+			 
+		String newString2=RemoveComma.of(acq_contractTypes_table_calculation_basic_paint_price.getText().trim().substring(2));
+		
+	 
+		String newString3=RemoveComma.of(acq_contractTypes_table_calculation_basic_options_price.getText().trim().substring(2));
+
+
+		double vehicle_basic_price = Double.parseDouble(vehicle_price_copied);
+		LO.print("Getting Basic Price- Vehicle value is  =" + vehicle_price_copied);
+        System.out.println("Getting Basic Price -Vehicle value is =" + vehicle_price_copied);
+		double paint_basic_price = Double.parseDouble(newString2);
+		LO.print("Getting Basic Price - Paint  value is  =" + newString2);
+		System.out.println("GettingPrice - Paint value is  =" + newString2);
+		double options_basic_price = Double.parseDouble(newString3);
+		LO.print("Getting  Basic Price - Options value is   =" + newString3);
+		System.out.println("Getting  Basic Price - Options  value is   =" + newString3);
+
+
+
+
+//**************Second (Discount) row data fetching and variable assigning code**************************************************			
+		ArrayList<String> arrDiscount = new ArrayList<String>();
+
+		for (int i = 0; i < discount.length; i++) {
+			if (discount[i].contains("Discount") || discount[i].contains("%")) {
+
+			} else {
+				arrDiscount.add(discount[i]);
+			}
+		}
+		String fourth_cell = arrDiscount.get(0);
+		String newString4=RemoveComma.of(fourth_cell);
+
+
+		String fifth_cell = arrDiscount.get(1);
+		String newString5=RemoveComma.of(fifth_cell);
+
+
+		String sixth_cell = arrDiscount.get(2);
+		String newString6=RemoveComma.of(sixth_cell);
+
+
+		double vehicle_discount = Double.parseDouble(newString4);
+		
+		LO.print("Getting Discount- Vehicle value is  =" + newString4);
+		System.out.println("Getting Discount -Vehicle value is  =" + newString4);
+
+		double paint_discount = Double.parseDouble(newString5);
+		LO.print("Getting   Discount - Paint value is   =" + newString5);
+		System.out.println("Getting  Discount - Paint value is  =" + newString5);		
+
+		double options_discount = Double.parseDouble(newString6);
+		LO.print("Getting  Discount- Options value is   =" + newString6);
+		System.out.println("Getting  Discount - Options value is  =" + newString6);
+
+
+
+
+
+//***************Third (Additional Discount) row data fetching and variable assigning code**************************************************	
+		ArrayList<String> arrAdditionalDiscount = new ArrayList<String>();
+
+		
+		for (int i = 0; i < additional_discount.length; i++) {
+			if (additional_discount[i].contains("Additional") || additional_discount[i].contains("discount")
+					|| additional_discount[i].contains("£")) {
+
+			} else {
+				arrAdditionalDiscount.add(additional_discount[i]);
+			}
+		}
+
+		String seventh_cell = arrAdditionalDiscount.get(0);
+		String newString7=RemoveComma.of(seventh_cell);
+
+
+		String eighth_cell = arrAdditionalDiscount.get(1);
+		String newString8=RemoveComma.of(eighth_cell);
+
+
+
+		String nineth_cell = arrAdditionalDiscount.get(2);
+		String newString9=RemoveComma.of(nineth_cell);
+
+		double vehicle_additional_discount = Double.parseDouble(newString7);
+		LO.print("Getting Additional Discount- Vehicle value is  =" + newString7);
+		System.out.println("Getting Additional Discount -Vehicle value is  =" + newString7);
+
+		double paint_additional_discount = Double.parseDouble(newString8);
+		LO.print("Getting  Additional Discount - paint value is  =" + newString8);
+		System.out.println("Getting  Additional Discount - paint value is   =" + newString8);
+
+		double options_additional_discount = Double.parseDouble(newString9);
+		LO.print("Getting  Additional Discount - Options value is  =" + newString9);
+		System.out.println("Getting  Additional Discount - Options value is  =" + newString9);
+
+//****************** data fetching and variable assigning code Completed **************************************************	
+
+//**************write this data to excel formula for calculating OTR calculation****************	
+		
+	   LO.print("Writing OTR table values to excel sheet -Started ");
+	   System.out.println("Writing OTR table values to excel sheet -Started ");
+	   
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		 
+		wb.getSheet(sheet_name).getRow(2).getCell(1).setCellValue(vehicle_basic_price);		
+		wb.getSheet(sheet_name).getRow(2).getCell(3).setCellValue(paint_basic_price);
+		wb.getSheet(sheet_name).getRow(2).getCell(5).setCellValue(options_basic_price);
+		wb.getSheet(sheet_name).getRow(3).getCell(1).setCellValue(vehicle_discount);
+		wb.getSheet(sheet_name).getRow(3).getCell(3).setCellValue(paint_discount);
+		wb.getSheet(sheet_name).getRow(3).getCell(5).setCellValue(options_discount);
+		wb.getSheet(sheet_name).getRow(4).getCell(1).setCellValue(vehicle_additional_discount);
+		wb.getSheet(sheet_name).getRow(4).getCell(3).setCellValue(paint_additional_discount);
+		wb.getSheet(sheet_name).getRow(4).getCell(5).setCellValue(options_additional_discount);
+//		wb.getSheet(sheet_name).getRow(5).getCell(1).setCellFormula("(B3*B4/100)+B5");
+//		wb.getSheet(sheet_name).getRow(5).getCell(2).setCellFormula("(C3*C4/100)+C5");
+//		wb.getSheet(sheet_name).getRow(5).getCell(3).setCellFormula("(D3*D4/100)+D5");
+//		wb.getSheet(sheet_name).getRow(6).getCell(1).setCellFormula("B3-B6");
+//		wb.getSheet(sheet_name).getRow(6).getCell(2).setCellFormula("C3-C6");
+//		wb.getSheet(sheet_name).getRow(6).getCell(3).setCellFormula("D3-D6");
+//	    wb.getSheet(sheet_name).getRow(8).getCell(4).setCellFormula("(B7+C7+D7+E3)");
+		
+		
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		LO.print("Writing OTR table values to excel sheet -Completed ");
+		System.out.println("Writing OTR table values to excel sheet -Completed ");
+		
+		LO.print("Reading Subtotal After Discount from excel sheet -Started ");
+		System.out.println("Reading Subtotal After Discount from excel sheet -Started ");
+		
+	
+		double subtotal_after_discount_excel = GetExcelFormulaValue.get_formula_value(8, 7, sheet_name);
+		 		 
+		 
+		System.out.println("subtotal_after_discount_excel = " + subtotal_after_discount_excel);
+		wb.close();
+		out.close();
+		
+		LO.print("Reading Subtotal After Discount from excel sheet -Started ");
+		System.out.println("Reading Subtotal After Discount from excel sheet -Started ");
+		
+		LO.print("Subtotal After Discount from excel sheet is ="+subtotal_after_discount_excel);
+		System.out.println("Subtotal After Discount from excel sheet is ="+subtotal_after_discount_excel);
+		return subtotal_after_discount_excel;
+	
+
+	}
 	public double verify_table_calculations_contract_types_page_edited(WebDriver driver,String vehicle_price_copied, 
 			WebElement acq_contractTypes_table_calculation_basic_paint_price, 
 			WebElement acq_contractTypes_table_calculation_basic_options_price, WebElement acq_contractTypes_calculation_table_discount,
@@ -469,6 +639,108 @@ public class ReadExcelCalculation extends TestBase {
 		System.out.println("Reading On Road Price for invoice from excel has been Started");
 
 		double on_the_road_price_for_invoice=GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
+		
+		LO.print("Reading On Road Price for invoice from excel has been completed");
+		System.out.println("Reading On Road Price for invoice from excel has been completed");
+		
+		double expected_on_the_road_price_for_invoice=Math.round(on_the_road_price_for_invoice*100.0)/100.0;
+		
+		LO.print("Expected on the road price from excel is ="+expected_on_the_road_price_for_invoice);
+		System.out.println("Expected on the road price from excel is ="+expected_on_the_road_price_for_invoice);		
+		
+		ExplicitWait.visibleElement(driver, acq_contractTypes_OTR_price, 40);
+		String otr_price=acq_contractTypes_OTR_price.getText().trim().substring(2);
+		
+		String otr_price_actual=RemoveComma.of(otr_price);
+
+		LO.print("Actual on the road price from screen is ="+otr_price_actual);
+		System.out.println("Actual on the road price from screen is ="+otr_price_actual);
+		
+		double otr_price_actual_converted=Double.parseDouble(otr_price_actual);
+		boolean flag=false;
+		double diff=Difference.of_two_Double_Values(expected_on_the_road_price_for_invoice, otr_price_actual_converted);
+		if(diff<0.2) {
+			flag=true;		
+		}
+//		String expected_on_the_road_price_for_invoice_converted= String.valueOf(expected_on_the_road_price_for_invoice);
+//		boolean flag=otr_price_actual.equals(expected_on_the_road_price_for_invoice_converted);
+				
+         return flag;
+	}
+	
+	public boolean verify_after_discount_calculations_contract_types_page_cp_hire(WebDriver driver, 
+			WebElement acq_contractTypes_calculation_table_basic_price, WebElement acq_contractTypes_calculation_table_discount,
+			WebElement acq_contractTypes_calculation_table_additional_discount, WebElement acq_contractTypes_manufacturer_delivery_charges,
+			WebElement acq_contractTypes_road_tax_first_year, WebElement acq_contractTypes_first_registration_fee, 
+			WebElement acq_contractTypes_rebate,WebElement acq_contractTypes_OTR_price, String sheet_name ) throws IOException {
+
+		obj_read_excel_calculation_page =new ReadExcelCalculation();
+				
+		ExplicitWait.visibleElement(driver, acq_contractTypes_manufacturer_delivery_charges, 30);
+		ExplicitWait.visibleElement(driver, acq_contractTypes_road_tax_first_year, 30);
+		ExplicitWait.visibleElement(driver, acq_contractTypes_first_registration_fee, 30);
+		ExplicitWait.visibleElement(driver, acq_contractTypes_rebate, 30);
+
+		// get text from elements
+		
+		LO.print("*********Calculations for On Road Price has been started***********");
+		System.out.println("Calculations for On Road Price has been started");
+		
+		LO.print("Started getting On screen values from after discount table ");
+		System.out.println("Started getting On screen values from after discount table ");
+
+		String manufacture_delivery_charges = acq_contractTypes_manufacturer_delivery_charges.getText().trim().substring(2);
+		
+		String road_tax_first_year = acq_contractTypes_road_tax_first_year.getText().trim().substring(2);
+	 
+		String first_registration_fee = acq_contractTypes_first_registration_fee.getText().trim().substring(2);
+		String rebate = acq_contractTypes_rebate.getText().trim().substring(2);
+		
+		double manufacture_delivery_charges_converted = Double.parseDouble(manufacture_delivery_charges);
+		double road_tax_first_year_converted = Double.parseDouble(road_tax_first_year);
+		double first_registration_fee_converted = Double.parseDouble(first_registration_fee);
+		double rebate_converted = Double.parseDouble(rebate);
+		
+		LO.print("Manufacture_delivery_charges ="+manufacture_delivery_charges);
+		System.out.println("Manufacture_delivery_charges ="+manufacture_delivery_charges);
+		
+		LO.print("Road_tax_first_year ="+road_tax_first_year);
+		System.out.println("Road_tax_first_year ="+road_tax_first_year);
+		
+		LO.print("First_registration_fee ="+first_registration_fee);
+		System.out.println("First_registration_fee ="+first_registration_fee);
+		
+		LO.print("Rebate ="+rebate);
+		System.out.println("Rebate ="+rebate);
+		
+		
+		// excel code for setting up values to excel for calculation
+		LO.print("Writing After discount values to excel has been started");
+		System.out.println("Writing After discount values to excel has been started");
+		
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		//wb.getSheet(sheet_name).getRow(8).getCell(4).setCellValue(subtotal_price);
+		wb.getSheet(sheet_name).getRow(9).getCell(7).setCellValue(manufacture_delivery_charges_converted);
+		wb.getSheet(sheet_name).getRow(12).getCell(7).setCellValue(road_tax_first_year_converted);
+		wb.getSheet(sheet_name).getRow(13).getCell(7).setCellValue(first_registration_fee_converted);
+		wb.getSheet(sheet_name).getRow(15).getCell(7).setCellValue(rebate_converted);
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing After discount values to excel has been completed");
+		System.out.println("Writing After discount values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading On Road Price for invoice from excel has been Started");
+		System.out.println("Reading On Road Price for invoice from excel has been Started");
+
+		double on_the_road_price_for_invoice=GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
 		
 		LO.print("Reading On Road Price for invoice from excel has been completed");
 		System.out.println("Reading On Road Price for invoice from excel has been completed");
@@ -758,6 +1030,47 @@ public class ReadExcelCalculation extends TestBase {
 
 
 		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel");
+		System.out.println("Reading Monthly Holding Cost value from excel");
+
+
+		return GetExcelFormulaValue.get_formula_value(57, 1, sheet_name);		
+				
+	}
+
+	
+	public double verify_holding_cost_after_adding_funder_without_maintenance_for_cp_bch_pch( String term, String milesPerAnnum, String cashDeposit ,String monthlyPayment,
+			String optionalFinalPayment, String optionToPurchaseFee , String pencePerExcessMileFinance , String documentFee ,String sheet_name) throws IOException, InterruptedException 
+	{
+		
+		LO.print("***********Holding Cost Calculations has been Started*************");
+		System.out.println("***********Holding Cost Calculations has been Started*************");				
+			
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(term);
+		wb.getSheet(sheet_name).getRow(31).getCell(1).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(cashDeposit);
+		wb.getSheet(sheet_name).getRow(37).getCell(0).setCellValue(documentFee);
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(optionalFinalPayment);
+	    wb.getSheet(sheet_name).getRow(40).getCell(1).setCellValue(optionToPurchaseFee);
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(43).getCell(1).setCellValue(pencePerExcessMileFinance);
+		wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(0);
+	
+			
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 		
@@ -1186,6 +1499,7 @@ public class ReadExcelCalculation extends TestBase {
 		Select select=new Select(customer_quote_payment_profile_dropdown);
 		
 		select.selectByIndex(0);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		LO.print("Payment Profile Monthly in Advance option has been selected" );
 		System.out.println("Payment Profile Monthly in Advance option has been selected" );
@@ -1515,7 +1829,7 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
-		Thread.sleep(7000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
 			Thread.sleep(4000);
@@ -1584,7 +1898,9 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
-		Thread.sleep(7000);
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+	    Thread.sleep(3000);
+	    
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {
 			Thread.sleep(4000);
@@ -1598,7 +1914,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 	
 		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 50);
-		Thread.sleep(7000);
+		Thread.sleep(4000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
@@ -1748,6 +2064,7 @@ public class ReadExcelCalculation extends TestBase {
 		for(int i=0; i<list_dropdown_options.size(); i++)
 		{
 		select.selectByIndex(i);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		String dropdown_option=list_dropdown_options.get(i).getText();
 		if(i==1) {Click.sendKeys(driver, initial_payment_input_field, initial_payment_from_test_data, 40);
 		Actions act= new Actions(driver);
@@ -1881,6 +2198,8 @@ public class ReadExcelCalculation extends TestBase {
 		
 		return flag;
 	}
+	
+	
 	
 	public boolean verify_quote_summary_values_from_excel_for_funder_quote_addition_with_maintenance(double quote_summary_cost_otr_price_from_screen_converted,
 			double quote_summary_total_monthly_holding_cost_from_screen_converted,

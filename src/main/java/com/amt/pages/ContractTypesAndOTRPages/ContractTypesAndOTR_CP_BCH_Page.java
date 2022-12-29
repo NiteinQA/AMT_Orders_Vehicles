@@ -101,6 +101,62 @@ public class ContractTypesAndOTR_CP_BCH_Page extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
+	public boolean contractTypes_and_OTR_selection_CP_BCH_Ownbook_calculation_cp_hire_funder_addition(String sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
+		Click.on(driver, acq_contractTypes, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		Click.on(driver, acq_acq_contractTypes_CP, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		LO.print(" Acquisition Contract type option = Contract Purchase has been selected");
+		System.out.println("Acquisition Contract type option = Contract Purchase has been selected");
+		
+		Click.on(driver, acq_contractTypes_customer_contract_BCH, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		LO.print(" Customer Contract type option = Business Contract Hire(BCH) has been selected");		 
+		System.out.println(" Customer Contract type option = Business Contract Hire(BCH) has been selected");
+		
+			
+         
+		ExplicitWait.visibleElement(driver, acq_contractTypes_table_calculation_basic_vehicle_price, 30);
+		   acq_contractTypes_table_calculation_basic_vehicle_price.click();
+	       
+		   acq_contractTypes_table_calculation_basic_vehicle_price.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+
+	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
+	       String vehicle_price_copied =(String) clipboard.getData(DataFlavor.stringFlavor);      
+	           
+	       
+		   obj_read_excel_calculation_page =new ReadExcelCalculation();
+		   
+		   double subtotal_after_discount_excel= obj_read_excel_calculation_page.verify_table_calculations_contract_types_page_cp_hire(driver, vehicle_price_copied, acq_contractTypes_table_calculation_basic_paint_price,acq_contractTypes_table_calculation_basic_options_price, acq_contractTypes_calculation_table_discount, acq_contractTypes_calculation_table_additional_discount, sheet_name);	
+
+		String subtotal_after_discount_actual = acq_contractTypes_subtotal_after_discounts.getText();
+		
+		LO.print("Subtotal after discount actual value from screen ="+subtotal_after_discount_actual);		 
+		System.out.println("Subtotal after discount actual value from screen ="+subtotal_after_discount_actual);
+		
+		 
+		String str = subtotal_after_discount_actual.substring(2);
+		 
+		String subtotal_after_discount_actual_converted=RemoveComma.of(str);
+        
+		
+		double subtotal_after_discount_actual_from_screen=Double.parseDouble(subtotal_after_discount_actual_converted);
+		boolean flag=false;
+		double diff=Difference.of_two_Double_Values(subtotal_after_discount_excel, subtotal_after_discount_actual_from_screen);
+		if(diff<0.2)
+          {
+	       flag =true;
+          }
+
+		return flag;
+	}
+	
 	public boolean contractTypes_and_OTR_selection_CP_BCH_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
@@ -156,6 +212,7 @@ public class ContractTypesAndOTR_CP_BCH_Page extends TestBase {
 
 		return flag;
 	}
+
 	
 	
 	public boolean contractTypes_and_OTR_selection_outright_bch_vehicle_price_edited(String vehicleBasicPrice,
@@ -232,7 +289,19 @@ public class ContractTypesAndOTR_CP_BCH_Page extends TestBase {
 		}
 		
 	
-	
+		public boolean verify_after_discount_calculations_contract_types_page_cp_hire_funder_addition(String sheet_name) throws IOException {
+			
+			obj_read_excel_calculation_page =new ReadExcelCalculation();		
+			return obj_read_excel_calculation_page.verify_after_discount_calculations_contract_types_page_cp_hire(driver, 
+					acq_contractTypes_calculation_table_basic_price, 
+					acq_contractTypes_calculation_table_discount,
+					acq_contractTypes_calculation_table_additional_discount, 
+					acq_contractTypes_manufacturer_delivery_charges, 
+					acq_contractTypes_road_tax_first_year,
+					acq_contractTypes_first_registration_fee,
+					acq_contractTypes_rebate, acq_contractTypes_OTR_price, 
+					sheet_name);		
+		}
 
 	
 

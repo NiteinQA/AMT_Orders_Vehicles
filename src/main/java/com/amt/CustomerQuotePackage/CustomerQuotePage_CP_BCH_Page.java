@@ -356,10 +356,5 @@ public class CustomerQuotePage_CP_BCH_Page extends TestBase {
 				 customer_quote_monthly_finance_rental,initial_payment_input_field, initial_payment,sheet_name);
 }
 	
-		
-
-
-	
-
 	
 }
