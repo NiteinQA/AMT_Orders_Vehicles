@@ -297,12 +297,13 @@ public boolean quote_summary_HPNR_BCH_for_funder_quote_with_maintenance(String s
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
 		
-		Thread.sleep(20000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();		
 	    
-		Thread.sleep(35000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
 		
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
