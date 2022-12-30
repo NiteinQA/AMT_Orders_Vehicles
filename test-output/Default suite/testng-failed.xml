@@ -5,8 +5,8 @@
     <classes>
       <class name="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test">
         <methods>
-          <include name="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_check_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_check_with_maintenance_test"/>
+          <include name="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_check_with_maintenance_test"/>
+          <include name="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_check_with_maintenance_test" invocation-numbers="0"/>
           <include name="aquisition_quotes_OP_OP_after_discount_calculations_test"/>
           <include name="aquisition_quotes_OP_OP_OTR_calculation_test"/>
           <include name="setup"/>
