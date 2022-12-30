@@ -153,7 +153,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 
 		Click.on(driver, add, 60);
 		
-		Thread.sleep(15000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		count++;
 		}

@@ -1197,7 +1197,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(monthlyMaintenanceRental);
 		wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
 		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
-		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
+		wb.getSheet(sheet_name).getRow(43).getCell(1).setCellValue(pencePerExcessMileFinance);
 		wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
 		wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
 		wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
@@ -1351,7 +1351,42 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(82).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
 		wb.getSheet(sheet_name).getRow(84).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
 		wb.getSheet(sheet_name).getRow(85).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
-				
+		
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+		
+		LO.print("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+	}
+	
+	public void set_global_variables_to_excel_for_cp_bch_pch_scenario_with_funder_quote_addition(String maintenance_margin, String sheet_name) throws IOException {
+		//write / take global variables and set to excel sheet for calculation
+		 
+		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
+		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -started" );
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		 
+		//rfl values fakt on hotya baki sarv comment hotya 
+
+		wb.getSheet(sheet_name).getRow(67).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
+		wb.getSheet(sheet_name).getRow(70).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
+		wb.getSheet(sheet_name).getRow(73).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("contingency_insurance_multiplier_holding_cost")));
+		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("insurance_premium_tax")));
+		wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_cost_ex_vat")));
+		wb.getSheet(sheet_name).getRow(77).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
+		wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
+		wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum")));
+		wb.getSheet(sheet_name).getRow(82).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
+		wb.getSheet(sheet_name).getRow(84).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
+		wb.getSheet(sheet_name).getRow(85).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(maintenance_margin);
+		
+		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);	
 		out.close();
@@ -1714,7 +1749,7 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Monthly Finance Rental from Excel is ="+monthly_finance_rental_expected );
 		System.out.println("Monthly Finance Rental from Excel is ="+monthly_finance_rental_expected );
         
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
@@ -1722,7 +1757,7 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
 		System.out.println("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
 	    
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_maintenance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
 		
 		String monthly_mainte_rental =   customer_quote_monthly_maintenance_rental.getText().substring(2);
 		String monthly_mainte_rental_actual=RemoveComma.of(monthly_mainte_rental);
@@ -1883,7 +1918,7 @@ public class ReadExcelCalculation extends TestBase {
 		Thread.sleep(5000);}
 		
 	
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 50);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 50);
 		Thread.sleep(7000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
@@ -1954,7 +1989,7 @@ public class ReadExcelCalculation extends TestBase {
 		Thread.sleep(5000);}
 		
 	
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 50);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 50);
 		Thread.sleep(4000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
@@ -2027,7 +2062,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		
 	
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 50);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 50);
 		
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
@@ -2040,7 +2075,7 @@ public class ReadExcelCalculation extends TestBase {
 		double monthly_finance_rental_actual_converted =Double.parseDouble(monthly_finance_rental_actual);
        
 		
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_maintenance_rental, 50);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 50);
 		
 		String monthly_maint_rental =   customer_quote_monthly_maintenance_rental.getText().substring(2);
 		
@@ -2114,7 +2149,7 @@ public class ReadExcelCalculation extends TestBase {
 		Thread.sleep(5000);}
 		
 	
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 50);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 50);
 		Thread.sleep(5000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
@@ -2272,27 +2307,27 @@ public class ReadExcelCalculation extends TestBase {
 		
 		if(diff1<0.3)
         {LO.print("OTR price compared");System.out.println("OTR price compared"); count++;}
-		else {LO.print("Found difference between OTR actual price and OTR expected price on Quote Summary Page");System.out.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");}
+		else {LO.print("Found difference between OTR actual price and OTR expected price on Quote Summary Page");System.err.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");}
 		
 		double diff2=Difference.of_two_Double_Values(total_monthly_holding_cost_expected, quote_summary_total_monthly_holding_cost_from_screen_converted);
 
 		if(diff2<0.3)
         {LO.print("Total monthly holding cost compared");System.out.println("Total monthly holding cost compared");count++;}
-		else {LO.print("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");System.out.println("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");}
+		else {LO.print("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");System.err.println("Found difference between Monthly Holding Cost actual and Monthly Holding Cost expected on Quote Summary Page");}
 		
 		
 		double diff3 = Difference.of_two_Double_Values(finance_rental_expected, quote_summary_monthly_finance_rental_from_screen_converted);
 
 		if(diff3<0.3)
         {LO.print("Finance Rental compared");System.out.println("Finance Rental compared");count++;}
-		else {LO.print("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");System.out.println("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");}
+		else {LO.print("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");System.err.println("Found difference between Finance Rental actual and Finance Rental expected on Quote Summary Page");}
 		
 		
 		double diff4 = Difference.of_two_Double_Values(maint_rental_expected, quote_summary_monthly_maint_rental_from_screen_converted);
 
 		if(diff4<0.3)
         {LO.print("Maintenance Rental compared");System.out.println("Maintenance Rental compared");count++;}
-		else {LO.print("Found difference between Maintenance Rental actual and Maintenance Rental expected on Quote Summary Page");System.out.println("Found difference between Maintenance Rental actual and Maintenance Rental expected on Quote Summary Page");}
+		else {LO.print("Found difference between Maintenance Rental actual and Maintenance Rental expected on Quote Summary Page");System.err.println("Found difference between Maintenance Rental actual and Maintenance Rental expected on Quote Summary Page");}
 				
 		
 		if(count==4)

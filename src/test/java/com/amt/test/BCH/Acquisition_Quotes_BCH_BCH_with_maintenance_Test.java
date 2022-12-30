@@ -1,4 +1,4 @@
-package com.amt.test;
+package com.amt.test.BCH;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;

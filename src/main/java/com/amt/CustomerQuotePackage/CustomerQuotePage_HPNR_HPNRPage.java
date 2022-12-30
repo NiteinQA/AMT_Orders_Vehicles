@@ -156,9 +156,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
         act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
         		,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
         
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-star-inserted ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
          
 			
 		for(WebElement e: list)
@@ -215,6 +215,8 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
         String  options_additional_copied =(String) clipboard.getData(DataFlavor.stringFlavor);
         
        ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+       
+       Thread.sleep(5000);
        
        double monthly_finance_payment_actual_from_screen=Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
        
