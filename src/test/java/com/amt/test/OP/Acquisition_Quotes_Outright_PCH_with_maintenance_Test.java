@@ -130,8 +130,11 @@ public class Acquisition_Quotes_Outright_PCH_with_maintenance_Test extends TestB
 			String part_exchange_status, String target_rental,String sheet_name ) throws InterruptedException, IOException, UnsupportedFlavorException {
 	
 		obj_quote_summary_page = new QuoteSummaryOutrightPCHPage();	
-		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_outright_PCH_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_page_status);		
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation);
+		
+		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation);		
 	}
 
 	@DataProvider(name = "testData")

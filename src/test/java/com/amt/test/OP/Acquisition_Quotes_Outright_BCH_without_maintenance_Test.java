@@ -132,8 +132,16 @@ public class Acquisition_Quotes_Outright_BCH_without_maintenance_Test extends Te
 		obj_quote_summary_page = new QuoteSummaryOutrightBCHPage();
 
 
-		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_outright_BCH_without_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_page_status);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation);
+		
+		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		
+		
 
 	}
 	

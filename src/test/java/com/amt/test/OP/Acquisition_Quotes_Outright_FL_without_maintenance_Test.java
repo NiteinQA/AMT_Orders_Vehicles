@@ -108,9 +108,9 @@ public class Acquisition_Quotes_Outright_FL_without_maintenance_Test extends Tes
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
 						 maintenance_required, maintenance_margin, initial_payment,
 						part_exchange_status, target_rental,sheet_name);
-		System.out.println(customer_quote_for_payment_boolean);
+	 
 		Assert.assertTrue(customer_quote_for_payment_boolean);
-
+		
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
 				.customer_Quote_outright_FL_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
 		Assert.assertTrue(cutomer_quote_monthly_rental);
@@ -129,8 +129,11 @@ public class Acquisition_Quotes_Outright_FL_without_maintenance_Test extends Tes
 
 		obj_quote_summary_page = new QuoteSummaryOutrightFLPage();
 
-		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_outright_FL_without_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_page_status);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation);
+		
+		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation);
 
 	}
 	

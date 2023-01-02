@@ -109,6 +109,8 @@ public class Acquisition_Quotes_CP_PCH_with_maintenance_Test extends TestBase {
 			 part_exchange_status,  target_rental,  sheet_name);
 		
 		Assert.assertTrue(cust_quote_for_one_payment_boolean_status);
+		
+
 		                                                                                                                                                                                                            
 		boolean cust_quote_for_all_payment_boolean_status=obj_customer_quote_page.customer_Quote_CP_PCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
 		Assert.assertTrue(cust_quote_for_all_payment_boolean_status);

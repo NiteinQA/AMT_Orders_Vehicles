@@ -3,15 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test">
+      <class name="com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_check_with_maintenance_test"/>
-          <include name="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_check_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_OP_OP_after_discount_calculations_test"/>
-          <include name="aquisition_quotes_OP_OP_OTR_calculation_test"/>
+          <include name="aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_BCH_after_discount_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.OP.Acquisition_Quotes_OP_OP_Test -->
+      </class> <!-- com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

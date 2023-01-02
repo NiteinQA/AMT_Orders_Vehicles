@@ -22,6 +22,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,6 +49,8 @@ public class ReadExcelCalculation extends TestBase {
 	    	{
 	    		e.printStackTrace();
 	    	}
+	    	
+	    	PageFactory.initElements(driver, this);
 	    }
 	
 	public ReadExcelCalculation obj_read_excel_calculation_page;
@@ -1482,19 +1485,19 @@ public class ReadExcelCalculation extends TestBase {
 		
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
 		Thread.sleep(3000);
-		Click.on(driver, part_exchange_payment, 70);
-		LO.print("Clicked on Part Exchange panel" );
-		System.out.println("Clicked on Part Exchange panel" );
-	
-		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
-		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
-		ExplicitWait.visibleElement(driver, document_fee, 30);
-		document_fee.clear();
-		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
-		Actions act = new Actions (driver);
-		act.sendKeys(Keys.TAB).perform();
+//		Click.on(driver, part_exchange_payment, 70);
+//		LO.print("Clicked on Part Exchange panel" );
+//		System.out.println("Clicked on Part Exchange panel" );
+//	
+//		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
+//		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+//		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
+//		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
+//		ExplicitWait.visibleElement(driver, document_fee, 30);
+//		document_fee.clear();
+//		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
+//		Actions act = new Actions (driver);
+//		act.sendKeys(Keys.TAB).perform();
 		
 		LO.print("Writing values to Excel for customer quote calculation -started" );
 		System.out.println("Writing values to Excel for customer quote calculation -started" );
@@ -1919,7 +1922,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 	
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 50);
-		Thread.sleep(7000);
+		Thread.sleep(2000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
