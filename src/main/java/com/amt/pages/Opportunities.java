@@ -46,13 +46,13 @@ public class Opportunities extends TestBase {
 	@FindBy(xpath = "//div[@class='status']")
 	private WebElement oppo_proposal_status;
 	
-	@FindBy(xpath = "//*[@id=\"cWraper\"]/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[8]/div/div/div/span")
+	@FindBy(xpath = "//*[@id='cWraper']/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[8]/div/div/div/span")
 	private WebElement channel_status;
 	
 	@FindBy(xpath = "(//td[@class='p-0']//tr[@tablerowclicked='thirdLevel'][1]/td[7])[1]")  
 	private WebElement contract_status;
 	
-	@FindBy(xpath = "//*[@id=\"cWraper\"]/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/div/div")  
+	@FindBy(xpath = "//*[@id='cWraper']/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/div/div")  
 	private WebElement quote_no;
 	
 		
@@ -99,8 +99,45 @@ public class Opportunities extends TestBase {
 	@FindBy(xpath = "//*[@id='searchBoxText']")
 	private WebElement email_search_field;	
 	
-	@FindBy(xpath = "//*[@id=\"messageBody\"]/text()[5]")
+	@FindBy(xpath = "//*[@id='messageBody']/text()[5]")
 	private WebElement email_doc_to_sign_link;
+	
+	@FindBy(xpath = "//i[@class='icon-opportunity']")
+	private WebElement opportunity_menu_link;
+
+	
+	@FindBy(xpath = "//*[@id='cWraper']/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[1]/div[1]/div[1]/div/div[1]/div/tag-input/div/div")
+	private WebElement opportunity_search_text_box ;
+	
+	
+	
+	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-opportunity-management[1]/div[2]/div[1]/div[1]/div[1]/app-grid[1]/div[2]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[7]")
+	private WebElement opp_listing_double_click ;
+	
+	
+	
+	@FindBy(xpath = "//input[@id='fleetCar']")
+	private WebElement opp_opp_fact_find_no_of_cars ;
+	
+	
+	@FindBy(xpath = "//input[@id='fleetHgv']")
+	private WebElement opp_opp_fact_find_no_of_hgv ;
+
+	@FindBy(xpath = "//input[@id='fleetLCV']")
+	private WebElement opp_opp_fact_find_no_of_lcv ;
+	
+	
+	@FindBy(xpath = "//select[@id='carScheme']")
+	private WebElement opp_opp_fact_find_no_of_carscheme ;
+	
+	@FindBy(xpath = "//app-opportunity-header/div[1]/div[2]/div[1]/button[2]/i[1]")
+	private WebElement opp_opp_update_button ;
+	
+	
+	
+	@FindBy(xpath = "//*[@id='cWraper']/div/app-add-opportunities/app-opportunity-header/div/div[1]/div/ul/li[3]/a/p")
+	private WebElement opp_proposal_button ;
+	
 	
 	
 	
@@ -357,6 +394,155 @@ public class Opportunities extends TestBase {
 	
 } 
 	
+    
+
+	public void opp_Menu_link() throws Exception
+
+	{
+		Thread.sleep(3000);
+
+		//Click on Search text box of Opportunity
+		Click.on(driver, opportunity_menu_link, 30);
+
+		LO.print("Clicked on Opportunity link form Menu ");
+		System.out.println("Clicked on Opportunity link form Menu");
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		//Click.sendKeys(driver, Lead_OpportunityId, null, 10);
+
+	  
+}
+	
+	
+	
+	public void opp_Search_Textbox(String GetOpportunityid1) throws Exception
+
+	{
+
+
+		ExplicitWait.visibleElement(driver, search_bar, 10);
+		
+		
+	
+    Thread.sleep(5000);
+
+	
+    search_bar.sendKeys(GetOpportunityid1);
+		
+
+		LO.print("Enter the Opportunity id in Search Text box");
+		System.out.println("Enter the Opportunity id in Search Text box");
+		
+		search_bar.sendKeys(Keys.ENTER);
+		
+		
+	    Thread.sleep(5000);
+	
+}
+	
+	
+	
+	
+	
+    
+	
+	
+	
+	public void opp_Listing_detail_page() throws Exception
+
+	{
+
+
+		
+		ExplicitWait.visibleElement(driver, opp_listing_double_click, 10);
+		
+		Actions act = new Actions(driver);
+
+		//Double click on element
+ 
+		act.doubleClick(opp_listing_double_click).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+
+
+	
+    
+		}
+	
+	
+	public void opp_opp_fact_find_Find() throws Exception
+
+	{
+
+		 Thread.sleep(5000);
+		
+		ExplicitWait.visibleElement(driver, opp_opp_fact_find_no_of_cars, 10);
+		
+		
+		opp_opp_fact_find_no_of_cars.sendKeys("1");
+		
+	
+    Thread.sleep(5000);
+
+    ExplicitWait.visibleElement(driver, opp_opp_fact_find_no_of_hgv, 10);
+    
+    opp_opp_fact_find_no_of_hgv .sendKeys("1");
+    
+    
+    ExplicitWait.visibleElement(driver, opp_opp_fact_find_no_of_lcv, 10);
+    
+    opp_opp_fact_find_no_of_lcv .sendKeys("1");
+    
+    
+   // ExplicitWait.visibleElement(driver, opp_opp_fact_find_no_of_carscheme, 10);
+    
+	
+    Dropdown.selectByVisibleText(driver, opp_opp_fact_find_no_of_carscheme, " No ", 10);
+    
+    opp_opp_fact_find_no_of_carscheme.click();
+    
+    
+    
+    ExplicitWait.visibleElement(driver, opp_opp_update_button, 10);
+    
+    opp_opp_update_button.click();
+    
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+    
+    // proposal link 
+    
+    
+ ExplicitWait.visibleElement(driver, opp_proposal_button, 10);
+    
+ opp_proposal_button.click();
+    
+ 
+    
+    
+    
+    
+		
+		
+	/*	@FindBy(xpath = "//input[@id='fleetCar']")
+		private WebElement opp_opp_fact_find_no_of_cars ;
+		
+		
+		@FindBy(xpath = "//input[@id='fleetHgv']")
+		private WebElement opp_opp_fact_find_no_of_hgv ;
+
+		@FindBy(xpath = "//input[@id='fleetLCV']")
+		private WebElement opp_opp_fact_find_no_of_lcv ;
+		
+		
+		@FindBy(xpath = "//select[@id='carScheme']")
+		private WebElement opp_opp_fact_find_no_of_carscheme ;*/
+    
+		}
+	
+	
+	
+    
+    
 }		 
 		
 		

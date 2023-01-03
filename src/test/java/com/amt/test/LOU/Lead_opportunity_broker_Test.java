@@ -1,4 +1,4 @@
-package com.amt.test.lou;
+package com.amt.test.LOU;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
