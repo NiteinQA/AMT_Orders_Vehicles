@@ -1505,8 +1505,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-		System.out.println(dropdown_option);
-		System.out.println(sheet_name);
+
 		wb.getSheet(sheet_name).getRow(98).getCell(1).setCellValue(" "+dropdown_option+" ");
 		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(101).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
@@ -2532,18 +2531,18 @@ public class ReadExcelCalculation extends TestBase {
 		 
 	    int dropdown_options_number= list_dropdown_options.size();
 		
-		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
-		Thread.sleep(4000);
-		Click.on(driver, part_exchange_payment, 70);
-		LO.print("Clicked on Part Exchange panel" );
-		System.out.println("Clicked on Part Exchange panel" );
-		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
-		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
-		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
-		Actions act = new Actions (driver);
-		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+//		Thread.sleep(4000);
+//		Click.on(driver, part_exchange_payment, 70);
+//		LO.print("Clicked on Part Exchange panel" );
+//		System.out.println("Clicked on Part Exchange panel" );
+//		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
+//		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+//		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
+//		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
+//		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
+//		Actions act = new Actions (driver);
+//		act.sendKeys(Keys.TAB).perform();
 		
 		LO.print("Writing values to Excel for customer quote calculation -started" );
 		System.out.println("Writing values to Excel for customer quote calculation -started" );

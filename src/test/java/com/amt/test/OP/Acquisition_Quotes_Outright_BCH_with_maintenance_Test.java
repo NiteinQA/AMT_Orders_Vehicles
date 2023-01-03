@@ -121,7 +121,11 @@ public class Acquisition_Quotes_Outright_BCH_with_maintenance_Test extends TestB
 			 part_exchange_status,  target_rental,  sheet_name);
 		
 		Assert.assertTrue(cust_quote_for_one_payment_boolean_status);
-		                                                                                                                                                                                                            
+		
+		boolean monthlyFinanceAndMaintenanceWithPartExchange =  obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_with_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
+		
+		Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+		
 		boolean cust_quote_for_all_payment_boolean_status=obj_customer_quote_page.customer_Quote_outright_BCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
 		Assert.assertTrue(cust_quote_for_all_payment_boolean_status);
 	
@@ -145,6 +149,8 @@ public class Acquisition_Quotes_Outright_BCH_with_maintenance_Test extends TestB
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
 		
+		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_customer_quote_calculation);
 	}
 	
 	
