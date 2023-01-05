@@ -2,10 +2,13 @@ package com.amt.QuoteSummaryPages;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -232,8 +235,38 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[9]/div/label/b")
 	private WebElement quote_summary_refferer_margin_with_maint;
 	
+	@FindBy(xpath = "//input[@id='baseIntRate']")
+	private WebElement quote_summary_configuration_base_int_rate_input;
+	
+	@FindBy(xpath = "//input[@id='FinanceMargin']")
+	private WebElement quote_summary_configuration_finance_margin_input;
+	
+	
+	
+	@FindBy(xpath = "//input[@id='MaintenanceMarginPer']")
+	private WebElement quote_summary_configuration_maintenance_margin_input;
+	
+	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
+	private WebElement quote_summary_save_button;
+	
+	
 	
 	public QuoteSummaryOutrightBCHPage() {
+		
+    	try
+    	{
+    		prop=new Properties();
+    		FileInputStream ip = new FileInputStream("D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+    		prop.load(ip);
+    	}
+    	catch(FileNotFoundException e)
+    	{
+    		e.printStackTrace();
+    	}
+    	catch(IOException e)
+    	{
+    		e.printStackTrace();
+    	}
 		PageFactory.initElements(driver, this);
 	}
 
@@ -244,6 +277,8 @@ public boolean quote_summary_OTR_calculation(String sheet_name) throws Interrupt
 		System.out.println("*************OTR Calulation on quote summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		
+		Thread.sleep(2000);
 		
 		Click.on(driver, quote_summary, 60);
 		
@@ -1168,8 +1203,421 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 	 }
 	 return status ;
  }
+ 
+public boolean quote_summary_edit_base_int_rate_value_verification_without_maintenance(String sheet_name) throws IOException, InterruptedException {
+	 
+	 LO.print("*************Editing and Verifying Configuration Values on quote summary page has been started************");
+		System.out.println("*************Editing and Verifying Configuration Values on quote summary page has been started************");
+	 
+	 
+	 //Edit base interest rate configuration values from screen
+	ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+	quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	quote_summary_configuration_base_int_rate_input.sendKeys("7.0");
+	
+	Actions act = new Actions(driver);
+	act.sendKeys(Keys.TAB).build().perform();
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	
+	 LO.print("Base Interest Rate changed to 7.0 %");
+	System.out.println("Base Interest Rate changed to 7.0 %");	 
+	
+	
+	//Getting values from screen
+	
+	ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 30);
+	
+	double holding_cost_total_monthly_holding_cost_from_screen = Double.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2)));
+
+	ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
+
+	double customer_quote_summary_monthly_finance_rental_from_screen =  Double.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 30);
+	
+	double customer_quote_initial_finance_rental =  Double.parseDouble(RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
+
+	
+	 // writing values to excel
+	
+	FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+	XSSFWorkbook wb = new XSSFWorkbook(in);
+
+	wb.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.07);	
+	
+	FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	wb.write(out);
+	
+	// getting values from excel
+	
+	double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+
+    double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
+    
+    double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
+
+	 
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 
+	 boolean status =false ;
+	 if(Difference.of_two_Double_Values(holding_cost_total_monthly_holding_cost_from_screen ,holding_cost_total_monthly_holding_cost_from_excel)<0.2)
+	 {
+		 LO.print("Holding Cost after changing Base Int. Rate -  found OK");System.out.println("Holding Cost after changing Base Int. Rate -  found OK"); count++;}
+		else {LO.print("Holding Cost after changing Base Int. Rate -  found wrong");System.out.println("Holding Cost after changing Base Int. Rate -  found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen ,monthlyFinanceRental)<0.2)
+	 {
+		 LO.print("Monthly Finance Rental after changing Base Int. Rate -  found OK");System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found OK"); count++;}
+		else {LO.print("Monthly Finance Rental after changing Base Int. Rate -  found wrong");System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found wrong");
+	 }
+	 
+		if((Difference.of_two_Double_Values(initialFinanceRental, customer_quote_initial_finance_rental))<0.2)
+	    {LO.print("Initial Finance Rental found OK");System.out.println("Initial Finance Rental found OK"); count++;}
+		else {LO.print("Initial Finance Rental found wrong");System.out.println("Initial Finance Rental found wrong");}
+	 
+	 
+	 if(count==3)
+	 {
+		 status = true ;
+	 }
+	 
+	 
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+		
+	 
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		 LO.print("Base Interest Rate changed to 6.5 %");
+		System.out.println("Base Interest Rate changed to 6.5 %");			
+		
+		
+		 // writing values to excel
+		
+		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+
+		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);	
+		
+		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	 
+		wb1.write(out1); 
+	 
+	 
+	 return status ;
+ }
+
+public boolean quote_summary_edit_base_int_rate_value_verification_with_maintenance(String sheet_name) throws IOException, InterruptedException {
+	 
+	 LO.print("*************Editing Base Interest Rate and Verifying  Values on quote summary page has been started************");
+		System.out.println("*************Editing Base Interest Rate and Verifying  Values on quote summary page has been started************");
+	 
+	 
+	 //Edit base interest rate configuration values from screen
+	ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+	quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	quote_summary_configuration_base_int_rate_input.sendKeys("7.0");
+	
+	Actions act = new Actions(driver);
+	act.sendKeys(Keys.TAB).build().perform();
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	
+	 LO.print("Base Interest Rate changed to 7.0 %");
+	System.out.println("Base Interest Rate changed to 7.0 %");	 
+	
+	
+	//Getting values from screen
+	
+	ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
+	
+	double holding_cost_total_monthly_holding_cost_from_screen = Double.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
+
+	
+	ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
+	double customer_quote_summary_monthly_finance_rental_from_screen =  Double.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+
+    ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 30);
+	
+	double customer_quote_initial_finance_rental =  Double.parseDouble(RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
+
+	 // writing values to excel
+	
+	FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+	XSSFWorkbook wb = new XSSFWorkbook(in);
+
+	wb.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.07);	
+	
+	FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	wb.write(out);
+	
+	// getting values from excel
+	
+	double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+
+    double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
+
+    double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
+	 
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 
+	 boolean status =false ;
+	 if(Difference.of_two_Double_Values(holding_cost_total_monthly_holding_cost_from_screen ,holding_cost_total_monthly_holding_cost_from_excel)<0.2)
+	 {
+		 LO.print("Holding Cost after changing Base Int. Rate -  found OK");System.out.println("Holding Cost after changing Base Int. Rate -  found OK"); count++;}
+		else {LO.print("Holding Cost after changing Base Int. Rate -  found wrong");System.out.println("Holding Cost after changing Base Int. Rate -  found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen ,monthlyFinanceRental)<0.2)
+	 {
+		 LO.print("Monthly Finance Rental after changing Base Int. Rate -  found OK");System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found OK"); count++;}
+		else {LO.print("Monthly Finance Rental after changing Base Int. Rate -  found wrong");System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found wrong");
+	 }
+	 
+	 if((Difference.of_two_Double_Values(initialFinanceRental, customer_quote_initial_finance_rental))<0.2)
+	    {LO.print("Initial Finance Rental found OK");System.out.println("Initial Finance Rental found OK"); count++;}
+		else {LO.print("Initial Finance Rental found wrong");System.out.println("Initial Finance Rental found wrong");}
+	 
+	 
+	 
+	 if(count==3)
+	 {
+		 status = true ;
+	 }
+	 
+	 
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+		
+	 
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		 LO.print("Base Interest Rate changed to 6.5 %");
+		System.out.println("Base Interest Rate changed to 6.5 %");			
+		
+		
+		 // writing values to excel
+		
+		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+
+		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);	
+		
+		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	 
+		wb1.write(out1); 
+	 
+	 
+	 return status ;
+}
 
 
+public boolean quote_summary_edit_finance_margin_value_verification(String sheet_name) throws IOException, InterruptedException {
+	 
+	 LO.print("*************Editing Fianance Margin and Verifying Values on quote summary page has been started************");
+		System.out.println("*************Editing Fianance Margin and Verifying Values on quote summary page has been started************");
+	 
+	 
+	 //Edit finance margin configuration values from screen
+		
+	 
+	ExplicitWait.visibleElement(driver, quote_summary_configuration_finance_margin_input, 30);
+	quote_summary_configuration_finance_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	quote_summary_configuration_finance_margin_input.sendKeys("10000");
+	
+	
+	Actions act = new Actions(driver);
+	act.sendKeys(Keys.TAB).build().perform();
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	
+	 LO.print("Finance margin changed to 10000");
+	System.out.println("Finance margin changed to 10000");	 
+	
+	
+	//Getting values from screen
+	Thread.sleep(2000);
+	
+	ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
+
+	double customer_quote_summary_monthly_finance_rental_from_screen =  Double.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 30);
+		
+		double customer_quote_initial_finance_rental =  Double.parseDouble(RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
+ 
+	
+	 // writing values to excel
+	
+	FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+	XSSFWorkbook wb = new XSSFWorkbook(in);
+	wb.getSheet(sheet_name).getRow(63).getCell(2).setCellValue(10000);
+	wb.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("C64");	
+	FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	wb.write(out);
+	
+	// getting values from excel
+	 
+   double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
+
+   double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
+ 
+	
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 
+	 boolean status =false ;
+
+	 
+	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen ,monthlyFinanceRental)<0.2)
+	 {
+		 LO.print("Monthly Finance Rental after changing finance margin -  found OK");System.out.println("Monthly Finance Rental after changing finance margin -  found OK"); count++;}
+		else {LO.print("Monthly Finance Rental after changing finance margin -  found wrong");System.out.println("Monthly Finance Rental after changing finance margin -  found wrong");
+	 }
+	 
+	 if((Difference.of_two_Double_Values(initialFinanceRental, customer_quote_initial_finance_rental))<0.2)
+	    {LO.print("Initial Finance Rental found OK");System.out.println("Initial Finance Rental found OK"); count++;}
+		else {LO.print("Initial Finance Rental found wrong");System.out.println("Initial Finance Rental found wrong");}
+	
+	 
+	 if(count==2)
+	 {
+		 status = true ;
+	 }
+	 
+	 
+		
+		 // writing values to excel
+		
+		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+
+		wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B61*B63");
+		
+		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	 
+		wb1.write(out1); 
+	 
+	 
+	 return status ;
+}
+
+
+public boolean quote_summary_edit_maintenance_margin_value_verification(String sheet_name) throws IOException, InterruptedException {
+	 
+	 LO.print("*************Editing Maintenance Margin and Verifying Values on quote summary page has been started************");
+		System.out.println("*************Editing Maintenance Margin and Verifying Values on quote summary page has been started************");
+	 
+	 
+	 //Edit finance margin configuration values from screen
+		
+	 
+	ExplicitWait.visibleElement(driver, quote_summary_configuration_maintenance_margin_input, 30);
+	quote_summary_configuration_maintenance_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	quote_summary_configuration_maintenance_margin_input.sendKeys("30");
+	
+	
+	Actions act = new Actions(driver);
+	act.sendKeys(Keys.TAB).build().perform();
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	
+	 LO.print("Finance margin changed to 30 %");
+	System.out.println("Finance margin changed to 30 %");	 
+	
+	
+	//Getting values from screen
+	Thread.sleep(2000);
+	
+	ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 30);
+
+	double customer_quote_summary_monthly_maint_rental_from_screen =  Double.parseDouble(RemoveComma.of(quote_summary_monthly_maintenance_rental.getText().trim().substring(2)));
+
+	  double customer_quote_initial_maint_rental = Double.parseDouble(RemoveComma.of(quote_summary_customer_quote_initial_maint_rental.getText().trim().substring(2)));
+
+
+	 
+	
+	 // writing values to excel
+	
+	FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+	XSSFWorkbook wb = new XSSFWorkbook(in);
+	wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(0.3);	
+	FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	wb.write(out);
+	
+	// getting values from excel
+	 
+  double monthlyMaintenanceRental = GetExcelFormulaValue.get_formula_value(176, 1, sheet_name);  
+  
+  double initialMaintRental = GetExcelFormulaValue.get_formula_value(179, 3, sheet_name);
+
+
+	 
+	
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 
+	 boolean status =false ;
+
+	 
+	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_maint_rental_from_screen ,monthlyMaintenanceRental)<0.2)
+	 {
+		 LO.print("Monthly Finance Rental after changing finance margin -  found OK");System.out.println("Monthly Finance Rental after changing finance margin -  found OK"); count++;}
+		else {LO.print("Monthly Finance Rental after changing finance margin -  found wrong");System.out.println("Monthly Finance Rental after changing finance margin -  found wrong");
+	 }
+	 
+		if((Difference.of_two_Double_Values(initialMaintRental, customer_quote_initial_maint_rental))<0.2)
+	    {LO.print("Initial Maint Rental found OK");System.out.println("Initial Maint Rental found OK"); count++;}
+		else {LO.print("Initial Maint Rental found wrong");System.out.println("Initial Maint Rental found wrong");}
+	  
+	 
+	 
+	 if(count==2)
+	 {
+		 status = true ;
+	 }
+	 
+ 
+	 return status ;
+}
+
+
+
+public void save_quote() throws InterruptedException {
+	
+	
+    ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+ 
+   JavascriptExecutor js = (JavascriptExecutor)driver;
+   
+    js.executeScript("arguments[0].click();", quote_summary_save_button);
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+	
+    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+    
+    String quote_ref_no = quote_summary_ref_no.getText();
+	
+	LO.print("*********Customer Quote generated successfully and Quote_ref_no is="+quote_ref_no);
+	System.out.println("*********Customer Quote generated successfully and Quote_ref_no is="+quote_ref_no);
+	
+		
+}
 
 	public boolean quote_summary_outright_BCH_without_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
@@ -1177,6 +1625,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 		System.out.println("*************Calculations for Quote Summary page gas been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		
 		Click.on(driver, quote_summary, 60);
 		
 	

@@ -1,10 +1,14 @@
 package com.amt.QuoteSummaryPages;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -176,7 +180,64 @@ public class QuoteSummaryOutrightFLPage extends TestBase {
 	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/div/form/div/app-hire-customer-quote-summary-detail/div[2]/div[2]/div[6]/div/p/strong")
 	private WebElement quote_summary_customer_quote_referrer_commission_with_maint;
 
+	@FindBy(xpath = "//*[@id='headingConfig']/button/div")
+	private WebElement quote_summary_configuration;
 	
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[1]/div/p/strong")
+	private WebElement quote_summary_base_interest_rate;
+	
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[2]/div/p/strong")
+	private WebElement quote_summary_finance_margin;
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[3]/div/p/strong")
+	private WebElement quote_summary_deductions;
+	
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[4]/div/p/strong")
+	private WebElement quote_summary_additional_margin;
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[5]/div/p/strong")
+	private WebElement quote_summary_total_margin;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[2]/div/div/label")	                 
+	private WebElement quote_summary_default_broker_margin_percentage;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[4]/div/label/strong")
+	private WebElement quote_summary_broker_upsell_margin_percentage;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[5]/div/label/b")
+	private WebElement quote_summary_broker_upsell_margin;	
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[7]/div/label/strong")
+	private WebElement quote_summary_maintenance_margin;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[6]/div/label/b")
+	private WebElement quote_summary_decument_fee_margin;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[8]/div/label/b")
+	private WebElement quote_summary_decument_fee_margin_with_maint;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[7]/div/label/b")
+	private WebElement quote_summary_refferer_margin;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[9]/div/label/b")
+	private WebElement quote_summary_refferer_margin_with_maint;
+	
+	@FindBy(xpath = "//input[@id='baseIntRate']")
+	private WebElement quote_summary_configuration_base_int_rate_input;
+	
+	@FindBy(xpath = "//input[@id='FinanceMargin']")
+	private WebElement quote_summary_configuration_finance_margin_input;
+	
+	
+	
+	@FindBy(xpath = "//input[@id='MaintenanceMarginPer']")
+	private WebElement quote_summary_configuration_maintenance_margin_input;
+	
+	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
+	private WebElement quote_summary_save_button;
 
 	
 	
@@ -447,6 +508,377 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 	
 	return status ;
 
+}
+
+public boolean quote_summary_configuration_value_verification_with_maintenance(String sheet_name) throws IOException {
+	 
+	 LO.print("*************Configuration Values Verification on quote summary page has been started************");
+		System.out.println("*************Configuration Values Verification on quote summary page has been started************");
+	
+	 
+	 Click.on(driver, quote_summary_configuration, 30);
+	 
+	 //reading configuration values from screen
+	 
+	 ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);	 
+	 double baseInterestRateFromScreen = Double.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0 , 5));
+	
+	 ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);	 
+	 double financeMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+
+    ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);	 
+	 double deductionsFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);	 
+	 double additionalMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+
+    ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);	 
+	 double totalMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);	 
+	 double defaultBrokerMarginPercentageFromScreen = Double.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0 , 4));
+	
+	 ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin_percentage, 20);	 
+	 double brokerUpsellMarginPercentageFromScreen = Double.parseDouble(quote_summary_broker_upsell_margin_percentage.getText().trim().substring(0 , 4));
+	
+    ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin, 20);	 
+	 double brokerUpsellMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_broker_upsell_margin.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_maintenance_margin, 20);	 
+	 double maintMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_maintenance_margin.getText().trim().substring(2)));
+
+	 
+	 ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin_with_maint, 20);	 
+	 double documentFeeMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin_with_maint.getText().trim().substring(2)));
+
+    ExplicitWait.visibleElement(driver, quote_summary_refferer_margin_with_maint, 20);	 
+	 double reffererMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_refferer_margin_with_maint.getText().trim().substring(2)));
+	 
+	
+	 // getting values from excel
+	 
+	 double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
+	 
+	 double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel*100);
+	 
+	 double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(208, 3, sheet_name);
+	 
+	 double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(210, 1, sheet_name);
+	 
+	 double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(210, 3, sheet_name);
+
+	 double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(212, 1, sheet_name);
+
+	 double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(216, 4, sheet_name);
+	 
+	 double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel*100);
+	 
+	 double tempbrokerUpsellMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(218, 4, sheet_name);
+
+	 double brokerUpsellMarginPercentageFromExcel = (tempbrokerUpsellMarginPercentageFromExcel*100);
+
+	 double brokerUpsellMarginFromExcel = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
+	 
+	 double maintMarginFromExcel = GetExcelFormulaValue.get_formula_value(224, 1, sheet_name);
+	 
+	 double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+	 double reffererMarginFromExcel = GetExcelFormulaValue.get_formula_value(222, 1, sheet_name);
+	 
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 
+	 boolean status =false ;
+	 if(baseInterestRateFromExcel==baseInterestRateFromScreen)
+	 {
+		 LO.print("Base Interest Rate found OK");System.out.println("Base Interest Rate found OK"); count++;}
+		else {LO.print("Base Interest Rate found wrong");System.out.println("Base Interest Rate found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
+		else {LO.print("Finance Margin found wrong");System.out.println("Finance Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
+		else {LO.print("Finance Margin found wrong");System.out.println("Finance Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(deductionsFromScreen ,deductionsFromExcel)<0.2)
+	 {
+		 LO.print("Deductions found OK");System.out.println("Deductions found OK"); count++;}
+		else {LO.print("Deductions found wrong");System.out.println("Deductions found wrong");
+	 }
+
+	 if(Difference.of_two_Double_Values(additionalMarginFromScreen ,additionalMarginFromExcel)<0.2)
+	 {
+		 LO.print("Additional Margin found OK");System.out.println("Additional Margin found OK"); count++;}
+		else {LO.print("Additional Margin found wrong");System.out.println("Additional Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(totalMarginFromScreen ,totalMarginFromExcel)<0.2)
+	 {
+		 LO.print("Total Margin found OK");System.out.println("Total Margin found OK"); count++;}
+		else {LO.print("Total Margin found wrong");System.out.println("Total Margin found wrong");
+	 }
+	 
+	 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+	 {
+		 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
+		else {LO.print("Default Broker Margin percentage found wrong");System.out.println("Default Broker Margin percentage found wrong");
+	 }
+	 
+	 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+	 {
+		 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
+		else {LO.print("Broker Upsell Margin percentage found wrong");System.out.println("Broker Upsell Margin percentage found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(brokerUpsellMarginFromScreen, brokerUpsellMarginFromExcel)<0.2)
+	 {
+		 LO.print("Broker Upsell Margin  found OK");System.out.println("Broker Upsell Margin  found OK"); count++;}
+		else {LO.print("Broker Upsell Margin  found wrong");System.out.println("Broker Upsell Margin  found wrong");
+	 }
+	 
+	 
+	 if(Difference.of_two_Double_Values(maintMarginFromScreen, maintMarginFromExcel)<0.2)
+	 {
+		 LO.print("Maintenance Margin  found OK");System.out.println("Maintenance Margin  found OK"); count++;}
+		else {LO.print("Maintenance Margin  found wrong");System.out.println("Maintenance Margin  found wrong");
+	 }	 
+	 
+	 
+	 if(Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Document Fee Margin  found OK");System.out.println("Document Fee Margin  found OK"); count++;}
+		else {LO.print("Document Fee Margin  found wrong");System.out.println("Document Fee Margin  found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(reffererMarginFromScreen, reffererMarginFromExcel)<0.2)
+	 {
+		 LO.print("Refferer Margin  found OK");System.out.println("Refferer Margin  found OK"); count++;}
+		else {LO.print("Refferer  Margin  found wrong");System.out.println("Refferer Margin  found wrong");
+	 }
+	 
+	 if(count==12)
+	 {
+		 status = true ;
+	 }
+	 return status ;
+}
+
+public void save_quote() throws InterruptedException {
+	
+	
+    ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+ 
+   JavascriptExecutor js = (JavascriptExecutor)driver;
+   
+    js.executeScript("arguments[0].click();", quote_summary_save_button);
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+	
+    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+    
+    String quote_ref_no = quote_summary_ref_no.getText();
+	
+	LO.print("*********Customer Quote generated successfully and Quote_ref_no is="+quote_ref_no);
+	System.out.println("*********Customer Quote generated successfully and Quote_ref_no is="+quote_ref_no);
+	
+		
+}
+
+public boolean quote_summary_edit_base_int_rate_value_verification_with_maintenance(String sheet_name) throws IOException, InterruptedException {
+	 
+	 LO.print("*************Editing Base Interest Rate and Verifying  Values on quote summary page has been started************");
+		System.out.println("*************Editing Base Interest Rate and Verifying  Values on quote summary page has been started************");
+	 
+	 
+	 //Edit base interest rate configuration values from screen
+	ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+	quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	quote_summary_configuration_base_int_rate_input.sendKeys("7.0");
+	
+	Actions act = new Actions(driver);
+	act.sendKeys(Keys.TAB).build().perform();
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	
+	 LO.print("Base Interest Rate changed to 7.0 %");
+	System.out.println("Base Interest Rate changed to 7.0 %");	 
+	
+	
+	//Getting values from screen
+	
+	ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
+	
+	double holding_cost_total_monthly_holding_cost_from_screen = Double.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
+
+	
+	ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
+	double customer_quote_summary_monthly_finance_rental_from_screen =  Double.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+
+   ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 30);
+	
+	double customer_quote_initial_finance_rental =  Double.parseDouble(RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
+
+	 // writing values to excel
+	
+	FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+	XSSFWorkbook wb = new XSSFWorkbook(in);
+
+	wb.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.07);	
+	
+	FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	wb.write(out);
+	
+	// getting values from excel
+	
+	double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+
+   double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
+
+   double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
+	 
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 
+	 boolean status =false ;
+	 if(Difference.of_two_Double_Values(holding_cost_total_monthly_holding_cost_from_screen ,holding_cost_total_monthly_holding_cost_from_excel)<0.2)
+	 {
+		 LO.print("Holding Cost after changing Base Int. Rate -  found OK");System.out.println("Holding Cost after changing Base Int. Rate -  found OK"); count++;}
+		else {LO.print("Holding Cost after changing Base Int. Rate -  found wrong");System.out.println("Holding Cost after changing Base Int. Rate -  found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen ,monthlyFinanceRental)<0.2)
+	 {
+		 LO.print("Monthly Finance Rental after changing Base Int. Rate -  found OK");System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found OK"); count++;}
+		else {LO.print("Monthly Finance Rental after changing Base Int. Rate -  found wrong");System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found wrong");
+	 }
+	 
+	 if((Difference.of_two_Double_Values(initialFinanceRental, customer_quote_initial_finance_rental))<0.2)
+	    {LO.print("Initial Finance Rental found OK");System.out.println("Initial Finance Rental found OK"); count++;}
+		else {LO.print("Initial Finance Rental found wrong");System.out.println("Initial Finance Rental found wrong");}
+	 
+	 
+	 
+	 if(count==3)
+	 {
+		 status = true ;
+	 }
+	 
+	 
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+		
+	 
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		 LO.print("Base Interest Rate changed to 6.5 %");
+		System.out.println("Base Interest Rate changed to 6.5 %");			
+		
+		
+		 // writing values to excel
+		
+		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+
+		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);	
+		
+		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	 
+		wb1.write(out1); 
+	 
+	 
+	 return status ;
+}
+
+public boolean quote_summary_edit_maintenance_margin_value_verification(String sheet_name) throws IOException, InterruptedException {
+	 
+	 LO.print("*************Editing Maintenance Margin and Verifying Values on quote summary page has been started************");
+		System.out.println("*************Editing Maintenance Margin and Verifying Values on quote summary page has been started************");
+	 
+	 
+	 //Edit finance margin configuration values from screen
+		
+	 
+	ExplicitWait.visibleElement(driver, quote_summary_configuration_maintenance_margin_input, 30);
+	quote_summary_configuration_maintenance_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	quote_summary_configuration_maintenance_margin_input.sendKeys("30");
+	
+	
+	Actions act = new Actions(driver);
+	act.sendKeys(Keys.TAB).build().perform();
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	
+	 LO.print("Finance margin changed to 30 %");
+	System.out.println("Finance margin changed to 30 %");	 
+	
+	
+	//Getting values from screen
+	Thread.sleep(2000);
+	
+	ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 30);
+
+	double customer_quote_summary_monthly_maint_rental_from_screen =  Double.parseDouble(RemoveComma.of(quote_summary_monthly_maintenance_rental.getText().trim().substring(2)));
+
+	  double customer_quote_initial_maint_rental = Double.parseDouble(RemoveComma.of(quote_summary_customer_quote_initial_maint_rental.getText().trim().substring(2)));
+
+
+	 
+	
+	 // writing values to excel
+	
+	FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+	XSSFWorkbook wb = new XSSFWorkbook(in);
+	wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(0.3);	
+	FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+	wb.write(out);
+	
+	// getting values from excel
+	 
+ double monthlyMaintenanceRental = GetExcelFormulaValue.get_formula_value(176, 1, sheet_name);  
+ 
+ double initialMaintRental = GetExcelFormulaValue.get_formula_value(179, 3, sheet_name);
+
+
+	 
+	
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 
+	 boolean status =false ;
+
+	 
+	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_maint_rental_from_screen ,monthlyMaintenanceRental)<0.2)
+	 {
+		 LO.print("Monthly Finance Rental after changing finance margin -  found OK");System.out.println("Monthly Finance Rental after changing finance margin -  found OK"); count++;}
+		else {LO.print("Monthly Finance Rental after changing finance margin -  found wrong");System.out.println("Monthly Finance Rental after changing finance margin -  found wrong");
+	 }
+	 
+		if((Difference.of_two_Double_Values(initialMaintRental, customer_quote_initial_maint_rental))<0.2)
+	    {LO.print("Initial Maint Rental found OK");System.out.println("Initial Maint Rental found OK"); count++;}
+		else {LO.print("Initial Maint Rental found wrong");System.out.println("Initial Maint Rental found wrong");}
+	  
+	 
+	 
+	 if(count==2)
+	 {
+		 status = true ;
+	 }
+	 
+
+	 return status ;
 }
 
 
@@ -952,6 +1384,351 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 	      
 	  }	
 
+	 public boolean quote_summary_configuration_value_verification_without_maintenance(String sheet_name) throws IOException {
+		 
+		 LO.print("*************Configuration Values Verification on quote summary page has been started************");
+			System.out.println("*************Configuration Values Verification on quote summary page has been started************");
+		
+		 
+		 Click.on(driver, quote_summary_configuration, 30);
+		 
+		 //reading configuration values from screen
+		 
+		 ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);	 
+		 double baseInterestRateFromScreen = Double.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0 , 5));
+		
+		 ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);	 
+		 double financeMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+
+	     ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);	 
+		 double deductionsFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+
+		 ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);	 
+		 double additionalMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+
+	     ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);	 
+		 double totalMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+
+		 ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);	 
+		 double defaultBrokerMarginPercentageFromScreen = Double.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0 , 4));
+		
+		 ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin_percentage, 20);	 
+		 double brokerUpsellMarginPercentageFromScreen = Double.parseDouble(quote_summary_broker_upsell_margin_percentage.getText().trim().substring(0 , 4));
+		
+	     ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin, 20);	 
+		 double brokerUpsellMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_broker_upsell_margin.getText().trim().substring(2)));
+
+	     ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);	 
+		 double documentFeeMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
+
+	     ExplicitWait.visibleElement(driver, quote_summary_refferer_margin, 20);	 
+		 double reffererMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_refferer_margin.getText().trim().substring(2)));
+		 
+		
+		 // getting values from excel
+		 
+		 double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
+		 
+		 double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel*100);
+		 
+		 double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(208, 3, sheet_name);
+		 
+		 double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(210, 1, sheet_name);
+		 
+		 double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(210, 3, sheet_name);
+
+		 double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(212, 1, sheet_name);
+
+		 double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(216, 4, sheet_name);
+		 
+		 double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel*100);
+		 
+		 double tempbrokerUpsellMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(218, 4, sheet_name);
+
+		 double brokerUpsellMarginPercentageFromExcel = (tempbrokerUpsellMarginPercentageFromExcel*100);
+
+		 double BrokerUpsellMarginFromExcel = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
+		 
+	     double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+		 double reffererMarginFromExcel = GetExcelFormulaValue.get_formula_value(222, 1, sheet_name);
+		 
+		 //verifying actual and expected values
+		 
+		 int count = 0;
+		 boolean status =false ;
+		 if(baseInterestRateFromExcel==baseInterestRateFromScreen)
+		 {
+			 LO.print("Base Interest Rate found OK");System.out.println("Base Interest Rate found OK"); count++;}
+			else {LO.print("Base Interest Rate found wrong");System.out.println("Base Interest Rate found wrong");
+		 }
+		 
+		 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
+		 {
+			 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
+			else {LO.print("Finance Margin found wrong");System.out.println("Finance Margin found wrong");
+		 }
+		 
+		 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
+		 {
+			 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
+			else {LO.print("Finance Margin found wrong");System.out.println("Finance Margin found wrong");
+		 }
+		 
+		 if(Difference.of_two_Double_Values(deductionsFromScreen ,deductionsFromExcel)<0.2)
+		 {
+			 LO.print("Deductions found OK");System.out.println("Deductions found OK"); count++;}
+			else {LO.print("Deductions found wrong");System.out.println("Deductions found wrong");
+		 }
+
+		 if(Difference.of_two_Double_Values(additionalMarginFromScreen ,additionalMarginFromExcel)<0.2)
+		 {
+			 LO.print("Additional Margin found OK");System.out.println("Additional Margin found OK"); count++;}
+			else {LO.print("Additional Margin found wrong");System.out.println("Additional Margin found wrong");
+		 }
+		 
+		 if(Difference.of_two_Double_Values(totalMarginFromScreen ,totalMarginFromExcel)<0.2)
+		 {
+			 LO.print("Total Margin found OK");System.out.println("Total Margin found OK"); count++;}
+			else {LO.print("Total Margin found wrong");System.out.println("Total Margin found wrong");
+		 }
+		 
+		 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+		 {
+			 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
+			else {LO.print("Default Broker Margin percentage found wrong");System.out.println("Default Broker Margin percentage found wrong");
+		 }
+		 
+		 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+		 {
+			 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
+			else {LO.print("Broker Upsell Margin percentage found wrong");System.out.println("Broker Upsell Margin percentage found wrong");
+		 }
+		 
+		 if(Difference.of_two_Double_Values(brokerUpsellMarginFromScreen, BrokerUpsellMarginFromExcel)<0.2)
+		 {
+			 LO.print("Broker Upsell Margin  found OK");System.out.println("Broker Upsell Margin  found OK"); count++;}
+			else {LO.print("Broker Upsell Margin  found wrong");System.out.println("Broker Upsell Margin  found wrong");
+		 }
+		 
+		 if(Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel)<0.2)
+		 {
+			 LO.print("Document Fee Margin  found OK");System.out.println("Document Fee Margin  found OK"); count++;}
+			else {LO.print("Document Fee Margin  found wrong");System.out.println("Document Fee Margin  found wrong");
+		 }
+		 
+		 if(Difference.of_two_Double_Values(reffererMarginFromScreen, reffererMarginFromExcel)<0.2)
+		 {
+			 LO.print("Refferer Margin  found OK");System.out.println("Refferer Margin  found OK"); count++;}
+			else {LO.print("Refferer  Margin  found wrong");System.out.println("Refferer Margin  found wrong");
+		 }
+		 
+		 if(count==11)
+		 {
+			 status = true ;
+		 }
+		 return status ;
+	 }
+
+	 public boolean quote_summary_edit_base_int_rate_value_verification_without_maintenance(String sheet_name) throws IOException, InterruptedException {
+		 
+		 LO.print("*************Editing and Verifying Configuration Values on quote summary page has been started************");
+			System.out.println("*************Editing and Verifying Configuration Values on quote summary page has been started************");
+		 
+		 
+		 //Edit base interest rate configuration values from screen
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		quote_summary_configuration_base_int_rate_input.sendKeys("7.0");
+		
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		 LO.print("Base Interest Rate changed to 7.0 %");
+		System.out.println("Base Interest Rate changed to 7.0 %");	 
+		
+		
+		//Getting values from screen
+		
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 30);
+		
+		double holding_cost_total_monthly_holding_cost_from_screen = Double.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2)));
+
+		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
+
+		double customer_quote_summary_monthly_finance_rental_from_screen =  Double.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 30);
+		
+		double customer_quote_initial_finance_rental =  Double.parseDouble(RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
+
+		
+		 // writing values to excel
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		wb.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.07);	
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		// getting values from excel
+		
+		double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+
+	    double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
+	    
+	    double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
+
+		 
+		 //verifying actual and expected values
+		 
+		 int count = 0;
+		 
+		 boolean status =false ;
+		 if(Difference.of_two_Double_Values(holding_cost_total_monthly_holding_cost_from_screen ,holding_cost_total_monthly_holding_cost_from_excel)<0.2)
+		 {
+			 LO.print("Holding Cost after changing Base Int. Rate -  found OK");System.out.println("Holding Cost after changing Base Int. Rate -  found OK"); count++;}
+			else {LO.print("Holding Cost after changing Base Int. Rate -  found wrong");System.out.println("Holding Cost after changing Base Int. Rate -  found wrong");
+		 }
+		 
+		 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen ,monthlyFinanceRental)<0.2)
+		 {
+			 LO.print("Monthly Finance Rental after changing Base Int. Rate -  found OK");System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found OK"); count++;}
+			else {LO.print("Monthly Finance Rental after changing Base Int. Rate -  found wrong");System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found wrong");
+		 }
+		 
+			if((Difference.of_two_Double_Values(initialFinanceRental, customer_quote_initial_finance_rental))<0.2)
+		    {LO.print("Initial Finance Rental found OK");System.out.println("Initial Finance Rental found OK"); count++;}
+			else {LO.print("Initial Finance Rental found wrong");System.out.println("Initial Finance Rental found wrong");}
+		 
+		 
+		 if(count==3)
+		 {
+			 status = true ;
+		 }
+		 
+		 
+			ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+			quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+			quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+			
+		 
+			act.sendKeys(Keys.TAB).build().perform();
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			
+			 LO.print("Base Interest Rate changed to 6.5 %");
+			System.out.println("Base Interest Rate changed to 6.5 %");			
+			
+			
+			 // writing values to excel
+			
+			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+
+			wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);	
+			
+			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		 
+			wb1.write(out1); 
+		 
+		 
+		 return status ;
+	 }
+	 public boolean quote_summary_edit_finance_margin_value_verification(String sheet_name) throws IOException, InterruptedException {
+		 
+		 LO.print("*************Editing Fianance Margin and Verifying Values on quote summary page has been started************");
+			System.out.println("*************Editing Fianance Margin and Verifying Values on quote summary page has been started************");
+		 
+		 
+		 //Edit finance margin configuration values from screen
+			
+		 
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_finance_margin_input, 30);
+		quote_summary_configuration_finance_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		quote_summary_configuration_finance_margin_input.sendKeys("10000");
+		
+		
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		 LO.print("Finance margin changed to 10000");
+		System.out.println("Finance margin changed to 10000");	 
+		
+		
+		//Getting values from screen
+		Thread.sleep(2000);
+		
+		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
+
+		double customer_quote_summary_monthly_finance_rental_from_screen =  Double.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+
+		 ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 30);
+			
+			double customer_quote_initial_finance_rental =  Double.parseDouble(RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
+	 
+		
+		 // writing values to excel
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(63).getCell(2).setCellValue(10000);
+		wb.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("C64");	
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		// getting values from excel
+		 
+	   double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
+
+	   double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
+	 
+		
+		 //verifying actual and expected values
+		 
+		 int count = 0;
+		 
+		 boolean status =false ;
+
+		 
+		 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen ,monthlyFinanceRental)<0.2)
+		 {
+			 LO.print("Monthly Finance Rental after changing finance margin -  found OK");System.out.println("Monthly Finance Rental after changing finance margin -  found OK"); count++;}
+			else {LO.print("Monthly Finance Rental after changing finance margin -  found wrong");System.out.println("Monthly Finance Rental after changing finance margin -  found wrong");
+		 }
+		 
+		 if((Difference.of_two_Double_Values(initialFinanceRental, customer_quote_initial_finance_rental))<0.2)
+		    {LO.print("Initial Finance Rental found OK");System.out.println("Initial Finance Rental found OK"); count++;}
+			else {LO.print("Initial Finance Rental found wrong");System.out.println("Initial Finance Rental found wrong");}
+		
+		 
+		 if(count==2)
+		 {
+			 status = true ;
+		 }
+		 
+		 
+			
+			 // writing values to excel
+			
+			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+
+			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B61*B63");
+			
+			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		 
+			wb1.write(out1); 
+		 
+		 
+		 return status ;
+	}
 
 	
 
