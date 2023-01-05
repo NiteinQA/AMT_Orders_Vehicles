@@ -187,6 +187,52 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/div/form/div/app-hire-customer-quote-summary-detail/div[2]/div[2]/div[6]/div/p/strong")
 	private WebElement quote_summary_customer_quote_referrer_commission_with_maint;
 	
+	@FindBy(xpath = "//*[@id='headingConfig']/button/div")
+	private WebElement quote_summary_configuration;
+	
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[1]/div/p/strong")
+	private WebElement quote_summary_base_interest_rate;
+	
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[2]/div/p/strong")
+	private WebElement quote_summary_finance_margin;
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[3]/div/p/strong")
+	private WebElement quote_summary_deductions;
+	
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[4]/div/p/strong")
+	private WebElement quote_summary_additional_margin;
+	
+	@FindBy(xpath = "//*[@id='headingConfig']/div/div/div[5]/div/p/strong")
+	private WebElement quote_summary_total_margin;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[2]/div/div/label")	                 
+	private WebElement quote_summary_default_broker_margin_percentage;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[4]/div/label/strong")
+	private WebElement quote_summary_broker_upsell_margin_percentage;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[5]/div/label/b")
+	private WebElement quote_summary_broker_upsell_margin;	
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[7]/div/label/strong")
+	private WebElement quote_summary_maintenance_margin;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[6]/div/label/b")
+	private WebElement quote_summary_decument_fee_margin;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[8]/div/label/b")
+	private WebElement quote_summary_decument_fee_margin_with_maint;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[7]/div/label/b")
+	private WebElement quote_summary_refferer_margin;
+	
+	@FindBy(xpath = "//*[@id='collapseConfig']/div/div/div/div/div[4]/div[9]/div/label/b")
+	private WebElement quote_summary_refferer_margin_with_maint;
+	
+	
 	public QuoteSummaryOutrightBCHPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -461,6 +507,10 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 
   public boolean quote_summary_customer_quote_summary_value_verification_without_maintenance(String sheet_name) throws IOException {
 	  
+	  LO.print("*************Customer Quote Calulation on quote summary page has been started************");
+		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
+		
+	  
 	  Click.on(driver, quote_summary_customer_quote_summary_value_verification , 0);	  
 	  	  
 	  ExplicitWait.visibleElement(driver, quote_summary_customer_quote_term, 20);	  
@@ -604,7 +654,11 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
   
   
  public boolean quote_summary_customer_quote_summary_value_verification_with_maintenance(String sheet_name) throws IOException {
-	  
+	
+	 LO.print("*************Customer Quote Calulation on quote summary page has been started************");
+		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
+	 
+	 
 	  Click.on(driver, quote_summary_customer_quote_summary_value_verification , 0);	  
 	  	  
 	  ExplicitWait.visibleElement(driver, quote_summary_customer_quote_term, 20);	  
@@ -807,6 +861,313 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
   }	
 
 
+ 
+ public boolean quote_summary_configuration_value_verification_without_maintenance(String sheet_name) throws IOException {
+	 
+	 LO.print("*************Configuration Values Verification on quote summary page has been started************");
+		System.out.println("*************Configuration Values Verification on quote summary page has been started************");
+	
+	 
+	 Click.on(driver, quote_summary_configuration, 30);
+	 
+	 //reading configuration values from screen
+	 
+	 ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);	 
+	 double baseInterestRateFromScreen = Double.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0 , 5));
+	
+	 ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);	 
+	 double financeMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+
+     ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);	 
+	 double deductionsFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);	 
+	 double additionalMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+
+     ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);	 
+	 double totalMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);	 
+	 double defaultBrokerMarginPercentageFromScreen = Double.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0 , 4));
+	
+	 ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin_percentage, 20);	 
+	 double brokerUpsellMarginPercentageFromScreen = Double.parseDouble(quote_summary_broker_upsell_margin_percentage.getText().trim().substring(0 , 4));
+	
+     ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin, 20);	 
+	 double brokerUpsellMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_broker_upsell_margin.getText().trim().substring(2)));
+
+     ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);	 
+	 double documentFeeMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
+
+     ExplicitWait.visibleElement(driver, quote_summary_refferer_margin, 20);	 
+	 double reffererMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_refferer_margin.getText().trim().substring(2)));
+	 
+	
+	 // getting values from excel
+	 
+	 double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
+	 
+	 double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel*100);
+	 
+	 double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(208, 3, sheet_name);
+	 
+	 double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(210, 1, sheet_name);
+	 
+	 double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(210, 3, sheet_name);
+
+	 double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(212, 1, sheet_name);
+
+	 double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(216, 4, sheet_name);
+	 
+	 double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel*100);
+	 
+	 double tempbrokerUpsellMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(218, 4, sheet_name);
+
+	 double brokerUpsellMarginPercentageFromExcel = (tempbrokerUpsellMarginPercentageFromExcel*100);
+
+	 double BrokerUpsellMarginFromExcel = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
+	 
+     double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+	 double reffererMarginFromExcel = GetExcelFormulaValue.get_formula_value(222, 1, sheet_name);
+	 
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 boolean status =false ;
+	 if(baseInterestRateFromExcel==baseInterestRateFromScreen)
+	 {
+		 LO.print("Base Interest Rate found OK");System.out.println("Base Interest Rate found OK"); count++;}
+		else {LO.print("Base Interest Rate found wrong");System.out.println("Base Interest Rate found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
+		else {LO.print("Finance Margin found wrong");System.out.println("Finance Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
+		else {LO.print("Finance Margin found wrong");System.out.println("Finance Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(deductionsFromScreen ,deductionsFromExcel)<0.2)
+	 {
+		 LO.print("Deductions found OK");System.out.println("Deductions found OK"); count++;}
+		else {LO.print("Deductions found wrong");System.out.println("Deductions found wrong");
+	 }
+
+	 if(Difference.of_two_Double_Values(additionalMarginFromScreen ,additionalMarginFromExcel)<0.2)
+	 {
+		 LO.print("Additional Margin found OK");System.out.println("Additional Margin found OK"); count++;}
+		else {LO.print("Additional Margin found wrong");System.out.println("Additional Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(totalMarginFromScreen ,totalMarginFromExcel)<0.2)
+	 {
+		 LO.print("Total Margin found OK");System.out.println("Total Margin found OK"); count++;}
+		else {LO.print("Total Margin found wrong");System.out.println("Total Margin found wrong");
+	 }
+	 
+	 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+	 {
+		 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
+		else {LO.print("Default Broker Margin percentage found wrong");System.out.println("Default Broker Margin percentage found wrong");
+	 }
+	 
+	 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+	 {
+		 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
+		else {LO.print("Broker Upsell Margin percentage found wrong");System.out.println("Broker Upsell Margin percentage found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(brokerUpsellMarginFromScreen, BrokerUpsellMarginFromExcel)<0.2)
+	 {
+		 LO.print("Broker Upsell Margin  found OK");System.out.println("Broker Upsell Margin  found OK"); count++;}
+		else {LO.print("Broker Upsell Margin  found wrong");System.out.println("Broker Upsell Margin  found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Document Fee Margin  found OK");System.out.println("Document Fee Margin  found OK"); count++;}
+		else {LO.print("Document Fee Margin  found wrong");System.out.println("Document Fee Margin  found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(reffererMarginFromScreen, reffererMarginFromExcel)<0.2)
+	 {
+		 LO.print("Refferer Margin  found OK");System.out.println("Refferer Margin  found OK"); count++;}
+		else {LO.print("Refferer  Margin  found wrong");System.out.println("Refferer Margin  found wrong");
+	 }
+	 
+	 if(count==11)
+	 {
+		 status = true ;
+	 }
+	 return status ;
+ }
+
+ public boolean quote_summary_configuration_value_verification_with_maintenance(String sheet_name) throws IOException {
+	 
+	 LO.print("*************Configuration Values Verification on quote summary page has been started************");
+		System.out.println("*************Configuration Values Verification on quote summary page has been started************");
+	
+	 
+	 Click.on(driver, quote_summary_configuration, 30);
+	 
+	 //reading configuration values from screen
+	 
+	 ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);	 
+	 double baseInterestRateFromScreen = Double.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0 , 5));
+	
+	 ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);	 
+	 double financeMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+
+     ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);	 
+	 double deductionsFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);	 
+	 double additionalMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+
+     ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);	 
+	 double totalMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);	 
+	 double defaultBrokerMarginPercentageFromScreen = Double.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0 , 4));
+	
+	 ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin_percentage, 20);	 
+	 double brokerUpsellMarginPercentageFromScreen = Double.parseDouble(quote_summary_broker_upsell_margin_percentage.getText().trim().substring(0 , 4));
+	
+     ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin, 20);	 
+	 double brokerUpsellMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_broker_upsell_margin.getText().trim().substring(2)));
+
+	 ExplicitWait.visibleElement(driver, quote_summary_maintenance_margin, 20);	 
+	 double maintMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_maintenance_margin.getText().trim().substring(2)));
+
+	 
+	 ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin_with_maint, 20);	 
+	 double documentFeeMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin_with_maint.getText().trim().substring(2)));
+
+     ExplicitWait.visibleElement(driver, quote_summary_refferer_margin_with_maint, 20);	 
+	 double reffererMarginFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_refferer_margin_with_maint.getText().trim().substring(2)));
+	 
+	
+	 // getting values from excel
+	 
+	 double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
+	 
+	 double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel*100);
+	 
+	 double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(208, 3, sheet_name);
+	 
+	 double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(210, 1, sheet_name);
+	 
+	 double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(210, 3, sheet_name);
+
+	 double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(212, 1, sheet_name);
+
+	 double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(216, 4, sheet_name);
+	 
+	 double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel*100);
+	 
+	 double tempbrokerUpsellMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(218, 4, sheet_name);
+
+	 double brokerUpsellMarginPercentageFromExcel = (tempbrokerUpsellMarginPercentageFromExcel*100);
+
+	 double brokerUpsellMarginFromExcel = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
+	 
+	 double maintMarginFromExcel = GetExcelFormulaValue.get_formula_value(224, 1, sheet_name);
+	 
+	 double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+	 double reffererMarginFromExcel = GetExcelFormulaValue.get_formula_value(222, 1, sheet_name);
+	 
+	 //verifying actual and expected values
+	 
+	 int count = 0;
+	 
+	 boolean status =false ;
+	 if(baseInterestRateFromExcel==baseInterestRateFromScreen)
+	 {
+		 LO.print("Base Interest Rate found OK");System.out.println("Base Interest Rate found OK"); count++;}
+		else {LO.print("Base Interest Rate found wrong");System.out.println("Base Interest Rate found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
+		else {LO.print("Finance Margin found wrong");System.out.println("Finance Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
+		else {LO.print("Finance Margin found wrong");System.out.println("Finance Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(deductionsFromScreen ,deductionsFromExcel)<0.2)
+	 {
+		 LO.print("Deductions found OK");System.out.println("Deductions found OK"); count++;}
+		else {LO.print("Deductions found wrong");System.out.println("Deductions found wrong");
+	 }
+
+	 if(Difference.of_two_Double_Values(additionalMarginFromScreen ,additionalMarginFromExcel)<0.2)
+	 {
+		 LO.print("Additional Margin found OK");System.out.println("Additional Margin found OK"); count++;}
+		else {LO.print("Additional Margin found wrong");System.out.println("Additional Margin found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(totalMarginFromScreen ,totalMarginFromExcel)<0.2)
+	 {
+		 LO.print("Total Margin found OK");System.out.println("Total Margin found OK"); count++;}
+		else {LO.print("Total Margin found wrong");System.out.println("Total Margin found wrong");
+	 }
+	 
+	 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+	 {
+		 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
+		else {LO.print("Default Broker Margin percentage found wrong");System.out.println("Default Broker Margin percentage found wrong");
+	 }
+	 
+	 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+	 {
+		 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
+		else {LO.print("Broker Upsell Margin percentage found wrong");System.out.println("Broker Upsell Margin percentage found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(brokerUpsellMarginFromScreen, brokerUpsellMarginFromExcel)<0.2)
+	 {
+		 LO.print("Broker Upsell Margin  found OK");System.out.println("Broker Upsell Margin  found OK"); count++;}
+		else {LO.print("Broker Upsell Margin  found wrong");System.out.println("Broker Upsell Margin  found wrong");
+	 }
+	 
+	 
+	 if(Difference.of_two_Double_Values(maintMarginFromScreen, maintMarginFromExcel)<0.2)
+	 {
+		 LO.print("Maintenance Margin  found OK");System.out.println("Maintenance Margin  found OK"); count++;}
+		else {LO.print("Maintenance Margin  found wrong");System.out.println("Maintenance Margin  found wrong");
+	 }	 
+	 
+	 
+	 if(Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel)<0.2)
+	 {
+		 LO.print("Document Fee Margin  found OK");System.out.println("Document Fee Margin  found OK"); count++;}
+		else {LO.print("Document Fee Margin  found wrong");System.out.println("Document Fee Margin  found wrong");
+	 }
+	 
+	 if(Difference.of_two_Double_Values(reffererMarginFromScreen, reffererMarginFromExcel)<0.2)
+	 {
+		 LO.print("Refferer Margin  found OK");System.out.println("Refferer Margin  found OK"); count++;}
+		else {LO.print("Refferer  Margin  found wrong");System.out.println("Refferer Margin  found wrong");
+	 }
+	 
+	 if(count==12)
+	 {
+		 status = true ;
+	 }
+	 return status ;
+ }
 
 
 
