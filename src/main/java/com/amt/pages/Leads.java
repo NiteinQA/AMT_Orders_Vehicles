@@ -197,9 +197,9 @@ public class Leads extends TestBase {
 	@FindBy(xpath ="//*[@id=\"vehicleRequest2\"]/div/div/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div/table/tbody/tr/td[8]/div/a[3]/img")
 	private WebElement Map_New_quote_icon;
 	
+	////*[@id="MapNewQuote"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[2]/span
 	
-	
-	@FindBy(xpath ="//*[@id=\"MapNewQuote\"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[1]")
+	@FindBy(xpath ="//*[@id=\"MapNewQuote\"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[2]/span")
 	private WebElement acquisition_contract_type;
 	
 	
@@ -279,6 +279,8 @@ public class Leads extends TestBase {
 	private WebElement lead_already_exits_quote_availbale_second_popup_visible;
 	
 	  
+	@FindBy(xpath ="//*[@id=\"MapNewQuote\"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[2]/span")
+	private WebElement acquisition_contract_type_ownbook;
 
 
 		 
@@ -832,6 +834,48 @@ public void lead_map_new_quote_broker_individual() throws Exception
 	
 	Click.on(driver, select_new_quoted_save, 30);
 	
+	
+	
+	Thread.sleep(5000);
+
+
+	try
+
+	{
+
+		if (lead_already_exits_quote_availbale.isEnabled())
+		 
+	   {
+		 
+		 System.out.println("click on OK button for lead already existing quote  ");
+		 LO.print("click ok button on Map  new quote ");
+		 
+		 Click.on(driver, lead_already_exits_quote_availbale, 10);
+		
+		  Thread.sleep(5000);
+		 
+		 System.out.println("click on OK button for copy quote  ");
+		 LO.print("click on OK button for copy quote ");
+		 
+		 Click.on(driver, lead_already_exits_quote_availbale_second_popup_visible, 10);
+		 
+		 
+		 System.out.println("New copy quote is mapped with this opportunity ");
+		// LO.print("New copy quote is mapped with this opportunity ");
+	 
+
+	  }}
+		 
+	 catch (Exception e)
+		{
+		      //System.out.println( e );
+	 
+
+	 
+		}
+	
+	
+	
 
 	
 }
@@ -859,7 +903,7 @@ Thread.sleep(5000);
 Click.on(driver, Map_New_quote_icon, 30);
 
 Thread.sleep(5000);
-Click.on(driver, acquisition_contract_type, 30);
+Click.on(driver, acquisition_contract_type_ownbook, 30);
 
 LO.print("Click on acquisition contract type icon");
 System.out.println("Click on acquisition contract type icon");
@@ -905,9 +949,53 @@ Thread.sleep(5000);
 
 Click.on(driver, select_new_quoted_save, 30);
 
+try
+
+{
+
+	if (lead_already_exits_quote_availbale.isEnabled())
+	 
+   {
+	 
+	 System.out.println("click on OK button for lead already existing quote  ");
+	 LO.print("click ok button on Map  new quote ");
+	 
+	 Click.on(driver, lead_already_exits_quote_availbale, 20);
+	
+	  Thread.sleep(5000);
+	 
+	 System.out.println("click on OK button for copy quote  ");
+	 LO.print("click on OK button for copy quote ");
+	 
+	 Click.on(driver, lead_already_exits_quote_availbale_second_popup_visible, 10);
+	 
+	 
+	 System.out.println("New copy quote is mapped with this opportunity ");
+	// LO.print("New copy quote is mapped with this opportunity ");
+ 
+
+  }}
+	 
+ catch (Exception e)
+	{
+	      //System.out.println( e );
+ 
+
+ 
+	}
+
+
+
+
+
+
+
+
 
 
 }
+
+
 
 
 
@@ -961,7 +1049,7 @@ Click.on(driver, map_new_quote_search, 30);
 LO.print("Click on search button");
 System.out.println("Click on search button");
 
-Thread.sleep(5000);
+ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 Click.on(driver, map_new_quote_createddate_sorting, 30);
 
 LO.print("Click on created date button 1st ");
@@ -1000,7 +1088,7 @@ try
 	 System.out.println("click on OK button for lead already existing quote  ");
 	 LO.print("click ok button on Map  new quote ");
 	 
-	 Click.on(driver, lead_already_exits_quote_availbale, 10);
+	 Click.on(driver, lead_already_exits_quote_availbale, 20);
 	
 	  Thread.sleep(5000);
 	 
@@ -1010,8 +1098,8 @@ try
 	 Click.on(driver, lead_already_exits_quote_availbale_second_popup_visible, 10);
 	 
 	 
-	 System.out.println("New copy quote is mapped with this opputunity ");
-	// LO.print("New copy quote is mapped with this opputunity ");
+	 System.out.println("New copy quote is mapped with this opportunity ");
+	// LO.print("New copy quote is mapped with this opportunity ");
  
 
   }}
@@ -1143,9 +1231,47 @@ Thread.sleep(5000);
 
 Click.on(driver, select_new_quoted_save, 30);
 
+try
 
+{
+
+	if (lead_already_exits_quote_availbale.isEnabled())
+	 
+   {
+	 
+	 System.out.println("click on OK button for lead already existing quote  ");
+	 LO.print("click ok button on Map  new quote ");
+	 
+	 Click.on(driver, lead_already_exits_quote_availbale, 10);
+	
+	  Thread.sleep(5000);
+	 
+	 System.out.println("click on OK button for copy quote  ");
+	 LO.print("click on OK button for copy quote ");
+	 
+	 Click.on(driver, lead_already_exits_quote_availbale_second_popup_visible, 10);
+	 
+	 
+	 System.out.println("New copy quote is mapped with this opportunity ");
+	// LO.print("New copy quote is mapped with this opportunity ");
+ 
+
+  }}
+	 
+ catch (Exception e)
+	{
+	      //System.out.println( e );
+ 
+
+ 
+	}
 
 }
+
+
+
+
+
 
 
 

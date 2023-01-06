@@ -140,7 +140,23 @@ public class Opportunities extends TestBase {
 	
 	
 	
+	@FindBy(xpath = "//*[@id=\"cWraper\"]/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[8]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td[7]/div/div/div/span")
+	private WebElement opp_find_channel_status ;
+
+	@FindBy(xpath = "//*[@id=\"cWraper\"]/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td[8]/div/a[4]")
+	private WebElement opp_find_send_contract_icon ;
+
+	@FindBy(xpath = "//*[@id=\"sendcontractmodal\"]/div/div/div[3]/div/button[2]")
+	private WebElement send_contract_to_customer_pop_up_send_button ;
+
 	
+	// Channel data 
+	
+	@FindBy(xpath = "//*[@id=\"cWraper\"]/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[6]/td[2]/table/tbody/tr[2]/td[2]/table/tbody")
+	private List<WebElement> channel_data ;
+
+	
+
 	
 	
 	
@@ -171,6 +187,8 @@ public class Opportunities extends TestBase {
 	public boolean search_and_verify_opportunity(String sheet_name) throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);
+		
+		
 		
 		String oppoNo = GetExcelFormulaValue.get_cell_value(0, 1, sheet_name);	
 		
@@ -406,7 +424,7 @@ public class Opportunities extends TestBase {
 
 		LO.print("Clicked on Opportunity link form Menu ");
 		System.out.println("Clicked on Opportunity link form Menu");
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		//ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		//Click.sendKeys(driver, Lead_OpportunityId, null, 10);
 
@@ -419,6 +437,8 @@ public class Opportunities extends TestBase {
 
 	{
 
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		ExplicitWait.visibleElement(driver, search_bar, 10);
 		
@@ -470,6 +490,38 @@ public class Opportunities extends TestBase {
 		}
 	
 	
+	public void opp_Listing_detail_update_indiviual() throws Exception
+
+	{
+
+		 Thread.sleep(5000);
+		
+    
+    
+    
+    ExplicitWait.visibleElement(driver, opp_opp_update_button, 10);
+    
+    opp_opp_update_button.click();
+    
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+    
+    // proposal link 
+    
+	  Thread.sleep(5000);
+    
+ ExplicitWait.visibleElement(driver, opp_proposal_button, 20);
+    
+ opp_proposal_button.click();
+    
+ 
+ LO.print("click on Proposal icon");
+	System.out.println("click on Proposal icon");
+ 
+    
+		}
+	
+	
+	
 	public void opp_opp_fact_find_Find() throws Exception
 
 	{
@@ -511,14 +563,18 @@ public class Opportunities extends TestBase {
     
     // proposal link 
     
+	  Thread.sleep(5000);
     
- ExplicitWait.visibleElement(driver, opp_proposal_button, 10);
+ ExplicitWait.visibleElement(driver, opp_proposal_button, 20);
     
  opp_proposal_button.click();
     
  
+ LO.print("click on Proposal icon");
+	System.out.println("click on Proposal icon");
+ 
     
-    
+	//ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
     
     
 		
@@ -541,7 +597,96 @@ public class Opportunities extends TestBase {
 	
 	
 	
-    
+	
+	
+	public void opp_Find_Channel_Status() throws Exception
+
+	{
+		
+		ExplicitWait.visibleElement(driver, opp_find_channel_status, 10);
+		
+		
+		String Find_Channel_Status = opp_find_channel_status.getText();
+		
+		 LO.print("Channel_Status =" + Find_Channel_Status );
+			System.out.println("Channel_Status" + Find_Channel_Status );
+
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	public void opp_Find_Send_Contract_icon() throws Exception
+
+	{
+
+		 Thread.sleep(5000);
+		
+		ExplicitWait.visibleElement(driver, opp_find_send_contract_icon, 10);
+		
+		 LO.print("click on Send_Contract icon");
+			System.out.println("click on  Send_Contract icon");
+
+			opp_find_send_contract_icon.click();
+		
+		
+		
+		
+		
+		
+		
+		ExplicitWait.visibleElement(driver, send_contract_to_customer_pop_up_send_button, 10);
+		
+	
+		
+		send_contract_to_customer_pop_up_send_button.click(); 
+		
+		
+		
+		 //*[@id="sendcontractmodal"]/div/div/div[3]/div/button[2]
+		
+		
+	}
+	
+	
+
+	public void opp_Verify_Channel_data() throws Exception
+
+	{
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitForListOfVisibleElements(driver, channel_data, 20);
+		
+	
+		
+		
+		 String [] data = new String[channel_data.size()];
+		 
+		
+		    
+for (int i=0 ; i<=channel_data.size()-1; i++)
+	
+{
+
+	
+	 data[i] = channel_data.get(i).getText();
+	
+	System.out.println("Data =" + data[i]);
+	
+//	System.out.println("Data =" + data[i]);
+	
+	
+}
+   
+System.out.println("Data =" + data[3]);
+        
+	}
+	
+	
     
 }		 
 		
