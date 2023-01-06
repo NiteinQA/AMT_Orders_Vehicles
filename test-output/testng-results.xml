@@ -20,7 +20,7 @@
       <![CDATA[<b>Interior option has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Acquisition Contract type option = Outright has been selected</b> <br />]]>
+      <![CDATA[<b> Acquisition Contract type option = Finance Lease has been selected</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b> Customer Contract type option = Finance Lease(FL) has been selected</b> <br />]]>
@@ -251,6 +251,9 @@
       <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
     </line>
     <line>
+      <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
+    </line>
+    <line>
       <![CDATA[<b>Terms found OK</b> <br />]]>
     </line>
     <line>
@@ -329,7 +332,7 @@
       <![CDATA[<b>Refferer Margin  found OK</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>*********Customer Quote generated successfully and Quote_ref_no is=QQY40989</b> <br />]]>
+      <![CDATA[<b>*********Customer Quote generated successfully and Quote_ref_no is=IAR85748</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>*************OTR Calulation on quote summary page has been started************</b> <br />]]>
@@ -390,6 +393,9 @@
     </line>
     <line>
       <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Terms found OK</b> <br />]]>
@@ -500,16 +506,16 @@
       <![CDATA[<b>Initial Finance Rental found OK</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-01-05T20:00:25 IST" name="Default suite" finished-at="2023-01-05T20:06:22 IST" duration-ms="357680">
+  <suite started-at="2023-01-06T17:45:07 IST" name="Default suite" finished-at="2023-01-06T17:51:00 IST" duration-ms="352660">
     <groups>
     </groups>
-    <test started-at="2023-01-05T20:00:25 IST" name="Default test" finished-at="2023-01-05T20:06:22 IST" duration-ms="357680">
-      <class name="com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test@3527942a]" started-at="2023-01-05T20:00:25 IST" name="setup" finished-at="2023-01-05T20:00:35 IST" duration-ms="10484" status="PASS">
+    <test started-at="2023-01-06T17:45:07 IST" name="Default test" finished-at="2023-01-06T17:51:00 IST" duration-ms="352660">
+      <class name="com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test@121314f7]" started-at="2023-01-06T17:45:07 IST" name="setup" finished-at="2023-01-06T17:45:22 IST" duration-ms="15342" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_outright_FL_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test@3527942a]" started-at="2023-01-05T20:00:36 IST" name="aquisition_quotes_outright_FL_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2023-01-05T20:01:46 IST" duration-ms="70003" status="PASS">
+        <test-method signature="aquisition_quotes_FL_FL_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test@121314f7]" started-at="2023-01-06T17:45:24 IST" name="aquisition_quotes_FL_FL_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2023-01-06T17:46:34 IST" duration-ms="69774" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -523,12 +529,12 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[600]]>
               </value>
             </param>
             <param index="4">
@@ -622,7 +628,7 @@
               <![CDATA[<b>Interior option has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Acquisition Contract type option = Outright has been selected</b> <br />]]>
+              <![CDATA[<b> Acquisition Contract type option = Finance Lease has been selected</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b> Customer Contract type option = Finance Lease(FL) has been selected</b> <br />]]>
@@ -673,8 +679,8 @@
               <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_FL_OTR_calculation_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_FL_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test@3527942a]" started-at="2023-01-05T20:01:47 IST" name="aquisition_quotes_outright_FL_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-05T20:01:49 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test.aquisition_quotes_outright_FL_OTR_calculation_without_maintenance_test" duration-ms="2586" status="PASS">
+        </test-method> <!-- aquisition_quotes_FL_FL_OTR_calculation_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_FL_FL_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test@121314f7]" started-at="2023-01-06T17:46:34 IST" name="aquisition_quotes_FL_FL_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-06T17:46:37 IST" depends-on-methods="com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test.aquisition_quotes_FL_FL_OTR_calculation_without_maintenance_test" duration-ms="3129" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -688,12 +694,12 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[600]]>
               </value>
             </param>
             <param index="4">
@@ -805,8 +811,8 @@
               <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_FL_after_discount_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_FL_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test@3527942a]" started-at="2023-01-05T20:01:49 IST" name="aquisition_quotes_outright_FL_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-05T20:02:02 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test.aquisition_quotes_outright_FL_after_discount_calculations_without_maintenance_test" duration-ms="12936" status="PASS">
+        </test-method> <!-- aquisition_quotes_FL_FL_after_discount_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_FL_FL_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test@121314f7]" started-at="2023-01-06T17:46:37 IST" name="aquisition_quotes_FL_FL_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-06T17:46:51 IST" depends-on-methods="com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test.aquisition_quotes_FL_FL_after_discount_calculations_without_maintenance_test" duration-ms="14049" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -820,12 +826,12 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[600]]>
               </value>
             </param>
             <param index="4">
@@ -940,8 +946,8 @@
               <![CDATA[<b>Total_monthly_holding_cost_from_excel =922.9208645610316</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_FL_holding_cost_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test@3527942a]" started-at="2023-01-05T20:02:03 IST" name="aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-05T20:03:39 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test.aquisition_quotes_outright_FL_holding_cost_calculations_without_maintenance_test" duration-ms="96221" status="PASS">
+        </test-method> <!-- aquisition_quotes_FL_FL_holding_cost_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_FL_FL_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test@121314f7]" started-at="2023-01-06T17:46:51 IST" name="aquisition_quotes_FL_FL_customer_quote_payment_profile_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-06T17:49:19 IST" depends-on-methods="com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test.aquisition_quotes_FL_FL_holding_cost_calculations_without_maintenance_test" duration-ms="147273" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -955,12 +961,12 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[600]]>
               </value>
             </param>
             <param index="4">
@@ -1081,8 +1087,8 @@
               <![CDATA[<b>Calculations with different payment profiles for customer quote has been ended</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test@3527942a]" started-at="2023-01-05T20:03:39 IST" name="aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test" data-provider="testData" finished-at="2023-01-05T20:06:22 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test.aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_without_maintenance_test" duration-ms="163310" status="PASS">
+        </test-method> <!-- aquisition_quotes_FL_FL_customer_quote_payment_profile_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_FL_FL_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test@121314f7]" started-at="2023-01-06T17:49:19 IST" name="aquisition_quotes_FL_FL_quote_summary_values_verification_without_maintenance_test" data-provider="testData" finished-at="2023-01-06T17:51:00 IST" depends-on-methods="com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test.aquisition_quotes_FL_FL_customer_quote_payment_profile_calculations_without_maintenance_test" duration-ms="100625" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1096,12 +1102,12 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[50000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[600]]>
               </value>
             </param>
             <param index="4">
@@ -1237,6 +1243,9 @@
               <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
             </line>
             <line>
+              <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
+            </line>
+            <line>
               <![CDATA[<b>Terms found OK</b> <br />]]>
             </line>
             <line>
@@ -1315,7 +1324,7 @@
               <![CDATA[<b>Refferer Margin  found OK</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>*********Customer Quote generated successfully and Quote_ref_no is=QQY40989</b> <br />]]>
+              <![CDATA[<b>*********Customer Quote generated successfully and Quote_ref_no is=IAR85748</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>*************OTR Calulation on quote summary page has been started************</b> <br />]]>
@@ -1376,6 +1385,9 @@
             </line>
             <line>
               <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Terms found OK</b> <br />]]>
@@ -1486,8 +1498,8 @@
               <![CDATA[<b>Initial Finance Rental found OK</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_FL_quote_summary_values_verification_without_maintenance_test -->
-      </class> <!-- com.amt.test.OP.Acquisition_Quotes_Outright_FL_without_maintenance_Test -->
+        </test-method> <!-- aquisition_quotes_FL_FL_quote_summary_values_verification_without_maintenance_test -->
+      </class> <!-- com.amt.test.FL.Acquisition_Quotes_FL_FL_without_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

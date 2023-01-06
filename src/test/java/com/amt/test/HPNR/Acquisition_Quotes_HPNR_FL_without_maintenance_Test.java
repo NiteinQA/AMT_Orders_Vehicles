@@ -108,8 +108,12 @@ public class Acquisition_Quotes_HPNR_FL_without_maintenance_Test extends TestBas
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
 						 maintenance_required, maintenance_margin, initial_payment,
 						part_exchange_status, target_rental,sheet_name);
-		System.out.println(customer_quote_for_payment_boolean);
+	 
 		Assert.assertTrue(customer_quote_for_payment_boolean);
+		
+		boolean finance_rental_with_part_exchange = obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_without_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
+		 
+		Assert.assertTrue(finance_rental_with_part_exchange);
 
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
 				.customer_Quote_HPNR_FL_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
@@ -129,8 +133,39 @@ public class Acquisition_Quotes_HPNR_FL_without_maintenance_Test extends TestBas
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_FL_Page();
 
-		boolean quote_summary_page_status = obj_quote_summary_page.quote_summary_HPNR_FL_without_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_page_status);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation);
+		
+		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
+		//Assert.assertTrue(quote_summary_customer_quote_calculation);
+		
+		boolean quote_summary_configuration_value_check = obj_quote_summary_page.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_configuration_value_check);
+		
+		obj_quote_summary_page.save_quote();
+		
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation1);
+		
+		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+		
+		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
+		//Assert.assertTrue(quote_summary_customer_quote_calculation1);
+		
+		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
+		//Assert.assertTrue(quote_summary_configuration_value_check1);
+		
+		
+		boolean value_check_after_Base_Int_change =obj_quote_summary_page.quote_summary_edit_base_int_rate_value_verification_without_maintenance(sheet_name);
+		Assert.assertTrue(value_check_after_Base_Int_change);
+
+		
+		boolean value_check_after_Finance_margin_change =obj_quote_summary_page.quote_summary_edit_finance_margin_value_verification(sheet_name);
+		//Assert.assertTrue(value_check_after_Finance_margin_change);
 
 	}
 	

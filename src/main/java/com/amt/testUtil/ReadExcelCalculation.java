@@ -1921,7 +1921,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 	
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 50);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);

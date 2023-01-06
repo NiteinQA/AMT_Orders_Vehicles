@@ -154,6 +154,10 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement total_monthly_payment;
 	
+	@FindBy(xpath = "//input[@id='offInvoiceSupport']")
+	private WebElement rebate_input_field;
+	
+	
 	
 	
 
@@ -202,6 +206,8 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 		return status;
 	}
 	
+	
+		
 	
 	public boolean put_part_exchange_values_and_check_monthly_finance_payment(String part_exchange_actual, String part_exchange_given, String less_finance_settlement, String  order_deposit, String  finance_deposit , String documentFee , String sheet_name) throws UnsupportedFlavorException, IOException, InterruptedException
 	{
