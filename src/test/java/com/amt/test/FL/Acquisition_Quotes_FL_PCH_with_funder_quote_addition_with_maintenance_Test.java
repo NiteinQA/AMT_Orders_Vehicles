@@ -91,7 +91,7 @@ public class Acquisition_Quotes_FL_PCH_with_funder_quote_addition_with_maintenan
 				.verify_holding_cost_after_adding_funder_quote_with_maintenance( quoteRef,  expiryDate, term ,milesPerAnnum, monthlyFinanceRental,
 						 monthlyMaintenanceRental, finalBallonPayment,  documentFee , pencePerExcessMileFinance, pencePerExcessMileMaintenance, percentageOfSaleProceedToCustomer,
 						 secondaryHirePeriodRental, sheet_name);
-		//Assert.assertTrue(holding_cost_without_maintenance_boolean);
+		Assert.assertTrue(holding_cost_without_maintenance_boolean);
 	}
 	
 	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_FL_PCH_holding_cost_calculations_with_maintenance_test" })

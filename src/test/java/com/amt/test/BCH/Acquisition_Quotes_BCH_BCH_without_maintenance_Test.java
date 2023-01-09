@@ -116,6 +116,10 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 		Assert.assertTrue(customer_quote_for_payment_boolean);
 		
 		
+		boolean finance_rental_with_part_exchange = obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_without_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
+		 
+		Assert.assertTrue(finance_rental_with_part_exchange);
+		
 		boolean balance_due_value = obj_customer_quote_page.customer_quote_part_balance_due_value_verification(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel,
 				order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
 		

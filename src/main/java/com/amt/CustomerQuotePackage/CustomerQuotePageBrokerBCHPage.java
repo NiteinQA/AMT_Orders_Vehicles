@@ -106,7 +106,7 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		
 		for(int i=1; i<=1; i++) {
 		
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 			
 	    Click.on(driver, maintenance_toggle_button, 40);
 	    
@@ -127,7 +127,10 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 
 		Dropdown.select(driver, payment_profile_dropdown, i , 60);
 		
-		Thread.sleep(6000);
+		
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 				
 		int term_converted=Integer.parseInt(term);
 

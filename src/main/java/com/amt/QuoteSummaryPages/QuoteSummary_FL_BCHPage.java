@@ -1761,7 +1761,7 @@ public boolean quote_summary_FL_BCH_for_funder_quote_with_maintenance(String she
 		
 	    ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 60);		
 		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
@@ -1772,7 +1772,7 @@ public boolean quote_summary_FL_BCH_for_funder_quote_with_maintenance(String she
 		
 	    String quote_ref_no = quote_summary_ref_no.getText();
 		String temp_quote_summary_cost_otr_price=quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost=quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2);
+		String temp_quote_summary_total_monthly_holding_cost=quote_summary_total_monthly_holding_cost.getText().trim().substring(2);
 		String temp_quote_summary_monthly_finance_rental=quote_summary_monthly_finance_rental.getText().trim().substring(2);
 		String temp_quote_summary_monthly_maint_rental=quote_summary_monthly_maintenance_rental.getText().trim().substring(2);
 		String acq_contract_type=quote_summary_acq_contract_type.getText();

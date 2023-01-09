@@ -124,16 +124,17 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 		Click.sendKeys(driver, quote_reference, quoteRef, 60);
 
 		Click.sendKeys(driver, expiry_date, quoteExpiryDate, 60);
-        try {
-			   WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
-			   Dropdown.select(driver, dropdown, i , 60);
-			}
-        catch(Exception e)
-        {
-        	 WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
-			  Dropdown.select(driver, dropdown, i , 60);
-        }
 		
+//        try {
+//			   WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+//			   Dropdown.select(driver, dropdown, i , 60);
+//			}
+//        catch(Exception e)
+//        {
+//        	 WebElement dropdown = new  WebDriverWait(driver , Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//select[@name='acquisitionPaymentProfileId']"))));
+//			  Dropdown.select(driver, dropdown, i , 60);
+//        }
+		Dropdown.select(driver, payment_profile_dropdown, i , 60);
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 

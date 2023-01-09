@@ -1577,6 +1577,7 @@ public class ReadExcelCalculation extends TestBase {
 		Select select=new Select(customer_quote_payment_profile_dropdown);
 		
 		select.selectByIndex(0);
+		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		LO.print("Payment Profile Monthly in Advance option has been selected" );
@@ -1588,6 +1589,7 @@ public class ReadExcelCalculation extends TestBase {
 		Thread.sleep(3000);
 		
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		
 		Thread.sleep(5000);
 		Click.on(driver, part_exchange_payment, 70);
 		LO.print("Clicked on Part Exchange panel" );
@@ -2293,7 +2295,7 @@ public class ReadExcelCalculation extends TestBase {
 			
 		double total_monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(57, 1, sheet_name);
 			
-		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(96, 1, sheet_name);
+		double finance_rental_expected=GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 		
 		double maint_rental_expected=GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
 

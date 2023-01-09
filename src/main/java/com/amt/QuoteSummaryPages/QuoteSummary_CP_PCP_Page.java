@@ -209,7 +209,7 @@ public class QuoteSummary_CP_PCP_Page extends TestBase {
 			double quote_summary_monthly_finance_rental_from_screen_converted =Double.parseDouble(quote_summary_monthly_finance_rental_from_screen);
 
 			
-			return obj_read_excel_calculation_page.verify_quote_summary_values_from_excel_for_funder_quote_addition_without_maintenance(quote_summary_cost_otr_price_from_screen_converted, 
+			return obj_read_excel_calculation_page.verify_quote_summary_values_from_excel_for_funder_quote_addition_without_maintenance_for_CP_purchase(quote_summary_cost_otr_price_from_screen_converted, 
 					quote_summary_total_monthly_holding_cost_from_screen_converted, 
 					quote_summary_monthly_finance_rental_from_screen_converted, sheet_name);	
 
