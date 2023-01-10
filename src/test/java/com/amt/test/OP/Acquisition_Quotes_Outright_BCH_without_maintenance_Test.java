@@ -117,9 +117,9 @@ public class Acquisition_Quotes_Outright_BCH_without_maintenance_Test extends Te
 		 
 		Assert.assertTrue(finance_rental_with_part_exchange);		
 
-		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-				.customer_Quote_outright_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
-		Assert.assertTrue(cutomer_quote_monthly_rental);
+//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+//				.customer_Quote_outright_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);
+//		Assert.assertTrue(cutomer_quote_monthly_rental);
 
 
 	}

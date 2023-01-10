@@ -15,7 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class GetExcelFormulaValue extends ReadExcelCalculation {
 	
 	
-	public static double get_formula_value(int rounum, int columnnum, String sheet_name) throws IOException {
+	public static double  get_formula_value(int rounum, int columnnum, String sheet_name) throws IOException {
 	
 		
 		prop=new Properties();
@@ -32,10 +32,12 @@ public class GetExcelFormulaValue extends ReadExcelCalculation {
 	FormulaEvaluator evaluator = book.getCreationHelper().createFormulaEvaluator();		
 	XSSFFormulaEvaluator.evaluateAllFormulaCells(book);// existing Sheet, Row, and Cell setup		
 	if (cell.getCellType() == CellType.FORMULA) {
-		evaluator.evaluateFormulaCell(cell);			
-	}
-	return cell.getNumericCellValue();
-
+		evaluator.evaluateFormulaCell(cell);
+		
+	}	
+	 
+	return   cell.getNumericCellValue(); 
+		
 }
 	
 public static double get_string_value(int rounum, int columnnum, String sheet_name) throws IOException {
