@@ -46,28 +46,28 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[4]")
 	private WebElement acq_contractTypes_calculation_table_additional_discount;
 	
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[2]/div[1]/div[1]/div[2]")
+	@FindBy(xpath = "//*[normalize-space()='Subtotal after discounts']//ancestor::div[1]//div[2]")
 	private WebElement acq_contractTypes_subtotal_after_discounts;
-	
-	@FindBy(xpath = "//*[@id='otrBlock']/div[6]/div/p")
+
+	@FindBy(xpath = "//*[normalize-space()='RFL:']//ancestor::div[1]//p")
 	private WebElement acq_contractTypes_road_tax_first_year;
 	
 	@FindBy(xpath = "//*[@id='roadTaxFirstYear']")
 	private WebElement acq_contractTypes_road_tax_first_year_input;
 
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[2]/div/div[2]/div[2]")
+	@FindBy(xpath = "//*[normalize-space()='Manufacturer delivery charges']//ancestor::div[1]//div[2]")
 	private WebElement acq_contractTypes_manufacturer_delivery_charges;
 
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[2]/div/div[5]/div[2]")
+	@FindBy(xpath = "//*[normalize-space()='First registration fee']//ancestor::div[1]//div[2]")
 	private WebElement acq_contractTypes_first_registration_fee;
 
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/app-acquisition-common-otr-calculations/form/div[2]/div/div[7]/div/div[2]")
+	@FindBy(xpath = "//*[normalize-space()='Rebate']//ancestor::div[1]//div[2]")
 	private WebElement acq_contractTypes_rebate;
-	
+
 	@FindBy(xpath = "//p[normalize-space()='Personal Contract Purchase']")
 	private WebElement acq_contractTypes_customer_contract_PCP;
    
-	@FindBy(xpath = "//p[@class='text-left text-muted pr-1']")
+	@FindBy(xpath = "//*[normalize-space()='OTR for invoice:']//ancestor::div[1]//p")
 	private WebElement acq_contractTypes_OTR_price;
 	  
 	@FindBy(xpath = "//*[@id='ListingPriceNew']")

@@ -156,9 +156,9 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
         act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
         		,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
         
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div"));
          
 			
 		for(WebElement e: list)

@@ -31,7 +31,7 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
 	
-	@FindBy(xpath = "//*[@id='vehicleSummery']/div/div[2]/div[2]/div[4]/span[2]")
+	@FindBy(xpath = "//*[normalize-space()='Quote reference no.:']//ancestor::div[1]//span[2]")
 	private WebElement quote_summary_ref_no;
 	
 	@FindBy(xpath = "//*[@id='headingTwo']//div[4]/div/p/strong")

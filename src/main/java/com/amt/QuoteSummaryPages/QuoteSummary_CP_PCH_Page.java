@@ -38,7 +38,7 @@ public class QuoteSummary_CP_PCH_Page extends TestBase {
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
 	
-	@FindBy(xpath = "//*[@class='right-fix vechile-summery']/div/div[2]/div[2]/div[4]/span[2]")
+	@FindBy(xpath = "//*[normalize-space()='Quote reference no.:']//ancestor::div[1]//span[2]")
 	private WebElement quote_summary_ref_no;
 	
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingTwo']/div/div/div[4]/div/p/strong")
@@ -69,10 +69,10 @@ public class QuoteSummary_CP_PCH_Page extends TestBase {
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement quote_summary_monthly_total_rental;
 	
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
+	@FindBy(xpath = "(//*[normalize-space()='Contract type']//ancestor::div[1]//div//p)[1]")
 	private WebElement quote_summary_acq_contract_type;
 	
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[1]/div/p/strong")
+	@FindBy(xpath = "(//*[normalize-space()='Contract type']//ancestor::div[1]//div//p)[2]")
 	private WebElement quote_summary_customer_contract_type;
 	
 	@FindBy(xpath = "//*[normalize-space()='Cost price ex. VAT & RFL']//ancestor::div[1]//div//strong")
