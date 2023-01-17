@@ -161,7 +161,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
         
         Thread.sleep(3000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
          
 			
 		for(WebElement e: list)
@@ -260,7 +260,7 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
         
         Thread.sleep(3000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
          
 			
 		for(WebElement e: list)

@@ -72,6 +72,12 @@
 			<class name="com.amt.test.OP.Acquisition_Quotes_Outright_FL_with_maintenance_Test" />
 		</classes>
 	</test>
+		<test name="Acquisition_Quotes_OP_OP_Test">
+		<classes>
+			<class name="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test" />
+		</classes>
+	</test>
+	
 
 
 	<test name="Acquisition_Quotes_Broker_BCH_without_maintenance_Test">
@@ -452,11 +458,7 @@
 		</classes>
 	</test>
 
-	<test name="Acquisition_Quotes_OP_OP_Test">
-		<classes>
-			<class name="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test" />
-		</classes>
-	</test>
+
 
 
 	<test name="LoginTest">

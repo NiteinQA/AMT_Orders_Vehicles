@@ -163,13 +163,10 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
        		,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
         
 		
-//		WebElement creditDropdown = driver.findElement(By.xpath("//*[@id='collapseFirst']/div/div/div[2]/div/div/div/ng-select/div/div/div[1]"));
-//		new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(creditDropdown));
-//		jse.executeScript("arguments[0].click();", creditDropdown);
 		
         Thread.sleep(3000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
          
 			
 		for(WebElement e: list)
@@ -266,14 +263,11 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
         act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
         		,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
         
-//		WebElement creditDropdown = driver.findElement(By.xpath("//*[@id='collapseFirst']/div/div/div[2]/div/div/div/ng-select/div/div/div[1]"));
-//		new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(creditDropdown));
-//		jse = (JavascriptExecutor)driver;
-//		jse.executeScript("arguments[0].click();", creditDropdown);
+
 		
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
          
 			
 		for(WebElement e: list)
