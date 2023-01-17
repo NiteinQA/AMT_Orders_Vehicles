@@ -977,14 +977,14 @@ public class ReadExcelCalculation extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
-		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
-		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(Double.parseDouble(term));
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(Double.parseDouble(milesPerAnnum));
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyFinanceRental);
 		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(monthlyMaintenanceRental);
 		wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
 		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
-		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
+		wb.getSheet(sheet_name).getRow(43).getCell(1).setCellValue(pencePerExcessMileFinance);
 		wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
 		wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
 		wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
@@ -1193,8 +1193,8 @@ public class ReadExcelCalculation extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
-		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
-		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(Double.parseDouble(term));
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(Double.parseDouble(milesPerAnnum));
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyFinanceRental);
 		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(monthlyMaintenanceRental);
