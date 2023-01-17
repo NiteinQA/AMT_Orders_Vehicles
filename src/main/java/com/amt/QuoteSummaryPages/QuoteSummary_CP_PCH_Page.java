@@ -578,7 +578,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double miles = GetExcelFormulaValue.get_formula_value(173, 3, sheet_name);
       double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
       double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
-      double partExchangeValue = GetExcelFormulaValue.get_formula_value(113, 4, sheet_name);  
+      double partExchangeValue = GetExcelFormulaValue.get_formula_value(182, 1, sheet_name);  
       double followedBy = GetExcelFormulaValue.get_formula_value(182, 3, sheet_name);
       double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(188, 0, sheet_name);  
       double documentFee = GetExcelFormulaValue.get_formula_value(191, 1, sheet_name);  
@@ -586,7 +586,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(196, 0, sheet_name);      
       double upsellCommission = GetExcelFormulaValue.get_formula_value(196, 1, sheet_name);      
       double docFeeCommission = GetExcelFormulaValue.get_formula_value(199, 0, sheet_name);      
-      double totalCommission = GetExcelFormulaValue.get_formula_value(200, 3, sheet_name);  
+      double totalCommission = GetExcelFormulaValue.get_formula_value(199, 3, sheet_name);  
       double referrerCommission = GetExcelFormulaValue.get_formula_value(202, 0, sheet_name);      
       
       boolean status = false;
@@ -768,7 +768,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double upsellCommission = GetExcelFormulaValue.get_formula_value(196, 1, sheet_name);
       double maintCommission = GetExcelFormulaValue.get_formula_value(196, 3, sheet_name);
       double docFeeCommission = GetExcelFormulaValue.get_formula_value(199, 0, sheet_name);      
-      double totalCommission = GetExcelFormulaValue.get_formula_value(200, 3, sheet_name);  
+      double totalCommission = GetExcelFormulaValue.get_formula_value(199, 3, sheet_name);  
       double referrerCommission = GetExcelFormulaValue.get_formula_value(202, 0, sheet_name);      
       
       boolean status = false;

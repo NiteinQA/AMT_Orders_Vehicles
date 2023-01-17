@@ -1019,8 +1019,8 @@ public class ReadExcelCalculation extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
-		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
-		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(Double.parseDouble(term));
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(Double.parseDouble(milesPerAnnum));
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
 		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(0);
@@ -1145,8 +1145,8 @@ public class ReadExcelCalculation extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
-		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
-		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(Double.parseDouble(term));
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(Double.parseDouble(milesPerAnnum));
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
 		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(capMonthlyMaintValue);

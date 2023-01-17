@@ -594,7 +594,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(196, 0, sheet_name);      
       double upsellCommission = GetExcelFormulaValue.get_formula_value(196, 1, sheet_name);      
       double docFeeCommission = GetExcelFormulaValue.get_formula_value(199, 0, sheet_name);      
-      double totalCommission = GetExcelFormulaValue.get_formula_value(200, 3, sheet_name);  
+      double totalCommission = GetExcelFormulaValue.get_formula_value(199, 3, sheet_name);  
       double referrerCommission = GetExcelFormulaValue.get_formula_value(202, 0, sheet_name);      
       
       boolean status = false;
@@ -776,7 +776,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double upsellCommission = GetExcelFormulaValue.get_formula_value(196, 1, sheet_name);
       double maintCommission = GetExcelFormulaValue.get_formula_value(196, 3, sheet_name);
       double docFeeCommission = GetExcelFormulaValue.get_formula_value(199, 0, sheet_name);      
-      double totalCommission = GetExcelFormulaValue.get_formula_value(200, 3, sheet_name);  
+      double totalCommission = GetExcelFormulaValue.get_formula_value(199, 3, sheet_name);  
       double referrerCommission = GetExcelFormulaValue.get_formula_value(202, 0, sheet_name);      
       
       boolean status = false;

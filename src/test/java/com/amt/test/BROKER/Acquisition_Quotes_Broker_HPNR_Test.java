@@ -102,8 +102,6 @@ public class Acquisition_Quotes_Broker_HPNR_Test extends TestBase {
 				contractMileage,cahDeposit, financeCharges,noOfMonthlyPayments, monthlyFinancePayment, finalBallonPayment, optionToPurchaseFee, 
 			rflIncluded,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_balance_to_finance_check);
-		//this assertion is commented because this fails test as part exchange profit is not updated in runtime, when this will be solved then this assertion will be uncommented
-
 				
 	}
 	
