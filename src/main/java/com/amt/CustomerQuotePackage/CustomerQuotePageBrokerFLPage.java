@@ -208,6 +208,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
+		Thread.sleep(6000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		
@@ -243,7 +244,11 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 			  Dropdown.select(driver, dropdown, i , 60);
         }
 		
-		Thread.sleep(15000);
+		// Dropdown.select(driver, payment_profile_dropdown, i , 60);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		Thread.sleep(3000);
 				
 		int term_converted=Integer.parseInt(term);
 

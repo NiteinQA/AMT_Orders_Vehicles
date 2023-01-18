@@ -162,9 +162,9 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
         act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
         		,Keys.TAB,Keys.ENTER).build().perform();
         
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-star-inserted ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
         
 	     Thread.sleep(3000);
 		 
@@ -238,7 +238,7 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
         
         Thread.sleep(10000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
          
 			
 		for(WebElement e: list)
@@ -337,7 +337,7 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
         
         Thread.sleep(10000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
          
 			
 		for(WebElement e: list)
@@ -444,9 +444,9 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
         act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
         		,Keys.TAB,Keys.ENTER).build().perform();
         
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-star-inserted ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
         
 	     Thread.sleep(3000);
 		 
@@ -593,28 +593,29 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual , 30);
 		
 		Click.on(driver, given_part_exchange_value, 30);
-		Thread.sleep(12000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);
 		
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given , 30);
 		
 		Click.on(driver, less_finance_Settlement, 30);		
-		Thread.sleep(12000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		
 		Click.on(driver, order_Deposit, 30);		
-		Thread.sleep(8000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		
 		Click.on(driver, finance_Deposit, 30);
-		Thread.sleep(12000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		Click.sendKeys(driver, finance_Deposit ,finance_deposit, 30);
 		
 		Click.on(driver, document_fee, 30);
-		Thread.sleep(12000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		
 		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
@@ -662,28 +663,28 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual , 30);
 		
 		Click.on(driver, given_part_exchange_value, 30);
-		Thread.sleep(12000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given , 30);
 		
 		Click.on(driver, less_finance_Settlement, 30);		
-		Thread.sleep(12000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		
 		Click.on(driver, order_Deposit, 30);		
-		Thread.sleep(8000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		
 		Click.on(driver, finance_Deposit, 30);
-		Thread.sleep(12000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		Click.sendKeys(driver, finance_Deposit ,finance_deposit, 30);
 		
 		Click.on(driver, document_fee, 30);
-		Thread.sleep(12000);
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(2000);		
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		
 		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));

@@ -168,7 +168,7 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
         
         Thread.sleep(10000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-star-inserted ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
         
 	     Thread.sleep(3000);
 		 
@@ -262,9 +262,9 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
         act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB
         		,Keys.TAB,Keys.ENTER).build().perform();
         
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-star-inserted ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
         
 	     Thread.sleep(3000);
 		 
@@ -337,7 +337,7 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
         
         Thread.sleep(3000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
          
 			
 		for(WebElement e: list)
@@ -436,7 +436,7 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
         
         Thread.sleep(3000);
         try {
-		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel ng-select-bottom']/div/div/div"));
+		List <WebElement> list =driver.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
          
 			
 		for(WebElement e: list)

@@ -20,10 +20,10 @@
       <![CDATA[<b>Interior option has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Acquisition Contract type option = Outright has been selected</b> <br />]]>
+      <![CDATA[<b> Acquisition Contract type option = Contract Purchase (CP) has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Customer Contract type option = Personal Contract Purchase (PCP) has been selected</b> <br />]]>
+      <![CDATA[<b> Customer Contract type option = Contract Purchase (CP) has been selected</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -161,7 +161,7 @@
       <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Actual Monthly total Payment from screen is 1261.14</b> <br />]]>
+      <![CDATA[<b>Actual Monthly total Payment from screen is 1254.08</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Writing screen values to Excel for customer quote calculation -started</b> <br />]]>
@@ -170,7 +170,7 @@
       <![CDATA[<b>Writing screen values to Excel for customer quote calculation -completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Expected Monthly Total Rental from excel is 1261.1393339603428</b> <br />]]>
+      <![CDATA[<b>Expected Monthly Total Rental from excel is 1254.0764768174856</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Monthly Total Payment verified after editing vehicle profit</b> <br />]]>
@@ -194,22 +194,22 @@
       <![CDATA[<b>Quote_summary_total_monthly_holding_cost =951.53</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote_summary_monthly_finance_rental =1,228.52</b> <br />]]>
+      <![CDATA[<b>Quote_summary_monthly_finance_rental =1,176.46</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote_summary_monthly_maintenance_rental =42.38</b> <br />]]>
+      <![CDATA[<b>Quote_summary_monthly_maintenance_rental =35.31</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote_summary_monthly_total_rental =1,270.90</b> <br />]]>
+      <![CDATA[<b>Quote_summary_monthly_total_rental =1,211.77</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Acquisition contract_type =Outright Purchase</b> <br />]]>
+      <![CDATA[<b>Acquisition contract_type =Contract Purchase</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Customer contract_type =Personal Contract Purchase</b> <br />]]>
+      <![CDATA[<b>Customer contract_type =Contract Purchase</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =RQS43849</b> <br />]]>
+      <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =MAJ82331</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br />]]>
@@ -233,16 +233,16 @@
       <![CDATA[<b>total Rental compared</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-01-17T20:04:41 IST" name="Default suite" finished-at="2023-01-17T20:07:17 IST" duration-ms="155890">
+  <suite started-at="2023-01-18T17:50:59 IST" name="Default suite" finished-at="2023-01-18T17:53:24 IST" duration-ms="144895">
     <groups>
     </groups>
-    <test started-at="2023-01-17T20:04:41 IST" name="Default test" finished-at="2023-01-17T20:07:17 IST" duration-ms="155890">
-      <class name="com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test@1ed6388a]" started-at="2023-01-17T20:04:41 IST" name="setup" finished-at="2023-01-17T20:04:51 IST" duration-ms="9903" status="PASS">
+    <test started-at="2023-01-18T17:50:59 IST" name="Default test" finished-at="2023-01-18T17:53:24 IST" duration-ms="144895">
+      <class name="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test@1ed6388a]" started-at="2023-01-18T17:50:59 IST" name="setup" finished-at="2023-01-18T17:51:14 IST" duration-ms="14747" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_outright_PCP_OTR_calculation_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test@1ed6388a]" started-at="2023-01-17T20:04:52 IST" name="aquisition_quotes_outright_PCP_OTR_calculation_with_maintenance_test" data-provider="testData" finished-at="2023-01-17T20:05:49 IST" duration-ms="57092" status="PASS">
+        <test-method signature="aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test@1ed6388a]" started-at="2023-01-18T17:51:15 IST" name="aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test" data-provider="testData" finished-at="2023-01-18T17:52:10 IST" duration-ms="54827" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -341,12 +341,12 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="20">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="21">
@@ -356,7 +356,7 @@
             </param>
             <param index="22">
               <value>
-                <![CDATA[PersonalContractPurchase]]>
+                <![CDATA[ContractPurchase]]>
               </value>
             </param>
           </params>
@@ -380,10 +380,10 @@
               <![CDATA[<b>Interior option has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Acquisition Contract type option = Outright has been selected</b> <br />]]>
+              <![CDATA[<b> Acquisition Contract type option = Contract Purchase (CP) has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Customer Contract type option = Personal Contract Purchase (PCP) has been selected</b> <br />]]>
+              <![CDATA[<b> Customer Contract type option = Contract Purchase (CP) has been selected</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -431,8 +431,8 @@
               <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_PCP_OTR_calculation_with_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_PCP_after_discount_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test@1ed6388a]" started-at="2023-01-17T20:05:50 IST" name="aquisition_quotes_outright_PCP_after_discount_calculations_with_maintenance_test" data-provider="testData" finished-at="2023-01-17T20:05:54 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test.aquisition_quotes_outright_PCP_OTR_calculation_with_maintenance_test" duration-ms="3934" status="PASS">
+        </test-method> <!-- aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test@1ed6388a]" started-at="2023-01-18T17:52:11 IST" name="aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test" data-provider="testData" finished-at="2023-01-18T17:52:13 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test.aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test" duration-ms="2859" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -531,12 +531,12 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="20">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="21">
@@ -546,7 +546,7 @@
             </param>
             <param index="22">
               <value>
-                <![CDATA[PersonalContractPurchase]]>
+                <![CDATA[ContractPurchase]]>
               </value>
             </param>
           </params>
@@ -588,8 +588,8 @@
               <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_PCP_after_discount_calculations_with_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_PCP_holding_cost_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test@1ed6388a]" started-at="2023-01-17T20:05:54 IST" name="aquisition_quotes_outright_PCP_holding_cost_calculations_with_maintenance_test" data-provider="testData" finished-at="2023-01-17T20:06:06 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test.aquisition_quotes_outright_PCP_after_discount_calculations_with_maintenance_test" duration-ms="11925" status="PASS">
+        </test-method> <!-- aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test@1ed6388a]" started-at="2023-01-18T17:52:14 IST" name="aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test" data-provider="testData" finished-at="2023-01-18T17:52:25 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test.aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test" duration-ms="11424" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -688,12 +688,12 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="20">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="21">
@@ -703,7 +703,7 @@
             </param>
             <param index="22">
               <value>
-                <![CDATA[PersonalContractPurchase]]>
+                <![CDATA[ContractPurchase]]>
               </value>
             </param>
           </params>
@@ -751,8 +751,8 @@
               <![CDATA[<b>Total_monthly_holding_cost_from_excel =951.5319756721427</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_PCP_holding_cost_calculations_with_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_PCP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test@1ed6388a]" started-at="2023-01-17T20:06:06 IST" name="aquisition_quotes_outright_PCP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" data-provider="testData" finished-at="2023-01-17T20:06:32 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test.aquisition_quotes_outright_PCP_holding_cost_calculations_with_maintenance_test" duration-ms="25856" status="PASS">
+        </test-method> <!-- aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test@1ed6388a]" started-at="2023-01-18T17:52:25 IST" name="aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" data-provider="testData" finished-at="2023-01-18T17:52:45 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test.aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test" duration-ms="19813" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -851,12 +851,12 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="20">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="21">
@@ -866,7 +866,7 @@
             </param>
             <param index="22">
               <value>
-                <![CDATA[PersonalContractPurchase]]>
+                <![CDATA[ContractPurchase]]>
               </value>
             </param>
           </params>
@@ -884,7 +884,7 @@
               <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Actual Monthly total Payment from screen is 1261.14</b> <br />]]>
+              <![CDATA[<b>Actual Monthly total Payment from screen is 1254.08</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Writing screen values to Excel for customer quote calculation -started</b> <br />]]>
@@ -893,11 +893,11 @@
               <![CDATA[<b>Writing screen values to Excel for customer quote calculation -completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Expected Monthly Total Rental from excel is 1261.1393339603428</b> <br />]]>
+              <![CDATA[<b>Expected Monthly Total Rental from excel is 1254.0764768174856</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_PCP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_PCP_customer_quote_vehicle_profit_edit_check_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test@1ed6388a]" started-at="2023-01-17T20:06:32 IST" name="aquisition_quotes_outright_PCP_customer_quote_vehicle_profit_edit_check_with_maintenance_test" data-provider="testData" finished-at="2023-01-17T20:06:37 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test.aquisition_quotes_outright_PCP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" duration-ms="5018" status="PASS">
+        </test-method> <!-- aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_customer_quote_vehicle_profit_edit_check_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test@1ed6388a]" started-at="2023-01-18T17:52:45 IST" name="aquisition_quotes_CP_CP_customer_quote_vehicle_profit_edit_check_with_maintenance_test" data-provider="testData" finished-at="2023-01-18T17:52:50 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" duration-ms="5054" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -996,12 +996,12 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="20">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="21">
@@ -1011,7 +1011,7 @@
             </param>
             <param index="22">
               <value>
-                <![CDATA[PersonalContractPurchase]]>
+                <![CDATA[ContractPurchase]]>
               </value>
             </param>
           </params>
@@ -1020,8 +1020,8 @@
               <![CDATA[<b>Monthly Total Payment verified after editing vehicle profit</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_PCP_customer_quote_vehicle_profit_edit_check_with_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_PCP_customer_quote_part_exchange_value_edit_check_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:6, instance:com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test@1ed6388a]" started-at="2023-01-17T20:06:37 IST" name="aquisition_quotes_outright_PCP_customer_quote_part_exchange_value_edit_check_with_maintenance_test" data-provider="testData" finished-at="2023-01-17T20:06:54 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test.aquisition_quotes_outright_PCP_customer_quote_vehicle_profit_edit_check_with_maintenance_test" duration-ms="16461" status="PASS">
+        </test-method> <!-- aquisition_quotes_CP_CP_customer_quote_vehicle_profit_edit_check_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_customer_quote_part_exchange_value_edit_check_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:6, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test@1ed6388a]" started-at="2023-01-18T17:52:50 IST" name="aquisition_quotes_CP_CP_customer_quote_part_exchange_value_edit_check_with_maintenance_test" data-provider="testData" finished-at="2023-01-18T17:53:07 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_vehicle_profit_edit_check_with_maintenance_test" duration-ms="16725" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1120,12 +1120,12 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="20">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="21">
@@ -1135,7 +1135,7 @@
             </param>
             <param index="22">
               <value>
-                <![CDATA[PersonalContractPurchase]]>
+                <![CDATA[ContractPurchase]]>
               </value>
             </param>
           </params>
@@ -1144,8 +1144,8 @@
               <![CDATA[<b>Monthly total Payment verified after editing part exchange values and deposit values</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_PCP_customer_quote_part_exchange_value_edit_check_with_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_PCP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test@1ed6388a]" started-at="2023-01-17T20:06:54 IST" name="aquisition_quotes_outright_PCP_quote_summary_values_verification_with_maintenance_test" data-provider="testData" finished-at="2023-01-17T20:07:17 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test.aquisition_quotes_outright_PCP_customer_quote_part_exchange_value_edit_check_with_maintenance_test" duration-ms="22699" status="PASS">
+        </test-method> <!-- aquisition_quotes_CP_CP_customer_quote_part_exchange_value_edit_check_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test@1ed6388a]" started-at="2023-01-18T17:53:07 IST" name="aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test" data-provider="testData" finished-at="2023-01-18T17:53:24 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_part_exchange_value_edit_check_with_maintenance_test" duration-ms="17098" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1244,12 +1244,12 @@
             </param>
             <param index="19">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="20">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="21">
@@ -1259,7 +1259,7 @@
             </param>
             <param index="22">
               <value>
-                <![CDATA[PersonalContractPurchase]]>
+                <![CDATA[ContractPurchase]]>
               </value>
             </param>
           </params>
@@ -1280,22 +1280,22 @@
               <![CDATA[<b>Quote_summary_total_monthly_holding_cost =951.53</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote_summary_monthly_finance_rental =1,228.52</b> <br />]]>
+              <![CDATA[<b>Quote_summary_monthly_finance_rental =1,176.46</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote_summary_monthly_maintenance_rental =42.38</b> <br />]]>
+              <![CDATA[<b>Quote_summary_monthly_maintenance_rental =35.31</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote_summary_monthly_total_rental =1,270.90</b> <br />]]>
+              <![CDATA[<b>Quote_summary_monthly_total_rental =1,211.77</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Acquisition contract_type =Outright Purchase</b> <br />]]>
+              <![CDATA[<b>Acquisition contract_type =Contract Purchase</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Customer contract_type =Personal Contract Purchase</b> <br />]]>
+              <![CDATA[<b>Customer contract_type =Contract Purchase</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =RQS43849</b> <br />]]>
+              <![CDATA[<b>Customer Quote generated successfully and Quote_ref_no =MAJ82331</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Reading values from excel sheet to compare it with quote summary on screen values</b> <br />]]>
@@ -1319,8 +1319,8 @@
               <![CDATA[<b>total Rental compared</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_PCP_quote_summary_values_verification_with_maintenance_test -->
-      </class> <!-- com.amt.test.OP.Acquisition_Quotes_Outright_PCP_with_maintenance_Test -->
+        </test-method> <!-- aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test -->
+      </class> <!-- com.amt.test.CP.Acquisition_Quotes_CP_CP_with_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -20,7 +20,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_HPNR_PCP_without_maintenance_Normal_Save_Test extends TestBase {
+public class Acquisition_Quotes_HPNR_PCP_without_maintenance_Test extends TestBase {
 
 
 
@@ -98,10 +98,46 @@ public class Acquisition_Quotes_HPNR_PCP_without_maintenance_Normal_Save_Test ex
 		
 		boolean monthly_finance_payment_check =obj_customer_quote_page.check_monthly_finance_payment_on_customer_quote(driver,maintenance_status, matrix_credit_type, balloon_payment_status,order_deposit, finance_deposit,document_fee, sheet_name);
 		Assert.assertTrue(monthly_finance_payment_check);
+		
+	    
 	}
 	
-
 	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_HPNR_PCP_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test" })
+
+	public void aquisition_quotes_HPNR_PCP_customer_quote_vehicle_profit_edit_check_without_maintenance_test(String manufacturer, String model
+			, String Vehicle_Basic_price, String  road_tax_for_first_year, String percentage_cap_residual_value, String residual_value_used, String additional_terms, String additional_mileage,
+			String vehicle_profit ,String  maintenance_status, String matrix_credit_type, String security_deposit, String balloon_payment_status, String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
+			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+
+
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_PCP_Page();
+		
+
+		
+		boolean monthly_finance_payment_after_editing_vehicle_profit =obj_customer_quote_page.edit_vehicle_profit_and_check_monthly_finance_payment(vehicle_profit, sheet_name);
+		Assert.assertTrue(monthly_finance_payment_after_editing_vehicle_profit);
+		
+
+	    
+	}
+	
+	@Test(priority=6, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_HPNR_PCP_customer_quote_vehicle_profit_edit_check_without_maintenance_test" })
+
+	public void aquisition_quotes_HPNR_PCP_customer_quote_part_exchange_value_edit_check_without_maintenance_test(String manufacturer, String model
+			, String Vehicle_Basic_price, String  road_tax_for_first_year, String percentage_cap_residual_value, String residual_value_used, String additional_terms, String additional_mileage,
+			String vehicle_profit ,String  maintenance_status, String matrix_credit_type, String security_deposit, String balloon_payment_status, String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
+			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+
+
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_PCP_Page();
+		
+		
+		boolean monthlyFinanceandBalanceToFinanceCheck = obj_customer_quote_page.put_part_exchange_values_and_check_monthly_finance_payment(part_exchange_actual, part_exchange_given, less_finance_settlement, order_deposit, finance_deposit, sheet_name);
+	    Assert.assertTrue(monthlyFinanceandBalanceToFinanceCheck);
+	    
+	}
+
+	@Test(priority=7, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_HPNR_PCP_customer_quote_part_exchange_value_edit_check_without_maintenance_test" })
 
 	public void aquisition_quotes_HPNR_PCP_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model
 			, String Vehicle_Basic_price, String  road_tax_for_first_year, String percentage_cap_residual_value, String residual_value_used, String additional_terms, String additional_mileage,

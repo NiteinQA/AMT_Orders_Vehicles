@@ -119,7 +119,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_funder_quote_addition_without_main
 						maintenance_required, matrix_credit_type, balloon_payment_status, order_deposit_from_excel,
 						finance_deposit, document_fee_from_excel, sheet_name);
 
-		// Assert.assertTrue(monthly_finance_payment_check);
+		Assert.assertTrue(monthly_finance_payment_check);
 	}
 
 	@Test(priority = 5, dataProvider = "testData", dependsOnMethods = {
