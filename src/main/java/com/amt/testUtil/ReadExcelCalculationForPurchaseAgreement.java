@@ -51,12 +51,12 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		ExplicitWait.visibleElement(driver, acq_contractTypes_calculation_table_discount, 30);
 		ExplicitWait.visibleElement(driver, acq_contractTypes_calculation_table_additional_discount, 30);
 		String calculation_table_dicount_data = acq_contractTypes_calculation_table_discount.getText();
-		String calculation_table_basic_add_dicount_data = acq_contractTypes_calculation_table_additional_discount
+		String calculation_table_basic_add_discount_data = acq_contractTypes_calculation_table_additional_discount
 				.getText();
 
 
 		String discount[] = calculation_table_dicount_data.split("\\s+");
-		String additional_discount[] = calculation_table_basic_add_dicount_data.split("\\s+");
+		String additional_discount[] = calculation_table_basic_add_discount_data.split("\\s+");
 
 //**************First (Basic price) row data fetching and variable assigning  code***********************************************			 
 	
@@ -220,12 +220,12 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		ExplicitWait.visibleElement(driver, acq_contractTypes_calculation_table_discount, 30);
 		ExplicitWait.visibleElement(driver, acq_contractTypes_calculation_table_additional_discount, 30);
 		String calculation_table_dicount_data = acq_contractTypes_calculation_table_discount.getText();
-		String calculation_table_basic_add_dicount_data = acq_contractTypes_calculation_table_additional_discount
+		String calculation_table_basic_add_discount_data = acq_contractTypes_calculation_table_additional_discount
 				.getText();
 
 
 		String discount[] = calculation_table_dicount_data.split("\\s+");
-		String additional_discount[] = calculation_table_basic_add_dicount_data.split("\\s+");
+		String additional_discount[] = calculation_table_basic_add_discount_data.split("\\s+");
 
 //**************First (Basic price) row data fetching and variable assigning  code***********************************************			 
 	

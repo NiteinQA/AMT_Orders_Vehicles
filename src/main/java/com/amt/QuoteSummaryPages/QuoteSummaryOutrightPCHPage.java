@@ -1574,8 +1574,8 @@ public void save_quote() throws InterruptedException {
 
 public boolean quote_summary_outright_PCH_without_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
@@ -1644,8 +1644,8 @@ public boolean quote_summary_outright_PCH_without_maintenance(String sheet_name)
 
 	public boolean quote_summary_outright_PCH_with_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);

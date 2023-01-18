@@ -77,8 +77,8 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		Click.on(driver, quote_summary, 60);
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 	
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 		
@@ -145,8 +145,8 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 
 	public boolean quote_summary_outright_CP_with_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		Click.on(driver, quote_summary, 60);

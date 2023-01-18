@@ -882,8 +882,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification(String s
 
 public boolean quote_summary_customer_quote_summary_value_verification_without_maintenance(String sheet_name) throws IOException {
 	  
-	LO.print("*************Calculations for Customer Quote Summary on Quote Summary page gas been started************");
-	System.out.println("*************Calculations for Customer Quote Summary on Quote Summary page gas been started************");
+	LO.print("*************Calculations for Customer Quote Summary on Quote Summary page has been started************");
+	System.out.println("*************Calculations for Customer Quote Summary on Quote Summary page has been started************");
 	
 	  Click.on(driver, quote_summary_customer_quote_summary_value_verification , 0);	  
 	  	  
@@ -1029,8 +1029,8 @@ public boolean quote_summary_customer_quote_summary_value_verification_without_m
   
  public boolean quote_summary_customer_quote_summary_value_verification_with_maintenance(String sheet_name) throws IOException {
 	  
-	 LO.print("*************Calculations for Customer Quote Summary on Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Customer Quote Summary on Quote Summary page gas been started************");
+	 LO.print("*************Calculations for Customer Quote Summary on Quote Summary page has been started************");
+		System.out.println("*************Calculations for Customer Quote Summary on Quote Summary page has been started************");
 			 
 	 
 	 Click.on(driver, quote_summary_customer_quote_summary_value_verification , 0);	  
@@ -2563,8 +2563,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification_for_fund
 
 	public boolean quote_summary_FL_FL_without_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
@@ -2632,8 +2632,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification_for_fund
 	
 public boolean quote_summary_FL_FL_for_funder_quote_without_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
@@ -2701,8 +2701,8 @@ public boolean quote_summary_FL_FL_for_funder_quote_without_maintenance(String s
 
 	public boolean quote_summary_FL_FL_with_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);
@@ -2785,8 +2785,8 @@ public boolean quote_summary_FL_FL_for_funder_quote_without_maintenance(String s
 	
 public boolean quote_summary_FL_FL_for_funder_quote_with_maintenance(String sheet_name) throws InterruptedException, IOException {
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		Click.on(driver, quote_summary, 60);

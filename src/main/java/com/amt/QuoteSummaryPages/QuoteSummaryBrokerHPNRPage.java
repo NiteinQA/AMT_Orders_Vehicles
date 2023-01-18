@@ -82,8 +82,8 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 
 	public boolean quote_summary_broker_HPNR(String sheet_name) throws InterruptedException, IOException {
 		
-		LO.print("*************Calculations for Quote Summary page gas been started************");
-		System.out.println("*************Calculations for Quote Summary page gas been started************");
+		LO.print("*************Calculations for Quote Summary page has been started************");
+		System.out.println("*************Calculations for Quote Summary page has been started************");
 		
 		obj_read_excel_calculation_page =new ReadExcelCalculation();
 		
