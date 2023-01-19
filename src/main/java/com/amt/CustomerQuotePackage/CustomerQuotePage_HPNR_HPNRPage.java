@@ -676,7 +676,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		
 		Click.sendKeys(driver, finance_Deposit ,finance_deposit, 30);
 		
+				
 		Click.on(driver, document_fee, 30);
+		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, document_fee, 30);

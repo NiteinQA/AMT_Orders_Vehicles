@@ -211,6 +211,18 @@
 			<class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCH_without_maintenance_Test" />
 		</classes>
 	</test>
+	
+		<test name="Acquisition_Quotes_HPNR_FL_with_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCH_with_maintenance_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_HPNR_FL_without_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCH_without_maintenance_Test" />
+		</classes>
+	</test>
 
 	<test name="Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
@@ -279,6 +291,18 @@
 	</test>
 
 	<test name="Acquisition_Quotes_HPNR_PCP_with_funder_quote_addition_with_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_with_funder_quote_addition_with_maintenance_Test" />
+		</classes>
+	</test>
+	
+		<test name="Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_without_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_with_funder_quote_addition_without_maintenance_Test" />
+		</classes>
+	</test>
+
+	<test name="Acquisition_Quotes_HPNR_FL_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
 			<class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>

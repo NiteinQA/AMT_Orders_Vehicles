@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
+import com.amt.testUtil.Dropdown;
 import com.amt.testUtil.ExplicitWait;
 
 public class VehicleSelectionPage extends TestBase {
@@ -41,6 +42,9 @@ public class VehicleSelectionPage extends TestBase {
 	@FindBy(xpath = "//*[@id='divVehicleSummary']/div/div/div/div[2]/div/div[1]/div/div[3]/div/div[2]/button")
 	private WebElement advance_search;
 	
+	@FindBy(xpath = "//select[@name='assetTypeId']")
+	private WebElement asset_type;
+	
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
 	
@@ -53,6 +57,58 @@ public class VehicleSelectionPage extends TestBase {
 	
 	public void select_vehicle(String manufacturer, String model) throws InterruptedException {
 		
+		Actions act=new Actions(driver);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 40);
+		
+
+		LO.print("Manufacture ="+manufacturer+" has been selected");
+		System.out.println("Manufacture ="+manufacturer+" has been selected");
+		
+		Thread.sleep(4000);
+		act.sendKeys(Keys.ENTER).perform();
+	
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		
+		Click.sendKeys(driver, select_model_range, model , 40);	
+		 
+		LO.print("Model range ="+model+" has been selected");
+		System.out.println("Model range ="+model+" has been selected");
+		
+		Thread.sleep(4000);
+		act.sendKeys(Keys.ENTER).perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		
+		Click.on(driver, select_model, 30);
+		
+		Thread.sleep(3000);
+		
+		act.sendKeys(Keys.ARROW_DOWN).build().perform();
+		act.sendKeys(Keys.ENTER).perform();
+		
+	
+		act.doubleClick(vehile_table_option).build().perform();
+		
+		LO.print("Vehicle has been selected");
+		System.out.println("Vehicle has been selected");
+		
+	}
+	
+public void select_vehicle_lcv(String manufacturer, String model) throws InterruptedException {
+		
+	
+	
+	    Dropdown.selectByVisibleText(driver, asset_type, " LCV", 20);
+	    
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+	    
+	
 		Actions act=new Actions(driver);
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
