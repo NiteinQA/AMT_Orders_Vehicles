@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="2" failed="1" skipped="2">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[<b>Clicked on Quote button </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Manufacture =FORD has been selected</b> <br />]]>
+      <![CDATA[<b>Selecting used vehicle with registration no. = GY19XAG and mileage = 1000</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Model range =FIESTA has been selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Vehicle has been selected</b> <br />]]>
+      <![CDATA[<b>Vehicle selected</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Paint option has been selected</b> <br />]]>
@@ -20,237 +17,80 @@
       <![CDATA[<b>Interior option has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Acquisition Contract type option = Outright has been selected</b> <br />]]>
+      <![CDATA[<b> Acquisition Contract type option = HPNR has been selected</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Basic Price- Vehicle value is  =16790.00</b> <br />]]>
+      <![CDATA[<b>Cost Price ex VAT and RFL from screen is 24458.33</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Basic Price - Paint  value is  =500.00</b> <br />]]>
+      <![CDATA[<b>VAT from screen is 4891.67</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Basic Price - Options value is   =0.00</b> <br />]]>
+      <![CDATA[<b>RFL AND FRF from screen is 165.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Discount- Vehicle value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Cost Price ex VAT and RFL calculated is 24458.33</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting   Discount - Paint value is   =0.00</b> <br />]]>
+      <![CDATA[<b>Cost Price ex VAT and RFL verified and found OK</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Discount- Options value is   =0.00</b> <br />]]>
+      <![CDATA[<b>Putting vehicle cost price from test data = 60000</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Putting RFL from test data = 1000</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Additional Discount - paint value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Reading values from screen after editing Vehicle cost price</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Additional Discount - Options value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Cost Price ex VAT and RFL from screen is 60000.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing OTR table values to excel sheet -Started </b> <br />]]>
+      <![CDATA[<b>VAT from screen is 12000.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing OTR table values to excel sheet -Completed </b> <br />]]>
+      <![CDATA[<b>RFL AND FRF from screen is 1000.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
+      <![CDATA[<b>Cost Price ex VAT and RFL calculated is 60000.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Subtotal After Discount from excel sheet is =17290.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Subtotal after discount actual value from screen =£ 17,290.00</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*********Calculations for On Road Price has been started***********</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started getting On screen values from after discount table </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Manufacture_delivery_charges =496.37</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Road_tax_first_year =275.00</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>First_registration_fee =55.00</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Rebate =0.00</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing After discount values to excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing After discount values to excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading On Road Price for invoice from excel has been Started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading On Road Price for invoice from excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Expected on the road price from excel is =21673.64</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Actual on the road price from screen is =21673.64</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicked on holding cost summary</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Getting on screen values from Holding Cost Page</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Duration(Terms) =36.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Annual_mileage =10000.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Cap_residual_value =8875.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =332.52</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =369.63990387361713</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<br>----------Screenshot---------<br>]]>
-    </line>
-    <line>
-      <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test_19_01_2023_04_48_49.png" height="800" width="1000">]]>
+      <![CDATA[<b>Cost Price ex VAT and RFL verified and found OK</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-01-19T16:47:21 IST" name="Default suite" finished-at="2023-01-19T16:48:49 IST" duration-ms="88616">
+  <suite started-at="2023-01-20T15:26:04 IST" name="Default suite" finished-at="2023-01-20T15:26:57 IST" duration-ms="53521">
     <groups>
     </groups>
-    <test started-at="2023-01-19T16:47:21 IST" name="Default test" finished-at="2023-01-19T16:48:49 IST" duration-ms="88616">
-      <class name="com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a]" started-at="2023-01-19T16:47:21 IST" name="setup" finished-at="2023-01-19T16:47:30 IST" duration-ms="9034" status="PASS">
+    <test started-at="2023-01-20T15:26:04 IST" name="Default test" finished-at="2023-01-20T15:26:57 IST" duration-ms="53521">
+      <class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test@73e9cf30]" started-at="2023-01-20T15:26:04 IST" name="setup" finished-at="2023-01-20T15:26:13 IST" duration-ms="9095" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a]" started-at="2023-01-19T16:47:31 IST" name="aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2023-01-19T16:48:32 IST" duration-ms="60708" status="PASS">
+        <test-method signature="aquisition_quotes_HPNR_BCH_used_car_OTR_calculation_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test@73e9cf30]" started-at="2023-01-20T15:26:15 IST" name="aquisition_quotes_HPNR_BCH_used_car_OTR_calculation_with_maintenance_test" data-provider="testData" finished-at="2023-01-20T15:26:52 IST" duration-ms="37085" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[FORD]]>
+                <![CDATA[GY19XAG]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[FIESTA]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[60000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[100]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[20000]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
                 <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[199.99]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[Formula1-BCH]]>
               </value>
             </param>
           </params>
@@ -259,13 +99,10 @@
               <![CDATA[<b>Clicked on Quote button </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Manufacture =FORD has been selected</b> <br />]]>
+              <![CDATA[<b>Selecting used vehicle with registration no. = GY19XAG and mileage = 1000</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Model range =FIESTA has been selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Vehicle has been selected</b> <br />]]>
+              <![CDATA[<b>Vehicle selected</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Paint option has been selected</b> <br />]]>
@@ -274,438 +111,79 @@
               <![CDATA[<b>Interior option has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Acquisition Contract type option = Outright has been selected</b> <br />]]>
+              <![CDATA[<b> Acquisition Contract type option = HPNR has been selected</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Basic Price- Vehicle value is  =16790.00</b> <br />]]>
+              <![CDATA[<b>Cost Price ex VAT and RFL from screen is 24458.33</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Basic Price - Paint  value is  =500.00</b> <br />]]>
+              <![CDATA[<b>VAT from screen is 4891.67</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting  Basic Price - Options value is   =0.00</b> <br />]]>
+              <![CDATA[<b>RFL AND FRF from screen is 165.0</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Discount- Vehicle value is  =0.00</b> <br />]]>
+              <![CDATA[<b>Cost Price ex VAT and RFL calculated is 24458.33</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting   Discount - Paint value is   =0.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Getting  Discount- Options value is   =0.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Getting  Additional Discount - paint value is  =0.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Getting  Additional Discount - Options value is  =0.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing OTR table values to excel sheet -Started </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing OTR table values to excel sheet -Completed </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Subtotal After Discount from excel sheet is =17290.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Subtotal after discount actual value from screen =£ 17,290.00</b> <br />]]>
+              <![CDATA[<b>Cost Price ex VAT and RFL verified and found OK</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_BCH_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a]" started-at="2023-01-19T16:48:32 IST" name="aquisition_quotes_outright_BCH_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-19T16:48:35 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_OTR_calculation_without_maintenance_test" duration-ms="2725" status="PASS">
+        </test-method> <!-- aquisition_quotes_HPNR_BCH_used_car_OTR_calculation_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_HPNR_BCH_used_car_edit_cost_price_and_check_OTR_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test@73e9cf30]" started-at="2023-01-20T15:26:52 IST" name="aquisition_quotes_HPNR_BCH_used_car_edit_cost_price_and_check_OTR_with_maintenance_test" data-provider="testData" finished-at="2023-01-20T15:26:57 IST" duration-ms="5188" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[FORD]]>
+                <![CDATA[GY19XAG]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[FIESTA]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[0]]>
+                <![CDATA[60000]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[100]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[20000]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
                 <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[199.99]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[Formula1-BCH]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[<b>*********Calculations for On Road Price has been started***********</b> <br />]]>
+              <![CDATA[<b>Putting vehicle cost price from test data = 60000</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Started getting On screen values from after discount table </b> <br />]]>
+              <![CDATA[<b>Putting RFL from test data = 1000</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Manufacture_delivery_charges =496.37</b> <br />]]>
+              <![CDATA[<b>Reading values from screen after editing Vehicle cost price</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Road_tax_first_year =275.00</b> <br />]]>
+              <![CDATA[<b>Cost Price ex VAT and RFL from screen is 60000.0</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>First_registration_fee =55.00</b> <br />]]>
+              <![CDATA[<b>VAT from screen is 12000.0</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Rebate =0.00</b> <br />]]>
+              <![CDATA[<b>RFL AND FRF from screen is 1000.0</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Writing After discount values to excel has been started</b> <br />]]>
+              <![CDATA[<b>Cost Price ex VAT and RFL calculated is 60000.0</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Writing After discount values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading On Road Price for invoice from excel has been Started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading On Road Price for invoice from excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Expected on the road price from excel is =21673.64</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Actual on the road price from screen is =21673.64</b> <br />]]>
+              <![CDATA[<b>Cost Price ex VAT and RFL verified and found OK</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_BCH_after_discount_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a]" started-at="2023-01-19T16:48:35 IST" name="aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-19T16:48:49 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_after_discount_calculations_without_maintenance_test" duration-ms="14020" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[FORD]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[FIESTA]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[100]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[20000]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[199.99]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[Formula1-BCH]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertTrue(Assert.java:45)
-at org.testng.Assert.assertTrue(Assert.java:55)
-at com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test(Acquisition_Quotes_Outright_BCH_without_maintenance_Test.java:91)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-            <line>
-              <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Clicked on holding cost summary</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Getting on screen values from Holding Cost Page</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Duration(Terms) =36.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Annual_mileage =10000.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Cap_residual_value =8875.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =332.52</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =369.63990387361713</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<br>----------Screenshot---------<br>]]>
-            </line>
-            <line>
-              <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test_19_01_2023_04_48_49.png" height="800" width="1000">]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a]" started-at="2023-01-19T16:48:49 IST" name="aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" finished-at="2023-01-19T16:48:49 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_holding_cost_calculations_without_maintenance_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a]" started-at="2023-01-19T16:48:49 IST" name="aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test" finished-at="2023-01-19T16:48:49 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_Outright_BCH_without_maintenance_Test.aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test@3527942a] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- aquisition_quotes_outright_BCH_quote_summary_values_verification_without_maintenance_test -->
-      </class> <!-- com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test -->
+        </test-method> <!-- aquisition_quotes_HPNR_BCH_used_car_edit_cost_price_and_check_OTR_with_maintenance_test -->
+      </class> <!-- com.amt.test.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

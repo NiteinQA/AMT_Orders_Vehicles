@@ -15,6 +15,8 @@ import com.amt.testUtil.ExplicitWait;
 
 public class VehicleSelectionPage extends TestBase {
 
+	@FindBy(xpath = "//img[@alt='Loading...']")
+	private List<WebElement> loading_icon;
 	
 	@FindBy(xpath = "//ng-select[@id='Make']//input[@role='combobox']")
 	private WebElement select_manufacturer_button;
@@ -45,8 +47,23 @@ public class VehicleSelectionPage extends TestBase {
 	@FindBy(xpath = "//select[@name='assetTypeId']")
 	private WebElement asset_type;
 	
-	@FindBy(xpath = "//img[@alt='Loading...']")
-	private List<WebElement> loading_icon;
+	
+	@FindBy(xpath = "//span[normalize-space()='Used vehicle']")
+	private WebElement used_vehicle;
+
+	@FindBy(xpath = "//input[@name='registrationNumber']")
+	private WebElement registration_no;
+	
+	@FindBy(xpath = "//input[@name='usedVehicleMileage']")
+	private WebElement used_vehicle_mileage;
+	
+	@FindBy(xpath = "//button[contains(text(),'Search')]")
+	private WebElement search_button;
+	
+	@FindBy(xpath = "//*[@class='acquisitionouter']//div[@tabindex='0']")
+	private WebElement vehicle_option_used_car;
+	
+	
 	
 	
 	
@@ -152,6 +169,35 @@ public void select_vehicle_lcv(String manufacturer, String model) throws Interru
 		
 	}
 	
+
+public void select_vehicle_for_used_vehicle_flow(String regitrationNumber , String mileage) throws InterruptedException {
+	
+	LO.print("Selecting used vehicle with registration no. = "+regitrationNumber+" and mileage = "+mileage);
+	System.out.println("Selecting used vehicle with registration no. = "+regitrationNumber+" and mileage = "+mileage);
+	
+	
+	Click.on(driver, used_vehicle, 30);   
+	 
+    Click.sendKeys(driver, registration_no, regitrationNumber, 30);
+    
+    Click.sendKeys(driver, used_vehicle_mileage, mileage, 30);
+    
+    Click.on(driver, search_button, 30);
+    
+    ExplicitWait.visibleElement(driver, vehicle_option_used_car, 30);
+    
+    
+    Actions act = new Actions(driver);
+    
+    act.doubleClick(vehicle_option_used_car).build().perform();
+    
+      
+	LO.print("Vehicle selected");
+	System.out.println("Vehicle selected");    
+    
+   
+}
+
 	
 	
 	

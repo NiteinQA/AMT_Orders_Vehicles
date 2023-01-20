@@ -96,6 +96,28 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[4]")
 	private WebElement acq_contractTypes_table_calculation_basic_options_price;
 	
+	
+	@FindBy(xpath = "//*[normalize-space()='Cost price ex. VAT & RFL']//ancestor::div[1]//div//strong")
+	private WebElement contract_types_cost_price_ex_vat_and_rfl;
+
+	@FindBy(xpath = "//*[normalize-space()='VAT']//ancestor::div[1]//div//strong")
+	private WebElement contract_types_vat;
+	
+	
+	@FindBy(xpath = "//*[normalize-space()='RFL & FRF']//ancestor::div[1]//div//strong")
+	private WebElement contract_types_rfl_and_frf;
+	
+	
+	@FindBy(xpath = "//*[normalize-space()='Cost OTR price']//ancestor::div[1]//div//strong")
+	private WebElement contract_types_otr;
+	
+	@FindBy(xpath = "//input[@id='ListingPriceUsed']")
+	private WebElement vehicle_cost_price_input;
+	
+	@FindBy(xpath = "//input[@id='roadTaxFirstYear']")
+	private WebElement rfl_input;
+	
+	
 
 	public ContractTypesAndOTR_HPNR_BCH_Page() {
 		PageFactory.initElements(driver, this);
@@ -154,6 +176,145 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		return flag;
 	}
 	
+	
+	public boolean contractTypes_selection_and_OTR_calculation()
+			throws InterruptedException, IOException, UnsupportedFlavorException {
+		
+		Click.on(driver, acq_contractTypes, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Click.on(driver, acq_acq_contractTypes_HPNR, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		LO.print(" Acquisition Contract type option = HPNR has been selected");
+		System.out.println("Acquisition Contract type option = HPNR has been selected");
+		
+		Click.on(driver, acq_contractTypes_customer_contract_BCH, 30);
+		
+		LO.print(" Customer Contract type option = Business Contract Hire(BCH) has been selected");		 
+		System.out.println(" Customer Contract type option = Business Contract Hire(BCH) has been selected");
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+			
+		ExplicitWait.visibleElement(driver, contract_types_cost_price_ex_vat_and_rfl, 20);
+		ExplicitWait.visibleElement(driver, contract_types_vat, 20);
+		ExplicitWait.visibleElement(driver, contract_types_rfl_and_frf, 20);
+		ExplicitWait.visibleElement(driver, contract_types_otr, 20);
+
+
+		double cost_price_ex_vat_and_rfl_from_screen = Double.parseDouble(RemoveComma.of(contract_types_cost_price_ex_vat_and_rfl.getText().substring(2)));
+		double vat = Double.parseDouble(RemoveComma.of(contract_types_vat.getText().substring(2)));
+		double rfl_and_frf =Double.parseDouble(RemoveComma.of(contract_types_rfl_and_frf.getText().substring(2)));
+		double otr =Double.parseDouble(RemoveComma.of(contract_types_otr.getText().substring(2)));
+
+		LO.print("Cost Price ex VAT and RFL from screen is "+cost_price_ex_vat_and_rfl_from_screen);		 
+		System.out.println("Cost Price ex VAT and RFL from screen is "+cost_price_ex_vat_and_rfl_from_screen);
+		
+		LO.print("VAT from screen is "+vat);		 
+		System.out.println("VAT from screen is "+vat);
+		
+		LO.print("RFL AND FRF from screen is "+rfl_and_frf);		 
+		System.out.println("RFL AND FRF from screen is "+rfl_and_frf);
+		
+		double cost_price_ex_vat_and_rfl_expected = (otr -(rfl_and_frf+vat));
+		
+		
+		LO.print("Cost Price ex VAT and RFL calculated is "+cost_price_ex_vat_and_rfl_expected);		 
+		System.out.println("Cost Price ex VAT and RFL calculated is "+cost_price_ex_vat_and_rfl_expected);
+		
+		
+		
+		boolean status = false ;
+		if(cost_price_ex_vat_and_rfl_from_screen==cost_price_ex_vat_and_rfl_expected)
+		{
+			status = true ;
+			LO.print("Cost Price ex VAT and RFL verified and found OK");		 
+			System.out.println("Cost Price ex VAT and RFL verified and found OK");
+		}
+		else
+		{
+			LO.print("Cost Price ex VAT and RFL found Wrong");		 
+			System.err.println("Cost Price ex VAT and RFL found Wrong");
+		}
+		 
+		return status;
+		  
+	}
+
+	
+	public boolean edit_vehicle_cost_price_and_check_OTR_price(String vehicelCostPrice,String rfl)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
+		
+		
+		Click.sendKeys(driver, vehicle_cost_price_input, vehicelCostPrice, 30);
+		
+		Thread.sleep(2000);
+		
+		Click.sendKeys(driver, rfl_input, rfl, 30);
+		
+        act = new Actions(driver);
+		 
+        act.sendKeys(Keys.TAB).build().perform();
+		
+		Thread.sleep(2000);
+		
+		LO.print("Putting vehicle cost price from test data = "+vehicelCostPrice );		 
+		System.out.println("Putting vehicle cost price from test data = "+vehicelCostPrice);
+		
+		LO.print("Putting RFL from test data = "+rfl );		 
+		System.out.println("Putting RFL from test data = "+rfl);
+		
+		
+		
+		
+		ExplicitWait.visibleElement(driver, contract_types_cost_price_ex_vat_and_rfl, 20);
+		ExplicitWait.visibleElement(driver, contract_types_vat, 20);
+		ExplicitWait.visibleElement(driver, contract_types_rfl_and_frf, 20);
+		ExplicitWait.visibleElement(driver, contract_types_otr, 20);
+		
+		
+		double cost_price_ex_vat_and_rfl_from_screen = Double.parseDouble(RemoveComma.of(contract_types_cost_price_ex_vat_and_rfl.getText().substring(2)));
+		double vat = Double.parseDouble(RemoveComma.of(contract_types_vat.getText().substring(2)));
+		double rfl_and_frf =Double.parseDouble(RemoveComma.of(contract_types_rfl_and_frf.getText().substring(2)));
+		double otr =Double.parseDouble(RemoveComma.of(contract_types_otr.getText().substring(2)));
+
+		LO.print("Reading values from screen after editing Vehicle cost price");		 
+		System.out.println("Reading values from screen after editing Vehicle cost price");
+		
+		
+		LO.print("Cost Price ex VAT and RFL from screen is "+cost_price_ex_vat_and_rfl_from_screen);		 
+		System.out.println("Cost Price ex VAT and RFL from screen is "+cost_price_ex_vat_and_rfl_from_screen);
+		
+		LO.print("VAT from screen is "+vat);		 
+		System.out.println("VAT from screen is "+vat);
+		
+		LO.print("RFL AND FRF from screen is "+rfl_and_frf);		 
+		System.out.println("RFL AND FRF from screen is "+rfl_and_frf);
+		
+		double cost_price_ex_vat_and_rfl_expected = (otr -(rfl_and_frf+vat));
+		
+		
+		LO.print("Cost Price ex VAT and RFL calculated is "+cost_price_ex_vat_and_rfl_expected);		 
+		System.out.println("Cost Price ex VAT and RFL calculated is "+cost_price_ex_vat_and_rfl_expected);
+		
+		
+		
+		boolean status = false ;
+		if(cost_price_ex_vat_and_rfl_from_screen==cost_price_ex_vat_and_rfl_expected)
+		{
+			status = true ;
+			LO.print("Cost Price ex VAT and RFL verified and found OK");		 
+			System.out.println("Cost Price ex VAT and RFL verified and found OK");
+		}
+		else
+		{
+			LO.print("Cost Price ex VAT and RFL found Wrong");		 
+			System.err.println("Cost Price ex VAT and RFL found Wrong");
+		}
+		 
+		return status;
+		  
+	}
+
 	
 	public boolean contractTypes_and_OTR_selection_outright_bch_vehicle_price_edited(String vehicleBasicPrice,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
