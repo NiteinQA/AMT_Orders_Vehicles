@@ -56,6 +56,15 @@ public class Acquisition_Quotes_BCH_PCH_with_maintenance_Test extends TestBase {
 		boolean subtotal_after_discount = obj_contract_types_and_OTR_page
 				.contractTypes_and_OTR_selection_BCH_PCH_Ownbook_calculation(sheet_name);
 		Assert.assertTrue(subtotal_after_discount);
+		
+		System.out.println("****************************************************************");
+		LO.print("****************************************************************");
+		
+		System.out.println("**********Assertion Passed For Subtotal After Discount**********");
+		System.out.println("****************************************************************");
+
+		LO.print("**********Assertion Passed For Subtotal After Discount**********");
+		LO.print("****************************************************************");
 
 	}
 	
@@ -73,6 +82,15 @@ public class Acquisition_Quotes_BCH_PCH_with_maintenance_Test extends TestBase {
 		boolean otr_price_check = obj_contract_types_and_OTR_page
 				.verify_after_discount_calculations_contract_types_page(sheet_name);
 		Assert.assertTrue(otr_price_check);
+		
+		System.out.println("****************************************************************");
+		LO.print("****************************************************************");
+
+		System.out.println("*****************Assertion Passed For OTR Price*****************");
+		System.out.println("****************************************************************");
+	
+		LO.print("*****************Assertion Passed For OTR Price*****************");
+		LO.print("****************************************************************");
 
 
 	}
@@ -92,6 +110,15 @@ public class Acquisition_Quotes_BCH_PCH_with_maintenance_Test extends TestBase {
 				.verify_holding_cost_with_maintenance( quoteReference,  quoteExpiryDate, terms, milesPerAnnum,maintenance_required,  monthlyFinanceRental,monthlyMaintenanceRental,  documentFee,
 						penceperExcessMileFinance, penceperExcessMileMaintenance,  sheet_name);
 		Assert.assertTrue(holding_cost_with_maintenance_boolean);
+		
+		System.out.println("****************************************************************");
+		LO.print("****************************************************************");
+
+		System.out.println("***************Assertion Passed For Holding Cost****************");
+		System.out.println("****************************************************************");
+
+		LO.print("***************Assertion Passed For Holding Cost****************");
+		LO.print("****************************************************************");
 	
 
 	}
@@ -116,25 +143,58 @@ public class Acquisition_Quotes_BCH_PCH_with_maintenance_Test extends TestBase {
 						part_exchange_status, target_rental,sheet_name);
 		Assert.assertTrue(customer_quote_for_payment_boolean);
 		
+		System.out.println("****************************************************************");
+		LO.print("****************************************************************");
+
+		System.out.println("***********Assertion Passed For Monthly Finance Rental***********");
+		System.out.println("****************************************************************");
+
+		LO.print("***********Assertion Passed For Monthly Finance Rental***********");
+		LO.print("****************************************************************");
+		
 		boolean monthlyFinanceAndMaintenanceWithPartExchange =  obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_with_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
 		
 		Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+		
+		System.out.println("*****Assertion Passed For Monthly Finance And Maint. Rental*****");
+		System.out.println("****************************************************************");
+	
+		LO.print("*****Assertion Passed For Monthly Finance And Maint. Rental*****");
+		LO.print("****************************************************************");
 		
 		boolean balance_due_value = obj_customer_quote_page.customer_quote_part_balance_due_value_verification(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel,
 				order_deposit_from_excel, document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
 		
 		Assert.assertTrue(balance_due_value);
 		
+		System.out.println("*************Assertion Passed For Balance Due Value*************");
+		System.out.println("****************************************************************");
+
+		LO.print("*************Assertion Passed For Balance Due Value*************");
+		LO.print("****************************************************************");
+		
 		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel,
 				document_fee_from_excel, upsell, part_exchange_status, target_rental, sheet_name);
 		
 		Assert.assertTrue(monthly_finance_rental);
 		
+		System.out.println("Assertion Passed For Monthly Finance Rental with part Exchange On");
+		System.out.println("****************************************************************");
+
+		LO.print("Assertion Passed For Monthly Finance Rental with part Exchange On");
+		LO.print("****************************************************************");
+		
 		
 
-//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-//				.customer_Quote_BCH_PCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
-//		Assert.assertTrue(cutomer_quote_monthly_rental);
+		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+				.customer_Quote_BCH_PCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
+		Assert.assertTrue(cutomer_quote_monthly_rental);
+		
+		System.out.println("Assertion Passed For Monthly Finance Rental For All Payment Profiles");
+		System.out.println("****************************************************************");
+
+		LO.print("Assertion Passed For Monthly Finance Rental For All Payment Profiles");
+		LO.print("****************************************************************");
 	
 	}
 	

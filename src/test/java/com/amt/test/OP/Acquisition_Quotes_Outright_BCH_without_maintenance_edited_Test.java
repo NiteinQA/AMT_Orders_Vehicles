@@ -15,7 +15,7 @@ import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage;
+import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_BCH_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
@@ -28,7 +28,7 @@ public class Acquisition_Quotes_Outright_BCH_without_maintenance_edited_Test ext
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage obj_contract_types_and_OTR_page;
+	ContractTypesAndOTR_Outright_BCH_Page obj_contract_types_and_OTR_page;
 	HoldingCostOutrightBCHPage obj_holding_cost_Outright_BCH_page;
 	CustomerQuotePageOutrightBCHPage obj_customer_quote_page;
 	QuoteSummaryOutrightBCHPage obj_quote_summary_page;
@@ -45,7 +45,7 @@ public class Acquisition_Quotes_Outright_BCH_without_maintenance_edited_Test ext
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_BCH_Page();
 		obj_customer_quote_page = new CustomerQuotePageOutrightBCHPage();
 		obj_holding_cost_Outright_BCH_page = new HoldingCostOutrightBCHPage();
 		obj_quote_summary_page = new QuoteSummaryOutrightBCHPage();

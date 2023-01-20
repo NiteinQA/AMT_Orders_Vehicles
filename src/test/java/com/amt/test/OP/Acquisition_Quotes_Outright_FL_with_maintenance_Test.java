@@ -20,7 +20,7 @@ import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage;
+import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_FL_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
@@ -33,7 +33,7 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage obj_contract_types_and_OTR_page;
+	ContractTypesAndOTR_Outright_FL_Page obj_contract_types_and_OTR_page;
 	HoldingCostOutrightFLPage obj_holding_cost_Outright_FL_page;
 	CustomerQuotePageOutrightFLPage obj_customer_quote_page;
 	QuoteSummaryOutrightFLPage obj_quote_summary_page;
@@ -50,7 +50,7 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_FL_Page();
 	
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
@@ -74,7 +74,7 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental,String sheet_name ) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_FL_Ownbook_CalculationPage();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_FL_Page();
 
 		boolean otr_price_check = obj_contract_types_and_OTR_page
 				.verify_after_discount_calculations_contract_types_page(sheet_name);

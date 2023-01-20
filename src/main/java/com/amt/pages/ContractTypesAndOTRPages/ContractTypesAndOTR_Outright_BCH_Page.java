@@ -38,8 +38,8 @@ import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
 
-public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends TestBase {
-	ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage obj_contract_types_outright_bch_ownbook_calculation_page;
+public class ContractTypesAndOTR_Outright_BCH_Page extends TestBase {
+	ContractTypesAndOTR_Outright_BCH_Page obj_contract_types_outright_bch_ownbook_calculation_page;
 	ReadExcelCalculation obj_read_excel_calculation_page;
 	Actions act;
 
@@ -97,7 +97,7 @@ public class ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage extends Te
 	private WebElement acq_contractTypes_table_calculation_basic_options_price;
 	
 
-	public ContractTypesAndOTR_Outright_BCH_Ownbook_CalculationPage() {
+	public ContractTypesAndOTR_Outright_BCH_Page() {
 		PageFactory.initElements(driver, this);
 	}
 

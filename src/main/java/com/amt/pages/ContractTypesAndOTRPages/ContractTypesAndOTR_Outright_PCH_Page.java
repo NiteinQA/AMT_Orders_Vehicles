@@ -37,8 +37,8 @@ import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
 
-public class ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage extends TestBase {
-	ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage obj_contract_types_outright_PCH_ownbook_calculation_page;
+public class ContractTypesAndOTR_Outright_PCH_Page extends TestBase {
+	ContractTypesAndOTR_Outright_PCH_Page obj_contract_types_outright_PCH_ownbook_calculation_page;
 	ReadExcelCalculation obj_read_excel_calculation_page;
 
 	
@@ -93,7 +93,7 @@ public class ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage extends Te
 	@FindBy(xpath = "//*[@id='collapseTwo']/app-acquisition-common-otr-calculations/form/div[1]/div/div[2]/div[4]")
 	private WebElement acq_contractTypes_table_calculation_basic_options_price;
    
-	public ContractTypesAndOTR_Outright_PCH_Ownbook_CalculationPage() {
+	public ContractTypesAndOTR_Outright_PCH_Page() {
 		PageFactory.initElements(driver, this);
 	}
 

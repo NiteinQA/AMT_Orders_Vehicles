@@ -231,8 +231,8 @@ public class CustomerQuotePage_BCH_PCH_Page extends TestBase {
 		if((Difference.of_two_Double_Values(monthly_finance_rental_actual_converted, monthlyFinanceRentalFromExcel)<0.2))
 				{
 			    flag = true;
-			     LO.print("Monthly finance rental (after makking part exchage toggle on) is found OK" );
-			     System.out.println("Monthly finance rental (after makking part exchage toggle on) is found OK" );
+			     LO.print("Monthly finance rental (after making part exchage toggle on) is found OK" );
+			     System.out.println("Monthly finance rental (after making part exchage toggle on) is found OK" );
 				}
 		else  {
 		     LO.print("Monthly finance rental (after making part exchage toggle on) is found wrong" );
