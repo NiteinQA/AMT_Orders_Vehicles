@@ -197,11 +197,16 @@ public class Leads extends TestBase {
 	@FindBy(xpath ="//*[@id=\"vehicleRequest2\"]/div/div/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div/table/tbody/tr/td[8]/div/a[3]/img")
 	private WebElement Map_New_quote_icon;
 	
+	
+	
+	//*[@id="vehicleRequest2"]/div/div/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div/table/tbody/tr/td[9]/div/a[3]/img
+	
 	////*[@id="MapNewQuote"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[2]/span
 	
 	@FindBy(xpath ="//*[@id=\"MapNewQuote\"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[2]/span")
 	private WebElement acquisition_contract_type;
 	
+	//*[@id="MapNewQuote"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[1]
 	
 	@FindBy(xpath ="//*[@id=\"MapNewQuote\"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[2]/ul[2]/li/div")
 	private WebElement acquisition_contract_type_broker_value; 
@@ -538,7 +543,8 @@ public class Leads extends TestBase {
 	public void lead_Customer_info_business() throws Exception
 
 	{
-
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
 		Dropdown.selectByVisibleText(driver, customer_type, " Business ", 30);
 
 		LO.print("Customer type - " + "Business" + " selected");
@@ -550,13 +556,14 @@ public class Leads extends TestBase {
 
 		Click.sendKeys(driver, customer_name, "Comp QA2", 30);
 
+		Click.on(driver, customer_name_option, 20);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Thread.sleep(4000);
 
-		Click.on(driver, customer_name_option, 20);
+		//Click.on(driver, customer_name_option, 20);
 
-		
+		//ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 	}
 	
@@ -578,7 +585,7 @@ public class Leads extends TestBase {
 		
 		Thread.sleep(4000);
 
-		//HelperClass.highlightElement(driver, add_new_vehicle_request);
+		HelperClass.highlightElement(driver, add_new_vehicle_request);
 		
 		
 	Click.on(driver, add_new_vehicle_request, 30);
@@ -785,9 +792,12 @@ public void lead_map_new_quote_broker_individual() throws Exception
 	
 	
 	Thread.sleep(5000);
+	
+	
 	Click.on(driver, Map_New_quote_icon, 30);
 
-	Thread.sleep(5000);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+	
 	Click.on(driver, acquisition_contract_type, 30);
 	
 	LO.print("Click on acquisition contract type icon");
@@ -902,7 +912,7 @@ System.out.println("Click on Map New Quote icon");
 Thread.sleep(5000);
 Click.on(driver, Map_New_quote_icon, 30);
 
-Thread.sleep(5000);
+ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 Click.on(driver, acquisition_contract_type_ownbook, 30);
 
 LO.print("Click on acquisition contract type icon");
@@ -1021,7 +1031,8 @@ System.out.println("Click on Map New Quote icon");
 Thread.sleep(5000);
 Click.on(driver, Map_New_quote_icon, 30);
 
-Thread.sleep(5000);
+ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 Click.on(driver, acquisition_contract_type, 30);
 
 LO.print("Click on acquisition contract type icon");
@@ -1151,9 +1162,9 @@ String Lead_OpportunityId=  lead_Opp_location.getText() ;
 
 
 
-System.out.println("Lead created Opportunity Id is =" + Lead_OpportunityId);
+System.out.println("In Lead created Opportunity Id is =" + Lead_OpportunityId);
 
-
+LO.print("In Lead created Opportunity Id is =" + Lead_OpportunityId);
 return Lead_OpportunityId;
 }
 
@@ -1184,7 +1195,7 @@ System.out.println("Click on Map New Quote icon");
 Thread.sleep(5000);
 Click.on(driver, Map_New_quote_icon, 30);
 
-Thread.sleep(5000);
+ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 Click.on(driver, acquisition_contract_type, 30);
 
 LO.print("Click on acquisition contract type icon");

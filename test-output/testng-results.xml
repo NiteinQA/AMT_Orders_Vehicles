@@ -1,1598 +1,736 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="13" passed="8" failed="5" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[<b>Clicked on Quote button </b> <br />]]>
+      <![CDATA[<b>Clicked on Leads on Side Menu</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Manufacture =AUDI has been selected</b> <br />]]>
+      <![CDATA[<b>Clicked on add lead</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Model range =A7 has been selected</b> <br />]]>
+      <![CDATA[<b>Lead is assigned</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Vehicle has been selected</b> <br />]]>
+      <![CDATA[<b>Added data in General Notes</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Paint option has been selected</b> <br />]]>
+      <![CDATA[<b>Customer type - Business selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Interior option has been selected</b> <br />]]>
+      <![CDATA[<b>Clicked on Add new vehicle request</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Acquisition Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
+      <![CDATA[<b>Clicked on broker channel</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Customer Contract type option = Personal Contract Hire(PCH) has been selected</b> <br />]]>
+      <![CDATA[<b>Vehicle request for broker has been saved</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
+      <![CDATA[<b>Click on Map New Quote icon</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Basic Price - Paint  value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Click on acquisition contract type icon</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Basic Price - Options value is   =833.33</b> <br />]]>
+      <![CDATA[<b>Click on customer contract type icon</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Discount- Vehicle value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Click on search button</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting   Discount - Paint value is   =0.00</b> <br />]]>
+      <![CDATA[<b>Click on created date button 1st </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Discount- Options value is   =0.00</b> <br />]]>
+      <![CDATA[<b>Click on created date button 2nd</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Select the checkbox for new quote </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Additional Discount - paint value is  =0.00</b> <br />]]>
+      <![CDATA[<b>click ok button on Map  new quote </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Additional Discount - Options value is  =0.00</b> <br />]]>
+      <![CDATA[<b>click ok button on Map  new quote </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing OTR table values to excel sheet -Started </b> <br />]]>
+      <![CDATA[<b>click on OK button for copy quote </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing OTR table values to excel sheet -Completed </b> <br />]]>
+      <![CDATA[<b>Click on Lead save and Convert button</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
+      <![CDATA[<b>In Lead created Opportunity Id is =GV-6735</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
+      <![CDATA[<b>Clicked on Opportunity link from Menu </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Subtotal After Discount from excel sheet is =47687.5</b> <br />]]>
+      <![CDATA[<b>listing_proposal_status is = Proposal Required</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
+      <![CDATA[<b>Enter the Opportunity id in Search Text box</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
+      <![CDATA[<b>Current Status of Opportunity Status value is = Open</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>**********Assertion Passed For Subtotal After Discount**********</b> <br />]]>
+      <![CDATA[<b>Current Status of Proposal value is = Proposal Required</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
+      <![CDATA[<b>Current Status of Channel value is =  Draft</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>*********Calculations for On Road Price has been started***********</b> <br />]]>
+      <![CDATA[<b>Current Status of  Quote ref is = Draft</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Started getting On screen values from after discount table </b> <br />]]>
+      <![CDATA[<b>Status Verified : Before sending the proposa</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Manufacture_delivery_charges =550.00</b> <br />]]>
+      <![CDATA[<b>click on Proposal icon</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Road_tax_first_year =585.00</b> <br />]]>
+      <![CDATA[<b>Proposal page will display </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>First_registration_fee =55.00</b> <br />]]>
+      <![CDATA[<b>Send proposal to customer pop up  will open</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Rebate =0.00</b> <br />]]>
+      <![CDATA[<b>Click on Manual fill radio button - Yes</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing After discount values to excel has been started</b> <br />]]>
+      <![CDATA[<b>Click on manually submit behalf of customer link</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing After discount values to excel has been completed</b> <br />]]>
+      <![CDATA[<b>Current Status of Opportunity Status value is = Open</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading On Road Price for invoice from excel has been Started</b> <br />]]>
+      <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading On Road Price for invoice from excel has been completed</b> <br />]]>
+      <![CDATA[<b>Current Status of Channel value is =  Draft</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Expected on the road price from excel is =58525.0</b> <br />]]>
+      <![CDATA[<b>Current Status of  Quote ref is = Draft</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
+      <![CDATA[<b>Status Verified : After sending the proposal</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
+      <![CDATA[<b>click on Send_Contract icon</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>*****************Assertion Passed For OTR Price*****************</b> <br />]]>
+      <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
+      <![CDATA[<b>Current Status of Channel value is =  Sent to customer</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
+      <![CDATA[<b>Current Status of  Quote ref is = Sent to customer</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Funder added successfully</b> <br />]]>
+      <![CDATA[<b>Status Verified : Status Verified : Sent to customer</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Holding cost verified successfully</b> <br />]]>
+      <![CDATA[<br>----------Screenshot---------<br>]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
+      <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_signed_contract_status_with_api_call_23_01_2023_11_39_44.png" height="800" width="1000">]]>
     </line>
     <line>
-      <![CDATA[<b>***************Assertion Passed For Holding Cost****************</b> <br />]]>
+      <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
+      <![CDATA[<b>Current Status of Channel value is =  Sent to customer</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br />]]>
+      <![CDATA[<b>Current Status of  Quote ref is = Sent to customer</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br />]]>
+      <![CDATA[<br>----------Screenshot---------<br>]]>
     </line>
     <line>
-      <![CDATA[<b>************Calculations for Customer Quote Page has been started***********</b> <br />]]>
+      <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_status_after_contract_signed_23_01_2023_11_39_46.png" height="800" width="1000">]]>
     </line>
     <line>
-      <![CDATA[<b>Payment Profile Monthly in Advance option has been selected</b> <br />]]>
+      <![CDATA[<br>----------Screenshot---------<br>]]>
     </line>
     <line>
-      <![CDATA[<b>Writing values to Excel for customer quote calculation -started</b> <br />]]>
+      <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_underwriting_flow_broker_with_status_23_01_2023_11_39_47.png" height="800" width="1000">]]>
     </line>
     <line>
-      <![CDATA[<b>Writing values to Excel for customer quote calculation -completed</b> <br />]]>
+      <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -started</b> <br />]]>
+      <![CDATA[<b>Current Status of Channel value is =  Sent to customer</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -completed</b> <br />]]>
+      <![CDATA[<b>Current Status of  Quote ref is = Sent to customer</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Monthly Finance Rental from Excel is =1079.9653559903168</b> <br />]]>
+      <![CDATA[<br>----------Screenshot---------<br>]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
+      <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_status_after_sending_to_underwriting_23_01_2023_11_39_49.png" height="800" width="1000">]]>
     </line>
     <line>
-      <![CDATA[<b>***********Assertion Passed For Monthly Finance Rental***********</b> <br />]]>
+      <![CDATA[<b>Click on Underwriting menu_link </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
+      <![CDATA[<b>Click on Underwriting - broker tab </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Clicked on Part Exchange panel and putting part exchange values</b> <br />]]>
+      <![CDATA[<b>Click on Search text box - broker tab</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Monthly Finance Rental from screen (after making part exchange toggle on) is 746.63</b> <br />]]>
+      <![CDATA[<b>Getting the  proposal id from excel sheet =ZXR6073</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing part exchange values to excel</b> <br />]]>
+      <![CDATA[<b>Enter the proposal in search text box =ZXR6073</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Monthly finance rental (after makking part exchage toggle on) is found OK</b> <br />]]>
+      <![CDATA[<b>Click on Underwriting detail page for proposal</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>*****Assertion Passed For Monthly Finance Rental*****</b> <br />]]>
+      <![CDATA[<br>----------Screenshot---------<br>]]>
     </line>
     <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started verifying Balance Due value</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Balance due value (when part exchange toggle is OFF) is verified and found ok</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Balance due value (when part exchange toggle is ON) is verified and found ok</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Assertion Passed For Balance Due Value*************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Assertion Passed For Monthly Finance Rental with part Exchange On</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Calculations with different payment profiles for customer quote has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Calculations with different payment profiles for customer quote has been ended</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Assertion Passed For Monthly Finance Rental For All Payment Profiles</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>****************************************************************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************OTR Calulation on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading values from OTR calculation -Quote Summary Page</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR_calculation_cost_otr_price_from_screen =58525.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR_calculation_cost_price_ex_vat_and_rfl_from_screen =48237.5</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR_calculation_otr_vat_from_screen =9647.5</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR_calculation_otr_rfl_and_frf_from_screen =640.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR price compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Cost price ex vat and rfl compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>VAT compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>RFL & FRF compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_terms_from_screen12.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_miles_per_annum_from_screen5000.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_monthly_finance_cost_from_screen501.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_total_monthly_holding_cost_from_screen =501.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>terms compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Miles per annum compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance cost compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Terms found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>miles found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Monthly Finance Rental found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Initial Finance Rental found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Followed By months - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Part Exchange Value - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Pence per excess mile finance - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Upsell - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Finance Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Upsell Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Commission - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Referrer Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Configuration Values Verification on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Deductions found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Additional Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Broker Margin percentage found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Broker Upsell Margin percentage found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Broker Upsell Margin  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Margin  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Refferer Margin  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*********Customer Quote generated successfully and Quote_ref_no is=ZIX10146</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************OTR Calulation on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading values from OTR calculation -Quote Summary Page</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR_calculation_cost_otr_price_from_screen =58525.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR_calculation_cost_price_ex_vat_and_rfl_from_screen =48237.5</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR_calculation_otr_vat_from_screen =9647.5</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR_calculation_otr_rfl_and_frf_from_screen =640.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>OTR price compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Cost price ex vat and rfl compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>VAT compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>RFL & FRF compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_terms_from_screen12.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_miles_per_annum_from_screen5000.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_monthly_finance_cost_from_screen501.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_total_monthly_holding_cost_from_screen =501.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>terms compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Miles per annum compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance cost compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Terms found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>miles found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Monthly Finance Rental found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Initial Finance Rental found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Followed By months - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Part Exchange Value - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Pence per excess mile finance - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Upsell - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Finance Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Upsell Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Commission - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Referrer Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Configuration Values Verification on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Deductions found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Additional Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Broker Margin percentage found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Broker Upsell Margin percentage found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Broker Upsell Margin  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Margin  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Refferer Margin  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Editing Finance Margin and Verifying Values on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance margin changed to 10000</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Monthly Finance Rental after changing finance margin -  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Initial Finance Rental found OK</b> <br />]]>
+      <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_underwriting_proposal_page_flow_23_01_2023_11_40_45.png" height="800" width="1000">]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-01-20T17:28:04 IST" name="Default suite" finished-at="2023-01-20T17:33:07 IST" duration-ms="302906">
+  <suite started-at="2023-01-23T11:34:31 IST" name="Default suite" finished-at="2023-01-23T11:40:45 IST" duration-ms="374401">
     <groups>
     </groups>
-    <test started-at="2023-01-20T17:28:04 IST" name="Default test" finished-at="2023-01-20T17:33:07 IST" duration-ms="302906">
-      <class name="com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test@3527942a]" started-at="2023-01-20T17:28:04 IST" name="setup" finished-at="2023-01-20T17:28:13 IST" duration-ms="9439" status="PASS">
+    <test started-at="2023-01-23T11:34:31 IST" name="Default test" finished-at="2023-01-23T11:40:45 IST" duration-ms="374401">
+      <class name="com.amt.test.LOU.Lead_broker_business_flow2">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:34:31 IST" name="setup" finished-at="2023-01-23T11:34:45 IST" duration-ms="14079" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_BCH_PCH_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test@3527942a]" started-at="2023-01-20T17:28:15 IST" name="aquisition_quotes_BCH_PCH_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2023-01-20T17:29:05 IST" duration-ms="50412" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDI]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[A7]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[05/05/23]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[239.99]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[BCH (Formula 3) - PCH]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="broker_create_lead_business()[pri:1, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:34:45 IST" name="broker_create_lead_business" finished-at="2023-01-23T11:37:10 IST" duration-ms="144992" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Clicked on Quote button </b> <br />]]>
+              <![CDATA[<b>Clicked on Leads on Side Menu</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Manufacture =AUDI has been selected</b> <br />]]>
+              <![CDATA[<b>Clicked on add lead</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Model range =A7 has been selected</b> <br />]]>
+              <![CDATA[<b>Lead is assigned</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Vehicle has been selected</b> <br />]]>
+              <![CDATA[<b>Added data in General Notes</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Paint option has been selected</b> <br />]]>
+              <![CDATA[<b>Customer type - Business selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Interior option has been selected</b> <br />]]>
+              <![CDATA[<b>Clicked on Add new vehicle request</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Acquisition Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
+              <![CDATA[<b>Clicked on broker channel</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Customer Contract type option = Personal Contract Hire(PCH) has been selected</b> <br />]]>
+              <![CDATA[<b>Vehicle request for broker has been saved</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
+              <![CDATA[<b>Click on Map New Quote icon</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Basic Price - Paint  value is  =0.00</b> <br />]]>
+              <![CDATA[<b>Click on acquisition contract type icon</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting  Basic Price - Options value is   =833.33</b> <br />]]>
+              <![CDATA[<b>Click on customer contract type icon</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Discount- Vehicle value is  =0.00</b> <br />]]>
+              <![CDATA[<b>Click on search button</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting   Discount - Paint value is   =0.00</b> <br />]]>
+              <![CDATA[<b>Click on created date button 1st </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting  Discount- Options value is   =0.00</b> <br />]]>
+              <![CDATA[<b>Click on created date button 2nd</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br />]]>
+              <![CDATA[<b>Select the checkbox for new quote </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting  Additional Discount - paint value is  =0.00</b> <br />]]>
+              <![CDATA[<b>click ok button on Map  new quote </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting  Additional Discount - Options value is  =0.00</b> <br />]]>
+              <![CDATA[<b>click ok button on Map  new quote </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Writing OTR table values to excel sheet -Started </b> <br />]]>
+              <![CDATA[<b>click on OK button for copy quote </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Writing OTR table values to excel sheet -Completed </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Subtotal After Discount from excel sheet is =47687.5</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>**********Assertion Passed For Subtotal After Discount**********</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
+              <![CDATA[<b>Click on Lead save and Convert button</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_BCH_PCH_OTR_calculation_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_BCH_PCH_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test@3527942a]" started-at="2023-01-20T17:29:05 IST" name="aquisition_quotes_BCH_PCH_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-20T17:29:08 IST" depends-on-methods="com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test.aquisition_quotes_BCH_PCH_OTR_calculation_without_maintenance_test" duration-ms="2729" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDI]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[A7]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[05/05/23]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[239.99]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[BCH (Formula 3) - PCH]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- broker_create_lead_business -->
+        <test-method signature="broker_create_opportunity_business()[pri:2, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:37:10 IST" name="broker_create_opportunity_business" finished-at="2023-01-23T11:37:42 IST" duration-ms="32247" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>*********Calculations for On Road Price has been started***********</b> <br />]]>
+              <![CDATA[<b>In Lead created Opportunity Id is =GV-6735</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Started getting On screen values from after discount table </b> <br />]]>
+              <![CDATA[<b>Clicked on Opportunity link from Menu </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Manufacture_delivery_charges =550.00</b> <br />]]>
+              <![CDATA[<b>listing_proposal_status is = Proposal Required</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Road_tax_first_year =585.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>First_registration_fee =55.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Rebate =0.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing After discount values to excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing After discount values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading On Road Price for invoice from excel has been Started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading On Road Price for invoice from excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Expected on the road price from excel is =58525.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Actual on the road price from screen is =58525.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*****************Assertion Passed For OTR Price*****************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
+              <![CDATA[<b>Enter the Opportunity id in Search Text box</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_BCH_PCH_after_discount_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_BCH_PCH_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test@3527942a]" started-at="2023-01-20T17:29:08 IST" name="aquisition_quotes_BCH_PCH_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-20T17:29:21 IST" depends-on-methods="com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test.aquisition_quotes_BCH_PCH_after_discount_calculations_without_maintenance_test" duration-ms="12497" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDI]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[A7]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[05/05/23]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[239.99]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[BCH (Formula 3) - PCH]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- broker_create_opportunity_business -->
+        <test-method signature="broker_create_opportunity_business_currentstatus_before_sending_to_proposal()[pri:3, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:37:42 IST" name="broker_create_opportunity_business_currentstatus_before_sending_to_proposal" finished-at="2023-01-23T11:37:42 IST" duration-ms="425" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
+              <![CDATA[<b>Current Status of Opportunity Status value is = Open</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Funder added successfully</b> <br />]]>
+              <![CDATA[<b>Current Status of Proposal value is = Proposal Required</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Holding cost verified successfully</b> <br />]]>
+              <![CDATA[<b>Current Status of Channel value is =  Draft</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
+              <![CDATA[<b>Current Status of  Quote ref is = Draft</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>***************Assertion Passed For Holding Cost****************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
+              <![CDATA[<b>Status Verified : Before sending the proposa</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_BCH_PCH_holding_cost_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_BCH_PCH_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test@3527942a]" started-at="2023-01-20T17:29:21 IST" name="aquisition_quotes_BCH_PCH_customer_quote_payment_profile_calculations_without_maintenance_test" data-provider="testData" finished-at="2023-01-20T17:31:37 IST" depends-on-methods="com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test.aquisition_quotes_BCH_PCH_holding_cost_calculations_without_maintenance_test" duration-ms="135841" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDI]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[A7]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[05/05/23]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[239.99]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[BCH (Formula 3) - PCH]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- broker_create_opportunity_business_currentstatus_before_sending_to_proposal -->
+        <test-method signature="broker_create_opportunity_business_adding_proposal()[pri:4, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:37:42 IST" name="broker_create_opportunity_business_adding_proposal" finished-at="2023-01-23T11:39:06 IST" duration-ms="84076" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br />]]>
+              <![CDATA[<b>click on Proposal icon</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br />]]>
+              <![CDATA[<b>Proposal page will display </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>************Calculations for Customer Quote Page has been started***********</b> <br />]]>
+              <![CDATA[<b>Send proposal to customer pop up  will open</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Payment Profile Monthly in Advance option has been selected</b> <br />]]>
+              <![CDATA[<b>Click on Manual fill radio button - Yes</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Writing values to Excel for customer quote calculation -started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing values to Excel for customer quote calculation -completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Monthly Finance Rental from Excel is =1079.9653559903168</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>***********Assertion Passed For Monthly Finance Rental***********</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Clicked on Part Exchange panel and putting part exchange values</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Monthly Finance Rental from screen (after making part exchange toggle on) is 746.63</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing part exchange values to excel</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Monthly finance rental (after makking part exchage toggle on) is found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*****Assertion Passed For Monthly Finance Rental*****</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying Balance Due value</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Balance due value (when part exchange toggle is OFF) is verified and found ok</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Balance due value (when part exchange toggle is ON) is verified and found ok</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Assertion Passed For Balance Due Value*************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Assertion Passed For Monthly Finance Rental with part Exchange On</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Calculations with different payment profiles for customer quote has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Calculations with different payment profiles for customer quote has been ended</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Assertion Passed For Monthly Finance Rental For All Payment Profiles</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>****************************************************************</b> <br />]]>
+              <![CDATA[<b>Click on manually submit behalf of customer link</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_BCH_PCH_customer_quote_payment_profile_calculations_without_maintenance_test -->
-        <test-method signature="aquisition_quotes_BCH_PCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test@3527942a]" started-at="2023-01-20T17:31:37 IST" name="aquisition_quotes_BCH_PCH_quote_summary_values_verification_without_maintenance_test" data-provider="testData" finished-at="2023-01-20T17:33:07 IST" depends-on-methods="com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test.aquisition_quotes_BCH_PCH_customer_quote_payment_profile_calculations_without_maintenance_test" duration-ms="89671" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDI]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[A7]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[05/05/23]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[239.99]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[BCH (Formula 3) - PCH]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- broker_create_opportunity_business_adding_proposal -->
+        <test-method signature="broker_create_opportunity_business_currentstatus_after_sending_to_proposal()[pri:5, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:39:06 IST" name="broker_create_opportunity_business_currentstatus_after_sending_to_proposal" finished-at="2023-01-23T11:39:07 IST" duration-ms="454" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>*************OTR Calulation on quote summary page has been started************</b> <br />]]>
+              <![CDATA[<b>Current Status of Opportunity Status value is = Open</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Reading values from OTR calculation -Quote Summary Page</b> <br />]]>
+              <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>OTR_calculation_cost_otr_price_from_screen =58525.0</b> <br />]]>
+              <![CDATA[<b>Current Status of Channel value is =  Draft</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>OTR_calculation_cost_price_ex_vat_and_rfl_from_screen =48237.5</b> <br />]]>
+              <![CDATA[<b>Current Status of  Quote ref is = Draft</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>OTR_calculation_otr_vat_from_screen =9647.5</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>OTR_calculation_otr_rfl_and_frf_from_screen =640.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>OTR price compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Cost price ex vat and rfl compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>VAT compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>RFL & FRF compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_terms_from_screen12.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_miles_per_annum_from_screen5000.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_monthly_finance_cost_from_screen501.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_total_monthly_holding_cost_from_screen =501.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>terms compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Miles per annum compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance cost compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Terms found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>miles found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Monthly Finance Rental found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Initial Finance Rental found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Followed By months - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Part Exchange Value - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Pence per excess mile finance - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Upsell - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Finance Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Upsell Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Commission - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Referrer Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Configuration Values Verification on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Deductions found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Additional Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Broker Margin percentage found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Broker Upsell Margin percentage found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Broker Upsell Margin  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Margin  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Refferer Margin  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*********Customer Quote generated successfully and Quote_ref_no is=ZIX10146</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************OTR Calulation on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading values from OTR calculation -Quote Summary Page</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>OTR_calculation_cost_otr_price_from_screen =58525.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>OTR_calculation_cost_price_ex_vat_and_rfl_from_screen =48237.5</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>OTR_calculation_otr_vat_from_screen =9647.5</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>OTR_calculation_otr_rfl_and_frf_from_screen =640.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>OTR price compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Cost price ex vat and rfl compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>VAT compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>RFL & FRF compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_terms_from_screen12.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_miles_per_annum_from_screen5000.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_monthly_finance_cost_from_screen501.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_total_monthly_holding_cost_from_screen =501.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>terms compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Miles per annum compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance cost compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Terms found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>miles found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Monthly Finance Rental found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Initial Finance Rental found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Followed By months - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Part Exchange Value - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Pence per excess mile finance - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Upsell - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Finance Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Upsell Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Commission - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Referrer Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Configuration Values Verification on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Deductions found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Additional Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Broker Margin percentage found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Broker Upsell Margin percentage found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Broker Upsell Margin  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Margin  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Refferer Margin  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Editing Finance Margin and Verifying Values on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance margin changed to 10000</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Monthly Finance Rental after changing finance margin -  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Initial Finance Rental found OK</b> <br />]]>
+              <![CDATA[<b>Status Verified : After sending the proposal</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_BCH_PCH_quote_summary_values_verification_without_maintenance_test -->
-      </class> <!-- com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test -->
+        </test-method> <!-- broker_create_opportunity_business_currentstatus_after_sending_to_proposal -->
+        <test-method signature="broker_create_opportunity_business_sending_to_contract()[pri:6, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:39:07 IST" name="broker_create_opportunity_business_sending_to_contract" finished-at="2023-01-23T11:39:41 IST" duration-ms="34434" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[<b>click on Send_Contract icon</b> <br />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- broker_create_opportunity_business_sending_to_contract -->
+        <test-method signature="broker_create_opportunity_business_currentstatus_after_sending_to_contract()[pri:7, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:39:41 IST" name="broker_create_opportunity_business_currentstatus_after_sending_to_contract" finished-at="2023-01-23T11:39:43 IST" duration-ms="1368" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Current Status of Channel value is =  Sent to customer</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Current Status of  Quote ref is = Sent to customer</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Status Verified : Status Verified : Sent to customer</b> <br />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- broker_create_opportunity_business_currentstatus_after_sending_to_contract -->
+        <test-method signature="verify_signed_contract_status_with_api_call()[pri:8, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:39:43 IST" name="verify_signed_contract_status_with_api_call" finished-at="2023-01-23T11:39:44 IST" duration-ms="1486" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "String.length()" because "this.input" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.length()" because "this.input" is null
+at java.base/java.net.URI$Parser.parse(URI.java:3154)
+at java.base/java.net.URI.<init>(URI.java:623)
+at java.base/java.net.URI.create(URI.java:904)
+at org.apache.hc.client5.http.classic.methods.HttpPost.<init>(HttpPost.java:60)
+at com.amt.api.RestClient.post(RestClient.java:48)
+at com.amt.pages.Opportunities.postAPITest(Opportunities.java:796)
+at com.amt.test.LOU.Lead_broker_business_flow2.verify_signed_contract_status_with_api_call(Lead_broker_business_flow2.java:250)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+            <line>
+              <![CDATA[<br>----------Screenshot---------<br>]]>
+            </line>
+            <line>
+              <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_signed_contract_status_with_api_call_23_01_2023_11_39_44.png" height="800" width="1000">]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_signed_contract_status_with_api_call -->
+        <test-method signature="verify_status_after_contract_signed()[pri:9, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:39:44 IST" name="verify_status_after_contract_signed" finished-at="2023-01-23T11:39:46 IST" duration-ms="1299" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at com.amt.test.LOU.Lead_broker_business_flow2.verify_status_after_contract_signed(Lead_broker_business_flow2.java:274)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Current Status of Channel value is =  Sent to customer</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Current Status of  Quote ref is = Sent to customer</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<br>----------Screenshot---------<br>]]>
+            </line>
+            <line>
+              <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_status_after_contract_signed_23_01_2023_11_39_46.png" height="800" width="1000">]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_status_after_contract_signed -->
+        <test-method signature="verify_underwriting_flow_broker_with_status()[pri:10, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:39:46 IST" name="verify_underwriting_flow_broker_with_status" finished-at="2023-01-23T11:39:47 IST" duration-ms="1222" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <img alt="" src="../../assets/images/opportunity/underwritting.svg"> is not clickable at point (1503, 484). Other element would receive the click: <div class="d-flex justify-content-center align-items-center sub-level-action">...</div>
+  (Session info: chrome=109.0.5414.75)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-969', ip: '169.254.154.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d9d6b85a8214f7d358b66654cffff74e, clickElement {id=44086f88-dc9d-49bc-8e3f-64c68466a457}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\MEHUL~1.NAG\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:53677}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53677/devtoo..., se:cdpVersion: 109.0.5414.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (d9d6b85a8214f7d358b66654cffff74e)] -> xpath: (//img[@src='../../assets/images/opportunity/underwritting.svg'])[1]]
+Session ID: d9d6b85a8214f7d358b66654cffff74e]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <img alt="" src="../../assets/images/opportunity/underwritting.svg"> is not clickable at point (1503, 484). Other element would receive the click: <div class="d-flex justify-content-center align-items-center sub-level-action">...</div>
+  (Session info: chrome=109.0.5414.75)
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-969', ip: '169.254.154.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d9d6b85a8214f7d358b66654cffff74e, clickElement {id=44086f88-dc9d-49bc-8e3f-64c68466a457}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\MEHUL~1.NAG\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:53677}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53677/devtoo..., se:cdpVersion: 109.0.5414.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (d9d6b85a8214f7d358b66654cffff74e)] -> xpath: (//img[@src='../../assets/images/opportunity/underwritting.svg'])[1]]
+Session ID: d9d6b85a8214f7d358b66654cffff74e
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+at com.sun.proxy.$Proxy16.click(Unknown Source)
+at com.amt.pages.UnderwritingPopupPage.search_and_verify_underwriting_icon_is_availabale(UnderwritingPopupPage.java:151)
+at com.amt.test.LOU.Lead_broker_business_flow2.verify_underwriting_flow_broker_with_status(Lead_broker_business_flow2.java:288)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+            <line>
+              <![CDATA[<br>----------Screenshot---------<br>]]>
+            </line>
+            <line>
+              <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_underwriting_flow_broker_with_status_23_01_2023_11_39_47.png" height="800" width="1000">]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_underwriting_flow_broker_with_status -->
+        <test-method signature="verify_status_after_sending_to_underwriting()[pri:11, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:39:47 IST" name="verify_status_after_sending_to_underwriting" finished-at="2023-01-23T11:39:49 IST" duration-ms="1303" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at com.amt.test.LOU.Lead_broker_business_flow2.verify_status_after_sending_to_underwriting(Lead_broker_business_flow2.java:315)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Current Status of Channel value is =  Sent to customer</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Current Status of  Quote ref is = Sent to customer</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<br>----------Screenshot---------<br>]]>
+            </line>
+            <line>
+              <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_status_after_sending_to_underwriting_23_01_2023_11_39_49.png" height="800" width="1000">]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_status_after_sending_to_underwriting -->
+        <test-method signature="verify_underwriting_lisitig_page()[pri:12, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:39:49 IST" name="verify_underwriting_lisitig_page" finished-at="2023-01-23T11:40:04 IST" duration-ms="14851" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[<b>Click on Underwriting menu_link </b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Click on Underwriting - broker tab </b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Click on Search text box - broker tab</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Getting the  proposal id from excel sheet =ZXR6073</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Enter the proposal in search text box =ZXR6073</b> <br />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_underwriting_lisitig_page -->
+        <test-method signature="verify_underwriting_proposal_page_flow()[pri:13, instance:com.amt.test.LOU.Lead_broker_business_flow2@59662a0b]" started-at="2023-01-23T11:40:04 IST" name="verify_underwriting_proposal_page_flow" finished-at="2023-01-23T11:40:45 IST" duration-ms="40906" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //p[contains(text(),'Quote')]' (tried for 30 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //p[contains(text(),'Quote')]' (tried for 30 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+at com.amt.testUtil.ExplicitWait.visibleElement(ExplicitWait.java:23)
+at com.amt.pages.Underwriting.find_underwriting_tab_quote_page(Underwriting.java:359)
+at com.amt.test.LOU.Lead_broker_business_flow2.verify_underwriting_proposal_page_flow(Lead_broker_business_flow2.java:359)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[contains(text(),'Quote')]"}
+  (Session info: chrome=109.0.5414.75)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'DSK-969', ip: '169.254.154.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d9d6b85a8214f7d358b66654cffff74e, findElement {using=xpath, value=//p[contains(text(),'Quote')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\MEHUL~1.NAG\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:53677}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53677/devtoo..., se:cdpVersion: 109.0.5414.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: d9d6b85a8214f7d358b66654cffff74e
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+... 31 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+            <line>
+              <![CDATA[<b>Click on Underwriting detail page for proposal</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<br>----------Screenshot---------<br>]]>
+            </line>
+            <line>
+              <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\verify_underwriting_proposal_page_flow_23_01_2023_11_40_45.png" height="800" width="1000">]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_underwriting_proposal_page_flow -->
+      </class> <!-- com.amt.test.LOU.Lead_broker_business_flow2 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

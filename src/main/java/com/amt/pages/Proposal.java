@@ -538,6 +538,397 @@ private WebElement proposal_save ;
 		//proposal_postcode.sendKeys(Keys.TAB);
 		
 		Thread.sleep(2000);
+		
+	ExplicitWait.visibleElement(driver, proposal_postcode_value, 20);
+		
+		Thread.sleep(1000);
+		proposal_postcode_value.click();
+		
+		
+		Thread.sleep(4000);
+		
+		ExplicitWait.visibleElement(driver, proposal_time_at_address_year, 10);
+		
+		proposal_time_at_address_year.sendKeys("3");
+		
+		
+		ExplicitWait.visibleElement(driver, proposal_time_address_month, 10);
+		
+		 proposal_time_address_month.sendKeys("0");
+				 
+				 
+		
+		//Trading address Labels 
+		
+		 
+		 ExplicitWait.visibleElement(driver, proposal_trading_sameasabove, 10);
+			
+		 proposal_trading_sameasabove.click();
+		 
+		 
+		 ///////////////////////////////////////////////////////////////////////////////////////////////////
+		 
+		 //1
+		 ExplicitWait.visibleElement(driver, proposal_trading_main_telephone_no, 10);
+			
+		 proposal_trading_main_telephone_no.clear();
+		 proposal_trading_main_telephone_no.sendKeys("12345678901");
+		 
+		 
+		 //2
+		 
+		 ExplicitWait.visibleElement(driver, proposal_trading_mobile_no, 10);
+			
+		 proposal_trading_mobile_no.clear();
+		 proposal_trading_mobile_no.sendKeys("98989898989");
+		 
+		 
+		 //3
+		 
+		 ExplicitWait.visibleElement(driver, proposal_trading_main_contact_name, 10);
+			
+		 proposal_trading_main_contact_name.clear();
+		 proposal_trading_main_contact_name.sendKeys("12345678901");
+		 
+		 
+		 
+		 //4
+		 ExplicitWait.visibleElement(driver, proposal_trading_email_address, 10);
+			
+		 proposal_trading_email_address.clear();
+		 proposal_trading_email_address.sendKeys("mehul.nagar@autofacets.in");
+		
+		
+		 
+		
+		 
+		 
+		 // 7
+		 ExplicitWait.visibleElement(driver, proposal_trading_website_address, 10);
+			
+		 proposal_trading_website_address.clear();
+		 proposal_trading_website_address.sendKeys("www.test.com");
+		 
+		 
+		 // 7
+		 ExplicitWait.visibleElement(driver, proposal_trading_no_of_directors, 10);
+			
+		 proposal_trading_no_of_directors.clear();
+		 proposal_trading_no_of_directors.sendKeys("1");
+		 
+		 
+		 
+		 // 8
+		 ExplicitWait.visibleElement(driver, proposal_trading_nature_of_business, 10);
+			
+		 proposal_trading_nature_of_business.clear();
+		 proposal_trading_nature_of_business.sendKeys("Testing");
+		 
+		 
+		 
+		// 9
+				 ExplicitWait.visibleElement(driver, proposal_trading_No_of_cars_in_fleet, 10);
+					
+				 proposal_trading_No_of_cars_in_fleet.clear();
+				 proposal_trading_No_of_cars_in_fleet.sendKeys("1");
+				 
+				 
+				 
+				 // 10
+				 ExplicitWait.visibleElement(driver, proposal_trading_Number_of_vans_in_fleet, 10);
+					
+				 proposal_trading_Number_of_vans_in_fleet.clear();
+				 proposal_trading_Number_of_vans_in_fleet.sendKeys("1");
+				 
+				 // 11
+				 ExplicitWait.visibleElement(driver, proposal_trading_Number_of_trucks, 10);
+					
+				 proposal_trading_Number_of_trucks.clear();
+				 proposal_trading_Number_of_trucks.sendKeys("1");
+				 
+				 
+				 ////////////////////////////////////////////////////////Director////////////////////////////
+				 
+				// 1
+				 ExplicitWait.visibleElement(driver, proposal_director_title, 10);
+					
+				 //proposal_trading_Number_of_trucks.clear();
+				 //proposal_trading_Number_of_trucks.sendKeys("1");
+				 
+				 
+				 
+				 
+				// 2
+				 ExplicitWait.visibleElement(driver, proposal_director_first_name, 10);
+					
+				 proposal_director_first_name.clear();
+				 proposal_director_first_name.sendKeys("QA comp2");
+				 
+				 
+				 
+					// 3
+					 ExplicitWait.visibleElement(driver, proposal_director_surname, 10);
+						
+					 proposal_director_surname.clear();
+					 proposal_director_surname.sendKeys("Test");
+					 
+					 
+					// 4
+					 ExplicitWait.visibleElement(driver, proposal_director_previous_name, 10);
+						
+					 proposal_director_previous_name.clear();
+					 proposal_director_previous_name.sendKeys("Test");
+					 
+				 
+				 
+					// 5
+					 ExplicitWait.visibleElement(driver, proposal_director_marital_status, 10);
+						
+					// proposal_director_marital_status.clear();
+					// proposal_director_marital_status.sendKeys("Test");
+					 
+					// 6
+					 ExplicitWait.visibleElement(driver, proposal_director_dob, 10);
+						
+				//	 proposal_director_dob.clear();
+					// proposal_director_dob.sendKeys("Test");
+					 
+					 
+					// 7
+					 ExplicitWait.visibleElement(driver, proposal_director_No_of_dependents, 10);
+						
+					 proposal_director_No_of_dependents.clear();
+					 proposal_director_No_of_dependents.sendKeys("0");
+					 
+					 
+					// 8
+					 ExplicitWait.visibleElement(driver, proposal_director_Home_number, 10);
+						
+					 proposal_director_Home_number.clear();
+					 proposal_director_Home_number.sendKeys("12345678901");
+					 
+					// 9
+					 ExplicitWait.visibleElement(driver, proposal_director_mobile_number, 10);
+						
+					 proposal_director_mobile_number.clear();
+					 proposal_director_mobile_number.sendKeys("12345678901");
+					
+					 // 10
+					 ExplicitWait.visibleElement(driver, proposal_director_email_address, 10);
+						
+					 proposal_director_email_address.clear();
+					 proposal_director_email_address.sendKeys("mehul.nagar@autofacets.in");
+					
+					 
+					 // 11
+					// ExplicitWait.visibleElement(driver, proposal_director_post_code, 10);
+						
+					 //proposal_director_post_code.clear();
+					 //proposal_director_post_code.sendKeys("LS122QH");
+					 
+					 
+					// 12
+					 ExplicitWait.visibleElement(driver, proposal_director_Time_at_address_years, 10);
+						
+					 proposal_director_Time_at_address_years.clear();
+					 proposal_director_Time_at_address_years.sendKeys("3");
+					
+					 
+					 // 13
+					 ExplicitWait.visibleElement(driver, proposal_director_Time_at_address_months, 10);
+						
+					 proposal_director_Time_at_address_months.clear();
+					 proposal_director_Time_at_address_months.sendKeys("0");
+					
+					 
+					// 14
+					 ExplicitWait.visibleElement(driver, proposal_director_Owner, 10);
+						
+					 //proposal_director_Owner.clear();
+					 proposal_director_Owner.click();
+					 
+					 
+					 
+					// 16
+					 ExplicitWait.visibleElement(driver, proposal_director_position_in_company, 10);
+						
+					 proposal_director_position_in_company.clear();
+					 proposal_director_position_in_company.sendKeys("CEO");
+					 
+				 
+					 
+					// 17
+					 ExplicitWait.visibleElement(driver, proposal_director_position_in_company, 10);
+						
+					 proposal_director_position_in_company.clear();
+					 proposal_director_position_in_company.sendKeys("CEO");
+	
+					 
+					// 18
+					 ExplicitWait.visibleElement(driver, proposal_director_authorised_signatory, 10);
+						
+					 proposal_director_authorised_signatory.click();
+					 
+					 
+					 // Bank Detail 
+					 
+					 //1
+					 ExplicitWait.visibleElement(driver, proposal_bankdetail_exact_account_name, 10);
+					 proposal_bankdetail_exact_account_name.clear();
+					 proposal_bankdetail_exact_account_name.sendKeys("123456AA");
+					 
+					 
+					//2
+					 ExplicitWait.visibleElement(driver, proposal_bankdetail_sort_code, 10);
+					 proposal_bankdetail_sort_code.clear();
+					 proposal_bankdetail_sort_code.sendKeys("22-22-22");
+					 
+					 
+					//3
+					 ExplicitWait.visibleElement(driver, proposal_bankdetail_account_number, 10);
+					 proposal_bankdetail_account_number.clear();
+					 proposal_bankdetail_account_number.sendKeys("12345678");
+					 
+					 
+					//4
+					 ExplicitWait.visibleElement(driver, proposal_bankdetail_years, 10);
+					 proposal_bankdetail_years.clear();
+					 proposal_bankdetail_years.sendKeys("3");
+					 
+					//5
+					 ExplicitWait.visibleElement(driver, proposal_bankdetail_months, 10);
+					 proposal_bankdetail_months.clear();
+					 proposal_bankdetail_months.sendKeys("1");
+					 
+					//6
+					 ExplicitWait.visibleElement(driver, proposal_bankdetail_bank_name, 10);
+					 proposal_bankdetail_bank_name.clear();
+					 proposal_bankdetail_bank_name.sendKeys("TestAddress");
+					
+					 
+					 
+					 /////////////////////////Additional info////////////////////
+					 
+					//1
+					 ExplicitWait.visibleElement(driver, proposal_additionalinfo_textbox, 10);
+					 proposal_additionalinfo_textbox.clear();
+					 proposal_additionalinfo_textbox.sendKeys("Test Automation  ");
+					
+					 
+					//2
+					 ExplicitWait.visibleElement(driver, proposal_additionalinfo_save_button, 10);
+					 proposal_additionalinfo_save_button.click();
+					 
+					 
+					 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+					 
+					//3
+					// ExplicitWait.visibleElement(driver, proposal_update_button, 10);
+					// proposal_update_button.click();
+			
+					
+					//4
+				  ExplicitWait.visibleElement(driver, proposal_update_and_exit_button, 10);
+					 proposal_update_and_exit_button.click();
+				
+					 
+					 
+					 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 50);
+					 
+					
+					//5
+					// ExplicitWait.visibleElement(driver, proposal_additionalinfo_cancel_button, 10);
+					// proposal_additionalinfo_cancel_button.clear();
+					
+					
+	
+					 
+					 
+		 
+		
+	}
+	
+	
+	
+	
+	
+	public void proposal_Add_Customer_info_get_screen_value() throws Exception
+
+	{
+	
+		
+
+		LO.print("Proposal page will display ");
+		System.out.println("Proposal page will display");
+		
+		Thread.sleep(3000);
+
+		ExplicitWait.visibleElement(driver, proposal_traddingName, 20);
+		
+		proposal_traddingName.clear();
+		
+		proposal_traddingName.sendKeys("User2");
+		
+		
+		Thread.sleep(3000);
+		
+		ExplicitWait.visibleElement(driver, proposal_legalEntity, 10);
+		
+		
+		
+		
+		
+	Dropdown.selectByVisibleText(driver, proposal_legalEntity, " Private Limited Company (Ltd) " , 10);
+		
+	
+	
+	
+	ExplicitWait.visibleElement(driver, proposal_registration_number, 10);
+	proposal_registration_number.clear();
+	
+	Thread.sleep(3000);
+	
+	proposal_registration_number.sendKeys("1234567890");
+	
+	
+	String Co_registration_number  = proposal_registration_number.getText();
+	
+	
+	
+	
+	
+	
+		
+		
+		ExplicitWait.visibleElement(driver, proposal_year, 10);
+		proposal_year.clear();
+		
+		Thread.sleep(3000);
+		
+		proposal_year.sendKeys("2020");
+		
+		
+		proposal_year.sendKeys(Keys.TAB);
+		
+		
+		
+		
+		Thread.sleep(4000);
+		
+		ExplicitWait.visibleElement(driver, proposal_postcode, 10);
+		
+		proposal_postcode.clear();
+		Thread.sleep(1000);
+		
+		proposal_postcode.sendKeys("LS122QH");
+		
+		
+		
+		proposal_postcode.click();
+		
+		//proposal_postcode.sendKeys(Keys.TAB);
+		
+		Thread.sleep(2000);
 	ExplicitWait.visibleElement(driver, proposal_postcode_value, 10);
 		
 		Thread.sleep(1000);
@@ -848,6 +1239,15 @@ private WebElement proposal_save ;
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void Opp_listing_proposal_status() throws Exception
 
 	{
@@ -930,6 +1330,87 @@ private WebElement proposal_save ;
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 			
+	}
+	
+	
+	
+	public void Opp_listing_proposal_fill_form_manually_gettingvalue_from_screen() throws Exception
+
+	{
+	
+		ExplicitWait.visibleElement(driver, Opp_send_proposal_to_customer_icon, 20);
+		
+		
+		Opp_send_proposal_to_customer_icon.click();
+		
+		System.out.println("Send proposal to customer pop up  will open");
+		LO.print("Send proposal to customer pop up  will open" );
+		
+		
+		// Send proposal to customer will open 
+		
+		  
+      ExplicitWait.visibleElement(driver, send_proposal_to_customer_pop_up_yes, 10);
+		
+		
+     send_proposal_to_customer_pop_up_yes.click();
+    
+	System.out.println("Click on Manual fill radio button - Yes");
+	LO.print("Click on Manual fill radio button - Yes" );
+	
+	
+	// Click on manually submit behalf of customer link
+	
+	 ExplicitWait.visibleElement(driver, click_manually_submit_behalf_of_customer_link, 10);
+	 click_manually_submit_behalf_of_customer_link.click();
+    
+	 System.out.println("Click on manually submit behalf of customer link");
+		LO.print("Click on manually submit behalf of customer link" );
+    
+		
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		
+		// Proposal page will open in new existing tab
+		
+		 ExplicitWait.visibleElement(driver, proposal_page_privacy_policy_checkbox, 10);
+		 proposal_page_privacy_policy_checkbox.click();
+		 
+		 
+		 ExplicitWait.visibleElement(driver, proposal_page_credit_search_checkbox, 10);
+		 proposal_page_credit_search_checkbox.click();
+		 
+		
+		 
+		 
+		 
+		 
+		 // click on submit button
+		 
+		 ExplicitWait.visibleElement(driver, proposal_page_submit, 10);
+		 proposal_page_submit.click();
+		 
+		 //final approval  - yes - pls confirm ! pop up
+		 ExplicitWait.visibleElement(driver, proposal_page_final_approval_confirmation, 10);
+		 proposal_page_final_approval_confirmation.click();
+		 
+		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+			
+	}
+	
+	
+	
+	
+	public void Opp_listing_proposal_get_the_value_from_screen() throws Exception
+
+	{
+	
+		ExplicitWait.visibleElement(driver, Opp_send_proposal_to_customer_icon, 20);
+		
+		
+		Opp_send_proposal_to_customer_icon.click();
+	
 	}
 	
 	

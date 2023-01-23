@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.BCH.Acquisition_Quotes_BCH_BCH_with_maintenance_Test">
+      <class name="com.amt.test.LOU.Lead_broker_business_flow2">
         <methods>
-          <include name="aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_BCH_BCH_holding_cost_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_BCH_BCH_after_discount_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_BCH_BCH_quote_summary_values_verification_with_maintenance_test"/>
-          <include name="aquisition_quotes_BCH_BCH_OTR_calculation_with_maintenance_test"/>
+          <include name="verify_underwriting_flow_broker_with_status"/>
+          <include name="verify_signed_contract_status_with_api_call"/>
+          <include name="verify_status_after_sending_to_underwriting"/>
+          <include name="verify_status_after_contract_signed"/>
+          <include name="verify_underwriting_proposal_page_flow"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.BCH.Acquisition_Quotes_BCH_BCH_with_maintenance_Test -->
+      </class> <!-- com.amt.test.LOU.Lead_broker_business_flow2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
