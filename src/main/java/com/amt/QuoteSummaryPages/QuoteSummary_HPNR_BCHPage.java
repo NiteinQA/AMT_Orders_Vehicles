@@ -34,6 +34,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
 	
+	
 //	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-vehicle-details[1]/div[1]/div[1]/div[2]/div[1]/div[2]/app-vehicle-summery[1]/div[1]/div[1]/div[2]/div[2]/div[3]/span[2]")
 //	private WebElement quote_summary_ref_no;
 	

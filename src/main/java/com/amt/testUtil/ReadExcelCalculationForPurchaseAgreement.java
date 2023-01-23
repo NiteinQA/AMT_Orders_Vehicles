@@ -2146,11 +2146,19 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("NO");
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
-		wb.write(out);	
+		
+		double monthlyPayment = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		
+		
+		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+		wb1.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("YES");
+		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb1.write(out);	
 		out.close();
 		
 		
-		return GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);		
+		return 	monthlyPayment;	
 
 	}
 	

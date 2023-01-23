@@ -3,16 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.LOU.Lead_broker_business_flow2">
+      <class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_maintenance_Test">
         <methods>
-          <include name="verify_underwriting_flow_broker_with_status"/>
-          <include name="verify_signed_contract_status_with_api_call"/>
-          <include name="verify_status_after_sending_to_underwriting"/>
-          <include name="verify_status_after_contract_signed"/>
-          <include name="verify_underwriting_proposal_page_flow"/>
+          <include name="aquisition_quotes_HPNR_HPNR_holding_cost_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_customer_quote_vehicle_profit_edit_check_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_OTR_calculation_with_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_with_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_HPNR_after_discount_calculations_with_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.LOU.Lead_broker_business_flow2 -->
+      </class> <!-- com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

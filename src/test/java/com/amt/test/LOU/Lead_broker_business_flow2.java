@@ -44,19 +44,6 @@ public class Lead_broker_business_flow2 extends TestBase {
 
 	//CloseableHttpResponse closeableHttpResponse;
 
-	public Lead_broker_business_flow2() {
-		try {
-			prop = new Properties();
-			FileInputStream ip = new FileInputStream(
-					"D:\\newWorkspaceStaging\\AutomationStaging\\src\\main\\java\\configs\\config.properties");
-			prop.load(ip);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 	
 	  @Test(priority=1) public void broker_create_lead_business( ) throws Exception
 	  {

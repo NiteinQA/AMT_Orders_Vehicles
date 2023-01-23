@@ -278,8 +278,7 @@ public class Opportunities extends TestBase {
 
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(
-					"D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+			FileInputStream ip = new FileInputStream("D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
