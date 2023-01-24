@@ -582,7 +582,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double miles = GetExcelFormulaValue.get_formula_value(173, 3, sheet_name);
       double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
       double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
-      double partExchangeValue = GetExcelFormulaValue.get_formula_value(113, 4, sheet_name);  
+      double partExchangeValue = GetExcelFormulaValue.get_formula_value(182, 1, sheet_name);  
       double followedBy = GetExcelFormulaValue.get_formula_value(182, 3, sheet_name);
       double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(188, 0, sheet_name);  
       double documentFee = GetExcelFormulaValue.get_formula_value(191, 1, sheet_name);  
@@ -590,7 +590,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(196, 0, sheet_name);      
       double upsellCommission = GetExcelFormulaValue.get_formula_value(196, 1, sheet_name);      
       double docFeeCommission = GetExcelFormulaValue.get_formula_value(199, 0, sheet_name);      
-      double totalCommission = GetExcelFormulaValue.get_formula_value(200, 3, sheet_name);  
+      double totalCommission = GetExcelFormulaValue.get_formula_value(199, 3, sheet_name);  
       double referrerCommission = GetExcelFormulaValue.get_formula_value(202, 0, sheet_name);      
       
       boolean status = false;
@@ -760,7 +760,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double initialMaintRental = GetExcelFormulaValue.get_formula_value(179, 3, sheet_name);
       double initialTotalRental = GetExcelFormulaValue.get_formula_value(182, 0, sheet_name);
       
-      double partExchangeValue = GetExcelFormulaValue.get_formula_value(113, 4, sheet_name);  
+      double partExchangeValue = GetExcelFormulaValue.get_formula_value(182, 1, sheet_name);  
       double followedBy = GetExcelFormulaValue.get_formula_value(182, 3, sheet_name);
       double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(188, 0, sheet_name); 
       double pencePerExcessMileMaint = GetExcelFormulaValue.get_formula_value(188, 1, sheet_name); 
@@ -772,7 +772,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double upsellCommission = GetExcelFormulaValue.get_formula_value(196, 1, sheet_name);
       double maintCommission = GetExcelFormulaValue.get_formula_value(196, 3, sheet_name);
       double docFeeCommission = GetExcelFormulaValue.get_formula_value(199, 0, sheet_name);      
-      double totalCommission = GetExcelFormulaValue.get_formula_value(200, 3, sheet_name);  
+      double totalCommission = GetExcelFormulaValue.get_formula_value(199, 3, sheet_name);  
       double referrerCommission = GetExcelFormulaValue.get_formula_value(202, 0, sheet_name);      
       
       boolean status = false;
@@ -1514,8 +1514,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification(String s
 	
 	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 	
-	 LO.print("Finance margin changed to 30 %");
-	System.out.println("Finance margin changed to 30 %");	 
+	 LO.print("Maintenance margin changed to 30 %");
+	System.out.println("Maintenance margin changed to 30 %");	 
 	
 	
 	//Getting values from screen
@@ -1556,8 +1556,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification(String s
 	 
 	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_maint_rental_from_screen ,monthlyMaintenanceRental)<0.2)
 	 {
-		 LO.print("Monthly Maint Rental after changing finance margin -  found OK");System.out.println("Monthly Maint Rental after changing finance margin -  found OK"); count++;}
-		else {LO.print("Monthly Maint Rental after changing finance margin -  found wrong");System.err.println("Monthly Maint Rental after changing finance margin -  found wrong");
+		 LO.print("Monthly Maint Rental after changing Maintenance margin -  found OK");System.out.println("Monthly Maint Rental after changing Maintenance margin -  found OK"); count++;}
+		else {LO.print("Monthly Maint Rental after changing Maintenance margin -  found wrong");System.err.println("Monthly Maint Rental after changing Maintenance margin -  found wrong");
 	 }
 	 
 		if((Difference.of_two_Double_Values(initialMaintRental, customer_quote_initial_maint_rental))<0.2)

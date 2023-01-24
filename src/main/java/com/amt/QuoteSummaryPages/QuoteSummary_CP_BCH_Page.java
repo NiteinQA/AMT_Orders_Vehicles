@@ -1522,8 +1522,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification(String s
 	
 	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 	
-	 LO.print("Finance margin changed to 30 %");
-	System.out.println("Finance margin changed to 30 %");	 
+	 LO.print("Maintenance margin changed to 30 %");
+	System.out.println("Maintenance margin changed to 30 %");	 
 	
 	
 	//Getting values from screen
@@ -1564,8 +1564,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification(String s
 	 
 	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_maint_rental_from_screen ,monthlyMaintenanceRental)<0.2)
 	 {
-		 LO.print("Monthly Maint Rental after changing finance margin -  found OK");System.out.println("Monthly Maint Rental after changing finance margin -  found OK"); count++;}
-		else {LO.print("Monthly Maint Rental after changing finance margin -  found wrong");System.err.println("Monthly Maint Rental after changing finance margin -  found wrong");
+		 LO.print("Monthly Maint Rental after changing Maintenance margin -  found OK");System.out.println("Monthly Maint Rental after changing finance margin -  found OK"); count++;}
+		else {LO.print("Monthly Maint Rental after changing Maintenance margin -  found wrong");System.err.println("Monthly Maint Rental after changing finance margin -  found wrong");
 	 }
 	 
 		if((Difference.of_two_Double_Values(initialMaintRental, customer_quote_initial_maint_rental))<0.2)
@@ -2174,8 +2174,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification_for_fund
 	
 	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 	
-	 LO.print("Finance margin changed to 30 %");
-	System.out.println("Finance margin changed to 30 %");	 
+	 LO.print("Maintenance margin changed to 30 %");
+	System.out.println("Maintenance margin changed to 30 %");	 
 	
 	
 	//Getting values from screen
@@ -2216,8 +2216,8 @@ public boolean quote_summary_edit_maintenance_margin_value_verification_for_fund
 	 
 	 if(Difference.of_two_Double_Values(customer_quote_summary_monthly_maint_rental_from_screen ,monthlyMaintenanceRental)<0.2)
 	 {
-		 LO.print("Monthly Maint Rental after changing finance margin -  found OK");System.out.println("Monthly Maint Rental after changing finance margin -  found OK"); count++;}
-		else {LO.print("Monthly Maint Rental after changing finance margin -  found wrong");System.err.println("Monthly Maint Rental after changing finance margin -  found wrong");
+		 LO.print("Monthly Maint Rental after changing Maintenance margin -  found OK");System.out.println("Monthly Maint Rental after changing Maintenance margin -  found OK"); count++;}
+		else {LO.print("Monthly Maint Rental after changing Maintenance margin -  found wrong");System.err.println("Monthly Maint Rental after changing Maintenance margin -  found wrong");
 	 }
 	 
 		if((Difference.of_two_Double_Values(initialMaintRental, customer_quote_initial_maint_rental))<0.2)

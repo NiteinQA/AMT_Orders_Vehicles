@@ -746,6 +746,10 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 			System.out.println("Monthly Finance Payment verified after making balloon payment toggle button off");
 		}
 		
+         Click.on(driver, balloon_payment_toggle, 40);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	 
+		
 		return status;
 	}
 	

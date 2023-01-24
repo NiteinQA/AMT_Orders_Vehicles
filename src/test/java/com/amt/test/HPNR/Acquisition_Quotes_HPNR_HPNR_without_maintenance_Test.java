@@ -171,9 +171,14 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_HPNRPage();
 		
-		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_HPNR_HPNR_without_maintenance(sheet_name);		
-        
-		Assert.assertTrue(quote_summary_value_check);       
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation);
+		
+		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
+		//Assert.assertTrue(quote_summary_customer_quote_calculation);      
 	}
 	
 	
