@@ -197,17 +197,26 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 	private WebElement quote_summary_customer_quote_summary_total_monthly_payment;
 
 	// Balloon
-	@FindBy(xpath = "//*[normalize-space()='Balloon']//ancestor::div[1]//div//strong")
-	private WebElement quote_summary_customer_quote_summary_balloon;
+	@FindBy(xpath = "//*[normalize-space()='Guaranteed future value']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_guaranteed_future_value;
 
 	// Final payment (inc. option to purchase fee)
-	@FindBy(xpath = "//*[normalize-space()='Final payment (inc. option to purchase fee)']//ancestor::div[1]//div//strong")
-	private WebElement quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee;
+	@FindBy(xpath = "//*[normalize-space()='Optional final payment (inc. option to purchase fee)']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee;
 
+	
+	// Pence per excess mile - finance
+	@FindBy(xpath = "//*[normalize-space()='Pence per excess mile - finance']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_pence_per_excess_mile_finance;
+	
 	// Pence per excess mile - maint.
 	@FindBy(xpath = "//*[normalize-space()='Pence per excess mile - maint.']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_pence_per_excess_mile_maint;
 
+	// Pence per excess mile - maint.
+	@FindBy(xpath = "//*[normalize-space()='Pence per excess mile - total']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_pence_per_excess_mile_total;
+	
 	// Credit type
 	@FindBy(xpath = "//*[normalize-space()='Credit type']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_credit_type;
@@ -731,8 +740,9 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
 				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
 				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
-				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balloon, 20);
-				ExplicitWait.visibleElement(driver,	quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
+				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
+				ExplicitWait.visibleElement(driver,	quote_summary_customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee, 20);
+				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
 				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
 				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
 				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
@@ -795,13 +805,17 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 						.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
 
 
-				double customer_quote_summary_balloon = Double.parseDouble(
-						RemoveComma.of(quote_summary_customer_quote_summary_balloon.getText().trim().substring(2)));
+				double customer_quote_summary_guaranteed_future_value = Double.parseDouble(
+						RemoveComma.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
 
-				double customer_quote_summary_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
-						RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee.getText()
+				double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
+						RemoveComma.of(quote_summary_customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee.getText()
 								.trim().substring(2)));
 
+				double customer_quote_summary_pence_per_excess_mile_finance = Double.parseDouble(RemoveComma
+						.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance.getText().trim().substring(0, 4)));
+				
+				
 				double customer_quote_summary_vehicle_comm = Double.parseDouble(
 						RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
 
@@ -842,8 +856,10 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 				double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
 
-				double balloon = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
-				double finalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+				double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+				double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+
+				double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
 
 				double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
 				double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
@@ -1043,28 +1059,38 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 
 				// 19
-				if ((Difference.of_two_Double_Values(balloon, customer_quote_summary_balloon)) < 0.2) {
-					LO.print("Balloon Value - found OK");
-					System.out.println("Balloon Value - found OK");
+				if ((Difference.of_two_Double_Values(guaranteedFutureValue, customer_quote_summary_guaranteed_future_value)) < 0.2) {
+					LO.print("Guaranteed Future Value - found OK");
+					System.out.println("Guaranteed Future Value - found OK");
 					count++;
 				} else {
-					LO.print("Balloon Value - found wrong");
-					System.err.println("Balloon Value - found wrong");
+					LO.print("Guaranteed Future Value - found wrong");
+					System.err.println("Guaranteed Future Value - found wrong");
 				}
 
 				// 20
-				if ((Difference.of_two_Double_Values(finalPayment,
-						customer_quote_summary_final_payment_inc_option_to_purchase_fee)) < 0.2) {
-					LO.print("Final Payment - found OK");
-					System.out.println("Final Payment - found OK");
+				if ((Difference.of_two_Double_Values(optionalFinalPayment,
+						customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
+					LO.print("Optional Final Payment - found OK");
+					System.out.println("Optional Final Payment - found OK");
 					count++;
 				} else {
-					LO.print("Final Payment - found wrong");
-					System.err.println("Final Payment - found wrong");
+					LO.print("Optional Final Payment - found wrong");
+					System.err.println("Optional Final Payment - found wrong");
 				}
 
-			
 				// 21
+				if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
+						customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
+					LO.print("Pence Per Excess Mile Finance - found OK");
+					System.out.println("Pence Per Excess Mile Finance - found OK");
+					count++;
+				} else {
+					LO.print("Pence Per Excess Mile Finance - found wrong");
+					System.err.println("Pence Per Excess Mile Finance - found wrong");
+				}
+			
+				// 22
 				if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
 					LO.print("Vehicle Commission - found OK");
 					System.out.println("Vehicle Commission - found OK");
@@ -1074,7 +1100,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 					System.err.println("Vehicle Commission - found wrong");
 				}
 
-				// 22
+				// 23
 				if ((Difference.of_two_Double_Values(defaultFinanceCommission,
 						customer_quote_summary_default_finance_comm)) < 0.2) {
 					LO.print("Default Finance Commission - found OK");
@@ -1086,7 +1112,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 				}
 
 		
-				// 23
+				// 24
 				if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
 					LO.print("Document Fee Commission - found OK");
 					System.out.println("Document Fee Commission - found OK");
@@ -1096,7 +1122,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 					System.err.println("Document Fee Commission - found wrong");
 				}
 
-				// 24
+				// 25
 				if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
 					LO.print("Total Commission - found OK");
 					System.out.println("Total Commission - found OK");
@@ -1106,7 +1132,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 					System.err.println("Total Commission - found wrong");
 				}
 
-				if (count == 24) {
+				if (count == 25) {
 					status = true;
 				}
 				return status;
@@ -1144,10 +1170,12 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_maint_payment, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_monthly_payment, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balloon, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
 		ExplicitWait.visibleElement(driver,
-				quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
+				quote_summary_customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_maint, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_total, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_maintenance_commision, 20);
@@ -1228,17 +1256,22 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		double customer_quote_summary_total_monthly_payment = Double.parseDouble(RemoveComma
 				.of(quote_summary_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
 
-		double customer_quote_summary_balloon = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_balloon.getText().trim().substring(2)));
+		double customer_quote_summary_guaranteed_future_value = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
 
-		double customer_quote_summary_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee.getText()
+		double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee.getText()
 						.trim().substring(2)));
+
+		double customer_quote_summary_pence_per_excess_mile_finance = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance.getText().trim().substring(0, 4)));
 
 		double customer_quote_summary_pence_per_excess_mile_maint = Double.parseDouble(RemoveComma
 				.of(quote_summary_customer_quote_summary_pence_per_excess_mile_maint.getText().trim().substring(0, 4)));
+	
+		double customer_quote_summary_pence_per_excess_mile_total = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_pence_per_excess_mile_total.getText().trim().substring(0, 4)));
 
- 
 		
 		double customer_quote_summary_vehicle_comm = Double.parseDouble(
 				RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
@@ -1288,9 +1321,11 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		double monthlyMaintenancePayment = GetExcelFormulaValue.get_formula_value(229, 1, sheet_name);
 		double totalMonthlyPayment = GetExcelFormulaValue.get_formula_value(229, 4, sheet_name);
 
-		double balloon = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
-		double finalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
-		double pencePerExcessMileMaintenance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+		double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+		double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+		double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+		double pencePerExcessMileMaintenance = GetExcelFormulaValue.get_formula_value(235, 0, sheet_name);
+		double pencePerExcessMileTotal = GetExcelFormulaValue.get_formula_value(235, 1, sheet_name);
 
 		double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
 		double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
@@ -1524,27 +1559,38 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		}
 
 		// 21
-		if ((Difference.of_two_Double_Values(balloon, customer_quote_summary_balloon)) < 0.2) {
-			LO.print("Balloon Value - found OK");
-			System.out.println("Balloon Value - found OK");
+		if ((Difference.of_two_Double_Values(guaranteedFutureValue, customer_quote_summary_guaranteed_future_value)) < 0.2) {
+			LO.print("Guaranteed Future Value - found OK");
+			System.out.println("Guaranteed Future Value - found OK");
 			count++;
 		} else {
-			LO.print("Balloon Value - found wrong");
-			System.err.println("Balloon Value - found wrong");
+			LO.print("Guaranteed Future Value - found wrong");
+			System.err.println("Guaranteed Future Value - found wrong");
 		}
 
 		// 22
-		if ((Difference.of_two_Double_Values(finalPayment,
-				customer_quote_summary_final_payment_inc_option_to_purchase_fee)) < 0.2) {
-			LO.print("Final Payment - found OK");
-			System.out.println("Final Payment - found OK");
+		if ((Difference.of_two_Double_Values(optionalFinalPayment,
+				customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
+			LO.print("Optional Final Payment - found OK");
+			System.out.println("Optional Final Payment - found OK");
 			count++;
 		} else {
-			LO.print("Final Payment - found wrong");
-			System.err.println("Final Payment - found wrong");
+			LO.print("Optional Final Payment - found wrong");
+			System.err.println("Optional Final Payment - found wrong");
 		}
 
 		// 23
+		if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
+				customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
+			LO.print("Pence Per Excess Mile Finance - found OK");
+			System.out.println("Pence Per Excess Mile Finance - found OK");
+			count++;
+		} else {
+			LO.print("Pence Per Excess Mile Finance - found wrong");
+			System.err.println("Pence Per Excess Mile Finance - found wrong");
+		}
+		
+		//24
 		if ((Difference.of_two_Double_Values(pencePerExcessMileMaintenance,
 				customer_quote_summary_pence_per_excess_mile_maint)) < 0.2) {
 			LO.print("Pence Per Excess Mile Maintenance - found OK");
@@ -1554,8 +1600,19 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 			LO.print("Pence Per Excess Mile Maintenance - found wrong");
 			System.err.println("Pence Per Excess Mile Maintenance - found wrong");
 		}
+		
+		//25
+		if ((Difference.of_two_Double_Values(pencePerExcessMileTotal,
+				customer_quote_summary_pence_per_excess_mile_total)) < 0.2) {
+			LO.print("Pence Per Excess Mile Total - found OK");
+			System.out.println("Pence Per Excess Mile Total - found OK");
+			count++;
+		} else {
+			LO.print("Pence Per Excess Mile Total - found wrong");
+			System.err.println("Pence Per Excess Mile Total - found wrong");
+		}
 
-		// 24
+		// 26
 		if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
 			LO.print("Vehicle Commission - found OK");
 			System.out.println("Vehicle Commission - found OK");
@@ -1565,7 +1622,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 			System.err.println("Vehicle Commission - found wrong");
 		}
 
-		// 25
+		// 27
 		if ((Difference.of_two_Double_Values(defaultFinanceCommission,
 				customer_quote_summary_default_finance_comm)) < 0.2) {
 			LO.print("Default Finance Commission - found OK");
@@ -1576,7 +1633,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 			System.err.println("Default Finance Commission - found wrong");
 		}
 
-		// 26
+		// 28
 		if ((Difference.of_two_Double_Values(maintCommission, customer_quote_summary_maintenance_commision)) < 0.2) {
 			LO.print("Maintenance Commission - found OK");
 			System.out.println("Maintenance Commission - found OK");
@@ -1586,7 +1643,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 			System.err.println("Maintenance Commission - found wrong");
 		}
 
-		// 27
+		// 29
 		if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
 			LO.print("Document Fee Commission - found OK");
 			System.out.println("Document Fee Commission - found OK");
@@ -1596,7 +1653,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 			System.err.println("Document Fee Commission - found wrong");
 		}
 
-		// 28
+		// 30
 		if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
 			LO.print("Total Commission - found OK");
 			System.out.println("Total Commission - found OK");
@@ -1606,7 +1663,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 			System.err.println("Total Commission - found wrong");
 		}
 
-		if (count == 28) {
+		if (count == 30) {
 			status = true;
 		}
 		return status;
