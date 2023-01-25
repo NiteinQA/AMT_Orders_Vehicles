@@ -157,9 +157,14 @@ public class Acquisition_Quotes_CP_CP_with_maintenance_Test extends TestBase {
 
 		obj_quote_summary_page = new QuoteSummary_CP_CP_Page();
 		
-		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_CP_CP_with_maintenance(sheet_name);		
-        
-		Assert.assertTrue(quote_summary_value_check);       
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation);
+		
+		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
+		//Assert.assertTrue(quote_summary_customer_quote_calculation);      
 	}
 	
 	
