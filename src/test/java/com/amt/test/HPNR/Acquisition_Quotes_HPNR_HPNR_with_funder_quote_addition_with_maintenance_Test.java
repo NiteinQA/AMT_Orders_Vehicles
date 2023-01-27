@@ -164,9 +164,7 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_mainte
 				.quote_summary_HPNR_HPNR_for_funder_quote_with_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_page_status);
 		
-		//finance rental value is showing wrong
-
-	}
+		}
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
