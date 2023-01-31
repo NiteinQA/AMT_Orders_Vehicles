@@ -7,10 +7,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -54,7 +59,13 @@ public class TestBase {
 		if(browser.equalsIgnoreCase("chrome")) 
 		{
 		WebDriverManager.chromedriver().setup();
-		 driver= new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("force-device-scale-factor=0.90");
+		options.addArguments("high-dpi-support=0.90");
+		
+		 driver = new ChromeDriver(options);
+		 
+		 
 		}else if(browser.equalsIgnoreCase("firefox"))
 		{
 			WebDriverManager.firefoxdriver().setup();
@@ -71,6 +82,8 @@ public class TestBase {
 		 driver.manage().window().maximize();
 		 //driver.manage().deleteAllCookies();
 		 //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
+		 
+		 
 		 driver.get(prop.getProperty("url"));		 
 	}
 	

@@ -2,6 +2,7 @@ package com.amt.pages;
 
 
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -39,15 +40,23 @@ public class LoginPage extends TestBase {
 	public void enter_credentials() throws InterruptedException {
 		
 		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+		
 		
 		HelperClass.highlightElement(driver,email);
 		email.sendKeys(prop.getProperty("username"));			
 		
 		HelperClass.highlightElement(driver,password);
 		password.sendKeys(prop.getProperty("password"));
+
+		Thread.sleep(5000);
+
 		
+		ExplicitWait.clickableElement(driver, submit, 30);
 		
-		submit.click();
+		jse.executeScript("arguments[0].click();", submit);
+		
 		 
 	}
 	

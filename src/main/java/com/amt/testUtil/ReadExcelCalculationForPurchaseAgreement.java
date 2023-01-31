@@ -1788,6 +1788,36 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
 	}
 	
+//	public void set_global_variables_to_excel_for_purchase_agreement_for_configuration(String matrixCreditType, String sheet_name) throws IOException {
+//		//write / take global variables and set to excel sheet for calculation
+//		 
+//		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
+//		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -started" );
+//		
+//		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+//		XSSFWorkbook wb = new XSSFWorkbook(in);
+//		//rfl values fakt on hotya baki sarv comment hotya 
+//		wb.getSheet(sheet_name).getRow(258).getCell(5).setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
+//		if(matrixCreditType.contains("A1 Credit")) {wb.getSheet(sheet_name).getRow(258).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_A1")));}
+//		else{wb.getSheet(sheet_name).getRow(258).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));}
+//		wb.getSheet(sheet_name).getRow(265).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
+//		wb.getSheet(sheet_name).getRow(267).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
+//		wb.getSheet(sheet_name).getRow(269).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
+//		wb.getSheet(sheet_name).getRow(270).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
+//		wb.getSheet(sheet_name).getRow(265).getCell(5).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
+//		
+//	
+//		
+//				
+//		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+//		wb.write(out);	
+//		out.close();
+//		
+//		LO.print("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+//		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
+//	}
+
+	
 	public void set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(String matrixCreditType, String sheet_name) throws IOException {
 		//write / take global variables and set to excel sheet for calculation
 		 
