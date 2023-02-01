@@ -63,6 +63,11 @@ public class ContractTypesAndOTR_HPNR_PCP_Page extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[4]")
 	private WebElement acq_contractTypes_calculation_table_additional_discount;
 
+	
+	
+	@FindBy(xpath = "//div[@class='col-md-12 mb-0 px-0 mb-2']//div[@class='horizon-next']//img")
+	private WebElement acq_contractTypes_customer_contract_right_arrow;
+	
 	@FindBy(xpath = "//p[contains(text(),'Personal Contract Purchase')]")
 	private WebElement acq_contractTypes_customer_contract_PCP;
 	
@@ -114,6 +119,8 @@ public class ContractTypesAndOTR_HPNR_PCP_Page extends TestBase {
 
 		LO.print(" Acquisition Contract type option = HPNR has been selected");
 		System.out.println("Acquisition Contract type option = HPNR has been selected");
+		
+		Click.on(driver, acq_contractTypes_customer_contract_right_arrow, 30);
 		
 		Click.on(driver, acq_contractTypes_customer_contract_PCP, 30);
 		

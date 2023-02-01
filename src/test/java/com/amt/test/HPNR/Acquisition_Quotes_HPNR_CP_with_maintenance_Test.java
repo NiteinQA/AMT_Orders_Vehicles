@@ -168,7 +168,25 @@ public class Acquisition_Quotes_HPNR_CP_with_maintenance_Test extends TestBase {
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
 		
 		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-		//Assert.assertTrue(quote_summary_customer_quote_calculation);     
+		//Assert.assertTrue(quote_summary_customer_quote_calculation); 
+		
+		  boolean quote_summary_configuration_value_check1 = obj_quote_summary_page.
+		  quote_summary_configuration_value_verification_with_maintenance(sheet_name);
+		  //Assert.assertTrue(quote_summary_configuration_value_check1);
+		  
+		  boolean value_check_after_Base_Int_change =obj_quote_summary_page.
+		  quote_summary_edit_base_int_rate_value_verification_with_maintenance(
+		  sheet_name);
+		  //Assert.assertTrue(value_check_after_Base_Int_change);
+		  
+		  boolean value_check_after_customer_rate_over_base_change = 
+	      obj_quote_summary_page.quote_summary_edit_customer_rate_over_base_value_verification(sheet_name);
+		  //Assert.assertTrue(value_check_after_customer_rate_over_base_change);
+
+		  boolean value_check_after_maint_margin_change = obj_quote_summary_page.
+		  quote_summary_edit_maintenance_margin_value_verification(sheet_name);
+		  //Assert.assertTrue(value_check_after_maint_margin_change);
+
 	}
 	
 	

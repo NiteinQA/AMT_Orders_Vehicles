@@ -140,7 +140,7 @@ public class Acquisition_Quotes_HPNR_FL_without_maintenance_Test extends TestBas
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
 		
 		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
-		//Assert.assertTrue(quote_summary_customer_quote_calculation);
+		Assert.assertTrue(quote_summary_customer_quote_calculation);
 		
 		boolean quote_summary_configuration_value_check = obj_quote_summary_page.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_configuration_value_check);

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/1/2</td>
+<td>Tests passed/Failed/Skipped:</td><td>7/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jan 31 19:45:43 IST 2023</td>
+<td>Started on:</td><td>Wed Feb 01 16:30:33 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>123 seconds (123997 ms)</td>
+<tr><td>Total time:</td><td>309 seconds (309805 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,107 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 0, 199.99, 0, NO, 20, 200, NO, 0, Limited Credit, YES, HPNR (Formula 3) - HPNR<br/>
-<a href="#Output-1244955658" onClick='toggleBox("Output-1244955658", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1244955658" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1244955658">
-<b>***********Entered in Customer Quote page ***********</b> <br /><br/>
-<b>Matrix credit type Limited Credit has been selected</b> <br /><br/>
-<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br /><br/>
-<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br /><br/>
-<b>Actual Monthly Finance Payment from screen is 1639.89</b> <br /><br/>
-<b>Writing screen values to Excel for customer quote calculation -started</b> <br /><br/>
-<b>Writing screen values to Excel for customer quote calculation -completed</b> <br /><br/>
-<b>Expected Monthly Finannce Rental from excel is 1749.4242419670484</b> <br /><br/>
-<b>Actual Monthly Maintenance Payment from screen is 17.62</b> <br /><br/>
-<b>Writing screen values to Excel for customer quote calculation -completed</b> <br /><br/>
-<b>Expected Monthly Maintenance Rental from excel is 17.09090909090904</b> <br /><br/>
-<br>----------Screenshot---------<br><br/>
-<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test_31_01_2023_07_47_46.png" height="800" width="1000"><br/>
-</div>
-</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.java:122)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1244955658", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1244955658'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.java:122)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>29</td>
-<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -176,19 +75,19 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_OTR_calculation_with_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_OTR_calculation_with_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 0, 199.99, 0, NO, 20, 200, NO, 0, Limited Credit, YES, HPNR (Formula 3) - HPNR<br/>
-<a href="#Output-2015035275" onClick='toggleBox("Output-2015035275", this, "Show output", "Hide output");'>Show output</a>
+<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test.aquisition_quotes_HPNR_PCP_OTR_calculation_without_maintenance_test()'><b>aquisition_quotes_HPNR_PCP_OTR_calculation_without_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 30, 20000, 22, 22000, 1000, NO, Limited Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, PersonalContractPurchase<br/>
+<a href="#Output-760878472" onClick='toggleBox("Output-760878472", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-2015035275" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-2015035275">
+<a href="#Output-760878472" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-760878472">
 <b>Clicked on Quote button </b> <br /><br/>
 <b>Manufacture =AUDI has been selected</b> <br /><br/>
 <b>Model range =A7 has been selected</b> <br /><br/>
 <b>Vehicle has been selected</b> <br /><br/>
 <b>Paint option has been selected</b> <br /><br/>
 <b>Interior option has been selected</b> <br /><br/>
-<b> Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
-<b> Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
+<b> Acquisition Contract type option = HPNR has been selected</b> <br /><br/>
+<b> Customer Contract type option = Personal Contract Purchase (PCP) has been selected</b> <br /><br/>
 <b>Getting Basic Price- Vehicle value is  =46854.17</b> <br /><br/>
 <b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
 <b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
@@ -207,31 +106,14 @@ function toggleAllBoxes() {
 </div>
 </td>
 <td></td>
-<td>51</td>
-<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291</td></tr>
+<td>59</td>
+<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test@4b45a2f5</td></tr>
 <tr>
-<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_holding_cost_calculations_with_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_holding_cost_calculations_with_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 0, 199.99, 0, NO, 20, 200, NO, 0, Limited Credit, YES, HPNR (Formula 3) - HPNR<br/>
-<a href="#Output-1804582612" onClick='toggleBox("Output-1804582612", this, "Show output", "Hide output");'>Show output</a>
+<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test.aquisition_quotes_HPNR_PCP_after_discount_calculations_without_maintenance_test()'><b>aquisition_quotes_HPNR_PCP_after_discount_calculations_without_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 30, 20000, 22, 22000, 1000, NO, Limited Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, PersonalContractPurchase<br/>
+<a href="#Output-1264747265" onClick='toggleBox("Output-1264747265", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1804582612" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1804582612">
-<b>***********Entered in holding cost page ***********</b> <br /><br/>
-<b>***********Holding Cost Calculations has been Started*************</b> <br /><br/>
-<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
-<b>Reading Monthly Holding Cost value from excel</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_screen =514.60</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_excel =514.6060606060606</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>17</td>
-<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291</td></tr>
-<tr>
-<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_after_discount_calculations_with_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_after_discount_calculations_with_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 0, 199.99, 0, NO, 20, 200, NO, 0, Limited Credit, YES, HPNR (Formula 3) - HPNR<br/>
-<a href="#Output-430433816" onClick='toggleBox("Output-430433816", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-430433816" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-430433816">
+<a href="#Output-1264747265" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1264747265">
 <b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
 <b>Started getting On screen values from after discount table </b> <br /><br/>
 <b>Manufacture_delivery_charges =550.00</b> <br /><br/>
@@ -248,107 +130,210 @@ function toggleAllBoxes() {
 </td>
 <td></td>
 <td>2</td>
-<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
+<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test@4b45a2f5</td></tr>
 <tr>
-<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_monthly_total_payment_after_balloon_payment_off_with_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_monthly_total_payment_after_balloon_payment_off_with_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test</td>
-<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_monthly_total_payment_after_balloon_payment_off_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace341639529", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace341639529'><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_monthly_total_payment_after_balloon_payment_off_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291</td></tr>
+<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test.aquisition_quotes_HPNR_PCP_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test()'><b>aquisition_quotes_HPNR_PCP_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 30, 20000, 22, 22000, 1000, NO, Limited Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, PersonalContractPurchase<br/>
+<a href="#Output-13347709" onClick='toggleBox("Output-13347709", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-13347709" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-13347709">
+<b>***********Entered in Customer Quote page ***********</b> <br /><br/>
+<b>Matrix credit type Limited Credit has been selected</b> <br /><br/>
+<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br /><br/>
+<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br /><br/>
+<b>Actual Monthly Finance Payment from screen is 1401.5</b> <br /><br/>
+<b>Writing screen values to Excel for customer quote calculation -started</b> <br /><br/>
+<b>Writing screen values to Excel for customer quote calculation -completed</b> <br /><br/>
+<b>Expected Monthly Finannce Rental from excel is 1401.49987807536</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>36</td>
+<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test@4b45a2f5</td></tr>
 <tr>
-<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_with_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_with_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test</td>
-<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace214603361", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace214603361'><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_with_maintenance_Test@38cee291</td></tr>
+<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test.aquisition_quotes_HPNR_PCP_customer_quote_vehicle_profit_edit_check_without_maintenance_test()'><b>aquisition_quotes_HPNR_PCP_customer_quote_vehicle_profit_edit_check_without_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 30, 20000, 22, 22000, 1000, NO, Limited Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, PersonalContractPurchase<br/>
+<a href="#Output-314051938" onClick='toggleBox("Output-314051938", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-314051938" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-314051938">
+<b>Monthly Finance Payment verified after editing vehicle profit</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>14</td>
+<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test@4b45a2f5</td></tr>
+<tr>
+<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test.aquisition_quotes_HPNR_PCP_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_HPNR_PCP_quote_summary_values_verification_without_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 30, 20000, 22, 22000, 1000, NO, Limited Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, PersonalContractPurchase<br/>
+<a href="#Output-496734368" onClick='toggleBox("Output-496734368", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-496734368" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-496734368">
+<b>*************OTR Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
+<b>OTR_calculation_cost_otr_price_from_screen =58525.0</b> <br /><br/>
+<b>OTR_calculation_cost_price_ex_vat_and_rfl_from_screen =48237.5</b> <br /><br/>
+<b>OTR_calculation_otr_vat_from_screen =9647.5</b> <br /><br/>
+<b>OTR_calculation_otr_rfl_and_frf_from_screen =640.0</b> <br /><br/>
+<b>OTR price compared</b> <br /><br/>
+<b>Cost price ex vat and rfl compared</b> <br /><br/>
+<b>VAT compared</b> <br /><br/>
+<b>RFL & FRF compared</b> <br /><br/>
+<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br /><br/>
+<b>holding_cost_terms_from_screen36.0</b> <br /><br/>
+<b>holding_cost_miles_per_annum_from_screen10000.0</b> <br /><br/>
+<b>holding_cost_monthly_finance_cost_from_screen922.92</b> <br /><br/>
+<b>holding_cost_total_monthly_holding_cost_from_screen =922.92</b> <br /><br/>
+<b>terms compared</b> <br /><br/>
+<b>Miles per annum compared</b> <br /><br/>
+<b>Finance cost compared</b> <br /><br/>
+<b>Total Monthly Holding Cost compared</b> <br /><br/>
+<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Terms found OK</b> <br /><br/>
+<b>miles found OK</b> <br /><br/>
+<b>Basic Cash Price found OK</b> <br /><br/>
+<b>VAT found OK</b> <br /><br/>
+<b>Non VAT Items Value found OK</b> <br /><br/>
+<b>Total Cash Price found OK</b> <br /><br/>
+<b>Order Deposit found OK</b> <br /><br/>
+<b>Finance Deposit found OK</b> <br /><br/>
+<b>Total Deposit found OK</b> <br /><br/>
+<b>Part Exchange Value - found OK</b> <br /><br/>
+<b>Balance to Finance found OK</b> <br /><br/>
+<b>Finance Charges - found OK</b> <br /><br/>
+<b>Document Fee - found OK</b> <br /><br/>
+<b>Balance Payable - found OK</b> <br /><br/>
+<b>Option To Purchase Fee - found OK</b> <br /><br/>
+<b>Initial Cash Payment - found OK</b> <br /><br/>
+<b>Followed By months - found OK</b> <br /><br/>
+<b>Monthly Finance Payment - found OK</b> <br /><br/>
+<b>Guaranteed Future Value - found OK</b> <br /><br/>
+<b>Optional Final Payment - found OK</b> <br /><br/>
+<b>Pence Per Excess Mile Finance - found OK</b> <br /><br/>
+<b>Vehicle Commission - found OK</b> <br /><br/>
+<b>Default Finance Commission - found OK</b> <br /><br/>
+<b>Document Fee Commission - found OK</b> <br /><br/>
+<b>Total Commission - found OK</b> <br /><br/>
+<b>*************Configuration Values Verification on quote summary page has been started************</b> <br /><br/>
+<b>Base Interest Rate found OK</b> <br /><br/>
+<b>Finance Margin found wrong</b> <br /><br/>
+<b>Deductions found wrong</b> <br /><br/>
+<b>Additional Margin found OK</b> <br /><br/>
+<b>Total Margin found wrong</b> <br /><br/>
+<b>Default Broker Margin percentage found OK</b> <br /><br/>
+<b>Customer Interest Rate found OK</b> <br /><br/>
+<b>Document Fee Margin found OK</b> <br /><br/>
+<b>Default Broker Margin  found wrong</b> <br /><br/>
+<b>*********Customer Quote generated successfully and Quote_ref_no is=WUY55602</b> <br /><br/>
+<b>*************OTR Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
+<b>OTR_calculation_cost_otr_price_from_screen =58525.0</b> <br /><br/>
+<b>OTR_calculation_cost_price_ex_vat_and_rfl_from_screen =48237.5</b> <br /><br/>
+<b>OTR_calculation_otr_vat_from_screen =9647.5</b> <br /><br/>
+<b>OTR_calculation_otr_rfl_and_frf_from_screen =640.0</b> <br /><br/>
+<b>OTR price compared</b> <br /><br/>
+<b>Cost price ex vat and rfl compared</b> <br /><br/>
+<b>VAT compared</b> <br /><br/>
+<b>RFL & FRF compared</b> <br /><br/>
+<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br /><br/>
+<b>holding_cost_terms_from_screen36.0</b> <br /><br/>
+<b>holding_cost_miles_per_annum_from_screen10000.0</b> <br /><br/>
+<b>holding_cost_monthly_finance_cost_from_screen922.92</b> <br /><br/>
+<b>holding_cost_total_monthly_holding_cost_from_screen =922.92</b> <br /><br/>
+<b>terms compared</b> <br /><br/>
+<b>Miles per annum compared</b> <br /><br/>
+<b>Finance cost compared</b> <br /><br/>
+<b>Total Monthly Holding Cost compared</b> <br /><br/>
+<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Terms found OK</b> <br /><br/>
+<b>miles found OK</b> <br /><br/>
+<b>Basic Cash Price found OK</b> <br /><br/>
+<b>VAT found OK</b> <br /><br/>
+<b>Non VAT Items Value found OK</b> <br /><br/>
+<b>Total Cash Price found OK</b> <br /><br/>
+<b>Order Deposit found OK</b> <br /><br/>
+<b>Finance Deposit found OK</b> <br /><br/>
+<b>Total Deposit found OK</b> <br /><br/>
+<b>Part Exchange Value - found OK</b> <br /><br/>
+<b>Balance to Finance found OK</b> <br /><br/>
+<b>Finance Charges - found OK</b> <br /><br/>
+<b>Document Fee - found OK</b> <br /><br/>
+<b>Balance Payable - found OK</b> <br /><br/>
+<b>Option To Purchase Fee - found OK</b> <br /><br/>
+<b>Initial Cash Payment - found OK</b> <br /><br/>
+<b>Followed By months - found OK</b> <br /><br/>
+<b>Monthly Finance Payment - found OK</b> <br /><br/>
+<b>Guaranteed Future Value - found OK</b> <br /><br/>
+<b>Optional Final Payment - found OK</b> <br /><br/>
+<b>Pence Per Excess Mile Finance - found OK</b> <br /><br/>
+<b>Vehicle Commission - found OK</b> <br /><br/>
+<b>Default Finance Commission - found OK</b> <br /><br/>
+<b>Document Fee Commission - found OK</b> <br /><br/>
+<b>Total Commission - found OK</b> <br /><br/>
+<b>*************Configuration Values Verification on quote summary page has been started************</b> <br /><br/>
+<b>Base Interest Rate found OK</b> <br /><br/>
+<b>Finance Margin found wrong</b> <br /><br/>
+<b>Deductions found wrong</b> <br /><br/>
+<b>Additional Margin found OK</b> <br /><br/>
+<b>Total Margin found wrong</b> <br /><br/>
+<b>Default Broker Margin percentage found OK</b> <br /><br/>
+<b>Customer Interest Rate found OK</b> <br /><br/>
+<b>Document Fee Margin found OK</b> <br /><br/>
+<b>Default Broker Margin  found wrong</b> <br /><br/>
+<b>*************Editing and Verifying Configuration Values on quote summary page has been started************</b> <br /><br/>
+<b>Base Interest Rate changed to 7.0 %</b> <br /><br/>
+<b>Holding Cost after changing Base Int. Rate -  found wrong</b> <br /><br/>
+<b>Monthly Finance Rental after changing Base Int. Rate -  found OK</b> <br /><br/>
+<b>Finance Charges - found OK</b> <br /><br/>
+<b>Balance Payable - found OK</b> <br /><br/>
+<b>Base Interest Rate changed to 6.5 %</b> <br /><br/>
+<b>*************Editing Customer Rate Over Base and Verifying Values on quote summary page has been started************</b> <br /><br/>
+<b>Customer Base Over Rate changed to 5.0 %</b> <br /><br/>
+<b>Monthly Finance Rental after changing Customer Base Over Rate -  found OK</b> <br /><br/>
+<b>Finance Charges - found OK</b> <br /><br/>
+<b>Balance Payable - found OK</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>121</td>
+<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test@4b45a2f5</td></tr>
+<tr>
+<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test.aquisition_quotes_HPNR_PCP_customer_quote_part_exchange_value_edit_check_without_maintenance_test()'><b>aquisition_quotes_HPNR_PCP_customer_quote_part_exchange_value_edit_check_without_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 30, 20000, 22, 22000, 1000, NO, Limited Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, PersonalContractPurchase<br/>
+<a href="#Output-1505292788" onClick='toggleBox("Output-1505292788", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1505292788" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1505292788">
+<b>Monthly Finance Payment verified after editing part exchange values and deposit values</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>29</td>
+<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test@4b45a2f5</td></tr>
+<tr>
+<td title='com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test.aquisition_quotes_HPNR_PCP_holding_cost_calculations_without_maintenance_test()'><b>aquisition_quotes_HPNR_PCP_holding_cost_calculations_without_maintenance_test</b><br>Test class: com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 30, 20000, 22, 22000, 1000, NO, Limited Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, PersonalContractPurchase<br/>
+<a href="#Output-1981647392" onClick='toggleBox("Output-1981647392", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1981647392" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1981647392">
+<b>***********Entered in holding cost page ***********</b> <br /><br/>
+<b>Clicked on holding cost summary</b> <br /><br/>
+<b>***********Holding Cost Calculations has been Started*************</b> <br /><br/>
+<b>Getting on screen values from Holding Cost Page</b> <br /><br/>
+<b>Duration(Terms) =36.0</b> <br /><br/>
+<b>Annual_mileage =10000.0</b> <br /><br/>
+<b>Cap_residual_value =27500.0</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been started</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =922.92</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =922.9208645610316</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>12</td>
+<td>com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_without_maintenance_Test@4b45a2f5</td></tr>
 </table><p>
 </body>
 </html>
