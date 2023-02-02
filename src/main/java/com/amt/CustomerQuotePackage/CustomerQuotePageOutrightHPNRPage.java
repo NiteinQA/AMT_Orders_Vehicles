@@ -570,6 +570,9 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 			System.out.println("Monthly Finance Payment verified after making balloon payment toggle button off");
 		}
 		
+		Click.on(driver, balloon_payment_toggle, 40);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
 		return status;
 	}
 	
@@ -597,6 +600,9 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 			LO.print("Monthly Total Payment verified after making balloon payment toggle button off");
 			System.out.println("Monthly Total Payment verified after making balloon payment toggle button off");
 		}
+		
+		Click.on(driver, balloon_payment_toggle, 40);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		return status;
 	}

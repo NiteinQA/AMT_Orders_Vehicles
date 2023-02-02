@@ -63,6 +63,10 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Rebate']//ancestor::div[1]//div[2]")
 	private WebElement acq_contractTypes_rebate;
+	
+	@FindBy(xpath = "(//*[@class='contractRow cstcontractrow']//*[@class='horizon-next'])[2]")
+	private WebElement acq_contractTypes_customer_contract_right_arrow;
+				
 
 	@FindBy(xpath = "//p[normalize-space()='Personal Contract Purchase']")
 	private WebElement acq_contractTypes_customer_contract_PCP;
@@ -103,7 +107,8 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 	   
 	   Actions act = new Actions(driver);
 //	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
-	    
+		Click.on(driver, acq_contractTypes_customer_contract_right_arrow, 30);
+
 	    Click.on(driver, acq_contractTypes_customer_contract_PCP , 50);
 	    
 	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);

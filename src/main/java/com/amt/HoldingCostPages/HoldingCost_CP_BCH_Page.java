@@ -308,6 +308,8 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 		 
 		 Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
 		 
+		 Thread.sleep(3000);
+		 
 		 Click.on(driver, add, 30);	 
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);

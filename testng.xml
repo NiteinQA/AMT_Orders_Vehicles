@@ -432,6 +432,18 @@
 			<class name="com.amt.test.CP.Acquisition_Quotes_CP_BCH_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
+	
+
+
+	
+	
+	<test name="Acquisition_Quotes_CP_PCH_with_funder_quote_addition_with_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.CP.Acquisition_Quotes_CP_PCH_with_funder_quote_addition_with_maintenance_Test" />
+		</classes>
+	</test>
+	
+
 
 	<test name="Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
@@ -456,6 +468,8 @@
 			<class name="com.amt.test.CP.Acquisition_Quotes_CP_PCP_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
+	
+	
 
 
 	<test name="Acquisition_Quotes_BCH_BCH_with_maintenance_Test">
@@ -481,6 +495,10 @@
 			<class name="com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_without_maintenance_Test" />
 		</classes>
 	</test>
+	
+	
+	
+	
 
 
 

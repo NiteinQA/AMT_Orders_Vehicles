@@ -942,7 +942,7 @@ public boolean quote_summary_customer_quote_summary_value_verification_without_m
       double miles = GetExcelFormulaValue.get_formula_value(173, 3, sheet_name);
       double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(176, 0, sheet_name);  
       double initialFinanceRental = GetExcelFormulaValue.get_formula_value(179, 1, sheet_name); 
-      double partExchangeValue = GetExcelFormulaValue.get_formula_value(113, 4, sheet_name);  
+      double partExchangeValue = GetExcelFormulaValue.get_formula_value(182, 1, sheet_name);  
       double followedBy = GetExcelFormulaValue.get_formula_value(182, 3, sheet_name);
       double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(188, 0, sheet_name);  
       double documentFee = GetExcelFormulaValue.get_formula_value(191, 1, sheet_name);  
@@ -950,7 +950,7 @@ public boolean quote_summary_customer_quote_summary_value_verification_without_m
       double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(196, 0, sheet_name);      
       double upsellCommission = GetExcelFormulaValue.get_formula_value(196, 1, sheet_name);      
       double docFeeCommission = GetExcelFormulaValue.get_formula_value(199, 0, sheet_name);      
-      double totalCommission = GetExcelFormulaValue.get_formula_value(200, 3, sheet_name);  
+      double totalCommission = GetExcelFormulaValue.get_formula_value(199, 3, sheet_name);  
       double referrerCommission = GetExcelFormulaValue.get_formula_value(202, 0, sheet_name);      
       
       boolean status = false;
@@ -961,54 +961,54 @@ public boolean quote_summary_customer_quote_summary_value_verification_without_m
   	
   	if(terms==customer_quote_summary_terms)
     {LO.print("Terms found OK");System.out.println("Terms found OK"); count++;}
-	else {LO.print("Terms found wrong");System.out.println("Terms found wrong");}
+	else {LO.print("Terms found wrong");System.err.println("Terms found wrong");}
   	
   	if(miles==customer_quote_summary_miles)
     {LO.print("miles found OK");System.out.println("miles found OK"); count++;}
-	else {LO.print("miles found wrong");System.out.println("miles found wrong");}
+	else {LO.print("miles found wrong");System.err.println("miles found wrong");}
   	
   	if((Difference.of_two_Double_Values(monthlyFinanceRental, customer_quote_summary_monthly_finance_rental))<0.2)
     {LO.print("Monthly Finance Rental found OK");System.out.println("Monthly Finance Rental found OK"); count++;}
-	else {LO.print("Monthly Finance Rental found wrong");System.out.println("Monthly Finance Rental found wrong");}
+	else {LO.print("Monthly Finance Rental found wrong");System.err.println("Monthly Finance Rental found wrong");}
   	
   		
   	
   	if((Difference.of_two_Double_Values(initialFinanceRental, customer_quote_initial_finance_rental))<0.2)
     {LO.print("Initial Finance Rental found OK");System.out.println("Initial Finance Rental found OK"); count++;}
-	else {LO.print("Initial Finance Rental found wrong");System.out.println("Initial Finance Rental found wrong");}
+	else {LO.print("Initial Finance Rental found wrong");System.err.println("Initial Finance Rental found wrong");}
   	
   	if(followedBy==customer_payment_followed_by)
     {LO.print("Followed By months - found OK");System.out.println("Followed By months - found OK"); count++;}
-	else {LO.print("Followed By months - found wrong");System.out.println("Followed By months - found wrong");}
+	else {LO.print("Followed By months - found wrong");System.err.println("Followed By months - found wrong");}
   	
 	if(partExchangeValue==customer_quote_part_exchange_value)
     {LO.print("Part Exchange Value - found OK");System.out.println("Part Exchange Value - found OK"); count++;}
-	else {LO.print("Part Exchange Value - found wrong");System.out.println("Part Exchange Value - found wrong");}
+	else {LO.print("Part Exchange Value - found wrong");System.err.println("Part Exchange Value - found wrong");}
   
   	if((Difference.of_two_Double_Values(pencePerExcessMileFinance, customer_quote_pence_per_excess_mile_finance))<0.2)
     {LO.print("Pence per excess mile finance - found OK");System.out.println("Pence per excess mile finance - found OK"); count++;}
-	else {LO.print("Pence per excess mile finance - found wrong");System.out.println("Pence per excess mile finance - found wrong");}
+	else {LO.print("Pence per excess mile finance - found wrong");System.err.println("Pence per excess mile finance - found wrong");}
   	
   	if((Difference.of_two_Double_Values(documentFee, customer_quote_summary_doc_fee))<0.2)
     {LO.print("Document Fee - found OK");System.out.println("Document Fee - found OK"); count++;}
-	else {LO.print("Document Fee - found wrong");System.out.println("Document Fee - found wrong");}
+	else {LO.print("Document Fee - found wrong");System.err.println("Document Fee - found wrong");}
   	
   	if(upsell==customer_quote_summary_upsell)
     {LO.print("Upsell - found OK");System.out.println("Upsell - found OK"); count++;}
-	else {LO.print("Upsell - found wrong");System.out.println("Upsell - found wrong");}
+	else {LO.print("Upsell - found wrong");System.err.println("Upsell - found wrong");}
   	
   	if((Difference.of_two_Double_Values(defaultFinanceCommission, customer_quote_summary_default_finance_commission))<0.2)
     {LO.print("Default Finance Commission - found OK");System.out.println("Default Finance Commission - found OK"); count++;}
-	else {LO.print("Default Finance Commission - found wrong");System.out.println("Default Finance Commission - found wrong");}
+	else {LO.print("Default Finance Commission - found wrong");System.err.println("Default Finance Commission - found wrong");}
   	
   	if(upsellCommission==customer_quote_summary_upsell_commission)
     {LO.print("Upsell Commission - found OK");System.out.println("Upsell Commission - found OK"); count++;}
-	else {LO.print("Upsell Commission - found wrong");System.out.println("Upsell Commission - found wrong");}
+	else {LO.print("Upsell Commission - found wrong");System.err.println("Upsell Commission - found wrong");}
   	
   	
   	if((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_doc_fee_commission))<0.2)
     {LO.print("Document Fee Commission - found OK");System.out.println("Document Fee Commission - found OK"); count++;}
-	else {LO.print("Document Fee Commission - found wrong");System.out.println("Document Fee Commission - found wrong");}
+	else {LO.print("Document Fee Commission - found wrong");System.err.println("Document Fee Commission - found wrong");}
   	
   	if((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commision))<0.2)
     {LO.print("Total Commission - found OK");System.out.println("Total Commission - found OK"); count++;}
@@ -1017,7 +1017,7 @@ public boolean quote_summary_customer_quote_summary_value_verification_without_m
   	
   	if((Difference.of_two_Double_Values(referrerCommission, customer_quote_summary_referrer_commision))<0.2)
     {LO.print("Referrer Commission - found OK");System.out.println("Referrer Commission - found OK"); count++;}
-	else {LO.print("Referrer Commission - found wrong");System.out.println("Referrer Commission - found wrong");}
+	else {LO.print("Referrer Commission - found wrong");System.err.println("Referrer Commission - found wrong");}
   	
 	
 	if(count==14)

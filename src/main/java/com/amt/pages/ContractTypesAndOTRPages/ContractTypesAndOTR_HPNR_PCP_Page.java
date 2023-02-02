@@ -65,7 +65,7 @@ public class ContractTypesAndOTR_HPNR_PCP_Page extends TestBase {
 
 	
 	
-	@FindBy(xpath = "//div[@class='col-md-12 mb-0 px-0 mb-2']//div[@class='horizon-next']//img")
+	@FindBy(xpath = "(//*[@class='contractRow cstcontractrow']//*[@class='horizon-next'])[2]")
 	private WebElement acq_contractTypes_customer_contract_right_arrow;
 	
 	@FindBy(xpath = "//p[contains(text(),'Personal Contract Purchase')]")

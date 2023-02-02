@@ -3,18 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_with_maintenance_Test">
+      <class name="com.amt.test.OP.Acquisition_Quotes_Outright_HPR_without_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_HPNR_PCP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_after_discount_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_OTR_calculation_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_HPNR_PCP_customer_quote_part_exchange_value_edit_check_with_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_customer_quote_vehicle_profit_edit_check_with_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_holding_cost_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCP_quote_summary_values_verification_with_maintenance_test"/>
+          <include name="aquisition_quotes_outright_HPR_quote_summary_values_verification_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_HPR_customer_quote_part_exchange_value_edit_check_without_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_outright_HPR_holding_cost_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_HPR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_HPR_customer_quote_vehicle_profit_edit_check_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_HPR_OTR_calculation_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_HPR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test"/>
+          <include name="aquisition_quotes_outright_HPR_after_discount_calculations_without_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCP_with_maintenance_Test -->
+      </class> <!-- com.amt.test.OP.Acquisition_Quotes_Outright_HPR_without_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
