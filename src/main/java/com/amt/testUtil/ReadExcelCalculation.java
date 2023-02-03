@@ -37,8 +37,10 @@ public class ReadExcelCalculation extends TestBase {
 	 public ReadExcelCalculation() {
 	    	try
 	    	{
+	    		//Properties class object initialization
 	    		prop=new Properties();
 	    		FileInputStream ip = new FileInputStream("D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+	    		//load property file
 	    		prop.load(ip);
 	    	}
 	    	catch(FileNotFoundException e)
@@ -193,15 +195,6 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(4).getCell(1).setCellValue(vehicle_additional_discount);
 		wb.getSheet(sheet_name).getRow(4).getCell(2).setCellValue(paint_additional_discount);
 		wb.getSheet(sheet_name).getRow(4).getCell(3).setCellValue(options_additional_discount);
-//		wb.getSheet(sheet_name).getRow(5).getCell(1).setCellFormula("(B3*B4/100)+B5");
-//		wb.getSheet(sheet_name).getRow(5).getCell(2).setCellFormula("(C3*C4/100)+C5");
-//		wb.getSheet(sheet_name).getRow(5).getCell(3).setCellFormula("(D3*D4/100)+D5");
-//		wb.getSheet(sheet_name).getRow(6).getCell(1).setCellFormula("B3-B6");
-//		wb.getSheet(sheet_name).getRow(6).getCell(2).setCellFormula("C3-C6");
-//		wb.getSheet(sheet_name).getRow(6).getCell(3).setCellFormula("D3-D6");
-//	    wb.getSheet(sheet_name).getRow(8).getCell(4).setCellFormula("(B7+C7+D7+E3)");
-		
-		
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -363,14 +356,6 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(4).getCell(1).setCellValue(vehicle_additional_discount);
 		wb.getSheet(sheet_name).getRow(4).getCell(3).setCellValue(paint_additional_discount);
 		wb.getSheet(sheet_name).getRow(4).getCell(5).setCellValue(options_additional_discount);
-//		wb.getSheet(sheet_name).getRow(5).getCell(1).setCellFormula("(B3*B4/100)+B5");
-//		wb.getSheet(sheet_name).getRow(5).getCell(2).setCellFormula("(C3*C4/100)+C5");
-//		wb.getSheet(sheet_name).getRow(5).getCell(3).setCellFormula("(D3*D4/100)+D5");
-//		wb.getSheet(sheet_name).getRow(6).getCell(1).setCellFormula("B3-B6");
-//		wb.getSheet(sheet_name).getRow(6).getCell(2).setCellFormula("C3-C6");
-//		wb.getSheet(sheet_name).getRow(6).getCell(3).setCellFormula("D3-D6");
-//	    wb.getSheet(sheet_name).getRow(8).getCell(4).setCellFormula("(B7+C7+D7+E3)");
-		
 		
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
@@ -396,8 +381,8 @@ public class ReadExcelCalculation extends TestBase {
 		System.out.println("Subtotal After Discount from excel sheet is ="+subtotal_after_discount_excel);
 		return subtotal_after_discount_excel;
 	
-
 	}
+	
 	public double verify_table_calculations_contract_types_page_edited(WebDriver driver,String vehicle_price_copied, 
 			WebElement acq_contractTypes_table_calculation_basic_paint_price, 
 			WebElement acq_contractTypes_table_calculation_basic_options_price, WebElement acq_contractTypes_calculation_table_discount,
@@ -532,13 +517,6 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(4).getCell(1).setCellValue(vehicle_additional_discount);
 		wb.getSheet(sheet_name).getRow(4).getCell(2).setCellValue(paint_additional_discount);
 		wb.getSheet(sheet_name).getRow(4).getCell(3).setCellValue(options_additional_discount);
-//		wb.getSheet(sheet_name).getRow(5).getCell(1).setCellFormula("(B3*B4/100)+B5");
-//		wb.getSheet(sheet_name).getRow(5).getCell(2).setCellFormula("(C3*C4/100)+C5");
-//		wb.getSheet(sheet_name).getRow(5).getCell(3).setCellFormula("(D3*D4/100)+D5");
-//		wb.getSheet(sheet_name).getRow(6).getCell(1).setCellFormula("B3-B6");
-//		wb.getSheet(sheet_name).getRow(6).getCell(2).setCellFormula("C3-C6");
-//		wb.getSheet(sheet_name).getRow(6).getCell(3).setCellFormula("D3-D6");
-//	    wb.getSheet(sheet_name).getRow(8).getCell(4).setCellFormula("(B7+C7+D7+E3)");
 		
 		
 
@@ -590,29 +568,24 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Started getting On screen values from after discount table ");
 		System.out.println("Started getting On screen values from after discount table ");
 
-		String manufacture_delivery_charges = acq_contractTypes_manufacturer_delivery_charges.getText().trim().substring(2);
+		 //converting String to double
 		
-		String road_tax_first_year = acq_contractTypes_road_tax_first_year.getText().trim().substring(2);
-	 
-		String first_registration_fee = acq_contractTypes_first_registration_fee.getText().trim().substring(2);
-		String rebate = acq_contractTypes_rebate.getText().trim().substring(2);
+		double manufacture_delivery_charges_converted = Double.parseDouble(acq_contractTypes_manufacturer_delivery_charges.getText().trim().substring(2));
+		double road_tax_first_year_converted = Double.parseDouble(acq_contractTypes_road_tax_first_year.getText().trim().substring(2));
+		double first_registration_fee_converted = Double.parseDouble( acq_contractTypes_first_registration_fee.getText().trim().substring(2));
+		double rebate_converted = Double.parseDouble(acq_contractTypes_rebate.getText().trim().substring(2));
 		
-		double manufacture_delivery_charges_converted = Double.parseDouble(manufacture_delivery_charges);
-		double road_tax_first_year_converted = Double.parseDouble(road_tax_first_year);
-		double first_registration_fee_converted = Double.parseDouble(first_registration_fee);
-		double rebate_converted = Double.parseDouble(rebate);
+		LO.print("Manufacture_delivery_charges ="+manufacture_delivery_charges_converted);
+		System.out.println("Manufacture_delivery_charges ="+manufacture_delivery_charges_converted);
 		
-		LO.print("Manufacture_delivery_charges ="+manufacture_delivery_charges);
-		System.out.println("Manufacture_delivery_charges ="+manufacture_delivery_charges);
+		LO.print("Road_tax_first_year ="+road_tax_first_year_converted);
+		System.out.println("Road_tax_first_year ="+road_tax_first_year_converted);
 		
-		LO.print("Road_tax_first_year ="+road_tax_first_year);
-		System.out.println("Road_tax_first_year ="+road_tax_first_year);
+		LO.print("First_registration_fee ="+first_registration_fee_converted);
+		System.out.println("First_registration_fee ="+first_registration_fee_converted);
 		
-		LO.print("First_registration_fee ="+first_registration_fee);
-		System.out.println("First_registration_fee ="+first_registration_fee);
-		
-		LO.print("Rebate ="+rebate);
-		System.out.println("Rebate ="+rebate);
+		LO.print("Rebate ="+rebate_converted);
+		System.out.println("Rebate ="+rebate_converted);
 		
 		
 		// excel code for setting up values to excel for calculation
@@ -1024,13 +997,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
 		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(0);
-	  //wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
 		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
-		//wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
-		//wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
-		//wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
-		//wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
-
 
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
@@ -1150,13 +1117,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
 		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(capMonthlyMaintValue);
-	  //wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
 		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
-		//wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
-		//wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
-		//wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
-		//wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
-
 
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
@@ -1242,14 +1203,8 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyFinanceRental);
 		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(monthlyMaintenanceRental);
-		//wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
 		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
-		//wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
-		//wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
-		//wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
-		//wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
-
-
+	
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -1485,19 +1440,6 @@ public class ReadExcelCalculation extends TestBase {
 		
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
 		Thread.sleep(3000);
-//		Click.on(driver, part_exchange_payment, 70);
-//		LO.print("Clicked on Part Exchange panel" );
-//		System.out.println("Clicked on Part Exchange panel" );
-//	
-//		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
-//		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-//		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
-//		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
-//		ExplicitWait.visibleElement(driver, document_fee, 30);
-//		document_fee.clear();
-//		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
-//		Actions act = new Actions (driver);
-//		act.sendKeys(Keys.TAB).perform();
 		
 		LO.print("Writing values to Excel for customer quote calculation -started" );
 		System.out.println("Writing values to Excel for customer quote calculation -started" );
@@ -1514,16 +1456,8 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(initial_payment));
 		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("NO");
-		//wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
-		//wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
-		//wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
 		wb.getSheet(sheet_name).getRow(123).getCell(1).setCellValue(Double.parseDouble(target_rental));
-		//wb.getSheet(sheet_name).getRow(57).getCell(1).setCellFormula("IF(B99=Y97,H29-B57,IF(B99=Y98,H29-B57,IF(B99=Y99,H29-1,IF(B99=Y100,H29-1,IF(B99=Y101,H29-1,IF(B99=Y102,H29-1,IF(B99=Y103,H29-B57,IF(B99=Y104,H29-B57,IF(B99=Y105,H29-B57,0)))))))))");
-		//wb.getSheet(sheet_name).getRow(56).getCell(1).setCellFormula("IF(B99=Y97,1,IF(B99=Y98,1,IF(B99=Y99,3,IF(B99=Y100,6,IF(B99=Y101,9,IF(B99=Y102,12,IF(B99=Y103,3,IF(B99=Y104,6,IF(B99=Y105,9,0)))))))))");
-
-		//wb.getSheet(sheet_name).getRow(151).getCell(1).setCellFormula("B91");
-		
-		
+	
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 		
@@ -1619,15 +1553,8 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(110).getCell(3).setCellValue(Double.parseDouble(initial_payment));
 		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue("NO");
-		//wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
-		//wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
-		//wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
-		wb.getSheet(sheet_name).getRow(129).getCell(1).setCellValue(Double.parseDouble(target_rental));
-		//wb.getSheet(sheet_name).getRow(57).getCell(1).setCellFormula("IF(B99=Y97,H29-B57,IF(B99=Y98,H29-B57,IF(B99=Y99,H29-1,IF(B99=Y100,H29-1,IF(B99=Y101,H29-1,IF(B99=Y102,H29-1,IF(B99=Y103,H29-B57,IF(B99=Y104,H29-B57,IF(B99=Y105,H29-B57,0)))))))))");
-		//wb.getSheet(sheet_name).getRow(56).getCell(1).setCellFormula("IF(B99=Y97,1,IF(B99=Y98,1,IF(B99=Y99,3,IF(B99=Y100,6,IF(B99=Y101,9,IF(B99=Y102,12,IF(B99=Y103,3,IF(B99=Y104,6,IF(B99=Y105,9,0)))))))))");
+        wb.getSheet(sheet_name).getRow(129).getCell(1).setCellValue(Double.parseDouble(target_rental));
 
-		//wb.getSheet(sheet_name).getRow(151).getCell(1).setCellFormula("B91");
-		
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -1722,15 +1649,8 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(110).getCell(3).setCellValue(Double.parseDouble(initial_payment));
 		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue("NO");
-		//wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
-		//wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
-		//wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
-		wb.getSheet(sheet_name).getRow(129).getCell(1).setCellValue(Double.parseDouble(target_rental));
-		//wb.getSheet(sheet_name).getRow(57).getCell(1).setCellFormula("IF(B99=Y97,H29-B57,IF(B99=Y98,H29-B57,IF(B99=Y99,H29-1,IF(B99=Y100,H29-1,IF(B99=Y101,H29-1,IF(B99=Y102,H29-1,IF(B99=Y103,H29-B57,IF(B99=Y104,H29-B57,IF(B99=Y105,H29-B57,0)))))))))");
-		//wb.getSheet(sheet_name).getRow(56).getCell(1).setCellFormula("IF(B99=Y97,1,IF(B99=Y98,1,IF(B99=Y99,3,IF(B99=Y100,6,IF(B99=Y101,9,IF(B99=Y102,12,IF(B99=Y103,3,IF(B99=Y104,6,IF(B99=Y105,9,0)))))))))");
+        wb.getSheet(sheet_name).getRow(129).getCell(1).setCellValue(Double.parseDouble(target_rental));
 
-		//wb.getSheet(sheet_name).getRow(151).getCell(1).setCellFormula("B91");
-		
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -1846,15 +1766,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(initial_payment));
 		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("NO");
-		//wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
-		//wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
-		//wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
-		//wb.getSheet(sheet_name).getRow(123).getCell(1).setCellValue(Double.parseDouble(target_rental));
-		//wb.getSheet(sheet_name).getRow(57).getCell(1).setCellFormula("IF(B99=Y97,H29-B57,IF(B99=Y98,H29-B57,IF(B99=Y99,H29-1,IF(B99=Y100,H29-1,IF(B99=Y101,H29-1,IF(B99=Y102,H29-1,IF(B99=Y103,H29-B57,IF(B99=Y104,H29-B57,IF(B99=Y105,H29-B57,0)))))))))");
-		//wb.getSheet(sheet_name).getRow(56).getCell(1).setCellFormula("IF(B99=Y97,1,IF(B99=Y98,1,IF(B99=Y99,3,IF(B99=Y100,6,IF(B99=Y101,9,IF(B99=Y102,12,IF(B99=Y103,3,IF(B99=Y104,6,IF(B99=Y105,9,0)))))))))");
 
-		//wb.getSheet(sheet_name).getRow(151).getCell(1).setCellFormula("B91");
-		
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -2502,6 +2414,138 @@ public class ReadExcelCalculation extends TestBase {
 		
 	}
 	
+	
+	public boolean verify_holding_cost_for_used_car_with_maintenance(WebDriver driver, WebElement holding_cost_summary_terms,
+			WebElement holding_cost_summary_mileage, WebElement holding_cost_summary_residual_value_used,
+			WebElement total_monthly_holding_cost, WebElement holding_cost_maintenance_cost_used,
+			WebElement holding_cost_percentage_cap_residual_value_used, WebElement total_cap_maintenance_value, String maintenance_required,
+			String target_rental,String residual_value_used_from_excel,String maintenance_cost_used_from_excel,
+			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,String sheet_name)
+		throws IOException, InterruptedException  {
+		
+		
+		LO.print("***********Holding Cost Calculations has been Started*************");
+		System.out.println("***********Holding Cost Calculations has been Started*************");
+		Thread.sleep(3000);		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+		
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+		String mileage= holding_cost_summary_mileage.getText();
+		
+		String holding_cost_annual_mileage=RemoveComma.of(mileage);
+
+		double annual_mileage = Double.parseDouble(holding_cost_annual_mileage);
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 30);
+		String residual_value_used=holding_cost_summary_residual_value_used.getText().substring(2);
+		
+		String reidual_value_used_converted=RemoveComma.of(residual_value_used);
+		
+		double used_residual_value = Double.parseDouble(reidual_value_used_converted);
+		
+		String total_cap_maintenance_value_annual=total_cap_maintenance_value.getText().substring(2);
+		
+		String total_cap_maintenance_value_annual_converted=RemoveComma.of(total_cap_maintenance_value_annual);
+		
+		double total_cap_maintenance_value_annual_converted_double = Double.parseDouble(total_cap_maintenance_value_annual_converted);
+		
+		
+		LO.print("Getting on screen values from Holding Cost Page");
+		System.out.println("Getting on screen values from Holding Cost Page");
+		
+		LO.print("Duration(Terms) ="+duration);
+		System.out.println("Duration(Terms) ="+duration);
+		
+		LO.print("Annual_mileage ="+annual_mileage);
+		System.out.println("Annual_mileage ="+annual_mileage);
+		
+		LO.print("Cap_residual_value ="+used_residual_value);
+		System.out.println("Cap_residual_value ="+used_residual_value);
+		
+//		LO.print("used_residual_value_from_test_data ="+residual_value_used_from_excel);
+//		System.out.println("used_residual_value_from_test_data ="+residual_value_used_from_excel);
+//		
+//		LO.print("maintenance_cost_used_test_data ="+maintenance_cost_used_from_excel);
+//		System.out.println("maintenance_cost_used_test_data ="+maintenance_cost_used_from_excel);
+			
+		LO.print("Writing Holding Cost Summary values to excel has been started");
+		System.out.println("Writing Holding Cost Summary values to excel has been started");
+		
+	  double residual_value_used_from_excel_converted= Double.parseDouble(residual_value_used_from_excel);
+	  double maintenance_cost_used_from_excel_converted= Double.parseDouble(maintenance_cost_used_from_excel);
+	  
+	  System.out.println("maintenance_cost_used_test_data converted ="+maintenance_cost_used_from_excel_converted);
+	  
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue(maintenance_required);
+		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
+		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
+	
+		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(total_cap_maintenance_value_annual_converted_double);
+		
+		
+		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
+		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value_used);
+		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(percentage_cap_maintenance_cost_used);
+		wb.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("A40");
+		
+		if(sheet_name.equals("Formula1-FL"))
+			{wb.getSheet(sheet_name).getRow(106).getCell(2).setCellValue("YES");}
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel has been started");
+		System.out.println("Reading Monthly Holding Cost value from excel has been started");
+				
+				double monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+				
+				LO.print("Reading Monthly Holding Cost value from excel has been completed");
+				System.out.println("Reading Monthly Holding Cost value from excel has been completed");
+				
+			
+				String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);
+				
+				String total_monthly_holding_cost_from_screen=RemoveComma.of(monthly_holding_cost);
+				
+				LO.print("Total_monthly_holding_cost_from_screen ="+monthly_holding_cost);
+				System.out.println("Total_monthly_holding_cost_from_screen "+monthly_holding_cost);
+				
+				LO.print("Total_monthly_holding_cost_from_excel ="+monthly_holding_cost_expected);
+				System.out.println("Total_monthly_holding_cost_from_excel "+monthly_holding_cost_expected);
+				
+				double total_monthly_holding_cost_actual1=Double.parseDouble(total_monthly_holding_cost_from_screen);
+				double diff=Difference.of_two_Double_Values(monthly_holding_cost_expected, total_monthly_holding_cost_actual1);
+		        boolean flag=false;
+				if(diff<0.2)
+		        {	flag=true;	}
+				
+				
+				 // writing values to excel
+				
+				FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+				XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+
+				wb1.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("A40/1.2");
+				
+				FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+			 
+				wb1.write(out1); 
+
+				return flag;			 
+		
+	}
+
 	
 	
 	

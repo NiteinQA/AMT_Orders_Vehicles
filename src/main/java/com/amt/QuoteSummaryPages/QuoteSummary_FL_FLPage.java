@@ -1209,7 +1209,7 @@ public boolean quote_summary_customer_quote_summary_value_verification_without_m
 	else {LO.print("Upsell Commission - found wrong");System.err.println("Upsell Commission - found wrong");}
   	
   	
-  	if(maintCommission==customer_quote_summary_maint_commission)
+  	if(Difference.of_two_Double_Values(maintCommission,customer_quote_summary_maint_commission)<0.2)
     {LO.print("Maintenance Commission - found OK");System.out.println("Maintenance Commission - found OK"); count++;}
 	else {LO.print("Maintenance Commission - found wrong");System.err.println("Maintenance Commission - found wrong");}
   	

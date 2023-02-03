@@ -441,4 +441,43 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 				sheet_name);		
 		
 	}
+
+
+	public boolean verify_holding_cost_for_used_car_with_maintenance(String percentage_maintenance_cost_used_from_excel, 
+			String residual_value_used_from_excel, String maintenance_cost_used_from_excel,String percentage_cap_residual_value_used,
+			String maintenance_required, String target_rental, String sheet_name ) throws IOException, InterruptedException {
+		Actions act = new Actions(driver);
+		
+		Click.on(driver, holding_cost, 30);
+		
+		  LO.print("***********Entered in holding cost page ***********");
+		  System.out.println("***********Entered in holding cost page ***********");
+		  ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+			Click.on(driver, holding_cost_summary, 30);			
+			
+		Thread.sleep(3000);
+		  LO.print("Clicked on holding cost summary");
+		  System.out.println("Clicked on holding cost summary");
+		  
+		Click.on(driver, holding_cost_maintenance_toggle_button,30);
+		
+		LO.print("Clicked on holding_cost_maintenance_toggle_button");
+		  System.out.println("Clicked on holding_cost_maintenance_toggle_button");
+		  percentage_maintenance_cost_used.clear();
+		  
+		  ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
+		  ExplicitWait.visibleElement(driver, percentage_maintenance_cost_used, 20);		  
+		  ExplicitWait.visibleElement(driver, residual_value_used, 20);
+		  
+		obj_read_excel_calculation_page =new ReadExcelCalculation();
+		return  obj_read_excel_calculation_page.verify_holding_cost_for_used_car_with_maintenance(driver,
+				holding_cost_summary_terms, holding_cost_summary_mileage, 
+				holding_cost_summary_residual_value_used, total_monthly_holding_cost, holding_cost_maintenance_cost_used,
+				holding_cost_percentage_cap_residual_value_used,total_cap_maintenance_value,  maintenance_required,target_rental,
+				residual_value_used_from_excel,maintenance_cost_used_from_excel, percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel,
+				sheet_name);		
+		
+	}
+
+	
 }
