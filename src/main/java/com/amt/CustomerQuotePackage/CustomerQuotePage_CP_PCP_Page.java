@@ -197,7 +197,7 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
          
         obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
         
-        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(matrix_credit_type ,sheet_name);
+        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(document_fee ,matrix_credit_type ,sheet_name);
         
              
        ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
@@ -215,15 +215,21 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
        LO.print("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
        System.out.println("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
        
-        double monthly_finance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(103, 1, sheet_name);
+       // double monthly_finance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(103, 1, sheet_name);
        
+       double monthly_finance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_pcp(maintenance_status,
+       		matrix_credit_type, balloon_payment_status,order_deposit,finance_deposit, document_fee,sheet_name);
+     
         LO.print("Expected Monthly Finannce Rental from excel is "+monthly_finance_payment_expected_from_excel);
         System.out.println("Expected Monthly Finannce Rental from excel is "+monthly_finance_payment_expected_from_excel);
         
         LO.print("Actual Monthly Maintenance Payment from screen is "+monthly_maintenance_payment_actual_from_screen);
         System.out.println("Actual Monthly Maintenance Payment from screen is "+monthly_maintenance_payment_actual_from_screen);
         
-         double monthly_Maintenance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(102, 1, sheet_name);
+      //   double monthly_Maintenance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(102, 1, sheet_name);
+        
+        double monthly_Maintenance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_maintenance_payment_from_excel_for_funder_addition_cp_pcp(maintenance_status ,balloon_payment_status ,sheet_name);
+        
         
          LO.print("Expected Monthly Maintenance Rental from excel is "+monthly_Maintenance_payment_expected_from_excel);
          System.out.println("Expected Monthly Maintenance Rental from excel is "+monthly_Maintenance_payment_expected_from_excel);
@@ -289,7 +295,7 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
          
         obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
         
-        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(matrix_credit_type ,sheet_name);
+        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(document_fee ,matrix_credit_type ,sheet_name);
         
              
        ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
@@ -301,7 +307,7 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
        LO.print("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
        System.out.println("Actual Monthly Finance Payment from screen is "+monthly_finance_payment_actual_from_screen);
        
-        double monthly_finance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_purchase(maintenance_status,
+        double monthly_finance_payment_expected_from_excel  =obj_read_excel_calculation_page.get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_pcp(maintenance_status,
         		matrix_credit_type, balloon_payment_status,order_deposit,finance_deposit, document_fee,sheet_name);
        
         LO.print("Expected Monthly Finance Rental from excel is "+monthly_finance_payment_expected_from_excel);

@@ -149,7 +149,7 @@ public class Acquisition_Quotes_HPNR_CP_with_maintenance_Test extends TestBase {
 
 	}
 		
-	@Test(priority=7, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_HPNR_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" })
+	@Test(priority=7, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_HPNR_CP_customer_quote_part_exchange_value_edit_check_with_maintenance_test" })
 
 	public void aquisition_quotes_HPNR_CP_quote_summary_values_verification_with_maintenance_test(String manufacturer, String model, 
 			String Vehicle_Basic_price, String  road_tax_for_first_year, String percentage_cap_residual_value, String percentage_cap_maint_value,

@@ -60,8 +60,8 @@ public class TestBase {
 		{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("force-device-scale-factor=0.90");
-		options.addArguments("high-dpi-support=0.90");
+		options.addArguments("force-device-scale-factor=0.67");
+		options.addArguments("high-dpi-support=0.67");
 		
 		 driver = new ChromeDriver(options);
 		 
@@ -100,7 +100,7 @@ public class TestBase {
 		obj_Login_Page.enter_credentials();
 	}
 
- // @AfterClass public void tearDown() { driver.close(); }
+  //@AfterClass public void tearDown() { driver.close(); }
 	
 	
 	}

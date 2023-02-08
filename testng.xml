@@ -433,6 +433,11 @@
 		</classes>
 	</test>
 	
+		<test name="Acquisition_Quotes_CP_BCH_with_funder_quote_addition_without_maintenance_Test">
+		<classes>
+			<class name="com.amt.test.CP.Acquisition_Quotes_CP_BCH_with_funder_quote_addition_without_maintenance_Test" />
+		</classes>
+	</test>
 
 
 	

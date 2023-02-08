@@ -58,7 +58,32 @@ public class ReadExcelCalculation extends TestBase {
 	public ReadExcelCalculation obj_read_excel_calculation_page;
 	
 	
-	
+	public double verify_OTR_for_calculation_after_adding_other_support_values_to_excel(double otherSupportValue , String sheet_name) throws IOException {
+		
+		
+		LO.print("Writing other support value to Excel has been started");
+		System.out.println("Writing other support value to Excel has been started");
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		 
+		wb.getSheet(sheet_name).getRow(19).getCell(4).setCellValue(otherSupportValue);		
+		
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		
+		wb.write(out);
+		
+		
+		LO.print("Writing other support value to Excel has been ended");
+		System.out.println("Writing other support value to Excel has been ended");
+		
+		
+		//Getting OTR_for_calculation price 
+		
+		return GetExcelFormulaValue.get_formula_value(20, 4, sheet_name);
+		
+	}
 	
 
 	public double verify_table_calculations_contract_types_page(WebDriver driver,String vehicle_price_copied, 

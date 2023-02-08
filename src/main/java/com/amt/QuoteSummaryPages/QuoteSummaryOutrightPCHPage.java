@@ -602,6 +602,10 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
     {LO.print("Pence per excess mile finance - found OK");System.out.println("Pence per excess mile finance - found OK"); count++;}
 	else {LO.print("Pence per excess mile finance - found wrong");System.err.println("Pence per excess mile finance - found wrong");}
   	
+
+
+  	
+  	
   	if((Difference.of_two_Double_Values(documentFee, customer_quote_summary_doc_fee))<0.2)
     {LO.print("Document Fee - found OK");System.out.println("Document Fee - found OK"); count++;}
 	else {LO.print("Document Fee - found wrong");System.err.println("Document Fee - found wrong");}

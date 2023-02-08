@@ -758,7 +758,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 	}
 	
 	public double verify_holding_cost_after_adding_funder_with_maintenance_for_cp_purchase(String cashDeposit,String term, String milesPerAnnum,String monthlyPayment,
-			String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintenance,  String documentFee ,String sheet_name) throws IOException, InterruptedException 
+			String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintenance,  String documentFee ,String capMaintValue ,String sheet_name) throws IOException, InterruptedException 
 	{
 		
 		LO.print("***********Holding Cost Calculations has been Started*************");
@@ -777,7 +777,8 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 	    wb.getSheet(sheet_name).getRow(42).getCell(0).setCellValue(optionalFinalPayment);
 	    wb.getSheet(sheet_name).getRow(42).getCell(2).setCellValue(optionToPurchaseFee);
 		wb.getSheet(sheet_name).getRow(45).getCell(0).setCellValue(monthlyMaintenance);		
-		
+		wb.getSheet(sheet_name).getRow(52).getCell(10).setCellValue(capMaintValue);		
+
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -1818,7 +1819,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 //	}
 
 	
-	public void set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(String matrixCreditType, String sheet_name) throws IOException {
+	public void set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(String DocFee ,String matrixCreditType, String sheet_name) throws IOException {
 		//write / take global variables and set to excel sheet for calculation
 		 
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
@@ -1826,7 +1827,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-		//rfl values fakt on hotya baki sarv comment hotya 
+
 		wb.getSheet(sheet_name).getRow(59).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("option_to_purchase_fee")));
 		wb.getSheet(sheet_name).getRow(61).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
 		wb.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
@@ -1834,6 +1835,8 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		else{wb.getSheet(sheet_name).getRow(63).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));}
 		wb.getSheet(sheet_name).getRow(65).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("min_margin_percentage_for_broker_vrb")));
 		wb.getSheet(sheet_name).getRow(107).getCell(0).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
+		wb.getSheet(sheet_name).getRow(113).getCell(1).setCellValue(DocFee);
+		
 		wb.getSheet(sheet_name).getRow(68).getCell(1).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(69).getCell(1).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(71).getCell(1).setCellValue(0);
@@ -1849,7 +1852,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
 	}
 	
-	public void set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(String matrixCreditType, String sheet_name) throws IOException {
+	public void set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(String DocFee ,String matrixCreditType, String sheet_name) throws IOException {
 		//write / take global variables and set to excel sheet for calculation
 		 
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
@@ -1865,6 +1868,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		else{wb.getSheet(sheet_name).getRow(72).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));}
 		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("min_margin_percentage_for_broker_vrb")));
 		wb.getSheet(sheet_name).getRow(116).getCell(0).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
+		wb.getSheet(sheet_name).getRow(122).getCell(1).setCellValue(DocFee);
 		wb.getSheet(sheet_name).getRow(77).getCell(1).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(78).getCell(1).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(0);
@@ -1955,6 +1959,40 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		return GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
 				
 	}
+	
+	public double get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_pcp(String maintenance_status,
+			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee, String sheet_name) throws IOException
+	{
+		
+		LO.print("Writing screen values to Excel for customer quote calculation -started" );
+		System.out.println("Writing screen values to Excel for customer quote calculation -started" );
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		
+				 
+		wb.getSheet(sheet_name).getRow(113).getCell(4).setCellValue(maintenance_status);
+		wb.getSheet(sheet_name).getRow(119).getCell(0).setCellValue(balloon_payment_status);
+		wb.getSheet(sheet_name).getRow(119).getCell(0).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(119).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(119).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(160).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(160).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(161).getCell(6).setCellValue(0);	
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+			
+		LO.print("Writing screen values to Excel for customer quote calculation -completed" );
+		System.out.println("Writing screen values to Excel for customer quote calculation -completed" );
+		
+		return GetExcelFormulaValue.get_formula_value(103, 1, sheet_name);
+				
+	}
+
 	public double get_monthly_maintenance_payment_from_excel_for_funder_addition(String sheet_name) throws IOException
 	{
 		
@@ -1982,6 +2020,36 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 				
 	}
 	
+	public double get_monthly_maintenance_payment_from_excel_for_funder_addition_cp_pcp(String maintenance_status ,String balloon_payment_status ,String sheet_name) throws IOException
+	{
+		
+		
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		wb.getSheet(sheet_name).getRow(113).getCell(4).setCellValue(maintenance_status);
+		wb.getSheet(sheet_name).getRow(119).getCell(0).setCellValue(balloon_payment_status);
+		wb.getSheet(sheet_name).getRow(119).getCell(0).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(119).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(119).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(160).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(160).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(161).getCell(6).setCellValue(0);	
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);	
+		out.close();
+			
+		LO.print("Writing screen values to Excel for customer quote calculation -completed" );
+		System.out.println("Writing screen values to Excel for customer quote calculation -completed" );
+		
+		return GetExcelFormulaValue.get_formula_value(102, 1, sheet_name);
+				
+	}
+
+	
 	public double get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_purchase(String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee, String sheet_name) throws IOException
 	{
@@ -1995,7 +2063,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		
 				 
 	 
-		wb.getSheet(sheet_name).getRow(113).getCell(4).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(113).getCell(4).setCellValue(maintenance_status);
 	
 		
 		

@@ -287,7 +287,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
          
         obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
         
-        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(matrix_credit_type ,sheet_name);
+        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(document_fee ,matrix_credit_type ,sheet_name);
         
              
        ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
@@ -364,7 +364,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
          
         obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
         
-        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(matrix_credit_type ,sheet_name);
+        obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(document_fee ,matrix_credit_type ,sheet_name);
         
              
        ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);

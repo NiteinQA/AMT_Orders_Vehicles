@@ -312,11 +312,20 @@ public class HoldingCost_CP_CP_Page extends TestBase {
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		 
+		
+		 
+	    Click.on(driver, holding_cost_summary, 30);
+		 
+		 ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+		 
+		 String totalCapMaintenanceValue =  RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2));
+		 
+		 
 		 obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		 
 			obj_read_excel_calculation_page =new ReadExcelCalculationForPurchaseAgreement();
 		   double monthly_holding_cost_expected=  obj_read_excel_calculation_page.verify_holding_cost_after_adding_funder_with_maintenance_for_cp_purchase( cashDeposit , term, milesPerAnnum, monthlyPayment,
-				   optionalFinalPayment,optionToPurchaseFee , monthlyMaintPayment, documentFee , sheet_name);
+				   optionalFinalPayment,optionToPurchaseFee , monthlyMaintPayment, documentFee , totalCapMaintenanceValue ,sheet_name);
 		 
 		 ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
 		 String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);

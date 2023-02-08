@@ -312,7 +312,9 @@ public class HoldingCost_HPNR_CP_Page extends TestBase {
 		 ExplicitWait.visibleElement(driver, total_cash_price, 10);
 
 		String totalCashPrice = RemoveComma.of(total_cash_price.getText().trim().substring(2));
-				 
+		
+		Thread.sleep(3000);
+		
 		 Click.on(driver, add, 30);	 
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
@@ -394,7 +396,9 @@ public class HoldingCost_HPNR_CP_Page extends TestBase {
 		 ExplicitWait.visibleElement(driver, total_cash_price, 10);
 
 		String totalCashPrice = RemoveComma.of(total_cash_price.getText().trim().substring(2));
-				 
+			
+		Thread.sleep(2000);
+		
 		 Click.on(driver, add, 30);	 
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
