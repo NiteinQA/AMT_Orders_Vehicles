@@ -90,11 +90,22 @@ public class Acquisition_Quotes_Outright_HPR_with_maintenance_Test extends TestB
 
 		obj_holding_cost_page = new HoldingCostOutrightHPRPage();
 	
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_page
-				.verify_holding_cost_with_maintenance( percentage_cap_maint_value, 
-					 residual_value_used,  maint_cost_used, percentage_cap_residual_value,
-				     maintenance_status,  target_rental,  sheet_name );
-		Assert.assertTrue(holding_cost_without_maintenance_boolean);
+		boolean holding_cost_before_editing_percentage_values = obj_holding_cost_page.verify_holding_cost_before_editing_cap_data_with_maintenance(
+				percentage_cap_maint_value, residual_value_used, maint_cost_used,
+				percentage_cap_residual_value, maintenance_status, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_before_editing_percentage_values);
+		
+		
+		boolean holding_cost_after_editing_percentage_values  = obj_holding_cost_page.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
+				percentage_cap_maint_value, residual_value_used, maint_cost_used,
+				percentage_cap_residual_value, maintenance_status, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_percentage_values );
+		
+		boolean holding_cost_after_editing_residual_and_maint_cost  = obj_holding_cost_page.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
+				percentage_cap_maint_value, residual_value_used, maint_cost_used,
+				percentage_cap_residual_value, maintenance_status, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost );
+	
 	
 
 	}

@@ -97,6 +97,19 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 	
 	@FindBy(xpath = "//input[@id='finalBalloonPayment']")
 	private WebElement finalBalloonPayment;
+	
+    
+	//security deposit
+	@FindBy(xpath = "//*[@id='securityDeposit']")
+	private WebElement security_deposit_input_field;
+	
+	//matrix upsell
+	@FindBy(xpath = "//*[@id='upsell']")
+	private WebElement matrix_upsell_input_field;
+	
+	//referrer commission
+	@FindBy(xpath = "//*[@id='FinanceCommission']")
+	private WebElement referrer_upsell_input_field;
 
 	public CustomerQuotePageBrokerFLPage() {
 		PageFactory.initElements(driver, this);

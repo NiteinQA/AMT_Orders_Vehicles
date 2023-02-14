@@ -84,6 +84,19 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 	
 	@FindBy(xpath = "//span[@class='slider round']")
 	private WebElement maintenance_toggle_button;
+	
+    
+	//security deposit
+	@FindBy(xpath = "//*[@id='securityDeposit']")
+	private WebElement security_deposit_input_field;
+	
+	//matrix upsell
+	@FindBy(xpath = "//*[@id='upsell']")
+	private WebElement matrix_upsell_input_field;
+	
+	//referrer commission
+	@FindBy(xpath = "//*[@id='FinanceCommission']")
+	private WebElement referrer_upsell_input_field;
 	 
 
 

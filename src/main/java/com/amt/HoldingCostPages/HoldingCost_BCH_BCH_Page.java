@@ -50,6 +50,11 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 	private WebElement total_monthly_holding_cost;
 	
 	
+	
+	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
+	private WebElement holding_cost_summary_residual_value_used;
+	
+	
 	@FindBy(xpath = "//input[@id='CapMaintenancePercentage']")
 	private WebElement percentage_maintenance_cost_used;
 	

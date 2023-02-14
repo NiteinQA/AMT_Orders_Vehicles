@@ -142,7 +142,7 @@ public class Acquisition_Quotes_HPNR_HPNR_with_funder_quote_addition_without_mai
 		boolean monthlyFinancePaymentCheckAfterBalloonPaymentOff = obj_customer_quote_page
 				.check_monthly_finance_payment_after_making_balloon_payment_off(sheet_name);
 
-		//Assert.assertTrue(monthlyFinancePaymentCheckAfterBalloonPaymentOff);
+		Assert.assertTrue(monthlyFinancePaymentCheckAfterBalloonPaymentOff);
 	}
 
 	@Test(priority = 5, dataProvider = "testData", dependsOnMethods = {

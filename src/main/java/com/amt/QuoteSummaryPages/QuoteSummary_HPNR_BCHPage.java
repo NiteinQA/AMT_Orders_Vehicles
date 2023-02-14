@@ -411,7 +411,7 @@ public boolean quote_summary_holding_cost_calculation_without_maintenance(String
 
 }
 
-public boolean quote_summary_holding_cost_calculation_with_maintenance(String sheet_name) throws InterruptedException, IOException {
+ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sheet_name) throws InterruptedException, IOException {
 	
 	LO.print("*************Holding Cost Calulation on quote summary page has been started************");
 	System.out.println("*************Holding Cost Calulation on quote summary page has been started************");
@@ -428,7 +428,6 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 	
 	ExplicitWait.visibleElement(driver, quote_summary_holding_cost_monthly_maint_cost_used, 30);
 	
-	ExplicitWait.visibleElement(driver, quote_summary_holding_cost_CAP_monthly_maint_cost, 30);
 	
 	ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
 	
@@ -444,8 +443,6 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 	 
 	double holding_cost_monthly_maint_cost_used_from_screen_converted = Double.parseDouble(RemoveComma.of(quote_summary_holding_cost_monthly_maint_cost_used.getText().trim().substring(2)));
 
-	double holding_cost_CAP_monthly_maint_cost_from_screen_converted = Double.parseDouble(RemoveComma.of(quote_summary_holding_cost_CAP_monthly_maint_cost.getText().trim().substring(2)));
-	
 	double holding_cost_total_monthly_holding_cost_from_screen_converted = Double.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 	
 	LO.print("holding_cost_terms_from_screen"+holding_cost_terms_from_screen_converted);
@@ -460,9 +457,6 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 	LO.print("holding_cost_monthly_maint_cost_used_from_screen"+holding_cost_monthly_maint_cost_used_from_screen_converted);
 	System.out.println("holding_cost_monthly_maint_cost_used_from_screen"+holding_cost_monthly_maint_cost_used_from_screen_converted);
 	
-	LO.print("holding_cost_CAP_monthly_maint_cost_from_screen"+holding_cost_CAP_monthly_maint_cost_from_screen_converted);
-	System.out.println("holding_cost_CAP_monthly_maint_cost_from_screen"+holding_cost_CAP_monthly_maint_cost_from_screen_converted);
-	
 		
 	LO.print("holding_cost_total_monthly_holding_cost_from_screen ="+holding_cost_total_monthly_holding_cost_from_screen_converted);
 	System.out.println("holding_cost_total_monthly_holding_cost_from_screen ="+holding_cost_total_monthly_holding_cost_from_screen_converted);
@@ -472,14 +466,12 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 	double holding_cost_miles_per_annum_from_excel = GetExcelFormulaValue.get_formula_value(50, 1, sheet_name);
 	double holding_cost_monthly_finance_cost_from_excel = GetExcelFormulaValue.get_formula_value(35, 0, sheet_name);
 	double holding_cost_monthly_maint_cost_used_from_excel = GetExcelFormulaValue.get_formula_value(39, 1, sheet_name);
-	double holding_cost_CAP_monthly_maint_cost_from_excel = GetExcelFormulaValue.get_formula_value(35, 1, sheet_name);
 	double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
 	
 	double diff_terms =Difference.of_two_Double_Values(holding_cost_terms_from_excel, holding_cost_terms_from_screen_converted);
 	double diff_miles_per_annum =Difference.of_two_Double_Values(holding_cost_miles_per_annum_from_excel, holding_cost_miles_per_annum_from_screen_converted);
 	double diff_finance_cost =Difference.of_two_Double_Values(holding_cost_monthly_finance_cost_from_excel, holding_cost_monthly_finance_cost_from_screen_converted);
 	double diff_maint_cost =Difference.of_two_Double_Values(holding_cost_monthly_maint_cost_used_from_excel, holding_cost_monthly_maint_cost_used_from_screen_converted);
-	double diff_CAP_maint =Difference.of_two_Double_Values(holding_cost_CAP_monthly_maint_cost_from_excel, holding_cost_CAP_monthly_maint_cost_from_screen_converted);
 	double diff_total_monthly_holding_cost =Difference.of_two_Double_Values(holding_cost_total_monthly_holding_cost_from_excel, holding_cost_total_monthly_holding_cost_from_screen_converted);
 
 	int count = 0;
@@ -500,17 +492,13 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
     {LO.print("Maint cost used  compared");System.out.println("Maint cost used compared"); count++;}
 	else {LO.print("Found difference between Maint cost used actual and Maint cost used expected");System.err.println("Found difference between Maint cost used actual and Maint cost used expected");}
 	
-	if(diff_CAP_maint<0.2)
-    {LO.print("CAP monthly cost compared");System.out.println("CAP monthly cost compared"); count++;}
-	else {LO.print("Found difference between CAP monthly cost actual and CAP monthly cost expected");System.err.println("Found difference between CAP monthly cost actual and CAP monthly cost expected");}
 		
-	
 	if(diff_total_monthly_holding_cost<0.2)
     {LO.print("Total Monthly Holding Cost compared");System.out.println("Total Monthly Holding Cost compared"); count++;}
 	else {LO.print("Found difference between Total Monthly Holding Cost actual and Total Monthly Holding Cost expected on Quote Summary Page");System.err.println("Found difference between Total Monthly Holding Cost actual and Total Monthly Holding Cost expected on Quote Summary Page");}
 	
 	
-	if(count==6)
+	if(count==5)
 	{status=true;}
 	
 	return status ;

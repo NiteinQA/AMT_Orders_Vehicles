@@ -39,7 +39,7 @@ public class Acquisition_Quotes_CP_BCH_without_maintenance_Test extends TestBase
 			String  road_tax_for_first_year, String on_road_price_for_invoice, String percentage_cap_residual_value_used,
 			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_acq_listing_page = new AcquisitionListingPage();
@@ -63,7 +63,7 @@ public class Acquisition_Quotes_CP_BCH_without_maintenance_Test extends TestBase
 			String  road_tax_for_first_year, String on_road_price_for_invoice, String percentage_cap_residual_value_used,
 			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_CP_BCH_Page();
@@ -81,15 +81,25 @@ public class Acquisition_Quotes_CP_BCH_without_maintenance_Test extends TestBase
 			String  road_tax_for_first_year, String on_road_price_for_invoice, String percentage_cap_residual_value_used,
 			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page();
 	
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_CP_BCH_page
-				.verify_holding_cost_without_maintenance(sheet_name);
-		Assert.assertTrue(holding_cost_without_maintenance_boolean);
-	
+		boolean holding_cost_before_editing_percentage_value = obj_holding_cost_CP_BCH_page
+				.verify_holding_cost_before_editing_cap_values_without_maintenance(residual_value_used, percentage_cap_residual_value_used,
+						maintenance_required, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_before_editing_percentage_value);
+		
+		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_CP_BCH_page
+				.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value_used,
+						maintenance_required, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_percentage_value);
+		
+		boolean holding_cost_after_editing_residual_value = obj_holding_cost_CP_BCH_page
+				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value_used,
+						maintenance_required, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_residual_value);
 
 	}
 	
@@ -99,7 +109,7 @@ public class Acquisition_Quotes_CP_BCH_without_maintenance_Test extends TestBase
 			String  road_tax_for_first_year, String on_road_price_for_invoice, String percentage_cap_residual_value_used,
 			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 
@@ -108,10 +118,18 @@ public class Acquisition_Quotes_CP_BCH_without_maintenance_Test extends TestBase
 		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
 				.customer_Quote_CP_BCH_for_one_payment_option_without_maintenance_calculation(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
-						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, upsell,
+						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell,
 						 maintenance_required, maintenance_margin, initial_payment,
 						part_exchange_status, target_rental,sheet_name);
 		Assert.assertTrue(customer_quote_for_payment_boolean);
+		
+//		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
+//				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
+//						referrer_upsell, add_terms, add_mileage, sheet_name);
+//
+//		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+
+		
 		
 		boolean finance_rental_with_part_exchange = obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_without_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
 		 
@@ -132,7 +150,7 @@ public class Acquisition_Quotes_CP_BCH_without_maintenance_Test extends TestBase
 			String  road_tax_for_first_year, String on_road_price_for_invoice, String percentage_cap_residual_value_used,
 			String residual_value_used , String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_quote_summary_page = new QuoteSummary_CP_BCH_Page();

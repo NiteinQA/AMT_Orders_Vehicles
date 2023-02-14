@@ -78,10 +78,20 @@ public class Acquisition_Quotes_Outright_HPNR_without_maintenance_edited_Test ex
 
 		obj_holding_cost_Outright_HPNR_page = new HoldingCostOutrightHPNRPage();
 	
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_Outright_HPNR_page
-				.verify_holding_cost_without_maintenance(sheet_name);
-		Assert.assertTrue(holding_cost_without_maintenance_boolean);
-	
+		boolean holding_cost_before_editing_percentage_value = obj_holding_cost_Outright_HPNR_page
+				.verify_holding_cost_before_editing_cap_values_without_maintenance(residual_value_used, percentage_cap_residual_value,
+						maintenance_status, sheet_name);
+		Assert.assertTrue(holding_cost_before_editing_percentage_value);
+		
+		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_Outright_HPNR_page
+				.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value,
+						maintenance_status,  sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_percentage_value);
+		
+		boolean holding_cost_after_editing_residual_value = obj_holding_cost_Outright_HPNR_page
+				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value,
+						maintenance_status, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_residual_value);
 
 	}
 	

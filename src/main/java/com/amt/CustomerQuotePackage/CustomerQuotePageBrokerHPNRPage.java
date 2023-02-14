@@ -251,6 +251,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		Click.sendKeys(driver, commission, commission2, 60);
 
+		Thread.sleep(3000);
+		
 		Click.on(driver, add, 60);	
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
@@ -283,7 +285,7 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		boolean balance_to_finance_status=false;
 		if((balance_to_finance_expected-balance_to_finance_actual)==0)
 		{balance_to_finance_status=true;LO.print("Balance to finance value from customer quote summary - verified");System.out.println("Balance to finance value from customer quote summary - verified");}
-		else {LO.print("xxx -Please check Balance to finance value from customer quote summary");System.out.println("xxx -Please check Balance to finance value from customer quote summary");}
+		else {LO.print("xxx -Please check Balance to finance value from customer quote summary");System.err.println("xxx -Please check Balance to finance value from customer quote summary");}
 		
 				
 		

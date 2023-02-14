@@ -595,10 +595,14 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
 	
 	public boolean put_part_exchange_values_and_check_monthly_finance_payment(String part_exchange_actual, String part_exchange_given, String less_finance_settlement, String  order_deposit, String  finance_deposit , String sheet_name) throws UnsupportedFlavorException, IOException, InterruptedException
 	{
+		
+		Actions act = new Actions (driver);
+		
 		Click.on(driver, part_exchange_and_additional_payment_button, 30);
 		
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual , 30);
 		
+	
 		Click.on(driver, given_part_exchange_value, 30);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
@@ -609,17 +613,17 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
 		
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		
-		Click.on(driver, order_Deposit, 30);		
+		act.sendKeys(Keys.TAB).build().perform();	
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		
-		Click.on(driver, finance_Deposit, 30);
+		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		Click.sendKeys(driver, finance_Deposit ,finance_deposit, 30);
 		
-		Click.on(driver, document_fee, 30);
+		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 		ExplicitWait.visibleElement(driver, document_fee, 30);

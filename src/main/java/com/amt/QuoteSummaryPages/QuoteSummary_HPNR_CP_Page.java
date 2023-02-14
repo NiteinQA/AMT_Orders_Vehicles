@@ -549,7 +549,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 	}
 
-	public boolean quote_summary_holding_cost_calculation_with_maintenance(String sheet_name)
+		public boolean quote_summary_holding_cost_calculation_with_maintenance(String sheet_name)
 			throws InterruptedException, IOException {
 
 		LO.print("*************Holding Cost Calulation on quote summary page has been started************");
@@ -564,8 +564,6 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_holding_cost_monthly_finance_cost, 30);
 
 		ExplicitWait.visibleElement(driver, quote_summary_holding_cost_monthly_maint_cost_used, 30);
-
-		ExplicitWait.visibleElement(driver, quote_summary_holding_cost_CAP_monthly_maint_cost, 30);
 
 		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
 
@@ -584,9 +582,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		double holding_cost_monthly_maint_cost_used_from_screen_converted = Double.parseDouble(
 				RemoveComma.of(quote_summary_holding_cost_monthly_maint_cost_used.getText().trim().substring(2)));
 
-		double holding_cost_CAP_monthly_maint_cost_from_screen_converted = Double.parseDouble(
-				RemoveComma.of(quote_summary_holding_cost_CAP_monthly_maint_cost.getText().trim().substring(2)));
-
+	
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 
@@ -607,11 +603,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		System.out.println("holding_cost_monthly_maint_cost_used_from_screen"
 				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
 
-		LO.print("holding_cost_CAP_monthly_maint_cost_from_screen"
-				+ holding_cost_CAP_monthly_maint_cost_from_screen_converted);
-		System.out.println("holding_cost_CAP_monthly_maint_cost_from_screen"
-				+ holding_cost_CAP_monthly_maint_cost_from_screen_converted);
-
+	
 		LO.print("holding_cost_total_monthly_holding_cost_from_screen ="
 				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
 		System.out.println("holding_cost_total_monthly_holding_cost_from_screen ="
@@ -621,8 +613,6 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		double holding_cost_miles_per_annum_from_excel = GetExcelFormulaValue.get_formula_value(50, 1, sheet_name);
 		double holding_cost_monthly_finance_cost_from_excel = GetExcelFormulaValue.get_formula_value(35, 0, sheet_name);
 		double holding_cost_monthly_maint_cost_used_from_excel = GetExcelFormulaValue.get_formula_value(39, 1,
-				sheet_name);
-		double holding_cost_CAP_monthly_maint_cost_from_excel = GetExcelFormulaValue.get_formula_value(35, 1,
 				sheet_name);
 		double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1,
 				sheet_name);
@@ -635,8 +625,6 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 				holding_cost_monthly_finance_cost_from_screen_converted);
 		double diff_maint_cost = Difference.of_two_Double_Values(holding_cost_monthly_maint_cost_used_from_excel,
 				holding_cost_monthly_maint_cost_used_from_screen_converted);
-		double diff_CAP_maint = Difference.of_two_Double_Values(holding_cost_CAP_monthly_maint_cost_from_excel,
-				holding_cost_CAP_monthly_maint_cost_from_screen_converted);
 		double diff_total_monthly_holding_cost = Difference.of_two_Double_Values(
 				holding_cost_total_monthly_holding_cost_from_excel,
 				holding_cost_total_monthly_holding_cost_from_screen_converted);
@@ -681,16 +669,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 			System.err.println("Found difference between Maint cost used actual and Maint cost used expected");
 		}
 
-		if (diff_CAP_maint < 0.2) {
-			LO.print("CAP monthly cost compared");
-			System.out.println("CAP monthly cost compared");
-			count++;
-		} else {
-			LO.print("Found difference between CAP monthly cost actual and CAP monthly cost expected");
-			System.err.println("Found difference between CAP monthly cost actual and CAP monthly cost expected");
-		}
-
-		if (diff_total_monthly_holding_cost < 0.2) {
+			if (diff_total_monthly_holding_cost < 0.2) {
 			LO.print("Total Monthly Holding Cost compared");
 			System.out.println("Total Monthly Holding Cost compared");
 			count++;
@@ -701,14 +680,13 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 					"Found difference between Total Monthly Holding Cost actual and Total Monthly Holding Cost expected on Quote Summary Page");
 		}
 
-		if (count == 6) {
+		if (count == 5) {
 			status = true;
 		}
 
 		return status;
 
 	}
-
 	public boolean quote_summary_customer_quote_summary_value_verification_without_maintenance(String sheet_name)
 			throws IOException {
 
@@ -2409,6 +2387,102 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		return status;
 	}
 
+	public boolean quote_summary_edit_customer_rate_over_base_value_verification_for_funder(String sheet_name)
+			throws IOException, InterruptedException {
+
+		LO.print(
+				"*************Editing Customer Rate Over Base and Verifying Values on quote summary page has been started************");
+		System.out.println(
+				"*************Editing Customer Rate Over Base and Verifying Values on quote summary page has been started************");
+
+		// Edit finance margin configuration values from screen
+
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_base_over_rate, 30);
+		quote_summary_configuration_customer_base_over_rate.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		quote_summary_configuration_customer_base_over_rate.sendKeys("5.0");
+
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		LO.print("Customer Base Over Rate changed to 5.0 %");
+		System.out.println("Customer Base Over Rate changed to 5.0 %");
+
+		// Getting values from screen Thread.sleep(2000);
+
+		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
+
+		double customer_quote_summary_monthly_finance_rental_from_screen = Double
+				.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
+
+		double customer_quote_summary_finance_charges = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
+
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
+		double customer_quote_summary_balance_payable = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
+
+		// writing values to excel
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(72).getCell(1).setCellValue(0.05);
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+		// getting values from excel
+
+		double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(175, 0, sheet_name);
+
+		double financeCharges = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+
+		double balancePayable = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+
+		// verifying actual and expected values
+
+		int count = 0;
+
+		boolean status = false;
+		// 1
+		if (Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen,
+				monthlyFinanceRental) < 0.2) {
+			LO.print("Monthly Finance Rental after changing Customer Base Over Rate -  found OK");
+			System.out.println("Monthly Finance Rental after changing Customer Base Over Rate -  found OK");
+			count++;
+		} else {
+			LO.print("Monthly Finance Rental after changing Customer Base Over Rate -  found wrong");
+			System.err.println("Monthly Finance Rental after changing Customer Base Over Rate -  found wrong");
+		}
+		// 2
+		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+			LO.print("Finance Charges - found OK");
+			System.out.println("Finance Charges - found OK");
+			count++;
+		} else {
+			LO.print("Finance Charges - found wrong");
+			System.err.println("Finance Charges - found wrong");
+		}
+
+		// 3
+		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+			LO.print("Balance Payable - found OK");
+			System.out.println("Balance Payable - found OK");
+			count++;
+		} else {
+			LO.print("Balance Payable - found wrong");
+			System.err.println("Balance Payable - found wrong");
+		}
+
+		if (count == 3) {
+			status = true;
+		}
+
+		return status;
+	}
+
 	public boolean quote_summary_edit_customer_rate_over_base_value_verification(String sheet_name)
 			throws IOException, InterruptedException {
 
@@ -2505,6 +2579,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		return status;
 	}
 
+	
 	public boolean quote_summary_edit_maintenance_margin_value_verification(String sheet_name)
 			throws IOException, InterruptedException {
 

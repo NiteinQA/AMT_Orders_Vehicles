@@ -38,7 +38,9 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 	@FindBy(xpath = "//div[@class='acc-head havebtns']")
 	private WebElement holding_cost_summary;
 		
-	@FindBy(xpath = "//div[@class='vehicleDetails ownBookHolding']//div[7]//p[1]")
+	
+	
+	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
 	private WebElement holding_cost_summary_residual_value_used;
 	
 	@FindBy(xpath = "//*[@id='ResidualValue']")
@@ -83,63 +85,201 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 	
 	
 
-	public boolean verify_holding_cost_without_maintenance(String sheet_name) throws IOException, InterruptedException {
+
+	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(String residual_value_used_from_excel,
+			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
+			String sheet_name) throws IOException, InterruptedException {
 		Click.on(driver, holding_cost, 30);
-		
+
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
+
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
-		Click.on(driver, holding_cost_summary, 30);			
-		
+		Click.on(driver, holding_cost_summary, 30);
+
 		Thread.sleep(3000);
-		 LO.print("Clicked on holding cost summary");
-		  System.out.println("Clicked on holding cost summary");
+
+		LO.print("Clicked on holding cost summary");
+		System.out.println("Clicked on holding cost summary");
+
+		// code for checking default holding cost based on CAP data
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		return obj_read_excel_calculation_page
+				.verify_holding_cost_before_editing_cap_values_without_maintenance(driver, holding_cost_summary_terms,
+						holding_cost_summary_mileage, holding_cost_summary_residual_value_used,
+						total_monthly_holding_cost, residual_value_used_from_excel, percentage_cap_residual_value_used,
+						sheet_name);		
+	}
+
+	
+	public boolean edit_percentage_residual_verify_holding_cost_without_maintenance (String residual_value_used_from_excel,
+			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
+			String sheet_name) throws IOException, InterruptedException {
 		
-		obj_read_excel_calculation_page =new ReadExcelCalculation();
-		return obj_read_excel_calculation_page.verify_holding_cost_without_maintenance(driver,
-				holding_cost_summary_terms, holding_cost_summary_mileage, 
-				holding_cost_summary_residual_value_used, total_monthly_holding_cost, 
-				sheet_name);
-			}
+		// Code for Edit percentage cap residual value  
 
+		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
 
+		holding_cost_percentage_cap_residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
-	public boolean verify_holding_cost_with_maintenance(String percentage_maintenance_cost_used_from_excel, 
-			String residual_value_used_from_excel, String maintenance_cost_used_from_excel,String percentage_cap_residual_value_used,
-			String maintenance_required, String target_rental, String sheet_name ) throws IOException, InterruptedException {
+		Click.sendKeys(driver, holding_cost_percentage_cap_residual_value_used, percentage_cap_residual_value_used, 20);
+
 		Actions act = new Actions(driver);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		return obj_read_excel_calculation_page
+				.edit_percentage_residual_verify_holding_cost_without_maintenance(driver, holding_cost_summary_terms,
+						holding_cost_summary_mileage, holding_cost_summary_residual_value_used,
+						total_monthly_holding_cost, residual_value_used_from_excel, percentage_cap_residual_value_used,
+						sheet_name);		
+	}
+
+	
+	public boolean edit_residual_value_used_then_verify_holding_cost_without_maintenance(String residual_value_used_from_excel,
+			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
+			String sheet_name) throws IOException, InterruptedException {
+	
+		Actions act = new Actions(driver);
+		// code for editing residual value used and maint cost used
+
+		ExplicitWait.visibleElement(driver, residual_value_used, 30);
+
+		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		Click.sendKeys(driver, residual_value_used, residual_value_used_from_excel, 20);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		return obj_read_excel_calculation_page
+				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(driver,
+						holding_cost_summary_terms, holding_cost_summary_mileage,
+						holding_cost_summary_residual_value_used, total_monthly_holding_cost,
+						residual_value_used_from_excel, percentage_cap_residual_value_used, sheet_name);
 		
+	}
+
+
+
+	public boolean verify_holding_cost_before_editing_cap_data_with_maintenance(
+			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
+			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
+			String maintenance_required, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+		Actions act = new Actions(driver);
+
 		Click.on(driver, holding_cost, 30);
-		
-		  LO.print("***********Entered in holding cost page ***********");
-		  System.out.println("***********Entered in holding cost page ***********");
-		  ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
-		Click.on(driver, holding_cost_summary, 30);			
-		
+
+		LO.print("***********Entered in holding cost page ***********");
+		System.out.println("***********Entered in holding cost page ***********");
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Click.on(driver, holding_cost_summary, 30);
+
 		Thread.sleep(3000);
-		  LO.print("Clicked on holding cost summary");
-		  System.out.println("Clicked on holding cost summary");
-		  
-		Click.on(driver, holding_cost_maintenance_toggle_button,30);
-		
+
+		LO.print("Clicked on holding cost summary");
+		System.out.println("Clicked on holding cost summary");
+
+		Click.on(driver, holding_cost_maintenance_toggle_button, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		LO.print("Clicked on holding_cost_maintenance_toggle_button");
-		  System.out.println("Clicked on holding_cost_maintenance_toggle_button");
-		  percentage_maintenance_cost_used.clear();
-		  
-		  ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 50);
-		  ExplicitWait.visibleElement(driver, percentage_maintenance_cost_used, 50);		  
-		  ExplicitWait.visibleElement(driver, residual_value_used, 50);
-		  
-		   
-		obj_read_excel_calculation_page =new ReadExcelCalculation();
-		return  obj_read_excel_calculation_page.verify_holding_cost_with_maintenance(driver,
-				holding_cost_summary_terms, holding_cost_summary_mileage, 
-				holding_cost_summary_residual_value_used, total_monthly_holding_cost, holding_cost_maintenance_cost_used,
-				holding_cost_percentage_cap_residual_value_used,total_cap_maintenance_value,  maintenance_required,target_rental,
-				residual_value_used_from_excel,maintenance_cost_used_from_excel, percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel,
-				sheet_name);
-		
-		
-		
+		System.out.println("Clicked on holding_cost_maintenance_toggle_button");
+
+		// code for checking holding cost without editing any value
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		return obj_read_excel_calculation_page.verify_holding_cost_before_editing_cap_data_with_maintenance(driver,
+				holding_cost_summary_terms, holding_cost_summary_mileage, holding_cost_summary_residual_value_used,
+				total_monthly_holding_cost, holding_cost_maintenance_cost_used,
+				holding_cost_percentage_cap_residual_value_used, total_cap_maintenance_value, maintenance_required,
+				target_rental, residual_value_used_from_excel, maintenance_cost_used_from_excel,
+				percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel, sheet_name);
+	}
+
+	public boolean edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
+			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
+			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
+			String maintenance_required, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+		Actions act = new Actions(driver);
+
+		// Code for Edit percentage cap residual value and maint on screen
+
+		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, percentage_maintenance_cost_used, 20);
+
+		holding_cost_percentage_cap_residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		Click.sendKeys(driver, holding_cost_percentage_cap_residual_value_used, percentage_cap_residual_value_used, 20);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		percentage_maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		Click.sendKeys(driver, percentage_maintenance_cost_used, percentage_maintenance_cost_used_from_excel, 20);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		return obj_read_excel_calculation_page
+				.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(driver,
+						holding_cost_summary_terms, holding_cost_summary_mileage,
+						holding_cost_summary_residual_value_used, total_monthly_holding_cost,
+						holding_cost_maintenance_cost_used, holding_cost_percentage_cap_residual_value_used,
+						total_cap_maintenance_value, maintenance_required, target_rental,
+						residual_value_used_from_excel, maintenance_cost_used_from_excel,
+						percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel, sheet_name);
+
+	}
+
+	public boolean edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
+			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
+			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
+			String maintenance_required, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+		Actions act = new Actions(driver);
+
+		// code for editing residual value used and maint cost used
+
+		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, maintenance_cost_used, 20);
+
+		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		Click.sendKeys(driver, residual_value_used, residual_value_used_from_excel, 20);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		Click.sendKeys(driver, maintenance_cost_used, maintenance_cost_used_from_excel, 20);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		return obj_read_excel_calculation_page
+				.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(driver,
+						holding_cost_summary_terms, holding_cost_summary_mileage,
+						holding_cost_summary_residual_value_used, total_monthly_holding_cost,
+						holding_cost_maintenance_cost_used, holding_cost_percentage_cap_residual_value_used,
+						total_cap_maintenance_value, maintenance_required, target_rental,
+						residual_value_used_from_excel, maintenance_cost_used_from_excel,
+						percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel, sheet_name);
 	}
 }

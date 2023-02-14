@@ -220,7 +220,18 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(4).getCell(1).setCellValue(vehicle_additional_discount);
 		wb.getSheet(sheet_name).getRow(4).getCell(2).setCellValue(paint_additional_discount);
 		wb.getSheet(sheet_name).getRow(4).getCell(3).setCellValue(options_additional_discount);
-
+		
+		if(sheet_name.contains("Formula1")||sheet_name.contains("BCH (Formula 3)"))
+		{
+		wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(101).getCell(3).setCellValue(0);
+		}
+		else
+		{
+			wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(107).getCell(3).setCellValue(0);			
+		}
+		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 		LO.print("Writing OTR table values to excel sheet -Completed ");
@@ -626,6 +637,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(12).getCell(4).setCellValue(road_tax_first_year_converted);
 		wb.getSheet(sheet_name).getRow(13).getCell(4).setCellValue(first_registration_fee_converted);
 		wb.getSheet(sheet_name).getRow(15).getCell(4).setCellValue(rebate_converted);
+		wb.getSheet(sheet_name).getRow(19).getCell(4).setCellValue(0);
 
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
@@ -870,32 +882,29 @@ public class ReadExcelCalculation extends TestBase {
          return flag;
 	}
 
-	public boolean verify_holding_cost_without_maintenance(WebDriver driver,
+	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(WebDriver driver,
 			WebElement holding_cost_summary_terms, WebElement holding_cost_summary_mileage,
 			WebElement holding_cost_summary_residual_value_used, WebElement total_monthly_holding_cost,
-			String sheet_name) throws IOException, InterruptedException 
+			String residual_value_used, String percentage_cap_residual_value_used ,String sheet_name) throws IOException, InterruptedException 
 	{
 		
-		LO.print("***********Holding Cost Calculations has been Started*************");
-		System.out.println("***********Holding Cost Calculations has been Started*************");
+		LO.print("");
+		System.out.println("");
 		
-		Thread.sleep(4000);
+		LO.print("Verifying Holding Cost Based on CAP data");
+		System.out.println("Verifying Holding Cost Based on CAP data");
+		
+		 
 		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 60);
 		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
 		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 60);
 		
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
 		
-		String mileage= holding_cost_summary_mileage.getText();
-		
-		String holding_cost_annual_mileage=RemoveComma.of(mileage);
-		
-		double annual_mileage = Double.parseDouble(holding_cost_annual_mileage);
 		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 50);
-		String reidual_value_used=holding_cost_summary_residual_value_used.getText().substring(2);
 		
-		String reidual_value_used_converted=RemoveComma.of(reidual_value_used);
-		
-		double used_residual_value = Double.parseDouble(reidual_value_used_converted);
+	
+		double used_residual_value = Double.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
 		
 		
 		LO.print("Getting on screen values from Holding Cost Page");
@@ -907,8 +916,8 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Annual_mileage ="+annual_mileage);
 		System.out.println("Annual_mileage ="+annual_mileage);
 		
-		LO.print("Cap_residual_value ="+used_residual_value);
-		System.out.println("Cap_residual_value ="+used_residual_value);
+		LO.print("Cap_residual_value_from_screen ="+used_residual_value);
+		System.out.println("Cap_residual_value_from_screen ="+used_residual_value);
 		
 			
 		LO.print("Writing Holding Cost Summary values to excel has been started");
@@ -922,6 +931,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
 		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(39).getCell(0).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -940,13 +950,11 @@ public class ReadExcelCalculation extends TestBase {
 				LO.print("Reading Monthly Holding Cost value from excel has been completed");
 				System.out.println("Reading Monthly Holding Cost value from excel has been completed");
 				
-			
-				String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);
+					
+				String total_monthly_holding_cost_from_screen=RemoveComma.of(total_monthly_holding_cost.getText().substring(2));
 				
-				String total_monthly_holding_cost_from_screen=RemoveComma.of(monthly_holding_cost);
-				
-				LO.print("Total_monthly_holding_cost_from_screen ="+monthly_holding_cost);
-				System.out.println("Total_monthly_holding_cost_from_screen "+monthly_holding_cost);
+				LO.print("Total_monthly_holding_cost_from_screen ="+total_monthly_holding_cost_from_screen);
+				System.out.println("Total_monthly_holding_cost_from_screen "+total_monthly_holding_cost_from_screen);
 				
 				LO.print("Total_monthly_holding_cost_from_excel ="+monthly_holding_cost_expected);
 				System.out.println("Total_monthly_holding_cost_from_excel "+monthly_holding_cost_expected);
@@ -955,10 +963,197 @@ public class ReadExcelCalculation extends TestBase {
 				double diff=Difference.of_two_Double_Values(total_monthly_holding_cost_actual1, monthly_holding_cost_expected);
 		        boolean flag=false;
 				if(diff<0.2)
-		        {	flag=true;	}				 
+		        {	flag=true;	
+		        LO.print("Total Monthly Holding Cost based on CAP data is Verified and Found OK");
+				System.out.println("Total Monthly Holding Cost based on CAP data is Verified and Found OK");
+
+		        }
+				else
+				{
+					LO.print("Total Monthly Holding Cost based on CAP data is Verified and Found Wrong");
+					System.err.println("Total Monthly Holding Cost based on CAP data is Verified and Found Wrong");
+
+				}
 				
 				return flag;
 	}
+	
+	public boolean edit_percentage_residual_verify_holding_cost_without_maintenance(WebDriver driver,
+			WebElement holding_cost_summary_terms, WebElement holding_cost_summary_mileage,
+			WebElement holding_cost_summary_residual_value_used, WebElement total_monthly_holding_cost,
+			String residual_value_used, String percentage_cap_residual_value_used ,String sheet_name) throws IOException, InterruptedException 
+	{
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("Editing % CAP Residual Value used");
+		System.out.println("Editing % CAP Residual Value used");
+		
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 60);
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 60);
+		
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 50);
+		
+	
+		double used_residual_value = Double.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
+		
+		
+		 LO.print("Changing % CAP Residual Value (from test  data) to "+percentage_cap_residual_value_used);
+		 System.out.println("Changing % CAP Residual Value (from test  data) to "+percentage_cap_residual_value_used);
+		
+		
+			
+		LO.print("Writing Holding Cost Summary values to excel has been started");
+		System.out.println("Writing Holding Cost Summary values to excel has been started");
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
+		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
+		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(39).getCell(0).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value_used);
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel has been started");
+		System.out.println("Reading Monthly Holding Cost value from excel has been started");
+
+
+				double monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+				
+				LO.print("Reading Monthly Holding Cost value from excel has been completed");
+				System.out.println("Reading Monthly Holding Cost value from excel has been completed");
+				
+					
+				String total_monthly_holding_cost_from_screen=RemoveComma.of(total_monthly_holding_cost.getText().substring(2));
+				
+				LO.print("Total_monthly_holding_cost_from_screen ="+total_monthly_holding_cost_from_screen);
+				System.out.println("Total_monthly_holding_cost_from_screen "+total_monthly_holding_cost_from_screen);
+				
+				LO.print("Total_monthly_holding_cost_from_excel ="+monthly_holding_cost_expected);
+				System.out.println("Total_monthly_holding_cost_from_excel "+monthly_holding_cost_expected);
+				
+				double total_monthly_holding_cost_actual1=Double.parseDouble(total_monthly_holding_cost_from_screen);	
+				double diff=Difference.of_two_Double_Values(total_monthly_holding_cost_actual1, monthly_holding_cost_expected);
+		        boolean flag=false;
+				if(diff<0.2)
+		        {	flag=true;
+		        
+		        LO.print("Total Monthly Holding Cost After Editing % Residual Value is Verified and Found OK");
+				System.out.println("Total Monthly Holding Cost After Editing % Residual Value is Verified and Found OK");
+	             }	
+				
+				else
+				{
+					LO.print("Total Monthly Holding Cost After Editing % Residual Value is Verified and Found Wrong");
+					System.err.println("Total Monthly Holding Cost After Editing % Residual Value is Verified and Found Wrong");
+		           
+				}
+				
+				return flag;
+	}
+	
+	public boolean edit_residual_value_used_then_verify_holding_cost_without_maintenance(WebDriver driver,
+			WebElement holding_cost_summary_terms, WebElement holding_cost_summary_mileage,
+			WebElement holding_cost_summary_residual_value_used, WebElement total_monthly_holding_cost,
+			String residual_value_used_from_excel, String percentage_cap_residual_value_used ,String sheet_name) throws IOException, InterruptedException 
+	{
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("Editing Residual value used");
+		System.out.println("Editing Residual value used");
+		
+		 
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 60);
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 60);
+		
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 50);
+		
+	
+		double used_residual_value = Double.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
+		
+		LO.print("Changing Residual value used to ="+residual_value_used_from_excel);
+		System.out.println("Changing Residual value used to ="+residual_value_used_from_excel);
+		
+		
+			
+		LO.print("Writing Holding Cost Summary values to excel has been started");
+		System.out.println("Writing Holding Cost Summary values to excel has been started");
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
+		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
+		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(residual_value_used_from_excel);
+		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel has been started");
+		System.out.println("Reading Monthly Holding Cost value from excel has been started");
+
+
+				double monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+				
+				LO.print("Reading Monthly Holding Cost value from excel has been completed");
+				System.out.println("Reading Monthly Holding Cost value from excel has been completed");
+				
+					
+				String total_monthly_holding_cost_from_screen=RemoveComma.of(total_monthly_holding_cost.getText().substring(2));
+				
+				LO.print("Total_monthly_holding_cost_from_screen ="+total_monthly_holding_cost_from_screen);
+				System.out.println("Total_monthly_holding_cost_from_screen "+total_monthly_holding_cost_from_screen);
+				
+				LO.print("Total_monthly_holding_cost_from_excel ="+monthly_holding_cost_expected);
+				System.out.println("Total_monthly_holding_cost_from_excel "+monthly_holding_cost_expected);
+				
+				double total_monthly_holding_cost_actual1=Double.parseDouble(total_monthly_holding_cost_from_screen);	
+				double diff=Difference.of_two_Double_Values(total_monthly_holding_cost_actual1, monthly_holding_cost_expected);
+		        boolean flag=false;
+				if(diff<0.2)
+		        {	flag=true;	
+		        
+		        LO.print("Total Monthly Holding Cost After Editing Residual Value is Verified and Found OK");
+				System.out.println("Total Monthly Holding Cost After Editing Residual Value is Verified and Found OK");
+				}
+				
+				else
+				{
+					LO.print("Total Monthly Holding Cost After Editing Residual Value is Verified and Found Wrong");
+					System.err.println("Total Monthly Holding Cost After Editing Residual Value is Verified and Found Wrong");
+					
+				}
+				
+				return flag;
+	}
+
 	
 	
 	public double verify_holding_cost_after_adding_funder_without_maintenance(String term,String milesPerAnnum,String monthlyFinanceRental,
@@ -1476,7 +1671,6 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(98).getCell(1).setCellValue(" "+dropdown_option+" ");
 		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(101).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
-		wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(Double.parseDouble(upsell));
 		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(initial_payment));
@@ -1505,7 +1699,10 @@ public class ReadExcelCalculation extends TestBase {
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
-	    System.out.println("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
+		
+		LO.print("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
+
+		System.out.println("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
 	    
 		
 		boolean flag=false;
@@ -1547,23 +1744,22 @@ public class ReadExcelCalculation extends TestBase {
 		
 		Thread.sleep(3000);
 		
-		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
-		
-		Thread.sleep(5000);
-		Click.on(driver, part_exchange_payment, 70);
-		LO.print("Clicked on Part Exchange panel" );
-		System.out.println("Clicked on Part Exchange panel" );
-	
-		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
-		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
-		ExplicitWait.visibleElement(driver, document_fee, 30);
-		document_fee.clear();
-		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
-		Actions act = new Actions (driver);
-		act.sendKeys(Keys.TAB).perform();
-		
+//		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+//	
+//		Click.on(driver, part_exchange_payment, 70);
+//		LO.print("Clicked on Part Exchange panel" );
+//		System.out.println("Clicked on Part Exchange panel" );
+//	
+//		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
+//		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+//		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
+//		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
+//		ExplicitWait.visibleElement(driver, document_fee, 30);
+//		document_fee.clear();
+//		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
+//		Actions act = new Actions (driver);
+//		act.sendKeys(Keys.TAB).perform();
+//		
 		LO.print("Writing values to Excel for customer quote calculation -started" );
 		System.out.println("Writing values to Excel for customer quote calculation -started" );
 		 
@@ -1603,7 +1799,10 @@ public class ReadExcelCalculation extends TestBase {
 		String monthly_finance_rental =   customer_quote_monthly_finance_rental.getText().substring(2);
 		String monthly_finance_rental_actual=RemoveComma.of(monthly_finance_rental);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
-	    System.out.println("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
+	   
+		LO.print("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
+
+		System.out.println("Monthly Finance Rental from screen is "+monthly_finance_rental_actual_converted);
 	    
 		
 		boolean flag=false;
@@ -1611,7 +1810,9 @@ public class ReadExcelCalculation extends TestBase {
 		double diff=Difference.of_two_Double_Values(monthly_finance_rental_expected, monthly_finance_rental_actual_converted);
 		
     	if(diff<0.3)
-        {flag=true;}		
+        {flag=true;}
+    	
+    	
 		return flag;		
 		
 	}
@@ -1630,11 +1831,14 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("************Calculations for Customer Quote Page has been started***********" );
 		System.out.println("************Calculations for Customer Quote Page has been started***********" );
 		
-		Thread.sleep(3000);
+		 
 		ExplicitWait.clickableElement(driver, customer_quote_payment_profile_dropdown, 30);
 		Select select=new Select(customer_quote_payment_profile_dropdown);
 		
 		select.selectByIndex(0);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		
 		LO.print("Payment Profile Monthly in Advance option has been selected" );
 		System.out.println("Payment Profile Monthly in Advance option has been selected" );
@@ -1642,23 +1846,23 @@ public class ReadExcelCalculation extends TestBase {
 		List<WebElement> list_dropdown_options = select.getOptions();
 		String dropdown_option=list_dropdown_options.get(0).getText();
 		
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		
-		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
-		Thread.sleep(5000);
-		Click.on(driver, part_exchange_payment, 70);
-		LO.print("Clicked on Part Exchange panel" );
-		System.out.println("Clicked on Part Exchange panel" );
-	
-		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
-		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
-		ExplicitWait.visibleElement(driver, document_fee, 30);
-		document_fee.clear();
-		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
-		Actions act = new Actions (driver);
-		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+//		
+//		Click.on(driver, part_exchange_payment, 70);
+//		LO.print("Clicked on Part Exchange panel" );
+//		System.out.println("Clicked on Part Exchange panel" );
+//	
+//		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
+//		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+//		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
+//		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
+//		ExplicitWait.visibleElement(driver, document_fee, 30);
+//		document_fee.clear();
+//		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
+//		Actions act = new Actions (driver);
+//		act.sendKeys(Keys.TAB).perform();
 		
 		LO.print("Writing values to Excel for customer quote calculation -started" );
 		System.out.println("Writing values to Excel for customer quote calculation -started" );
@@ -2321,8 +2525,8 @@ public class ReadExcelCalculation extends TestBase {
 		
 		return flag;
 	}
-
-	public boolean verify_holding_cost_with_maintenance(WebDriver driver, WebElement holding_cost_summary_terms,
+	
+	public boolean verify_holding_cost_before_editing_cap_data_with_maintenance(WebDriver driver, WebElement holding_cost_summary_terms,
 			WebElement holding_cost_summary_mileage, WebElement holding_cost_summary_residual_value_used,
 			WebElement total_monthly_holding_cost, WebElement holding_cost_maintenance_cost_used,
 			WebElement holding_cost_percentage_cap_residual_value_used, WebElement total_cap_maintenance_value, String maintenance_required,
@@ -2330,33 +2534,29 @@ public class ReadExcelCalculation extends TestBase {
 			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,String sheet_name)
 		throws IOException, InterruptedException  {
 		
+
+		LO.print("");
+		System.out.println("");
+		 	
 		
-		LO.print("***********Holding Cost Calculations has been Started*************");
-		System.out.println("***********Holding Cost Calculations has been Started*************");
+		LO.print("***Verifying Holding Cost before editing CAP data*** ");
+		System.out.println("***Verifying Holding Cost before editing CAP data*** ");
 		Thread.sleep(3000);		
 		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
 		
 		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
 		
 		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
-		String mileage= holding_cost_summary_mileage.getText();
-		
-		String holding_cost_annual_mileage=RemoveComma.of(mileage);
 
-		double annual_mileage = Double.parseDouble(holding_cost_annual_mileage);
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
 		
 		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 30);
-		String residual_value_used=holding_cost_summary_residual_value_used.getText().substring(2);
 		
-		String reidual_value_used_converted=RemoveComma.of(residual_value_used);
+		double used_residual_value = Double.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
 		
-		double used_residual_value = Double.parseDouble(reidual_value_used_converted);
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
 		
-		String total_cap_maintenance_value_annual=total_cap_maintenance_value.getText().substring(2);
-		
-		String total_cap_maintenance_value_annual_converted=RemoveComma.of(total_cap_maintenance_value_annual);
-		
-		double total_cap_maintenance_value_annual_converted_double = Double.parseDouble(total_cap_maintenance_value_annual_converted);
+		double total_cap_maintenance_value_annual_converted_double = Double.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().substring(2)));
 		
 		
 		LO.print("Getting on screen values from Holding Cost Page");
@@ -2368,22 +2568,16 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Annual_mileage ="+annual_mileage);
 		System.out.println("Annual_mileage ="+annual_mileage);
 		
-		LO.print("Cap_residual_value ="+used_residual_value);
-		System.out.println("Cap_residual_value ="+used_residual_value);
+		LO.print("Residual_value_from_screen ="+used_residual_value);
+		System.out.println("Residual_value_from_screen ="+used_residual_value);
 		
-//		LO.print("used_residual_value_from_test_data ="+residual_value_used_from_excel);
-//		System.out.println("used_residual_value_from_test_data ="+residual_value_used_from_excel);
-//		
-//		LO.print("maintenance_cost_used_test_data ="+maintenance_cost_used_from_excel);
-//		System.out.println("maintenance_cost_used_test_data ="+maintenance_cost_used_from_excel);
-			
+		
 		LO.print("Writing Holding Cost Summary values to excel has been started");
 		System.out.println("Writing Holding Cost Summary values to excel has been started");
 		
 	  double residual_value_used_from_excel_converted= Double.parseDouble(residual_value_used_from_excel);
 	  double maintenance_cost_used_from_excel_converted= Double.parseDouble(maintenance_cost_used_from_excel);
 	  
-	  System.out.println("maintenance_cost_used_test_data converted ="+maintenance_cost_used_from_excel_converted);
 	  
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
@@ -2395,6 +2589,117 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(total_cap_maintenance_value_annual_converted_double);
 		
 		
+		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
+		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
+		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(100);
+		
+		if(sheet_name.equals("Formula1-FL"))
+			{wb.getSheet(sheet_name).getRow(106).getCell(2).setCellValue("YES");}
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel has been started");
+		System.out.println("Reading Monthly Holding Cost value from excel has been started");
+				
+				double monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+				
+				LO.print("Reading Monthly Holding Cost value from excel has been completed");
+				System.out.println("Reading Monthly Holding Cost value from excel has been completed");
+				
+			
+				String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);
+				
+				String total_monthly_holding_cost_from_screen=RemoveComma.of(monthly_holding_cost);
+				
+				LO.print("Total_monthly_holding_cost_from_screen ="+monthly_holding_cost);
+				System.out.println("Total_monthly_holding_cost_from_screen "+monthly_holding_cost);
+				
+				LO.print("Total_monthly_holding_cost_from_excel ="+monthly_holding_cost_expected);
+				System.out.println("Total_monthly_holding_cost_from_excel "+monthly_holding_cost_expected);
+				
+				double total_monthly_holding_cost_actual1=Double.parseDouble(total_monthly_holding_cost_from_screen);
+				double diff=Difference.of_two_Double_Values(monthly_holding_cost_expected, total_monthly_holding_cost_actual1);
+		        boolean flag=false;
+				if(diff<0.2)
+		        {	flag=true;
+		        
+		        LO.print("Total Monthly Holding Cost based on CAP data is Verified and Found OK");
+				System.out.println("Total Monthly Holding Cost based on CAP data is Verified and Found OK");
+
+		        }
+				else
+				{
+					LO.print("Total Monthly Holding Cost based on CAP data is Verified and Found Wrong");
+					System.err.println("Total Monthly Holding Cost based on CAP data is Verified and Found Wrong");
+
+				}
+				return flag;			 
+		
+	}
+
+	public boolean edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(WebDriver driver, WebElement holding_cost_summary_terms,
+			WebElement holding_cost_summary_mileage, WebElement holding_cost_summary_residual_value_used,
+			WebElement total_monthly_holding_cost, WebElement holding_cost_maintenance_cost_used,
+			WebElement holding_cost_percentage_cap_residual_value_used, WebElement total_cap_maintenance_value, String maintenance_required,
+			String target_rental,String residual_value_used_from_excel,String maintenance_cost_used_from_excel,
+			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,String sheet_name)
+		throws IOException, InterruptedException  {
+		
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("Editing % CAP Residual Value and % CAP Maintenance cost used");
+		System.out.println("Editing % CAP Residual Value and % CAP Maintenance cost used");
+		
+				
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+		
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 30);
+		
+		double used_residual_value = Double.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
+		
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+		
+		double total_cap_maintenance_value_annual_converted_double = Double.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().substring(2)));
+		
+		
+
+		
+		  
+		 LO.print("Changing % CAP Residual Value (from test  data) to "+percentage_cap_residual_value_used);
+		 System.out.println("Changing % CAP Residual Value (from test  data) to "+percentage_cap_residual_value_used);
+		
+		 LO.print("Changing % CAP Maintenance cost (from test  data) to "+percentage_cap_maintenance_cost_used);
+		 System.out.println("Changing % CAP Maintenance cost(from test  data)  to "+percentage_cap_maintenance_cost_used);
+		
+		
+			
+		LO.print("Writing Holding Cost Summary values to excel has been started");
+		System.out.println("Writing Holding Cost Summary values to excel has been started");
+		
+	 
+	  
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue(maintenance_required);
+		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
+		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
+		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(total_cap_maintenance_value_annual_converted_double);
 		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value_used);
 		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(percentage_cap_maintenance_cost_used);
@@ -2434,10 +2739,123 @@ public class ReadExcelCalculation extends TestBase {
 				double diff=Difference.of_two_Double_Values(monthly_holding_cost_expected, total_monthly_holding_cost_actual1);
 		        boolean flag=false;
 				if(diff<0.2)
-		        {	flag=true;	}				
+		        {	flag=true;
+		        LO.print("Total Monthly Holding Cost After Editing % Residual Value and % Maintenance Cost is Verified and Found OK");
+				System.out.println("Total Monthly Holding Cost After Editing % Residual Value and % Maintenance Cost is Verified and Found OK");
+			
+		        }
+				else
+				{
+					 LO.print("Total Monthly Holding Cost After Editing % Residual Value and % Maintenance Cost is Verified and Found Wrong");
+						System.err.println("Total Monthly Holding Cost After Editing % Residual Value and % Maintenance Cost is Verified and Found Wrong");
+					
+				}
+				
+				
 				return flag;			 
 		
 	}
+	
+	public boolean edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(WebDriver driver, WebElement holding_cost_summary_terms,
+			WebElement holding_cost_summary_mileage, WebElement holding_cost_summary_residual_value_used,
+			WebElement total_monthly_holding_cost, WebElement holding_cost_maintenance_cost_used,
+			WebElement holding_cost_percentage_cap_residual_value_used, WebElement total_cap_maintenance_value, String maintenance_required,
+			String target_rental,String residual_value_used_from_excel,String maintenance_cost_used_from_excel,
+			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,String sheet_name)
+		throws IOException, InterruptedException  {
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("Editing Residual value and Maintenance cost used");
+		System.out.println("Editing Residual value and Maintenance cost used");
+		 	
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+		
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
+		
+	
+		LO.print("Changing Residual Value (from test data) to  ="+residual_value_used_from_excel);
+		System.out.println("Changing Residual Value (from test data) to  ="+residual_value_used_from_excel);
+		
+		LO.print("Changing Maintenance Cost used (from test data) to ="+maintenance_cost_used_from_excel);
+		System.out.println("Changing Maintenance Cost used (from test data) to ="+maintenance_cost_used_from_excel);
+			
+		LO.print("Writing Holding Cost Summary values to excel has been started");
+		System.out.println("Writing Holding Cost Summary values to excel has been started");
+		
+	  double residual_value_used_from_excel_converted= Double.parseDouble(residual_value_used_from_excel);
+	  double maintenance_cost_used_from_excel_converted= Double.parseDouble(maintenance_cost_used_from_excel);
+	  
+	  
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue(maintenance_required);
+		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
+		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
+	
+		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(residual_value_used_from_excel_converted);
+		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(maintenance_cost_used_from_excel_converted*duration);
+		
+		
+		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
+		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
+		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(100);
+		
+		if(sheet_name.equals("Formula1-FL"))
+			{wb.getSheet(sheet_name).getRow(106).getCell(2).setCellValue("YES");}
+
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+		
+		//excel code for reading calculated values from excel sheet
+		
+		LO.print("Reading Monthly Holding Cost value from excel has been started");
+		System.out.println("Reading Monthly Holding Cost value from excel has been started");
+				
+				double monthly_holding_cost_expected=GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+				
+				LO.print("Reading Monthly Holding Cost value from excel has been completed");
+				System.out.println("Reading Monthly Holding Cost value from excel has been completed");
+				
+			
+				String monthly_holding_cost= total_monthly_holding_cost.getText().substring(2);
+				
+				String total_monthly_holding_cost_from_screen=RemoveComma.of(monthly_holding_cost);
+				
+				LO.print("Total_monthly_holding_cost_from_screen ="+monthly_holding_cost);
+				System.out.println("Total_monthly_holding_cost_from_screen "+monthly_holding_cost);
+				
+				LO.print("Total_monthly_holding_cost_from_excel ="+monthly_holding_cost_expected);
+				System.out.println("Total_monthly_holding_cost_from_excel "+monthly_holding_cost_expected);
+				
+				double total_monthly_holding_cost_actual1=Double.parseDouble(total_monthly_holding_cost_from_screen);
+				double diff=Difference.of_two_Double_Values(monthly_holding_cost_expected, total_monthly_holding_cost_actual1);
+		        boolean flag=false;
+				if(diff<0.2)
+		        {	flag=true;	
+		        LO.print("Total Monthly Holding Cost After Editing Residual Value and Maintenance Cost is Verified and Found OK");
+				System.out.println("Total Monthly Holding Cost After Editing Residual Value and Maintenance Cost is Verified and Found OK");
+		        }
+				
+				else
+				{
+					LO.print("Total Monthly Holding Cost After Editing Residual Value and Maintenance Cost is Verified and Found Wrong");
+					System.err.println("Total Monthly Holding Cost After Editing Residual Value and Maintenance Cost is Verified and Found Wrong");
+			       
+				}
+				return flag;			 
+		
+	}
+
 	
 	
 	public boolean verify_holding_cost_for_used_car_with_maintenance(WebDriver driver, WebElement holding_cost_summary_terms,
@@ -2625,7 +3043,6 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(98).getCell(1).setCellValue(" "+dropdown_option+" ");
 		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(101).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
-		wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(Double.parseDouble(upsell));
 		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(initial_payment));
@@ -2929,6 +3346,30 @@ public class ReadExcelCalculation extends TestBase {
 		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
+		
+		
+	}
+	
+	public void put_upsell_values_to_excel(String matrix_upsell , String referrer_upsell , String sheet_name) throws IOException {
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		
+		if(sheet_name.contains("Formula1")||sheet_name.contains("BCH (Formula 3)"))
+		{
+		wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(Double.parseDouble(matrix_upsell));
+		wb.getSheet(sheet_name).getRow(101).getCell(3).setCellValue(Double.parseDouble(referrer_upsell));
+		}
+		else
+		{
+			wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(Double.parseDouble(matrix_upsell));
+			wb.getSheet(sheet_name).getRow(107).getCell(3).setCellValue(Double.parseDouble(referrer_upsell));			
+		}
+	
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
 		
 		
 	}

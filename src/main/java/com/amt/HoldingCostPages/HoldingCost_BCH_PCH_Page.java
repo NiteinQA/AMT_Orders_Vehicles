@@ -40,6 +40,11 @@ public class HoldingCost_BCH_PCH_Page extends TestBase {
 	private WebElement maintenance_toggle_button;
 	
 	
+	
+	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
+	private WebElement holding_cost_summary_residual_value_used;
+	
+	
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
 	private WebElement holding_cost_summary_terms;
 	
