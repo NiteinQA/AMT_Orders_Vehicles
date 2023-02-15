@@ -64,8 +64,8 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 
 	}
 
-	@Test(priority = 2, dataProvider = "testData" ,dependsOnMethods = {
-	"aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test" })
+	@Test(priority = 2, dataProvider = "testData", dependsOnMethods = {
+			"aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test" })
 
 	public void aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test(String manufacturer,
 			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
@@ -92,8 +92,8 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 
 	}
 
-	@Test(priority = 3, dataProvider = "testData" ,dependsOnMethods = {
-	"aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test" })
+	@Test(priority = 3, dataProvider = "testData", dependsOnMethods = {
+			"aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test" })
 
 	public void aquisition_quotes_HPNR_BCH_other_support_check_with_maintenance_test(String manufacturer, String model,
 			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
@@ -122,7 +122,7 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 	}
 
 	@Test(priority = 4, dataProvider = "testData", dependsOnMethods = {
-	"aquisition_quotes_HPNR_BCH_other_support_check_with_maintenance_test" })
+			"aquisition_quotes_HPNR_BCH_other_support_check_with_maintenance_test" })
 
 	public void aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test(String manufacturer,
 			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
@@ -158,13 +158,19 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost);
 
+		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
+				.edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(add_terms, add_mileage,
+						maintenance_required, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
+
+
 		System.out.println("");
 		System.out.println("");
 
 	}
 
 	@Test(priority = 5, dataProvider = "testData", dependsOnMethods = {
-	"aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test" })
+			"aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test" })
 
 	public void aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test(
 			String manufacturer, String model, String road_tax_for_first_year, String on_road_price_for_invoice,
@@ -209,7 +215,7 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						sheet_name);
 
-		//Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+		// Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
 
 		System.out.println("");
 		System.out.println("");
@@ -225,7 +231,7 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 	}
 
 	@Test(priority = 6, dataProvider = "testData", dependsOnMethods = {
-	"aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test" })
+			"aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test" })
 
 	public void aquisition_quotes_HPNR_BCH_quote_summary_values_verification_with_maintenance_test(String manufacturer,
 			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,

@@ -1,5 +1,9 @@
 package com.amt.HoldingCostPages;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -33,6 +37,12 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
 
+	@FindBy(xpath = "//*[@name='Terms']")
+	private WebElement additional_terms;
+
+	@FindBy(xpath = "//*[@name='MileagePerAnnum']")
+	private WebElement additional_mileage;
+
 	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
 	private WebElement holding_cost;
 
@@ -42,8 +52,6 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//div[@class='acc-head havebtns']")
 	private WebElement holding_cost_summary;
 
-	
-	
 	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
 	private WebElement holding_cost_summary_residual_value_used;
 
@@ -340,9 +348,10 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 
 	}
 
-	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(String residual_value_used_from_excel,
-			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
-			String sheet_name) throws IOException, InterruptedException {
+	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(
+			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
+			String maintenance_required, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
 		Click.on(driver, holding_cost, 30);
 
 		LO.print("***********Entered in holding cost page ***********");
@@ -359,19 +368,18 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 		// code for checking default holding cost based on CAP data
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
-		return obj_read_excel_calculation_page
-				.verify_holding_cost_before_editing_cap_values_without_maintenance(driver, holding_cost_summary_terms,
-						holding_cost_summary_mileage, holding_cost_summary_residual_value_used,
-						total_monthly_holding_cost, residual_value_used_from_excel, percentage_cap_residual_value_used,
-						sheet_name);		
+		return obj_read_excel_calculation_page.verify_holding_cost_before_editing_cap_values_without_maintenance(driver,
+				holding_cost_summary_terms, holding_cost_summary_mileage, holding_cost_summary_residual_value_used,
+				total_monthly_holding_cost, residual_value_used_from_excel, percentage_cap_residual_value_used,
+				sheet_name);
 	}
 
-	
-	public boolean edit_percentage_residual_verify_holding_cost_without_maintenance (String residual_value_used_from_excel,
-			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
-			String sheet_name) throws IOException, InterruptedException {
-		
-		// Code for Edit percentage cap residual value  
+	public boolean edit_percentage_residual_verify_holding_cost_without_maintenance(
+			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
+			String maintenance_required, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+
+		// Code for Edit percentage cap residual value
 
 		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
 
@@ -387,18 +395,17 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
-		return obj_read_excel_calculation_page
-				.edit_percentage_residual_verify_holding_cost_without_maintenance(driver, holding_cost_summary_terms,
-						holding_cost_summary_mileage, holding_cost_summary_residual_value_used,
-						total_monthly_holding_cost, residual_value_used_from_excel, percentage_cap_residual_value_used,
-						sheet_name);		
+		return obj_read_excel_calculation_page.edit_percentage_residual_verify_holding_cost_without_maintenance(driver,
+				holding_cost_summary_terms, holding_cost_summary_mileage, holding_cost_summary_residual_value_used,
+				total_monthly_holding_cost, residual_value_used_from_excel, percentage_cap_residual_value_used,
+				sheet_name);
 	}
 
-	
-	public boolean edit_residual_value_used_then_verify_holding_cost_without_maintenance(String residual_value_used_from_excel,
-			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
-			String sheet_name) throws IOException, InterruptedException {
-	
+	public boolean edit_residual_value_used_then_verify_holding_cost_without_maintenance(
+			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
+			String maintenance_required, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+
 		Actions act = new Actions(driver);
 		// code for editing residual value used and maint cost used
 
@@ -412,19 +419,13 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
-		return obj_read_excel_calculation_page
-				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(driver,
-						holding_cost_summary_terms, holding_cost_summary_mileage,
-						holding_cost_summary_residual_value_used, total_monthly_holding_cost,
-						residual_value_used_from_excel, percentage_cap_residual_value_used, sheet_name);
-		
+		return obj_read_excel_calculation_page.edit_residual_value_used_then_verify_holding_cost_without_maintenance(
+				driver, holding_cost_summary_terms, holding_cost_summary_mileage,
+				holding_cost_summary_residual_value_used, total_monthly_holding_cost, residual_value_used_from_excel,
+				percentage_cap_residual_value_used, sheet_name);
+
 	}
 
-	
-	
-	
-	
-	
 //	public boolean verify_holding_cost_without_maintenance_edited(String residual_value_used,String sheet_name) throws IOException, InterruptedException {
 //		Click.on(driver, holding_cost, 30);
 //		
@@ -569,6 +570,79 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 						total_cap_maintenance_value, maintenance_required, target_rental,
 						residual_value_used_from_excel, maintenance_cost_used_from_excel,
 						percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel, sheet_name);
+	}
+
+	public boolean edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(
+			String additional_terms_from_excel, String additional_mileage_from_excel, String maintenance_required,
+			String target_rental, String sheet_name)
+			throws IOException, InterruptedException, UnsupportedFlavorException {
+
+		Actions act = new Actions(driver);
+
+		// code for editing additional_term_and_mileage
+
+		// send additional terms
+		Click.sendKeys(driver, additional_terms, additional_terms_from_excel, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		// send additional mileage
+		Click.sendKeys(driver, additional_mileage, additional_mileage_from_excel, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		// Taking updated values of residual value and maint cost from screen
+		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, maintenance_cost_used, 20);
+
+		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String residual_value_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		String maint_cost_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		return obj_read_excel_calculation_page
+				.edit_additional_terms_and_mileage_then_verify_holding_cost_with_maintenance(driver,
+						holding_cost_summary_terms, holding_cost_summary_mileage, total_monthly_holding_cost,
+						maintenance_required, target_rental, residual_value_used_from_screen,
+						maint_cost_used_from_screen, sheet_name);
+	}
+
+
+	public boolean edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(
+			String additional_terms_from_excel, String additional_mileage_from_excel, String maintenance_required,
+			String target_rental, String sheet_name)
+			throws IOException, InterruptedException, UnsupportedFlavorException {
+
+		Actions act = new Actions(driver);
+
+		// code for editing additional_term_and_mileage
+
+		// send additional terms
+		Click.sendKeys(driver, additional_terms, additional_terms_from_excel, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		// send additional mileage
+		Click.sendKeys(driver, additional_mileage, additional_mileage_from_excel, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		// Taking updated values of residual value and maint cost from screen
+		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+
+
+		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String residual_value_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		
+		return obj_read_excel_calculation_page
+				.edit_additional_terms_and_mileage_then_verify_holding_cost_without_maintenance(driver,
+						holding_cost_summary_terms, holding_cost_summary_mileage, total_monthly_holding_cost,
+						maintenance_required, target_rental, residual_value_used_from_screen,
+						 sheet_name);
 	}
 
 	public boolean verify_holding_cost_for_used_car_with_maintenance(String percentage_maintenance_cost_used_from_excel,

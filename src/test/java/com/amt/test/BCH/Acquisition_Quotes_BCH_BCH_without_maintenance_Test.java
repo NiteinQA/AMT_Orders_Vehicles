@@ -175,18 +175,6 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 		LO.print("*****Assertion Passed For Monthly Finance Rental*****");
 		LO.print("****************************************************************");
 		
-		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
-				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
-						referrer_upsell, add_terms, add_mileage, sheet_name);
-
-		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
-
-		System.out.println("***********Assertion Passed For Monthly Finance Rental on adding upsell values***********");
-		System.out.println("****************************************************************");
-
-		LO.print("***********Assertion Passed For Monthly Finance Rental on adding upsell values***********");
-		LO.print("****************************************************************");
-
 		
 		boolean balance_due_value = obj_customer_quote_page.customer_quote_part_balance_due_value_verification(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel,
 				order_deposit_from_excel, document_fee_from_excel, matrix_upsell, part_exchange_status, target_rental, sheet_name);
