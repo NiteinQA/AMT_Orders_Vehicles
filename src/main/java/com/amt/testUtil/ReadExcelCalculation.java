@@ -1351,7 +1351,6 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
 		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(
 				Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum")));
-		wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
 		wb.getSheet(sheet_name).getRow(78).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
 		wb.getSheet(sheet_name).getRow(79).getCell(1)
@@ -1392,7 +1391,6 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
 		wb.getSheet(sheet_name).getRow(73).getCell(1).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(76).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
 		wb.getSheet(sheet_name).getRow(78).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
 		wb.getSheet(sheet_name).getRow(79).getCell(1)
@@ -1436,7 +1434,6 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
 		wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(
 				Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum")));
-		wb.getSheet(sheet_name).getRow(82).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
 		wb.getSheet(sheet_name).getRow(84).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
 		wb.getSheet(sheet_name).getRow(85).getCell(1)
@@ -1480,7 +1477,6 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
 		wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(
 				Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum")));
-		wb.getSheet(sheet_name).getRow(82).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("upsell")));
 		wb.getSheet(sheet_name).getRow(84).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
 		wb.getSheet(sheet_name).getRow(85).getCell(1)
@@ -1713,7 +1709,6 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(" " + dropdown_option + " ");
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(107).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
-		wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(Double.parseDouble(upsell));
 		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(110).getCell(3).setCellValue(Double.parseDouble(initial_payment));
@@ -1811,7 +1806,6 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(" " + dropdown_option + " ");
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(107).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
-		wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(Double.parseDouble(upsell));
 		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(110).getCell(3).setCellValue(Double.parseDouble(initial_payment));

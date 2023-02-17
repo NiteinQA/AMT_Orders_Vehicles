@@ -32,7 +32,8 @@ public class Acquisition_Quotes_Broker_PCH_without_maintenance_Test extends Test
 		
 	@Test(priority=1, dataProvider="testData")
 	public void aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
-		String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+		String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet,
+		String orderDeposit,String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 		
 		 obj_acq_listing_page = new AcquisitionListingPage();
@@ -51,7 +52,8 @@ public class Acquisition_Quotes_Broker_PCH_without_maintenance_Test extends Test
 	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_OTR_calculations_without_maintenance_test" })
 	
 	public void aquisition_quotes_user_flow_broker_pch_after_discount_calculations_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
-			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet,
+			String orderDeposit,String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 				
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Broker_PCH_Page();	
 			
@@ -63,8 +65,9 @@ public class Acquisition_Quotes_Broker_PCH_without_maintenance_Test extends Test
 	
 	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_after_discount_calculations_without_maintenance_test" })
 
-	public void aquisition_quotes_user_flow_broker_pch_funder_quote_addition_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
-			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+	public void aquisition_quotes_user_flow_broker_pch_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
+			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet,
+			String orderDeposit,String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 				
 		
 			 obj_customer_quote_page = new CustomerQuotePageBrokerPCHPage();
@@ -74,13 +77,20 @@ public class Acquisition_Quotes_Broker_PCH_without_maintenance_Test extends Test
 			
 			Assert.assertTrue(customer_quote_check);
 			
+			boolean balance_due_check = obj_customer_quote_page.put_part_exchange_and_verify_balance_due(partExchangeActual,
+					partExchangeGiven, lessFinanceSettlemnet, orderDeposit);
+
+			Assert.assertTrue(balance_due_check);
+
+			
 	
 			
 		}
-	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_funder_quote_addition_without_maintenance_test" })
+	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_pch_without_maintenance_test" })
 
 	public void aquisition_quotes_user_flow_broker_pch_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model, String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
-			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String initialFinanceRental, String monthlyFinanceRental, String pensePerExcessMileFinance, String commission, String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet,
+			String orderDeposit,String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 				
 
 			 obj_quote_summary_page =new QuoteSummaryBrokerPCHPage();

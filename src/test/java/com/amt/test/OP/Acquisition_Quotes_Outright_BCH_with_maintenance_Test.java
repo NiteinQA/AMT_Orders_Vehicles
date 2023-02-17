@@ -28,7 +28,7 @@ public class Acquisition_Quotes_Outright_BCH_with_maintenance_Test extends TestB
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_Outright_BCH_Page obj_contract_types_and_OTR_page;
-	HoldingCostOutrightBCHPage obj_holding_cost_Outright_BCH_page;
+	HoldingCostOutrightBCHPage obj_holding_cost_page;
 	CustomerQuotePageOutrightBCHPage obj_customer_quote_page;
 	QuoteSummaryOutrightBCHPage obj_quote_summary_page;
 
@@ -124,27 +124,31 @@ public class Acquisition_Quotes_Outright_BCH_with_maintenance_Test extends TestB
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_holding_cost_Outright_BCH_page = new HoldingCostOutrightBCHPage();
+		obj_holding_cost_page = new HoldingCostOutrightBCHPage();
 		
 		System.out.println("");
 		System.out.println("");
 
-		boolean holding_cost_before_editing_percentage_values = obj_holding_cost_Outright_BCH_page.verify_holding_cost_before_editing_cap_data_with_maintenance(
+		boolean holding_cost_before_editing_percentage_values = obj_holding_cost_page.verify_holding_cost_before_editing_cap_data_with_maintenance(
 				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
 				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_before_editing_percentage_values);
 		
 		
-		boolean holding_cost_after_editing_percentage_values  = obj_holding_cost_Outright_BCH_page.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
+		boolean holding_cost_after_editing_percentage_values  = obj_holding_cost_page.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
 				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
 				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_percentage_values );
 		
-		boolean holding_cost_after_editing_residual_and_maint_cost  = obj_holding_cost_Outright_BCH_page.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
+		boolean holding_cost_after_editing_residual_and_maint_cost  = obj_holding_cost_page.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
 				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
 				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost );
 		
+		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
+				.edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(add_terms, add_mileage,
+						maintenance_required, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
 
 		
 		System.out.println("");

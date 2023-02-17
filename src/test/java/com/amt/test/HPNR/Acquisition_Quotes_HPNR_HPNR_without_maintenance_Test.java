@@ -27,7 +27,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_HPNR_HPNR_Page obj_contract_types_and_OTR_page;
-	HoldingCost_HPNR_HPNRPage obj_holding_cost_HPNR_HPNR_page;
+	HoldingCost_HPNR_HPNRPage obj_holding_cost_page;
 	CustomerQuotePage_HPNR_HPNRPage obj_customer_quote_page;
 	QuoteSummary_HPNR_HPNRPage obj_quote_summary_page;
 
@@ -86,22 +86,28 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 			String document_fee, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_holding_cost_HPNR_HPNR_page = new HoldingCost_HPNR_HPNRPage();
+		obj_holding_cost_page = new HoldingCost_HPNR_HPNRPage();
 
-		boolean holding_cost_before_editing_percentage_value = obj_holding_cost_HPNR_HPNR_page
+		boolean holding_cost_before_editing_percentage_value = obj_holding_cost_page
 				.verify_holding_cost_before_editing_cap_values_without_maintenance(residual_value_used, percentage_cap_residual_value,
 						maintenance_status, sheet_name);
 		Assert.assertTrue(holding_cost_before_editing_percentage_value);
 		
-		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_HPNR_HPNR_page
+		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_page
 				.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value,
 						maintenance_status,  sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_percentage_value);
 		
-		boolean holding_cost_after_editing_residual_value = obj_holding_cost_HPNR_HPNR_page
+		boolean holding_cost_after_editing_residual_value = obj_holding_cost_page
 				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value,
 						maintenance_status, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_residual_value);
+		
+		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
+				.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(additional_terms, additional_mileage,
+						maintenance_status,  sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
+
 
 	}
 

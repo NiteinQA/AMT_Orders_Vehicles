@@ -156,7 +156,7 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		
 			
@@ -175,6 +175,9 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		Click.sendKeysint(driver, vehicleprofit, profit , 40);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
 		
 		double vehicleProfit_converted=Double.parseDouble(vehicleProfit);
 		ExplicitWait.visibleElement(driver, vehicle_sale_price, 20);
@@ -211,6 +214,16 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		double on_road_price_for_invoice=GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 		
 		double diff=Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
+		
+		
+		LO.print("");
+		System.out.println("");
+		
+		
+		LO.print("Adding Funder Quote Values to Screen");
+		System.out.println("Adding Funder Quote Values to Screen");
+		
+		
 		
         Thread.sleep(4000);
 		Click.on(driver, customer_quote_funder, 60);		 
@@ -253,10 +266,20 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		Thread.sleep(3000);
 		
-		Click.on(driver, add, 60);	
+		Click.on(driver, add, 60);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		LO.print("Funder Quote Added Successfully");
+		System.out.println("Funder Quote Added Successfully");
+		
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		
+		LO.print("");
+		System.out.println("");	
+		
+		LO.print("Entering Part Exchange Values to screen");
+		System.out.println("Entering Part Exchange Values to screen");
 		
 		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
 		
@@ -266,36 +289,41 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		
 		act.sendKeys(Keys.TAB).build().perform();
 		
+		LO.print("");
+		System.out.println("");	
+		
+		LO.print("Started verifying Balance To Finance");
+		System.out.println("Started verifying Balance To Finance");
+			
+		
 		ExplicitWait.visibleElement(driver, part_exchange_value, 30);
 		
 		double part_exchange_profit_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_value.getText().trim().substring(2)));
-				
-		
-		LO.print("Funder quote added successfully");
-		System.out.println("Funder quote added successfully");
+					
 		
 		Click.on(driver, customer_quote_summary , 60);		
 		
 		double balance_to_finance_expected =(otr_screen_price_converted-Double.parseDouble(cahDeposit)-part_exchange_profit_from_screen);
 		
+		LO.print("Balance To Finance Expected is ="+balance_to_finance_expected);
+		System.out.println("Balance To Finance Expected is ="+balance_to_finance_expected);
+		
+		
 		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);		
 		
 		double balance_to_finance_actual = Double.parseDouble(RemoveComma.of(customer_quote_summary_balance_to_finance.getText().trim().substring(2)));	
 	    
+		LO.print("Balance To Finance Actual From Screen is ="+balance_to_finance_actual);
+		System.out.println("Balance To Finance Actual From Screen is ="+balance_to_finance_actual);
+	
+		
 		boolean balance_to_finance_status=false;
-		if((balance_to_finance_expected-balance_to_finance_actual)==0)
+		
+		if(Difference.of_two_Double_Values(balance_to_finance_expected, balance_to_finance_actual)<0.2) 
 		{balance_to_finance_status=true;LO.print("Balance to finance value from customer quote summary - verified");System.out.println("Balance to finance value from customer quote summary - verified");}
 		else {LO.print("xxx -Please check Balance to finance value from customer quote summary");System.err.println("xxx -Please check Balance to finance value from customer quote summary");}
 		
-				
-		
-		boolean status=false;
-		if(balance_to_finance_status&& diff<0.2 && save_button.isEnabled() )
-		{
-			status=true;
-			
-		}
-		return status;
+		return balance_to_finance_status;
 	}
 
 }

@@ -96,6 +96,13 @@ public class Acquisition_Quotes_Outright_PCP_without_maintenance_Test extends Te
 		Assert.assertTrue(holding_cost_after_editing_residual_value);
 	
 
+		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost
+				.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(additional_terms, additional_mileage,
+						maintenance_status,  sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
+
+		
+
 	}
 	
 	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_outright_PCP_holding_cost_calculations_without_maintenance_test" })
@@ -154,10 +161,46 @@ public class Acquisition_Quotes_Outright_PCP_without_maintenance_Test extends Te
 
 		obj_quote_summary_page = new QuoteSummaryOutrightPCPPage();
 		
-		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_outright_PCP_without_maintenance(sheet_name);		
-        
-		Assert.assertTrue(quote_summary_value_check);
-       
+		
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation);
+		
+		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
+		
+		//Assert.assertTrue(quote_summary_customer_quote_calculation);
+		
+		boolean quote_summary_configuration_value_check = obj_quote_summary_page
+				.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
+		// Assert.assertTrue(quote_summary_configuration_value_check);
+
+		obj_quote_summary_page.save_quote();
+
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation1);
+
+		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
+				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+
+		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
+				.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name); // Assert.assertTrue(quote_summary_customer_quote_calculation);
+
+		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
+				.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
+		// Assert.assertTrue(quote_summary_configuration_value_check1);
+
+		boolean value_check_after_Base_Int_change = obj_quote_summary_page
+				.quote_summary_edit_base_int_rate_value_verification_without_maintenance(sheet_name);
+		//Assert.assertTrue(value_check_after_Base_Int_change);
+
+		boolean value_check_after_customer_rate_over_base_change = obj_quote_summary_page
+				.quote_summary_edit_customer_rate_over_base_value_verification(sheet_name);
+		//Assert.assertTrue(value_check_after_customer_rate_over_base_change);
+
+
 	}	
 
 	@DataProvider(name = "testData")

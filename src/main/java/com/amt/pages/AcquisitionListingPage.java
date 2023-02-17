@@ -64,6 +64,10 @@ public class AcquisitionListingPage extends TestBase {
 			
 			LO.print("Clicked on Quote button ");
 			System.out.println("Clicked on Quote button ");
+
+			
+			LO.print("Clicked on Quote button ");
+			System.out.println("Clicked on Quote button ");
 		}
 		
 

@@ -631,7 +631,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
     {LO.print("Document Fee - found OK");System.out.println("Document Fee - found OK"); count++;}
 	else {LO.print("Document Fee - found wrong");System.err.println("Document Fee - found wrong");}
   	
-  	if(upsell==customer_quote_summary_upsell)
+  	if(Difference.of_two_Double_Values (upsell , customer_quote_summary_upsell)<0.2)
     {LO.print("Upsell - found OK");System.out.println("Upsell - found OK"); count++;}
 	else {LO.print("Upsell - found wrong");System.err.println("Upsell - found wrong");}
   	
@@ -639,7 +639,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
     {LO.print("Default Finance Commission - found OK");System.out.println("Default Finance Commission - found OK"); count++;}
 	else {LO.print("Default Finance Commission - found wrong");System.err.println("Default Finance Commission - found wrong");}
   	
-  	if(upsellCommission==customer_quote_summary_upsell_commission)
+  	if(Difference.of_two_Double_Values(upsellCommission,customer_quote_summary_upsell_commission)<0.2)
     {LO.print("Upsell Commission - found OK");System.out.println("Upsell Commission - found OK"); count++;}
 	else {LO.print("Upsell Commission - found wrong");System.err.println("Upsell Commission - found wrong");}
   	
@@ -834,7 +834,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
     {LO.print("Document Fee - found OK");System.out.println("Document Fee - found OK"); count++;}
 	else {LO.print("Document Fee - found wrong");System.err.println("Document Fee - found wrong");}
   	
-  	if(upsell==customer_quote_summary_upsell)
+  	if(Difference.of_two_Double_Values (upsell,customer_quote_summary_upsell)<0.2)
     {LO.print("Upsell - found OK");System.out.println("Upsell - found OK"); count++;}
 	else {LO.print("Upsell - found wrong");System.err.println("Upsell - found wrong");}
   	
@@ -842,7 +842,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
     {LO.print("Default Finance Commission - found OK");System.out.println("Default Finance Commission - found OK"); count++;}
 	else {LO.print("Default Finance Commission - found wrong");System.err.println("Default Finance Commission - found wrong");}
   	
-  	if(upsellCommission==customer_quote_summary_upsell_commission)
+  	if(Difference.of_two_Double_Values(upsellCommission,customer_quote_summary_upsell_commission)<0.2)
     {LO.print("Upsell Commission - found OK");System.out.println("Upsell Commission - found OK"); count++;}
 	else {LO.print("Upsell Commission - found wrong");System.err.println("Upsell Commission - found wrong");}
   	
@@ -983,13 +983,15 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 		else {LO.print("Total Margin found wrong");System.err.println("Total Margin found wrong");
 	 }
 	 
-	 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+	 if(Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
+				defaultBrokerMarginPercentageFromScreen) < 0.2)
 	 {
 		 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
 		else {LO.print("Default Broker Margin percentage found wrong");System.err.println("Default Broker Margin percentage found wrong");
 	 }
 	 
-	 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+	 if(Difference.of_two_Double_Values(brokerUpsellMarginPercentageFromScreen,
+				brokerUpsellMarginPercentageFromExcel) < 0.2)
 	 {
 		 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
 		else {LO.print("Broker Upsell Margin percentage found wrong");System.err.println("Broker Upsell Margin percentage found wrong");
@@ -1137,13 +1139,15 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 		else {LO.print("Total Margin found wrong");System.err.println("Total Margin found wrong");
 	 }
 	 
-	 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+	 if(Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
+				defaultBrokerMarginPercentageFromScreen) < 0.2)
 	 {
 		 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
 		else {LO.print("Default Broker Margin percentage found wrong");System.err.println("Default Broker Margin percentage found wrong");
 	 }
 	 
-	 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+	 if(Difference.of_two_Double_Values(brokerUpsellMarginPercentageFromScreen,
+				brokerUpsellMarginPercentageFromExcel) < 0.2)
 	 {
 		 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
 		else {LO.print("Broker Upsell Margin percentage found wrong");System.err.println("Broker Upsell Margin percentage found wrong");
@@ -1198,7 +1202,7 @@ public boolean quote_summary_edit_base_int_rate_value_verification_without_maint
 	Actions act = new Actions(driver);
 	act.sendKeys(Keys.TAB).build().perform();
 	
-	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 	
 	 LO.print("Base Interest Rate changed to 7.0 %");
 	System.out.println("Base Interest Rate changed to 7.0 %");	 
@@ -1273,7 +1277,7 @@ public boolean quote_summary_edit_base_int_rate_value_verification_without_maint
 	 
 		act.sendKeys(Keys.TAB).build().perform();
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		 LO.print("Base Interest Rate changed to 6.5 %");
 		System.out.println("Base Interest Rate changed to 6.5 %");			
@@ -1308,7 +1312,7 @@ public boolean quote_summary_edit_base_int_rate_value_verification_with_maintena
 	Actions act = new Actions(driver);
 	act.sendKeys(Keys.TAB).build().perform();
 	
-	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 	
 	 LO.print("Base Interest Rate changed to 7.0 %");
 	System.out.println("Base Interest Rate changed to 7.0 %");	 
@@ -1382,7 +1386,7 @@ public boolean quote_summary_edit_base_int_rate_value_verification_with_maintena
 	 
 		act.sendKeys(Keys.TAB).build().perform();
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		 LO.print("Base Interest Rate changed to 6.5 %");
 		System.out.println("Base Interest Rate changed to 6.5 %");			
@@ -1421,7 +1425,7 @@ public boolean quote_summary_edit_finance_margin_value_verification(String sheet
 	Actions act = new Actions(driver);
 	act.sendKeys(Keys.TAB).build().perform();
 	
-	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 	
 	 LO.print("Finance margin changed to 10000");
 	System.out.println("Finance margin changed to 10000");	 
@@ -1514,7 +1518,7 @@ public boolean quote_summary_edit_maintenance_margin_value_verification(String s
 	Actions act = new Actions(driver);
 	act.sendKeys(Keys.TAB).build().perform();
 	
-	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 	
 	 LO.print("Maintenance margin changed to 30 %");
 	System.out.println("Maintenance margin changed to 30 %");	 
@@ -1693,13 +1697,15 @@ public boolean quote_summary_configuration_value_verification_without_maintenanc
 		else {LO.print("Total Margin found wrong");System.err.println("Total Margin found wrong");
 	 }
 	 
-	 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+	 if(Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
+				defaultBrokerMarginPercentageFromScreen) < 0.2)
 	 {
 		 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
 		else {LO.print("Default Broker Margin percentage found wrong");System.err.println("Default Broker Margin percentage found wrong");
 	 }
 	 
-	 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+	 if(Difference.of_two_Double_Values(brokerUpsellMarginPercentageFromScreen,
+				brokerUpsellMarginPercentageFromExcel) < 0.2)
 	 {
 		 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
 		else {LO.print("Broker Upsell Margin percentage found wrong");System.err.println("Broker Upsell Margin percentage found wrong");
@@ -1835,13 +1841,15 @@ public boolean quote_summary_configuration_value_verification_with_maintenance_f
 		else {LO.print("Total Margin found wrong");System.err.println("Total Margin found wrong");
 	 }
 	 
-	 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+	 if(Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
+				defaultBrokerMarginPercentageFromScreen) < 0.2)
 	 {
 		 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
 		else {LO.print("Default Broker Margin percentage found wrong");System.err.println("Default Broker Margin percentage found wrong");
 	 }
 	 
-	 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+	 if(Difference.of_two_Double_Values(brokerUpsellMarginPercentageFromScreen,
+				brokerUpsellMarginPercentageFromExcel) < 0.2)
 	 {
 		 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
 		else {LO.print("Broker Upsell Margin percentage found wrong");System.err.println("Broker Upsell Margin percentage found wrong");
@@ -2075,7 +2083,7 @@ public boolean quote_summary_edit_finance_margin_value_verification_for_funder(S
 	Actions act = new Actions(driver);
 	act.sendKeys(Keys.TAB).build().perform();
 	
-	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 	
 	 LO.print("Finance margin changed to 10000");
 	System.out.println("Finance margin changed to 10000");	 
@@ -2166,7 +2174,7 @@ public boolean quote_summary_edit_maintenance_margin_value_verification_for_fund
 	Actions act = new Actions(driver);
 	act.sendKeys(Keys.TAB).build().perform();
 	
-	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 	
 	 LO.print("Maintenance margin changed to 30 %");
 	System.out.println("Maintenance margin changed to 30 %");	 

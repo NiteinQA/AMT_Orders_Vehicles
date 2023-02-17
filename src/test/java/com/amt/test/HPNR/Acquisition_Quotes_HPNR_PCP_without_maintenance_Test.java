@@ -94,6 +94,11 @@ public class Acquisition_Quotes_HPNR_PCP_without_maintenance_Test extends TestBa
 						maintenance_status, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_residual_value);
 	
+		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost
+				.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(additional_terms, additional_mileage,
+						maintenance_status,  sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
+
 
 	}
 	

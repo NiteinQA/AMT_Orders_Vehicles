@@ -177,14 +177,14 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
 		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeys(driver, vehicle_profit_input, vehicle_profit, 30);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);	
 		ExplicitWait.visibleElement(driver, vehicle_sales_price, 30);
 		double vehicleSalesPriceFromScreen =Double.parseDouble(RemoveComma.of(vehicle_sales_price.getText().trim().substring(2)));
 		double vehicleOTRPriceFromScreen =Double.parseDouble(RemoveComma.of(vehicle_otr_price.getText().trim().substring(2)));
@@ -216,22 +216,22 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual , 30);
 		
 		Click.on(driver, given_part_exchange_value, 30);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given , 30);
 		
 		Click.on(driver, less_finance_Settlement, 30);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		
 		Click.on(driver, deposit_required, 30);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		Click.sendKeys(driver, deposit_required, order_deposit, 30);
 		
 		Click.on(driver, document_fee , 30);
-         ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+         ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		Click.sendKeys(driver, document_fee, documentFee, 30);
 		

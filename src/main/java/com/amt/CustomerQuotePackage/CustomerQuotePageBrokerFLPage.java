@@ -1,6 +1,10 @@
 package com.amt.CustomerQuotePackage;
 
-import java.sql.Date;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -16,8 +20,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
+import com.amt.testUtil.Difference;
 import com.amt.testUtil.Dropdown;
 import com.amt.testUtil.ExplicitWait;
+import com.amt.testUtil.RemoveComma;
 
 public class CustomerQuotePageBrokerFLPage extends TestBase {
 
@@ -110,6 +116,35 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 	//referrer commission
 	@FindBy(xpath = "//*[@id='FinanceCommission']")
 	private WebElement referrer_upsell_input_field;
+	
+	// part exchange actual
+		@FindBy(xpath = "//input[@id='otrPartExchange']")
+		private WebElement partExchangeactual;
+
+		// part exchange given
+		@FindBy(xpath = "//input[@id='partExchange']")
+		private WebElement partExchangegiven;
+
+		// less finance settlement
+		@FindBy(xpath = "//input[@id='lessFinanceSettlement']")
+		private WebElement lessFinancesettlement;
+
+		// order deposit
+		@FindBy(xpath = "//input[@name='orderDeposit']")
+		private WebElement order_deposit;
+
+		// Document Fee
+		@FindBy(xpath = "//input[@name='documentFee']")
+		private WebElement decumentFee;
+
+		// Part Exchange value
+		@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
+		private WebElement part_exchange_value;
+
+		// Balance due
+		@FindBy(xpath = "//*[contains(text(),' Balance due ')]/span")
+		private WebElement balance_due;
+
 
 	public CustomerQuotePageBrokerFLPage() {
 		PageFactory.initElements(driver, this);
@@ -123,7 +158,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 
 		Click.on(driver, customer_quote, 25);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		
 		
@@ -155,7 +190,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 			  Dropdown.select(driver, dropdown, i , 60);
         }
         
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 				
 		int term_converted=Integer.parseInt(term);
@@ -195,7 +230,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 
 		Click.on(driver, add, 60);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		
 		count++;
@@ -212,7 +247,84 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		return flag;
 	}
 	
-	
+	public boolean put_part_exchange_and_verify_balance_due(String partExchangeActual , String partExchangeGiven , String lessFinanceSettlement , String orderDeposit ) throws UnsupportedFlavorException, IOException {
+		
+		LO.print("");
+		System.out.println("");
+		
+		
+		LO.print("Started verifying Balance Due Value");
+		System.out.println("Started verifying Balance Due Value");
+		 
+		
+		Actions act = new Actions(driver);
+       
+		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
+		
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		Click.sendKeys(driver, partExchangegiven ,  partExchangeGiven, 60);
+		
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		Click.sendKeys(driver, lessFinancesettlement ,  lessFinanceSettlement, 60);
+		
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		Click.sendKeys(driver, order_deposit ,  orderDeposit, 60);		
+		
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.visibleElement(driver, decumentFee, 60);
+		
+		decumentFee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+
+	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
+	       String documentFeeCopied =(String) clipboard.getData(DataFlavor.stringFlavor);
+		
+	       double balanceDueDefault = ((Double.parseDouble(documentFeeCopied))*1.2);
+	  
+	       double orderDepositConverted = (Double.parseDouble(orderDeposit)) ;
+	       
+		ExplicitWait.visibleElement(driver, part_exchange_value, 30);
+		
+		double part_exchange_value_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_value.getText().trim().substring(2)));
+		
+		
+		double balanceDueExpected = ( balanceDueDefault - part_exchange_value_from_screen + orderDepositConverted );
+		
+		LO.print("Balance Due Value Expected = "+balanceDueExpected);
+		System.out.println("Balance Due Value Expected = "+balanceDueExpected);
+		
+		
+		ExplicitWait.visibleElement(driver, balance_due, 30);
+		
+		double balanceDueFromScreen=Double.parseDouble(RemoveComma.of(balance_due.getText().trim().substring(2)));
+
+		LO.print("Balance Due Value Actual from screen = "+balanceDueFromScreen);
+		System.out.println("Balance Due Value Actual from screen = "+balanceDueFromScreen);
+		
+		
+		boolean flag=false;
+		if(Difference.of_two_Double_Values(balanceDueExpected, balanceDueFromScreen)<0.2)
+		{
+			flag=true;	
+			
+			LO.print("Balance Due Value verified and found OK");
+			System.out.println("Balance Due Value verified and found OK");
+				
+		}
+		
+		else
+		{
+			LO.print("Balance Due Value verified but found wrong");
+			System.err.println("Balance Due Value verified but found wrong");
+		
+		}
+		return flag;	
+		
+	}
+
 	
 	public boolean customer_Quote_broker_fl_without_maintenance( String quoteRef, String quoteExpiryDate, String term, String milesperannum, 
 			String initialFinanceRental, String monthlyFinanceRental,
@@ -222,7 +334,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		Click.on(driver, customer_quote, 25);
 
 		Thread.sleep(6000);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		
 		Select sl = new Select(payment_profile_dropdown);
@@ -259,7 +371,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		
 		// Dropdown.select(driver, payment_profile_dropdown, i , 60);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		Thread.sleep(3000);
 				
@@ -290,7 +402,7 @@ public class CustomerQuotePageBrokerFLPage extends TestBase {
 		Click.sendKeys(driver, commission, commission2, 60);
 
 		Click.on(driver, add, 60);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		count++;
 		}

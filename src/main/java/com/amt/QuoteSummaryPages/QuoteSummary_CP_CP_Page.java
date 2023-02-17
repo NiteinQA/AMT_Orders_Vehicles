@@ -1323,20 +1323,6 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 		double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
 		double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
 		
-		
-		
-		System.out.println("totalCashPrice"+totalCashPrice);
-		System.out.println("financeDeposit"+financeDeposit);
-		System.out.println("totalDeposit"+totalDeposit);
-		System.out.println("financeCharges"+financeCharges);
-		System.out.println("balancePayable"+balancePayable);
-		System.out.println("initialCashPayment"+initialCashPayment);
-		System.out.println("pencePerExcessMileMaintenance"+pencePerExcessMileMaintenance);
-		System.out.println("defaultFinanceCommission"+defaultFinanceCommission);
-		System.out.println("docFeeCommission"+docFeeCommission);
-		System.out.println("totalCommission"+totalCommission);
-
-
 		// comparing actul and expected values
 
 		boolean status = false;
@@ -3033,7 +3019,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 			Actions act = new Actions(driver);
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Base Interest Rate changed to 7.0 %");
 			System.out.println("Base Interest Rate changed to 7.0 %");
@@ -3139,7 +3125,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Base Interest Rate changed to 6.5 %");
 			System.out.println("Base Interest Rate changed to 6.5 %");
@@ -3176,7 +3162,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 			Actions act = new Actions(driver);
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Base Interest Rate changed to 7.0 %");
 			System.out.println("Base Interest Rate changed to 7.0 %");
@@ -3295,7 +3281,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Base Interest Rate changed to 6.5 %");
 			System.out.println("Base Interest Rate changed to 6.5 %");
@@ -4264,7 +4250,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 			Actions act = new Actions(driver);
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Base Interest Rate changed to 7.0 %");
 			System.out.println("Base Interest Rate changed to 7.0 %");
@@ -4366,7 +4352,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Base Interest Rate changed to 6.5 %");
 			System.out.println("Base Interest Rate changed to 6.5 %");
@@ -4402,7 +4388,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 			Actions act = new Actions(driver);
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Base Interest Rate changed to 7.0 %");
 			System.out.println("Base Interest Rate changed to 7.0 %");
@@ -4521,7 +4507,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Base Interest Rate changed to 6.5 %");
 			System.out.println("Base Interest Rate changed to 6.5 %");
@@ -4559,7 +4545,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 			Actions act = new Actions(driver);
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Customer Base Over Rate changed to 5.0 %");
 			System.out.println("Customer Base Over Rate changed to 5.0 %");
@@ -4656,7 +4642,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("Customer Base Over Rate changed to 5.0 %");
 		System.out.println("Customer Base Over Rate changed to 5.0 %");
@@ -4752,7 +4738,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("Maintenance margin changed to 30 %");
 		System.out.println("Maintenance margin changed to 30 %");
@@ -4818,7 +4804,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 			Actions act = new Actions(driver);
 			act.sendKeys(Keys.TAB).build().perform();
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			LO.print("Maintenance margin changed to 30 %");
 			System.out.println("Maintenance margin changed to 30 %");

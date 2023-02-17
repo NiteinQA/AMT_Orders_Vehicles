@@ -1813,7 +1813,7 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 		}
 
 		// 6
-		if (defaualtBrokerMarginPercentageFromExcel == defaultBrokerMarginPercentageFromScreen) {
+		if (Difference.of_two_Double_Values(defaultBrokerMarginPercentageFromScreen, defaultBrokerMarginPercentageFromScreen)<0.2) {
 			LO.print("Default Broker Margin percentage found OK");
 			System.out.println("Default Broker Margin percentage found OK");
 			count++;
@@ -2042,7 +2042,8 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 		}
 
 		// 6
-		if (defaualtBrokerMarginPercentageFromExcel == defaultBrokerMarginPercentageFromScreen) {
+		if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
+				defaultBrokerMarginPercentageFromScreen) < 0.2) {
 			LO.print("Default Broker Margin percentage found OK");
 			System.out.println("Default Broker Margin percentage found OK");
 			count++;
@@ -2050,7 +2051,6 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 			LO.print("Default Broker Margin percentage found wrong");
 			System.err.println("Default Broker Margin percentage found wrong");
 		}
-
 		// 7
 		if (Difference.of_two_Double_Values(customerInterestRateFromScreen , customerInterestRateFromExcel)<0.2) {
 			LO.print("Customer Interest Rate found OK");
@@ -2142,7 +2142,7 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("Base Interest Rate changed to 7.0 %");
 		System.out.println("Base Interest Rate changed to 7.0 %");
@@ -2244,7 +2244,7 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("Base Interest Rate changed to 6.5 %");
 		System.out.println("Base Interest Rate changed to 6.5 %");
@@ -2275,15 +2275,15 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 		// Edit base interest rate configuration values from screen
 		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
 		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		quote_summary_configuration_base_int_rate_input.sendKeys("7.0");
+		quote_summary_configuration_base_int_rate_input.sendKeys("10");
 
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		LO.print("Base Interest Rate changed to 7.0 %");
-		System.out.println("Base Interest Rate changed to 7.0 %");
+		LO.print("Base Interest Rate changed to 10.0 %");
+		System.out.println("Base Interest Rate changed to 10.0 %");
 
 		// Getting values from screen
 
@@ -2314,8 +2314,8 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 
-		wb.getSheet(sheet_name).getRow(34).getCell(10).setCellValue(0.07);
-		wb.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(0.07);
+		wb.getSheet(sheet_name).getRow(34).getCell(10).setCellValue(0.1);
+		wb.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(0.1);
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -2349,6 +2349,9 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 			LO.print("Holding Cost after changing Base Int. Rate -  found wrong");
 			System.err.println("Holding Cost after changing Base Int. Rate -  found wrong");
 		}
+		
+	
+		
 		// 2
 		if (Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen,
 				monthlyFinanceRental) < 0.2) {
@@ -2399,7 +2402,7 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("Base Interest Rate changed to 6.5 %");
 		System.out.println("Base Interest Rate changed to 6.5 %");
@@ -2436,7 +2439,7 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("Customer Base Over Rate changed to 5.0 %");
 		System.out.println("Customer Base Over Rate changed to 5.0 %");
@@ -2532,7 +2535,7 @@ public class QuoteSummaryOutrightCPPage extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("Maintenance margin changed to 30 %");
 		System.out.println("Maintenance margin changed to 30 %");

@@ -155,7 +155,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		 
         Actions act = new Actions(driver);
         
@@ -175,7 +175,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 			{
 				
 				Click.on(driver, e, 20);				 
-				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 				break;
 			}
 		}
@@ -227,7 +227,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		 
        Actions act = new Actions(driver);
         
@@ -251,7 +251,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 			{
 				Click.on(driver, e, 20);
 				 
-				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 				break;
 			}
 		}
@@ -331,7 +331,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 
 		 
@@ -367,7 +367,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
         
        	Click.on(driver, customer_quote_maintenance_toggle_button, 30);
 		 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
          
         obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
         
@@ -429,7 +429,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		 
         Actions act = new Actions(driver);
         
@@ -454,7 +454,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 			{
 				Click.on(driver, e, 20);
 				 
-				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 				break;
 			}
 		}
@@ -472,7 +472,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 	    Click.on(driver, customer_quote_maintenance_toggle_button, 40); 
 	    
 	    
-	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
          
         obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
         
@@ -604,23 +604,23 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
         act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
@@ -668,23 +668,23 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
         act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
@@ -728,7 +728,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 	{
 		Click.on(driver, balloon_payment_toggle, 40);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 40);
 		

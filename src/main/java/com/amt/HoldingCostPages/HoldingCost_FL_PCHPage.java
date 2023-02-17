@@ -1,17 +1,12 @@
 package com.amt.HoldingCostPages;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -31,6 +26,12 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 		
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
+	
+	@FindBy(xpath = "//*[@name='Terms']")
+	private WebElement additional_terms;
+
+	@FindBy(xpath = "//*[@name='MileagePerAnnum']")
+	private WebElement additional_mileage;
 	
 	
 	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
@@ -564,4 +565,78 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 						residual_value_used_from_excel, maintenance_cost_used_from_excel,
 						percentage_cap_residual_value_used, percentage_maintenance_cost_used_from_excel, sheet_name);
 	}
+	public boolean edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(
+			String additional_terms_from_excel, String additional_mileage_from_excel, String maintenance_required,
+			String target_rental, String sheet_name)
+			throws IOException, InterruptedException, UnsupportedFlavorException {
+
+		Actions act = new Actions(driver);
+
+		// code for editing additional_term_and_mileage
+
+		// send additional terms
+		Click.sendKeys(driver, additional_terms, additional_terms_from_excel, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		// send additional mileage
+		Click.sendKeys(driver, additional_mileage, additional_mileage_from_excel, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		// Taking updated values of residual value and maint cost from screen
+		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, maintenance_cost_used, 20);
+
+		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String residual_value_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		String maint_cost_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		return obj_read_excel_calculation_page
+				.edit_additional_terms_and_mileage_then_verify_holding_cost_with_maintenance(driver,
+						holding_cost_summary_terms, holding_cost_summary_mileage, total_monthly_holding_cost,
+						maintenance_required, target_rental, residual_value_used_from_screen,
+						maint_cost_used_from_screen, sheet_name);
+	}
+
+
+	public boolean edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(
+			String additional_terms_from_excel, String additional_mileage_from_excel, String maintenance_required,
+			String target_rental, String sheet_name)
+			throws IOException, InterruptedException, UnsupportedFlavorException {
+
+		Actions act = new Actions(driver);
+
+		// code for editing additional_term_and_mileage
+
+		// send additional terms
+		Click.sendKeys(driver, additional_terms, additional_terms_from_excel, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		// send additional mileage
+		Click.sendKeys(driver, additional_mileage, additional_mileage_from_excel, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		// Taking updated values of residual value and maint cost from screen
+		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+
+
+		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String residual_value_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		
+		return obj_read_excel_calculation_page
+				.edit_additional_terms_and_mileage_then_verify_holding_cost_without_maintenance(driver,
+						holding_cost_summary_terms, holding_cost_summary_mileage, total_monthly_holding_cost,
+						maintenance_required, target_rental, residual_value_used_from_screen,
+						 sheet_name);
+	}
+
+
 }

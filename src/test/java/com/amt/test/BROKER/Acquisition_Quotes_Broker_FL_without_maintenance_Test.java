@@ -35,7 +35,8 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_Test extends TestB
 	public void aquisition_quotes_user_flow_broker_fl_OTR_calculation_without_maintenance_test(String manufacturer, String model, String quoteRef, 
 			String quoteExpiryDate, String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental,
 			String finalBallonPayment, String pensePerExcessMileFinance,String percentageOfSaleProceedsToCustomer, 
-			String secondaryHirePeriodRental,String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String secondaryHirePeriodRental,String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet,
+			String orderDeposit, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 		
 		 obj_acq_listing_page = new AcquisitionListingPage();
@@ -57,7 +58,8 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_Test extends TestB
 	public void aquisition_quotes_user_flow_broker_fl_after_discount_calculation_without_maintenance_test(String manufacturer, String model, String quoteRef, 
 			String quoteExpiryDate, String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental,
 			String finalBallonPayment, String pensePerExcessMileFinance,String percentageOfSaleProceedsToCustomer, 
-			String secondaryHirePeriodRental,String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String secondaryHirePeriodRental,String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet,
+			String orderDeposit, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 	
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Broker_FL_Page();
@@ -74,7 +76,8 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_Test extends TestB
 	public void aquisition_quotes_user_flow_broker_fl_funder_quote_addition_without_maintenance_test(String manufacturer, String model, String quoteRef, 
 			String quoteExpiryDate, String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental,
 			String finalBallonPayment, String pensePerExcessMileFinance,String percentageOfSaleProceedsToCustomer, 
-			String secondaryHirePeriodRental,String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String secondaryHirePeriodRental,String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet,
+			String orderDeposit, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 	
 		 obj_customer_quote_page = new CustomerQuotePageBrokerFLPage();
@@ -84,6 +87,12 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_Test extends TestB
 				secondaryHirePeriodRental,commission);	
 		
 		Assert.assertTrue(customer_quote_check);
+		
+		boolean balance_due_check = obj_customer_quote_page.put_part_exchange_and_verify_balance_due(partExchangeActual,
+				partExchangeGiven, lessFinanceSettlemnet, orderDeposit);
+
+		Assert.assertTrue(balance_due_check);
+
 	
 		
 	}
@@ -93,7 +102,8 @@ public class Acquisition_Quotes_Broker_FL_without_maintenance_Test extends TestB
 	public void aquisition_quotes_user_flow_broker_fl_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model, String quoteRef, 
 			String quoteExpiryDate, String term, String milesperannum,String initialFinanceRental, String monthlyFinanceRental,
 			String finalBallonPayment, String pensePerExcessMileFinance,String percentageOfSaleProceedsToCustomer, 
-			String secondaryHirePeriodRental,String commission, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String secondaryHirePeriodRental,String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet,
+			String orderDeposit, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 	
 		 obj_quote_summary_page =new QuoteSummaryBrokerFLPage();

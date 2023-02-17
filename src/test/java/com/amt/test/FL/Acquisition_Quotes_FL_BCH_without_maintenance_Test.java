@@ -29,7 +29,7 @@ public class Acquisition_Quotes_FL_BCH_without_maintenance_Test extends TestBase
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_FL_BCH_Page obj_contract_types_and_OTR_page;
-	HoldingCost_FL_BCHPage obj_holding_cost_FL_BCH_page;
+	HoldingCost_FL_BCHPage obj_holding_cost_page;
 	CustomerQuotePage_FL_BCHPage obj_customer_quote_page;
 	QuoteSummary_FL_BCHPage obj_quote_summary_page;
 
@@ -82,22 +82,28 @@ public class Acquisition_Quotes_FL_BCH_without_maintenance_Test extends TestBase
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_holding_cost_FL_BCH_page = new HoldingCost_FL_BCHPage();
+		obj_holding_cost_page = new HoldingCost_FL_BCHPage();
 	
-		boolean holding_cost_before_editing_percentage_value = obj_holding_cost_FL_BCH_page
+		boolean holding_cost_before_editing_percentage_value = obj_holding_cost_page
 				.verify_holding_cost_before_editing_cap_values_without_maintenance(residual_value_used, percentage_cap_residual_value_used,
 						maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_before_editing_percentage_value);
 		
-		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_FL_BCH_page
+		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_page
 				.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value_used,
 						maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_percentage_value);
 		
-		boolean holding_cost_after_editing_residual_value = obj_holding_cost_FL_BCH_page
+		boolean holding_cost_after_editing_residual_value = obj_holding_cost_page
 				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value_used,
 						maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_residual_value);
+		
+		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
+				.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(add_terms, add_mileage,
+						maintenance_required, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
+
 	}
 	
 	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_FL_BCH_holding_cost_calculations_without_maintenance_test" })
