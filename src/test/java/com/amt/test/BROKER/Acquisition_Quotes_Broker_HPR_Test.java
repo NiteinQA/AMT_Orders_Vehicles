@@ -31,7 +31,7 @@ public class Acquisition_Quotes_Broker_HPR_Test extends TestBase {
 	
 		
 	@Test(priority=1, dataProvider="testData")
-	public void aquisition_quotes_user_flow_broker_HPR_OTR_calculation(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_HPR_OTR_calculation(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit,String financeCharges, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment, String optionToPurchaseFee, 
 			String rflIncluded, String apr, String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -52,7 +52,7 @@ public class Acquisition_Quotes_Broker_HPR_Test extends TestBase {
 	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_HPR_OTR_calculation" })
 
 	
-	public void aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit,String financeCharges, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment, String optionToPurchaseFee, 
 			String rflIncluded, String apr, String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -68,7 +68,7 @@ public class Acquisition_Quotes_Broker_HPR_Test extends TestBase {
 	
 	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_HPR_after_discount_calculations_test" })
 
-	public void aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit,String financeCharges, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment, String optionToPurchaseFee, 
 			String rflIncluded, String apr, String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -78,16 +78,20 @@ public class Acquisition_Quotes_Broker_HPR_Test extends TestBase {
 	
 	
 		
-		boolean customer_quote_vehicle_profit_check=obj_customer_quote_page.customer_Quote_vehicle_profit_checking_broker_hpr(vehicleProfit,quoteRef,quoteExpiryDate, term, milesperannum,
+		boolean customer_quote_vehicle_profit_check=obj_customer_quote_page.customer_Quote_vehicle_profit_checking_broker_hpr(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit, noOfMonthlyPayments, monthlyFinancePayment, finalBallonPayment, optionToPurchaseFee, 
 			rflIncluded,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_vehicle_profit_check);
+		
+		boolean monthly_total_payment_after_editing_vehicle_sales_price = obj_customer_quote_page.edit_otr_sales_price_and_verify_profit( sales_price_percentage, sheet_name);
+		Assert.assertTrue(monthly_total_payment_after_editing_vehicle_sales_price);
+
 		
 	}
 	
 	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_HPR_vehicle_profit_check_test" })
 
-	public void aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit,String financeCharges, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment, String optionToPurchaseFee, 
 			String rflIncluded, String apr, String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -95,7 +99,7 @@ public class Acquisition_Quotes_Broker_HPR_Test extends TestBase {
 	
 		 obj_customer_quote_page = new CustomerQuotePageBrokerHPRPage();
 		
-		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_hpr(vehicleProfit,quoteRef,quoteExpiryDate, term, milesperannum,
+		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_hpr(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit, financeCharges,noOfMonthlyPayments, monthlyFinancePayment, finalBallonPayment, optionToPurchaseFee, 
 			rflIncluded,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_balance_to_finance_check);
@@ -106,7 +110,7 @@ public class Acquisition_Quotes_Broker_HPR_Test extends TestBase {
 	
 	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_HPR_balance_to_finance_check_test" })
 
-	public void aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_HPR_quote_summary_values_verification_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit,String financeCharges, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment, String optionToPurchaseFee, 
 			String rflIncluded, String apr, String commission,String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {

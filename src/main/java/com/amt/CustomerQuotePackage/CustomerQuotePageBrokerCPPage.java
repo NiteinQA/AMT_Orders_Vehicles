@@ -1,23 +1,18 @@
 package com.amt.CustomerQuotePackage;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-import java.sql.Date;
-import java.time.Duration;
 import java.util.List;
-import java.util.function.Function;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
@@ -25,20 +20,19 @@ import com.amt.testUtil.Difference;
 import com.amt.testUtil.Dropdown;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
+import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
 
 public class CustomerQuotePageBrokerCPPage extends TestBase {
 
-	
 	JavascriptExecutor jse;
-	
-	
+
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
-	
+
 	@FindBy(xpath = "//input[@id='profit']")
-	private WebElement vehicleprofit;
-	
+	private WebElement vehicle_profit_input;
+
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
 
@@ -59,153 +53,208 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 
 	@FindBy(xpath = "//input[@id='contractMileage']")
 	private WebElement contract_miles;
-	
+
 	@FindBy(xpath = "//input[@id='cashDeposit']")
 	private WebElement cashdeposit;
-	
+
 	@FindBy(xpath = "//input[@id='numberOfMonthlyPayments']")
 	private WebElement noOfMonthlyPayment;
-	
-	
+
 	@FindBy(xpath = "//*[@name='initialFinanceRental']")
 	private WebElement initial_finance_rental;
-	
+
 	@FindBy(xpath = "//input[@id='initialMaintenanceRental']")
 	private WebElement initial_maintenance_rental;
-	
+
 	@FindBy(xpath = "//input[@id='monthlyPayment']")
 	private WebElement monthlyfinancePayment;
-	
+
 	@FindBy(xpath = "//input[@id='optionalFinalPayment']")
 	private WebElement optionalfinalPayment;
-	
-	
+
 	@FindBy(xpath = "//input[@id='optionToPurchaseFee']")
 	private WebElement optiontoPurchaseFee;
-	
+
 	@FindBy(xpath = "//select[@name='vehicleTaxIncluded']")
-	private WebElement rFLIncluded; 
-	
+	private WebElement rFLIncluded;
+
 	@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']")
 	private WebElement monthly_maintenance_rental;
 
-	@FindBy(xpath = "//input[@id='pencePerExcessMileageFinance']") 
+	@FindBy(xpath = "//input[@id='pencePerExcessMileageFinance']")
 	private WebElement pence_Per_ExcessMileage_Finance;
-	
-	@FindBy(xpath = "//input[@id='apr']") 
+
+	@FindBy(xpath = "//input[@id='apr']")
 	private WebElement apr;
-	
-	@FindBy(xpath = "//input[@id='otrPartExchange']") 
+
+	@FindBy(xpath = "//input[@id='otrPartExchange']")
 	private WebElement partExchangeactual;
-	
-	@FindBy(xpath = "//input[@id='partExchnage']") 
+
+	@FindBy(xpath = "//input[@id='partExchnage']")
 	private WebElement partExchangegiven;
-	
-	@FindBy(xpath = "//input[@id='lessFinanceSettlement']") 
+
+	@FindBy(xpath = "//input[@id='lessFinanceSettlement']")
 	private WebElement lessFinancesettlement;
-	
-	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[9]/div[2]/p") 
+
+	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[9]/div[2]/p")
 	private WebElement otrScreenPrice;
-	
-	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[10]/div[3]/p")  
+
+	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[10]/div[3]/p")
 	private WebElement vehicle_sale_price;
-	 
 
 	@FindBy(xpath = "//input[@id='pencePerExcessMileageMaintenance']")
 	private WebElement pence_Per_ExcessMileage_maintenance;
-	
-	
+
 	@FindBy(xpath = "//input[@id='commission']")
 	private WebElement commission;
 
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
-	
+
 	@FindBy(xpath = "//i[@class='btn-icon-reset-black']")
 	private WebElement reset;
-	
 
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement save_button;
-	
+
 	@FindBy(xpath = "//label[@for='maintenanceIncluded']//span[@class='slider round']")
 	private WebElement maintenance_toggle_button;
-	
+
 	@FindBy(xpath = "//*[contains(text(),' Customer quote summary ')]")
 	private WebElement customer_quote_summary;
-		
+
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[3]/div/span")
 	private WebElement customer_quote_summary_balance_to_finance;
-	
+
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
 	private WebElement part_exchange_profit;
-	
+
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
 	private WebElement part_exchange_value;
-	
+
 	@FindBy(xpath = "//input[@id='monthlyMaintenancePayment']")
 	private WebElement monthly_maintenance_payment;
-	 
 
+	@FindBy(xpath = "((//*[normalize-space()='On the road price']//ancestor::div[1])[1])//div[2]")
+	private WebElement otr_cost_price;
 
+	@FindBy(xpath = "//*[@name='salesTotal']")
+	private WebElement sales_total_input;
 
 	public CustomerQuotePageBrokerCPPage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean customer_Quote_vehicle_profit_checking_broker_cp_without_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
-			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
-			String optionalFinalPayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String aPR,
-			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
-			throws InterruptedException, IOException {
+	public boolean edit_otr_sales_price_and_verify_profit(String sales_price_percentage,
+			String sheet_name) throws InterruptedException, UnsupportedFlavorException, IOException {
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price");
+		System.out.println("Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price");
+
+		// getting screen otr price
+		ExplicitWait.visibleElement(driver, otr_cost_price, 30);
+		double otrCostPrice = Double.parseDouble(RemoveComma.of(otr_cost_price.getText().trim().substring(2)));
+
+		// code for sending input to sales total input
+		ExplicitWait.visibleElement(driver, sales_total_input, 30);
+		sales_total_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		double salesPricePercentage = Double.parseDouble(sales_price_percentage);
+		double salesPrice = (((otrCostPrice * salesPricePercentage) / 100) + otrCostPrice);
+		Click.sendKeys(driver, sales_total_input, String.valueOf(salesPrice), 20);
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		LO.print("Sending " + salesPrice + " to sales total input field");
+		System.out.println("Sending " + salesPrice + " to sales total input field");
+
+		double vehicel_profit_expected = (salesPrice - otrCostPrice) / 1.2;
+
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		double vehicel_profit_actual = Double.parseDouble(vehicle_profit_copied);
+
+		double diff1 = Difference.of_two_Double_Values(vehicel_profit_expected, vehicel_profit_actual);
+
+		boolean status = false;
+
+		if (diff1 < 0.2) {
+			status = true;
+
+			LO.print("Vehicle profit verified on editing Vehicle Sales Price");
+			System.out.println("Vehicle profit verified on editing Vehicle Sales Price");
+		}
+
+		return status;
+	}
+
+	public boolean customer_Quote_vehicle_profit_checking_broker_cp_without_maintenance(String vehicleProfit,
+			String quoteRef, String quoteExpiryDate, String term, String milesperannum, String contractMileage,
+			String cahDeposit, String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment,
+			String optionToPurchaseFee, String rflIncluded, String pensePerExcessMileFinance, String aPR,
+			String commission2, String partExchangeActual, String partExchangeGiven, String lessFinanceSettlement,
+			String sheet_name) throws InterruptedException, IOException {
 
 		Click.on(driver, customer_quote, 25);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		
-			
 		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
-		String otr_screen_price=otrScreenPrice.getText().trim().substring(2);
-		String otr=RemoveComma.of(otr_screen_price);
-		double otr_screen_price_converted=Double.parseDouble(otr);
-	
-			
-		ExplicitWait.visibleElement(driver, vehicleprofit, 20);
-		
-		vehicleprofit.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		
-		int profit=Integer.parseInt(vehicleProfit);	 
-	
-		Click.sendKeysint(driver, vehicleprofit, profit , 40);
+		String otr_screen_price = otrScreenPrice.getText().trim().substring(2);
+		String otr = RemoveComma.of(otr_screen_price);
+		double otr_screen_price_converted = Double.parseDouble(otr);
+
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 20);
+
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		int profit = Integer.parseInt(vehicleProfit);
+
+		Click.sendKeysint(driver, vehicle_profit_input, profit, 40);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
-		
-		double vehicleProfit_converted=Double.parseDouble(vehicleProfit);
+
+		double vehicleProfit_converted = Double.parseDouble(vehicleProfit);
 		ExplicitWait.visibleElement(driver, vehicle_sale_price, 20);
-		String vehicle_sale_price_from_screen=RemoveComma.of(vehicle_sale_price.getText().trim().substring(2));
-		double vehicle_sale_price_from_screen_converted=Double.parseDouble(vehicle_sale_price_from_screen);
-		
-		double diff2=Difference.of_two_Double_Values(otr_screen_price_converted, vehicle_sale_price_from_screen_converted);
-			
-		LO.print("Vehicle profit from test data "+vehicleProfit_converted+" added to otr cost price "+otr_screen_price_converted);
-		System.out.println("Vehicle profit from test data "+vehicleProfit_converted+" added to otr cost price "+otr_screen_price_converted);
-		
-		LO.print("After adding profit to cost price "+otr_screen_price_converted+" sales price is shown as (considering VAT%) "+vehicle_sale_price_from_screen_converted);
-		System.out.println("After adding profit to cost price "+otr_screen_price_converted+" sales price is shown as (considering VAT%) "+vehicle_sale_price_from_screen_converted);
-		
-		boolean vehicle_profit_status=false;
-		
-		if(diff2==(vehicleProfit_converted*1.2)) {vehicle_profit_status=true;LO.print("Vehicle profit verified");System.out.println("Vehicle profit verified");}
-		
-	return vehicle_profit_status;
-	}	
-	
-	public boolean customer_Quote_balance_to_finance_checking_broker_cp_without_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
-			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
-			String optionalFinalPayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String aPR,
-			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
-			throws InterruptedException, IOException {
+		String vehicle_sale_price_from_screen = RemoveComma.of(vehicle_sale_price.getText().trim().substring(2));
+		double vehicle_sale_price_from_screen_converted = Double.parseDouble(vehicle_sale_price_from_screen);
+
+		double diff2 = Difference.of_two_Double_Values(otr_screen_price_converted,
+				vehicle_sale_price_from_screen_converted);
+
+		LO.print("Vehicle profit from test data " + vehicleProfit_converted + " added to otr cost price "
+				+ otr_screen_price_converted);
+		System.out.println("Vehicle profit from test data " + vehicleProfit_converted + " added to otr cost price "
+				+ otr_screen_price_converted);
+
+		LO.print("After adding profit to cost price " + otr_screen_price_converted
+				+ " sales price is shown as (considering VAT%) " + vehicle_sale_price_from_screen_converted);
+		System.out.println("After adding profit to cost price " + otr_screen_price_converted
+				+ " sales price is shown as (considering VAT%) " + vehicle_sale_price_from_screen_converted);
+
+		boolean vehicle_profit_status = false;
+
+		if (diff2 == (vehicleProfit_converted * 1.2)) {
+			vehicle_profit_status = true;
+			LO.print("Vehicle profit verified");
+			System.out.println("Vehicle profit verified");
+		}
+
+		return vehicle_profit_status;
+	}
+
+	public boolean customer_Quote_balance_to_finance_checking_broker_cp_without_maintenance(String vehicleProfit,
+			String quoteRef, String quoteExpiryDate, String term, String milesperannum, String contractMileage,
+			String cahDeposit, String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment,
+			String optionToPurchaseFee, String rflIncluded, String pensePerExcessMileFinance, String aPR,
+			String commission2, String partExchangeActual, String partExchangeGiven, String lessFinanceSettlement,
+			String sheet_name) throws InterruptedException, IOException {
 
 		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
 		String otr_screen_price = otrScreenPrice.getText().trim().substring(2);
@@ -323,59 +372,68 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 
 		return balance_to_finance_status;
 	}
-	
-	
-	public boolean customer_Quote_vehicle_profit_checking_broker_cp_with_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
-			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
-			String optionalFinalPayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String aPR,
-			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
-			throws InterruptedException, IOException {
+
+	public boolean customer_Quote_vehicle_profit_checking_broker_cp_with_maintenance(String vehicleProfit,
+			String quoteRef, String quoteExpiryDate, String term, String milesperannum, String contractMileage,
+			String cahDeposit, String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment,
+			String optionToPurchaseFee, String rflIncluded, String pensePerExcessMileFinance, String aPR,
+			String commission2, String partExchangeActual, String partExchangeGiven, String lessFinanceSettlement,
+			String sheet_name) throws InterruptedException, IOException {
 
 		Click.on(driver, customer_quote, 25);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-			
 		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
-		String otr_screen_price=otrScreenPrice.getText().trim().substring(2);
-		String otr=RemoveComma.of(otr_screen_price);
-		double otr_screen_price_converted=Double.parseDouble(otr);
-	
-			
-		ExplicitWait.visibleElement(driver, vehicleprofit, 60);
-		
-		vehicleprofit.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		
-		int profit=Integer.parseInt(vehicleProfit);	 
-	
-		Click.sendKeysint(driver, vehicleprofit, profit , 40);
+		String otr_screen_price = otrScreenPrice.getText().trim().substring(2);
+		String otr = RemoveComma.of(otr_screen_price);
+		double otr_screen_price_converted = Double.parseDouble(otr);
+
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 60);
+
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		int profit = Integer.parseInt(vehicleProfit);
+
+		Click.sendKeysint(driver, vehicle_profit_input, profit, 40);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
-		
-		double vehicleProfit_converted=Double.parseDouble(vehicleProfit);
+
+		double vehicleProfit_converted = Double.parseDouble(vehicleProfit);
 		ExplicitWait.visibleElement(driver, vehicle_sale_price, 20);
-		String vehicle_sale_price_from_screen=RemoveComma.of(vehicle_sale_price.getText().trim().substring(2));
-		double vehicle_sale_price_from_screen_converted=Double.parseDouble(vehicle_sale_price_from_screen);
-		
-		double diff2=Difference.of_two_Double_Values(otr_screen_price_converted, vehicle_sale_price_from_screen_converted);
-			
-		LO.print("Vehicle profit from test data "+vehicleProfit_converted+" added to otr cost price "+otr_screen_price_converted);
-		System.out.println("Vehicle profit from test data "+vehicleProfit_converted+" added to otr cost price "+otr_screen_price_converted);
-		
-		LO.print("After adding profit to cost price "+otr_screen_price_converted+" sales price is shown as (considering VAT%) "+vehicle_sale_price_from_screen_converted);
-		System.out.println("After adding profit to cost price "+otr_screen_price_converted+" sales price is shown as (considering VAT%) "+vehicle_sale_price_from_screen_converted);
-		
-		boolean vehicle_profit_status=false;
-		
-		if(diff2==(vehicleProfit_converted*1.2)) {vehicle_profit_status=true;LO.print("Vehicle profit verified");System.out.println("Vehicle profit verified");}
-		
-	return vehicle_profit_status;
-	}	
-	
-	public boolean customer_Quote_balance_to_finance_checking_broker_cp_with_maintenance(String vehicleProfit,String quoteRef, String quoteExpiryDate, String term,
-			String milesperannum, String contractMileage,String cahDeposit, String noOfMonthlyPayments,String monthlyFinancePayment,
-			String optionalFinalPayment,String monthlyMaintenancePayment, String optionToPurchaseFee,String rflIncluded, String pensePerExcessMileFinance, String pensePerExcessMileMaintenance, String aPR,
-			String commission2, String partExchangeActual, String partExchangeGiven,String lessFinanceSettlement, String sheet_name)
+		String vehicle_sale_price_from_screen = RemoveComma.of(vehicle_sale_price.getText().trim().substring(2));
+		double vehicle_sale_price_from_screen_converted = Double.parseDouble(vehicle_sale_price_from_screen);
+
+		double diff2 = Difference.of_two_Double_Values(otr_screen_price_converted,
+				vehicle_sale_price_from_screen_converted);
+
+		LO.print("Vehicle profit from test data " + vehicleProfit_converted + " added to otr cost price "
+				+ otr_screen_price_converted);
+		System.out.println("Vehicle profit from test data " + vehicleProfit_converted + " added to otr cost price "
+				+ otr_screen_price_converted);
+
+		LO.print("After adding profit to cost price " + otr_screen_price_converted
+				+ " sales price is shown as (considering VAT%) " + vehicle_sale_price_from_screen_converted);
+		System.out.println("After adding profit to cost price " + otr_screen_price_converted
+				+ " sales price is shown as (considering VAT%) " + vehicle_sale_price_from_screen_converted);
+
+		boolean vehicle_profit_status = false;
+
+		if (diff2 == (vehicleProfit_converted * 1.2)) {
+			vehicle_profit_status = true;
+			LO.print("Vehicle profit verified");
+			System.out.println("Vehicle profit verified");
+		}
+
+		return vehicle_profit_status;
+	}
+
+	public boolean customer_Quote_balance_to_finance_checking_broker_cp_with_maintenance(String vehicleProfit,
+			String quoteRef, String quoteExpiryDate, String term, String milesperannum, String contractMileage,
+			String cahDeposit, String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment,
+			String monthlyMaintenancePayment, String optionToPurchaseFee, String rflIncluded,
+			String pensePerExcessMileFinance, String pensePerExcessMileMaintenance, String aPR, String commission2,
+			String partExchangeActual, String partExchangeGiven, String lessFinanceSettlement, String sheet_name)
 			throws InterruptedException, IOException {
 
 		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
@@ -499,10 +557,4 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		return balance_to_finance_status;
 	}
 
-
 }
-		
-
-
-
-

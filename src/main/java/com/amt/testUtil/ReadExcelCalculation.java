@@ -1635,7 +1635,7 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Monthly Finance Rental from Excel is =" + monthly_finance_rental_expected);
 		System.out.println("Monthly Finance Rental from Excel is =" + monthly_finance_rental_expected);
 
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 		String monthly_finance_rental = customer_quote_monthly_finance_rental.getText().substring(2);
 		String monthly_finance_rental_actual = RemoveComma.of(monthly_finance_rental);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
@@ -1732,7 +1732,7 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Monthly Finance Rental from Excel is =" + monthly_finance_rental_expected);
 		System.out.println("Monthly Finance Rental from Excel is =" + monthly_finance_rental_expected);
 
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 		String monthly_finance_rental = customer_quote_monthly_finance_rental.getText().substring(2);
 		String monthly_finance_rental_actual = RemoveComma.of(monthly_finance_rental);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);

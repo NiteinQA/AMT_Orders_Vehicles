@@ -274,6 +274,8 @@ public class HoldingCost_CP_CP_Page extends TestBase {
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
+		
+		
 		 Click.on(driver, funder, 30);
 		
 		 Actions act = new Actions(driver);
@@ -312,7 +314,10 @@ public class HoldingCost_CP_CP_Page extends TestBase {
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		 
-		
+		 Click.on(driver, holding_cost_maintenance_toggle_button, 30);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 		 
 	    Click.on(driver, holding_cost_summary, 30);
 		 

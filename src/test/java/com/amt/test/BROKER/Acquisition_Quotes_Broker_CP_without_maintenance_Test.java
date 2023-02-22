@@ -31,7 +31,7 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 	
 		
 	@Test(priority=1, dataProvider="testData")
-	public void aquisition_quotes_user_flow_broker_CP_OTR_calculation_without_maintenance_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_CP_OTR_calculation_without_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String apr, String commission, 
@@ -53,7 +53,7 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_CP_OTR_calculation_without_maintenance_test" })
 
 	
-	public void aquisition_quotes_user_flow_broker_CP_after_discount_calculations_without_maintenance_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_CP_after_discount_calculations_without_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String apr, String commission, 
@@ -70,7 +70,7 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 	
 	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_CP_after_discount_calculations_without_maintenance_test" })
 
-	public void aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_without_maintenance_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_without_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String apr, String commission, 
@@ -81,16 +81,20 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 	
 	
 		
-		boolean customer_quote_vehicle_profit_check=obj_customer_quote_page.customer_Quote_vehicle_profit_checking_broker_cp_without_maintenance(vehicleProfit,quoteRef,quoteExpiryDate, term, milesperannum,
+		boolean customer_quote_vehicle_profit_check=obj_customer_quote_page.customer_Quote_vehicle_profit_checking_broker_cp_without_maintenance(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit,noOfMonthlyPayments, monthlyFinancePayment, optionalFinalPayment, optionToPurchaseFee, 
 			rflIncluded, pensePerExcessMileFinance,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_vehicle_profit_check);
+		
+		boolean monthly_total_payment_after_editing_vehicle_sales_price = obj_customer_quote_page.edit_otr_sales_price_and_verify_profit( sales_price_percentage, sheet_name);
+		Assert.assertTrue(monthly_total_payment_after_editing_vehicle_sales_price);
+
 		
 	}
 	
 	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_without_maintenance_test" })
 
-	public void aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String apr, String commission, 
@@ -99,7 +103,7 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 	
 		 obj_customer_quote_page = new CustomerQuotePageBrokerCPPage();
 		
-		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_cp_without_maintenance(vehicleProfit,quoteRef,quoteExpiryDate, term, milesperannum,
+		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_cp_without_maintenance(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit,noOfMonthlyPayments, monthlyFinancePayment, optionalFinalPayment, optionToPurchaseFee, 
 			rflIncluded, pensePerExcessMileFinance,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_balance_to_finance_check);
@@ -109,7 +113,7 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 	
 	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_without_maintenance_test" })
 
-	public void aquisition_quotes_user_flow_broker_CP_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model,String vehicleProfit,
+	public void aquisition_quotes_user_flow_broker_CP_quote_summary_values_verification_without_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String apr, String commission, 

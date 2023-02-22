@@ -1,5 +1,9 @@
 package com.amt.CustomerQuotePackage;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
@@ -29,6 +33,9 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 
 	@FindBy(xpath = "//input[@id='profit']")
 	private WebElement vehicleprofit;
+
+	@FindBy(xpath = "//input[@id='profit']")
+	private WebElement vehicle_profit_input;
 
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
@@ -132,8 +139,63 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
 	private WebElement part_exchange_value;
 
+	@FindBy(xpath = "((//*[normalize-space()='On the road price']//ancestor::div[1])[1])//div[2]")
+	private WebElement otr_cost_price;
+
+	@FindBy(xpath = "//*[@name='salesTotal']")
+	private WebElement sales_total_input;
+
 	public CustomerQuotePageBrokerHPRPage() {
 		PageFactory.initElements(driver, this);
+	}
+
+	public boolean edit_otr_sales_price_and_verify_profit(String sales_price_percentage, String sheet_name)
+			throws InterruptedException, UnsupportedFlavorException, IOException {
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price");
+		System.out.println("Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price");
+
+		// getting screen otr price
+		ExplicitWait.visibleElement(driver, otr_cost_price, 30);
+		double otrCostPrice = Double.parseDouble(RemoveComma.of(otr_cost_price.getText().trim().substring(2)));
+
+		// code for sending input to sales total input
+		ExplicitWait.visibleElement(driver, sales_total_input, 30);
+		sales_total_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		double salesPricePercentage = Double.parseDouble(sales_price_percentage);
+		double salesPrice = (((otrCostPrice * salesPricePercentage) / 100) + otrCostPrice);
+		Click.sendKeys(driver, sales_total_input, String.valueOf(salesPrice), 20);
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		LO.print("Sending " + salesPrice + " to sales total input field");
+		System.out.println("Sending " + salesPrice + " to sales total input field");
+
+		double vehicel_profit_expected = (salesPrice - otrCostPrice) / 1.2;
+
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		double vehicel_profit_actual = Double.parseDouble(vehicle_profit_copied);
+
+		double diff1 = Difference.of_two_Double_Values(vehicel_profit_expected, vehicel_profit_actual);
+
+		boolean status = false;
+
+		if (diff1 < 0.2) {
+			status = true;
+
+			LO.print("Vehicle profit verified on editing Vehicle Sales Price");
+			System.out.println("Vehicle profit verified on editing Vehicle Sales Price");
+		}
+
+		return status;
 	}
 
 //	public boolean customer_Quote_broker_pcp_with_maintenance( String quoteRef, String quoteExpiryDate, String term, String milesperannum, 

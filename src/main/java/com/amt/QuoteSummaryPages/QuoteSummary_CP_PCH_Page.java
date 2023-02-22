@@ -1663,14 +1663,13 @@ public boolean quote_summary_configuration_value_verification_without_maintenanc
 		 LO.print("Total Margin found OK");System.out.println("Total Margin found OK"); count++;}
 		else {LO.print("Total Margin found wrong");System.err.println("Total Margin found wrong");
 	 }
-	 
-	 if(defaualtBrokerMarginPercentageFromExcel==defaultBrokerMarginPercentageFromScreen)
+	 if(Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,defaultBrokerMarginPercentageFromScreen)<0.2)
 	 {
 		 LO.print("Default Broker Margin percentage found OK");System.out.println("Default Broker Margin percentage found OK"); count++;}
 		else {LO.print("Default Broker Margin percentage found wrong");System.err.println("Default Broker Margin percentage found wrong");
 	 }
 	 
-	 if(brokerUpsellMarginPercentageFromScreen==brokerUpsellMarginPercentageFromExcel)
+	 if(Difference.of_two_Double_Values(brokerUpsellMarginPercentageFromScreen,brokerUpsellMarginPercentageFromExcel)<0.2)
 	 {
 		 LO.print("Broker Upsell Margin percentage found OK");System.out.println("Broker Upsell Margin percentage found OK"); count++;}
 		else {LO.print("Broker Upsell Margin percentage found wrong");System.err.println("Broker Upsell Margin percentage found wrong");

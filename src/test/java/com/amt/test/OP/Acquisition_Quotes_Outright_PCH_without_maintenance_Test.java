@@ -194,14 +194,14 @@ public class Acquisition_Quotes_Outright_PCH_without_maintenance_Test extends Te
 		System.out.println("");
 		System.out.println("");
 
-//		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
-//				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
-//						referrer_upsell, add_terms, add_mileage, sheet_name);
-//
-//		//Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
-//
-//		System.out.println("");
-//		System.out.println("");
+		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
+				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
+						referrer_upsell, add_terms, add_mileage, sheet_name);
+
+		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+
+		System.out.println("");
+		System.out.println("");
 
 		boolean finance_rental_with_part_exchange = obj_customer_quote_page
 				.check_monthly_finance_rental_with_part_exchange_toggle_on_without_maintenance(
@@ -214,10 +214,10 @@ public class Acquisition_Quotes_Outright_PCH_without_maintenance_Test extends Te
 		System.out.println("");
 		System.out.println("");
 
-//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-//				.customer_Quote_outright_PCH_for_all_payment_option_without_maintenance_calculation(initial_payment,
-//						sheet_name);
-//		Assert.assertTrue(cutomer_quote_monthly_rental);
+		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+				.customer_Quote_outright_PCH_for_all_payment_option_without_maintenance_calculation(initial_payment,
+						sheet_name);
+		Assert.assertTrue(cutomer_quote_monthly_rental);
 
 		System.out.println("");
 		System.out.println("");

@@ -202,11 +202,11 @@ public class Acquisition_Quotes_Outright_PCH_with_maintenance_Test extends TestB
 		System.out.println("");
 		System.out.println("");
 
-//		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
-//				.check_monthly_payments_on_adding_upsell_values_with_maintenance(security_deposit, matrix_upsell,
-//						referrer_upsell, add_terms, add_mileage, sheet_name);
-//
-//		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
+				.check_monthly_payments_on_adding_upsell_values_with_maintenance(security_deposit, matrix_upsell,
+						referrer_upsell, add_terms, add_mileage, sheet_name);
+
+		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
 
 		System.out.println("");
 		System.out.println("");

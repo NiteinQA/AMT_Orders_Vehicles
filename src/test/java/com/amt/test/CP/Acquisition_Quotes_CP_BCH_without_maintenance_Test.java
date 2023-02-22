@@ -129,11 +129,11 @@ public class Acquisition_Quotes_CP_BCH_without_maintenance_Test extends TestBase
 						part_exchange_status, target_rental,sheet_name);
 		Assert.assertTrue(customer_quote_for_payment_boolean);
 		
-//		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
-//				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
-//						referrer_upsell, add_terms, add_mileage, sheet_name);
-//
-//		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
+				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
+						referrer_upsell, add_terms, add_mileage, sheet_name);
+
+		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
 
 		
 		

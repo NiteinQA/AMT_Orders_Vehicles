@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePage_BCH_BCH_Page;
 import com.amt.HoldingCostPages.HoldingCost_BCH_BCH_Page;
@@ -149,23 +150,24 @@ public class Acquisition_Quotes_BCH_BCH_with_maintenance_Test extends TestBase {
 		LO.print("***********Assertion Passed For Monthly Finance Rental***********");
 		LO.print("****************************************************************");
 
-//		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
-//		.check_monthly_payments_on_adding_upsell_values_with_maintenance(security_deposit, matrix_upsell,
-//				referrer_upsell, add_terms, add_mileage, sheet_name);
-//
-////Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
-//
-//		System.out.println("***********Assertion Passed For Monthly Finance Rental on adding upsell values***********");
-//		System.out.println("****************************************************************");
-//
-//		LO.print("***********Assertion Passed For Monthly Finance Rental on adding upsell values***********");
-//		LO.print("****************************************************************");
+		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
+		.check_monthly_payments_on_adding_upsell_values_with_maintenance(security_deposit, matrix_upsell,
+				referrer_upsell, add_terms, add_mileage, sheet_name);
+
+        Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+
+		System.out.println("***********Assertion Passed For Monthly Finance Rental on adding upsell values***********");
+		System.out.println("****************************************************************");
+
+		LO.print("***********Assertion Passed For Monthly Finance Rental on adding upsell values***********");
+		LO.print("****************************************************************");
 
 		
 			
 		boolean monthlyFinanceAndMaintenanceWithPartExchange =  obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_with_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
 		
 		Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+		
 		
 		
 		System.out.println("*****Assertion Passed For Monthly Finance And Maint. Rental*****");

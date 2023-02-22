@@ -130,10 +130,158 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
 	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement total_monthly_payment;
 
+	@FindBy(xpath = "((//*[normalize-space()='On the road price']//ancestor::div[1])[1])//div[2]")
+	private WebElement otr_cost_price;
+
+	@FindBy(xpath = "//*[@name='salesTotal']")
+	private WebElement sales_total_input;
+
 	public CustomerQuotePageOutrightCPPage() {
 		PageFactory.initElements(driver, this);
 
 	}
+	
+
+	public boolean edit_otr_sales_price_and_check_monthly_total_payment_with_maintenance(String sales_price_percentage,
+			String sheet_name) throws InterruptedException, UnsupportedFlavorException, IOException {
+      
+		LO.print("");
+		System.out.println("");
+	
+		LO.print("Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price");
+		System.out.println("Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price");
+	
+		
+		//getting screen otr price
+		ExplicitWait.visibleElement(driver, otr_cost_price, 30);
+		double otrCostPrice = Double.parseDouble(RemoveComma.of(otr_cost_price.getText().trim().substring(2)));
+	
+		//code for sending input to sales total input
+		ExplicitWait.visibleElement(driver, sales_total_input, 30);
+		sales_total_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		double salesPricePercentage = Double.parseDouble(sales_price_percentage);
+		double salesPrice =((( otrCostPrice*salesPricePercentage )/100)+otrCostPrice);
+		Click.sendKeys(driver, sales_total_input, String.valueOf(salesPrice), 20);
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		
+		LO.print("Sending "+salesPrice+" to sales total input field");
+		System.out.println("Sending "+salesPrice+" to sales total input field");
+	
+		
+		double vehicel_profit_expected = (salesPrice - otrCostPrice)/1.2;
+		
+			
+		
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+		
+		double vehicel_profit_actual = Double.parseDouble(vehicle_profit_copied);
+		
+	
+		double diff1 =Difference.of_two_Double_Values(vehicel_profit_expected, vehicel_profit_actual);
+		
+		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
+		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
+        String vehicle_additional_discount_copied =(String) clipboard.getData(DataFlavor.stringFlavor);
+      
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
+				.get_monthly_total_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied, sheet_name);
+		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		double monthly_total_payment_actual_from_screen = Double
+				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
+		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
+				monthly_total_payment_actual_from_screen);
+		
+		boolean status = false;
+		
+		if (diff < 0.2 && diff1 < 0.2) {
+			status = true;
+			
+			LO.print("Vehicle profit and Total Monthly Payment verified on editing Vehicle Sales Price");
+			System.out.println("Vehicle profit and Total Monthly Payment verified on editing Vehicle Sales Price");
+		}
+
+		return status;
+	}
+	
+	public boolean edit_otr_sales_price_and_check_monthly_total_payment_without_maintenance(String sales_price_percentage,
+			String sheet_name) throws InterruptedException, UnsupportedFlavorException, IOException {
+      
+		LO.print("");
+		System.out.println("");
+	
+		LO.print("Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price");
+		System.out.println("Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price");
+	
+		
+		//getting screen otr price
+		ExplicitWait.visibleElement(driver, otr_cost_price, 30);
+		double otrCostPrice = Double.parseDouble(RemoveComma.of(otr_cost_price.getText().trim().substring(2)));
+	
+		//code for sending input to sales total input
+		ExplicitWait.visibleElement(driver, sales_total_input, 30);
+		sales_total_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		double salesPricePercentage = Double.parseDouble(sales_price_percentage);
+		double salesPrice =((( otrCostPrice*salesPricePercentage )/100)+otrCostPrice);
+		Click.sendKeys(driver, sales_total_input, String.valueOf(salesPrice), 20);
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		
+		LO.print("Sending "+salesPrice+" to sales total input field");
+		System.out.println("Sending "+salesPrice+" to sales total input field");
+	
+		
+		double vehicel_profit_expected = (salesPrice - otrCostPrice)/1.2;
+	
+		
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+		
+		double vehicel_profit_actual = Double.parseDouble(vehicle_profit_copied);
+		
+	
+		double diff1 =Difference.of_two_Double_Values(vehicel_profit_expected, vehicel_profit_actual);
+		
+		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
+		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
+        String vehicle_additional_discount_copied =(String) clipboard.getData(DataFlavor.stringFlavor);
+      
+		
+        obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
+				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
+						sheet_name);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		double monthly_total_payment_actual_from_screen = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
+				monthly_total_payment_actual_from_screen);
+		
+		boolean status = false;
+		
+		if (diff < 0.2 && diff1 < 0.2) {
+			status = true;
+			
+			LO.print("Vehicle profit and Total Monthly Payment verified on editing Vehicle Sales Price");
+			System.out.println("Vehicle profit and Total Monthly Payment verified on editing Vehicle Sales Price");
+		}
+
+		return status;
+	}
+
 
 	public boolean check_monthly_finance_payment_on_customer_quote(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
@@ -408,12 +556,12 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
 	public boolean put_part_exchange_values_and_check_monthly_finance_payment(String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String sheet_name) throws UnsupportedFlavorException, IOException, InterruptedException {
-        Actions act = new Actions(driver);
+		Actions act = new Actions(driver);
 
 		Click.on(driver, part_exchange_and_additional_payment_button, 30);
 
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
-        act.sendKeys(Keys.TAB).build().perform();
+		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);

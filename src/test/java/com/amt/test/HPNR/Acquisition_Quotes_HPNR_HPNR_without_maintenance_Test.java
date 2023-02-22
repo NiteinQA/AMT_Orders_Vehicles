@@ -34,7 +34,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	@Test(priority = 1, dataProvider = "testData")
 	public void aquisition_quotes_HPNR_HPNR_OTR_calculation_without_maintenance_test(String manufacturer, String model,
 			String Vehicle_Basic_price, String road_tax_for_first_year, String percentage_cap_residual_value,
-			String residual_value_used, String additional_terms, String additional_mileage, String vehicle_profit,
+			String residual_value_used, String additional_terms, String additional_mileage, String vehicle_profit, String sales_price_percentage,
 			String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
@@ -60,7 +60,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	public void aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test(String manufacturer,
 			String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String vehicle_profit, String maintenance_status, String matrix_credit_type,
+			String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type,
 			String security_deposit, String balloon_payment_status, String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
@@ -80,7 +80,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	public void aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test(String manufacturer,
 			String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String vehicle_profit, String maintenance_status, String matrix_credit_type,
+			String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type,
 			String security_deposit, String balloon_payment_status, String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
@@ -117,7 +117,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	public void aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String vehicle_profit, String maintenance_status, String matrix_credit_type,
+			String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type,
 			String security_deposit, String balloon_payment_status, String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
@@ -138,7 +138,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	public void aquisition_quotes_HPNR_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test(
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String vehicle_profit, String maintenance_status, String matrix_credit_type,
+			String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type,
 			String security_deposit, String balloon_payment_status, String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
@@ -149,6 +149,10 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 		boolean monthly_finance_payment_after_editing_vehicle_profit = obj_customer_quote_page
 				.edit_vehicle_profit_and_check_monthly_finance_payment(vehicle_profit, sheet_name);
 		Assert.assertTrue(monthly_finance_payment_after_editing_vehicle_profit);
+		
+		boolean monthly_total_payment_after_editing_vehicle_sales_price = obj_customer_quote_page.edit_otr_sales_price_and_check_monthly_total_payment_without_maintenance( sales_price_percentage, sheet_name);
+		Assert.assertTrue(monthly_total_payment_after_editing_vehicle_sales_price);
+
 
 	}
 
@@ -158,7 +162,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	public void aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test(
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String vehicle_profit, String maintenance_status, String matrix_credit_type,
+			String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type,
 			String security_deposit, String balloon_payment_status, String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
@@ -179,7 +183,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	public void aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test(
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String vehicle_profit, String maintenance_status, String matrix_credit_type,
+			String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type,
 			String security_deposit, String balloon_payment_status, String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
@@ -200,7 +204,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 	public void aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test(
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String vehicle_profit, String maintenance_status, String matrix_credit_type,
+			String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type,
 			String security_deposit, String balloon_payment_status, String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
