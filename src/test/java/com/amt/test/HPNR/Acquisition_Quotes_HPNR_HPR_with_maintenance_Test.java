@@ -35,7 +35,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 	public void aquisition_quotes_HPNR_HPR_OTR_calculation_with_maintenance_test(String manufacturer, String model,
 			String Vehicle_Basic_price, String road_tax_for_first_year, String percentage_cap_residual_value,
 			String percentage_cap_maint_value, String residual_value_used, String maint_cost_used, String target_rental,
-			String additional_terms, String additional_mileage, String vehicle_profit, String maintenance_status,
+			String additional_terms, String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status,
 			String matrix_credit_type, String security_deposit, String balloon_payment_status,
 			String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
 			String order_deposit, String finance_deposit, String document_fee, String sheet_name)
@@ -62,7 +62,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 			String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String percentage_cap_maint_value, String residual_value_used,
 			String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
-			String vehicle_profit, String maintenance_status, String matrix_credit_type, String security_deposit,
+			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -82,7 +82,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 			String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String percentage_cap_maint_value, String residual_value_used,
 			String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
-			String vehicle_profit, String maintenance_status, String matrix_credit_type, String security_deposit,
+			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -120,7 +120,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String percentage_cap_maint_value, String residual_value_used,
 			String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
-			String vehicle_profit, String maintenance_status, String matrix_credit_type, String security_deposit,
+			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -132,6 +132,10 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 						matrix_credit_type, balloon_payment_status, order_deposit, finance_deposit, document_fee,
 						sheet_name);
 		Assert.assertTrue(monthly_finance_payment_check);
+		
+		boolean sales_discount_price_check =obj_customer_quote_page.enter_sales_price_discount_greater_than_cost_price_discount(driver , sheet_name);
+		Assert.assertTrue(sales_discount_price_check);
+
 
 	}
 
@@ -142,7 +146,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String percentage_cap_maint_value, String residual_value_used,
 			String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
-			String vehicle_profit, String maintenance_status, String matrix_credit_type, String security_deposit,
+			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -162,7 +166,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String percentage_cap_maint_value, String residual_value_used,
 			String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
-			String vehicle_profit, String maintenance_status, String matrix_credit_type, String security_deposit,
+			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -183,7 +187,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 			String manufacturer, String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String percentage_cap_maint_value, String residual_value_used,
 			String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
-			String vehicle_profit, String maintenance_status, String matrix_credit_type, String security_deposit,
+			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -203,7 +207,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_maintenance_Test extends TestBase 
 			String model, String Vehicle_Basic_price, String road_tax_for_first_year,
 			String percentage_cap_residual_value, String percentage_cap_maint_value, String residual_value_used,
 			String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
-			String vehicle_profit, String maintenance_status, String matrix_credit_type, String security_deposit,
+			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {

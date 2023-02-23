@@ -33,6 +33,14 @@ public class Click extends TestBase {
 		 	
 		element.sendKeys(String.valueOf(d));
 	}
+	
+	public static void sendKeysdouble(WebDriver driver, WebElement element ,double d, int timeout)
+	{
+		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
+		 	
+		element.sendKeys(String.valueOf(d));
+	}
+
 
 }
  

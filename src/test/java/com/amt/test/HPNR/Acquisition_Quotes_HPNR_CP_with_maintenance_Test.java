@@ -126,6 +126,10 @@ public class Acquisition_Quotes_HPNR_CP_with_maintenance_Test extends TestBase {
 		boolean monthly_total_payment_check =obj_customer_quote_page.check_monthly_payment_on_customer_quote_with_maintenance(driver,maintenance_status, matrix_credit_type, balloon_payment_status,order_deposit, finance_deposit,document_fee, sheet_name);
 		Assert.assertTrue(monthly_total_payment_check);
 		
+		boolean sales_discount_price_check =obj_customer_quote_page.enter_sales_price_discount_greater_than_cost_price_discount(driver , sheet_name);
+		Assert.assertTrue(sales_discount_price_check);
+
+		
 	}
 	
 	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_HPNR_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" })

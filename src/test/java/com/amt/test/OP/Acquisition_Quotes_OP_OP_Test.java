@@ -84,6 +84,9 @@ public class Acquisition_Quotes_OP_OP_Test extends TestBase {
 		
 		boolean monthly_total_payment_after_editing_vehicle_profit =obj_customer_quote_page.edit_vehicle_profit_and_check_monthly_total_payment(vehicle_profit, sheet_name);
 		Assert.assertTrue(monthly_total_payment_after_editing_vehicle_profit);
+		
+
+
 
 	}
 	

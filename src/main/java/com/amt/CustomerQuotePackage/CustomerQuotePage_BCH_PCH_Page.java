@@ -631,7 +631,6 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 	
 		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
-		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
 
 		double monthly_finance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
 

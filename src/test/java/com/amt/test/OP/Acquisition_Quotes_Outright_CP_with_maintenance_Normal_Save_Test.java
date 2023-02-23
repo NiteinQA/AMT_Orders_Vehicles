@@ -120,6 +120,8 @@ public class Acquisition_Quotes_Outright_CP_with_maintenance_Normal_Save_Test ex
 		
 		boolean monthly_total_payment_check =obj_customer_quote_page.check_monthly_payment_on_customer_quote_with_maintenance(driver,maintenance_status, matrix_credit_type, balloon_payment_status,order_deposit, finance_deposit,document_fee, sheet_name);
 		Assert.assertTrue(monthly_total_payment_check);
+		
+		
 
 	}
 	

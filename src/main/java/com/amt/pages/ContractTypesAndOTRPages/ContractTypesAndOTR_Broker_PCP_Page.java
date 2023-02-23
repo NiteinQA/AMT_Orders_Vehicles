@@ -30,7 +30,8 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
 	
-	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
+
+		@FindBy(xpath = "//*[@id ='acqOTRHeader']")
 	private WebElement acq_contractTypes;
 	
 	@FindBy(xpath = "//p[contains(text(),'Broker')]")
@@ -57,13 +58,13 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='roadTaxFirstYear']")
 	private WebElement acq_contractTypes_road_tax_first_year_input;
 
-	@FindBy(xpath = "//*[normalize-space()='Manufacturer delivery charges']//ancestor::div[1]//div[2]")
+	@FindBy(xpath = "//app-acquisition-common-otr-calculations//*[normalize-space()='Manufacturer delivery charges']//ancestor::div[1]//div[2]")
 	private WebElement acq_contractTypes_manufacturer_delivery_charges;
 
-	@FindBy(xpath = "//*[normalize-space()='First registration fee']//ancestor::div[1]//div[2]")
+	@FindBy(xpath = "//app-acquisition-common-otr-calculations//*[normalize-space()='First registration fee']//ancestor::div[1]//div[2]")
 	private WebElement acq_contractTypes_first_registration_fee;
 
-	@FindBy(xpath = "//*[normalize-space()='Rebate']//ancestor::div[1]//div[2]")
+	@FindBy(xpath = "//app-acquisition-common-otr-calculations//*[normalize-space()='Rebate']//ancestor::div[1]//div[2]")
 	private WebElement acq_contractTypes_rebate;
 	
 	@FindBy(xpath = "(//*[@class='contractRow cstcontractrow']//*[@class='horizon-next'])[2]")

@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amt.test.BROKER.Acquisition_Quotes_Broker_CP_with_maintenance_Test">
+      <class name="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test">
         <methods>
-          <include name="aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_with_maintenance_test"/>
-          <include name="aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_with_maintenance_test"/>
-          <include name="aquisition_quotes_user_flow_broker_CP_after_discount_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_user_flow_broker_CP_quote_summary_values_verification_with_maintenance_test"/>
-          <include name="aquisition_quotes_user_flow_broker_CP_OTR_calculation_with_maintenance_test"/>
+          <include name="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test"/>
+          <include name="aquisition_quotes_OP_OP_after_discount_calculations_test"/>
+          <include name="aquisition_quotes_OP_OP_OTR_calculation_test"/>
+          <include name="aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.BROKER.Acquisition_Quotes_Broker_CP_with_maintenance_Test -->
+      </class> <!-- com.amt.test.OP.Acquisition_Quotes_OP_OP_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

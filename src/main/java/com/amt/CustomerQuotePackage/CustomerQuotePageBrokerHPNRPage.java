@@ -30,6 +30,32 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
+	
+
+	//vehicle_discount_cost_price
+	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]//div//p")
+		private WebElement vehicle_discount_cost_price;
+
+	//vehicle_additional_discount_cost_price
+	@FindBy(xpath = "(//*[@id='bdiscountvalue']//ancestor::div[3]//div)[1]")
+		private WebElement vehicle_additional_discount_cost_price;
+		
+		
+		//paint_discount_cost_price
+	@FindBy(xpath = "(//*[@id='pdiscountper']//ancestor::div[3]//div)[1]")
+		private WebElement paint_discount_cost_price;
+
+	//paint_additional_discount_cost_price
+	@FindBy(xpath = "(//*[@id='pdiscountvalue']//ancestor::div[3]//div)[1]")
+		private WebElement paint_additional_discount_cost_price;
+		
+		//options_discount_cost_price
+	@FindBy(xpath = "(//*[@id='odiscount']//ancestor::div[3]//div)[1]")
+		private WebElement options_discount_cost_price;
+
+	//options_additional_discount_cost_price
+	@FindBy(xpath = "(//*[@id='odiscountvalue']//ancestor::div[3]//div)[1]")
+		private WebElement options_additional_discount_cost_price;
 
 	@FindBy(xpath = "//input[@id='profit']")
 	private WebElement vehicleprofit;
