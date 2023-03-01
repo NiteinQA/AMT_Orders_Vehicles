@@ -139,6 +139,14 @@ public class Acquisition_Quotes_CP_PCH_with_maintenance_Test extends TestBase {
 		boolean monthlyFinanceAndMaintenanceWithPartExchange =  obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_with_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
 		
 		Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+		
+		
+		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(matrix_upsell, sheet_name);
+
+		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
+
+		System.out.println("");
+		System.out.println("");
 		                                                                                                                                                                                                            
 		boolean cust_quote_for_all_payment_boolean_status=obj_customer_quote_page.customer_Quote_CP_PCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
 		Assert.assertTrue(cust_quote_for_all_payment_boolean_status);

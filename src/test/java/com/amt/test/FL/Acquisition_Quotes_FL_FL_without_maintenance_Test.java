@@ -163,6 +163,14 @@ public class Acquisition_Quotes_FL_FL_without_maintenance_Test extends TestBase 
 		
 		System.out.println("");
 		System.out.println("");
+		
+		
+		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(matrix_upsell, sheet_name);
+
+		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
+
+		System.out.println("");
+		System.out.println("");
 	
 
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page

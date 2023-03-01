@@ -101,6 +101,14 @@ public class CustomerQuotePage_FL_FLPage extends TestBase {
 	@FindBy(xpath = "//*[@id='FinanceCommission']")
 	private WebElement referrer_upsell_input_field;
 	
+//  summary upsell input field
+@FindBy(xpath = "//*[@id='Upsell']")
+private WebElement summary_upsell_input_field;
+
+//  cust quote summary
+@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[1]/button")
+private WebElement customer_quote_summary;
+	
 
 	
 
@@ -882,10 +890,20 @@ public boolean check_monthly_finance_payment_with_balloon_payment_on_off_without
 		
 		obj_read_excel_calculation_page.put_upsell_values_to_excel(matrix_upsell , referrer_upsell ,sheet_name);
 		
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
-		
-		double monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
-		
+		double monthlyFinanceRentalFromExcel = 0;
+		double monthlyMainteRentalFromExcel = 0;
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+
+		}
+
 		
 		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
 	    System.out.println("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
@@ -959,9 +977,19 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 		
 		obj_read_excel_calculation_page.put_upsell_values_to_excel(matrix_upsell , referrer_upsell ,sheet_name);
 			
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+	double monthlyFinanceRentalFromExcel = 0;
 		
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
 		
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+		}
+	
 		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
 	    System.out.println("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
 	  
@@ -984,6 +1012,150 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 		return flag ;
 		
 	}
+	
+public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(String matrix_upsell, 	String sheet_name) throws IOException, InterruptedException {
+		
+		Actions act = new Actions(driver);
+		
+        Click.on(driver, customer_quote_summary, 30);	
+
+        Thread.sleep(1000);		
+	
+		ExplicitWait.visibleElement(driver, summary_upsell_input_field, 30);
+		
+		double upsell = Double.parseDouble(matrix_upsell);
+		
+		summary_upsell_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a",Keys.DELETE));
+		Click.sendKeysdouble(driver, summary_upsell_input_field, (upsell+upsell), 30);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+			
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
+
+		double monthly_finance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
+		double monthly_maintenance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().substring(2)));
+
+		LO.print("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
+	    System.out.println("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
+	    
+		LO.print("Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is "+monthly_maintenance_rental_actual_converted);
+	    System.out.println("Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is "+monthly_maintenance_rental_actual_converted);
+	    
+		LO.print("Writing upsell values to excel" );
+		System.out.println("Writing upsell values to excel" );
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		
+		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell , sheet_name);
+		
+		double monthlyFinanceRentalFromExcel = 0;
+		double monthlyMainteRentalFromExcel = 0;
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+
+		}
+
+		
+		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
+	    System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
+	    
+		LO.print("Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is "+monthlyMainteRentalFromExcel);
+	    System.out.println("Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is "+monthlyMainteRentalFromExcel);
+	    
+		
+		
+		double diff1 =Difference.of_two_Double_Values(monthly_finance_rental_actual_converted, monthlyFinanceRentalFromExcel);
+		
+		double diff2 =Difference.of_two_Double_Values(monthly_maintenance_rental_actual_converted, monthlyMainteRentalFromExcel);
+
+		
+		boolean flag = false ;
+		if(diff1<0.2 && diff2<0.2)
+				{
+			    flag = true;
+			     LO.print("Monthly finance and maint. rental (after updating customer quote summary upsell value) is found OK" );
+			     System.out.println("Monthly finance and maint. rental (after updating customer quote summary upsell value) is found OK" );
+				}
+		else  {
+		     LO.print("Monthly finance and maint. rental (after updating customer quote summary upsell value) is found wrong" );
+		     System.out.println("Monthly finance and maint. rental (after updating customer quote summary upsell value) is found wrong" );
+		      }
+	
+		return flag ;
+		
+	}
+   
+    public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(String matrix_upsell, 	String sheet_name) throws IOException, InterruptedException {
+		
+		Actions act = new Actions(driver);
+		
+        Click.on(driver, customer_quote_summary, 30);		
+		
+		Thread.sleep(1000);
+		
+		ExplicitWait.visibleElement(driver, summary_upsell_input_field, 30);
+		
+		double upsell = Double.parseDouble(matrix_upsell);
+		
+		summary_upsell_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a",Keys.DELETE));
+		Click.sendKeysdouble(driver, summary_upsell_input_field, (upsell+upsell), 30);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+			
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+
+		double monthly_finance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
+
+		LO.print("Monthly Finance Rental from screen (after submitting upsell values) is "+monthly_finance_rental_actual_converted);
+	    System.out.println("Monthly Finance Rental from screen (after submitting upsell values) is "+monthly_finance_rental_actual_converted);
+	    
+		 
+		LO.print("Writing upsell values to excel" );
+		System.out.println("Writing upsell values to excel" );
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		
+		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell , sheet_name);
+		
+		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+		
+		
+		
+		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
+	    System.out.println("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
+	    
+		 
+		
+		
+		double diff1 =Difference.of_two_Double_Values(monthly_finance_rental_actual_converted, monthlyFinanceRentalFromExcel);
+		
+		
+		boolean flag = false ;
+		if(diff1<0.2)
+				{
+			    flag = true;
+			     LO.print("Monthly finance rental (after updating customer quote summary upsell value) is found OK" );
+			     System.out.println("Monthly finance rental (after updating customer quote summary upsell value) is found OK" );
+				}
+		else  {
+		     LO.print("Monthly finance and rental (after updating customer quote summary upsell value) is found wrong" );
+		     System.out.println("Monthly finance and rental (after updating customer quote summary upsell value) is found wrong" );
+		      }
+	
+		return flag ;
+		
+	}
+ 
  	
 	
 	

@@ -61,7 +61,7 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	}
 
-	@Test(priority = 2, dataProvider = "testData")
+	@Test(priority = 2, dataProvider = "testData" ,dependsOnMethods = { "aquisition_quotes_outright_FL_OTR_calculation_with_maintenance_test" })
 
 	public void aquisition_quotes_outright_FL_after_discount_calculations_with_maintenance_test(String manufacturer, String model,
 			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
@@ -80,7 +80,7 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	}
 
-	@Test(priority = 3, dataProvider = "testData")
+	@Test(priority = 3, dataProvider = "testData" ,dependsOnMethods = { "aquisition_quotes_outright_FL_after_discount_calculations_with_maintenance_test" })
 
 	public void aquisition_quotes_outright_FL_other_support_check_with_maintenance_test(String manufacturer, String model,
 			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
@@ -105,7 +105,7 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	}
 
-	@Test(priority = 4, dataProvider = "testData")
+	@Test(priority = 4, dataProvider = "testData" ,dependsOnMethods = { "aquisition_quotes_outright_FL_other_support_check_with_maintenance_test" })
 
 	public void aquisition_quotes_outright_FL_holding_cost_calculations_with_maintenance_test(String manufacturer, String model,
 			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
@@ -143,7 +143,7 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	}
 
-	@Test(priority =5, dataProvider = "testData")
+	@Test(priority =5, dataProvider = "testData" ,dependsOnMethods = { "aquisition_quotes_outright_FL_holding_cost_calculations_with_maintenance_test" })
 
 	public void aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_with_maintenance_test(String manufacturer, String model,
 			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
@@ -186,6 +186,13 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 				
 		Assert.assertTrue(monthly_rental_values_with_balloon_toggle_on_off);
 		
+		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(matrix_upsell, sheet_name);
+
+		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
+
+		System.out.println("");
+		System.out.println("");
+		
 		
 		boolean cust_quote_for_all_payment_boolean_status = obj_customer_quote_page
 				.customer_Quote_outright_FL_for_all_payment_option_with_maintenance_calculation(initial_payment,
@@ -194,7 +201,7 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	}
 
-	@Test(priority =6, dataProvider = "testData")
+	@Test(priority =6, dataProvider = "testData",dependsOnMethods = { "aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_with_maintenance_test" })
 
 	public void aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test(String manufacturer, String model,
 			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,

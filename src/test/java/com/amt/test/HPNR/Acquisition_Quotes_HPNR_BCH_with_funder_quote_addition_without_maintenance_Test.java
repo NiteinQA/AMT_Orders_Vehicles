@@ -115,12 +115,12 @@ public class Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_main
 						part_exchange_status, target_rental,sheet_name);
 		Assert.assertTrue(customer_quote_for_payment_boolean);
 		
-//		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
-//				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
-//						referrer_upsell, add_terms, add_mileage, sheet_name);
-//
-//		//Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
-//
+		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
+				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
+						referrer_upsell, add_terms, add_mileage, sheet_name);
+
+		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+
 		System.out.println("");
 		System.out.println("");
 		
@@ -136,6 +136,11 @@ public class Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_main
 				less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell, part_exchange_status, target_rental, sheet_name);
 
 		Assert.assertTrue(balance_due_value);
+		
+		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(matrix_upsell, sheet_name);
+
+		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
+
 		
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
 				.customer_Quote_HPNR_BCH_for_all_payment_option_for_funder_quote_addition_without_maintenance_calculation(initial_payment,sheet_name);

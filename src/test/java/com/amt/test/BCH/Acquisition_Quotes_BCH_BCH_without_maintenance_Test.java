@@ -198,6 +198,18 @@ public class Acquisition_Quotes_BCH_BCH_without_maintenance_Test extends TestBas
 		LO.print("Assertion Passed For Monthly Finance Rental with part Exchange On");
 		LO.print("****************************************************************");
 		
+		
+		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(matrix_upsell, sheet_name);
+
+		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
+
+		System.out.println("***********Assertion Passed For Monthly Finance Rental on updating upsell values***********");
+		System.out.println("****************************************************************");
+
+		LO.print("***********Assertion Passed For Monthly Finance Rental on updating upsell values***********");
+		LO.print("****************************************************************");
+
+		
 			
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
 				.customer_Quote_BCH_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,sheet_name);

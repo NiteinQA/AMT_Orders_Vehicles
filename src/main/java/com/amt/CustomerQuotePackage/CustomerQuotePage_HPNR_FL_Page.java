@@ -913,10 +913,20 @@ public boolean check_monthly_finance_payment_with_balloon_payment_on_off_without
 		
 		obj_read_excel_calculation_page.put_upsell_values_to_excel(matrix_upsell , referrer_upsell ,sheet_name);
 		
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
-		
-		double monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
-		
+		double monthlyFinanceRentalFromExcel = 0;
+		double monthlyMainteRentalFromExcel = 0;
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+
+		}
+
 		
 		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
 	    System.out.println("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
@@ -990,8 +1000,19 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 		
 		obj_read_excel_calculation_page.put_upsell_values_to_excel(matrix_upsell , referrer_upsell ,sheet_name);
 			
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+	double monthlyFinanceRentalFromExcel = 0;
 		
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+		
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+		}
+
 		
 		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
 	    System.out.println("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
@@ -1040,11 +1061,11 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
 		double monthly_maintenance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().substring(2)));
 
-		LO.print("Monthly Finance Rental from screen (after submitting upsell values) is "+monthly_finance_rental_actual_converted);
-	    System.out.println("Monthly Finance Rental from screen (after submitting upsell values) is "+monthly_finance_rental_actual_converted);
+		LO.print("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
+	    System.out.println("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
 	    
-		LO.print("Monthly Mainte. Rental from screen ((after submitting upsell values) is "+monthly_maintenance_rental_actual_converted);
-	    System.out.println("Monthly Mainte. Rental from screen ((after submitting upsell values) is "+monthly_maintenance_rental_actual_converted);
+		LO.print("Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is "+monthly_maintenance_rental_actual_converted);
+	    System.out.println("Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is "+monthly_maintenance_rental_actual_converted);
 	    
 		LO.print("Writing upsell values to excel" );
 		System.out.println("Writing upsell values to excel" );
@@ -1053,16 +1074,26 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 		
 		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell , sheet_name);
 		
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+		double monthlyFinanceRentalFromExcel = 0;
+		double monthlyMainteRentalFromExcel = 0;
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+
+		}
+
 		
-		double monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
-		
-		
-		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
-	    System.out.println("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
+		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
+	    System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
 	    
-		LO.print("Monthly Mainte. Rental from Excel (after submitting upsell values) is "+monthlyMainteRentalFromExcel);
-	    System.out.println("Monthly Mainte. Rental from Excel (after submitting upsell values) is "+monthlyMainteRentalFromExcel);
+		LO.print("Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is "+monthlyMainteRentalFromExcel);
+	    System.out.println("Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is "+monthlyMainteRentalFromExcel);
 	    
 		
 		
@@ -1109,8 +1140,8 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 
 		double monthly_finance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
 
-		LO.print("Monthly Finance Rental from screen (after submitting upsell values) is "+monthly_finance_rental_actual_converted);
-	    System.out.println("Monthly Finance Rental from screen (after submitting upsell values) is "+monthly_finance_rental_actual_converted);
+		LO.print("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
+	    System.out.println("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
 	    
 		 
 		LO.print("Writing upsell values to excel" );
@@ -1120,12 +1151,23 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 		
 		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell , sheet_name);
 		
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+	double monthlyFinanceRentalFromExcel = 0;
+		
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+		
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+		}
+
 		
 		
-		
-		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
-	    System.out.println("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
+		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
+	    System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
 	    
 		 
 		
