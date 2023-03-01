@@ -117,6 +117,10 @@ public class Acquisition_Quotes_HPNR_HPR_without_maintenance_Test extends TestBa
 		
 		boolean sales_discount_price_check =obj_customer_quote_page.enter_sales_price_discount_greater_than_cost_price_discount(driver , sheet_name);
 		Assert.assertTrue(sales_discount_price_check);
+		
+		boolean sales_discount_price_update_check =obj_customer_quote_page.update_sales_price_discount_and_verify_sales_price_vehicle_profit_monthly_rental_without_maintenance(driver, sheet_name);
+		Assert.assertTrue(sales_discount_price_update_check);	
+		
 
 	}
 	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_HPNR_HPR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test" })

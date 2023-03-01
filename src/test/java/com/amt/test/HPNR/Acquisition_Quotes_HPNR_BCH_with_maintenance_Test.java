@@ -215,7 +215,14 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						sheet_name);
 
-		// Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+		 Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+
+		System.out.println("");
+		System.out.println("");
+		
+		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(matrix_upsell, sheet_name);
+
+		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
 
 		System.out.println("");
 		System.out.println("");

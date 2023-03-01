@@ -111,12 +111,11 @@ public class Acquisition_Quotes_FL_FL_with_maintenance_Test extends TestBase {
 						percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
 						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost);
-		
+
 		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
 				.edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(add_terms, add_mileage,
 						maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
-
 
 	}
 
@@ -161,6 +160,17 @@ public class Acquisition_Quotes_FL_FL_with_maintenance_Test extends TestBase {
 						sheet_name);
 
 		Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+
+		System.out.println("");
+		System.out.println("");
+
+		boolean monthly_rental_values_with_balloon_toggle_on_off = obj_customer_quote_page
+				.check_monthly_finance_payment_with_balloon_payment_on_off_with_maintenance(sheet_name);
+
+		Assert.assertTrue(monthly_rental_values_with_balloon_toggle_on_off);
+
+		System.out.println("");
+		System.out.println("");
 
 		boolean cust_quote_for_all_payment_boolean_status = obj_customer_quote_page
 				.customer_Quote_FL_FL_for_all_payment_option_with_maintenance_calculation(initial_payment, sheet_name);

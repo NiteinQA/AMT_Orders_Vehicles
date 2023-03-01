@@ -152,6 +152,18 @@ public class Acquisition_Quotes_FL_FL_without_maintenance_Test extends TestBase 
 						sheet_name);
 
 		Assert.assertTrue(finance_rental_with_part_exchange);
+		
+		System.out.println("");
+		System.out.println("");
+		
+		boolean monthly_rental_values_with_ballon_payment = obj_customer_quote_page
+				.check_monthly_finance_payment_with_balloon_payment_on_off_without_maintenance(sheet_name);
+
+		Assert.assertTrue(monthly_rental_values_with_ballon_payment);
+		
+		System.out.println("");
+		System.out.println("");
+	
 
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
 				.customer_Quote_FL_FL_for_all_payment_option_without_maintenance_calculation(initial_payment,

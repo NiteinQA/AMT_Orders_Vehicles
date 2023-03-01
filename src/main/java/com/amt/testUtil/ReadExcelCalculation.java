@@ -3594,4 +3594,21 @@ public class ReadExcelCalculation extends TestBase {
 
 	}
 
+	public void put_customer_quote_summary_upsell_value_to_excel(double upsell,  String sheet_name)
+			throws IOException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+			wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(upsell+upsell);
+		} else {
+			wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(upsell+upsell);
+		}
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+	}
+
 }

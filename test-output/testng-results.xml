@@ -20,10 +20,10 @@
       <![CDATA[<b>Interior option has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Acquisition Contract type option = Outright Purchase has been selected</b> <br />]]>
+      <![CDATA[<b> Acquisition Contract type option = Contract Purchase (CP) has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Customer Contract type option = Outright Purchase has been selected</b> <br />]]>
+      <![CDATA[<b> Customer Contract type option = Contract Purchase (CP) has been selected</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -107,34 +107,25 @@
       <![CDATA[<b>Actual on the road price from screen is =35503.00</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>***********Entered in Customer Quote page ***********</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Vehicle profit 1000.0 added to OTR price 35503.0and sales price updated is 36703.0 i.e. true</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started Verifying Sales price discount not to be greater than cost price discount</b> <br />]]>
+      <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
     </line>
     <line>
       <![CDATA[<br>----------Screenshot---------<br>]]>
     </line>
     <line>
-      <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test_23_02_2023_07_25_16.png" height="800" width="1000">]]>
+      <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test_01_03_2023_04_13_24.png" height="800" width="1000">]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-02-23T19:23:25 IST" name="Default suite" finished-at="2023-02-23T19:25:16 IST" duration-ms="110813">
+  <suite started-at="2023-03-01T16:11:11 IST" name="Default suite" finished-at="2023-03-01T16:13:25 IST" duration-ms="133336">
     <groups>
     </groups>
-    <test started-at="2023-02-23T19:23:25 IST" name="Default test" finished-at="2023-02-23T19:25:16 IST" duration-ms="110813">
-      <class name="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a]" started-at="2023-02-23T19:23:26 IST" name="setup" finished-at="2023-02-23T19:23:42 IST" duration-ms="16486" status="PASS">
+    <test started-at="2023-03-01T16:11:11 IST" name="Default test" finished-at="2023-03-01T16:13:25 IST" duration-ms="133336">
+      <class name="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a]" started-at="2023-03-01T16:11:11 IST" name="setup" finished-at="2023-03-01T16:11:26 IST" duration-ms="15142" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_OP_OP_OTR_calculation_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a]" started-at="2023-02-23T19:23:43 IST" name="aquisition_quotes_OP_OP_OTR_calculation_test" data-provider="testData" finished-at="2023-02-23T19:24:38 IST" duration-ms="55090" status="PASS">
+        <test-method signature="aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a]" started-at="2023-03-01T16:11:28 IST" name="aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test" data-provider="testData" finished-at="2023-03-01T16:12:33 IST" duration-ms="65209" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -148,57 +139,142 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[50000]]>
+                <![CDATA[REF001]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[630]]>
+                <![CDATA[05/05/23]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[33]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[5000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[200]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[500]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[500]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[50]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[199.99]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[ContractPurchase]]>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[6000]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[2000]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[199.99]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="25">
+              <value>
+                <![CDATA[NO]]>
+              </value>
+            </param>
+            <param index="26">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="27">
+              <value>
+                <![CDATA[Limited Credit]]>
+              </value>
+            </param>
+            <param index="28">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="29">
+              <value>
+                <![CDATA[CP (Formula 2) - CP]]>
               </value>
             </param>
           </params>
@@ -222,10 +298,10 @@
               <![CDATA[<b>Interior option has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Acquisition Contract type option = Outright Purchase has been selected</b> <br />]]>
+              <![CDATA[<b> Acquisition Contract type option = Contract Purchase (CP) has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Customer Contract type option = Outright Purchase has been selected</b> <br />]]>
+              <![CDATA[<b> Customer Contract type option = Contract Purchase (CP) has been selected</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
@@ -273,8 +349,8 @@
               <![CDATA[<b>Subtotal after discount actual value from screen =£ 28,502.50</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_OTR_calculation_test -->
-        <test-method signature="aquisition_quotes_OP_OP_after_discount_calculations_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a]" started-at="2023-02-23T19:24:39 IST" name="aquisition_quotes_OP_OP_after_discount_calculations_test" data-provider="testData" finished-at="2023-02-23T19:24:41 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_OTR_calculation_test" duration-ms="2738" status="PASS">
+        </test-method> <!-- aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a]" started-at="2023-03-01T16:12:33 IST" name="aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test" data-provider="testData" finished-at="2023-03-01T16:12:36 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test" duration-ms="2801" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -288,57 +364,142 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[50000]]>
+                <![CDATA[REF001]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[630]]>
+                <![CDATA[05/05/23]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[33]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[5000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[200]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[500]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[500]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[50]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[199.99]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[ContractPurchase]]>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[6000]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[2000]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[199.99]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="25">
+              <value>
+                <![CDATA[NO]]>
+              </value>
+            </param>
+            <param index="26">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="27">
+              <value>
+                <![CDATA[Limited Credit]]>
+              </value>
+            </param>
+            <param index="28">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="29">
+              <value>
+                <![CDATA[CP (Formula 2) - CP]]>
               </value>
             </param>
           </params>
@@ -380,8 +541,8 @@
               <![CDATA[<b>Actual on the road price from screen is =35503.00</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_after_discount_calculations_test -->
-        <test-method signature="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a]" started-at="2023-02-23T19:24:42 IST" name="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test" data-provider="testData" finished-at="2023-02-23T19:25:16 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_after_discount_calculations_test" duration-ms="34453" status="FAIL">
+        </test-method> <!-- aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a]" started-at="2023-03-01T16:12:36 IST" name="aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test" data-provider="testData" finished-at="2023-03-01T16:13:24 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test" duration-ms="48273" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -395,71 +556,156 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[50000]]>
+                <![CDATA[REF001]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[630]]>
+                <![CDATA[05/05/23]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[33]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[5000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[1000]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[200]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[500]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[500]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[50]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[199.99]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[ContractPurchase]]>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[6000]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[2000]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[199.99]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="25">
+              <value>
+                <![CDATA[NO]]>
+              </value>
+            </param>
+            <param index="26">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="27">
+              <value>
+                <![CDATA[Limited Credit]]>
+              </value>
+            </param>
+            <param index="28">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="29">
+              <value>
+                <![CDATA[CP (Formula 2) - CP]]>
               </value>
             </param>
           </params>
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: (//*[@id='pdiscountper']//ancestor::div[3]//div)[1]' (tried for 30 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong' (tried for 30 second(s) with 500 milliseconds interval)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: (//*[@id='pdiscountper']//ancestor::div[3]//div)[1]' (tried for 30 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong' (tried for 30 second(s) with 500 milliseconds interval)
 at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 at com.amt.testUtil.ExplicitWait.visibleElement(ExplicitWait.java:23)
-at com.amt.CustomerQuotePackage.CustomerQuotePage_OP_OP_Page.enter_sales_price_discount_greater_than_cost_price_discount(CustomerQuotePage_OP_OP_Page.java:211)
-at com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test(Acquisition_Quotes_OP_OP_Test.java:88)
+at com.amt.HoldingCostPages.HoldingCost_CP_CP_Page.verify_holding_cost_after_adding_funder_quote_with_maintenance(HoldingCost_CP_CP_Page.java:324)
+at com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test(Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.java:92)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -488,16 +734,16 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//*[@id='pdiscountper']//ancestor::div[3]//div)[1]"}
-  (Session info: chrome=110.0.5481.104)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong"}
+  (Session info: chrome=110.0.5481.178)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'DSK-951', ip: '10.0.3.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [774213f6016174cfc49840f399c260b6, findElement {using=xpath, value=(//*[@id='pdiscountper']//ancestor::div[3]//div)[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.104, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54111}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54111/devtoo..., se:cdpVersion: 110.0.5481.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 774213f6016174cfc49840f399c260b6
-at jdk.internal.reflect.GeneratedConstructorAccessor49.newInstance(Unknown Source)
+Command: [eeda4f141f94dfeff740e844abb81bb2, findElement {using=xpath, value=//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55741}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55741/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: eeda4f141f94dfeff740e844abb81bb2
+at jdk.internal.reflect.GeneratedConstructorAccessor52.newInstance(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
@@ -526,32 +772,23 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
           </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
             <line>
-              <![CDATA[<b>***********Entered in Customer Quote page ***********</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Vehicle profit 1000.0 added to OTR price 35503.0and sales price updated is 36703.0 i.e. true</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started Verifying Sales price discount not to be greater than cost price discount</b> <br />]]>
+              <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
             </line>
             <line>
               <![CDATA[<br>----------Screenshot---------<br>]]>
             </line>
             <line>
-              <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test_23_02_2023_07_25_16.png" height="800" width="1000">]]>
+              <![CDATA[<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test_01_03_2023_04_13_24.png" height="800" width="1000">]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test -->
-        <test-method signature="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a]" started-at="2023-02-23T19:25:16 IST" name="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test" finished-at="2023-02-23T19:25:16 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test" duration-ms="0" status="SKIP">
+        </test-method> <!-- aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a]" started-at="2023-03-01T16:13:25 IST" name="aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" finished-at="2023-03-01T16:13:25 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a] depends on not successfully finished methods]]>
+              <![CDATA[Method Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -576,14 +813,14 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test -->
-        <test-method signature="aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a]" started-at="2023-02-23T19:25:16 IST" name="aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test" finished-at="2023-02-23T19:25:16 IST" depends-on-methods="com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test" duration-ms="0" status="SKIP">
+        </test-method> <!-- aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test -->
+        <test-method signature="aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a]" started-at="2023-03-01T16:13:25 IST" name="aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test" finished-at="2023-03-01T16:13:25 IST" depends-on-methods="com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a] depends on not successfully finished methods]]>
+              <![CDATA[Method Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -608,8 +845,8 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test -->
-      </class> <!-- com.amt.test.OP.Acquisition_Quotes_OP_OP_Test -->
+        </test-method> <!-- aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test -->
+      </class> <!-- com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>2/1/2</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Feb 23 19:23:25 IST 2023</td>
+<td>Started on:</td><td>Wed Mar 01 16:11:11 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>110 seconds (110813 ms)</td>
+<tr><td>Total time:</td><td>133 seconds (133336 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,25 +75,22 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test()'><b>aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test</b><br>Test class: com.amt.test.OP.Acquisition_Quotes_OP_OP_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
-<a href="#Output-1944438894" onClick='toggleBox("Output-1944438894", this, "Show output", "Hide output");'>Show output</a>
+<td title='com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test()'><b>aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test</b><br>Test class: com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 50, 6000, 20, 1, 1, 10000, 6000, 2000, 1000, 0, 199.99, 0, YES, 20, 200, NO, 0, Limited Credit, YES, CP (Formula 2) - CP<br/>
+<a href="#Output-835733117" onClick='toggleBox("Output-835733117", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1944438894" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1944438894">
-<b>***********Entered in Customer Quote page ***********</b> <br /><br/>
-<b>Vehicle profit 1000.0 added to OTR price 35503.0and sales price updated is 36703.0 i.e. true</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Started Verifying Sales price discount not to be greater than cost price discount</b> <br /><br/>
+<a href="#Output-835733117" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-835733117">
+<b>***********Entered in holding cost page ***********</b> <br /><br/>
 <br>----------Screenshot---------<br><br/>
-<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test_23_02_2023_07_25_16.png" height="800" width="1000"><br/>
+<img src="D:\StagingNew\AMT_Automation\target\surefire-reports\html\failure_screenshots\aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test_01_03_2023_04_13_24.png" height="800" width="1000"><br/>
 </div>
 </td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: (//*[@id=&apos;pdiscountper&apos;]//ancestor::div[3]//div)[1]&apos; (tried for 30 second(s) with 500 milliseconds interval)
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id=&apos;collapseCustomerQuote&apos;]/div/div/div/div/div/form/div/div/div[5]/div/p/strong&apos; (tried for 30 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at com.amt.testUtil.ExplicitWait.visibleElement(ExplicitWait.java:23)
-	at com.amt.CustomerQuotePackage.CustomerQuotePage_OP_OP_Page.enter_sales_price_discount_greater_than_cost_price_discount(CustomerQuotePage_OP_OP_Page.java:211)
-	at com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test(Acquisition_Quotes_OP_OP_Test.java:88)
+	at com.amt.HoldingCostPages.HoldingCost_CP_CP_Page.verify_holding_cost_after_adding_funder_quote_with_maintenance(HoldingCost_CP_CP_Page.java:324)
+	at com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test(Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.java:92)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -122,16 +119,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//*[@id=&apos;pdiscountper&apos;]//ancestor::div[3]//div)[1]&quot;}
-  (Session info: chrome=110.0.5481.104)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;collapseCustomerQuote&apos;]/div/div/div/div/div/form/div/div/div[5]/div/p/strong&quot;}
+  (Session info: chrome=110.0.5481.178)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;
 System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [774213f6016174cfc49840f399c260b6, findElement {using=xpath, value=(//*[@id=&apos;pdiscountper&apos;]//ancestor::div[3]//div)[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.104, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54111}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54111/devtoo..., se:cdpVersion: 110.0.5481.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 774213f6016174cfc49840f399c260b6
-	at jdk.internal.reflect.GeneratedConstructorAccessor49.newInstance(Unknown Source)
+Command: [eeda4f141f94dfeff740e844abb81bb2, findElement {using=xpath, value=//*[@id=&apos;collapseCustomerQuote&apos;]/div/div/div/div/div/form/div/div/div[5]/div/p/strong}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55741}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55741/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: eeda4f141f94dfeff740e844abb81bb2
+	at jdk.internal.reflect.GeneratedConstructorAccessor52.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
@@ -155,13 +152,13 @@ Session ID: 774213f6016174cfc49840f399c260b6
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	... 31 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1944438894", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1944438894'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: (//*[@id=&apos;pdiscountper&apos;]//ancestor::div[3]//div)[1]&apos; (tried for 30 second(s) with 500 milliseconds interval)
+</pre></div><a href='#' onClick='toggleBox("stack-trace835733117", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace835733117'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id=&apos;collapseCustomerQuote&apos;]/div/div/div/div/div/form/div/div/div[5]/div/p/strong&apos; (tried for 30 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at com.amt.testUtil.ExplicitWait.visibleElement(ExplicitWait.java:23)
-	at com.amt.CustomerQuotePackage.CustomerQuotePage_OP_OP_Page.enter_sales_price_discount_greater_than_cost_price_discount(CustomerQuotePage_OP_OP_Page.java:211)
-	at com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test(Acquisition_Quotes_OP_OP_Test.java:88)
+	at com.amt.HoldingCostPages.HoldingCost_CP_CP_Page.verify_holding_cost_after_adding_funder_quote_with_maintenance(HoldingCost_CP_CP_Page.java:324)
+	at com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_holding_cost_calculations_with_maintenance_test(Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.java:92)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -190,16 +187,16 @@ Session ID: 774213f6016174cfc49840f399c260b6
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//*[@id=&apos;pdiscountper&apos;]//ancestor::div[3]//div)[1]&quot;}
-  (Session info: chrome=110.0.5481.104)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;collapseCustomerQuote&apos;]/div/div/div/div/div/form/div/div/div[5]/div/p/strong&quot;}
+  (Session info: chrome=110.0.5481.178)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;
 System info: host: &apos;DSK-951&apos;, ip: &apos;10.0.3.253&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [774213f6016174cfc49840f399c260b6, findElement {using=xpath, value=(//*[@id=&apos;pdiscountper&apos;]//ancestor::div[3]//div)[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.104, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54111}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54111/devtoo..., se:cdpVersion: 110.0.5481.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 774213f6016174cfc49840f399c260b6
-	at jdk.internal.reflect.GeneratedConstructorAccessor49.newInstance(Unknown Source)
+Command: [eeda4f141f94dfeff740e844abb81bb2, findElement {using=xpath, value=//*[@id=&apos;collapseCustomerQuote&apos;]/div/div/div/div/div/form/div/div/div[5]/div/p/strong}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:55741}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55741/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: eeda4f141f94dfeff740e844abb81bb2
+	at jdk.internal.reflect.GeneratedConstructorAccessor52.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
@@ -224,8 +221,8 @@ Session ID: 774213f6016174cfc49840f399c260b6
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	... 31 more
 </pre></div></td>
-<td>34</td>
-<td>com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a</td></tr>
+<td>48</td>
+<td>com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -235,19 +232,19 @@ Session ID: 774213f6016174cfc49840f399c260b6
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_OTR_calculation_test()'><b>aquisition_quotes_OP_OP_OTR_calculation_test</b><br>Test class: com.amt.test.OP.Acquisition_Quotes_OP_OP_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
-<a href="#Output-118648358" onClick='toggleBox("Output-118648358", this, "Show output", "Hide output");'>Show output</a>
+<td title='com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test()'><b>aquisition_quotes_CP_CP_OTR_calculation_with_maintenance_test</b><br>Test class: com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 50, 6000, 20, 1, 1, 10000, 6000, 2000, 1000, 0, 199.99, 0, YES, 20, 200, NO, 0, Limited Credit, YES, CP (Formula 2) - CP<br/>
+<a href="#Output-1195854264" onClick='toggleBox("Output-1195854264", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-118648358" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-118648358">
+<a href="#Output-1195854264" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1195854264">
 <b>Clicked on Quote button </b> <br /><br/>
 <b>Manufacture =AUDI has been selected</b> <br /><br/>
 <b>Model range =A7 has been selected</b> <br /><br/>
 <b>Vehicle has been selected</b> <br /><br/>
 <b>Paint option has been selected</b> <br /><br/>
 <b>Interior option has been selected</b> <br /><br/>
-<b> Acquisition Contract type option = Outright Purchase has been selected</b> <br /><br/>
-<b> Customer Contract type option = Outright Purchase has been selected</b> <br /><br/>
+<b> Acquisition Contract type option = Contract Purchase (CP) has been selected</b> <br /><br/>
+<b> Customer Contract type option = Contract Purchase (CP) has been selected</b> <br /><br/>
 <b>Getting Basic Price- Vehicle value is  =46854.17</b> <br /><br/>
 <b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
 <b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
@@ -266,14 +263,14 @@ Session ID: 774213f6016174cfc49840f399c260b6
 </div>
 </td>
 <td></td>
-<td>55</td>
-<td>com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a</td></tr>
+<td>65</td>
+<td>com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a</td></tr>
 <tr>
-<td title='com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_after_discount_calculations_test()'><b>aquisition_quotes_OP_OP_after_discount_calculations_test</b><br>Test class: com.amt.test.OP.Acquisition_Quotes_OP_OP_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
-<a href="#Output-1926913806" onClick='toggleBox("Output-1926913806", this, "Show output", "Hide output");'>Show output</a>
+<td title='com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test()'><b>aquisition_quotes_CP_CP_after_discount_calculations_with_maintenance_test</b><br>Test class: com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 50, 6000, 20, 1, 1, 10000, 6000, 2000, 1000, 0, 199.99, 0, YES, 20, 200, NO, 0, Limited Credit, YES, CP (Formula 2) - CP<br/>
+<a href="#Output-1420968301" onClick='toggleBox("Output-1420968301", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1926913806" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1926913806">
+<a href="#Output-1420968301" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1420968301">
 <b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
 <b>Started getting On screen values from after discount table </b> <br /><br/>
 <b>Manufacture_delivery_charges =550.00</b> <br /><br/>
@@ -290,7 +287,7 @@ Session ID: 774213f6016174cfc49840f399c260b6
 </td>
 <td></td>
 <td>2</td>
-<td>com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a</td></tr>
+<td>com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -300,8 +297,8 @@ Session ID: 774213f6016174cfc49840f399c260b6
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test()'><b>aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test</b><br>Test class: com.amt.test.OP.Acquisition_Quotes_OP_OP_Test</td>
-<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a] depends on not successfully finished methods
+<td title='com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test()'><b>aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test</b><br>Test class: com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -321,8 +318,8 @@ Session ID: 774213f6016174cfc49840f399c260b6
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1976185152", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1976185152'><pre>java.lang.Throwable: Method Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace1532750524", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1532750524'><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -344,10 +341,10 @@ Session ID: 774213f6016174cfc49840f399c260b6
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a</td></tr>
+<td>com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a</td></tr>
 <tr>
-<td title='com.amt.test.OP.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test()'><b>aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test</b><br>Test class: com.amt.test.OP.Acquisition_Quotes_OP_OP_Test</td>
-<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a] depends on not successfully finished methods
+<td title='com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test()'><b>aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test</b><br>Test class: com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -367,8 +364,8 @@ Session ID: 774213f6016174cfc49840f399c260b6
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace694953091", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace694953091'><pre>java.lang.Throwable: Method Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace1946557393", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1946557393'><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_CP_CP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -390,7 +387,7 @@ Session ID: 774213f6016174cfc49840f399c260b6
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>com.amt.test.OP.Acquisition_Quotes_OP_OP_Test@791f145a</td></tr>
+<td>com.amt.test.CP.Acquisition_Quotes_CP_CP_with_funder_quote_addition_with_maintenance_Test@791f145a</td></tr>
 </table><p>
 </body>
 </html>

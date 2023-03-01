@@ -577,7 +577,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
       double upsell = GetExcelFormulaValue.get_formula_value(185, 3, sheet_name);      
       double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(190, 0, sheet_name);      
       double upsellCommission = GetExcelFormulaValue.get_formula_value(190, 1, sheet_name);      
-      double docFeeCommission = GetExcelFormulaValue.get_formula_value(190, 0, sheet_name);      
+      double docFeeCommission = GetExcelFormulaValue.get_formula_value(193, 0, sheet_name);      
       double totalCommission = GetExcelFormulaValue.get_formula_value(193, 3, sheet_name);  
       double referrerCommission = GetExcelFormulaValue.get_formula_value(196, 0, sheet_name);      
       

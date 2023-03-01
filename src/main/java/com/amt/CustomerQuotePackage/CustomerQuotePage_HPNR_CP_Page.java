@@ -27,6 +27,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
+import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
@@ -716,6 +717,444 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		obj_read_excel_calculation_page.write_sales_discount_values_to_excel(vehicleDiscountSalesPrice, paintDiscountSalesPrice, optionsDiscountSalesPrice, vehicleAdditionalDiscountSalesPrice, paintAdditionalDiscountSalesPrice, optionsAdditionalDiscountSalesPrice, sheet_name);
 		
 		
+		return status;
+	}
+
+	
+
+	public boolean update_sales_price_discount_and_verify_sales_price_vehicle_profit_monthly_rental_with_maintenance(
+			WebDriver driver, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Started Updating Sales price discount");
+		System.out.println("Started Updating Sales price discount");
+
+		Actions act = new Actions(driver);
+
+		// waiting for cost price elements
+		ExplicitWait.visibleElement(driver, vehicle_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, vehicle_additional_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, paint_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, paint_additional_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, options_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, options_additional_discount_cost_price, 30);
+
+		// waiting for sales price elements
+
+		ExplicitWait.visibleElement(driver, vehicle_discount, 30);
+		ExplicitWait.visibleElement(driver, paint_discount, 30);
+		ExplicitWait.visibleElement(driver, options_discount, 30);
+		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
+		ExplicitWait.visibleElement(driver, paint_additional_discount, 30);
+		ExplicitWait.visibleElement(driver, options_additional_discount, 30);
+
+		// getting text of cost price elements
+
+		double vehicleDiscountCostPrice = Double
+				.parseDouble(vehicle_discount_cost_price.getText().trim().substring(0, 4));
+		double paintDiscountCostPrice = Double.parseDouble(paint_discount_cost_price.getText().trim().substring(0, 4));
+		double optionsDiscountCostPrice = Double
+				.parseDouble(options_discount_cost_price.getText().trim().substring(0, 4));
+
+		double vehicleAdditionalDiscountCostPrice = Double
+				.parseDouble(vehicle_additional_discount_cost_price.getText().trim().substring(2));
+		double paintAdditionalDiscountCostPrice = Double
+				.parseDouble(paint_additional_discount_cost_price.getText().trim().substring(2));
+		double optionsAdditionalDiscountCostPrice = Double
+				.parseDouble(options_additional_discount_cost_price.getText().trim().substring(2));
+
+		// getting sales price elements
+
+		// started entering sales discount values greater than cost price discount
+		// values
+
+		vehicle_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, vehicle_discount, vehicleDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, paint_discount, paintDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, options_discount, optionsDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, vehicle_additional_discount, vehicleAdditionalDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, paint_additional_discount, paintAdditionalDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, options_additional_discount, optionsAdditionalDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+
+		// getting updated sales discount prices from input fields
+
+		// getting vehicle Discount Sales Price
+		vehicle_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double vehicleDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting paint Discount Sales Price
+		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double paintDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting options Discount Sales Price
+		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double optionsDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting vehicle additional Discount Sales Price
+		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double vehicleAdditionalDiscountSalesPrice = Double
+				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting paint additional Discount Sales Price
+		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double paintAdditionalDiscountSalesPrice = Double
+				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting otions additional Discount Sales Price
+		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double optionsAdditionalDiscountSalesPrice = Double
+				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// writing values to excel
+
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+		obj_read_excel_calculation_page.write_sales_discount_values_to_excel(vehicleDiscountSalesPrice,
+				paintDiscountSalesPrice, optionsDiscountSalesPrice, vehicleAdditionalDiscountSalesPrice,
+				paintAdditionalDiscountSalesPrice, optionsAdditionalDiscountSalesPrice, sheet_name);
+
+		// waiting for elements
+
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
+		ExplicitWait.visibleElement(driver, sales_total_input, 30);
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
+
+		// getting sales price from screen
+
+		sales_total_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double salesPriceActualFromSCreen = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		LO.print("Actual Sales Total Price from screen (on updating sales discount prices) is "
+				+ salesPriceActualFromSCreen);
+		System.out.println("Actual Sales Total Price from screen (on updating sales discount prices) is "
+				+ salesPriceActualFromSCreen);
+
+		// getting sales price from excel
+
+		double salesPriceExpectedFromExcel = GetExcelFormulaValue.get_formula_value(146, 7, sheet_name);
+
+		LO.print("Expected Sales Total Price from excel (on updating sales discount prices) is "
+				+ salesPriceExpectedFromExcel);
+		System.out.println("Actual Sales Total Price from excel (on updating sales discount prices) is "
+				+ salesPriceExpectedFromExcel);
+
+		// getting sales price from screen
+
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double vehicleProfitActualFromSCreen = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		LO.print("Actual Vehicle Profit from screen (on updating sales discount prices) is "
+				+ vehicleProfitActualFromSCreen);
+		System.out.println("Actual Vehicle Profit from screen (on updating sales discount prices) is "
+				+ vehicleProfitActualFromSCreen);
+
+		// getting sales price from excel
+
+		double vehicleProfitExpectedFromExcel = GetExcelFormulaValue.get_formula_value(147, 7, sheet_name);
+
+		LO.print("Expected Vehicle Profit from excel (on updating sales discount prices) is "
+				+ vehicleProfitExpectedFromExcel);
+		System.out.println("Expected Vehicle Profit from excel (on updating sales discount prices) is "
+				+ vehicleProfitExpectedFromExcel);
+
+		// getting monthly finance payment actual from screen
+		double monthly_finance_payment_actual_from_screen = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		LO.print("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+		System.out
+				.println("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+
+		// getting monthly finance payment expected from screen
+
+		double monthly_finance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+
+		LO.print("Expected Monthly Finance Payment from excel is " + monthly_finance_payment_expected_from_excel);
+		System.out.println(
+				"Expected Monthly Finance Payment from excel is " + monthly_finance_payment_expected_from_excel);
+
+		// getting monthly maintenance payment actual from screen
+		double monthly_maintenance_payment_actual_from_screen = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().trim().substring(2)));
+
+		LO.print("Actual Monthly Maintenance Payment from screen is " + monthly_maintenance_payment_actual_from_screen);
+		System.out.println(
+				"Actual Monthly Maintenance Payment from screen is " + monthly_maintenance_payment_actual_from_screen);
+
+		// getting monthly maintenance payment expected from screen
+		double monthly_maintenance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(93, 1,
+				sheet_name);
+
+		LO.print("Expected Monthly Maintenance Payment from excel is "
+				+ monthly_maintenance_payment_expected_from_excel);
+		System.out.println("Expected Monthly Maintenance Payment from excel is "
+				+ monthly_maintenance_payment_expected_from_excel);
+
+		int count = 0;
+		if (Difference.of_two_Double_Values(salesPriceActualFromSCreen, salesPriceExpectedFromExcel) < 0.2) {
+			count++;
+		}
+		if (Difference.of_two_Double_Values(vehicleProfitActualFromSCreen, vehicleProfitExpectedFromExcel) < 0.2) {
+			count++;
+		}
+		if (Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
+				monthly_finance_payment_expected_from_excel) < 0.2) {
+			count++;
+		}
+		if (Difference.of_two_Double_Values(monthly_maintenance_payment_actual_from_screen,
+				monthly_maintenance_payment_expected_from_excel) < 0.2) {
+			count++;
+		}
+		boolean status = false;
+		if (count == 4) {
+			status = true;
+
+			LO.print(
+					"1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , 4.Monthly Maintenance Rental , Verified on updating sales discount and found OK");
+			System.out.println(
+					"1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , 4.Monthly Maintenance Rental , Verified on updating sales discount and found OK");
+		} else {
+			LO.print(
+					"1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , 4.Monthly Maintenance Rental , Verified on updating sales discount but found Wrong");
+			System.err.println(
+					"1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , 4.Monthly Maintenance Rental , Verified on updating sales discount but found Wrong");
+
+		}
+
+		return status;
+	}
+
+	public boolean update_sales_price_discount_and_verify_sales_price_vehicle_profit_monthly_rental_without_maintenance(
+			WebDriver driver, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Started Updating Sales price discount");
+		System.out.println("Started Updating Sales price discount");
+
+		Actions act = new Actions(driver);
+
+		// waiting for cost price elements
+		ExplicitWait.visibleElement(driver, vehicle_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, vehicle_additional_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, paint_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, paint_additional_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, options_discount_cost_price, 30);
+		ExplicitWait.visibleElement(driver, options_additional_discount_cost_price, 30);
+
+		// waiting for sales price elements
+
+		ExplicitWait.visibleElement(driver, vehicle_discount, 30);
+		ExplicitWait.visibleElement(driver, paint_discount, 30);
+		ExplicitWait.visibleElement(driver, options_discount, 30);
+		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
+		ExplicitWait.visibleElement(driver, paint_additional_discount, 30);
+		ExplicitWait.visibleElement(driver, options_additional_discount, 30);
+
+		// getting text of cost price elements
+
+		double vehicleDiscountCostPrice = Double
+				.parseDouble(vehicle_discount_cost_price.getText().trim().substring(0, 4));
+		double paintDiscountCostPrice = Double.parseDouble(paint_discount_cost_price.getText().trim().substring(0, 4));
+		double optionsDiscountCostPrice = Double
+				.parseDouble(options_discount_cost_price.getText().trim().substring(0, 4));
+
+		double vehicleAdditionalDiscountCostPrice = Double
+				.parseDouble(vehicle_additional_discount_cost_price.getText().trim().substring(2));
+		double paintAdditionalDiscountCostPrice = Double
+				.parseDouble(paint_additional_discount_cost_price.getText().trim().substring(2));
+		double optionsAdditionalDiscountCostPrice = Double
+				.parseDouble(options_additional_discount_cost_price.getText().trim().substring(2));
+
+		// getting sales price elements
+
+		// started entering sales discount values greater than cost price discount
+		// values
+
+		vehicle_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, vehicle_discount, vehicleDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, paint_discount, paintDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, options_discount, optionsDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, vehicle_additional_discount, vehicleAdditionalDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, paint_additional_discount, paintAdditionalDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, options_additional_discount, optionsAdditionalDiscountCostPrice - 1, 20);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+
+		// getting updated sales discount prices from input fields
+
+		// getting vehicle Discount Sales Price
+		vehicle_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double vehicleDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting paint Discount Sales Price
+		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double paintDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting options Discount Sales Price
+		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double optionsDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting vehicle additional Discount Sales Price
+		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double vehicleAdditionalDiscountSalesPrice = Double
+				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting paint additional Discount Sales Price
+		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double paintAdditionalDiscountSalesPrice = Double
+				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// getting otions additional Discount Sales Price
+		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double optionsAdditionalDiscountSalesPrice = Double
+				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		// writing values to excel
+
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+		obj_read_excel_calculation_page.write_sales_discount_values_to_excel(vehicleDiscountSalesPrice,
+				paintDiscountSalesPrice, optionsDiscountSalesPrice, vehicleAdditionalDiscountSalesPrice,
+				paintAdditionalDiscountSalesPrice, optionsAdditionalDiscountSalesPrice, sheet_name);
+
+		// waiting for elements
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, sales_total_input, 30);
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
+
+		// getting sales price from screen
+
+		sales_total_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double salesPriceActualFromSCreen = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		LO.print("Actual Sales Total Price from screen (on updating sales discount prices) is "
+				+ salesPriceActualFromSCreen);
+		System.out.println("Actual Sales Total Price from screen (on updating sales discount prices) is "
+				+ salesPriceActualFromSCreen);
+
+		// getting sales price from excel
+
+		double salesPriceExpectedFromExcel = GetExcelFormulaValue.get_formula_value(146, 7, sheet_name);
+
+		LO.print("Expected Sales Total Price from excel (on updating sales discount prices) is "
+				+ salesPriceExpectedFromExcel);
+		System.out.println("Actual Sales Total Price from excel (on updating sales discount prices) is "
+				+ salesPriceExpectedFromExcel);
+
+		// getting sales price from screen
+
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double vehicleProfitActualFromSCreen = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+
+		LO.print("Actual Vehicle Profit from screen (on updating sales discount prices) is "
+				+ vehicleProfitActualFromSCreen);
+		System.out.println("Actual Vehicle Profit from screen (on updating sales discount prices) is "
+				+ vehicleProfitActualFromSCreen);
+
+		// getting sales price from excel
+
+		double vehicleProfitExpectedFromExcel = GetExcelFormulaValue.get_formula_value(147, 7, sheet_name);
+
+		LO.print("Expected Vehicle Profit from excel (on updating sales discount prices) is "
+				+ vehicleProfitExpectedFromExcel);
+		System.out.println("Expected Vehicle Profit from excel (on updating sales discount prices) is "
+				+ vehicleProfitExpectedFromExcel);
+
+		// getting monthly finance payment actual from screen
+		double monthly_finance_payment_actual_from_screen = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		LO.print("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+		System.out
+				.println("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+
+		// getting monthly finance payment expected from screen
+
+		double monthly_finance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+
+		LO.print("Expected Monthly Finance Payment from excel is " + monthly_finance_payment_expected_from_excel);
+		System.out.println(
+				"Expected Monthly Finance Payment from excel is " + monthly_finance_payment_expected_from_excel);
+
+		int count = 0;
+		if (Difference.of_two_Double_Values(salesPriceActualFromSCreen, salesPriceExpectedFromExcel) < 0.2) {
+			count++;
+		}
+		if (Difference.of_two_Double_Values(vehicleProfitActualFromSCreen, vehicleProfitExpectedFromExcel) < 0.2) {
+			count++;
+		}
+		if (Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
+				monthly_finance_payment_expected_from_excel) < 0.2) {
+			count++;
+		}
+
+		boolean status = false;
+		if (count == 3) {
+			status = true;
+
+			LO.print(
+					"1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , Verified on updating sales discount and found OK");
+			System.out.println(
+					"1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental ,  Verified on updating sales discount and found OK");
+		} else {
+			LO.print(
+					"1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , Verified on updating sales discount but found Wrong");
+			System.err.println(
+					"1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , Verified on updating sales discount but found Wrong");
+
+		}
+
 		return status;
 	}
 

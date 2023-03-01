@@ -119,6 +119,10 @@ public class Acquisition_Quotes_Outright_HPNR_without_maintenance_Test extends T
 		
 		boolean sales_discount_price_check =obj_customer_quote_page.enter_sales_price_discount_greater_than_cost_price_discount(driver , sheet_name);
 		Assert.assertTrue(sales_discount_price_check);
+		
+		boolean sales_discount_price_update_check =obj_customer_quote_page.update_sales_price_discount_and_verify_sales_price_vehicle_profit_monthly_rental_without_maintenance(driver, sheet_name);
+		Assert.assertTrue(sales_discount_price_update_check);	
+		
 
 
 	}
@@ -159,7 +163,7 @@ public class Acquisition_Quotes_Outright_HPNR_without_maintenance_Test extends T
 
 	}
 	
-	@Test(priority=7, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_outright_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test" })
+	@Test(priority=7, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_outright_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test" })
 
 	public void aquisition_quotes_outright_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test(String manufacturer, String model
 			, String Vehicle_Basic_price, String  road_tax_for_first_year, String percentage_cap_residual_value, String residual_value_used, String additional_terms, String additional_mileage,

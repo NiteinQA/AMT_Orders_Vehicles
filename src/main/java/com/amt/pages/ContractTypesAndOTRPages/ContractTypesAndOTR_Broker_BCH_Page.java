@@ -128,6 +128,10 @@ public class ContractTypesAndOTR_Broker_BCH_Page extends TestBase {
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
 	   
+	   Actions act = new Actions(driver);
+	   
+	   act.sendKeys(Keys.TAB,Keys.TAB , Keys.ENTER ).build().perform();
+	   
 	   LO.print("Acquisition Contract type option selected = Broker ");
 	   System.out.println("Acquisition Contract type option selected = Broker ");
 	   

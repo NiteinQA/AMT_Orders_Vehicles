@@ -133,6 +133,10 @@ public class Acquisition_Quotes_Outright_HPR_with_maintenance_Test extends TestB
 		
 		boolean sales_discount_price_check =obj_customer_quote_page.enter_sales_price_discount_greater_than_cost_price_discount(driver , sheet_name);
 		Assert.assertTrue(sales_discount_price_check);
+		
+		boolean sales_discount_price_update_check =obj_customer_quote_page.update_sales_price_discount_and_verify_sales_price_vehicle_profit_monthly_rental_with_maintenance(driver, sheet_name);
+		Assert.assertTrue(sales_discount_price_update_check);	
+		
 
 
 	}

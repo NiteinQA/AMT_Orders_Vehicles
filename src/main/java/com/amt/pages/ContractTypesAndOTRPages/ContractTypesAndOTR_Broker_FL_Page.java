@@ -132,12 +132,16 @@ public class ContractTypesAndOTR_Broker_FL_Page extends TestBase {
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
 	   
+       Actions act = new Actions(driver);
+	   
+	   act.sendKeys(Keys.TAB,Keys.TAB , Keys.ENTER ).build().perform();
+	   
 	   LO.print("Acquisition Contract type option selected = Broker ");
 	   System.out.println("Acquisition Contract type option selected = Broker ");
 	   
 	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 	   
-	    act = new Actions(driver);
+//	    act = new Actions(driver);
 //	   act.sendKeys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER).build().perform();
 	    
 	    Click.on(driver, acq_contractTypes_customer_contract_FL , 50);
