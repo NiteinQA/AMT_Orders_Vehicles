@@ -10,6 +10,7 @@ import java.util.List;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -127,6 +128,12 @@ public class ContractTypesAndOTR_Broker_HPR_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 	   Click.on(driver, acq_contractTypes_option_broker, 50);
+	   
+	   Thread.sleep(3000);
+	   
+        Actions act = new Actions(driver);
+	   
+	   act.sendKeys(Keys.TAB,Keys.TAB , Keys.ENTER ).build().perform();
 	   
 	   LO.print("Acquisition Contract type option selected = Broker ");
 	   System.out.println("Acquisition Contract type option selected = Broker ");

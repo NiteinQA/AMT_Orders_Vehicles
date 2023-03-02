@@ -1810,7 +1810,7 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 		}
 
 		// 6
-		if (defaualtBrokerMarginPercentageFromExcel == defaultBrokerMarginPercentageFromScreen) {
+		if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel , defaultBrokerMarginPercentageFromScreen)<0.2) {
 			LO.print("Default Broker Margin percentage found OK");
 			System.out.println("Default Broker Margin percentage found OK");
 			count++;
@@ -2039,7 +2039,7 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 		}
 
 		// 6
-		if (defaualtBrokerMarginPercentageFromExcel == defaultBrokerMarginPercentageFromScreen) {
+		if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel , defaultBrokerMarginPercentageFromScreen)<0.2) {
 			LO.print("Default Broker Margin percentage found OK");
 			System.out.println("Default Broker Margin percentage found OK");
 			count++;

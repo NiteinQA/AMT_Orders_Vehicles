@@ -125,6 +125,8 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		Click.on(driver, acq_contractTypes_option_broker, 50);
+		
+		Thread.sleep(3000);
 
 		Actions act = new Actions(driver);
 

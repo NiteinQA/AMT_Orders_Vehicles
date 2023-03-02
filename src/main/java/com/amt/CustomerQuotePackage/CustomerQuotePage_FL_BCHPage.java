@@ -712,10 +712,20 @@ private WebElement customer_quote_summary;
 		
 		obj_read_excel_calculation_page.put_upsell_values_to_excel(matrix_upsell , referrer_upsell ,sheet_name);
 		
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
-		
-		double monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
-		
+		double monthlyFinanceRentalFromExcel = 0;
+		double monthlyMainteRentalFromExcel = 0;
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+
+		}
+	
 		
 		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
 	    System.out.println("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
@@ -940,9 +950,20 @@ public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_
 		
 		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell , sheet_name);
 		
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+double monthlyFinanceRentalFromExcel = 0;
 		
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
 		
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+		}
+	
+
 		
 		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
 	    System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);

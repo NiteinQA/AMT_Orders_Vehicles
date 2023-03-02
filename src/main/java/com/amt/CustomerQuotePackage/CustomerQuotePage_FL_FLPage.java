@@ -1,5 +1,9 @@
 package com.amt.CustomerQuotePackage;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -108,6 +112,10 @@ private WebElement summary_upsell_input_field;
 //  cust quote summary
 @FindBy(xpath = "//*[@id='headingCustomerQuote']/div[1]/button")
 private WebElement customer_quote_summary;
+
+//Final balloon input field
+@FindBy(xpath = "//*[normalize-space()='Final balloon payment']//ancestor::div[1]//div//input")
+private WebElement summary_final_balloon_input_field;
 	
 
 	
@@ -1127,8 +1135,20 @@ public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_
 		
 		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell , sheet_name);
 		
-		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+double monthlyFinanceRentalFromExcel = 0;
 		
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+		
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+			
+		} else {
+			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+
+		}
+	
+
 		
 		
 		LO.print("Monthly Finance Rental from Excel (after submitting upsell values) is "+monthlyFinanceRentalFromExcel);
@@ -1155,6 +1175,158 @@ public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_
 		return flag ;
 		
 	}
+    
+    public boolean check_monthly_payments_on_updating_customer_quote_summary_final_balloon_payment_with_maintenance(
+			 String sheet_name) throws IOException, InterruptedException, UnsupportedFlavorException {
+
+		Actions act = new Actions(driver);	
+
+		ExplicitWait.visibleElement(driver, summary_final_balloon_input_field, 30);
+
+			summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
+	       String default_final_balloon =(String) clipboard.getData(DataFlavor.stringFlavor);
+		  double default_final_balloon_converted = Double.parseDouble(default_final_balloon);
+	      
+		  summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+	       Click.sendKeysdouble(driver, summary_final_balloon_input_field, (default_final_balloon_converted + default_final_balloon_converted), 30);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
+
+		double monthly_finance_rental_actual_converted = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
+		double monthly_maintenance_rental_actual_converted = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().substring(2)));
+
+		LO.print("Monthly Finance Rental from screen (after updating customer quote summary final balloon payment value) is "
+				+ monthly_finance_rental_actual_converted);
+		System.out.println("Monthly Finance Rental from screen (after updating customer quote summary final balloon payment value) is "
+				+ monthly_finance_rental_actual_converted);
+
+		LO.print("Monthly Mainte. Rental from screen (after updating customer quote summary final balloon payment value) is "
+				+ monthly_maintenance_rental_actual_converted);
+		System.out.println("Monthly Mainte. Rental from screen (after updating customer quote summary final balloon payment value) is "
+				+ monthly_maintenance_rental_actual_converted);
+
+		LO.print("Writing final balloon payment values to excel");
+		System.out.println("Writing final balloon payment values to excel");
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		obj_read_excel_calculation_page.put_customer_quote_summary_final_balloon_payment_to_excel(default_final_balloon_converted, sheet_name);
+
+		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+		double monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
+
+		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary final balloon payment value) is "
+				+ monthlyFinanceRentalFromExcel);
+		System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary final balloon payment value) is "
+				+ monthlyFinanceRentalFromExcel);
+
+		LO.print("Monthly Mainte. Rental from Excel (after updating customer quote summary final balloon payment value) is "
+				+ monthlyMainteRentalFromExcel);
+		System.out.println("Monthly Mainte. Rental from Excel (after updating customer quote summary final balloon payment value) is "
+				+ monthlyMainteRentalFromExcel);
+
+		double diff1 = Difference.of_two_Double_Values(monthly_finance_rental_actual_converted,
+				monthlyFinanceRentalFromExcel);
+
+		double diff2 = Difference.of_two_Double_Values(monthly_maintenance_rental_actual_converted,
+				monthlyMainteRentalFromExcel);
+
+		boolean flag = false;
+		if (diff1 < 0.2 && diff2 < 0.2) {
+			flag = true;
+			LO.print(
+					"Monthly finance and maint. rental (after updating customer quote summary final balloon payment value) is found OK");
+			System.out.println(
+					"Monthly finance and maint. rental (after updating customer quote summary final balloon payment value) is found OK");
+		} else {
+			LO.print(
+					"Monthly finance and maint. rental (after updating customer quote summary final balloon payment value) is found wrong");
+			System.out.println(
+					"Monthly finance and maint. rental (after updating customer quote summary final balloon payment value) is found wrong");
+		}
+
+		obj_read_excel_calculation_page.reset_final_balloon_payment_formula_to_excel(sheet_name);
+
+		
+		return flag;
+
+	}
+
+	public boolean check_monthly_payments_on_updating_customer_quote_summary_final_balloon_payment_without_maintenance(
+			 String sheet_name) throws IOException, InterruptedException, UnsupportedFlavorException {
+
+		Actions act = new Actions(driver);	
+
+		ExplicitWait.visibleElement(driver, summary_final_balloon_input_field, 30);
+
+			summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
+	       String default_final_balloon =(String) clipboard.getData(DataFlavor.stringFlavor);
+		  double default_final_balloon_converted = Double.parseDouble(default_final_balloon);
+	      
+		  summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+	       Click.sendKeysdouble(driver, summary_final_balloon_input_field, (default_final_balloon_converted + default_final_balloon_converted), 30);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+
+		double monthly_finance_rental_actual_converted = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
+	
+		LO.print("Monthly Finance Rental from screen (after updating customer quote summary final balloon payment value) is "
+				+ monthly_finance_rental_actual_converted);
+		System.out.println("Monthly Finance Rental from screen (after updating customer quote summary final balloon payment value) is "
+				+ monthly_finance_rental_actual_converted);
+
+	
+		LO.print("Writing final balloon payment value to excel");
+		System.out.println("Writing final balloon payment value to excel");
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		obj_read_excel_calculation_page.put_customer_quote_summary_final_balloon_payment_to_excel(default_final_balloon_converted, sheet_name);
+
+		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
+
+	
+		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary final balloon payment value) is "
+				+ monthlyFinanceRentalFromExcel);
+		System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary final balloon payment value) is "
+				+ monthlyFinanceRentalFromExcel);
+
+		double diff1 = Difference.of_two_Double_Values(monthly_finance_rental_actual_converted,
+				monthlyFinanceRentalFromExcel);
+
+		boolean flag = false;
+		if (diff1 < 0.2) {
+			flag = true;
+			LO.print(
+					"Monthly finance  rental (after updating customer quote summary final balloon payment value) is found OK");
+			System.out.println(
+					"Monthly finance  rental (after updating customer quote summary final balloon payment value) is found OK");
+		} else {
+			LO.print(
+					"Monthly finance  rental (after updating customer quote summary final balloon payment value) is found wrong");
+			System.out.println(
+					"Monthly finance  rental (after updating customer quote summary final balloon payment value) is found wrong");
+		}
+		
+		obj_read_excel_calculation_page.reset_final_balloon_payment_formula_to_excel(sheet_name);
+
+		return flag;
+
+	}
+
  
  	
 	

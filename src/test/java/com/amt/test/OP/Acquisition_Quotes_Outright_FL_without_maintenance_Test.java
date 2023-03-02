@@ -174,7 +174,7 @@ public class Acquisition_Quotes_Outright_FL_without_maintenance_Test extends Tes
 				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
 						referrer_upsell, add_terms, add_mileage, sheet_name);
 
-		//Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
 
 		System.out.println("");
 		System.out.println("");
@@ -196,8 +196,10 @@ public class Acquisition_Quotes_Outright_FL_without_maintenance_Test extends Tes
 
 		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
 
-		System.out.println("");
-		System.out.println("");
+		
+		boolean monthly_rental_values_on_updating_final_balloon_payment_value = obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_final_balloon_payment_without_maintenance(sheet_name);
+		//Assert.assertTrue(monthly_rental_values_on_updating_final_balloon_payment_value);
+
 
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
 				.customer_Quote_outright_FL_for_all_payment_option_without_maintenance_calculation(initial_payment,

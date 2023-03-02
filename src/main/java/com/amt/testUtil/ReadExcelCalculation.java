@@ -3611,4 +3611,35 @@ public class ReadExcelCalculation extends TestBase {
 
 	}
 
+	
+	public void put_customer_quote_summary_final_balloon_payment_to_excel(double final_balloon_payment,  String sheet_name)
+			throws IOException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+    	wb.getSheet(sheet_name).getRow(39).getCell(9).setCellValue(final_balloon_payment+final_balloon_payment);
+
+		wb.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("J40");
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+	}
+	
+	public void reset_final_balloon_payment_formula_to_excel( String sheet_name)
+			throws IOException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+    	wb.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("A40/1.2");
+
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+	}
+
+
 }

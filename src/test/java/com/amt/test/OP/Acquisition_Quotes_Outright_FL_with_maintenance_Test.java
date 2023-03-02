@@ -190,9 +190,10 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
 
-		System.out.println("");
-		System.out.println("");
-		
+			
+		boolean monthly_rental_values_on_updating_final_balloon_payment_value = obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_final_balloon_payment_with_maintenance(sheet_name);
+		//Assert.assertTrue(monthly_rental_values_on_updating_final_balloon_payment_value);
+
 		
 		boolean cust_quote_for_all_payment_boolean_status = obj_customer_quote_page
 				.customer_Quote_outright_FL_for_all_payment_option_with_maintenance_calculation(initial_payment,
