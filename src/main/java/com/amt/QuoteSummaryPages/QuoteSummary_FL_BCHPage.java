@@ -946,11 +946,6 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 		else {LO.print("Finance Margin found wrong");System.err.println("Finance Margin found wrong");
 	 }
 	 
-	 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
-	 {
-		 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
-		else {LO.print("Finance Margin found wrong");System.err.println("Finance Margin found wrong");
-	 }
 	 
 	 if(Difference.of_two_Double_Values(deductionsFromScreen ,deductionsFromExcel)<0.2)
 	 {
@@ -1002,7 +997,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 		else {LO.print("Refferer  Margin  found wrong");System.err.println("Refferer Margin  found wrong");
 	 }
 	 
-	 if(count==11)
+	 if(count==10)
 	 {
 		 status = true ;
 	 }
@@ -1101,11 +1096,6 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 		else {LO.print("Finance Margin found wrong");System.err.println("Finance Margin found wrong");
 	 }
 	 
-	 if(Difference.of_two_Double_Values(financeMarginFromScreen ,financeMarginFromExcel)<0.2)
-	 {
-		 LO.print("Finance Margin found OK");System.out.println("Finance Margin found OK"); count++;}
-		else {LO.print("Finance Margin found wrong");System.err.println("Finance Margin found wrong");
-	 }
 	 
 	 if(Difference.of_two_Double_Values(deductionsFromScreen ,deductionsFromExcel)<0.2)
 	 {
@@ -1165,7 +1155,7 @@ public boolean quote_summary_holding_cost_calculation_with_maintenance(String sh
 		else {LO.print("Refferer  Margin  found wrong");System.err.println("Refferer Margin  found wrong");
 	 }
 	 
-	 if(count==12)
+	 if(count==11)
 	 {
 		 status = true ;
 	 }

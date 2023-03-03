@@ -666,7 +666,7 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 
 		LO.print("Clicked on holding_cost_maintenance_toggle_button");
 		System.out.println("Clicked on holding_cost_maintenance_toggle_button");
-		percentage_maintenance_cost_used.clear();
+		
 
 		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
 		ExplicitWait.visibleElement(driver, percentage_maintenance_cost_used, 20);

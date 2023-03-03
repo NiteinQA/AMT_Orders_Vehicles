@@ -717,6 +717,29 @@ public class ReadExcelCalculation extends TestBase {
 
 		return flag;
 	}
+	
+	public void write_vehicle_cost_Price_to_excel_for_used_car(double vehicle_cost_price , double options_and_preparation_cost, String sheet_name) throws IOException {
+		
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(8).getCell(1).setCellValue(vehicle_cost_price);
+		wb.getSheet(sheet_name).getRow(10).getCell(1).setCellValue(options_and_preparation_cost);
+		wb.getSheet(sheet_name).getRow(12).getCell(1).setCellValue(0);
+		
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+			wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(101).getCell(3).setCellValue(0);
+		} else {
+			wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(107).getCell(3).setCellValue(0);
+		}
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);		
+	}
+	
+	
 
 	public boolean verify_after_discount_calculations_contract_types_page_edited(WebDriver driver,
 			WebElement acq_contractTypes_manufacturer_delivery_charges, String roadTaxForFirstYear,
@@ -3110,7 +3133,8 @@ public class ReadExcelCalculation extends TestBase {
 
 		double residual_value_used_from_excel_converted = Double.parseDouble(residual_value_used_from_excel);
 		double maintenance_cost_used_from_excel_converted = Double.parseDouble(maintenance_cost_used_from_excel);
-
+		
+		LO.print("maintenance_cost_used_test_data converted =" + maintenance_cost_used_from_excel_converted);
 		System.out.println("maintenance_cost_used_test_data converted =" + maintenance_cost_used_from_excel_converted);
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
@@ -3125,7 +3149,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value_used);
 		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(percentage_cap_maintenance_cost_used);
-		wb.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("A40");
+		//wb.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("A40");
 
 		if (sheet_name.equals("Formula1-FL")) {
 			wb.getSheet(sheet_name).getRow(106).getCell(2).setCellValue("YES");
@@ -3167,14 +3191,14 @@ public class ReadExcelCalculation extends TestBase {
 
 		// writing values to excel
 
-		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
-		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
-
-		wb1.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("A40/1.2");
-
-		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
-
-		wb1.write(out1);
+//		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+//		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+//
+//		wb1.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("A40/1.2");
+//
+//		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+//
+//		wb1.write(out1);
 
 		return flag;
 

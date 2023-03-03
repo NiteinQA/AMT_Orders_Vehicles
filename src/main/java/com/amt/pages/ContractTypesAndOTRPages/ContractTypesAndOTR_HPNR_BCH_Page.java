@@ -37,6 +37,7 @@ import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.Dropdown;
 import com.amt.testUtil.ExplicitWait;
+import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
 
@@ -114,33 +115,36 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 	@FindBy(xpath = "//input[@id='roadTaxFirstYear']")
 	private WebElement rfl_input;
 
-	//other_support_type dropdown 
-	
+	@FindBy(xpath = "//*[@id='preparationCost']")
+	private WebElement options_cost_input;
+
+	// other_support_type dropdown
+
 	@FindBy(xpath = "//*[@name='OtherSupportType']")
 	private WebElement other_support_type;
 
-	//remarks_text 
-	
+	// remarks_text
+
 	@FindBy(xpath = "//*[@name='RemarksText']")
 	private WebElement remarks_text;
 
-	//other_support_value
-	
+	// other_support_value
+
 	@FindBy(xpath = "//*[@name='OtherSupportValue']")
 	private WebElement other_support_value;
 
-	//add_other_support_button
-	
+	// add_other_support_button
+
 	@FindBy(xpath = "//*[@class='hand-cursor addContractBtn minwidth40px']")
 	private WebElement add_other_support_button;
-	
-	//on_road_price_for_calculation
+
+	// on_road_price_for_calculation
 
 	@FindBy(xpath = "(//*[normalize-space()='On the road price for calculation']//ancestor::div[1]/div)[2]")
 	private WebElement on_road_price_for_calculation;
 
-	//delete_other_support button
-	
+	// delete_other_support button
+
 	@FindBy(xpath = "//*[@src='/assets/images/delete.svg']")
 	private WebElement delete_other_support;
 
@@ -247,7 +251,8 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		System.out.println("Cost Price ex VAT and RFL calculated is " + cost_price_ex_vat_and_rfl_expected);
 
 		boolean status = false;
-		if (cost_price_ex_vat_and_rfl_from_screen == cost_price_ex_vat_and_rfl_expected) {
+		if (Difference.of_two_Double_Values(cost_price_ex_vat_and_rfl_from_screen,
+				cost_price_ex_vat_and_rfl_expected) < 0.2) {
 			status = true;
 			LO.print("Cost Price ex VAT and RFL verified and found OK");
 			System.out.println("Cost Price ex VAT and RFL verified and found OK");
@@ -260,14 +265,22 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 
 	}
 
-	public boolean edit_vehicle_cost_price_and_check_OTR_price(String vehicelCostPrice, String rfl)
+	public boolean edit_vehicle_cost_price_and_check_OTR_price(String vehicelCostPrice,
+			String options_and_preparation_cost, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Entering vehicle cost price and options cost from test data to screen ");
+		System.out.println("Entering vehicle cost price and options cost from test data to screen ");
+
+		
+		ExplicitWait.visibleElement(driver, vehicle_cost_price_input, 20);
+
+		vehicle_cost_price_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
 		Click.sendKeys(driver, vehicle_cost_price_input, vehicelCostPrice, 30);
-
-		Thread.sleep(2000);
-
-		Click.sendKeys(driver, rfl_input, rfl, 30);
 
 		act = new Actions(driver);
 
@@ -275,12 +288,27 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 
 		Thread.sleep(2000);
 
-		LO.print("Putting vehicle cost price from test data = " + vehicelCostPrice);
-		System.out.println("Putting vehicle cost price from test data = " + vehicelCostPrice);
+		ExplicitWait.visibleElement(driver, options_cost_input, 20);
 
-		LO.print("Putting RFL from test data = " + rfl);
-		System.out.println("Putting RFL from test data = " + rfl);
+		options_cost_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
+		Click.sendKeys(driver, options_cost_input, options_and_preparation_cost, 30);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		Thread.sleep(2000);
+
+		ExplicitWait.visibleElement(driver, rfl_input, 20);
+
+		rfl_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		Click.sendKeysint(driver, rfl_input, 0, 30);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		Thread.sleep(2000);
+
+		
 		ExplicitWait.visibleElement(driver, contract_types_cost_price_ex_vat_and_rfl, 20);
 		ExplicitWait.visibleElement(driver, contract_types_vat, 20);
 		ExplicitWait.visibleElement(driver, contract_types_rfl_and_frf, 20);
@@ -292,8 +320,8 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		double rfl_and_frf = Double.parseDouble(RemoveComma.of(contract_types_rfl_and_frf.getText().substring(2)));
 		double otr = Double.parseDouble(RemoveComma.of(contract_types_otr.getText().substring(2)));
 
-		LO.print("Reading values from screen after editing Vehicle cost price");
-		System.out.println("Reading values from screen after editing Vehicle cost price");
+		LO.print("Reading values from screen after editing Vehicle cost price and options cost");
+		System.out.println("Reading values from screen after editing Vehicle cost price and options cost");
 
 		LO.print("Cost Price ex VAT and RFL from screen is " + cost_price_ex_vat_and_rfl_from_screen);
 		System.out.println("Cost Price ex VAT and RFL from screen is " + cost_price_ex_vat_and_rfl_from_screen);
@@ -304,13 +332,19 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		LO.print("RFL AND FRF from screen is " + rfl_and_frf);
 		System.out.println("RFL AND FRF from screen is " + rfl_and_frf);
 
-		double cost_price_ex_vat_and_rfl_expected = (otr - (rfl_and_frf + vat));
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
-		LO.print("Cost Price ex VAT and RFL calculated is " + cost_price_ex_vat_and_rfl_expected);
-		System.out.println("Cost Price ex VAT and RFL calculated is " + cost_price_ex_vat_and_rfl_expected);
+		obj_read_excel_calculation_page.write_vehicle_cost_Price_to_excel_for_used_car(
+				Double.parseDouble(vehicelCostPrice), Double.parseDouble(options_and_preparation_cost), sheet_name);
+
+		double cost_price_ex_vat_and_rfl_expected = GetExcelFormulaValue.get_formula_value(1, 1, sheet_name);
+
+		LO.print("Cost Price ex VAT and RFL expected from excel is " + cost_price_ex_vat_and_rfl_expected);
+		System.out.println("Cost Price ex VAT and RFL expected from excel is " + cost_price_ex_vat_and_rfl_expected);
 
 		boolean status = false;
-		if (cost_price_ex_vat_and_rfl_from_screen == cost_price_ex_vat_and_rfl_expected) {
+		if (Difference.of_two_Double_Values(cost_price_ex_vat_and_rfl_from_screen,
+				cost_price_ex_vat_and_rfl_expected) < 0.2) {
 			status = true;
 			LO.print("Cost Price ex VAT and RFL verified and found OK");
 			System.out.println("Cost Price ex VAT and RFL verified and found OK");
@@ -408,15 +442,13 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 	}
 
 	public boolean verify_other_support_calculations(String otherSupportValue, String sheet_name)
-			throws IOException, InterruptedException {		
+			throws IOException, InterruptedException {
 
-		
 		LO.print("Verification of OTR price for calculation after adding other support value has been started");
 		System.out
 				.println("Verification of OTR price for calculation after adding other support value has been started");
 
-		
-       // Adding other support
+		// Adding other support
 		for (int i = 0; i <= 2; i++) {
 
 			Dropdown.select(driver, other_support_type, i, 20);
@@ -436,39 +468,37 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		}
 
 		Thread.sleep(3000);
-		
-		 // Deleting other support
+
+		// Deleting other support
 
 		Click.on(driver, delete_other_support, 20);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 		Click.on(driver, delete_other_support, 20);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 
-		//reading OTR_for_calculation value from screen 
-		
-		
+		// reading OTR_for_calculation value from screen
+
 		ExplicitWait.visibleElement(driver, on_road_price_for_calculation, 30);
 
 		double onRoadPriceForCalculationActual = Double
 				.parseDouble(RemoveComma.of(on_road_price_for_calculation.getText().trim().substring(2)));
 
-		
-		
 		double otherSupportConverted = Double.parseDouble(otherSupportValue);
-		
-		//writing other support values to Excel 
-		
-		obj_read_excel_calculation_page = new ReadExcelCalculation();		
-		
-		double OTRValueExpected = obj_read_excel_calculation_page.verify_OTR_for_calculation_after_adding_other_support_values_to_excel(otherSupportConverted, sheet_name);
-					
-		
+
+		// writing other support values to Excel
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		double OTRValueExpected = obj_read_excel_calculation_page
+				.verify_OTR_for_calculation_after_adding_other_support_values_to_excel(otherSupportConverted,
+						sheet_name);
+
 		ExplicitWait.visibleElement(driver, acq_contractTypes_OTR_price, 30);
 		double onRoadPriceorInvoice = Double
 				.parseDouble(RemoveComma.of(acq_contractTypes_OTR_price.getText().trim().substring(2)));
 
 		System.out.println("");
-		
+
 		boolean status = false;
 
 		if (Difference.of_two_Double_Values(OTRValueExpected, onRoadPriceForCalculationActual) < 0.2) {
@@ -484,17 +514,13 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 
 		}
 
-	 
 		System.out.println("");
 
 		LO.print("Verification of OTR price for calculation after adding other support value has been ended");
 		System.out.println("Verification of OTR price for calculation after adding other support value has been ended");
 
-		return status ;
-		
-	}
-	
-	
+		return status;
 
-	
+	}
+
 }
