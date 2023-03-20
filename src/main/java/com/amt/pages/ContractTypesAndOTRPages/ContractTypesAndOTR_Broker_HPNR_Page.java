@@ -113,6 +113,27 @@ public class ContractTypesAndOTR_Broker_HPNR_Page extends TestBase {
 			@FindBy(xpath = "//*[@src='/assets/images/delete.svg']")
 			private WebElement delete_other_support;
 	
+			
+			@FindBy(xpath = "//*[normalize-space()='Cost price ex. VAT & RFL']//ancestor::div[1]//div//strong")
+			private WebElement contract_types_cost_price_ex_vat_and_rfl;
+
+			@FindBy(xpath = "//*[normalize-space()='VAT']//ancestor::div[1]//div//strong")
+			private WebElement contract_types_vat;
+
+			@FindBy(xpath = "//*[normalize-space()='RFL & FRF']//ancestor::div[1]//div//strong")
+			private WebElement contract_types_rfl_and_frf;
+
+			@FindBy(xpath = "//*[normalize-space()='Cost OTR price']//ancestor::div[1]//div//strong")
+			private WebElement contract_types_otr;
+
+			@FindBy(xpath = "//input[@id='ListingPriceUsed']")
+			private WebElement vehicle_cost_price_input;
+
+			@FindBy(xpath = "//input[@id='roadTaxFirstYear']")
+			private WebElement rfl_input;
+
+			@FindBy(xpath = "//*[@id='preparationCost']")
+			private WebElement options_cost_input;
 	
 	public ContractTypesAndOTR_Broker_HPNR_Page() {
 		PageFactory.initElements(driver, this);
@@ -133,7 +154,7 @@ public class ContractTypesAndOTR_Broker_HPNR_Page extends TestBase {
 	   
         Actions act = new Actions(driver);
 	   
-	   act.sendKeys(Keys.TAB,Keys.TAB , Keys.ENTER ).build().perform();
+	//   act.sendKeys(Keys.TAB,Keys.TAB , Keys.ENTER ).build().perform();
 	   
 	   LO.print("Acquisition Contract type option selected = Broker ");
 	   System.out.println("Acquisition Contract type option selected = Broker ");

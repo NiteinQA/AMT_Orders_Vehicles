@@ -92,6 +92,7 @@ public class HoldingCostOutrightPCPPage extends TestBase {
 		System.out.println("***********Entered in holding cost page ***********");
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(3000);
 		Click.on(driver, holding_cost_summary, 30);
 
 		Thread.sleep(3000);
@@ -212,6 +213,7 @@ public class HoldingCostOutrightPCPPage extends TestBase {
 		System.out.println("***********Entered in holding cost page ***********");
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(3000);
 		Click.on(driver, holding_cost_summary, 30);
 
 		Thread.sleep(3000);

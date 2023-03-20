@@ -5,32 +5,23 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByCssSelector;
-import org.openqa.selenium.By.ByTagName;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
-import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
-import com.paulhammant.ngwebdriver.ByAngularBinding;
-import com.paulhammant.ngwebdriver.NgWebDriver;
 
 public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
@@ -156,6 +147,35 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "//*[@name='salesTotal']")
 	private WebElement sales_total_input;
 
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[1]/button/div")
+	private WebElement customer_quote_summary;
+
+	@FindBy(xpath = "//*[normalize-space()='Basic cash price']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_summary_basic_cash_price;
+
+	@FindBy(xpath = "//*[normalize-space()='Term']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_summary_terms;
+
+	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
+	private WebElement holding_cost;
+
+	@FindBy(xpath = "//div[@class='acc-head havebtns']")
+	private WebElement holding_cost_summary;
+
+	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
+	private WebElement holding_cost_summary_residual_value_used;
+
+	@FindBy(xpath = " //*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p")
+	private WebElement total_cap_maintenance_value;
+
+	
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
+	private WebElement holding_cost_summary_terms;
+	
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[2]/div/p/strong")
+	private WebElement holding_cost_summary_mileage;
+	
+	
 	public CustomerQuotePage_HPNR_HPRPage() {
 		PageFactory.initElements(driver, this);
 
@@ -177,6 +197,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		// code for sending input to sales total input
 		ExplicitWait.visibleElement(driver, sales_total_input, 30);
 		sales_total_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(1000);
+
 		double salesPricePercentage = Double.parseDouble(sales_price_percentage);
 		double salesPrice = (((otrCostPrice * salesPricePercentage) / 100) + otrCostPrice);
 		Click.sendKeys(driver, sales_total_input, String.valueOf(salesPrice), 20);
@@ -190,6 +212,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		double vehicel_profit_expected = (salesPrice - otrCostPrice) / 1.2;
 
 		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
+		Thread.sleep(1000);
+
 		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
@@ -197,6 +221,12 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		double vehicel_profit_actual = Double.parseDouble(vehicle_profit_copied);
 
 		double diff1 = Difference.of_two_Double_Values(vehicel_profit_expected, vehicel_profit_actual);
+
+		LO.print("Vehicle profit Expected is = " + vehicel_profit_expected);
+		System.out.println("Vehicle profit Expected is = " + vehicel_profit_expected);
+
+		LO.print("Vehicle profit Actual is = " + vehicel_profit_actual);
+		System.out.println("Vehicle profit Actual is = " + vehicel_profit_actual);
 
 		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
@@ -207,10 +237,17 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_total_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied, sheet_name);
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		Thread.sleep(5000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
 				monthly_total_payment_actual_from_screen);
+
+		LO.print("Monthly Total Payment Expected is = " + monthly_total_payment_expected_from_excel);
+		System.out.println("Monthly Total Payment Expected is = " + monthly_total_payment_expected_from_excel);
+
+		LO.print("Monthly Total Payment Actual is = " + monthly_total_payment_actual_from_screen);
+		System.out.println("Monthly Total Payment Actual is = " + monthly_total_payment_actual_from_screen);
 
 		boolean status = false;
 
@@ -272,6 +309,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		Thread.sleep(4000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -379,6 +417,115 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 						order_deposit, finance_deposit, document_fee, vehicle_discount_copied, paint_discount_copied,
 						options_discount_copied, vehicle_additional_copied, paint_additional_copied,
 						options_additional_copied, sheet_name);
+
+		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+		System.out.println(
+				"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+
+		double diff = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
+				monthly_finance_payment_expected_from_excel);
+		boolean status = false;
+		if (diff < 0.2) {
+			status = true;
+		}
+		return status;
+	}
+
+	
+	public boolean check_monthly_finance_payment_on_customer_quote_for_used_car(WebDriver driver, String maintenance_status,
+			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
+			String document_fee, String sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
+
+		Thread.sleep(2000);
+
+		Click.on(driver, customer_quote, 30);
+
+		LO.print("***********Entered in Customer Quote page ***********");
+		System.out.println("***********Entered in Customer Quote page ***********");
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Actions act = new Actions(driver);
+
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
+				Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+
+		Thread.sleep(3000);
+		try {
+			List<WebElement> list = driver
+					.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+
+			for (WebElement e : list) {
+
+				if (e.getText().equalsIgnoreCase(matrix_credit_type)) {
+					Click.on(driver, e, 20);
+
+					ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
+		System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
+
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, customer_quote_summary, 40);
+
+		ExplicitWait.visibleElement(driver, customer_quote_summary_basic_cash_price, 20);
+
+		Thread.sleep(5000);
+
+		double basic_cash_price_from_screen = Double
+				.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
+
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 30);
+		
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 30);
+
+			double used_residual_value = Double
+				.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
+
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(matrix_credit_type,
+				sheet_name);
+
+		obj_read_excel_calculation_page.write_basic_cash_price_to_excel_without_maintenance_for_used_car(basic_cash_price_from_screen,
+				duration, annual_mileage ,  used_residual_value, sheet_name);
+		
+		Click.on(driver, customer_quote, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		double monthly_finance_payment_actual_from_screen = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		LO.print("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+		System.out
+				.println("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+
+		double monthly_finance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
 
 		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
 		System.out.println(
@@ -623,30 +770,42 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 
+		Thread.sleep(1000);
+
 		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, paint_discount, paintDiscountCostPrice + 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		Thread.sleep(1000);
 
 		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, options_discount, optionsDiscountCostPrice + 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 
+		Thread.sleep(1000);
+
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, vehicle_additional_discount, vehicleAdditionalDiscountCostPrice + 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		Thread.sleep(1000);
 
 		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, paint_additional_discount, paintAdditionalDiscountCostPrice + 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 
+		Thread.sleep(1000);
+
 		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, options_additional_discount, optionsAdditionalDiscountCostPrice + 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		Thread.sleep(1000);
 
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
@@ -655,29 +814,35 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		// getting vehicle Discount Sales Price
 		vehicle_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double vehicleDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting paint Discount Sales Price
 		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double paintDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting options Discount Sales Price
 		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double optionsDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting vehicle additional Discount Sales Price
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double vehicleAdditionalDiscountSalesPrice = Double
 				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting paint additional Discount Sales Price
 		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double paintAdditionalDiscountSalesPrice = Double
 				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting otions additional Discount Sales Price
 		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double optionsAdditionalDiscountSalesPrice = Double
 				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		int count = 0;
 
@@ -724,7 +889,6 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		return status;
 	}
-
 
 	public boolean update_sales_price_discount_and_verify_sales_price_vehicle_profit_monthly_rental_with_maintenance(
 			WebDriver driver, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
@@ -778,31 +942,37 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		Click.sendKeysdouble(driver, vehicle_discount, vehicleDiscountCostPrice - 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		Thread.sleep(1000);
 
 		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, paint_discount, paintDiscountCostPrice - 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		Thread.sleep(1000);
 
 		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, options_discount, optionsDiscountCostPrice - 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		Thread.sleep(1000);
 
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, vehicle_additional_discount, vehicleAdditionalDiscountCostPrice - 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		Thread.sleep(1000);
 
 		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, paint_additional_discount, paintAdditionalDiscountCostPrice - 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		Thread.sleep(1000);
 
 		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		Click.sendKeysdouble(driver, options_additional_discount, optionsAdditionalDiscountCostPrice - 1, 20);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		Thread.sleep(1000);
 
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
@@ -811,24 +981,29 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		// getting vehicle Discount Sales Price
 		vehicle_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double vehicleDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting paint Discount Sales Price
 		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double paintDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting options Discount Sales Price
 		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double optionsDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting vehicle additional Discount Sales Price
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double vehicleAdditionalDiscountSalesPrice = Double
 				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting paint additional Discount Sales Price
 		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		double paintAdditionalDiscountSalesPrice = Double
 				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
 
 		// getting otions additional Discount Sales Price
 		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
@@ -1162,8 +1337,6 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		return status;
 	}
 
-	
-	
 	public boolean check_monthly_payment_on_customer_quote_with_maintenance(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
@@ -1246,6 +1419,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
 
+		Thread.sleep(3000);
+
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 
@@ -1257,6 +1432,123 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 						order_deposit, finance_deposit, document_fee, vehicle_discount_copied, paint_discount_copied,
 						options_discount_copied, vehicle_additional_copied, paint_additional_copied,
 						options_additional_copied, sheet_name);
+
+		LO.print("Expected Monthly Total Rental from excel is " + monthly_total_payment_expected_from_excel);
+		System.out.println("Expected Monthly Total Rental from excel is " + monthly_total_payment_expected_from_excel);
+
+		double diff = Difference.of_two_Double_Values(monthly_total_payment_actual_from_screen,
+				monthly_total_payment_expected_from_excel);
+		boolean status = false;
+		if (diff < 0.2) {
+			status = true;
+		}
+		return status;
+	}
+
+	public boolean check_monthly_payment_on_customer_quote_with_maintenance_for_used_car(WebDriver driver,
+			String maintenance_status, String matrix_credit_type, String balloon_payment_status, String order_deposit,
+			String finance_deposit, String document_fee, String sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
+
+		Thread.sleep(2000);
+
+		Click.on(driver, customer_quote, 30);
+
+		LO.print("***********Entered in Customer Quote page ***********");
+		System.out.println("***********Entered in Customer Quote page ***********");
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Actions act = new Actions(driver);
+
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
+				Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+
+		Thread.sleep(3000);
+		try {
+			List<WebElement> list = driver
+					.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+
+			for (WebElement e : list) {
+
+				if (e.getText().equalsIgnoreCase(matrix_credit_type)) {
+					Click.on(driver, e, 20);
+
+					ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
+		System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
+
+		Thread.sleep(5000);
+
+		Click.on(driver, customer_quote_maintenance_toggle_button, 40);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, customer_quote_summary, 40);
+
+		ExplicitWait.visibleElement(driver, customer_quote_summary_basic_cash_price, 20);
+
+		Thread.sleep(5000);
+
+		double basic_cash_price_from_screen = Double
+				.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
+
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 30);
+		
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 30);
+
+			double used_residual_value = Double
+				.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
+
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+
+		double total_cap_maintenance_value_converted = Double
+				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().substring(2)));
+
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(matrix_credit_type,
+				sheet_name);
+
+		obj_read_excel_calculation_page.write_basic_cash_price_to_excel_with_maintenance_for_used_car(basic_cash_price_from_screen,
+				duration, annual_mileage ,  used_residual_value, total_cap_maintenance_value_converted ,sheet_name);
+		
+		Click.on(driver, customer_quote, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+
+		Thread.sleep(3000);
+
+		double monthly_total_payment_actual_from_screen = Double
+				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
+
+		LO.print("Actual Monthly total Payment from screen is " + monthly_total_payment_actual_from_screen);
+		System.out.println("Actual Monthly total Payment from screen is " + monthly_total_payment_actual_from_screen);
+
+		double monthly_total_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 
 		LO.print("Expected Monthly Total Rental from excel is " + monthly_total_payment_expected_from_excel);
 		System.out.println("Expected Monthly Total Rental from excel is " + monthly_total_payment_expected_from_excel);
@@ -1287,6 +1579,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
+
+		Thread.sleep(4000);
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_expected_from_excel,
@@ -1312,6 +1606,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
+		Thread.sleep(1000);
+
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String vehicle_additional_discount_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
@@ -1319,6 +1615,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_total_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied, sheet_name);
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+
+		Thread.sleep(4000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -1340,34 +1638,34 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		Actions act = new Actions(driver);
 
 		Click.on(driver, part_exchange_and_additional_payment_button, 30);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
 		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String document_fee_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 
 		ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 
@@ -1375,6 +1673,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 				.parseDouble(RemoveComma.of(balance_to_finance_value.getText().trim().substring(2)));
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+
+		
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
@@ -1416,22 +1716,23 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(1000);
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
 		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
@@ -1446,6 +1747,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 				.parseDouble(RemoveComma.of(balance_to_finance_value.getText().trim().substring(2)));
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+
+		Thread.sleep(4000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
@@ -1482,6 +1785,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 40);
 
+		Thread.sleep(4000);
+
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 
@@ -1512,6 +1817,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		Click.on(driver, balloon_payment_toggle, 40);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+
+		Thread.sleep(4000);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));

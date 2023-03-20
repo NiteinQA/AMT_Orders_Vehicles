@@ -39,7 +39,7 @@ public class QuoteSummary_FL_PCHPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Quote reference no.:']//ancestor::div[1]//span[2]")
 	private WebElement quote_summary_ref_no;
 	
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingTwo']/div/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Cost OTR price']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_cost_otr_price;
 	
 	

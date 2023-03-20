@@ -5,34 +5,24 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByCssSelector;
-import org.openqa.selenium.By.ByTagName;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
-import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
-import com.paulhammant.ngwebdriver.ByAngularBinding;
-import com.paulhammant.ngwebdriver.NgWebDriver;
 
 public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
@@ -42,8 +32,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 	Clipboard clipboard;
 
 	JavascriptExecutor jse;
-	NgWebDriver ngDriver;
-
+	
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
 	
@@ -214,6 +203,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_total_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied, sheet_name);
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		
+		Thread.sleep(4000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -279,6 +270,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		Thread.sleep(4000);
+		
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -345,7 +338,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
-		Thread.sleep(7000);
+		Thread.sleep(4000);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
@@ -451,6 +444,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
+		Thread.sleep(4000);
+		
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 
@@ -464,9 +459,9 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 						options_discount_copied, vehicle_additional_copied, paint_additional_copied,
 						options_additional_copied, sheet_name);
 
-		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+		LO.print("Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 		System.out.println(
-				"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+				"Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
 				monthly_finance_payment_expected_from_excel);
@@ -893,6 +888,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 				.println("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
 
 		// getting monthly finance payment expected from screen
+		
+		Thread.sleep(4000);
 
 		double monthly_finance_payment_expected_from_excel = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
 
@@ -1112,6 +1109,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 				+ vehicleProfitExpectedFromExcel);
 
 		// getting monthly finance payment actual from screen
+		
+		Thread.sleep(4000);
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 
@@ -1243,6 +1242,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		String options_additional_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		
+		Thread.sleep(4000);
 
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
@@ -1285,6 +1286,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
+		Thread.sleep(4000);
+		
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_expected_from_excel,
@@ -1317,6 +1320,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_total_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied, sheet_name);
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		Thread.sleep(4000);
+		
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -1374,6 +1379,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 				.parseDouble(RemoveComma.of(balance_to_finance_value.getText().trim().substring(2)));
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		
+		Thread.sleep(4000);
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
@@ -1446,6 +1453,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 				.parseDouble(RemoveComma.of(balance_to_finance_value.getText().trim().substring(2)));
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		Thread.sleep(4000);
+		
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
@@ -1482,6 +1491,8 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 40);
 
+		Thread.sleep(4000);
+		
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 

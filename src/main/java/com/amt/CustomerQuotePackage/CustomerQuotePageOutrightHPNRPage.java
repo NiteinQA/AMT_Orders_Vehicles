@@ -1139,27 +1139,27 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 		Actions act = new Actions(driver);
 
 		Click.on(driver, part_exchange_and_additional_payment_button, 30);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
 		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
@@ -1174,6 +1174,8 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 				.parseDouble(RemoveComma.of(balance_to_finance_value.getText().trim().substring(2)));
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		
+		 Thread.sleep(4000);
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();

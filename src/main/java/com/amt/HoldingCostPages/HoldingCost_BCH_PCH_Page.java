@@ -161,6 +161,8 @@ public class HoldingCost_BCH_PCH_Page extends TestBase {
 		
 		Click.sendKeys(driver, pense_per_excess_mile_finance, penceperExcessMileFinance, 30);
 		
+		Thread.sleep(2000);
+		
 		Click.on(driver, add, 30);
 		
 		LO.print("Funder added successfully");

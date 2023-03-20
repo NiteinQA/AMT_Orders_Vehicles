@@ -471,7 +471,7 @@ private WebElement customer_quote_summary;
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException, NumberFormatException, ClassNotFoundException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
 		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
@@ -579,7 +579,7 @@ private WebElement customer_quote_summary;
 		double monthlyFinanceRentalFromExcel = 0;
 		double monthlyMainteRentalFromExcel = 0;
 
-		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")|| sheet_name.contains("BCH-F3")) {
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
 			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
@@ -667,7 +667,7 @@ ExplicitWait.visibleElement(driver, security_deposit_input_field, 30);
 	double monthlyFinanceRentalFromExcel = 0;
 		
 
-		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")|| sheet_name.contains("BCH-F3")) {
 		
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
@@ -741,7 +741,7 @@ public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_
 		double monthlyFinanceRentalFromExcel = 0;
 		double monthlyMainteRentalFromExcel = 0;
 
-		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")|| sheet_name.contains("BCH-F3")) {
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
 			monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
@@ -818,7 +818,7 @@ public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_
 	double monthlyFinanceRentalFromExcel = 0;
 		
 
-		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")|| sheet_name.contains("BCH-F3")) {
 		
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 

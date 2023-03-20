@@ -90,12 +90,16 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(String residual_value_used_from_excel,
 			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
 			String sheet_name) throws IOException, InterruptedException {
-		Click.on(driver, holding_cost, 30);
+
+		
+		Thread.sleep(3000);
+Click.on(driver, holding_cost, 30);
 
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(3000);
 		Click.on(driver, holding_cost_summary, 30);
 
 		Thread.sleep(3000);
@@ -173,7 +177,7 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
 			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 		Actions act = new Actions(driver);
 
 		Click.on(driver, holding_cost, 30);
@@ -182,6 +186,7 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 		System.out.println("***********Entered in holding cost page ***********");
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		Thread.sleep(3000);
 		Click.on(driver, holding_cost_summary, 30);
 
 		Thread.sleep(3000);
@@ -211,7 +216,7 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
 			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 		Actions act = new Actions(driver);
 
 		// Code for Edit percentage cap residual value and maint on screen
@@ -250,7 +255,7 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
 			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 		Actions act = new Actions(driver);
 
 		// code for editing residual value used and maint cost used
@@ -286,7 +291,7 @@ public class HoldingCostOutrightPCHPage extends TestBase {
 	public boolean edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(
 			String additional_terms_from_excel, String additional_mileage_from_excel, String maintenance_required,
 			String target_rental, String sheet_name)
-			throws IOException, InterruptedException, UnsupportedFlavorException {
+			throws IOException, InterruptedException, UnsupportedFlavorException, ClassNotFoundException {
 
 		Actions act = new Actions(driver);
 

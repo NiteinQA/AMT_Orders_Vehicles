@@ -127,7 +127,7 @@ public class ContractTypesAndOTR_Broker_CP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+	//	act.sendKeys(Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
 		LO.print("Acquisition Contract type option selected = Broker ");
 		System.out.println("Acquisition Contract type option selected = Broker ");

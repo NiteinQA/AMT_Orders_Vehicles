@@ -30,6 +30,67 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			e.printStackTrace();
 		}
 	}
+	
+	public void write_basic_cash_price_to_excel_without_maintenance_for_used_car(double basic_cash_price, double terms_from_screen,
+			double annual_mileage, double used_residual_value,
+			String sheet_name) throws IOException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(120).getCell(2).setCellValue(basic_cash_price);
+		wb.getSheet(sheet_name).getRow(28).getCell(10).setCellValue(terms_from_screen);
+		wb.getSheet(sheet_name).getRow(29).getCell(10).setCellValue(annual_mileage);
+		wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(104).getCell(4).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(61).getCell(1)
+				.setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+	}
+
+
+	public void write_basic_cash_price_to_excel_with_maintenance_for_used_car(double basic_cash_price, double terms_from_screen,
+			double annual_mileage, double used_residual_value, double total_cap_maintenance_value_converted,
+			String sheet_name) throws IOException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(120).getCell(2).setCellValue(basic_cash_price);
+		wb.getSheet(sheet_name).getRow(28).getCell(10).setCellValue(terms_from_screen);
+		wb.getSheet(sheet_name).getRow(29).getCell(10).setCellValue(annual_mileage);
+		wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(31).getCell(10).setCellValue(total_cap_maintenance_value_converted);
+		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(104).getCell(4).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(61).getCell(1)
+				.setCellValue(Double.parseDouble(prop.getProperty("period_supplment_used_car")));
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+	}
+
+	public void write_vehicle_cost_Price_to_excel_for_used_car(double vehicle_cost_price,
+			double options_and_preparation_cost, String sheet_name) throws IOException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(8).getCell(1).setCellValue(vehicle_cost_price);
+		wb.getSheet(sheet_name).getRow(10).getCell(1).setCellValue(options_and_preparation_cost);
+		wb.getSheet(sheet_name).getRow(12).getCell(1).setCellValue(0);
+
+		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
+			wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(101).getCell(3).setCellValue(0);
+		} else {
+			wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(107).getCell(3).setCellValue(0);
+		}
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+	}
 
 	public ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
 
@@ -1883,6 +1944,13 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(107).getCell(0)
 				.setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
 
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);
+		
+		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 		out.close();
@@ -2250,7 +2318,6 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			double paintAdditionalDiscountSalesPrice, double optionsAdditionalDiscountSalesPrice, String sheet_name)
 			throws IOException {
 
-		
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 
@@ -2265,8 +2332,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.write(out);
 		out.close();
 
-		
-		}
+	}
 
 	public double get_monthly_finance_payment_after_editing_vehicle_profit(String vehicle_additional_discount_copied,
 			String sheet_name) throws IOException {

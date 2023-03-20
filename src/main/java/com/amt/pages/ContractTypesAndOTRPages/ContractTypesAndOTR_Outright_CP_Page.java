@@ -112,6 +112,27 @@ public class ContractTypesAndOTR_Outright_CP_Page extends TestBase {
 			
 			@FindBy(xpath = "//*[@src='/assets/images/delete.svg']")
 			private WebElement delete_other_support;
+			
+			@FindBy(xpath = "//*[normalize-space()='Cost price ex. VAT & RFL']//ancestor::div[1]//div//strong")
+			private WebElement contract_types_cost_price_ex_vat_and_rfl;
+
+			@FindBy(xpath = "//*[normalize-space()='VAT']//ancestor::div[1]//div//strong")
+			private WebElement contract_types_vat;
+
+			@FindBy(xpath = "//*[normalize-space()='RFL & FRF']//ancestor::div[1]//div//strong")
+			private WebElement contract_types_rfl_and_frf;
+
+			@FindBy(xpath = "//*[normalize-space()='Cost OTR price']//ancestor::div[1]//div//strong")
+			private WebElement contract_types_otr;
+
+			@FindBy(xpath = "//input[@id='ListingPriceUsed']")
+			private WebElement vehicle_cost_price_input;
+
+			@FindBy(xpath = "//input[@id='roadTaxFirstYear']")
+			private WebElement rfl_input;
+
+			@FindBy(xpath = "//*[@id='preparationCost']")
+			private WebElement options_cost_input;
 
 	public ContractTypesAndOTR_Outright_CP_Page() {
 		PageFactory.initElements(driver, this);

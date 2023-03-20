@@ -54,14 +54,17 @@ public class TestBase {
 	public static void initialization(String browser) throws InterruptedException {
 
 		
-		//System.setProperty("webdriver.chrome.driver","D:setup files\\chromedriver.exe");
+		
 		
 		if(browser.equalsIgnoreCase("chrome")) 
 		{
+			
+//		System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("force-device-scale-factor=0.67");
-		options.addArguments("high-dpi-support=0.67");
+		options.addArguments("--remote-allow-origins=*");
+//		options.addArguments("force-device-scale-factor=0.67");
+//		options.addArguments("high-dpi-support=0.67");
 		
 		 driver = new ChromeDriver(options);
 		 

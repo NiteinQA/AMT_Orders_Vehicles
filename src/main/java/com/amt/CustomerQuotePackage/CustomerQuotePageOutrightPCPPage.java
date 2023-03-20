@@ -23,7 +23,6 @@ import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
-import com.paulhammant.ngwebdriver.NgWebDriver;
 
 public class CustomerQuotePageOutrightPCPPage extends TestBase {
 
@@ -33,7 +32,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 	Clipboard clipboard;
 
 	JavascriptExecutor jse;
-	NgWebDriver ngDriver;
+	
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
@@ -205,6 +204,8 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_total_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied, sheet_name);
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		
+		Thread.sleep(3000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -270,6 +271,8 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		
+		Thread.sleep(3000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -1048,6 +1051,8 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		String options_additional_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		
+		Thread.sleep(3000);
 
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
@@ -1090,6 +1095,8 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
+		
+		Thread.sleep(3000);
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_expected_from_excel,
@@ -1122,6 +1129,8 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_total_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied, sheet_name);
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		
+		Thread.sleep(3000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -1143,27 +1152,27 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		Actions act = new Actions(driver);
 
 		Click.on(driver, part_exchange_and_additional_payment_button, 30);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
 		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
@@ -1171,7 +1180,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String document_fee_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
 
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 
@@ -1179,6 +1188,8 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 				.parseDouble(RemoveComma.of(balance_to_finance_value.getText().trim().substring(2)));
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+		
+		Thread.sleep(4000);
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 
@@ -1216,26 +1227,29 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		Actions act = new Actions(driver);
 
 		Click.on(driver, part_exchange_and_additional_payment_button, 30);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
+		Thread.sleep(1000);
 		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Thread.sleep(3000);
 
 		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		Thread.sleep(4000);
 
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
@@ -1244,7 +1258,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String document_fee_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
 
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 
@@ -1252,6 +1266,8 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 				.parseDouble(RemoveComma.of(balance_to_finance_value.getText().trim().substring(2)));
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
+		
+		Thread.sleep(3000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();

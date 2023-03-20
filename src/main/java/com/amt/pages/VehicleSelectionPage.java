@@ -63,6 +63,8 @@ public class VehicleSelectionPage extends TestBase {
 	@FindBy(xpath = "//*[@class='acquisitionouter']//div[@tabindex='0']")
 	private WebElement vehicle_option_used_car;
 	
+	@FindBy(xpath = "//*[@name='assetTypeId']")
+	private WebElement dropdown_asset_type;
 	
 	
 	
@@ -116,6 +118,57 @@ public class VehicleSelectionPage extends TestBase {
 		System.out.println("Vehicle has been selected");
 		
 	}
+	
+public void select_LCV_vehicle(String manufacturer, String model) throws InterruptedException {
+		
+		Actions act=new Actions(driver);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		Dropdown.selectByVisibleText(driver, dropdown_asset_type, " LCV", 60);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+	
+		
+		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 40);
+		
+
+		LO.print("Manufacture ="+manufacturer+" has been selected");
+		System.out.println("Manufacture ="+manufacturer+" has been selected");
+		
+		Thread.sleep(4000);
+		act.sendKeys(Keys.ENTER).perform();
+	
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		
+		Click.sendKeys(driver, select_model_range, model , 40);	
+		 
+		LO.print("Model range ="+model+" has been selected");
+		System.out.println("Model range ="+model+" has been selected");
+		
+		Thread.sleep(4000);
+		act.sendKeys(Keys.ENTER).perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		
+		Click.on(driver, select_model, 30);
+		
+		Thread.sleep(3000);
+		
+		act.sendKeys(Keys.ARROW_DOWN).build().perform();
+		act.sendKeys(Keys.ENTER).perform();
+		
+	
+		act.doubleClick(vehile_table_option).build().perform();
+		
+		LO.print("Vehicle has been selected");
+		System.out.println("Vehicle has been selected");
+		
+	}
+	
 	
 public void select_vehicle_lcv(String manufacturer, String model) throws InterruptedException {
 		

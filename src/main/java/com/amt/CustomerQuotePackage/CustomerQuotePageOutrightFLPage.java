@@ -525,10 +525,16 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 	public boolean customer_Quote_outright_FL_for_all_payment_option_without_maintenance_calculation(
 			String initial_payment, String sheet_name) throws IOException, InterruptedException {
 
-		return obj_read_excel_calculation_page
+		boolean flag =  obj_read_excel_calculation_page
 				.verify_customer_quote_calculations_for_all_payment_options_without_maintenance(driver,
 						customer_quote_payment_profile_dropdown, customer_quote_monthly_finance_rental,
 						initial_payment_input_field, initial_payment, sheet_name);
+		
+	
+		
+		
+		return flag ;
+		
 	}
 
 	public boolean customer_Quote_outright_FL_for_one_payment_option_with_maintenance_calculation(
@@ -556,11 +562,15 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 	public boolean customer_Quote_outright_FL_for_all_payment_option_with_maintenance_calculation(
 			String initial_payment, String sheet_name) throws IOException, InterruptedException {
 
-		return obj_read_excel_calculation_page
+		boolean flag =  obj_read_excel_calculation_page
 				.verify_customer_quote_calculations_for_all_payment_options_with_maintenance(driver,
 						customer_quote_payment_profile_dropdown, customer_quote_monthly_finance_rental,
 						customer_quote_monthly_maintenance_rental, initial_payment_input_field, initial_payment,
 						sheet_name);
+		
+		
+		
+		return flag ;
 	}
 
 	public boolean customer_quote_part_balance_due_value_verification(String actual_part_exchange_value_from_excel,
@@ -1028,6 +1038,8 @@ public class CustomerQuotePageOutrightFLPage extends TestBase {
 		}
 
 		obj_read_excel_calculation_page.reset_final_balloon_payment_formula_to_excel(sheet_name);
+		
+		
 
 		
 		return flag;

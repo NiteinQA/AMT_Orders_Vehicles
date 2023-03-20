@@ -75,7 +75,7 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
 	private WebElement maintenance_cost_used;	
 	
-	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong")
+	@FindBy(xpath = " //*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p")
 	private WebElement total_cap_maintenance_value;
 	
 	@FindBy(xpath = "//button[@class='btn btn-outline-secondary px-4 mr-2']")

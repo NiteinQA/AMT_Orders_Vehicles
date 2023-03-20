@@ -304,7 +304,7 @@ private WebElement customer_quote_summary;
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, NumberFormatException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
@@ -381,7 +381,7 @@ private WebElement customer_quote_summary;
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException, NumberFormatException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
@@ -410,7 +410,7 @@ private WebElement customer_quote_summary;
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, NumberFormatException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Thread.sleep(5000);
 		Click.on(driver, customer_quote, 50);
