@@ -1,4 +1,4 @@
-package newCar.HPNR;
+package usedCar.OP;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -17,23 +17,24 @@ import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_BCH_Page;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_HPNR_Page;
+import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Outright_HPNR_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_Outright_HPNR_used_car_with_maintenance_Test extends TestBase {
 
 	LoginPage obj_Login_Page;
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_HPNR_HPNR_Page obj_contract_types_and_OTR_page;
+	ContractTypesAndOTR_Outright_HPNR_Page obj_contract_types_and_OTR_page;
 	HoldingCost_HPNR_HPRPage obj_holding_cost_page;
 	CustomerQuotePage_HPNR_HPRPage obj_customer_quote_page;
 	QuoteSummary_HPNR_HPRPage obj_quote_summary_page;
 
 	@Test(priority = 1, dataProvider = "testData")
-	public void aquisition_quotes_HPNR_HPNR_OTR_calculation_with_maintenance_test(String registrationNumber,
+	public void aquisition_quotes_OTR_calculation_with_maintenance_test(String registrationNumber,
 			String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String Vehicle_Basic_price, String road_tax_for_first_year, String percentage_cap_residual_value,
 			String percentage_cap_maint_value, String residual_value_used, String maint_cost_used, String target_rental,
@@ -46,7 +47,7 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test extends
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_HPNR_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_HPNR_Page();
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
 		obj_vehicle_selection_page.select_vehicle_for_used_vehicle_flow(registrationNumber, mileage);
@@ -60,9 +61,9 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test extends
 
 
 	@Test(priority = 2, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_HPNR_OTR_calculation_with_maintenance_test" })
+			"aquisition_quotes_OTR_calculation_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_holding_cost_calculations_with_maintenance_test(String registrationNumber,
+	public void aquisition_quotes_holding_cost_calculations_with_maintenance_test(String registrationNumber,
 			String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String Vehicle_Basic_price, String road_tax_for_first_year, String percentage_cap_residual_value,
 			String percentage_cap_maint_value, String residual_value_used, String maint_cost_used, String target_rental,
@@ -99,9 +100,9 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test extends
 	}
 
 	@Test(priority = 4, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_HPNR_holding_cost_calculations_with_maintenance_test" })
+			"aquisition_quotes_holding_cost_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(String registrationNumber,
+	public void aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test(String registrationNumber,
 			String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String Vehicle_Basic_price, String road_tax_for_first_year, String percentage_cap_residual_value,
 			String percentage_cap_maint_value, String residual_value_used, String maint_cost_used, String target_rental,
@@ -127,9 +128,9 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test extends
 	
 
 	@Test(priority = 5, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" })
+			"aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_with_maintenance_test(String registrationNumber,
+	public void aquisition_quotes_customer_quote_part_exchange_value_edit_check_with_maintenance_test(String registrationNumber,
 			String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String Vehicle_Basic_price, String road_tax_for_first_year, String percentage_cap_residual_value,
 			String percentage_cap_maint_value, String residual_value_used, String maint_cost_used, String target_rental,
@@ -148,9 +149,9 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test extends
 	}
 
 	@Test(priority = 6, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_with_maintenance_test" })
+			"aquisition_quotes_customer_quote_part_exchange_value_edit_check_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_with_maintenance_test(String registrationNumber,
+	public void aquisition_quotes_customer_quote_monthly_finance_payment_after_balloon_payment_off_with_maintenance_test(String registrationNumber,
 			String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String Vehicle_Basic_price, String road_tax_for_first_year, String percentage_cap_residual_value,
 			String percentage_cap_maint_value, String residual_value_used, String maint_cost_used, String target_rental,
@@ -169,9 +170,9 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test extends
 	}
 
 	@Test(priority = 8, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_with_maintenance_test" })
+			"aquisition_quotes_customer_quote_monthly_finance_payment_after_balloon_payment_off_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_with_maintenance_test(String registrationNumber,
+	public void aquisition_quotes_quote_summary_values_verification_with_maintenance_test(String registrationNumber,
 			String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String Vehicle_Basic_price, String road_tax_for_first_year, String percentage_cap_residual_value,
 			String percentage_cap_maint_value, String residual_value_used, String maint_cost_used, String target_rental,
@@ -229,7 +230,7 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test extends
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("HPNR_HPNR_Maint_used_car");
+		Object[][] data = ReadExcelData.getTestData("OP_HPNR_Maint_used_car");
 		return data;
 	}
 

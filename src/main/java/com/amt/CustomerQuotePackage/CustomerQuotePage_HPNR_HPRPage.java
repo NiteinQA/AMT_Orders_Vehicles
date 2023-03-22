@@ -237,7 +237,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_total_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied, sheet_name);
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
@@ -1064,6 +1064,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 				+ vehicleProfitExpectedFromExcel);
 
 		// getting monthly finance payment actual from screen
+		
+		Thread.sleep(5000);
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 
@@ -1665,7 +1667,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String document_fee_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-		Thread.sleep(10000);
+		
+		Thread.sleep(12000);
 
 		ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 
@@ -1739,7 +1742,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String document_fee_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 
 		ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 
@@ -1748,7 +1751,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, total_monthly_payment, 30);
 
-		Thread.sleep(4000);
+ 
 		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_payment.getText().trim().substring(2)));
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
@@ -1760,7 +1763,28 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		double monthly_total_payment_expected = monthlyFinanceAndBalanceToFinance[0];
 		double balance_to_finance_expected = monthlyFinanceAndBalanceToFinance[1];
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("Actual Balance to finance after editing part exchange values and deposit values is = "+balance_to_finance_value_from_screen);
+		System.out.println("Actual Balance to finance after editing part exchange values and deposit values is = "+balance_to_finance_value_from_screen);
 
+		LO.print("Expected Balance to finance after editing part exchange values and deposit values is = "+balance_to_finance_expected);
+		System.out.println("Expected Balance to finance after editing part exchange values and deposit values is = "+balance_to_finance_expected);
+
+		LO.print("");
+		System.out.println("");
+			
+		LO.print("Actual Monthly total Payment after editing part exchange values and deposit values is = "+monthly_total_payment_actual_from_screen);
+		System.out.println("Actual Monthly total Payment after editing part exchange values and deposit values is = "+monthly_total_payment_actual_from_screen);
+
+		LO.print("Expected Monthly total Payment after editing part exchange values and deposit values is = "+monthly_total_payment_expected);
+		System.out.println("Expected Monthly total Payment after editing part exchange values and deposit values is = "+monthly_total_payment_expected);
+		
+		LO.print("");
+		System.out.println("");
+		
 		double diff1 = Difference.of_two_Double_Values(balance_to_finance_value_from_screen,
 				balance_to_finance_expected);
 		double diff2 = Difference.of_two_Double_Values(monthly_total_payment_actual_from_screen,
@@ -1772,6 +1796,14 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 			LO.print("Monthly total Payment verified after editing part exchange values and deposit values");
 			System.out.println("Monthly total Payment verified after editing part exchange values and deposit values");
 		}
+		else
+		{
+			LO.print("Monthly total Payment found wrong after editing part exchange values and deposit values");
+			System.out.println("Monthly total Payment found wrong after editing part exchange values and deposit values");
+
+			
+		}
+		
 
 		return status;
 

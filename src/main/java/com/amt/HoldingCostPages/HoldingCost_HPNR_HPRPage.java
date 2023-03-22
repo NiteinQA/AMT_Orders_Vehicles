@@ -75,7 +75,7 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
 	private WebElement maintenance_cost_used;	
 	
-	@FindBy(xpath = " //*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p")
+	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]/p")
 	private WebElement total_cap_maintenance_value;
 	
 	@FindBy(xpath = "//button[@class='btn btn-outline-secondary px-4 mr-2']")
@@ -616,7 +616,9 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 		 ExplicitWait.visibleElement(driver, total_cash_price, 10);
 
 		String totalCashPrice = RemoveComma.of(total_cash_price.getText().trim().substring(2));
-				 
+			
+		Thread.sleep(2000);
+		
 		 Click.on(driver, add, 30);	 
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);

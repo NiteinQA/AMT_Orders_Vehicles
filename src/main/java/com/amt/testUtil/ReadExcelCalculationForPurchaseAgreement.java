@@ -62,6 +62,8 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(29).getCell(10).setCellValue(annual_mileage);
 		wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(used_residual_value);
 		wb.getSheet(sheet_name).getRow(31).getCell(10).setCellValue(total_cap_maintenance_value_converted);
+
+		
 		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("YES");
 		wb.getSheet(sheet_name).getRow(104).getCell(4).setCellValue("YES");
 		wb.getSheet(sheet_name).getRow(61).getCell(1)

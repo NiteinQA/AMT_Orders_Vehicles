@@ -330,6 +330,114 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 	public QuoteSummary_HPNR_PCP_Page() {
 		PageFactory.initElements(driver, this);
 	}
+	
+  
+ public boolean quote_summary_OTR_calculation_for_used_car(String sheet_name)
+			throws InterruptedException, IOException {
+
+		LO.print("*************OTR Calulation on quote summary page has been started************");
+		System.out.println("*************OTR Calulation on quote summary page has been started************");
+
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+		Thread.sleep(2000);
+
+		Click.on(driver, quote_summary, 60);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+
+		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
+
+		ExplicitWait.visibleElement(driver, quote_summary_cost_price_ex_vat_and_rfl, 120);
+
+		ExplicitWait.visibleElement(driver, quote_summary_otr_vat, 120);
+
+		LO.print("Reading values from OTR calculation -Quote Summary Page");
+		System.out.println("Reading values from OTR calculation -Quote Summary Page");
+
+		double OTR_calculation_cost_otr_price_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_cost_otr_price.getText().trim().substring(2)));
+
+		double OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_cost_price_ex_vat_and_rfl.getText().trim().substring(2)));
+
+		double OTR_calculation_otr_vat_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_otr_vat.getText().trim().substring(2)));
+
+		LO.print("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+		System.out.println("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+
+		LO.print("Cost price ex vat and rfl from screen is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		System.out.println("Cost price ex vat and rfl from screen is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+
+		LO.print("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+		System.out.println("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+
+		double OTR_calculation_cost_otr_price_from_excel = GetExcelFormulaValue.get_formula_value(3, 1, sheet_name);
+		double OTR_calculation_cost_price_ex_vat_and_rfl_from_excel = GetExcelFormulaValue.get_formula_value(1, 1,
+				sheet_name);
+		double OTR_calculation_otr_vat_from_excel = GetExcelFormulaValue.get_formula_value(1, 3, sheet_name);
+	
+		LO.print("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+		System.out.println("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+
+		LO.print("Cost price ex vat and rfl from excel is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+		System.out.println("Cost price ex vat and rfl from excel is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+
+		LO.print("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+		System.out.println("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+
+	
+		double diff_otr = Difference.of_two_Double_Values(OTR_calculation_cost_otr_price_from_excel,
+				OTR_calculation_cost_otr_price_from_screen_converted);
+		double diff_cost_price = Difference.of_two_Double_Values(OTR_calculation_cost_price_ex_vat_and_rfl_from_excel,
+				OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		double diff_otr_vat = Difference.of_two_Double_Values(OTR_calculation_otr_vat_from_excel,
+				OTR_calculation_otr_vat_from_screen_converted);
+
+		int count = 0;
+		boolean status = false;
+		if (diff_otr < 0.2) {
+			LO.print("OTR price compared");
+			System.out.println("OTR price compared");
+			count++;
+		} else {
+			LO.print("Found difference between OTR actual price and OTR expected price on Quote Summary Page");
+			System.err
+					.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");
+		}
+
+		if (diff_cost_price < 0.2) {
+			LO.print("Cost price ex vat and rfl compared");
+			System.out.println("Cost price ex vat and rfl compared");
+			count++;
+		} else {
+			LO.print(
+					"Found difference between (Cost price ex vat and rfl) actual and (Cost price ex vat and rfl) expected on Quote Summary Page");
+			System.err.println(
+					"Found difference between (Cost price ex vat and rfl) actual and (Cost price ex vat and rfl) expected on Quote Summary Page");
+		}
+
+		if (diff_otr_vat < 0.2) {
+			LO.print("VAT compared");
+			System.out.println("VAT compared");
+			count++;
+		} else {
+			LO.print("Found difference between VAT actual and VAT expected on Quote Summary Page");
+			System.err.println("Found difference between VAT actual and VAT expected on Quote Summary Page");
+		}
+
+		if (count == 3) {
+			status = true;
+		}
+
+		return status;
+
+	}
 
 	public boolean quote_summary_OTR_calculation(String sheet_name) throws InterruptedException, IOException {
 
@@ -367,29 +475,64 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		double OTR_calculation_otr_rfl_and_frf_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_otr_rfl_and_frf.getText().trim().substring(2)));
 
-		LO.print("OTR_calculation_cost_otr_price_from_screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
-		System.out.println(
-				"OTR_calculation_cost_otr_price_from_screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
+		LO.print("");
+		System.out.println("");
 
-		LO.print("OTR_calculation_cost_price_ex_vat_and_rfl_from_screen ="
+		
+		LO.print("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+		System.out.println("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+
+		LO.print("Cost price ex vat and rfl from screen is "
 				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
-		System.out.println("OTR_calculation_cost_price_ex_vat_and_rfl_from_screen ="
+		System.out.println("Cost price ex vat and rfl from screen is "
 				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
 
-		LO.print("OTR_calculation_otr_vat_from_screen =" + OTR_calculation_otr_vat_from_screen_converted);
-		System.out.println("OTR_calculation_otr_vat_from_screen =" + OTR_calculation_otr_vat_from_screen_converted);
+		LO.print("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+		System.out.println("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
 
-		LO.print("OTR_calculation_otr_rfl_and_frf_from_screen ="
+		LO.print("Otr rfl and frf from screen is "
 				+ OTR_calculation_otr_rfl_and_frf_from_screen_converted);
-		System.out.println("OTR_calculation_otr_rfl_and_frf_from_screen ="
+		System.out.println("Otr rfl and frf from screen is "
 				+ OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+		
+		LO.print("");
+		System.out.println("");
+
 
 		double OTR_calculation_cost_otr_price_from_excel = GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
 		double OTR_calculation_cost_price_ex_vat_and_rfl_from_excel = GetExcelFormulaValue.get_formula_value(9, 12,
 				sheet_name);
 		double OTR_calculation_otr_vat_from_excel = GetExcelFormulaValue.get_formula_value(10, 7, sheet_name);
 		double OTR_calculation_otr_rfl_and_frf_excel = GetExcelFormulaValue.get_formula_value(7, 12, sheet_name);
+		
+		
+		LO.print("");
+		System.out.println("");
 
+
+		
+		LO.print("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+		System.out.println("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+
+		LO.print("Cost price ex vat and rfl from excel is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+		System.out.println("Cost price ex vat and rfl from excel is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+
+		LO.print("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+		System.out.println("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+		
+		
+		LO.print("Otr rfl and frf from excel is "
+				+ OTR_calculation_otr_rfl_and_frf_excel);
+		System.out.println("Otr rfl and frf from excel is "
+				+ OTR_calculation_otr_rfl_and_frf_excel);
+		
+		LO.print("");
+		System.out.println("");
+
+
+		
 		double diff_otr = Difference.of_two_Double_Values(OTR_calculation_cost_otr_price_from_excel,
 				OTR_calculation_cost_otr_price_from_screen_converted);
 		double diff_cost_price = Difference.of_two_Double_Values(OTR_calculation_cost_price_ex_vat_and_rfl_from_excel,
@@ -398,6 +541,10 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 				OTR_calculation_otr_vat_from_screen_converted);
 		double diff_otr_rfl_and_frf = Difference.of_two_Double_Values(OTR_calculation_otr_rfl_and_frf_excel,
 				OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+		
+		
+		
+
 
 		int count = 0;
 		boolean status = false;
@@ -480,32 +627,50 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double.parseDouble(RemoveComma
 				.of(quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2)));
 
-		LO.print("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
-		System.out.println("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
+		LO.print("");
+		System.out.println("");
 
-		LO.print("holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
+		LO.print("Holding cost Terms from screen" + holding_cost_terms_from_screen_converted);
+		System.out.println("Holding cost Terms from screen is " + holding_cost_terms_from_screen_converted);
+
+		LO.print("Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
 		System.out.println(
-				"holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
+				"Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
 
-		LO.print("holding_cost_monthly_finance_cost_from_screen"
+		LO.print("Holding cost monthly finance cost from screen is "
 				+ holding_cost_monthly_finance_cost_from_screen_converted);
-		System.out.println("holding_cost_monthly_finance_cost_from_screen"
+		System.out.println("Holding cost monthly finance cost from screen is "
 				+ holding_cost_monthly_finance_cost_from_screen_converted);
 
-		LO.print("holding_cost_total_monthly_holding_cost_from_screen ="
+		LO.print("Holding cost total monthly holding cost from screen is "
 				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
-		System.out.println("holding_cost_total_monthly_holding_cost_from_screen ="
+		System.out.println("Holding cost total monthly holding cost from screen is "
 				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
 
-		
 		double holding_cost_terms_from_excel = GetExcelFormulaValue.get_formula_value(51, 0, sheet_name);
 		double holding_cost_miles_per_annum_from_excel = GetExcelFormulaValue.get_formula_value(50, 1, sheet_name);
 		double holding_cost_monthly_finance_cost_from_excel = GetExcelFormulaValue.get_formula_value(35, 0, sheet_name);
-					
 		double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1,
 				sheet_name);
 
-		
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+		System.out.println("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+
+		LO.print("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+		System.out.println("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+
+		LO.print("Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+		System.out.println(
+				"Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+
+		LO.print("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+		System.out.println("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+
 		double diff_terms = Difference.of_two_Double_Values(holding_cost_terms_from_excel,
 				holding_cost_terms_from_screen_converted);
 		double diff_miles_per_annum = Difference.of_two_Double_Values(holding_cost_miles_per_annum_from_excel,
@@ -599,32 +764,38 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		double holding_cost_monthly_maint_cost_used_from_screen_converted = Double.parseDouble(
 				RemoveComma.of(quote_summary_holding_cost_monthly_maint_cost_used.getText().trim().substring(2)));
 
-	
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 
-		LO.print("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
-		System.out.println("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
+		LO.print("");
+		System.out.println("");
 
-		LO.print("holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
+		LO.print("Holding cost Terms from screen" + holding_cost_terms_from_screen_converted);
+		System.out.println("Holding cost Terms from screen is " + holding_cost_terms_from_screen_converted);
+
+		LO.print("Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
 		System.out.println(
-				"holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
+				"Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
 
-		LO.print("holding_cost_monthly_finance_cost_from_screen"
+		LO.print("Holding cost monthly finance cost from screen is "
 				+ holding_cost_monthly_finance_cost_from_screen_converted);
-		System.out.println("holding_cost_monthly_finance_cost_from_screen"
+		System.out.println("Holding cost monthly finance cost from screen is "
 				+ holding_cost_monthly_finance_cost_from_screen_converted);
 
-		LO.print("holding_cost_monthly_maint_cost_used_from_screen"
+		LO.print("Holding cost monthly maint cost used from screen is "
 				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
-		System.out.println("holding_cost_monthly_maint_cost_used_from_screen"
+		System.out.println("Holding cost monthly maint cost used from screen is "
 				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
 
-	
-		LO.print("holding_cost_total_monthly_holding_cost_from_screen ="
+		
+		LO.print("Holding cost total monthly holding cost from screen is "
 				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
-		System.out.println("holding_cost_total_monthly_holding_cost_from_screen ="
+		System.out.println("Holding cost total monthly holding cost from screen is "
 				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
+
+
+		
+
 
 		double holding_cost_terms_from_excel = GetExcelFormulaValue.get_formula_value(51, 0, sheet_name);
 		double holding_cost_miles_per_annum_from_excel = GetExcelFormulaValue.get_formula_value(50, 1, sheet_name);
@@ -633,6 +804,35 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 				sheet_name);
 		double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1,
 				sheet_name);
+		
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+		System.out.println("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+
+		LO.print("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+		System.out.println("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+
+		LO.print("Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+		System.out.println(
+				"Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+
+		LO.print("Holding cost monthly maint cost used from excel is "
+				+ holding_cost_monthly_maint_cost_used_from_excel);
+		System.out.println("Holding cost monthly maint cost used from excel is "
+				+ holding_cost_monthly_maint_cost_used_from_excel);
+		
+		
+		LO.print("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+		System.out.println("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+
+		
+		
+		
+		
 
 		double diff_terms = Difference.of_two_Double_Values(holding_cost_terms_from_excel,
 				holding_cost_terms_from_screen_converted);
@@ -645,6 +845,8 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		double diff_total_monthly_holding_cost = Difference.of_two_Double_Values(
 				holding_cost_total_monthly_holding_cost_from_excel,
 				holding_cost_total_monthly_holding_cost_from_screen_converted);
+		
+		
 
 		int count = 0;
 		boolean status = false;
@@ -686,7 +888,7 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 			System.err.println("Found difference between Maint cost used actual and Maint cost used expected");
 		}
 
-			if (diff_total_monthly_holding_cost < 0.2) {
+		if (diff_total_monthly_holding_cost < 0.2) {
 			LO.print("Total Monthly Holding Cost compared");
 			System.out.println("Total Monthly Holding Cost compared");
 			count++;
@@ -704,6 +906,8 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		return status;
 
 	}
+
+	
 	public boolean quote_summary_customer_quote_summary_value_verification_without_maintenance(String sheet_name)
 			throws IOException {LO.print("*************Customer Quote Calulation on quote summary page has been started************");
 			System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
@@ -1325,19 +1529,6 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
 		double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
 		
-		
-		
-		System.out.println("totalCashPrice"+totalCashPrice);
-		System.out.println("financeDeposit"+financeDeposit);
-		System.out.println("totalDeposit"+totalDeposit);
-		System.out.println("financeCharges"+financeCharges);
-		System.out.println("balancePayable"+balancePayable);
-		System.out.println("initialCashPayment"+initialCashPayment);
-		System.out.println("pencePerExcessMileMaintenance"+pencePerExcessMileMaintenance);
-		System.out.println("defaultFinanceCommission"+defaultFinanceCommission);
-		System.out.println("docFeeCommission"+docFeeCommission);
-		System.out.println("totalCommission"+totalCommission);
-
 
 		// comparing actul and expected values
 
