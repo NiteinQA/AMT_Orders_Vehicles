@@ -670,6 +670,8 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 		System.out.println("Clicked on holding cost summary");
 
 		Click.on(driver, holding_cost_maintenance_toggle_button, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		LO.print("Clicked on holding_cost_maintenance_toggle_button");
 		System.out.println("Clicked on holding_cost_maintenance_toggle_button");

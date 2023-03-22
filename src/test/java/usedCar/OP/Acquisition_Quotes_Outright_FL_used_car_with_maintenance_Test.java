@@ -133,7 +133,7 @@ public class Acquisition_Quotes_Outright_FL_used_car_with_maintenance_Test exten
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_FL_Page();
 
 		boolean cust_quote_for_one_payment_boolean_status = obj_customer_quote_page
-				.customer_Quote_used_car_for_one_payment_option_with_maintenance_calculation(
+				.customer_Quote_for_used_car_for_one_payment_option_with_maintenance_calculation(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell,
 						maintenance_required, maintenance_margin, initial_payment, part_exchange_status, target_rental,

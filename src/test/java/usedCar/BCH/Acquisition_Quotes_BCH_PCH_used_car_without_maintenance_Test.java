@@ -1,4 +1,4 @@
-package newCar.BCH;
+package usedCar.BCH;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_BCH_BCH_used_car_without_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_BCH_PCH_used_car_without_maintenance_Test extends TestBase {
 
 
 
@@ -30,7 +30,7 @@ public class Acquisition_Quotes_BCH_BCH_used_car_without_maintenance_Test extend
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_BCH_PCH_Page obj_contract_types_and_OTR_page;
-	HoldingCost_BCH_PCH_Page obj_holding_cost_BCH_BCH_page;
+	HoldingCost_BCH_PCH_Page obj_holding_cost;
 	CustomerQuotePage_BCH_PCH_Page obj_customer_quote_page;
 	QuoteSummary_BCH_PCH_Page obj_quote_summary_page;
 
@@ -80,9 +80,9 @@ public class Acquisition_Quotes_BCH_BCH_used_car_without_maintenance_Test extend
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_holding_cost_BCH_BCH_page = new HoldingCost_BCH_PCH_Page();
+		obj_holding_cost = new HoldingCost_BCH_PCH_Page();
 	
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_BCH_BCH_page
+		boolean holding_cost_without_maintenance_boolean = obj_holding_cost
 				.verify_holding_cost_without_maintenance( quoteReference,  quoteExpiryDate,
 						 terms, milesPerAnnum,maintenance_required,  monthlyFinanceRental,  documentFee,  penceperExcessMileFinance,  sheet_name);
 		Assert.assertTrue(holding_cost_without_maintenance_boolean);
@@ -252,7 +252,7 @@ public class Acquisition_Quotes_BCH_BCH_used_car_without_maintenance_Test extend
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("BCH_BCH_w-o-Maint_used_car");
+		Object[][] data = ReadExcelData.getTestData("BCH_PCH_w-o-Maint_used_car");
 		return data;
 	}
 

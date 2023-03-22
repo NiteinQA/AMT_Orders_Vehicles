@@ -1,5 +1,9 @@
 package com.amt.CustomerQuotePackage;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -99,17 +103,97 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//*[@id='FinanceCommission']")
 	private WebElement referrer_upsell_input_field;
 
-   //  summary upsell input field
+	// summary upsell input field
 	@FindBy(xpath = "//*[@id='Upsell']")
 	private WebElement summary_upsell_input_field;
 
-   //  cust quote summary
+	// cust quote summary
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[1]/button")
 	private WebElement customer_quote_summary;
+
+	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
+	private WebElement holding_cost;
+
+	@FindBy(xpath = "//div[@class='acc-head havebtns']")
+	private WebElement holding_cost_summary;
+
+	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
+	private WebElement holding_cost_summary_residual_value_used;
+
+	@FindBy(xpath = " //*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p")
+	private WebElement total_cap_maintenance_value;
+
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
+	private WebElement holding_cost_summary_terms;
+
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[2]/div/p/strong")
+	private WebElement holding_cost_summary_mileage;
+
+	@FindBy(xpath = "//input[@id='ResidualValue']")
+	private WebElement residual_value_used;
+
+	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
+	private WebElement maintenance_cost_used;
+	
+	@FindBy(xpath = "//*[@id='ResidualPercentage']")
+	private WebElement holding_cost_percentage_cap_residual_value_used;
+
+	@FindBy(xpath = "//input[@id='CapMaintenancePercentage']")
+	private WebElement holding_cost_percentage_maintenance_cost_used;
 
 	public CustomerQuotePage_HPNR_BCHPage() {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public boolean customer_Quote_HPNR_BCH_for_one_payment_option_for_funder_quote_addition_without_maintenance_calculation(
+			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String part_exchange_status, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		obj_read_excel_calculation_page
+				.set_global_variables_to_excel_for_fl_bch_pch_scenario_with_funder_quote_addition(sheet_name);
+		return obj_read_excel_calculation_page
+				.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_without_maintenance(
+						driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
+						actual_part_exchange_value, actual_part_exchange_value_from_excel, given_part_exchange_value,
+						given_part_exchange_value_from_excel, less_finance_settlement,
+						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
+						maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
+
+	}
+
+	
+	public boolean customer_Quote_HPNR_BCH_for_one_payment_option_for_funder_quote_addition_with_maintenance_calculation(
+			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String part_exchange_status, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		Click.on(driver, customer_quote, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, customer_quote_maintenance_toggle_button, 30);
+
+		obj_read_excel_calculation_page
+				.set_global_variables_to_excel_for_fl_bch_pch_scenario_with_funder_quote_addition(sheet_name);
+		return obj_read_excel_calculation_page
+				.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_with_maintenance(
+						driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
+						actual_part_exchange_value, actual_part_exchange_value_from_excel, given_part_exchange_value,
+						given_part_exchange_value_from_excel, less_finance_settlement,
+						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
+						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
+						initial_payment, part_exchange_status, target_rental, sheet_name);
+	}
+
 
 	public boolean check_monthly_finance_rental_with_part_exchange_toggle_on_without_maintenance(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
@@ -318,7 +402,9 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 		return status;
 	}
 
-	public boolean customer_Quote_HPNR_BCH_for_one_payment_option_for_funder_quote_addition_without_maintenance_calculation(
+
+	
+	public boolean customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_without_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
@@ -339,7 +425,9 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 						maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
 	}
 
-	public boolean customer_Quote_HPNR_BCH_for_one_payment_option_for_funder_quote_addition_with_maintenance_calculation(
+
+
+	public boolean customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_with_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
@@ -365,6 +453,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 						initial_payment, part_exchange_status, target_rental, sheet_name);
 	}
 
+	
 	public boolean customer_Quote_HPNR_BCH_for_one_payment_option_without_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -384,8 +473,6 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
 						maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
 	}
-	
-	
 
 	public boolean customer_Quote_HPNR_BCH_for_all_payment_option_without_maintenance_calculation(
 			String initial_payment, String sheet_name) throws IOException, InterruptedException {
@@ -410,7 +497,8 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException, NumberFormatException, ClassNotFoundException {
+			String part_exchange_status, String target_rental, String sheet_name)
+			throws IOException, NumberFormatException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
@@ -455,7 +543,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
 						initial_payment, part_exchange_status, target_rental, sheet_name);
 	}
-	
+
 	public boolean customer_Quote_used_car_HPNR_BCH_for_one_payment_option_with_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -477,7 +565,82 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
 						initial_payment, part_exchange_status, target_rental, sheet_name);
 	}
+
+	public boolean customer_Quote_for_used_car_for_one_payment_option_with_maintenance_calculation(
+			
+			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String part_exchange_status, String target_rental, String sheet_name)
+			throws IOException, InterruptedException, UnsupportedFlavorException {
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, customer_quote_maintenance_toggle_button, 40);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 30);
+
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 30);
+
 	
+		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, holding_cost_percentage_maintenance_cost_used, 20);
+		
+		holding_cost_percentage_cap_residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String percentage_cap_residual_value_used = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		holding_cost_percentage_maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		String percentage_cap_maintenance_cost_used = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		double used_residual_value = Double
+				.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
+
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+
+		double total_cap_maintenance_value_converted = Double
+				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().substring(2)));
+		
+			
+		double percentage_cap_residual_value =Double.parseDouble(percentage_cap_residual_value_used);
+		
+		double percentage_cap_maintenance_cost =Double.parseDouble(percentage_cap_maintenance_cost_used);
+		
+		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		obj_read_excel_calculation_page.set_global_variables_for_used_car_to_excel(sheet_name);
+
+		obj_read_excel_calculation_page.write_holding_cost_cap_values_to_excel_with_maintenance_for_used_car(duration,
+				annual_mileage, used_residual_value,total_cap_maintenance_value_converted, percentage_cap_residual_value,percentage_cap_maintenance_cost,  sheet_name);
+
+		return obj_read_excel_calculation_page
+				.verify_customer_quote_calculations_for_one_payment_options_with_maintenance(driver,
+						customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,
+						actual_part_exchange_value_from_excel, given_part_exchange_value,
+						given_part_exchange_value_from_excel, less_finance_settlement,
+						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
+						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
+						initial_payment, part_exchange_status, target_rental, sheet_name);
+	}
+
 	public boolean customer_Quote_used_car_for_one_payment_option_without_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
@@ -489,11 +652,15 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		obj_read_excel_calculation_page.set_global_variables_for_used_car_to_excel(sheet_name);
 		return obj_read_excel_calculation_page
-				.verify_customer_quote_calculations_for_one_payment_options_without_maintenance(driver, customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value, actual_part_exchange_value_from_excel, given_part_exchange_value, given_part_exchange_value_from_excel, less_finance_settlement, less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee, document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required, maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
-		
+				.verify_customer_quote_calculations_for_one_payment_options_without_maintenance(driver,
+						customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,
+						actual_part_exchange_value_from_excel, given_part_exchange_value,
+						given_part_exchange_value_from_excel, less_finance_settlement,
+						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
+						maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
+
 	}
-
-
 
 	public boolean customer_Quote_HPNR_BCH_for_all_payment_option_with_maintenance_calculation(String initial_payment,
 			String sheet_name) throws IOException, InterruptedException {
@@ -906,14 +1073,12 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 
 		obj_read_excel_calculation_page.put_upsell_values_to_excel(matrix_upsell, referrer_upsell, sheet_name);
 
-	double monthlyFinanceRentalFromExcel = 0;
-		
+		double monthlyFinanceRentalFromExcel = 0;
 
 		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
-		
+
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
-			
 		} else {
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 
@@ -1067,14 +1232,12 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 
 		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell, sheet_name);
 
-	double monthlyFinanceRentalFromExcel = 0;
-		
+		double monthlyFinanceRentalFromExcel = 0;
 
 		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
-		
+
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
-			
 		} else {
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 

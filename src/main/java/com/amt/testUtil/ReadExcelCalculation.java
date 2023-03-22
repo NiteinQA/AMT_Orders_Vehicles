@@ -53,6 +53,28 @@ public class ReadExcelCalculation extends TestBase {
 	}
 
 	public ReadExcelCalculation obj_read_excel_calculation_page;
+	
+	public void write_holding_cost_cap_values_to_excel_with_maintenance_for_used_car( double terms_from_screen,
+			double annual_mileage, double used_residual_value, double total_cap_maintenance_value_converted, double percentage_cap_residual_value, double percentage_cap_maintenance_cost, 
+			String sheet_name) throws IOException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(terms_from_screen);
+		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
+		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(total_cap_maintenance_value_converted);
+		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value);
+		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(percentage_cap_residual_value);
+
+		
+		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue("YES");
+	
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+	}
+
 
 	public double verify_OTR_for_calculation_after_adding_other_support_values_to_excel(double otherSupportValue,
 			String sheet_name) throws IOException {
@@ -1534,12 +1556,25 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
 		wb.getSheet(sheet_name).getRow(79).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
-		wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(
-				Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum")));
+		
+		if(sheet_name.contains("Used"))
+		{
+			wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(
+					Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum_used_car")));
+		}else {
+			wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(
+					Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum")));
+		}
+		
 		wb.getSheet(sheet_name).getRow(84).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("disposal_costs")));
 		wb.getSheet(sheet_name).getRow(85).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
+		
+		
+		wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(107).getCell(3).setCellValue(0);		
+		
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);

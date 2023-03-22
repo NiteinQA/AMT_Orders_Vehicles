@@ -1,4 +1,4 @@
-package newCar.BCH;
+package usedCar.BCH;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -10,22 +10,18 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePage_BCH_BCH_Page;
-import com.amt.CustomerQuotePackage.CustomerQuotePage_BCH_PCH_Page;
 import com.amt.HoldingCostPages.HoldingCost_BCH_BCH_Page;
-import com.amt.HoldingCostPages.HoldingCost_BCH_PCH_Page;
 import com.amt.QuoteSummaryPages.QuoteSummary_BCH_BCH_Page;
-import com.amt.QuoteSummaryPages.QuoteSummary_BCH_PCH_Page;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_BCH_BCH_Page;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_BCH_PCH_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_BCH_BCH_used_car_with_maintenance_Test extends TestBase {
 
 
 
@@ -33,10 +29,10 @@ public class Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test extends T
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_BCH_PCH_Page obj_contract_types_and_OTR_page;
-	HoldingCost_BCH_PCH_Page obj_holding_cost_BCH_BCH_page;
-	CustomerQuotePage_BCH_PCH_Page obj_customer_quote_page;
-	QuoteSummary_BCH_PCH_Page obj_quote_summary_page;
+	ContractTypesAndOTR_BCH_BCH_Page obj_contract_types_and_OTR_page;
+	HoldingCost_BCH_BCH_Page obj_holding_cost_BCH_BCH_page;
+	CustomerQuotePage_BCH_BCH_Page obj_customer_quote_page;
+	QuoteSummary_BCH_BCH_Page obj_quote_summary_page;
 
 
 	@Test(priority = 1, dataProvider = "testData")
@@ -51,7 +47,7 @@ public class Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test extends T
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_BCH_PCH_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_BCH_BCH_Page();
 		
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
@@ -83,7 +79,7 @@ public class Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test extends T
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_holding_cost_BCH_BCH_page = new HoldingCost_BCH_PCH_Page();
+		obj_holding_cost_BCH_BCH_page = new HoldingCost_BCH_BCH_Page();
 	
 		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_BCH_BCH_page
 				.verify_holding_cost_with_maintenance( quoteReference,  quoteExpiryDate, terms, milesPerAnnum,maintenance_required,  monthlyFinanceRental,monthlyMaintenanceRental,  documentFee,
@@ -112,10 +108,10 @@ public class Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test extends T
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 
-		obj_customer_quote_page = new CustomerQuotePage_BCH_PCH_Page();
+		obj_customer_quote_page = new CustomerQuotePage_BCH_BCH_Page();
 
 		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
-				.customer_Quote_BCH_PCH_for_one_payment_option_with_maintenance_calculation(
+				.customer_Quote_BCH_BCH_for_one_payment_option_with_maintenance_calculation(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell,
 						 maintenance_required, maintenance_margin, initial_payment,
@@ -196,7 +192,7 @@ public class Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test extends T
 		
 
 		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-				.customer_Quote_BCH_PCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
+				.customer_Quote_BCH_BCH_for_all_payment_option_with_maintenance_calculation(initial_payment,sheet_name);
 		Assert.assertTrue(cutomer_quote_monthly_rental);
 	
 		System.out.println("Assertion Passed For Monthly Finance Rental For All Payment Profiles");
@@ -219,7 +215,7 @@ public class Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test extends T
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_quote_summary_page = new QuoteSummary_BCH_PCH_Page();
+		obj_quote_summary_page = new QuoteSummary_BCH_BCH_Page();
 
 		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
@@ -272,7 +268,7 @@ public class Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test extends T
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("BCH_PCH_withMaint_used_car");
+		Object[][] data = ReadExcelData.getTestData("BCH_BCH_withMaint_used_car");
 		return data;
 	}
 
