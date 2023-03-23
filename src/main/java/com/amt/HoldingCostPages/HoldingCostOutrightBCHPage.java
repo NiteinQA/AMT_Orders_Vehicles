@@ -88,7 +88,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(String residual_value_used_from_excel,
 			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
-			String sheet_name) throws IOException, InterruptedException {
+			String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 		Click.on(driver, holding_cost, 30);
 
 		LO.print("***********Entered in holding cost page ***********");
@@ -117,7 +117,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 	
 	public boolean edit_percentage_residual_verify_holding_cost_without_maintenance (String residual_value_used_from_excel,
 			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
-			String sheet_name) throws IOException, InterruptedException {
+			String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 		
 		// Code for Edit percentage cap residual value  
 
@@ -145,7 +145,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 	
 	public boolean edit_residual_value_used_then_verify_holding_cost_without_maintenance(String residual_value_used_from_excel,
 			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
-			String sheet_name) throws IOException, InterruptedException {
+			String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 	
 		Actions act = new Actions(driver);
 		// code for editing residual value used and maint cost used
@@ -357,7 +357,7 @@ public class HoldingCostOutrightBCHPage extends TestBase {
 	public boolean edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(
 			String additional_terms_from_excel, String additional_mileage_from_excel, String maintenance_required,
 			String target_rental, String sheet_name)
-			throws IOException, InterruptedException, UnsupportedFlavorException {
+			throws IOException, InterruptedException, UnsupportedFlavorException, ClassNotFoundException {
 
 		Actions act = new Actions(driver);
 

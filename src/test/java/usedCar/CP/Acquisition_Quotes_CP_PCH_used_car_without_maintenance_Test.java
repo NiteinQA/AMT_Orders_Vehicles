@@ -86,7 +86,7 @@ public class Acquisition_Quotes_CP_PCH_used_car_without_maintenance_Test extends
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_holding_cost_page = new HoldingCost_HPNR_BCHPage();
 

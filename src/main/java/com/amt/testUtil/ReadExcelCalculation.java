@@ -862,7 +862,7 @@ public class ReadExcelCalculation extends TestBase {
 			WebElement holding_cost_summary_terms, WebElement holding_cost_summary_mileage,
 			WebElement holding_cost_summary_residual_value_used, WebElement total_monthly_holding_cost,
 			String residual_value_used, String percentage_cap_residual_value_used, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 
 		LO.print("");
 		System.out.println("");
@@ -901,9 +901,14 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
 		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
-		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value * 1.2);
+		} else {
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+
+		}
 		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(39).getCell(0).setCellValue(used_residual_value);
+//		wb.getSheet(sheet_name).getRow(39).getCell(0).setCellValue(used_residual_value);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
@@ -953,7 +958,7 @@ public class ReadExcelCalculation extends TestBase {
 			WebElement holding_cost_summary_terms, WebElement holding_cost_summary_mileage,
 			WebElement holding_cost_summary_residual_value_used, WebElement total_monthly_holding_cost,
 			String residual_value_used, String percentage_cap_residual_value_used, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 
 		LO.print("");
 		System.out.println("");
@@ -983,9 +988,14 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
 		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
-		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value * 1.2);
+		} else {
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+
+		}
 		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(39).getCell(0).setCellValue(used_residual_value);
+//		wb.getSheet(sheet_name).getRow(39).getCell(0).setCellValue(used_residual_value);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value_used);
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
@@ -1037,7 +1047,7 @@ public class ReadExcelCalculation extends TestBase {
 			WebElement holding_cost_summary_terms, WebElement holding_cost_summary_mileage,
 			WebElement holding_cost_summary_residual_value_used, WebElement total_monthly_holding_cost,
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 
 		LO.print("");
 		System.out.println("");
@@ -1055,6 +1065,8 @@ public class ReadExcelCalculation extends TestBase {
 
 		double used_residual_value = Double
 				.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
+		
+		double residual_value_test_data = Double.parseDouble(residual_value_used_from_excel);
 
 		LO.print("Changing Residual value used to =" + residual_value_used_from_excel);
 		System.out.println("Changing Residual value used to =" + residual_value_used_from_excel);
@@ -1067,7 +1079,14 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(25).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
 		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
-		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(residual_value_used_from_excel);
+		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(residual_value_test_data * 1.2);
+		} else {
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(residual_value_test_data);
+
+		}
+	
 		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
 
@@ -3124,7 +3143,7 @@ public class ReadExcelCalculation extends TestBase {
 	public boolean edit_additional_terms_and_mileage_then_verify_holding_cost_without_maintenance(WebDriver driver,
 			WebElement holding_cost_summary_terms, WebElement holding_cost_summary_mileage,
 			WebElement total_monthly_holding_cost, String maintenance_required, String target_rental,
-			String residual_value_used_from_screen, String sheet_name) throws IOException, InterruptedException {
+			String residual_value_used_from_screen, String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 
 		LO.print("");
 		System.out.println("");
@@ -3156,7 +3175,12 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
 		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
 
-		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(residual_value_used);
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(residual_value_used * 1.2);
+		} else {
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(residual_value_used);
+
+		}
 
 		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);

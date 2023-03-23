@@ -1258,7 +1258,7 @@ public boolean quote_summary_edit_finance_margin_value_verification(String sheet
 	
 	
 	//Getting values from screen
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 	
 	ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
 

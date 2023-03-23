@@ -162,8 +162,8 @@ public class ContractTypesAndOTR_HPNR_FL_Page extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
-		LO.print(" Acquisition Contract type option = Finance Lease (FL) has been selected");
-		System.out.println("Acquisition Contract type option = Finance Lease (FL) has been selected");
+		LO.print(" Acquisition Contract type option = HPNR has been selected");
+		System.out.println("Acquisition Contract type option = HPNR has been selected");
 
 		Click.on(driver, acq_contractTypes_customer_contract_FL, 30);
 

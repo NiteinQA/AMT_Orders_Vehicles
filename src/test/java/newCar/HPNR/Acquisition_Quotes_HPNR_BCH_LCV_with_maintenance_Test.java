@@ -32,7 +32,7 @@ public class Acquisition_Quotes_HPNR_BCH_LCV_with_maintenance_Test extends TestB
 	QuoteSummary_HPNR_BCHPage obj_quote_summary_page;
 
 	@Test(priority = 1, dataProvider = "testData")
-	public void aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test(String manufacturer, String model,
+	public void aquisition_quotes_OTR_calculation_with_maintenance_test(String manufacturer, String model,
 			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
 			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
 			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,
@@ -66,9 +66,9 @@ public class Acquisition_Quotes_HPNR_BCH_LCV_with_maintenance_Test extends TestB
 	}
 
 	@Test(priority = 2, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test" })
+			"aquisition_quotes_OTR_calculation_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test(String manufacturer,
+	public void aquisition_quotes_after_discount_calculations_with_maintenance_test(String manufacturer,
 			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
 			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
 			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,
@@ -94,9 +94,9 @@ public class Acquisition_Quotes_HPNR_BCH_LCV_with_maintenance_Test extends TestB
 	}
 
 	@Test(priority = 3, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test" })
+			"aquisition_quotes_after_discount_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_BCH_other_support_check_with_maintenance_test(String manufacturer, String model,
+	public void aquisition_quotes_other_support_check_with_maintenance_test(String manufacturer, String model,
 			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
 			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
 			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,
@@ -123,9 +123,9 @@ public class Acquisition_Quotes_HPNR_BCH_LCV_with_maintenance_Test extends TestB
 	}
 
 	@Test(priority = 4, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_BCH_other_support_check_with_maintenance_test" })
+			"aquisition_quotes_other_support_check_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test(String manufacturer,
+	public void aquisition_quotes_holding_cost_calculations_with_maintenance_test(String manufacturer,
 			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
 			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
 			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,
@@ -171,9 +171,9 @@ public class Acquisition_Quotes_HPNR_BCH_LCV_with_maintenance_Test extends TestB
 	}
 
 	@Test(priority = 5, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test" })
+			"aquisition_quotes_holding_cost_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test(
+	public void aquisition_quotes_customer_quote_payment_profile_calculations_with_maintenance_test(
 			String manufacturer, String model, String road_tax_for_first_year, String on_road_price_for_invoice,
 			String other_support_value, String percentage_cap_residual_value_used,
 			String percentage_cap_maintenance_cost_used, String residual_value_used, String main_cost_used,
@@ -239,9 +239,9 @@ public class Acquisition_Quotes_HPNR_BCH_LCV_with_maintenance_Test extends TestB
 	}
 
 	@Test(priority = 6, dataProvider = "testData", dependsOnMethods = {
-			"aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test" })
+			"aquisition_quotes_customer_quote_payment_profile_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_HPNR_BCH_quote_summary_values_verification_with_maintenance_test(String manufacturer,
+	public void aquisition_quotes_quote_summary_values_verification_with_maintenance_test(String manufacturer,
 			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
 			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
 			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,

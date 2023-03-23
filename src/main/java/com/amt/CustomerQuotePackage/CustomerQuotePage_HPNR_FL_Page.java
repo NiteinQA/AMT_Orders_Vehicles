@@ -154,6 +154,55 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 	}
 	
 	
+	public boolean customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_without_maintenance_calculation(
+			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String part_exchange_status, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		obj_read_excel_calculation_page
+				.set_global_variables_to_excel_for_finance_lease_for_funder_quote_addition(sheet_name);
+		return obj_read_excel_calculation_page
+				.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_without_maintenance(
+						driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
+						actual_part_exchange_value, actual_part_exchange_value_from_excel, given_part_exchange_value,
+						given_part_exchange_value_from_excel, less_finance_settlement,
+						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
+						maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
+	}
+
+	
+	
+	public boolean customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_with_maintenance_calculation(
+			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
+			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
+			String part_exchange_status, String target_rental, String sheet_name)
+			throws IOException, InterruptedException {
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		Click.on(driver, customer_quote, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, customer_quote_maintenance_toggle_button, 30);
+
+		obj_read_excel_calculation_page
+				.set_global_variables_to_excel_for_finance_lease_for_funder_quote_addition(sheet_name);
+		return obj_read_excel_calculation_page
+				.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_with_maintenance(
+						driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
+						actual_part_exchange_value, actual_part_exchange_value_from_excel, given_part_exchange_value,
+						given_part_exchange_value_from_excel, less_finance_settlement,
+						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
+						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
+						initial_payment, part_exchange_status, target_rental, sheet_name);
+	}
+
 	
 	public boolean customer_Quote_for_used_car_for_one_payment_option_with_maintenance_calculation(			
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,

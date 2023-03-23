@@ -152,7 +152,7 @@ public class Acquisition_Quotes_CP_PCP_with_funder_quote_addition_without_mainte
 			// Assert.assertTrue(quote_summary_customer_quote_calculation);
 
 			boolean quote_summary_configuration_value_check = obj_quote_summary_page
-					.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
+					.quote_summary_configuration_value_verification_for_funder_without_maintenance(sheet_name);
 			// Assert.assertTrue(quote_summary_configuration_value_check);
 
 			obj_quote_summary_page.save_quote();

@@ -198,7 +198,7 @@ public class Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_wit
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("HPNR_PCH_funder_withoutMaintena");
+		Object[][] data = ReadExcelData.getTestData("HPNR_PCH_fund-wo-Maint_used_car");
 		return data;
 	}
 
