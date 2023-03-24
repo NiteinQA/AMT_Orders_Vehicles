@@ -111,7 +111,7 @@ public class Acquisition_Quotes_HPNR_HPR_with_funder_quote_addition_with_mainten
 			String maintenance_margin, String initial_payment, String part_exchange_status, String target_rental,String matrix_credit_type,
 			String balloon_payment_status, 
 			String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 

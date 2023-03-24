@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/4</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Mar 23 19:58:17 IST 2023</td>
+<td>Started on:</td><td>Fri Mar 24 18:44:21 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>99 seconds (99272 ms)</td>
+<tr><td>Total time:</td><td>21 seconds (21794 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,57 +67,267 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2.aquisition_quotes_OTR_calculation_with_maintenance_test()'><b>aquisition_quotes_OTR_calculation_with_maintenance_test</b><br>Test class: newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2<br>Parameters: GY19XAG, 10000, 60000, 1000, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 0, 199.99, 0, YES, 20, 200, NO, 0, Limited Credit, YES, HPNR(F3)-HPNR_Used_car<br/>
-<a href="#Output-1985362663" onClick='toggleBox("Output-1985362663", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1985362663" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1985362663">
-<b>Clicked on Quote button </b> <br /><br/>
-<b>Selecting used vehicle with registration no. = GY19XAG and mileage = 10000</b> <br /><br/>
-<b>Vehicle selected</b> <br /><br/>
-<b>Paint option has been selected</b> <br /><br/>
-<b>Interior option has been selected</b> <br /><br/>
-<b> Acquisition Contract type option = HPNR has been selected</b> <br /><br/>
-<b> Customer Contract type option = HPNR has been selected</b> <br /><br/>
-<b>Cost Price ex VAT and RFL from screen is 23125.0</b> <br /><br/>
-<b>VAT from screen is 4625.0</b> <br /><br/>
-<b>Cost Price ex VAT and RFL calculated is 23125.0</b> <br /><br/>
-<b>Cost Price ex VAT and RFL verified and found OK</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>41</td>
-<td>newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2@45099dd3</td></tr>
-<tr>
-<td title='newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2.aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test()'><b>aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test</b><br>Test class: newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2<br>Parameters: GY19XAG, 10000, 60000, 1000, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 0, 199.99, 0, YES, 20, 200, NO, 0, Limited Credit, YES, HPNR(F3)-HPNR_Used_car</td>
-<td></td>
+<td title='newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_OTR_calculation_without_maintenance_test()'><b>aquisition_quotes_OTR_calculation_without_maintenance_test</b><br>Test class: newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test</td>
+<td><div><pre>org.testng.internal.reflect.MethodMatcherException: 
+[public void newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException,java.io.IOException,java.awt.datatransfer.UnsupportedFlavorException] has no parameters defined but was found to be using a data provider (either explicitly specified or inherited from class level annotation).
+Data provider mismatch
+Method: aquisition_quotes_OTR_calculation_without_maintenance_test([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=2, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=3, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=4, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=5, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=6, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=7, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=8, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=9, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=10, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=11, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=12, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=13, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=14, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=15, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=16, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=17, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=18, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=19, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=20, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=21, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=22, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=23, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=24, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=25, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=26, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=27, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=28, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=29, type=java.lang.String, declaredAnnotations=[]}])
+Arguments: [(java.lang.String) GY19XAG,(java.lang.String) 10000,(java.lang.String) 60000,(java.lang.String) 1000,(java.lang.String) REF001,(java.lang.String) 05/05/23,(java.lang.String) 33,(java.lang.String) 5000,(java.lang.String) 1000,(java.lang.String) 200,(java.lang.String) 12,(java.lang.String) 500,(java.lang.String) 50,(java.lang.String) 6000,(java.lang.String) 20,(java.lang.String) 1,(java.lang.String) 1,(java.lang.String) 10000,(java.lang.String) 6000,(java.lang.String) 2000,(java.lang.String) 1000,(java.lang.String) 0,(java.lang.String) 199.99,(java.lang.String) 0,(java.lang.String) YES,(java.lang.String) 20,(java.lang.String) 200,(java.lang.String) NO,(java.lang.String) 0,(java.lang.String) Limited Credit,(java.lang.String) YES,(java.lang.String) CP(F2)-CP_Used_car]
+	at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:43)
+	at org.testng.internal.Parameters.injectParameters(Parameters.java:914)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:34)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace767060604", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace767060604'><pre>org.testng.internal.reflect.MethodMatcherException: 
+[public void newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException,java.io.IOException,java.awt.datatransfer.UnsupportedFlavorException] has no parameters defined but was found to be using a data provider (either explicitly specified or inherited from class level annotation).
+Data provider mismatch
+Method: aquisition_quotes_OTR_calculation_without_maintenance_test([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=2, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=3, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=4, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=5, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=6, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=7, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=8, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=9, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=10, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=11, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=12, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=13, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=14, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=15, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=16, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=17, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=18, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=19, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=20, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=21, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=22, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=23, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=24, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=25, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=26, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=27, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=28, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=29, type=java.lang.String, declaredAnnotations=[]}])
+Arguments: [(java.lang.String) GY19XAG,(java.lang.String) 10000,(java.lang.String) 60000,(java.lang.String) 1000,(java.lang.String) REF001,(java.lang.String) 05/05/23,(java.lang.String) 33,(java.lang.String) 5000,(java.lang.String) 1000,(java.lang.String) 200,(java.lang.String) 12,(java.lang.String) 500,(java.lang.String) 50,(java.lang.String) 6000,(java.lang.String) 20,(java.lang.String) 1,(java.lang.String) 1,(java.lang.String) 10000,(java.lang.String) 6000,(java.lang.String) 2000,(java.lang.String) 1000,(java.lang.String) 0,(java.lang.String) 199.99,(java.lang.String) 0,(java.lang.String) YES,(java.lang.String) 20,(java.lang.String) 200,(java.lang.String) NO,(java.lang.String) 0,(java.lang.String) Limited Credit,(java.lang.String) YES,(java.lang.String) CP(F2)-CP_Used_car]
+	at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:43)
+	at org.testng.internal.Parameters.injectParameters(Parameters.java:914)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:34)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
 <td>0</td>
-<td>newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2@45099dd3</td></tr>
+<td>newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
-<td title='newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2.aquisition_quotes_holding_cost_calculations_with_maintenance_test()'><b>aquisition_quotes_holding_cost_calculations_with_maintenance_test</b><br>Test class: newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2<br>Parameters: GY19XAG, 10000, 60000, 1000, REF001, 05/05/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 0, 199.99, 0, YES, 20, 200, NO, 0, Limited Credit, YES, HPNR(F3)-HPNR_Used_car<br/>
-<a href="#Output-441396931" onClick='toggleBox("Output-441396931", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-441396931" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-441396931">
-<b>***********Entered in holding cost page ***********</b> <br /><br/>
-<b>***********Holding Cost Calculations has been Started*************</b> <br /><br/>
-<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
-<b>Reading Monthly Holding Cost value from excel</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_screen =500.36</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>40</td>
-<td>newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2@45099dd3</td></tr>
+<td title='newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_quote_summary_values_verification_without_maintenance_test</b><br>Test class: newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1221407133", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1221407133'><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a</td></tr>
+<tr>
+<td title='newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test()'><b>aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test</b><br>Test class: newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace947069796", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace947069796'><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a</td></tr>
+<tr>
+<td title='newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test()'><b>aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test</b><br>Test class: newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace529621529", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace529621529'><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a</td></tr>
+<tr>
+<td title='newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_holding_cost_calculations_without_maintenance_test()'><b>aquisition_quotes_holding_cost_calculations_without_maintenance_test</b><br>Test class: newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace589489519", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace589489519'><pre>java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a</td></tr>
 </table><p>
 </body>
 </html>

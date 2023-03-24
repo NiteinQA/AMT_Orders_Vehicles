@@ -1,572 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="3" total="6" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="0" failed="1" skipped="4">
   <reporter-output>
-    <line>
-      <![CDATA[<b>Clicked on Quote button </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Selecting used vehicle with registration no. = GY19XAG and mileage = 10000</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Vehicle selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Paint option has been selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Interior option has been selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b> Acquisition Contract type option = HPNR has been selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b> Customer Contract type option = HPNR has been selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Cost Price ex VAT and RFL from screen is 23125.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>VAT from screen is 4625.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Cost Price ex VAT and RFL calculated is 23125.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Cost Price ex VAT and RFL verified and found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =500.36</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br />]]>
-    </line>
   </reporter-output>
-  <suite started-at="2023-03-23T19:58:17 IST" name="Default suite" finished-at="2023-03-23T19:59:56 IST" duration-ms="99272">
+  <suite started-at="2023-03-24T18:44:21 IST" name="Default suite" finished-at="2023-03-24T18:44:43 IST" duration-ms="21794">
     <groups>
     </groups>
-    <test started-at="2023-03-23T19:58:17 IST" name="Default test" finished-at="2023-03-23T19:59:56 IST" duration-ms="99272">
-      <class name="newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2">
-        <test-method is-config="true" signature="setup()[pri:0, instance:newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2@45099dd3]" started-at="2023-03-23T19:58:17 IST" name="setup" finished-at="2023-03-23T19:58:32 IST" duration-ms="15119" status="PASS">
+    <test started-at="2023-03-24T18:44:21 IST" name="Default test" finished-at="2023-03-24T18:44:43 IST" duration-ms="21794">
+      <class name="newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a]" started-at="2023-03-24T18:44:21 IST" name="setup" finished-at="2023-03-24T18:44:41 IST" duration-ms="19732" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_OTR_calculation_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2@45099dd3]" started-at="2023-03-23T19:58:33 IST" name="aquisition_quotes_OTR_calculation_with_maintenance_test" data-provider="testData" finished-at="2023-03-23T19:59:15 IST" duration-ms="41949" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[GY19XAG]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[60000]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[REF001]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[05/05/23]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[33]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[199.99]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="21">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="22">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="23">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="24">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="25">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="26">
-              <value>
-                <![CDATA[Limited Credit]]>
-              </value>
-            </param>
-            <param index="27">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="28">
-              <value>
-                <![CDATA[HPNR(F3)-HPNR_Used_car]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Clicked on Quote button </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Selecting used vehicle with registration no. = GY19XAG and mileage = 10000</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Vehicle selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Paint option has been selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Interior option has been selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b> Acquisition Contract type option = HPNR has been selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b> Customer Contract type option = HPNR has been selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Cost Price ex VAT and RFL from screen is 23125.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>VAT from screen is 4625.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Cost Price ex VAT and RFL calculated is 23125.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Cost Price ex VAT and RFL verified and found OK</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- aquisition_quotes_OTR_calculation_with_maintenance_test -->
-        <test-method signature="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2@45099dd3]" started-at="2023-03-23T19:59:15 IST" name="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test" data-provider="testData" finished-at="2023-03-23T19:59:15 IST" depends-on-methods="newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2.aquisition_quotes_OTR_calculation_with_maintenance_test" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[GY19XAG]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[60000]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[REF001]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[05/05/23]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[33]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[199.99]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="21">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="22">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="23">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="24">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="25">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="26">
-              <value>
-                <![CDATA[Limited Credit]]>
-              </value>
-            </param>
-            <param index="27">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="28">
-              <value>
-                <![CDATA[HPNR(F3)-HPNR_Used_car]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="aquisition_quotes_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a]" started-at="2023-03-24T18:44:41 IST" name="aquisition_quotes_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2023-03-24T18:44:42 IST" duration-ms="908" status="FAIL">
+          <exception class="org.testng.internal.reflect.MethodMatcherException">
+            <message>
+              <![CDATA[
+[public void newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException,java.io.IOException,java.awt.datatransfer.UnsupportedFlavorException] has no parameters defined but was found to be using a data provider (either explicitly specified or inherited from class level annotation).
+Data provider mismatch
+Method: aquisition_quotes_OTR_calculation_without_maintenance_test([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=2, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=3, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=4, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=5, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=6, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=7, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=8, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=9, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=10, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=11, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=12, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=13, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=14, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=15, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=16, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=17, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=18, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=19, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=20, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=21, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=22, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=23, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=24, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=25, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=26, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=27, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=28, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=29, type=java.lang.String, declaredAnnotations=[]}])
+Arguments: [(java.lang.String) GY19XAG,(java.lang.String) 10000,(java.lang.String) 60000,(java.lang.String) 1000,(java.lang.String) REF001,(java.lang.String) 05/05/23,(java.lang.String) 33,(java.lang.String) 5000,(java.lang.String) 1000,(java.lang.String) 200,(java.lang.String) 12,(java.lang.String) 500,(java.lang.String) 50,(java.lang.String) 6000,(java.lang.String) 20,(java.lang.String) 1,(java.lang.String) 1,(java.lang.String) 10000,(java.lang.String) 6000,(java.lang.String) 2000,(java.lang.String) 1000,(java.lang.String) 0,(java.lang.String) 199.99,(java.lang.String) 0,(java.lang.String) YES,(java.lang.String) 20,(java.lang.String) 200,(java.lang.String) NO,(java.lang.String) 0,(java.lang.String) Limited Credit,(java.lang.String) YES,(java.lang.String) CP(F2)-CP_Used_car]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.internal.reflect.MethodMatcherException: 
+[public void newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException,java.io.IOException,java.awt.datatransfer.UnsupportedFlavorException] has no parameters defined but was found to be using a data provider (either explicitly specified or inherited from class level annotation).
+Data provider mismatch
+Method: aquisition_quotes_OTR_calculation_without_maintenance_test([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=2, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=3, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=4, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=5, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=6, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=7, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=8, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=9, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=10, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=11, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=12, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=13, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=14, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=15, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=16, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=17, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=18, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=19, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=20, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=21, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=22, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=23, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=24, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=25, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=26, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=27, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=28, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=29, type=java.lang.String, declaredAnnotations=[]}])
+Arguments: [(java.lang.String) GY19XAG,(java.lang.String) 10000,(java.lang.String) 60000,(java.lang.String) 1000,(java.lang.String) REF001,(java.lang.String) 05/05/23,(java.lang.String) 33,(java.lang.String) 5000,(java.lang.String) 1000,(java.lang.String) 200,(java.lang.String) 12,(java.lang.String) 500,(java.lang.String) 50,(java.lang.String) 6000,(java.lang.String) 20,(java.lang.String) 1,(java.lang.String) 1,(java.lang.String) 10000,(java.lang.String) 6000,(java.lang.String) 2000,(java.lang.String) 1000,(java.lang.String) 0,(java.lang.String) 199.99,(java.lang.String) 0,(java.lang.String) YES,(java.lang.String) 20,(java.lang.String) 200,(java.lang.String) NO,(java.lang.String) 0,(java.lang.String) Limited Credit,(java.lang.String) YES,(java.lang.String) CP(F2)-CP_Used_car]
+at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:43)
+at org.testng.internal.Parameters.injectParameters(Parameters.java:914)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:34)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.internal.reflect.MethodMatcherException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test -->
-        <test-method signature="aquisition_quotes_holding_cost_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2@45099dd3]" started-at="2023-03-23T19:59:15 IST" name="aquisition_quotes_holding_cost_calculations_with_maintenance_test" data-provider="testData" finished-at="2023-03-23T19:59:56 IST" depends-on-methods="newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2.aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test" duration-ms="40892" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[GY19XAG]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[60000]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[REF001]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[05/05/23]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[33]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[10000]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[199.99]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="21">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="22">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="23">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="24">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="25">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="26">
-              <value>
-                <![CDATA[Limited Credit]]>
-              </value>
-            </param>
-            <param index="27">
-              <value>
-                <![CDATA[YES]]>
-              </value>
-            </param>
-            <param index="28">
-              <value>
-                <![CDATA[HPNR(F3)-HPNR_Used_car]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- aquisition_quotes_OTR_calculation_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a]" started-at="2023-03-24T18:44:43 IST" name="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test" finished-at="2023-03-24T18:44:43 IST" depends-on-methods="newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_OTR_calculation_without_maintenance_test" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
-            <line>
-              <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =500.36</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br />]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_holding_cost_calculations_with_maintenance_test -->
-      </class> <!-- newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test2 -->
+        </test-method> <!-- aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a]" started-at="2023-03-24T18:44:43 IST" name="aquisition_quotes_holding_cost_calculations_without_maintenance_test" finished-at="2023-03-24T18:44:43 IST" depends-on-methods="newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aquisition_quotes_holding_cost_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a]" started-at="2023-03-24T18:44:43 IST" name="aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test" finished-at="2023-03-24T18:44:43 IST" depends-on-methods="newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_holding_cost_calculations_without_maintenance_test" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a]" started-at="2023-03-24T18:44:43 IST" name="aquisition_quotes_quote_summary_values_verification_without_maintenance_test" finished-at="2023-03-24T18:44:43 IST" depends-on-methods="newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test.aquisition_quotes_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test@791f145a] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aquisition_quotes_quote_summary_values_verification_without_maintenance_test -->
+      </class> <!-- newCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

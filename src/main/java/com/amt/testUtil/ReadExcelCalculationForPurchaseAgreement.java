@@ -1991,8 +1991,28 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 //		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
 //	}
 
+	public void write_basic_cash_price_to_excel_for_used_car_funder(double basic_cash_price , String sheet_name) throws IOException, NumberFormatException, ClassNotFoundException {
+		// write_basic_cash_price_to_excel_for_used_car_funder
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		wb.getSheet(sheet_name).getRow(120).getCell(2).setCellValue(basic_cash_price);	
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		out.close();
+
+	}
+
+	
 	public void set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(String DocFee,
-			String matrixCreditType, String sheet_name) throws IOException {
+			String matrixCreditType, String sheet_name) throws IOException, NumberFormatException, ClassNotFoundException {
 		// write / take global variables and set to excel sheet for calculation
 
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started");
@@ -2003,9 +2023,16 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 
 		wb.getSheet(sheet_name).getRow(59).getCell(1)
-				.setCellValue(Double.parseDouble(prop.getProperty("option_to_purchase_fee")));
-		wb.getSheet(sheet_name).getRow(61).getCell(1)
-				.setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
+				.setCellValue(Double.parseDouble(prop.getProperty("option_to_purchase_fee")));		
+		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used")) {
+			wb.getSheet(sheet_name).getRow(61).getCell(1)
+			.setCellValue(Double.parseDouble(prop.getProperty("period_supplment_used_car")));
+		} else {
+			wb.getSheet(sheet_name).getRow(61).getCell(1)
+			.setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));}	
+		
+		
 		wb.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
 		if (matrixCreditType.contains("A1 Credit")) {
 			wb.getSheet(sheet_name).getRow(63).getCell(1)
