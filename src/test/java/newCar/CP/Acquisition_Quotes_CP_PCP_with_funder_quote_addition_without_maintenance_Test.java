@@ -110,7 +110,7 @@ public class Acquisition_Quotes_CP_PCP_with_funder_quote_addition_without_mainte
 			String order_deposit_from_excel, String finance_deposit, String document_fee_from_excel, String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String matrix_credit_type, String balloon_payment_status, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		obj_customer_quote_page = new CustomerQuotePage_CP_PCP_Page();
 

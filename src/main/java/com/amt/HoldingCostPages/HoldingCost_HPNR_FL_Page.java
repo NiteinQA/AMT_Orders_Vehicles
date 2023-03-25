@@ -44,7 +44,7 @@ public class HoldingCost_HPNR_FL_Page extends TestBase {
 	
 	
 	
-	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
+	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_residual_value_used;
 	
 	@FindBy(xpath = "//*[@id='ResidualValue']")
@@ -478,7 +478,9 @@ public class HoldingCost_HPNR_FL_Page extends TestBase {
 			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
 			String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 		
-		// Code for Edit percentage cap residual value  
+		// Code for Edit percentage cap residual value 
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
 
 		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
 

@@ -222,9 +222,9 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 		
 
-		obj_read_excel_calculation_page.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);		
+		obj_read_excel_calculation_page.write_basic_cash_price_to_excel_for_cp_used_car_funder(basic_cash_price_from_screen, sheet_name);		
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(
 				document_fee, matrix_credit_type, sheet_name);
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
@@ -244,7 +244,7 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 				.println("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
 
 		double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
-				.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
+				.get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_pcp(maintenance_status, matrix_credit_type,
 						balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
 
 		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
@@ -256,7 +256,7 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 				"Actual Monthly Maintenance Payment from screen is " + monthly_maintenance_payment_actual_from_screen);
 
 		double monthly_Maintenance_payment_expected_from_excel = obj_read_excel_calculation_page
-				.get_monthly_maintenance_payment_from_excel_for_funder_addition(sheet_name);
+				.get_monthly_maintenance_payment_from_excel_for_funder_addition_for_cp_purchase(sheet_name);
 
 		LO.print(
 				"Expected Monthly Maintenance Rental from excel is " + monthly_Maintenance_payment_expected_from_excel);
@@ -333,9 +333,9 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 		
 
-		obj_read_excel_calculation_page.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);		
+		obj_read_excel_calculation_page.write_basic_cash_price_to_excel_for_cp_used_car_funder(basic_cash_price_from_screen, sheet_name);		
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(
 				document_fee, matrix_credit_type, sheet_name);
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
@@ -352,7 +352,7 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 				.println("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
 
 		double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
-				.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
+				.get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_pcp(maintenance_status, matrix_credit_type,
 						balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
 
 		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
@@ -507,7 +507,7 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 	public boolean check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition_with_maintenance(
 			WebDriver driver, String maintenance_status, String matrix_credit_type, String balloon_payment_status,
 			String order_deposit, String finance_deposit, String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -615,7 +615,7 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 	public boolean check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition(WebDriver driver,
 			String maintenance_status, String matrix_credit_type, String balloon_payment_status, String order_deposit,
 			String finance_deposit, String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 

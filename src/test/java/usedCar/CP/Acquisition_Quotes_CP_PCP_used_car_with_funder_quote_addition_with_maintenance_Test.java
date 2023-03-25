@@ -1,4 +1,4 @@
-package newCar.CP;
+package usedCar.CP;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -8,28 +8,28 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.amt.CustomerQuotePackage.CustomerQuotePage_CP_CP_Page;
-import com.amt.HoldingCostPages.HoldingCost_CP_CP_Page;
-import com.amt.QuoteSummaryPages.QuoteSummary_CP_CP_Page;
+import com.amt.CustomerQuotePackage.CustomerQuotePage_CP_PCP_Page;
+import com.amt.HoldingCostPages.HoldingCost_CP_PCP_Page;
+import com.amt.QuoteSummaryPages.QuoteSummary_CP_PCP_Page;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_CP_CP_Page;
+import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_CP_PCP_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_with_maintenance_Test extends TestBase {
 
 	LoginPage obj_Login_Page;
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_CP_CP_Page obj_contract_types_and_OTR_page;
-	HoldingCost_CP_CP_Page obj_holding_cost_CP_CP_page;
-	CustomerQuotePage_CP_CP_Page obj_customer_quote_page;
-	QuoteSummary_CP_CP_Page obj_quote_summary_page;
+	ContractTypesAndOTR_CP_PCP_Page obj_contract_types_and_OTR_page;
+	HoldingCost_CP_PCP_Page obj_holding_cost_CP_PCP_page;
+	CustomerQuotePage_CP_PCP_Page obj_customer_quote_page;
+	QuoteSummary_CP_PCP_Page obj_quote_summary_page;
 
 	@Test(priority = 1, dataProvider = "testData")
 	public void aquisition_quotes_OTR_calculation_with_maintenance_test(String registrationNumber, String mileage,
@@ -44,8 +44,8 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_CP_CP_Page();
-
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_CP_PCP_Page();
+		
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
 		obj_vehicle_selection_page.select_vehicle_for_used_vehicle_flow(registrationNumber, mileage);
 		obj_options_accessories.options_And_Accessories_selection_for_used_car();
@@ -67,10 +67,10 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String matrix_credit_type, String balloon_payment_status, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_CP_CP_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_CP_PCP_Page();
 
-		// boolean cost_price_ex_vat_and_options_and_preparation_cost =
-		// obj_contract_types_and_OTR_page
+
+		//boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
 //		.edit_vehicle_cost_price_and_check_OTR_price(vehicelCostPrice, options_and_preparation_cost, sheet_name);
 //Assert.assertTrue(cost_price_ex_vat_and_options_and_preparation_cost);
 
@@ -88,9 +88,9 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String matrix_credit_type, String balloon_payment_status, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_holding_cost_CP_CP_page = new HoldingCost_CP_CP_Page();
+		obj_holding_cost_CP_PCP_page = new HoldingCost_CP_PCP_Page();
 
-		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_CP_CP_page
+		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_CP_PCP_page
 				.verify_holding_cost_after_adding_funder_quote_with_maintenance(quoteRef, expiryDate, term,
 						milesPerAnnum, cashDeposit, financeCharges, documentFee, monthlyPayment, finalBallonPayment,
 						optionToPurchaseFee, monthlyMaintenance, pencePerExcessMileFinance, pencePerExcessMileMaintenance ,sheet_name);
@@ -111,7 +111,7 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 			String target_rental, String matrix_credit_type, String balloon_payment_status, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
-		obj_customer_quote_page = new CustomerQuotePage_CP_CP_Page();
+		obj_customer_quote_page = new CustomerQuotePage_CP_PCP_Page();
 
 		boolean monthly_finance_payment_check = obj_customer_quote_page
 				.check_monthly_finance_payment_on_customer_quote_for_used_car_with_funder_quote_addition_with_maintenance(driver, maintenance_required,
@@ -124,7 +124,7 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 	@Test(priority = 5, dataProvider = "testData", dependsOnMethods = {
 			"aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_with_maintenance_test" })
 
-	public void aquisition_quotes_quote_summary_values_verification_with_maintenance_test(String registrationNumber, String mileage,
+	public void aquisition_quotes_customer_quote_monthly_total_payment_after_balloon_payment_off_with_maintenance_test(String registrationNumber, String mileage,
 			String vehicelCostPrice, String options_and_preparation_cost, String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String monthlyMaintenance ,String finalBallonPayment,
 			String optionToPurchaseFee,String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String actual_part_exchange_value_from_excel,
@@ -133,9 +133,9 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String matrix_credit_type, String balloon_payment_status, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_quote_summary_page = new QuoteSummary_CP_CP_Page();
+		obj_quote_summary_page = new QuoteSummary_CP_PCP_Page();
 
-		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
 
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
@@ -152,7 +152,7 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 
 		obj_quote_summary_page.save_quote();
 
-		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation1);
 
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
@@ -178,14 +178,14 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 				.quote_summary_edit_maintenance_margin_value_verification_for_funder(sheet_name);
 		Assert.assertTrue(value_check_after_maint_margin_change);
 		
-	
+		
 		 
 
 	}
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("CP_CP_funder_withMaintenance");
+		Object[][] data = ReadExcelData.getTestData("CP_PCP_funder_Maint_used_car");
 		return data;
 	}
 

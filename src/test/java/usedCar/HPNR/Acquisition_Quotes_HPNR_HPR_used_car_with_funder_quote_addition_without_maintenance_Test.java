@@ -1,4 +1,4 @@
-package newCar.HPNR;
+package usedCar.HPNR;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;

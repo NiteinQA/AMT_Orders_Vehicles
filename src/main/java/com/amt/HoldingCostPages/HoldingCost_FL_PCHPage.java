@@ -45,7 +45,7 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 	
 	
 	
-	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
+	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_residual_value_used;
 	
 	@FindBy(xpath = "//*[@id='ResidualValue']")

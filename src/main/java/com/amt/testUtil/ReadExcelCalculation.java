@@ -564,7 +564,7 @@ public class ReadExcelCalculation extends TestBase {
 		// converting String to double
 
 		double manufacture_delivery_charges_converted = Double
-				.parseDouble(acq_contractTypes_manufacturer_delivery_charges.getText().trim().substring(2));
+				.parseDouble(RemoveComma.of(acq_contractTypes_manufacturer_delivery_charges.getText().trim().substring(2)));
 		double road_tax_first_year_converted = Double
 				.parseDouble(acq_contractTypes_road_tax_first_year.getText().trim().substring(2));
 		double first_registration_fee_converted = Double
