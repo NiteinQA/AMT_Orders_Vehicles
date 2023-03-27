@@ -3,17 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="newCar.HPNR.Acquisition_Quotes_HPNR_FL_LCV_without_maintenance_Test">
+      <class name="newCar.BCH.Acquisition_Quotes_BCH_PCH_LCV_with_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_HPNR_FL_OTR_calculation_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_FL_quote_summary_values_verification_without_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_HPNR_FL_holding_cost_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_FL_other_support_check_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_FL_after_discount_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_FL_customer_quote_payment_profile_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_BCH_PCH_customer_quote_payment_profile_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_BCH_PCH_quote_summary_values_verification_with_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_BCH_PCH_OTR_calculation_with_maintenance_test"/>
+          <include name="aquisition_quotes_BCH_PCH_after_discount_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_BCH_PCH_holding_cost_calculations_with_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- newCar.HPNR.Acquisition_Quotes_HPNR_FL_LCV_without_maintenance_Test -->
+      </class> <!-- newCar.BCH.Acquisition_Quotes_BCH_PCH_LCV_with_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
