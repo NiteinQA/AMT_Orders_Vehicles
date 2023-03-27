@@ -75,7 +75,7 @@ public class Acquisition_Quotes_HPNR_HPR_without_maintenance_Test extends TestBa
 	public void aquisition_quotes_HPNR_HPR_holding_cost_calculations_without_maintenance_test(String manufacturer, String model
 			, String Vehicle_Basic_price, String  road_tax_for_first_year, String percentage_cap_residual_value, String residual_value_used, String additional_terms, String additional_mileage,
 			String vehicle_profit, String sales_price_percentage,String  maintenance_status, String matrix_credit_type, String security_deposit, String balloon_payment_status, String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
-			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_holding_cost = new HoldingCost_HPNR_HPRPage();
 	
@@ -188,6 +188,18 @@ public class Acquisition_Quotes_HPNR_HPR_without_maintenance_Test extends TestBa
 		
 		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
 		//Assert.assertTrue(quote_summary_customer_quote_calculation); 
+		
+		obj_quote_summary_page.save_quote();
+		
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation1);
+		
+		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+		
+		boolean quote_summary_customer_quote_calculation1= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
+		//Assert.assertTrue(quote_summary_customer_quote_calculation1); 	
+		
 		
 		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
 				.quote_summary_configuration_value_verification_without_maintenance(sheet_name);

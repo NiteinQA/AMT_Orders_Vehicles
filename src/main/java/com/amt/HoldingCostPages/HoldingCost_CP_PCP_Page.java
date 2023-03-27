@@ -32,7 +32,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 	@FindBy(xpath = "//*[@name='MileagePerAnnum']")
 	private WebElement additional_mileage;
 
-	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
+	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_residual_value_used;
 
 	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
@@ -250,7 +250,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
-			String maintenance_required, String sheet_name) throws IOException, InterruptedException {
+			String maintenance_required, String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 		Click.on(driver, holding_cost, 30);
 
 		LO.print("***********Entered in holding cost page ***********");
@@ -275,7 +275,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 
 	public boolean edit_percentage_residual_verify_holding_cost_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
-			String maintenance_required, String sheet_name) throws IOException, InterruptedException {
+			String maintenance_required, String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 
 		// Code for Edit percentage cap residual value
 
@@ -302,7 +302,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 
 	public boolean edit_residual_value_used_then_verify_holding_cost_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
-			String maintenance_required, String sheet_name) throws IOException, InterruptedException {
+			String maintenance_required, String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 
 		Actions act = new Actions(driver);
 		// code for editing residual value used and maint cost used
@@ -360,7 +360,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
 			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 		Actions act = new Actions(driver);
 
 		Click.on(driver, holding_cost, 30);
@@ -398,7 +398,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
 			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 		Actions act = new Actions(driver);
 
 		// Code for Edit percentage cap residual value and maint on screen
@@ -439,7 +439,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 			String percentage_maintenance_cost_used_from_excel, String residual_value_used_from_excel,
 			String maintenance_cost_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 		Actions act = new Actions(driver);
 
 		// code for editing residual value used and maint cost used
@@ -478,7 +478,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 	public boolean edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(
 			String additional_terms_from_excel, String additional_mileage_from_excel, String maintenance_required,
 			String target_rental, String sheet_name)
-			throws IOException, InterruptedException, UnsupportedFlavorException {
+			throws IOException, InterruptedException, UnsupportedFlavorException, ClassNotFoundException {
 
 		Actions act = new Actions(driver);
 
@@ -516,7 +516,7 @@ public class HoldingCost_CP_PCP_Page extends TestBase {
 
 	public boolean edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(
 			String additional_terms_from_excel, String additional_mileage_from_excel, String maintenance_required,
-			String sheet_name) throws IOException, InterruptedException, UnsupportedFlavorException {
+			String sheet_name) throws IOException, InterruptedException, UnsupportedFlavorException, ClassNotFoundException {
 
 		Actions act = new Actions(driver);
 

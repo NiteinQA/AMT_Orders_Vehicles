@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.poi.ss.formula.FormulaParseException;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -1499,7 +1500,7 @@ public class ReadExcelCalculation extends TestBase {
 				"Writing configuration values from property file to Excel for customer quote calculation -completed");
 	}
 
-	public void set_global_variables_to_excel_for_bch_pch_scenario(String sheet_name) throws IOException {
+	public void set_global_variables_to_excel_for_bch_pch_scenario(String sheet_name) throws IOException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		// write / take global variables and set to excel sheet for calculation
 
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started");
@@ -1515,6 +1516,18 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
 		wb.getSheet(sheet_name).getRow(64).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
+		
+	if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
+			
+			wb.getSheet(sheet_name).getRow(66).getCell(1)
+			.setCellFormula("E15*B66");			
+						
+		} else {
+			wb.getSheet(sheet_name).getRow(66).getCell(1)
+			.setCellFormula("B61*B66");
+			
+		}	
+		
 		wb.getSheet(sheet_name).getRow(67).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("contingency_insurance_multiplier_holding_cost")));
 		wb.getSheet(sheet_name).getRow(68).getCell(1)
@@ -1648,7 +1661,7 @@ public class ReadExcelCalculation extends TestBase {
 				"Writing configuration values from property file to Excel for customer quote calculation -completed");
 	}
 
-	public void set_global_variables_to_excel_for_finance_lease(String sheet_name) throws IOException {
+	public void set_global_variables_to_excel_for_finance_lease(String sheet_name) throws IOException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		// write / take global variables and set to excel sheet for calculation
 
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started");
@@ -1662,6 +1675,17 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
 		wb.getSheet(sheet_name).getRow(64).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
+		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
+			wb.getSheet(sheet_name).getRow(66).getCell(1)
+			.setCellFormula("E15*B66"); 
+		} else {
+			wb.getSheet(sheet_name).getRow(66).getCell(1)
+			.setCellFormula("B61*B66");
+		}
+		
+	
+		
 		wb.getSheet(sheet_name).getRow(67).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("contingency_insurance_multiplier_holding_cost")));
 		wb.getSheet(sheet_name).getRow(68).getCell(1)
@@ -1680,6 +1704,8 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("delivery_and_collection_ex_vat")));
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		
+		
 		wb.write(out);
 		out.close();
 

@@ -3,6 +3,7 @@ package usedCar.BCH;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
+import org.apache.poi.ss.formula.FormulaParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -105,7 +106,7 @@ public class Acquisition_Quotes_BCH_BCH_used_car_with_maintenance_Test extends T
 			String penceperExcessMileFinance, String penceperExcessMileMaintenance, String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, FormulaParseException, IllegalStateException, ClassNotFoundException {
 
 
 		obj_customer_quote_page = new CustomerQuotePage_BCH_BCH_Page();

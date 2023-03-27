@@ -3,6 +3,7 @@ package newCar.HPNR;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
+import org.apache.poi.ss.formula.FormulaParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -182,7 +183,7 @@ public class Acquisition_Quotes_HPNR_FL_LCV_with_maintenance_Test extends TestBa
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_FL_Page();
 

@@ -85,7 +85,7 @@ public class Acquisition_Quotes_HPNR_HPNR_with_maintenance_Test extends TestBase
 			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
-			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
 

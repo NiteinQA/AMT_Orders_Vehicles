@@ -71,7 +71,7 @@ public class Acquisition_Quotes_Outright_CP_used_car_without_maintenance_Test ex
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
 
