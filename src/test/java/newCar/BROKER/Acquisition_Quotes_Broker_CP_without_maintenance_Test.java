@@ -131,7 +131,7 @@ public class Acquisition_Quotes_Broker_CP_without_maintenance_Test extends TestB
 	
 	@DataProvider(name="testData")
 	public Object[][] getTestData() throws IOException {		
-		Object[][] data=ReadExcelData.getTestData("BrokerPCPwithoutMaintenance");
+		Object[][] data=ReadExcelData.getTestData("BrokerCPwithoutMaintenance");
 		return data;
 	}
 
