@@ -206,6 +206,8 @@ public class HoldingCost_FL_FLPage extends TestBase {
 		 
 		 Click.sendKeys(driver, secondary_hire_period_rental, secondaryHirePeriodRental, 30);
 		 
+		 Thread.sleep(2000);
+		 
 		 Click.on(driver, add, 30);	 
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);

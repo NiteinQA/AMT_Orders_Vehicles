@@ -305,6 +305,8 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 
 		Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
 
+		Thread.sleep(2000);
+		
 		Click.on(driver, add, 30);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 40);

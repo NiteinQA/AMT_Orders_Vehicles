@@ -109,12 +109,13 @@ public class Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_witho
 		    String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			 String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_BCHPage();
 
-		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
+		boolean customer_quote_for_payment_boolean = 
+				obj_customer_quote_page
 				.customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_without_maintenance_calculation(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell,

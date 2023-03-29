@@ -160,7 +160,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -183,7 +183,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 
@@ -680,7 +680,7 @@ public boolean check_monthly_finance_payment_with_balloon_payment_on_off_without
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
 		
@@ -707,7 +707,7 @@ public boolean check_monthly_finance_payment_with_balloon_payment_on_off_without
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String document_fee_from_excel,String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException, InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		obj_read_excel_calculation_page =new ReadExcelCalculation();	
 		Click.on(driver, customer_quote, 50);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
