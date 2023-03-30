@@ -58,13 +58,20 @@ public class ReadExcelCalculation extends TestBase {
 	public void write_holding_cost_cap_values_to_excel_with_maintenance_for_used_car(double terms_from_screen,
 			double annual_mileage, double used_residual_value, double total_cap_maintenance_value_converted,
 			double percentage_cap_residual_value, double percentage_cap_maintenance_cost, String sheet_name)
-			throws IOException {
+			throws IOException, ClassNotFoundException {
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(terms_from_screen);
 		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
-		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {	
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value*1.2);
+		}
+		else
+		{
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		}
+
 		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(total_cap_maintenance_value_converted);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value);
 		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(percentage_cap_residual_value);
@@ -1443,7 +1450,7 @@ public class ReadExcelCalculation extends TestBase {
 				"Writing configuration values from property file to Excel for customer quote calculation -completed");
 	}
 
-	public void set_global_variables_for_used_car_to_excel(String sheet_name) throws IOException {
+	public void set_global_variables_for_used_car_to_excel(String sheet_name) throws IOException, NumberFormatException, ClassNotFoundException {
 		// write / take global variables and set to excel sheet for calculation
 
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started");
@@ -1457,6 +1464,16 @@ public class ReadExcelCalculation extends TestBase {
 
 		wb.getSheet(sheet_name).getRow(61).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
+	
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {
+			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B60*B66");
+		}
+		else
+		{
+			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B61*B66");
+
+		}
+		
 		wb.getSheet(sheet_name).getRow(64).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
 		wb.getSheet(sheet_name).getRow(67).getCell(1)
@@ -1467,8 +1484,29 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("tracker_cost_ex_vat")));
 		wb.getSheet(sheet_name).getRow(71).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
-		wb.getSheet(sheet_name).getRow(73).getCell(1)
-				.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
+		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {
+		
+			if (sheet_name.contains("Formula1-FL_Used_LCV")) {
+			
+			wb.getSheet(sheet_name).getRow(73).getCell(1)
+				.setCellValue(0);
+			
+			}
+			else
+			{
+				wb.getSheet(sheet_name).getRow(73).getCell(1)
+				.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum_used_LCV")));
+			}
+		}
+		else {
+			
+			wb.getSheet(sheet_name).getRow(73).getCell(1)
+			.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
+			
+		}
+		
+		
 		wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(
 				Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum_used_car")));
 		wb.getSheet(sheet_name).getRow(78).getCell(1)
@@ -3307,7 +3345,7 @@ public class ReadExcelCalculation extends TestBase {
 			WebElement total_cap_maintenance_value, String maintenance_required, String target_rental,
 			String residual_value_used_from_excel, String maintenance_cost_used_from_excel,
 			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used, String sheet_name)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException, ClassNotFoundException {
 
 		LO.print("***********Holding Cost Calculations has been Started*************");
 		System.out.println("***********Holding Cost Calculations has been Started*************");
@@ -3370,12 +3408,19 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
 		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
 
-		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {		
+		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value*1.2);
+		}
+		else
+		{
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+
+		}
 		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(total_cap_maintenance_value_annual_converted_double);
 
 		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);
-		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(percentage_cap_residual_value_used);
-		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(percentage_cap_maintenance_cost_used);
+		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
+		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(100);
 		// wb.getSheet(sheet_name).getRow(39).getCell(7).setCellFormula("A40");
 
 		if (sheet_name.equals("Formula1-FL")) {
@@ -3436,7 +3481,7 @@ public class ReadExcelCalculation extends TestBase {
 			WebElement holding_cost_summary_residual_value_used, WebElement total_monthly_holding_cost,
 			WebElement holding_cost_percentage_cap_residual_value_used, String maintenance_required,
 			String target_rental, String residual_value_used_from_excel, String percentage_cap_residual_value_used,
-			String sheet_name) throws IOException, InterruptedException {
+			String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 
 		LO.print("***********Holding Cost Calculations has been Started*************");
 		System.out.println("***********Holding Cost Calculations has been Started*************");
@@ -3488,7 +3533,15 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(28).getCell(7).setCellValue(duration);
 		wb.getSheet(sheet_name).getRow(29).getCell(7).setCellValue(annual_mileage);
 
-		wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {		
+			wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value*1.2);
+			}
+			else
+			{
+				wb.getSheet(sheet_name).getRow(30).getCell(7).setCellValue(used_residual_value);
+
+			}
+
 		wb.getSheet(sheet_name).getRow(31).getCell(8).setCellValue(0);
 
 		wb.getSheet(sheet_name).getRow(29).getCell(1).setCellValue(target_rental);

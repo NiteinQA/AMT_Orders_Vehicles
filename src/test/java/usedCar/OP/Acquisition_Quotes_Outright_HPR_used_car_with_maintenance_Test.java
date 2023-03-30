@@ -51,7 +51,7 @@ public class Acquisition_Quotes_Outright_HPR_used_car_with_maintenance_Test exte
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_HPR_Page();
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle_for_used_vehicle_flow(registrationNumber, mileage);
+		obj_vehicle_selection_page.select_vehicle_for_used_car_flow(registrationNumber, mileage);
 		obj_options_accessories.options_And_Accessories_selection_for_used_car();
 
 		boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page

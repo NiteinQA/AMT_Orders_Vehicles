@@ -49,7 +49,7 @@ public class Acquisition_Quotes_CP_BCH_used_car_without_maintenance_Test extends
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_CP_BCH_Page();
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle_for_used_vehicle_flow(registrationNumber, mileage);
+		obj_vehicle_selection_page.select_vehicle_for_used_car_flow(registrationNumber, mileage);
 		obj_options_accessories.options_And_Accessories_selection_for_used_car();
 
 		boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
@@ -92,7 +92,7 @@ public class Acquisition_Quotes_CP_BCH_used_car_without_maintenance_Test extends
 		obj_holding_cost_page = new HoldingCost_HPNR_BCHPage();
 
 		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page
-				.verify_holding_cost_for_used_car_without_maintenance(residual_value_used,
+				.verify_holding_cost_for_used_vehicle_without_maintenance(residual_value_used,
 						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_with_maintenance_boolean);
 
@@ -125,12 +125,12 @@ public class Acquisition_Quotes_CP_BCH_used_car_without_maintenance_Test extends
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_BCHPage();
 
 		boolean cust_quote_for_one_payment_boolean_status = obj_customer_quote_page
-				.customer_Quote_used_car_for_one_payment_option_without_maintenance_calculation(
+				.customer_Quote_used_vehicle_for_one_payment_option_without_maintenance_calculation(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						matrix_upsell, maintenance_required, maintenance_margin, initial_payment, part_exchange_status,
@@ -181,7 +181,7 @@ public class Acquisition_Quotes_CP_BCH_used_car_without_maintenance_Test extends
 		obj_quote_summary_page = new QuoteSummary_HPNR_BCHPage();
 
 		boolean quote_summary_OTR_calculation = obj_quote_summary_page
-				.quote_summary_OTR_calculation_for_used_car(sheet_name);
+				.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
 
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
@@ -199,7 +199,7 @@ public class Acquisition_Quotes_CP_BCH_used_car_without_maintenance_Test extends
 		obj_quote_summary_page.save_quote();
 
 		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page
-				.quote_summary_OTR_calculation_for_used_car(sheet_name);
+				.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation1);
 
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
@@ -225,7 +225,7 @@ public class Acquisition_Quotes_CP_BCH_used_car_without_maintenance_Test extends
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("FL_BCH_withoutMaint_used_car");
+		Object[][] data = ReadExcelData.getTestData("CP_BCH_withoutMaint_used_car");
 		return data;
 	}
 

@@ -52,7 +52,7 @@ public class Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_witho
 		
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle_for_used_vehicle_flow(registrationNumber, mileage);
+		obj_vehicle_selection_page.select_vehicle_for_used_car_flow(registrationNumber, mileage);
 		obj_options_accessories.options_And_Accessories_selection_for_used_car();
 
 		boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
@@ -166,7 +166,7 @@ public class Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_witho
 		obj_quote_summary_page = new QuoteSummary_HPNR_BCHPage();
 
 
-		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
 		
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance_for_funder(sheet_name);
@@ -180,7 +180,7 @@ public class Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_witho
 		
 		obj_quote_summary_page.save_quote();
 		
-		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation1);
 		
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance_for_funder(sheet_name);

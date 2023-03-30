@@ -223,7 +223,7 @@ public void select_vehicle_lcv(String manufacturer, String model) throws Interru
 	}
 	
 
-public void select_vehicle_for_used_vehicle_flow(String regitrationNumber , String mileage) throws InterruptedException {
+public void select_vehicle_for_used_car_flow(String regitrationNumber , String mileage) throws InterruptedException {
 	
 	LO.print("Selecting used vehicle with registration no. = "+regitrationNumber+" and mileage = "+mileage);
 	System.out.println("Selecting used vehicle with registration no. = "+regitrationNumber+" and mileage = "+mileage);
@@ -250,6 +250,42 @@ public void select_vehicle_for_used_vehicle_flow(String regitrationNumber , Stri
     
    
 }
+
+public void select_vehicle_for_used_LCV(String regitrationNumber , String mileage) throws InterruptedException {
+	
+	LO.print("Selecting used vehicle with registration no. = "+regitrationNumber+" and mileage = "+mileage);
+	System.out.println("Selecting used vehicle with registration no. = "+regitrationNumber+" and mileage = "+mileage);
+	
+	
+	Click.on(driver, used_vehicle, 30); 
+	
+	Thread.sleep(2000);
+	
+	 Dropdown.selectByVisibleText(driver, asset_type, " LCV", 20);
+	    
+	 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);	
+	
+	 
+    Click.sendKeys(driver, registration_no, regitrationNumber, 30);
+    
+    Click.sendKeys(driver, used_vehicle_mileage, mileage, 30);
+    
+    Click.on(driver, search_button, 30);
+    
+    ExplicitWait.visibleElement(driver, vehicle_option_used_car, 30);
+    
+    
+    Actions act = new Actions(driver);
+    
+    act.doubleClick(vehicle_option_used_car).build().perform();
+    
+      
+	LO.print("Vehicle selected");
+	System.out.println("Vehicle selected");    
+    
+   
+}
+
 
 	
 	

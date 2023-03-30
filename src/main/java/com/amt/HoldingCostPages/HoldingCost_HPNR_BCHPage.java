@@ -654,10 +654,10 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 						 sheet_name);
 	}
 
-	public boolean verify_holding_cost_for_used_car_with_maintenance(String percentage_maintenance_cost_used_from_excel,
+	public boolean verify_holding_cost_for_used_vehicle_with_maintenance(String percentage_maintenance_cost_used_from_excel,
 			String residual_value_used_from_excel, String maintenance_cost_used_from_excel,
 			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
-			String sheet_name) throws IOException, InterruptedException {
+			String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 		Actions act = new Actions(driver);
 
 		Click.on(driver, holding_cost, 30);
@@ -694,10 +694,10 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 	}
 
 	
-	public boolean verify_holding_cost_for_used_car_without_maintenance(
+	public boolean verify_holding_cost_for_used_vehicle_without_maintenance(
 			String residual_value_used_from_excel, 
 			String percentage_cap_residual_value_used, String maintenance_required, String target_rental,
-			String sheet_name) throws IOException, InterruptedException {
+			String sheet_name) throws IOException, InterruptedException, ClassNotFoundException {
 		Actions act = new Actions(driver);
 		
 		Click.on(driver, holding_cost, 30);

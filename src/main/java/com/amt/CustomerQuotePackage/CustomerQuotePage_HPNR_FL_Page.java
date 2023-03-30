@@ -124,7 +124,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 	@FindBy(xpath = "//div[@class='acc-head havebtns']")
 	private WebElement holding_cost_summary;
 
-	@FindBy(xpath = " //*[normalize-space()='CAP residual value (inc. VAT):']//ancestor::div[1]//p")
+	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_residual_value_used;
 
 	@FindBy(xpath = " //*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p")
@@ -205,12 +205,12 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 	}
 
 	
-	public boolean customer_Quote_for_used_car_for_one_payment_option_with_maintenance_calculation(			
+	public boolean customer_Quote_for_used_vehicle_for_one_payment_option_with_maintenance_calculation(			
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name)
-			throws IOException, InterruptedException, UnsupportedFlavorException {
+			throws IOException, InterruptedException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
