@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="usedCar.OP.Acquisition_Quotes_Outright_PCH_used_LCV_without_maintenance_Test">
+      <class name="newCar.BROKER.Acquisition_Quotes_Broker_HPNR_Test">
         <methods>
-          <include name="aquisition_quotes_quote_summary_values_verification_without_maintenance_test"/>
-          <include name="aquisition_quotes_used_LCV_edit_cost_price_and_check_OTR_without_maintenance_test"/>
-          <include name="aquisition_quotes_customer_quote_payment_profile_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_used_LCV_OTR_calculation_without_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_used_LCV_holding_cost_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_OTR_calculation_test"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_quote_summary_values_verification_test"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_vehicle_profit_check_test"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_after_discount_calculations_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- usedCar.OP.Acquisition_Quotes_Outright_PCH_used_LCV_without_maintenance_Test -->
+      </class> <!-- newCar.BROKER.Acquisition_Quotes_Broker_HPNR_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

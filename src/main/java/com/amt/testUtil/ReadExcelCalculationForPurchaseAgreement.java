@@ -2721,9 +2721,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		} else {
 			wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(used_residual_value);
 
-		}
-		
-		
+		}		
 		
 		wb.getSheet(sheet_name).getRow(31).getCell(10)
 				.setCellValue(total_cap_maintenance_value_annual_converted_double);
@@ -3245,7 +3243,6 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 
 		}
 		wb.getSheet(sheet_name).getRow(31).getCell(10).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(39).getCell(0).setCellValue(used_residual_value);
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));

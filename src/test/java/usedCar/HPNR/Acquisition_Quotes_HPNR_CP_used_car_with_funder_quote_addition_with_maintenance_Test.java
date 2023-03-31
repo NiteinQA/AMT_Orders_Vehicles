@@ -145,7 +145,7 @@ public class Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_with
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_CP_Page();
 
-		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
 
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
@@ -162,7 +162,7 @@ public class Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_with
 
 		obj_quote_summary_page.save_quote();
 
-		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation1);
 
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page

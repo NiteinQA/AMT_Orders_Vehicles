@@ -110,7 +110,7 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test exte
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 
-		boolean monthly_finance_payment_check = obj_customer_quote_page.check_monthly_finance_payment_on_customer_quote_for_used_car(
+		boolean monthly_finance_payment_check = obj_customer_quote_page.check_monthly_finance_payment_on_customer_quote_for_used_vehicle(
 				driver, maintenance_status, matrix_credit_type, balloon_payment_status, order_deposit, finance_deposit,
 				document_fee, sheet_name);
 		Assert.assertTrue(monthly_finance_payment_check);
@@ -182,7 +182,7 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test exte
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_HPRPage();
 
-		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
 
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
@@ -199,7 +199,7 @@ public class Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test exte
 
 		obj_quote_summary_page.save_quote();
 
-		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation1);
 
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page

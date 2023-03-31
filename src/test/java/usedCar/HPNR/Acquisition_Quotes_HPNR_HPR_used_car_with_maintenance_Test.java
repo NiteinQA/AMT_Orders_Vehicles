@@ -50,8 +50,8 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test extends 
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_HPR_Page();
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle_for_used_car_flow(registrationNumber, mileage);
-		obj_options_accessories.options_And_Accessories_selection_for_used_car();
+		obj_vehicle_selection_page.select_vehicle_for_used_LCV(registrationNumber, mileage);
+		obj_options_accessories.options_And_Accessories_selection_for_used_LCV();
 
 		boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
 				.contractTypes_selection_and_OTR_calculation(sheet_name);
@@ -114,7 +114,7 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test extends 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 
 		boolean monthly_total_payment_check = obj_customer_quote_page
-				.check_monthly_payment_on_customer_quote_with_maintenance_for_used_car(driver, maintenance_status,
+				.check_monthly_payment_on_customer_quote_with_maintenance_for_used_vehicle(driver, maintenance_status,
 						matrix_credit_type, balloon_payment_status, order_deposit, finance_deposit, document_fee,
 						sheet_name);
 		Assert.assertTrue(monthly_total_payment_check);
@@ -183,7 +183,7 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test extends 
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_HPRPage();
 
-		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		//Assert.assertTrue(quote_summary_OTR_calculation);
 
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
@@ -200,7 +200,7 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test extends 
 
 		obj_quote_summary_page.save_quote();
 
-		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation1);
 
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
@@ -230,7 +230,7 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test extends 
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("HPNR_HPR_Maint_used_car");
+		Object[][] data = ReadExcelData.getTestData("HPNR_HPR_Maint_used_LCV");
 		return data;
 	}
 

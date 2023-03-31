@@ -317,7 +317,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean quote_summary_OTR_calculation_for_used_car(String sheet_name)
+	public boolean quote_summary_OTR_calculation_for_used_vehicle(String sheet_name)
 			throws InterruptedException, IOException {
 
 		LO.print("*************OTR Calulation on quote summary page has been started************");
