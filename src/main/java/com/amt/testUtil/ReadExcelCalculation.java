@@ -1552,6 +1552,12 @@ public class ReadExcelCalculation extends TestBase {
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
 
 			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("E15*B66");
+			
+			if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) 
+			{
+				wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B60*B66");
+			}
+
 
 		} else {
 			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B61*B66");
@@ -1612,6 +1618,16 @@ public class ReadExcelCalculation extends TestBase {
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
 
 			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("E15*B72");
+			
+			if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {
+				wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B66*B72");
+			}
+			
+			if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("CP_")) {
+				wb.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B66*B69");
+			}
+			
+			
           }
 		else
 		{
@@ -1634,6 +1650,17 @@ public class ReadExcelCalculation extends TestBase {
 			wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(0);
 
 			wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(0);
+			
+			
+			if (sheet_name.contains("Used_LCV")) {
+				
+				wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(
+						Double.parseDouble(prop.getProperty("additional_rfl_per_annum_used_LCV")));
+
+				
+				wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(
+						Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum_used_LCV")));
+			}
 
 		} else {
 			
@@ -1803,6 +1830,11 @@ public class ReadExcelCalculation extends TestBase {
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
 
 			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("E15*B72");
+			
+			if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {
+				wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B66*B72");
+			}
+
           }
 		else
 		{

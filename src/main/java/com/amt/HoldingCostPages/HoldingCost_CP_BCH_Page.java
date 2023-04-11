@@ -223,6 +223,8 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 		 
 		 Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance , 30);
 		 
+		 Thread.sleep(2000);
+		 
 		 Click.on(driver, add, 30);	 
 		 
 		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);

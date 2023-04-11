@@ -454,6 +454,8 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 						initial_payment, part_exchange_status, target_rental, sheet_name);
 	}
 
+
+	
 	
 	public boolean customer_Quote_HPNR_BCH_for_one_payment_option_without_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
