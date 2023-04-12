@@ -2363,7 +2363,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 			double monthlyMaintenancePayment = GetExcelFormulaValue.get_formula_value(238, 1, sheet_name);
 			double totalMonthlyPayment = GetExcelFormulaValue.get_formula_value(238, 4, sheet_name);
 
-			double guaranteedFutureValue = GetExcelFormulaValue.get_string_value(241, 0, sheet_name);
+			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(241, 0, sheet_name);
 			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(241, 1, sheet_name);
 			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(241, 4, sheet_name);
 			double pencePerExcessMileMaintenance = GetExcelFormulaValue.get_formula_value(244, 0, sheet_name);
@@ -2840,7 +2840,7 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 
 			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(238, 0, sheet_name);
 
-			double guaranteedFutureValue = GetExcelFormulaValue.get_string_value(241, 0, sheet_name);
+			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(241, 0, sheet_name);
 			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(241, 1, sheet_name);
 			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(241, 4, sheet_name);
 

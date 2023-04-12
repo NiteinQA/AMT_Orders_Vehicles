@@ -3,15 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="usedCar.BCH.Acquisition_Quotes_BCH_BCH_used_LCV_with_maintenance_Test">
+      <class name="usedCar.CP.Acquisition_Quotes_CP_CP_used_LCV_with_funder_quote_addition_without_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_OTR_calculation_with_maintenance_test"/>
-          <include name="aquisition_quotes_holding_cost_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_quote_summary_values_verification_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_customer_quote_payment_profile_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_used_LCV_edit_cost_price_and_check_OTR_without_maintenance_test"/>
+          <include name="aquisition_quotes_OTR_calculation_without_maintenance_test"/>
+          <include name="aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test"/>
+          <include name="aquisition_quotes_holding_cost_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_quote_summary_values_verification_without_maintenance_test" invocation-numbers="0"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- usedCar.BCH.Acquisition_Quotes_BCH_BCH_used_LCV_with_maintenance_Test -->
+      </class> <!-- usedCar.CP.Acquisition_Quotes_CP_CP_used_LCV_with_funder_quote_addition_without_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -762,8 +762,8 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(36).getCell(2).setCellValue(cashDeposit);
 		wb.getSheet(sheet_name).getRow(39).getCell(0).setCellValue(documentFee);
 		wb.getSheet(sheet_name).getRow(39).getCell(5).setCellValue(monthlyPayment);
-		wb.getSheet(sheet_name).getRow(42).getCell(0).setCellValue(optionalFinalPayment);
-		wb.getSheet(sheet_name).getRow(42).getCell(2).setCellValue(optionToPurchaseFee);
+		wb.getSheet(sheet_name).getRow(42).getCell(0).setCellValue(Double.parseDouble(optionalFinalPayment));
+		wb.getSheet(sheet_name).getRow(42).getCell(2).setCellValue(Double.parseDouble(optionToPurchaseFee));
 		wb.getSheet(sheet_name).getRow(45).getCell(0).setCellValue(0);
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -454,10 +455,24 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Actions act = new Actions(driver);
+		
+		if(sheet_name.contains("Used_LCV"))
+		{
 
 		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
 				Keys.TAB, Keys.ENTER).build().perform();
 
+		}
+		
+		if(sheet_name.contains("Used_car"))
+		{
+
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
+				Keys.TAB, Keys.ENTER).build().perform();
+
+		}
+	
+		
 		Thread.sleep(5000);
 		try {
 			List<WebElement> list = driver
@@ -481,8 +496,21 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
 		System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
 
+	
+//		if(sheet_name.contains("Used_LCV"))
+//		{
+//
+//			JavascriptExecutor js = (JavascriptExecutor)driver;
+//			
+//			js.executeScript("arguments[0].click();", customer_quote_maintenance_toggle_button);		
+//			
+////			Click.on(driver, customer_quote_maintenance_toggle_button, 30);
+//
+//		}
+		
 		Click.on(driver, customer_quote_maintenance_toggle_button, 30);
 
+		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
 		
@@ -569,8 +597,21 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
+		if(sheet_name.contains("Used_LCV"))
+		{
+
 		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
 				Keys.TAB, Keys.ENTER).build().perform();
+
+		}
+		
+		if(sheet_name.contains("Used_car"))
+		{
+
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
+				 Keys.ENTER).build().perform();
+
+		}
 
 		Thread.sleep(5000);
 		try {
