@@ -134,7 +134,7 @@ public class Acquisition_Quotes_HPNR_CP_LCV_with_funder_quote_addition_with_main
 			String order_deposit_from_excel, String finance_deposit,String document_fee_from_excel, String upsell, String maintenance_required,
 			String maintenance_margin, String initial_payment, String part_exchange_status, String target_rental,String matrix_credit_type,
 			String balloon_payment_status, 
-			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String sheet_name) throws Exception {
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_CP_Page();
 

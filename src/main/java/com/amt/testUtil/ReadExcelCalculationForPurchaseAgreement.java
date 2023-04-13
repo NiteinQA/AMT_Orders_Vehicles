@@ -2510,7 +2510,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.write(out);
 		out.close();
 
-		double monthlyPayment = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		double monthlyPayment = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
 
 		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb1 = new XSSFWorkbook(in1);

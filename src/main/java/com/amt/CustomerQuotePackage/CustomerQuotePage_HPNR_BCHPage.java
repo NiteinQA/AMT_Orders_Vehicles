@@ -120,7 +120,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_residual_value_used;
 
-	@FindBy(xpath = " //*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p")
+	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]//p//strong")
 	private WebElement total_cap_maintenance_value;
 
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")

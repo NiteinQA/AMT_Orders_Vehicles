@@ -74,7 +74,7 @@ public class HoldingCostOutrightFLPage extends TestBase {
 	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
 	private WebElement maintenance_cost_used;
 		
-	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong")
+	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]//p//strong")
 	private WebElement total_cap_maintenance_value;
 	
 	

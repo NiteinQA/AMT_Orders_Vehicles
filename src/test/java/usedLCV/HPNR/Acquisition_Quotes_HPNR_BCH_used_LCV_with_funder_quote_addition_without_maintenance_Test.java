@@ -1,4 +1,4 @@
-package usedCar.CP;
+package usedLCV.HPNR;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -8,34 +8,36 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_PCHPage;
-import com.amt.HoldingCostPages.HoldingCost_CP_PCH_Page;
-import com.amt.QuoteSummaryPages.QuoteSummary_CP_PCH_Page;
+import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_BCHPage;
+import com.amt.HoldingCostPages.HoldingCost_HPNR_BCHPage;
+import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_BCHPage;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_CP_PCH_Page;
+import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_BCH_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_without_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_HPNR_BCH_used_LCV_with_funder_quote_addition_without_maintenance_Test extends TestBase {
+
+
 
 	LoginPage obj_Login_Page;
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_CP_PCH_Page obj_contract_types_and_OTR_page;
-	HoldingCost_CP_PCH_Page obj_holding_cost_CP_PCH_page;
-	CustomerQuotePage_HPNR_PCHPage obj_customer_quote_page;
-	QuoteSummary_CP_PCH_Page obj_quote_summary_page;
+	ContractTypesAndOTR_HPNR_BCH_Page obj_contract_types_and_OTR_page;
+	HoldingCost_HPNR_BCHPage obj_holding_cost_HPNR_BCH_page;
+	CustomerQuotePage_HPNR_BCHPage obj_customer_quote_page;
+	QuoteSummary_HPNR_BCHPage obj_quote_summary_page;
 
 
 	@Test(priority = 1, dataProvider = "testData")
 	public void aquisition_quotes_used_LCV_OTR_calculation_with_maintenance_test(String registrationNumber, String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String quoteRef, String expiryDate,String term,String milesPerAnnum,String cashDeposit,
-			String documentFee, String monthlyPayment,String optionalFinalPayment,String optionToPurchaseFee, String pencePerExcessMileFinance,
+			String financeCharges,String documentFee, String monthlyPayment,String finalBallonPayment,String optionToPurchaseFee,
 		    String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			 String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
@@ -44,7 +46,7 @@ public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_witho
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_CP_PCH_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_BCH_Page();
 		
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
@@ -60,13 +62,13 @@ public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_witho
 
 	public void aquisition_quotes_used_LCV_edit_cost_price_and_check_OTR_with_maintenance_test(String registrationNumber, String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String quoteRef, String expiryDate,String term,String milesPerAnnum,String cashDeposit,
-			String documentFee, String monthlyPayment,String optionalFinalPayment,String optionToPurchaseFee, String pencePerExcessMileFinance,
+			String financeCharges,String documentFee, String monthlyPayment,String finalBallonPayment,String optionToPurchaseFee,
 		    String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			 String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_CP_PCH_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_BCH_Page();
 
 		//boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
 //		.edit_vehicle_cost_price_and_check_OTR_price(vehicelCostPrice, options_and_preparation_cost, sheet_name);
@@ -78,18 +80,17 @@ public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_witho
 
 	public void aquisition_quotes_holding_cost_calculations_without_maintenance_test(String registrationNumber, String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String quoteRef, String expiryDate,String term,String milesPerAnnum,String cashDeposit,
-			String documentFee, String monthlyPayment,String optionalFinalPayment,String optionToPurchaseFee, String pencePerExcessMileFinance,
+			String financeCharges,String documentFee, String monthlyPayment,String finalBallonPayment,String optionToPurchaseFee,
 		    String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			 String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-   	
-		obj_holding_cost_CP_PCH_page = new HoldingCost_CP_PCH_Page();
-		
-		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_CP_PCH_page
+		obj_holding_cost_HPNR_BCH_page = new HoldingCost_HPNR_BCHPage();
+	
+		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_HPNR_BCH_page
 				.verify_holding_cost_after_adding_funder_quote_without_maintenance( quoteRef,  expiryDate , term, milesPerAnnum, cashDeposit,
-						  documentFee,  monthlyPayment , optionalFinalPayment ,optionToPurchaseFee, pencePerExcessMileFinance , sheet_name);
+						 financeCharges, documentFee,  monthlyPayment , finalBallonPayment, optionToPurchaseFee,  sheet_name);
 		Assert.assertTrue(holding_cost_without_maintenance_boolean);
 		
 	}
@@ -98,17 +99,16 @@ public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_witho
 
 	public void aquisition_quotes_customer_quote_payment_profile_calculations_without_maintenance_test(String registrationNumber, String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String quoteRef, String expiryDate,String term,String milesPerAnnum,String cashDeposit,
-			String documentFee, String monthlyPayment,String optionalFinalPayment,String optionToPurchaseFee, String pencePerExcessMileFinance,
+			String financeCharges,String documentFee, String monthlyPayment,String finalBallonPayment,String optionToPurchaseFee,
 		    String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			 String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 
-		obj_customer_quote_page = new CustomerQuotePage_HPNR_PCHPage();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_BCHPage();
 
-		boolean customer_quote_for_payment_boolean = 
-				obj_customer_quote_page
+		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
 				.customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_without_maintenance_calculation(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell,
@@ -143,9 +143,9 @@ public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_witho
 		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
 
 		
-//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-//				.customer_Quote_HPNR_BCH_for_all_payment_option_for_funder_quote_addition_without_maintenance_calculation(initial_payment,sheet_name);
-//		Assert.assertTrue(cutomer_quote_monthly_rental);
+		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+				.customer_Quote_HPNR_BCH_for_all_payment_option_for_funder_quote_addition_without_maintenance_calculation(initial_payment,sheet_name);
+		Assert.assertTrue(cutomer_quote_monthly_rental);
 
 
 	}
@@ -154,16 +154,16 @@ public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_witho
 
 	public void aquisition_quotes_quote_summary_values_verification_without_maintenance_test(String registrationNumber, String mileage, String vehicelCostPrice, String options_and_preparation_cost,
 			String quoteRef, String expiryDate,String term,String milesPerAnnum,String cashDeposit,
-			String documentFee, String monthlyPayment,String optionalFinalPayment,String optionToPurchaseFee, String pencePerExcessMileFinance,
+			String financeCharges,String documentFee, String monthlyPayment,String finalBallonPayment,String optionToPurchaseFee,
 		    String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			 String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_quote_summary_page = new QuoteSummary_CP_PCH_Page();
+		obj_quote_summary_page = new QuoteSummary_HPNR_BCHPage();
 
 
-		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
 		
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance_for_funder(sheet_name);
@@ -177,7 +177,7 @@ public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_witho
 		
 		obj_quote_summary_page.save_quote();
 		
-		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_vehicle(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation1);
 		
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance_for_funder(sheet_name);
@@ -193,10 +193,12 @@ public class Acquisition_Quotes_CP_PCH_used_LCV_with_funder_quote_addition_witho
 		Assert.assertTrue(value_check_after_Finance_margin_change);	
 
 	}
+	
+	
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("CP_PCH_fund-wo-Maint_used_LCV");
+		Object[][] data = ReadExcelData.getTestData("HPNR_BCH_fund-wo-Maint_used_LCV");
 		return data;
 	}
 

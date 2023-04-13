@@ -1,34 +1,39 @@
-package usedCar.HPNR;
+package usedLCV.HPNR;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
+import org.apache.poi.ss.formula.FormulaParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_BCHPage;
+import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_FL_Page;
 import com.amt.HoldingCostPages.HoldingCost_HPNR_BCHPage;
+import com.amt.HoldingCostPages.HoldingCost_HPNR_FL_Page;
 import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_BCHPage;
+import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_FL_Page;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_BCH_Page;
+import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_FL_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_HPNR_BCH_used_LCV_with_funder_quote_addition_with_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_HPNR_FL_used_LCV_with_funder_quote_addition_with_maintenance_Test extends TestBase {
 
 	LoginPage obj_Login_Page;
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_HPNR_BCH_Page obj_contract_types_and_OTR_page;
+	ContractTypesAndOTR_HPNR_FL_Page obj_contract_types_and_OTR_page;
 	HoldingCost_HPNR_BCHPage obj_holding_cost_HPNR_BCH_page;
-	CustomerQuotePage_HPNR_BCHPage obj_customer_quote_page;
+	CustomerQuotePage_HPNR_FL_Page obj_customer_quote_page;
 	QuoteSummary_HPNR_BCHPage obj_quote_summary_page;
 
 	@Test(priority = 1, dataProvider = "testData")
@@ -46,7 +51,7 @@ public class Acquisition_Quotes_HPNR_BCH_used_LCV_with_funder_quote_addition_wit
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_BCH_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_FL_Page();
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
 		obj_vehicle_selection_page.select_vehicle_for_used_LCV(registrationNumber, mileage);
@@ -112,9 +117,9 @@ public class Acquisition_Quotes_HPNR_BCH_used_LCV_with_funder_quote_addition_wit
 			String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 
-		obj_customer_quote_page = new CustomerQuotePage_HPNR_BCHPage();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_FL_Page();
 
 		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
 				.customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_with_maintenance_calculation(
@@ -203,7 +208,7 @@ public class Acquisition_Quotes_HPNR_BCH_used_LCV_with_funder_quote_addition_wit
 
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		Assert.assertTrue(quote_summary_customer_quote_calculation1);
 
 		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
 				.quote_summary_configuration_value_verification_with_maintenance_for_funder(sheet_name);
@@ -221,7 +226,7 @@ public class Acquisition_Quotes_HPNR_BCH_used_LCV_with_funder_quote_addition_wit
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("HPNR_BCH_funder_Maint_used_LCV");
+		Object[][] data = ReadExcelData.getTestData("HPNR_FL_funder_Maint_used_LCV");
 		return data;
 	}
 

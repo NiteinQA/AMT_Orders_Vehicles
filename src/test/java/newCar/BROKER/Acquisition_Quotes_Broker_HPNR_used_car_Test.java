@@ -85,12 +85,12 @@ public class Acquisition_Quotes_Broker_HPNR_used_car_Test extends TestBase {
 	
 	
 		
-		boolean customer_quote_vehicle_profit_check=obj_customer_quote_page.customer_Quote_vehicle_profit_checking_broker_hpnr(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
+		boolean customer_quote_vehicle_profit_check=obj_customer_quote_page.customer_Quote_page_verification_broker_purchase_used_vehicle(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit, noOfMonthlyPayments, monthlyFinancePayment, finalBallonPayment, optionToPurchaseFee, 
 			rflIncluded,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_vehicle_profit_check);
 		
-		boolean monthly_total_payment_after_editing_vehicle_sales_price = obj_customer_quote_page.edit_otr_sales_price_and_verify_profit( sales_price_percentage, sheet_name);
+		boolean monthly_total_payment_after_editing_vehicle_sales_price = obj_customer_quote_page.edit_otr_sales_price_and_verify_profit_broker_purchase_used_vehicle( sales_price_percentage, sheet_name);
 		Assert.assertTrue(monthly_total_payment_after_editing_vehicle_sales_price);
 
 		
@@ -107,7 +107,7 @@ public class Acquisition_Quotes_Broker_HPNR_used_car_Test extends TestBase {
 	
 		 obj_customer_quote_page = new CustomerQuotePageBrokerHPNRPage();
 		
-		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_hpnr(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
+		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_purchase_used_vehicle(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit, financeCharges,noOfMonthlyPayments, monthlyFinancePayment, finalBallonPayment, optionToPurchaseFee, 
 			rflIncluded,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_balance_to_finance_check);

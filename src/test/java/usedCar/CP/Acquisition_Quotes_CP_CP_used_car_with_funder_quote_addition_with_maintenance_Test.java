@@ -131,7 +131,7 @@ public class Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_m
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String finance_deposit, String document_fee_from_excel, String upsell,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
-			String target_rental, String matrix_credit_type, String balloon_payment_status, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String target_rental, String matrix_credit_type, String balloon_payment_status, String sheet_name) throws Exception {
 
 		obj_quote_summary_page = new QuoteSummary_CP_CP_Page();
 

@@ -157,6 +157,12 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Basic cash price']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_summary_basic_cash_price;
+	
+	@FindBy(xpath = "//div[@class='acc-head havebtns']")
+	private WebElement holding_cost_summary;
+
+	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]//p//strong")
+	private WebElement total_cap_maintenance_value;
 
 	public CustomerQuotePage_HPNR_PCP_Page() {
 		PageFactory.initElements(driver, this);
@@ -170,7 +176,16 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
+		
+		
+	     Click.on(driver, holding_cost_summary, 30);
+		 
+		 ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+		 
+		 double totalCapMaintenanceValue = Double.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
 
+		 System.out.println(totalCapMaintenanceValue);
+		
 		Click.on(driver, customer_quote, 30);
 
 		LO.print("***********Entered in Customer Quote page ***********");
@@ -178,103 +193,184 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Actions act = new Actions(driver);
+	Actions act = new Actions(driver);	
+		 
+		if (totalCapMaintenanceValue==0) {
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.ENTER).build().perform();
+			act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
+					Keys.TAB, Keys.ENTER).build().perform();
 
-		Thread.sleep(5000);
-		try {
-			List<WebElement> list = driver
-					.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+			Thread.sleep(5000);
+			try {
+				List<WebElement> list = driver
+						.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+
+				Thread.sleep(3000);
+
+				for (WebElement e : list) {
+
+					if (e.getText().equalsIgnoreCase(matrix_credit_type)) {
+
+						Click.on(driver, e, 20);
+						Thread.sleep(3000);
+						break;
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
+			System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+			Click.on(driver, customer_quote_summary, 40);
+
+			ExplicitWait.visibleElement(driver, customer_quote_summary_basic_cash_price, 20);
+
+			Thread.sleep(5000);
+
+			double basic_cash_price_from_screen = Double
+					.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
+
+			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+			obj_read_excel_calculation_page
+					.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);
+
+			obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+					document_fee, matrix_credit_type, sheet_name);
+
+			ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
 			Thread.sleep(3000);
 
-			for (WebElement e : list) {
+			double monthly_finance_payment_actual_from_screen = Double
+					.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 
-				if (e.getText().equalsIgnoreCase(matrix_credit_type)) {
+			LO.print("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+			System.out.println(
+					"Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
 
-					Click.on(driver, e, 20);
-					Thread.sleep(3000);
-					break;
-				}
+			double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
+					.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
+							balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
+
+			LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+			System.out.println(
+					"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+
+			double diff1 = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
+					monthly_finance_payment_expected_from_excel);
+
+			boolean status = false;
+			if (diff1 < 0.2) {
+				status = true;
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+			return status;
 		}
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
-		System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
 
-		Click.on(driver, customer_quote_maintenance_toggle_button, 30);
+		else {
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-		
-		Click.on(driver, customer_quote_summary, 40);
+			act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
+					Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
-		ExplicitWait.visibleElement(driver, customer_quote_summary_basic_cash_price, 20);
+			Thread.sleep(5000);
+			try {
+				List<WebElement> list = driver
+						.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
 
-		Thread.sleep(5000);
+				Thread.sleep(3000);
 
-		double basic_cash_price_from_screen = Double
-				.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
-		
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		
+				for (WebElement e : list) {
 
-		obj_read_excel_calculation_page.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);		
+					if (e.getText().equalsIgnoreCase(matrix_credit_type)) {
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
-				document_fee, matrix_credit_type, sheet_name);
+						Click.on(driver, e, 20);
+						Thread.sleep(3000);
+						break;
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
+			System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
 
-		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+			Click.on(driver, customer_quote_maintenance_toggle_button, 30);
 
-		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Thread.sleep(5000);
+			Click.on(driver, customer_quote_summary, 40);
 
-		double monthly_finance_payment_actual_from_screen = Double
-				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+			ExplicitWait.visibleElement(driver, customer_quote_summary_basic_cash_price, 20);
 
-		double monthly_maintenance_payment_actual_from_screen = Double
-				.parseDouble(RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().trim().substring(2)));
+			Thread.sleep(5000);
 
-		LO.print("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
-		System.out
-				.println("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+			double basic_cash_price_from_screen = Double
+					.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
 
-		double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
-				.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
-						balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
+			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
-		System.out.println(
-				"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+			obj_read_excel_calculation_page
+					.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);
 
-		LO.print("Actual Monthly Maintenance Payment from screen is " + monthly_maintenance_payment_actual_from_screen);
-		System.out.println(
-				"Actual Monthly Maintenance Payment from screen is " + monthly_maintenance_payment_actual_from_screen);
+			obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+					document_fee, matrix_credit_type, sheet_name);
 
-		double monthly_Maintenance_payment_expected_from_excel = obj_read_excel_calculation_page
-				.get_monthly_maintenance_payment_from_excel_for_funder_addition(sheet_name);
+			ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
-		LO.print(
-				"Expected Monthly Maintenance Rental from excel is " + monthly_Maintenance_payment_expected_from_excel);
-		System.out.println(
-				"Expected Monthly Maintenance Rental from excel is " + monthly_Maintenance_payment_expected_from_excel);
+			ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
 
-		double diff1 = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
-				monthly_finance_payment_expected_from_excel);
+			Thread.sleep(3000);
 
-		double diff2 = Difference.of_two_Double_Values(monthly_maintenance_payment_actual_from_screen,
-				monthly_Maintenance_payment_expected_from_excel);
+			double monthly_finance_payment_actual_from_screen = Double
+					.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 
-		boolean status = false;
-		if (diff1 < 0.2 && diff2 < 0.2) {
-			status = true;
+			double monthly_maintenance_payment_actual_from_screen = Double.parseDouble(
+					RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().trim().substring(2)));
+
+			LO.print("Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+			System.out.println(
+					"Actual Monthly Finance Payment from screen is " + monthly_finance_payment_actual_from_screen);
+
+			double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
+					.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
+							balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
+
+			LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+			System.out.println(
+					"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+
+			LO.print("Actual Monthly Maintenance Payment from screen is "
+					+ monthly_maintenance_payment_actual_from_screen);
+			System.out.println("Actual Monthly Maintenance Payment from screen is "
+					+ monthly_maintenance_payment_actual_from_screen);
+
+			double monthly_Maintenance_payment_expected_from_excel = obj_read_excel_calculation_page
+					.get_monthly_maintenance_payment_from_excel_for_funder_addition(sheet_name);
+
+			LO.print("Expected Monthly Maintenance Rental from excel is "
+					+ monthly_Maintenance_payment_expected_from_excel);
+			System.out.println("Expected Monthly Maintenance Rental from excel is "
+					+ monthly_Maintenance_payment_expected_from_excel);
+
+			double diff1 = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
+					monthly_finance_payment_expected_from_excel);
+
+			double diff2 = Difference.of_two_Double_Values(monthly_maintenance_payment_actual_from_screen,
+					monthly_Maintenance_payment_expected_from_excel);
+
+			boolean status = false;
+			if (diff1 < 0.2 && diff2 < 0.2) {
+				status = true;
+			}
+			return status;
 		}
-		return status;
+
 	}
 
 	

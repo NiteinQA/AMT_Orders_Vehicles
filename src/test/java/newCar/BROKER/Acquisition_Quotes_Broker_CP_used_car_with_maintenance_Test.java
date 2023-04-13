@@ -34,7 +34,8 @@ public class Acquisition_Quotes_Broker_CP_used_car_with_maintenance_Test extends
 	
 		
 	@Test(priority=1, dataProvider="testData")
-	public void aquisition_quotes_user_flow_broker_CP_OTR_calculation_with_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
+	public void aquisition_quotes_user_flow_broker_CP_OTR_calculation_with_maintenance_test(String registrationNumber,
+			String mileage, String vehicelCostPrice, String options_and_preparation_cost, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String monthlyMaintenancePayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String penceperExcessMileMaintenance, String apr, String commission, 
@@ -45,35 +46,35 @@ public class Acquisition_Quotes_Broker_CP_used_car_with_maintenance_Test extends
 		 obj_vehicle_selection_page = new VehicleSelectionPage();
 	     obj_options_accessories = new OptionsAccessoriesPage();
 	     obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Broker_CP_Page();
-				
-		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle(manufacturer, model);
-		obj_options_accessories.options_And_Accessories_selection();
-		boolean subtotal_after_discount=obj_contract_types_and_OTR_page.contractTypes_and_OTR_selection_broker_cp(sheet_name);
-		Assert.assertTrue(subtotal_after_discount);	
+			
+			obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
+			obj_vehicle_selection_page.select_vehicle_for_used_car_flow(registrationNumber, mileage);
+			obj_options_accessories.options_And_Accessories_selection_for_used_car();
+			boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
+					.contractTypes_selection_and_OTR_calculation(sheet_name);
+			Assert.assertTrue(cost_price_ex_vat_and_options_and_preparation_cost);
+
 	}
 	
 	@Test(priority=2, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_CP_OTR_calculation_with_maintenance_test" })
 
 	
-	public void aquisition_quotes_user_flow_broker_CP_after_discount_calculations_with_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
+	public void aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test(String registrationNumber,
+			String mileage, String vehicelCostPrice, String options_and_preparation_cost, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String monthlyMaintenancePayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String penceperExcessMileMaintenance, String apr, String commission, 
 			String partExchangeActual, String partExchangeGiven, String lessFinanceSettlemnet, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 			
 	
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Broker_CP_Page();
-			
-		boolean otr_price_check = obj_contract_types_and_OTR_page
-				.verify_after_discount_calculations_contract_types_page(sheet_name);
-		Assert.assertTrue(otr_price_check);
+
 	
 	}
 	
-	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_CP_after_discount_calculations_with_maintenance_test" })
+	@Test(priority=3, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test" })
 
-	public void aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_with_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
+	public void aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_with_maintenance_test(String registrationNumber,
+			String mileage, String vehicelCostPrice, String options_and_preparation_cost, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String monthlyMaintenancePayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String penceperExcessMileMaintenance, String apr, String commission, 
@@ -84,20 +85,19 @@ public class Acquisition_Quotes_Broker_CP_used_car_with_maintenance_Test extends
 	
 	
 		
-		boolean customer_quote_vehicle_profit_check=obj_customer_quote_page.customer_Quote_vehicle_profit_checking_broker_cp_with_maintenance(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
+		boolean customer_quote_vehicle_profit_check=obj_customer_quote_page.customer_Quote_vehicle_profit_checking_broker_purchase_with_maintenance(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit,noOfMonthlyPayments, monthlyFinancePayment, optionalFinalPayment, optionToPurchaseFee, 
 			rflIncluded, pensePerExcessMileFinance,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_vehicle_profit_check);
 		
-		boolean monthly_total_payment_after_editing_vehicle_sales_price = obj_customer_quote_page.edit_otr_sales_price_and_verify_profit( sales_price_percentage, sheet_name);
+		boolean monthly_total_payment_after_editing_vehicle_sales_price = obj_customer_quote_page.edit_otr_sales_price_and_verify_profit_broker_purchase_used_vehicle( sales_price_percentage, sheet_name);
 		Assert.assertTrue(monthly_total_payment_after_editing_vehicle_sales_price);
-
-		
 	}
 	
 	@Test(priority=4, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_CP_vehicle_profit_check_with_maintenance_test" })
 
-	public void aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_with_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
+	public void aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_with_maintenance_test(String registrationNumber,
+			String mileage, String vehicelCostPrice, String options_and_preparation_cost, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String monthlyMaintenancePayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String penceperExcessMileMaintenance, String apr, String commission, 
@@ -106,7 +106,7 @@ public class Acquisition_Quotes_Broker_CP_used_car_with_maintenance_Test extends
 	
 		 obj_customer_quote_page = new CustomerQuotePageBrokerCPPage();
 		
-		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_cp_with_maintenance(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
+		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_purchase_for_used_vehicle_with_maintenance(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit,noOfMonthlyPayments, monthlyFinancePayment, optionalFinalPayment, monthlyMaintenancePayment, optionToPurchaseFee, 
 			rflIncluded, pensePerExcessMileFinance, penceperExcessMileMaintenance, apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
 		Assert.assertTrue(customer_quote_balance_to_finance_check);
@@ -116,7 +116,8 @@ public class Acquisition_Quotes_Broker_CP_used_car_with_maintenance_Test extends
 	
 	@Test(priority=5, dataProvider="testData", dependsOnMethods = { "aquisition_quotes_user_flow_broker_CP_balance_to_finance_check_with_maintenance_test" })
 
-	public void aquisition_quotes_user_flow_broker_CP_quote_summary_values_verification_with_maintenance_test(String manufacturer, String model, String vehicle_profit, String sales_price_percentage,
+	public void aquisition_quotes_user_flow_broker_CP_quote_summary_values_verification_with_maintenance_test(String registrationNumber,
+			String mileage, String vehicelCostPrice, String options_and_preparation_cost, String vehicle_profit, String sales_price_percentage,
 			String quoteRef,String quoteExpiryDate, String term, String milesperannum,String contractMileage,String cahDeposit, 
 			String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment, String monthlyMaintenancePayment, String optionToPurchaseFee, 
 			String rflIncluded, String pensePerExcessMileFinance, String penceperExcessMileMaintenance, String apr, String commission, 
@@ -136,7 +137,7 @@ public class Acquisition_Quotes_Broker_CP_used_car_with_maintenance_Test extends
 	
 	@DataProvider(name="testData")
 	public Object[][] getTestData() throws IOException {		
-		Object[][] data=ReadExcelData.getTestData("BrokerCPwithMaintenance");
+		Object[][] data=ReadExcelData.getTestData("Broker_CP_Maint_Used_car");
 		return data;
 	}
 
