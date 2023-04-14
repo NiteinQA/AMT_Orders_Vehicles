@@ -1,4 +1,4 @@
-package usedCar.Broker;
+package usedLCV.BROKER;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_Broker_BCH_used_car_with_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_Broker_BCH_used_LCV_with_maintenance_Test extends TestBase {
 
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
@@ -98,7 +98,7 @@ public class Acquisition_Quotes_Broker_BCH_used_car_with_maintenance_Test extend
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("BrokerBCHMaitUsedCar");
+		Object[][] data = ReadExcelData.getTestData("BrokerBCHMaitUsedLCV");
 		return data;
 
 	}

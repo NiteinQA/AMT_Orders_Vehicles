@@ -126,7 +126,7 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 		double quote_summary_cost_otr_price_from_screen_converted =Double.parseDouble(quote_summary_cost_otr_price_from_screen);
 
 		
-		return obj_read_excel_calculation_page.verify_quote_summary_values_for_broker_purchase_from_excel_for_used_vehicle(quote_summary_cost_otr_price_from_screen_converted, 
+		return obj_read_excel_calculation_page.verify_quote_summary_values_for_broker_bch_pch_fl_from_excel_with_maintenance(quote_summary_cost_otr_price_from_screen_converted, 
 		 sheet_name);	
 
 	}

@@ -4009,6 +4009,34 @@ public class ReadExcelCalculation extends TestBase {
 
 	}
 
+	public boolean verify_quote_summary_values_for_broker_pcp_cp_from_excel_for_used_vehicle(
+			double quote_summary_cost_otr_price_from_screen_converted, String sheet_name) throws IOException {
+		LO.print("Reading values from excel sheet to compare it with quote summary on screen values");
+		System.out.println("Reading values from excel sheet to compare it with quote summary on screen values");
+
+		double otr_price_expected = GetExcelFormulaValue.get_formula_value(18, 4, sheet_name);
+
+		LO.print("Comparing excel values with actual values on screen");
+		System.out.println("Comparing excel values with actual values on screen");
+
+		boolean flag = false;
+		double diff1 = Difference.of_two_Double_Values(otr_price_expected,
+				quote_summary_cost_otr_price_from_screen_converted);
+		if (diff1 < 0.2) {
+			LO.print("OTR price compared");
+			System.out.println("OTR price compared");
+			flag = true;
+		} else {
+			LO.print("Found difference between OTR actual price and OTR expected price on Quote Summary Page");
+			System.out
+					.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");
+		}
+
+		return flag;
+
+	}
+
+	
 	public void write_test_data_values_to_excel_for_bch_flow_without_maintenance(String quoteReference,
 			String quoteExpiryDate, String terms, String milesPerAnnum, String maintenance_required,
 			String monthlyFinanceRental, String documentFee, String penceperExcessMileFinance, String sheet_name)

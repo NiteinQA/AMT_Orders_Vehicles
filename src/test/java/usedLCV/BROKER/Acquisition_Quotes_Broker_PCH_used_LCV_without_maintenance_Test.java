@@ -1,4 +1,4 @@
-package usedCar.Broker;
+package usedLCV.BROKER;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import com.amt.testUtil.ReadExcelData;
 
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_Broker_PCH_used_car_without_maintenance_Test extends TestBase {
+public class Acquisition_Quotes_Broker_PCH_used_LCV_without_maintenance_Test extends TestBase {
 	
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
@@ -46,8 +46,8 @@ public class Acquisition_Quotes_Broker_PCH_used_car_without_maintenance_Test ext
 	
 		
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle_for_used_car_flow(registrationNumber, mileage);
-		obj_options_accessories.options_And_Accessories_selection_for_used_car();
+		obj_vehicle_selection_page.select_vehicle_for_used_LCV(registrationNumber, mileage);
+		obj_options_accessories.options_And_Accessories_selection_for_used_LCV();
 		boolean cost_price_ex_vat_and_options_and_preparation_cost=obj_contract_types_and_OTR_page.contractTypes_selection_and_OTR_calculation(sheet_name);
 		Assert.assertTrue(cost_price_ex_vat_and_options_and_preparation_cost);
 	}
@@ -96,7 +96,7 @@ public class Acquisition_Quotes_Broker_PCH_used_car_without_maintenance_Test ext
 	
 	@DataProvider(name="testData")
 	public Object[][] getTestData() throws IOException {		
-		Object[][] data=ReadExcelData.getTestData("BrokerBCHwoMaintUsedCar");
+		Object[][] data=ReadExcelData.getTestData("BrokerBCHwoMaintUsedLCV");
 		return data;	
 		
 	}
