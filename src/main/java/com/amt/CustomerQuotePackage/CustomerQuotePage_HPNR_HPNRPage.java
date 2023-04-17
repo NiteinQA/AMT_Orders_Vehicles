@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -167,7 +166,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 	public boolean check_monthly_finance_payment_on_customer_quote(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -460,7 +459,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		 
 		 double totalCapMaintenanceValue = Double.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
 
-		 System.out.println(totalCapMaintenanceValue);
+		 
 		
 		Click.on(driver, customer_quote, 30);
 
@@ -469,7 +468,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-	Actions act = new Actions(driver);	
+	   Actions act = new Actions(driver);	
 		 
 		if (totalCapMaintenanceValue==0) {
 
@@ -1343,7 +1342,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 	public boolean check_monthly_payment_on_customer_quote_with_maintenance(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -1824,7 +1823,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		Thread.sleep(2000);
 
-		ExplicitWait.visibleElement(driver, total_monthly_payment, 40);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 40);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
@@ -1873,6 +1872,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		Click.on(driver, balloon_payment_toggle, 40);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 40);
+
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));

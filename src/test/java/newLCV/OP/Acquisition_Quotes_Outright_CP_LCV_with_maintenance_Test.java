@@ -8,9 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.amt.CustomerQuotePackage.CustomerQuotePageOutrightCPPage;
 import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_HPRPage;
-import com.amt.CustomerQuotePackage.CustomerQuotePageOutrightCPPage;
 import com.amt.HoldingCostPages.HoldingCostOutrightCPPage;
 import com.amt.QuoteSummaryPages.QuoteSummaryOutrightCPPage;
 import com.amt.pages.AcquisitionListingPage;
@@ -120,7 +118,7 @@ public class Acquisition_Quotes_Outright_CP_LCV_with_maintenance_Test extends Te
 			String residual_value_used, String maint_cost_used, String target_rental, String additional_terms, String additional_mileage,
 			 String vehicle_profit, String sales_price_percentage,String  maintenance_status,String matrix_credit_type, String security_deposit, 
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
-			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();

@@ -106,7 +106,7 @@ public class Acquisition_Quotes_HPNR_HPNR_used_LCV_without_maintenance_Test exte
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
 			String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 

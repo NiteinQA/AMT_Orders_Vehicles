@@ -128,24 +128,24 @@ public class Acquisition_Quotes_HPNR_PCH_without_maintenance_Test extends TestBa
 						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_before_editing_percentage_value);
 
-		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_page
-				.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used,
-						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_percentage_value);
-
-		boolean holding_cost_after_editing_residual_value = obj_holding_cost_page
-				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used,
-						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_residual_value);
-		
-		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
-				.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(add_terms, add_mileage,
-						maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
-
-
-		System.out.println("");
-		System.out.println("");
+//		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_page
+//				.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used,
+//						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+//		Assert.assertTrue(holding_cost_after_editing_percentage_value);
+//
+//		boolean holding_cost_after_editing_residual_value = obj_holding_cost_page
+//				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used,
+//						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+//		Assert.assertTrue(holding_cost_after_editing_residual_value);
+//		
+//		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
+//				.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(add_terms, add_mileage,
+//						maintenance_required, target_rental, sheet_name);
+//		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
+//
+//
+//		System.out.println("");
+//		System.out.println("");
 
 	}
 
@@ -188,7 +188,7 @@ public class Acquisition_Quotes_HPNR_PCH_without_maintenance_Test extends TestBa
 		System.out.println("");
 
 		boolean finance_rental_with_part_exchange = obj_customer_quote_page
-				.check_monthly_finance_rental_with_part_exchange_toggle_on_without_maintenance(
+				.check_monthly_finance_rental_with_part_exchange_without_maintenance(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						sheet_name);

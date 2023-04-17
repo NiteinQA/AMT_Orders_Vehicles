@@ -123,7 +123,7 @@ public class Acquisition_Quotes_HPNR_HPR_LCV_with_maintenance_Test extends TestB
 			String vehicle_profit, String sales_price_percentage, String maintenance_status, String matrix_credit_type, String security_deposit,
 			String balloon_payment_status, String part_exchange_actual, String part_exchange_given,
 			String less_finance_settlement, String order_deposit, String finance_deposit, String document_fee,
-			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 

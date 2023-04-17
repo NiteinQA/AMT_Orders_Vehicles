@@ -4,30 +4,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import org.apache.poi.ss.formula.FormulaParseException;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 import com.amt.testBase.TestBase;
 
@@ -1615,6 +1604,11 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(70).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
 		
+		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("CP_")) {
+			wb.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B66*B69");
+		}
+		
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
 
 			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("E15*B72");
@@ -1623,10 +1617,7 @@ public class ReadExcelCalculation extends TestBase {
 				wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B66*B72");
 			}
 			
-			if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("CP_")) {
-				wb.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B66*B69");
-			}
-			
+					
 			
           }
 		else

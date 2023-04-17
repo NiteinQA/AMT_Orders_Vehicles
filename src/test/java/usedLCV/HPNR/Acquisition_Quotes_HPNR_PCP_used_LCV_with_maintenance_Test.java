@@ -10,16 +10,11 @@ import org.testng.annotations.Test;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_HPRPage;
 import com.amt.HoldingCostPages.HoldingCost_HPNR_HPRPage;
-import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_CP_Page;
-import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_HPRPage;
 import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_PCP_Page;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_BCH_Page;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_CP_Page;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_HPNR_Page;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_PCP_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
@@ -112,7 +107,7 @@ public class Acquisition_Quotes_HPNR_PCP_used_LCV_with_maintenance_Test extends 
 			String additional_terms, String additional_mileage, String vehicle_profit, String sales_price_percentage, String maintenance_status,
 			String matrix_credit_type, String security_deposit, String balloon_payment_status,
 			String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
-			String order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 

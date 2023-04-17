@@ -1,16 +1,11 @@
 package com.amt.CustomerQuotePackage;
 
-import java.sql.Date;
-
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
-import com.amt.testUtil.Dropdown;
 import com.amt.testUtil.ExplicitWait;
 
 public class CustomerQuotePageOutrightOutrightPage extends TestBase {

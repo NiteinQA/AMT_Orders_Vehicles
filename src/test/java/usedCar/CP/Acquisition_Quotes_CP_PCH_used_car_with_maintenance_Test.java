@@ -148,7 +148,7 @@ public class Acquisition_Quotes_CP_PCH_used_car_with_maintenance_Test extends Te
 
 
 		boolean monthlyFinanceAndMaintenanceWithPartExchange = obj_customer_quote_page
-				.check_monthly_finance_rental_with_part_exchange_toggle_on_with_maintenance(
+				.check_monthly_finance_rental_with_part_exchange_with_maintenance(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						sheet_name);

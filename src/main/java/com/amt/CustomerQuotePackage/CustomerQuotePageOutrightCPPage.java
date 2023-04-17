@@ -892,7 +892,7 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
 	public boolean check_monthly_finance_payment_on_customer_quote(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -996,7 +996,7 @@ public class CustomerQuotePageOutrightCPPage extends TestBase {
 	public boolean check_monthly_payment_on_customer_quote_with_maintenance(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 

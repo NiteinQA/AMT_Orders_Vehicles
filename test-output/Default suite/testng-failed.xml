@@ -3,15 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="newCar.OP.Acquisition_Quotes_OP_OP_used_LCV_Test">
+      <class name="usedCar.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test"/>
-          <include name="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test"/>
-          <include name="aquisition_quotes_OP_OP_OTR_calculation_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test"/>
+          <include name="aquisition_quotes_used_car_holding_cost_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_customer_quote_payment_profile_calculations_with_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test"/>
+          <include name="aquisition_quotes_quote_summary_values_verification_with_maintenance_test"/>
+          <include name="aquisition_quotes_used_car_OTR_calculation_with_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- newCar.OP.Acquisition_Quotes_OP_OP_used_LCV_Test -->
+      </class> <!-- usedCar.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

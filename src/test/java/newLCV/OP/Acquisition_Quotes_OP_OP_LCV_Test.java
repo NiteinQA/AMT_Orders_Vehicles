@@ -9,7 +9,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePage_OP_OP_Page;
-import com.amt.QuoteSummaryPages.QuoteSummaryOutrightCPPage;
 import com.amt.QuoteSummaryPages.QuoteSummary_OP_OP_Page;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;

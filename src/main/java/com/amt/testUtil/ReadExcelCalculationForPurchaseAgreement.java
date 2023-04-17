@@ -53,14 +53,24 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 
 	public void write_basic_cash_price_to_excel_with_maintenance_for_used_car(double basic_cash_price, double terms_from_screen,
 			double annual_mileage, double used_residual_value, double total_cap_maintenance_value_converted,
-			String sheet_name) throws IOException {
+			String sheet_name) throws IOException, ClassNotFoundException {
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(120).getCell(2).setCellValue(basic_cash_price);
 		wb.getSheet(sheet_name).getRow(28).getCell(10).setCellValue(terms_from_screen);
 		wb.getSheet(sheet_name).getRow(29).getCell(10).setCellValue(annual_mileage);
-		wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(used_residual_value);
+		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV"))
+		{
+			wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(used_residual_value*1.2);
+
+		}else
+		{
+			wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(used_residual_value);
+
+		}
+
 		wb.getSheet(sheet_name).getRow(31).getCell(10).setCellValue(total_cap_maintenance_value_converted);
 
 		
@@ -1919,7 +1929,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 	}
 
 	public void set_global_variables_to_excel_for_purchase_agreement(String matrixCreditType, String sheet_name)
-			throws IOException {
+			throws IOException, NumberFormatException, ClassNotFoundException {
 		// write / take global variables and set to excel sheet for calculation
 
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started");
@@ -1931,8 +1941,22 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		// rfl values fakt on hotya baki sarv comment hotya
 		wb.getSheet(sheet_name).getRow(59).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("option_to_purchase_fee")));
-		wb.getSheet(sheet_name).getRow(61).getCell(1)
-				.setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
+		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("funder")) 
+
+		{
+			wb.getSheet(sheet_name).getRow(61).getCell(1)
+			.setCellValue(Double.parseDouble(prop.getProperty("period_supplment_used_car")));
+
+		}
+		else
+		{
+			wb.getSheet(sheet_name).getRow(61).getCell(1)
+			.setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
+	
+		}
+			
+		
 		wb.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
 		if (matrixCreditType.contains("A1 Credit")) {
 			wb.getSheet(sheet_name).getRow(63).getCell(1)
@@ -2045,7 +2069,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(59).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("option_to_purchase_fee")));		
 		
-		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used")) {
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("funder")) {
 			wb.getSheet(sheet_name).getRow(61).getCell(1)
 			.setCellValue(Double.parseDouble(prop.getProperty("period_supplment_used_car")));
 		} else {

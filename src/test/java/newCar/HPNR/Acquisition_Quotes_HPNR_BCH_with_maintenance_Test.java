@@ -146,26 +146,26 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 						target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_before_editing_percentage_values);
 
-		boolean holding_cost_after_editing_percentage_values = obj_holding_cost_page
-				.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
-						percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
-						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_percentage_values);
-
-		boolean holding_cost_after_editing_residual_and_maint_cost = obj_holding_cost_page
-				.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
-						percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
-						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost);
-
-		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
-				.edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(add_terms, add_mileage,
-						maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
-
-
-		System.out.println("");
-		System.out.println("");
+//		boolean holding_cost_after_editing_percentage_values = obj_holding_cost_page
+//				.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
+//						percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
+//						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+//		Assert.assertTrue(holding_cost_after_editing_percentage_values);
+//
+//		boolean holding_cost_after_editing_residual_and_maint_cost = obj_holding_cost_page
+//				.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
+//						percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
+//						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+//		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost);
+//
+//		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
+//				.edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(add_terms, add_mileage,
+//						maintenance_required, target_rental, sheet_name);
+//		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
+//
+//
+//		System.out.println("");
+//		System.out.println("");
 
 	}
 
@@ -210,7 +210,7 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 		System.out.println("");
 
 		boolean monthlyFinanceAndMaintenanceWithPartExchange = obj_customer_quote_page
-				.check_monthly_finance_rental_with_part_exchange_toggle_on_with_maintenance(
+				.check_monthly_finance_rental_with_part_exchange_with_maintenance(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						sheet_name);

@@ -22,7 +22,6 @@ import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
-import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
 
@@ -2736,8 +2735,8 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
         	LO.print("");
 			System.err.println("");
 			
-			LO.print("Maintenance margin can not be changed as there is no maintennace for this vehicle");
-			System.err.println("Maintenance margin can not be changed as there is no maintennace for this vehicle");
+			LO.print("Maintenance margin can not be changed as there is no maintenance for this vehicle");
+			System.err.println("Maintenance margin can not be changed as there is no maintenance for this vehicle");
 			
 			LO.print("");
 			System.err.println("");

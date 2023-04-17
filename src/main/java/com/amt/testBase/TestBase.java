@@ -7,17 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
 import com.amt.pages.LoginPage;
@@ -103,7 +98,8 @@ public class TestBase {
 		obj_Login_Page.enter_credentials();
 	}
 
-  //@AfterClass public void tearDown() { driver.close();}
+  // @AfterClass 
+  public void tearDown() { driver.close();}
 	
 	
 	}

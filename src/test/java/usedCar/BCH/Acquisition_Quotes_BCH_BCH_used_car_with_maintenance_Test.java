@@ -8,7 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePage_BCH_BCH_Page;
 import com.amt.HoldingCostPages.HoldingCost_BCH_BCH_Page;

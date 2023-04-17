@@ -9,16 +9,12 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_HPNRPage;
-import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_HPRPage;
 import com.amt.HoldingCostPages.HoldingCost_HPNR_HPNRPage;
-import com.amt.HoldingCostPages.HoldingCost_HPNR_HPRPage;
 import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_HPNRPage;
-import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_HPRPage;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_HPNR_Page;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_HPR_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;

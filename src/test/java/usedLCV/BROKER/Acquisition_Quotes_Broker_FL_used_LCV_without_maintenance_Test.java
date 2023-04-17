@@ -10,11 +10,9 @@ import org.testng.annotations.Test;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePageBrokerFLPage;
 import com.amt.QuoteSummaryPages.QuoteSummaryBrokerBCHPage;
-import com.amt.QuoteSummaryPages.QuoteSummaryBrokerFLPage;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
-import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Broker_BCH_Page;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_Broker_FL_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;

@@ -330,7 +330,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	public boolean check_monthly_finance_payment_on_customer_quote(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -435,7 +435,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	public boolean check_monthly_finance_payment_on_customer_quote_for_used_vehicle(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -1342,7 +1342,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	public boolean check_monthly_payment_on_customer_quote_with_maintenance(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -1450,11 +1450,18 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	public boolean check_monthly_payment_on_customer_quote_with_maintenance_for_used_vehicle(WebDriver driver,
 			String maintenance_status, String matrix_credit_type, String balloon_payment_status, String order_deposit,
 			String finance_deposit, String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		Thread.sleep(2000);
+		
+		
+	     Click.on(driver, holding_cost_summary, 30);
+		 
+		 ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+		 
+		 double totalCapMaintenanceValue = Double.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
 
-		Click.on(driver, customer_quote, 30);
+		 Click.on(driver, customer_quote, 30);
 
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
@@ -1463,8 +1470,17 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
+		if (totalCapMaintenanceValue==0) {
+		
 		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+				Keys.TAB, Keys.TAB,Keys.ENTER).build().perform();
+		
+		}else
+		{
+			act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
+					Keys.TAB, Keys.TAB,Keys.TAB, Keys.ENTER).build().perform();
+		
+		}
 
 		Thread.sleep(3000);
 		try {
