@@ -282,20 +282,20 @@ public class CustomerQuotePage_HPNR_PCHPage extends TestBase {
 
 		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
-		LO.print("Monthly Finance Rental from Excel (after making part exchange toggle on) is "
+		LO.print("Monthly Finance Rental from Excel (with part exchange value) is "
 				+ monthlyFinanceRentalFromExcel);
-		System.out.println("Monthly Finance Rental from Excel (after making part exchange toggle on) is "
+		System.out.println("Monthly Finance Rental from Excel (with part exchange value) is "
 				+ monthlyFinanceRentalFromExcel);
 
 		boolean flag = false;
 		if ((Difference.of_two_Double_Values(monthly_finance_rental_actual_converted,
 				monthlyFinanceRentalFromExcel) < 0.2)) {
 			flag = true;
-			LO.print("Monthly finance rental (after makking part exchage toggle on) is found OK");
-			System.out.println("Monthly finance rental (after makking part exchage toggle on) is found OK");
+			LO.print("Monthly finance rental (with part exchange value) is found OK");
+			System.out.println("Monthly finance rental (with part exchange value) is found OK");
 		} else {
-			LO.print("Monthly finance rental (after making part exchage toggle on) is found wrong");
-			System.out.println("Monthly finance rental (after making part exchage toggle on) is found wrong");
+			LO.print("Monthly finance rental (with part exchange value) is found wrong");
+			System.out.println("Monthly finance rental (with part exchange value) is found wrong");
 		}
 
 		 

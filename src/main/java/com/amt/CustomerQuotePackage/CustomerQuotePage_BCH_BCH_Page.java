@@ -349,12 +349,6 @@ private WebElement customer_quote_summary;
         
         double balance_due_expected = ((orderDepositeFromExcel+documentFeeFromExcel) - partExchangeAllowanceFromScreen);
         
-        System.out.println("partExchangeAllowanceFromScreen "+partExchangeAllowanceFromScreen);
-        System.out.println("balanceDueFromScreen "+balanceDueFromScreen);
-        System.out.println("orderDepositeFromExcel "+orderDepositeFromExcel);
-        System.out.println("documentFeeFromExcel "+documentFeeFromExcel);
-        System.out.println("partExchangeAllowanceFromScreen "+partExchangeAllowanceFromScreen);
-        System.out.println("balance due expected "+balance_due_expected);
         
         double diff =   Difference.of_two_Double_Values(balanceDueFromScreen, balance_due_expected);
         

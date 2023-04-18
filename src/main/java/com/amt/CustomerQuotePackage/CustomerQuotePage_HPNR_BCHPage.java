@@ -367,14 +367,11 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 		given_part_exchange_value.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		
-		
 		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
-		 
-		
+		 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		
 		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance ,20 );
