@@ -1,5 +1,6 @@
 package com.amt.QuoteSummaryPages;
 
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,9 +34,6 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
 
-//	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-vehicle-details[1]/div[1]/div[1]/div[2]/div[1]/div[2]/app-vehicle-summery[1]/div[1]/div[1]/div[2]/div[2]/div[3]/span[2]")
-//	private WebElement quote_summary_ref_no;
-
 	@FindBy(xpath = "//*[normalize-space()='Quote reference no.:']//ancestor::div[1]//span[2]")
 	private WebElement quote_summary_ref_no;
 
@@ -45,23 +43,11 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[1]/p[1]/strong[1]")
 	private WebElement quote_summary_total_monthly_holding_cost;
 
-//	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[8]/div/div/p/strong")
-//	private WebElement quote_summary_total_monthly_holding_cost;
-
-//	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/app-acquisition-quote-summary[1]/div[1]/div[2]/app-hire-customer-quote-summary-header[1]/div[1]/div[4]/div[1]/p[1]/strong[1]")
-//	private WebElement quote_summary_monthly_finance_rental;
-
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
 	private WebElement quote_summary_monthly_finance_rental;
 
-//  @FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/app-acquisition-quote-summary[1]/div[1]/div[2]/app-hire-customer-quote-summary-header[1]/div[1]/div[5]/div[1]/p[1]/strong[1]")
-//	private WebElement quote_summary_monthly_maintenance_rental;
-
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
-
-//	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/app-acquisition-quote-summary[1]/div[1]/div[2]/app-hire-customer-quote-summary-header[1]/div[1]/div[6]/div[1]/p[1]/strong[1]")
-//	private WebElement quote_summary_monthly_total_rental;
 
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement quote_summary_monthly_total_rental;
@@ -207,6 +193,9 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement quote_summary_save_button;
 
+	@FindBy(xpath = "//*[normalize-space()='Balance due']//ancestor::div[1]//p//strong")
+	private WebElement balance_due_value;
+
 	public QuoteSummary_HPNR_BCHPage() {
 
 		try {
@@ -258,22 +247,6 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double OTR_calculation_otr_rfl_and_frf_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_otr_rfl_and_frf.getText().trim().substring(2)));
 
-		LO.print("OTR_calculation_cost_otr_price_from_screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
-		System.out.println(
-				"OTR_calculation_cost_otr_price_from_screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
-
-		LO.print("OTR_calculation_cost_price_ex_vat_and_rfl_from_screen ="
-				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
-		System.out.println("OTR_calculation_cost_price_ex_vat_and_rfl_from_screen ="
-				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
-
-		LO.print("OTR_calculation_otr_vat_from_screen =" + OTR_calculation_otr_vat_from_screen_converted);
-		System.out.println("OTR_calculation_otr_vat_from_screen =" + OTR_calculation_otr_vat_from_screen_converted);
-
-		LO.print("OTR_calculation_otr_rfl_and_frf_from_screen ="
-				+ OTR_calculation_otr_rfl_and_frf_from_screen_converted);
-		System.out.println("OTR_calculation_otr_rfl_and_frf_from_screen ="
-				+ OTR_calculation_otr_rfl_and_frf_from_screen_converted);
 
 		double OTR_calculation_cost_otr_price_from_excel = GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 		double OTR_calculation_cost_price_ex_vat_and_rfl_from_excel = GetExcelFormulaValue.get_formula_value(9, 9,
@@ -289,6 +262,45 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 				OTR_calculation_otr_vat_from_screen_converted);
 		double diff_otr_rfl_and_frf = Difference.of_two_Double_Values(OTR_calculation_otr_rfl_and_frf_excel,
 				OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+		
+		
+        LO.print("");
+	System.out.println("");
+
+	LO.print("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+	System.out.println("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+
+	LO.print("Cost price ex vat and rfl from screen is "
+			+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+	System.out.println("Cost price ex vat and rfl from screen is "
+			+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+
+	LO.print("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+	System.out.println("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+
+	LO.print("Otr rfl and frf from screen is " + OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+	System.out.println("Otr rfl and frf from screen is " + OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+
+	LO.print("");
+	System.out.println("");
+
+	LO.print("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+	System.out.println("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+
+	LO.print("Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+	System.out.println(
+			"Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+
+	LO.print("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+	System.out.println("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+
+	LO.print("Otr rfl and frf from excel is " + OTR_calculation_otr_rfl_and_frf_excel);
+	System.out.println("Otr rfl and frf from excel is " + OTR_calculation_otr_rfl_and_frf_excel);
+
+	LO.print("");
+	System.out.println("");
+
+
 
 		int count = 0;
 		boolean status = false;
@@ -375,7 +387,6 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		LO.print("");
 		System.out.println("");
 
-		
 		LO.print("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
 		System.out.println("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
 
@@ -395,14 +406,13 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 		LO.print("");
 		System.out.println("");
-		
+
 		LO.print("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
 		System.out.println("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
 
-		LO.print("Cost price ex vat and rfl from excel is "
-				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
-		System.out.println("Cost price ex vat and rfl from excel is "
-				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+		LO.print("Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+		System.out.println(
+				"Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
 
 		LO.print("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
 		System.out.println("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
@@ -485,22 +495,6 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double.parseDouble(RemoveComma
 				.of(quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2)));
 
-		LO.print("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
-		System.out.println("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
-
-		LO.print("holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
-		System.out.println(
-				"holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
-
-		LO.print("holding_cost_monthly_finance_cost_from_screen"
-				+ holding_cost_monthly_finance_cost_from_screen_converted);
-		System.out.println("holding_cost_monthly_finance_cost_from_screen"
-				+ holding_cost_monthly_finance_cost_from_screen_converted);
-
-		LO.print("holding_cost_total_monthly_holding_cost_from_screen ="
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
-		System.out.println("holding_cost_total_monthly_holding_cost_from_screen ="
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
 
 		double holding_cost_terms_from_excel = GetExcelFormulaValue.get_formula_value(51, 0, sheet_name);
 		double holding_cost_miles_per_annum_from_excel = GetExcelFormulaValue.get_formula_value(50, 1, sheet_name);
@@ -517,6 +511,44 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double diff_total_monthly_holding_cost = Difference.of_two_Double_Values(
 				holding_cost_total_monthly_holding_cost_from_excel,
 				holding_cost_total_monthly_holding_cost_from_screen_converted);
+		
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Holding cost Terms from screen" + holding_cost_terms_from_screen_converted);
+		System.out.println("Holding cost Terms from screen is " + holding_cost_terms_from_screen_converted);
+
+		LO.print("Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
+		System.out.println(
+				"Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
+
+		LO.print("Holding cost monthly finance cost from screen is "
+				+ holding_cost_monthly_finance_cost_from_screen_converted);
+		System.out.println("Holding cost monthly finance cost from screen is "
+				+ holding_cost_monthly_finance_cost_from_screen_converted);
+
+		LO.print("Holding cost total monthly holding cost from screen is "
+				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
+		System.out.println("Holding cost total monthly holding cost from screen is "
+				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+		System.out.println("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+
+		LO.print("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+		System.out.println("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+
+		LO.print("Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+		System.out.println(
+				"Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+
+		LO.print("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+		System.out.println("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
 
 		int count = 0;
 		boolean status = false;
@@ -604,27 +636,6 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 
-		LO.print("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
-		System.out.println("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
-
-		LO.print("holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
-		System.out.println(
-				"holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
-
-		LO.print("holding_cost_monthly_finance_cost_from_screen"
-				+ holding_cost_monthly_finance_cost_from_screen_converted);
-		System.out.println("holding_cost_monthly_finance_cost_from_screen"
-				+ holding_cost_monthly_finance_cost_from_screen_converted);
-
-		LO.print("holding_cost_monthly_maint_cost_used_from_screen"
-				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
-		System.out.println("holding_cost_monthly_maint_cost_used_from_screen"
-				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
-
-		LO.print("holding_cost_total_monthly_holding_cost_from_screen ="
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
-		System.out.println("holding_cost_total_monthly_holding_cost_from_screen ="
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
 
 		double holding_cost_terms_from_excel = GetExcelFormulaValue.get_formula_value(51, 0, sheet_name);
 		double holding_cost_miles_per_annum_from_excel = GetExcelFormulaValue.get_formula_value(50, 1, sheet_name);
@@ -645,6 +656,59 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double diff_total_monthly_holding_cost = Difference.of_two_Double_Values(
 				holding_cost_total_monthly_holding_cost_from_excel,
 				holding_cost_total_monthly_holding_cost_from_screen_converted);
+		
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Holding cost Terms from screen" + holding_cost_terms_from_screen_converted);
+		System.out.println("Holding cost Terms from screen is " + holding_cost_terms_from_screen_converted);
+
+		LO.print("Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
+		System.out.println(
+				"Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
+
+		LO.print("Holding cost monthly finance cost from screen is "
+				+ holding_cost_monthly_finance_cost_from_screen_converted);
+		System.out.println("Holding cost monthly finance cost from screen is "
+				+ holding_cost_monthly_finance_cost_from_screen_converted);
+
+		LO.print("Holding cost monthly maint cost used from screen is "
+				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
+		System.out.println("Holding cost monthly maint cost used from screen is "
+				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
+
+		LO.print("Holding cost total monthly holding cost from screen is "
+				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
+		System.out.println("Holding cost total monthly holding cost from screen is "
+				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+		System.out.println("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+
+		LO.print("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+		System.out.println("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+
+		LO.print("Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+		System.out.println(
+				"Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+
+		LO.print("Holding cost monthly maint cost used from excel is "
+				+ holding_cost_monthly_maint_cost_used_from_excel);
+		System.out.println("Holding cost monthly maint cost used from excel is "
+				+ holding_cost_monthly_maint_cost_used_from_excel);
+		
+		
+		LO.print("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+		System.out.println("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+
+
+
+
 
 		int count = 0;
 		boolean status = false;
@@ -2039,6 +2103,57 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		return status;
 	}
 
+	public boolean verify_balance_due_value(String sheet_name)
+			throws UnsupportedFlavorException, IOException, InterruptedException, ClassNotFoundException {
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("********Balance Due value started verifying**********");
+		System.out.println("********Balance Due value started verifying**********");
+
+		// waiting for the elements
+		ExplicitWait.visibleElement(driver, balance_due_value, 30);
+
+		Thread.sleep(3000);
+
+		// taking elements from screen
+
+		double balanceDueFromScreen = Double
+				.parseDouble(RemoveComma.of(balance_due_value.getText().trim().substring(2)));
+
+		double balance_due_expected = 0;
+		if (Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName().contains("funder")) {
+			balance_due_expected = GetExcelFormulaValue.get_formula_value(124, 4, sheet_name);
+		} else {
+			balance_due_expected = GetExcelFormulaValue.get_formula_value(118, 4, sheet_name);
+		}
+
+		LO.print("Balance due value Actual from screen is " + balanceDueFromScreen);
+		System.out.println("Balance due value Actual from screen is " + balanceDueFromScreen);
+		LO.print("");
+		System.out.println("");
+		LO.print("Balance due value Expected from Excel is " + balance_due_expected);
+		System.out.println("Balance due value Expected from Excel is " + balance_due_expected);
+		LO.print("");
+		System.out.println("");
+
+		double diff = Difference.of_two_Double_Values(balanceDueFromScreen, balance_due_expected);
+
+		boolean balance_value = false;
+		if (diff < 0.3) {
+			balance_value = true;
+			LO.print("Balance due value (with part exchange values) is verified and found ok");
+			System.out.println("Balance due value (with part exchange values) is verified and found ok");
+		} else {
+
+			LO.print("Balance due value (with part exchange values) found wrong");
+			System.out.println("Balance due value (with part exchange values) found wrong");
+		}
+
+		return balance_value;
+	}
+
 	public void save_quote() throws InterruptedException {
 
 		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
@@ -2470,7 +2585,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double diff_total_monthly_holding_cost = Difference.of_two_Double_Values(
 				holding_cost_total_monthly_holding_cost_from_excel,
 				holding_cost_total_monthly_holding_cost_from_screen_converted);
-		
+
 		LO.print("");
 		System.out.println("");
 
@@ -2488,7 +2603,6 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 				+ holding_cost_total_monthly_holding_cost_from_excel);
 		System.out.println("Holding cost total monthly holding cost from excel is "
 				+ holding_cost_total_monthly_holding_cost_from_excel);
-
 
 		int count = 0;
 		boolean status = false;
@@ -2804,15 +2918,13 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
-		
-		if(sheet_name.contains("Used"))
-		{
-			wb1.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B66*B69");	
-		}
-		else {
-			wb1.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B67*B69");	
 
-		}		
+		if (sheet_name.contains("Used")) {
+			wb1.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B66*B69");
+		} else {
+			wb1.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B67*B69");
+
+		}
 
 		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
 

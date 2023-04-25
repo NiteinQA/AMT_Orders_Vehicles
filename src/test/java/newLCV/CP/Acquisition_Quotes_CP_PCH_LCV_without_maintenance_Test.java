@@ -135,9 +135,13 @@ public class Acquisition_Quotes_CP_PCH_LCV_without_maintenance_Test extends Test
 
 		
 		
-		boolean finance_rental_with_part_exchange = obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_without_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
+		boolean finance_rental_with_part_exchange = obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_without_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
 		 
 		Assert.assertTrue(finance_rental_with_part_exchange);
+		
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value);
 		
 		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(matrix_upsell, sheet_name);
 

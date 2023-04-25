@@ -2066,22 +2066,6 @@ public class ReadExcelCalculation extends TestBase {
 
 		Thread.sleep(1000);
 
-//		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
-//		
-//		Click.on(driver, part_exchange_payment, 70);
-//		LO.print("Clicked on Part Exchange panel" );
-//		System.out.println("Clicked on Part Exchange panel" );
-//	
-//		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
-//		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-//		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
-//		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
-//		ExplicitWait.visibleElement(driver, document_fee, 30);
-//		document_fee.clear();
-//		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
-//		Actions act = new Actions (driver);
-//		act.sendKeys(Keys.TAB).perform();
-
 		LO.print("Writing values to Excel for customer quote calculation -started");
 		System.out.println("Writing values to Excel for customer quote calculation -started");
 

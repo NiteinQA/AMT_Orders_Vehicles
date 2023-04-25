@@ -10,37 +10,33 @@ import com.amt.testUtil.ExplicitWait;
 
 public class CustomerQuotePageOutrightOutrightPage extends TestBase {
 
-
-
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement save_button;
 
-
-	
 	@FindBy(xpath = "//*[@id=\"vehicleSummery\"]/div/div[2]/div[2]/div[3]/span[2]")
-	                 
+
 	private WebElement quote_ref_no;
-	
+
+	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
+	private WebElement holding_cost_summary;
 
 	public CustomerQuotePageOutrightOutrightPage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	
 	public void customer_Quote_outright_outright() throws InterruptedException {
-		
+
 		Click.on(driver, save_button, 25);
-		
+
 		LO.print("Customer quote saved successfully");
-		
-       ExplicitWait.visibleElement(driver, quote_ref_no, 25);
-		
-		String quoteRefNo=quote_ref_no.getText();
+
+		ExplicitWait.visibleElement(driver, quote_ref_no, 25);
+
+		String quoteRefNo = quote_ref_no.getText();
 		System.out.println(quoteRefNo);
-		
-		LO.print("Quote Refno. Generated successfully is"+quoteRefNo);
+
+		LO.print("Quote Refno. Generated successfully is" + quoteRefNo);
 
 	}
 
-	
 }

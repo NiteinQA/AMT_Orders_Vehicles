@@ -150,6 +150,11 @@ public class Acquisition_Quotes_HPNR_BCH_used_car_without_maintenance_Test exten
 						sheet_name);
 
 		Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+		
+		
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value);
 
 		boolean monthly_rental_values_on_updating_upsell_value = obj_customer_quote_page
 				.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(

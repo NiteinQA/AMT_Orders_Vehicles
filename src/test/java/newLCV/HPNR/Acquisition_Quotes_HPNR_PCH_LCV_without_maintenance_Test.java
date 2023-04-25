@@ -199,6 +199,12 @@ public class Acquisition_Quotes_HPNR_PCH_LCV_without_maintenance_Test extends Te
 		System.out.println("");
 		System.out.println("");
 		
+		boolean balance_due_value1 = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value1);
+		System.out.println("");
+		System.out.println("");
+		
 		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(matrix_upsell, sheet_name);
 
 		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
@@ -228,7 +234,7 @@ public class Acquisition_Quotes_HPNR_PCH_LCV_without_maintenance_Test extends Te
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_PCHPage();
 
@@ -245,6 +251,12 @@ public class Acquisition_Quotes_HPNR_PCH_LCV_without_maintenance_Test extends Te
 				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
 
+		System.out.println("");
+		System.out.println("");
+		
+		boolean balance_due_value = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value);
 		System.out.println("");
 		System.out.println("");
 
@@ -274,6 +286,12 @@ public class Acquisition_Quotes_HPNR_PCH_LCV_without_maintenance_Test extends Te
 				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation1);
 
+		System.out.println("");
+		System.out.println("");
+		
+		boolean balance_due_value1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value1);
 		System.out.println("");
 		System.out.println("");
 

@@ -180,12 +180,19 @@ public class Acquisition_Quotes_Outright_FL_without_maintenance_Test extends Tes
 		System.out.println("");
 
 		boolean finance_rental_with_part_exchange = obj_customer_quote_page
-				.check_monthly_finance_rental_with_part_exchange_with_maintenance(
+				.check_monthly_finance_rental_with_part_exchange_without_maintenance(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						sheet_name);
 
 		Assert.assertTrue(finance_rental_with_part_exchange);
+		
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value);
+		
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean monthly_rental_values_with_ballon_payment = obj_customer_quote_page
 				.check_monthly_finance_payment_with_balloon_payment_on_off_without_maintenance(sheet_name);
@@ -229,6 +236,9 @@ public class Acquisition_Quotes_Outright_FL_without_maintenance_Test extends Tes
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value);
 
 		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
@@ -246,6 +256,9 @@ public class Acquisition_Quotes_Outright_FL_without_maintenance_Test extends Tes
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+		
+		boolean balance_due_value1 = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value1);
 
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);

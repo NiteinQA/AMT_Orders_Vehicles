@@ -123,18 +123,17 @@ public class Acquisition_Quotes_CP_BCH_with_funder_quote_addition_without_mainte
 
         Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
 
-System.out.println("");
-System.out.println("");
+        System.out.println("");
+        System.out.println("");
 		
-		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on_without_maintenance(actual_part_exchange_value_from_excel,
+		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_with_part_exchange_without_maintenance(actual_part_exchange_value_from_excel,
 				given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell, part_exchange_status, target_rental, sheet_name);
 		
 		Assert.assertTrue(monthly_finance_rental);
 		
 		
-		boolean balance_due_value =obj_customer_quote_page.customer_quote_part_balance_due_value_verification(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, 
-				less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell, part_exchange_status, target_rental, sheet_name);
-
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		
 		Assert.assertTrue(balance_due_value);
 		
 		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(matrix_upsell, sheet_name);
@@ -156,7 +155,7 @@ System.out.println("");
 		    String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
 			 String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_quote_summary_page = new QuoteSummary_CP_BCH_Page();
 
@@ -166,6 +165,10 @@ System.out.println("");
 		
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance_for_funder(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean balance_due_value = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value);
 		
 		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_customer_quote_calculation);
@@ -181,8 +184,12 @@ System.out.println("");
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance_for_funder(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation1);
 		
+		boolean balance_due_value1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value1);
+		
 		boolean quote_summary_customer_quote_calculation1= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		Assert.assertTrue(quote_summary_customer_quote_calculation1);
 		
 		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page.quote_summary_configuration_value_verification_without_maintenance_for_funder(sheet_name);
 		Assert.assertTrue(quote_summary_configuration_value_check1);

@@ -2070,9 +2070,20 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("option_to_purchase_fee")));		
 		
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("funder")) {
+			
+			if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used"))
+			{
 			wb.getSheet(sheet_name).getRow(61).getCell(1)
 			.setCellValue(Double.parseDouble(prop.getProperty("period_supplment_used_car")));
-		} else {
+			}
+			else
+			{
+				wb.getSheet(sheet_name).getRow(61).getCell(1)
+				.setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
+			}
+			
+			}
+		 else {
 			wb.getSheet(sheet_name).getRow(61).getCell(1)
 			.setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));}
 		
@@ -2143,8 +2154,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 					.setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));
 		}
 		wb.getSheet(sheet_name).getRow(74).getCell(1)
-				.setCellValue(Double.parseDouble(prop.getProperty("min_margin_percentage_for_broker_vrb")));
-		
+				.setCellValue(Double.parseDouble(prop.getProperty("min_margin_percentage_for_broker_vrb")));	
 	
 		
 		wb.getSheet(sheet_name).getRow(116).getCell(0)
@@ -2464,7 +2474,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(Double.parseDouble(part_exchange_actual));
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(Double.parseDouble(part_exchange_given));
 		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(Double.parseDouble(less_finance_settlement));
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(order_deposit));
@@ -2488,7 +2498,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(Double.parseDouble(part_exchange_actual));
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(Double.parseDouble(part_exchange_given));
 		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(Double.parseDouble(less_finance_settlement));
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(order_deposit));
@@ -2513,7 +2523,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.write(out);
 		out.close();
 
-		double monthlyPayment = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
+		double monthlyPayment = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
 
 		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
@@ -2534,7 +2544,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.write(out);
 		out.close();
 
-		double monthlyPayment = GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
+		double monthlyPayment = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 
 		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb1 = new XSSFWorkbook(in1);

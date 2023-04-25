@@ -202,6 +202,13 @@ public class Acquisition_Quotes_Outright_BCH_with_maintenance_Test extends TestB
 		System.out.println("");
 		System.out.println("");
 		
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value);
+		
+		
+		System.out.println("");
+		System.out.println("");
+		
 		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(matrix_upsell, sheet_name);
 
 		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
@@ -247,6 +254,12 @@ public class Acquisition_Quotes_Outright_BCH_with_maintenance_Test extends TestB
 		
 		System.out.println("");
 		System.out.println("");
+		
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value);
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
@@ -276,10 +289,16 @@ public class Acquisition_Quotes_Outright_BCH_with_maintenance_Test extends TestB
 		
 		System.out.println("");
 		System.out.println("");
+		
+		boolean balance_due_value1 = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value1);
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		Assert.assertTrue(quote_summary_customer_quote_calculation1);
 		
 		System.out.println("");
 		System.out.println("");

@@ -41,8 +41,6 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Cost OTR price']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_cost_otr_price;	
 	
-//	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[8]/div/div/p/strong")
-//	private WebElement quote_summary_total_monthly_holding_cost;
 	
 	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[8]/div/div/p/strong")
 	private WebElement quote_summary_total_monthly_holding_cost_with_maintenance;
@@ -145,15 +143,15 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 	private WebElement quote_summary_customer_quote_summary_total_cash_price;
 
 	// Order deposit
-	@FindBy(xpath = "//*[normalize-space()='Order deposit']//ancestor::div[1]//div//strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-detail//*[normalize-space()='Order deposit']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_order_deposit;
 
 	// Finance deposit
-	@FindBy(xpath = "//*[normalize-space()='Finance deposit']//ancestor::div[1]//div//strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-detail//*[normalize-space()='Finance deposit']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_finance_deposit;
 
 	// Total deposit
-	@FindBy(xpath = "//*[normalize-space()='Total deposit']//ancestor::div[1]//div//strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-detail//*[normalize-space()='Total deposit']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_total_deposit;
 
 	@FindBy(xpath = "//app-purchase-customer-quote-summary-detail//*[normalize-space()='Part exchange value']//ancestor::div[1]//div/p/strong")
@@ -471,22 +469,6 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 		double OTR_calculation_otr_rfl_and_frf_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_otr_rfl_and_frf.getText().trim().substring(2)));
 
-		LO.print("OTR_calculation_cost_otr_price_from_screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
-		System.out.println(
-				"OTR_calculation_cost_otr_price_from_screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
-
-		LO.print("OTR_calculation_cost_price_ex_vat_and_rfl_from_screen ="
-				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
-		System.out.println("OTR_calculation_cost_price_ex_vat_and_rfl_from_screen ="
-				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
-
-		LO.print("OTR_calculation_otr_vat_from_screen =" + OTR_calculation_otr_vat_from_screen_converted);
-		System.out.println("OTR_calculation_otr_vat_from_screen =" + OTR_calculation_otr_vat_from_screen_converted);
-
-		LO.print("OTR_calculation_otr_rfl_and_frf_from_screen ="
-				+ OTR_calculation_otr_rfl_and_frf_from_screen_converted);
-		System.out.println("OTR_calculation_otr_rfl_and_frf_from_screen ="
-				+ OTR_calculation_otr_rfl_and_frf_from_screen_converted);
 
 		double OTR_calculation_cost_otr_price_from_excel = GetExcelFormulaValue.get_formula_value(14, 7, sheet_name);
 		double OTR_calculation_cost_price_ex_vat_and_rfl_from_excel = GetExcelFormulaValue.get_formula_value(9, 12,
@@ -502,6 +484,44 @@ public class QuoteSummary_CP_CP_Page extends TestBase {
 				OTR_calculation_otr_vat_from_screen_converted);
 		double diff_otr_rfl_and_frf = Difference.of_two_Double_Values(OTR_calculation_otr_rfl_and_frf_excel,
 				OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+		
+        LO.print("");
+	System.out.println("");
+
+	LO.print("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+	System.out.println("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+
+	LO.print("Cost price ex vat and rfl from screen is "
+			+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+	System.out.println("Cost price ex vat and rfl from screen is "
+			+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+
+	LO.print("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+	System.out.println("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+
+	LO.print("Otr rfl and frf from screen is " + OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+	System.out.println("Otr rfl and frf from screen is " + OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+
+	LO.print("");
+	System.out.println("");
+
+	LO.print("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+	System.out.println("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+
+	LO.print("Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+	System.out.println(
+			"Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+
+	LO.print("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+	System.out.println("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+
+	LO.print("Otr rfl and frf from excel is " + OTR_calculation_otr_rfl_and_frf_excel);
+	System.out.println("Otr rfl and frf from excel is " + OTR_calculation_otr_rfl_and_frf_excel);
+
+	LO.print("");
+	System.out.println("");
+
+
 
 		int count = 0;
 		boolean status = false;

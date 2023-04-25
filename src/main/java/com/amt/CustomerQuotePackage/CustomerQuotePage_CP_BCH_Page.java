@@ -1,5 +1,6 @@
 package com.amt.CustomerQuotePackage;
 
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -60,10 +61,10 @@ public class CustomerQuotePage_CP_BCH_Page extends TestBase {
 	@FindBy(xpath = "//label[@class='switch mr-2']//span[@class='slider round']")
 	private WebElement part_exchange_toggle;
 
-	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/div/div[1]/ul/li[3]/span[2]")
+	@FindBy(xpath = "//*[normalize-space()='Net part exchange allowance']//ancestor::div[1]//p//strong")
 	private WebElement part_exchange_allowance;
 
-	@FindBy(xpath = "//span[@class='balduevalue']")
+	@FindBy(xpath = "//*[normalize-space()='Balance due']//ancestor::div[1]//p//strong")
 	private WebElement balance_due_value;
 
 	// security deposit
@@ -77,69 +78,123 @@ public class CustomerQuotePage_CP_BCH_Page extends TestBase {
 	// referrer commission
 	@FindBy(xpath = "//*[@id='FinanceCommission']")
 	private WebElement referrer_upsell_input_field;
-	
+
 //  summary upsell input field
-@FindBy(xpath = "//*[@id='Upsell']")
-private WebElement summary_upsell_input_field;
+	@FindBy(xpath = "//*[@id='Upsell']")
+	private WebElement summary_upsell_input_field;
 
 //  cust quote summary
-@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[1]/button")
-private WebElement customer_quote_summary;
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[1]/button")
+	private WebElement customer_quote_summary;
+
+	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
+	private WebElement holding_cost_summary;
 
 //part Exchage elements
 
-@FindBy(xpath = "//*[@id='registrationNumber']")
-private WebElement registration_number;	
+	@FindBy(xpath = "//*[@id='registrationNumber']")
+	private WebElement registration_number;
 
-@FindBy(xpath = "//*[normalize-space()='Search']")
-private WebElement search_button;	
+	@FindBy(xpath = "//*[normalize-space()='Search']")
+	private WebElement search_button;
 
-@FindBy(xpath = "//*[@id='mileage']")
-private WebElement mileage;
+	@FindBy(xpath = "//*[@id='mileage']")
+	private WebElement mileage;
 
-@FindBy(xpath = "//*[@id='partExchange']")
-private WebElement given_part_exchange_value;
+	@FindBy(xpath = "//*[@id='partExchange']")
+	private WebElement given_part_exchange_value;
 
-@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
-private WebElement part_exchange_payment;
+	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
+	private WebElement part_exchange_payment;
 
-@FindBy(xpath = "//*[@id='otrPartExchange']")
-private WebElement actual_part_exchange_value;
+	@FindBy(xpath = "//*[@id='otrPartExchange']")
+	private WebElement actual_part_exchange_value;
 
-@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
-private WebElement less_finance_settlement;
+	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
+	private WebElement less_finance_settlement;
 
-@FindBy(xpath = "//*[@name='orderDeposit']")
-private WebElement order_deposit;
+	@FindBy(xpath = "//*[@name='orderDeposit']")
+	private WebElement order_Deposit;
 
-@FindBy(xpath = "//*[@id='DocumentFee']")
-private WebElement document_fee;
+	@FindBy(xpath = "//*[@id='DocumentFee']")
+	private WebElement document_fee;
 
-@FindBy(xpath = "//*[@id='funderName']")
-private WebElement funder_name;
+	@FindBy(xpath = "//*[@name='FunderName']")
+	private WebElement funder_name;
 
-@FindBy(xpath = "//*[@id='agreementName']")
-private WebElement agreement_number;	
+	@FindBy(xpath = "//*[@name='agreementName']")
+	private WebElement agreement_number;
 
-@FindBy(xpath = "//*[@id='settlementExpiredDate']")
-private WebElement settlement_expiry_date;
+	@FindBy(xpath = "//*[@id='settlementExpiredDate']")
+	private WebElement settlement_expiry_date;
 
-@FindBy(xpath = "//*[@id='vatQualifying']")
-private WebElement check_box_vat_qualifying;
+	@FindBy(xpath = "//*[@id='vatQualifying']")
+	private WebElement check_box_vat_qualifying;
 
-@FindBy(xpath = "//*[@id='OutstandingFinance']")
-private WebElement check_box_outstanding_finance;
+	@FindBy(xpath = "//*[@id='OutstandingFinance']")
+	private WebElement check_box_outstanding_finance;
 
-@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
-private WebElement check_box_supplier_setting_finance;
+	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
+	private WebElement check_box_supplier_setting_finance;
 
 	public CustomerQuotePage_CP_BCH_Page() {
 		PageFactory.initElements(driver, this);
 	}
 
+	public boolean verify_balance_due_value(String sheet_name)
+			throws UnsupportedFlavorException, IOException, InterruptedException, ClassNotFoundException {
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Balance Due value started verifying");
+		System.out.println("Balance Due value started verifying");
+
+		// waiting for the elements
+		ExplicitWait.visibleElement(driver, balance_due_value, 30);
+
+		Thread.sleep(3000);
+
+		// taking elements from screen
+
+		double balanceDueFromScreen = Double
+				.parseDouble(RemoveComma.of(balance_due_value.getText().trim().substring(2)));
+
+		double balance_due_expected = 0;
+		if (Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName().contains("funder")) {
+			balance_due_expected = GetExcelFormulaValue.get_formula_value(124, 4, sheet_name);
+		} else {
+			balance_due_expected = GetExcelFormulaValue.get_formula_value(118, 4, sheet_name);
+		}
+
+		LO.print("Balance due value Actual from screen is " + balanceDueFromScreen);
+		System.out.println("Balance due value Actual from screen is " + balanceDueFromScreen);
+		LO.print("");
+		System.out.println("");
+		LO.print("Balance due value Expected from Excel is " + balance_due_expected);
+		System.out.println("Balance due value Expected from Excel is " + balance_due_expected);
+		LO.print("");
+		System.out.println("");
+
+		double diff = Difference.of_two_Double_Values(balanceDueFromScreen, balance_due_expected);
+
+		boolean balance_value = false;
+		if (diff < 0.3) {
+			balance_value = true;
+			LO.print("Balance due value (with part exchange values) is verified and found ok");
+			System.out.println("Balance due value (with part exchange values) is verified and found ok");
+		} else {
+
+			LO.print("Balance due value (with part exchange values) found wrong");
+			System.out.println("Balance due value (with part exchange values) found wrong");
+		}
+
+		return balance_value;
+	}
+
 	public boolean check_monthly_finance_rental_with_part_exchange_without_maintenance(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String sheet_name) throws InterruptedException, IOException {
 
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
@@ -148,34 +203,32 @@ private WebElement check_box_supplier_setting_finance;
 		LO.print("Clicked on Part Exchange panel");
 		System.out.println("Clicked on Part Exchange panel");
 		Actions act = new Actions(driver);
-		
+
 		Click.on(driver, given_part_exchange_value, 20);
-		
+
 		given_part_exchange_value.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		
-		
 		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-		 
-		
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		
-		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance ,20 );
-		
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
+
 		Click.sendKeys(driver, funder_name, "Funder X", 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
+
 		Click.sendKeys(driver, agreement_number, "123", 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
+
 		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
 		less_finance_settlement.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -183,12 +236,12 @@ private WebElement check_box_supplier_setting_finance;
 		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-	
-		ExplicitWait.visibleElement(driver, order_deposit, 20);
-		order_deposit.clear();
+
+		ExplicitWait.visibleElement(driver, order_Deposit, 20);
+		order_Deposit.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
+		Click.sendKeys(driver, order_Deposit, order_Deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
@@ -199,20 +252,18 @@ private WebElement check_box_supplier_setting_finance;
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		document_fee.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-	
+
 		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 		String monthly_finance_rental = customer_quote_monthly_finance_rental.getText().substring(2);
 		String monthly_finance_rental_actual = RemoveComma.of(monthly_finance_rental);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
-		LO.print("Monthly Finance Rental from screen (after making part exchange toggle on) is "
+		LO.print("Monthly Finance Rental from screen (with part exchange values) is "
 				+ monthly_finance_rental_actual_converted);
-		System.out.println("Monthly Finance Rental from screen (after making part exchange toggle on) is "
+		System.out.println("Monthly Finance Rental from screen (with part exchange values) is "
 				+ monthly_finance_rental_actual_converted);
 
 		LO.print("Writing part exchange values to excel");
@@ -221,22 +272,20 @@ private WebElement check_box_supplier_setting_finance;
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 
-		wb.getSheet(sheet_name).getRow(111).getCell(3)
-				.setCellValue(0);
+		wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(111).getCell(4)
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
 		wb.getSheet(sheet_name).getRow(112).getCell(4)
 				.setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
-		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("NO");
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 
 		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
-		LO.print("Monthly Finance Rental from Excel (with part exchange values) is "
-				+ monthlyFinanceRentalFromExcel);
-		System.out.println("Monthly Finance Rental from Excel (with part exchange values) is "
-				+ monthlyFinanceRentalFromExcel);
+		LO.print("Monthly Finance Rental from Excel (with part exchange values) is " + monthlyFinanceRentalFromExcel);
+		System.out.println(
+				"Monthly Finance Rental from Excel (with part exchange values) is " + monthlyFinanceRentalFromExcel);
 
 		boolean flag = false;
 		if ((Difference.of_two_Double_Values(monthly_finance_rental_actual_converted,
@@ -248,8 +297,6 @@ private WebElement check_box_supplier_setting_finance;
 			LO.print("Monthly finance rental (with part exchange values) is found wrong");
 			System.out.println("Monthly finance rental (with part exchange values) is found wrong");
 		}
-
-		 
 
 //		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 //
@@ -265,7 +312,7 @@ private WebElement check_box_supplier_setting_finance;
 
 	public boolean check_monthly_finance_rental_with_part_exchange_with_maintenance(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String sheet_name) throws InterruptedException, IOException {
 
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
@@ -274,34 +321,32 @@ private WebElement check_box_supplier_setting_finance;
 		LO.print("Clicked on Part Exchange panel");
 		System.out.println("Clicked on Part Exchange panel");
 		Actions act = new Actions(driver);
-		
+
 		Click.on(driver, given_part_exchange_value, 20);
-		
+
 		given_part_exchange_value.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		
-		
 		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-		 
-		
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		
-		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance ,20 );
-		
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
+
 		Click.sendKeys(driver, funder_name, "Funder X", 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
+
 		Click.sendKeys(driver, agreement_number, "123", 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
+
 		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
 		less_finance_settlement.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -309,12 +354,12 @@ private WebElement check_box_supplier_setting_finance;
 		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-	
-		ExplicitWait.visibleElement(driver, order_deposit, 20);
-		order_deposit.clear();
+
+		ExplicitWait.visibleElement(driver, order_Deposit, 20);
+		order_Deposit.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
+		Click.sendKeys(driver, order_Deposit, order_Deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
@@ -325,13 +370,11 @@ private WebElement check_box_supplier_setting_finance;
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		document_fee.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-	
+
 		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-	
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 		double monthly_finance_rental_actual_converted = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
@@ -354,13 +397,12 @@ private WebElement check_box_supplier_setting_finance;
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 
-		wb.getSheet(sheet_name).getRow(111).getCell(3)
-				.setCellValue(0);
+		wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(111).getCell(4)
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
 		wb.getSheet(sheet_name).getRow(112).getCell(4)
 				.setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
-		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue("NO");
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 
@@ -368,15 +410,13 @@ private WebElement check_box_supplier_setting_finance;
 
 		double monthlyMainteRentalFromExcel = GetExcelFormulaValue.get_formula_value(88, 1, sheet_name);
 
-		LO.print("Monthly Finance Rental from Excel (with part exchange values) is "
-				+ monthlyFinanceRentalFromExcel);
-		System.out.println("Monthly Finance Rental from Excel (with part exchange values) is "
-				+ monthlyFinanceRentalFromExcel);
+		LO.print("Monthly Finance Rental from Excel (with part exchange values) is " + monthlyFinanceRentalFromExcel);
+		System.out.println(
+				"Monthly Finance Rental from Excel (with part exchange values) is " + monthlyFinanceRentalFromExcel);
 
-		LO.print("Monthly Mainte. Rental from Excel (with part exchange values) is "
-				+ monthlyMainteRentalFromExcel);
-		System.out.println("Monthly Mainte. Rental from Excel (with part exchange values) is "
-				+ monthlyMainteRentalFromExcel);
+		LO.print("Monthly Mainte. Rental from Excel (with part exchange values) is " + monthlyMainteRentalFromExcel);
+		System.out.println(
+				"Monthly Mainte. Rental from Excel (with part exchange values) is " + monthlyMainteRentalFromExcel);
 
 		double diff1 = Difference.of_two_Double_Values(monthly_finance_rental_actual_converted,
 				monthlyFinanceRentalFromExcel);
@@ -391,10 +431,8 @@ private WebElement check_box_supplier_setting_finance;
 			System.out.println("Monthly finance and maint. rental (with part exchange values) is found OK");
 		} else {
 			LO.print("Monthly finance and maint. rental (with part exchange values) is found wrong");
-			System.out
-					.println("Monthly finance and maint. rental (with part exchange values) is found wrong");
+			System.out.println("Monthly finance and maint. rental (with part exchange values) is found wrong");
 		}
-
 
 //    	FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
 //		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
@@ -433,7 +471,7 @@ private WebElement check_box_supplier_setting_finance;
 
 	public boolean customer_Quote_CP_BCH_for_one_payment_option_without_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name)
 			throws IOException, InterruptedException, NumberFormatException, ClassNotFoundException {
@@ -445,17 +483,17 @@ private WebElement check_box_supplier_setting_finance;
 						customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,
 						actual_part_exchange_value_from_excel, given_part_exchange_value,
 						given_part_exchange_value_from_excel, less_finance_settlement,
-						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
 						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
 						maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
 	}
 
 	public boolean customer_Quote_CP_BCH_for_one_payment_option_for_funder_quote_addition_with_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name)
-			throws IOException, InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException,
+			InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 
@@ -473,7 +511,7 @@ private WebElement check_box_supplier_setting_finance;
 						driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
 						actual_part_exchange_value, actual_part_exchange_value_from_excel, given_part_exchange_value,
 						given_part_exchange_value_from_excel, less_finance_settlement,
-						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
 						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
 						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
 						initial_payment, part_exchange_status, target_rental, sheet_name);
@@ -481,10 +519,10 @@ private WebElement check_box_supplier_setting_finance;
 
 	public boolean customer_Quote_CP_BCH_for_one_payment_option_for_funder_quote_addition_without_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name)
-			throws IOException, InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
+			String part_exchange_status, String target_rental, String sheet_name) throws IOException,
+			InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 		obj_read_excel_calculation_page
@@ -495,7 +533,7 @@ private WebElement check_box_supplier_setting_finance;
 						driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
 						actual_part_exchange_value, actual_part_exchange_value_from_excel, given_part_exchange_value,
 						given_part_exchange_value_from_excel, less_finance_settlement,
-						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
 						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
 						maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
 	}
@@ -511,9 +549,10 @@ private WebElement check_box_supplier_setting_finance;
 
 	public boolean customer_Quote_CP_BCH_for_one_payment_option_without_maintenance_calculation_edited(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws IOException, NumberFormatException, ClassNotFoundException {
+			String part_exchange_status, String target_rental, String sheet_name)
+			throws IOException, NumberFormatException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
@@ -522,7 +561,7 @@ private WebElement check_box_supplier_setting_finance;
 						customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,
 						actual_part_exchange_value_from_excel, given_part_exchange_value,
 						given_part_exchange_value_from_excel, less_finance_settlement,
-						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
 						document_fee_from_excel, matrix_upsell_input_field, upsell,
 						customer_quote_monthly_finance_rental, maintenance_required, maintenance_margin,
 						initial_payment, part_exchange_status, target_rental, sheet_name);
@@ -539,7 +578,7 @@ private WebElement check_box_supplier_setting_finance;
 
 	public boolean customer_Quote_CP_BCH_for_one_payment_option_with_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String upsell, String maintenance_required, String maintenance_margin, String initial_payment,
 			String part_exchange_status, String target_rental, String sheet_name)
 			throws IOException, InterruptedException, NumberFormatException, ClassNotFoundException {
@@ -554,7 +593,7 @@ private WebElement check_box_supplier_setting_finance;
 						customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,
 						actual_part_exchange_value_from_excel, given_part_exchange_value,
 						given_part_exchange_value_from_excel, less_finance_settlement,
-						less_finance_settlement_from_excel, order_deposit, order_deposit_from_excel, document_fee,
+						less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
 						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
 						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
 						initial_payment, part_exchange_status, target_rental, sheet_name);
@@ -572,7 +611,7 @@ private WebElement check_box_supplier_setting_finance;
 
 	public boolean customer_quote_part_balance_due_value_verification(String actual_part_exchange_value_from_excel,
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
-			String order_deposit_from_excel, String document_fee_from_excel, String upsell, String part_exchange_status,
+			String order_Deposit_from_excel, String document_fee_from_excel, String upsell, String part_exchange_status,
 			String target_rental, String sheet_name) throws InterruptedException, IOException {
 
 		LO.print("Started verifying Balance Due value");
@@ -592,7 +631,7 @@ private WebElement check_box_supplier_setting_finance;
 		double balanceDueFromScreen = Double
 				.parseDouble(RemoveComma.of(balance_due_value.getText().trim().substring(2)));
 
-		double orderDepositeFromExcel = Double.parseDouble(order_deposit_from_excel);
+		double orderDepositeFromExcel = Double.parseDouble(order_Deposit_from_excel);
 
 		double documentFeeFromExcel = ((Double.parseDouble(document_fee_from_excel)) * 1.2);
 
@@ -661,37 +700,78 @@ private WebElement check_box_supplier_setting_finance;
 
 	}
 
-	public boolean customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on_without_maintenance(
+	public boolean customer_quote_monthly_finance_rental_value_verification_with_part_exchange_without_maintenance(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String upsell, String part_exchange_status, String target_rental, String sheet_name)
 			throws InterruptedException, IOException {
 
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
-		
+		Thread.sleep(4000);
 		Click.on(driver, part_exchange_payment, 70);
-		LO.print("Clicked on Part Exchange panel" );
-		System.out.println("Clicked on Part Exchange panel" );
-	
-		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
+		LO.print("Clicked on Part Exchange panel");
+		System.out.println("Clicked on Part Exchange panel");
+		Actions act = new Actions(driver);
+
+		Click.on(driver, given_part_exchange_value, 20);
+
+		given_part_exchange_value.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
 		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
-		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
-		ExplicitWait.visibleElement(driver, document_fee, 30);
-		document_fee.clear();
-		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
-		Actions act = new Actions (driver);
 		act.sendKeys(Keys.TAB).perform();
-	
-		Click.on(driver, part_exchange_toggle, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, order_Deposit, 20);
+		order_Deposit.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, order_Deposit, order_Deposit_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, document_fee, 30);
+		document_fee.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, document_fee, 30);
+		document_fee.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue(part_exchange_status);
-		wb.getSheet(sheet_name).getRow(117).getCell(3)
-				.setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
+		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(117).getCell(3).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(117).getCell(4)
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
 		wb.getSheet(sheet_name).getRow(118).getCell(4)
@@ -703,16 +783,13 @@ private WebElement check_box_supplier_setting_finance;
 
 		double monthly_finance_rental_expected_with_part_exchange = GetExcelFormulaValue.get_formula_value(96, 1,
 				sheet_name);
-		
+
 		LO.print(
 				"Expected Monthly Finance Rental From Excel is =" + monthly_finance_rental_expected_with_part_exchange);
 		System.out.println(
 				"Expected Monthly Finance Rental From Excel is =" + monthly_finance_rental_expected_with_part_exchange);
 
-
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
-
-		 
 
 		double monthlyFinanceRentalFromScreen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
@@ -720,7 +797,6 @@ private WebElement check_box_supplier_setting_finance;
 		LO.print("Actuacl Monthly Finance Rental From screen is =" + monthlyFinanceRentalFromScreen);
 		System.out.println("Actuacl Monthly Finance Rental From screen is =" + monthlyFinanceRentalFromScreen);
 
-		
 		double diff = Difference.of_two_Double_Values(monthly_finance_rental_expected_with_part_exchange,
 				monthlyFinanceRentalFromScreen);
 
@@ -729,44 +805,82 @@ private WebElement check_box_supplier_setting_finance;
 		if (diff < 0.3) {
 			monthlyFinanceRentalExpected = true;
 		}
-		
-		Click.on(driver, part_exchange_toggle, 20);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
 		return monthlyFinanceRentalExpected;
 	}
 
-	public boolean customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on_with_maintenance(
+	public boolean customer_quote_monthly_finance_rental_value_verification_with_part_exchange_with_maintenance(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
+			String less_finance_settlement_from_excel, String order_Deposit_from_excel, String document_fee_from_excel,
 			String upsell, String part_exchange_status, String target_rental, String sheet_name)
 			throws InterruptedException, IOException {
 
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		Thread.sleep(4000);
 		Click.on(driver, part_exchange_payment, 70);
 		LO.print("Clicked on Part Exchange panel");
 		System.out.println("Clicked on Part Exchange panel");
+		Actions act = new Actions(driver);
 
-		Click.sendKeys(driver, actual_part_exchange_value, actual_part_exchange_value_from_excel, 30);
+		Click.on(driver, given_part_exchange_value, 20);
+
+		given_part_exchange_value.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
 		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 30);
-		Click.sendKeys(driver, order_deposit, order_deposit_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, order_Deposit, 20);
+		order_Deposit.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, order_Deposit, order_Deposit_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		document_fee.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, document_fee, 30);
+		document_fee.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
 		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
-		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).perform();
-
-		Click.on(driver, part_exchange_toggle, 20);
-
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue(part_exchange_status);
-		wb.getSheet(sheet_name).getRow(117).getCell(3)
-				.setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
+		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue("NO");
+		wb.getSheet(sheet_name).getRow(117).getCell(3).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(117).getCell(4)
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
 		wb.getSheet(sheet_name).getRow(118).getCell(4)
@@ -819,9 +933,6 @@ private WebElement check_box_supplier_setting_finance;
 			status = true;
 		}
 
-		Click.on(driver, part_exchange_toggle, 20);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		return status;
 
 	}
@@ -984,14 +1095,12 @@ private WebElement check_box_supplier_setting_finance;
 
 		obj_read_excel_calculation_page.put_upsell_values_to_excel(matrix_upsell, referrer_upsell, sheet_name);
 
-	double monthlyFinanceRentalFromExcel = 0;
-		
+		double monthlyFinanceRentalFromExcel = 0;
 
 		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
-		
+
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
-			
 		} else {
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 
@@ -1018,44 +1127,50 @@ private WebElement check_box_supplier_setting_finance;
 		return flag;
 
 	}
-	
-public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(String matrix_upsell, 	String sheet_name) throws IOException, InterruptedException {
-		
-		Actions act = new Actions(driver);
-		
-        Click.on(driver, customer_quote_summary, 30);	
 
-        Thread.sleep(1000);		
-	
+	public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(
+			String matrix_upsell, String sheet_name) throws IOException, InterruptedException {
+
+		Actions act = new Actions(driver);
+
+		Click.on(driver, customer_quote_summary, 30);
+
+		Thread.sleep(1000);
+
 		ExplicitWait.visibleElement(driver, summary_upsell_input_field, 30);
-		
+
 		double upsell = Double.parseDouble(matrix_upsell);
-		
-		summary_upsell_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a",Keys.DELETE));
-		Click.sendKeysdouble(driver, summary_upsell_input_field, (upsell+upsell), 30);
+
+		summary_upsell_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, summary_upsell_input_field, (upsell + upsell), 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-			
+
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
 
-		double monthly_finance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
-		double monthly_maintenance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().substring(2)));
+		double monthly_finance_rental_actual_converted = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
+		double monthly_maintenance_rental_actual_converted = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_maintenance_rental.getText().substring(2)));
 
-		LO.print("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
-	    System.out.println("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
-	    
-		LO.print("Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is "+monthly_maintenance_rental_actual_converted);
-	    System.out.println("Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is "+monthly_maintenance_rental_actual_converted);
-	    
-		LO.print("Writing upsell values to excel" );
-		System.out.println("Writing upsell values to excel" );
-		
+		LO.print("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "
+				+ monthly_finance_rental_actual_converted);
+		System.out.println("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "
+				+ monthly_finance_rental_actual_converted);
+
+		LO.print("Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is "
+				+ monthly_maintenance_rental_actual_converted);
+		System.out.println("Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is "
+				+ monthly_maintenance_rental_actual_converted);
+
+		LO.print("Writing upsell values to excel");
+		System.out.println("Writing upsell values to excel");
+
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
-		
-		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell , sheet_name);
-		
+
+		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell, sheet_name);
+
 		double monthlyFinanceRentalFromExcel = 0;
 		double monthlyMainteRentalFromExcel = 0;
 
@@ -1070,108 +1185,108 @@ public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_
 
 		}
 
-		
-		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
-	    System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
-	    
-		LO.print("Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is "+monthlyMainteRentalFromExcel);
-	    System.out.println("Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is "+monthlyMainteRentalFromExcel);
-	    
-		
-		
-		double diff1 =Difference.of_two_Double_Values(monthly_finance_rental_actual_converted, monthlyFinanceRentalFromExcel);
-		
-		double diff2 =Difference.of_two_Double_Values(monthly_maintenance_rental_actual_converted, monthlyMainteRentalFromExcel);
+		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "
+				+ monthlyFinanceRentalFromExcel);
+		System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "
+				+ monthlyFinanceRentalFromExcel);
 
-		
-		boolean flag = false ;
-		if(diff1<0.2 && diff2<0.2)
-				{
-			    flag = true;
-			     LO.print("Monthly finance and maint. rental (after updating customer quote summary upsell value) is found OK" );
-			     System.out.println("Monthly finance and maint. rental (after updating customer quote summary upsell value) is found OK" );
-				}
-		else  {
-		     LO.print("Monthly finance and maint. rental (after updating customer quote summary upsell value) is found wrong" );
-		     System.out.println("Monthly finance and maint. rental (after updating customer quote summary upsell value) is found wrong" );
-		      }
-	
-		return flag ;
-		
+		LO.print("Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is "
+				+ monthlyMainteRentalFromExcel);
+		System.out.println("Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is "
+				+ monthlyMainteRentalFromExcel);
+
+		double diff1 = Difference.of_two_Double_Values(monthly_finance_rental_actual_converted,
+				monthlyFinanceRentalFromExcel);
+
+		double diff2 = Difference.of_two_Double_Values(monthly_maintenance_rental_actual_converted,
+				monthlyMainteRentalFromExcel);
+
+		boolean flag = false;
+		if (diff1 < 0.2 && diff2 < 0.2) {
+			flag = true;
+			LO.print(
+					"Monthly finance and maint. rental (after updating customer quote summary upsell value) is found OK");
+			System.out.println(
+					"Monthly finance and maint. rental (after updating customer quote summary upsell value) is found OK");
+		} else {
+			LO.print(
+					"Monthly finance and maint. rental (after updating customer quote summary upsell value) is found wrong");
+			System.out.println(
+					"Monthly finance and maint. rental (after updating customer quote summary upsell value) is found wrong");
+		}
+
+		return flag;
+
 	}
-   
-    public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(String matrix_upsell, 	String sheet_name) throws IOException, InterruptedException {
-		
+
+	public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(
+			String matrix_upsell, String sheet_name) throws IOException, InterruptedException {
+
 		Actions act = new Actions(driver);
-		
-        Click.on(driver, customer_quote_summary, 30);		
-		
+
+		Click.on(driver, customer_quote_summary, 30);
+
 		Thread.sleep(1000);
-		
+
 		ExplicitWait.visibleElement(driver, summary_upsell_input_field, 30);
-		
+
 		double upsell = Double.parseDouble(matrix_upsell);
-		
-		summary_upsell_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a",Keys.DELETE));
-		Click.sendKeysdouble(driver, summary_upsell_input_field, (upsell+upsell), 30);
+
+		summary_upsell_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Click.sendKeysdouble(driver, summary_upsell_input_field, (upsell + upsell), 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-			
+
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
-		double monthly_finance_rental_actual_converted = Double.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
+		double monthly_finance_rental_actual_converted = Double
+				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().substring(2)));
 
-		LO.print("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
-	    System.out.println("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "+monthly_finance_rental_actual_converted);
-	    
-		 
-		LO.print("Writing upsell values to excel" );
-		System.out.println("Writing upsell values to excel" );
-		
+		LO.print("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "
+				+ monthly_finance_rental_actual_converted);
+		System.out.println("Monthly Finance Rental from screen (after updating customer quote summary upsell value) is "
+				+ monthly_finance_rental_actual_converted);
+
+		LO.print("Writing upsell values to excel");
+		System.out.println("Writing upsell values to excel");
+
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
-		
-		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell , sheet_name);
-		
-	double monthlyFinanceRentalFromExcel = 0;
-		
+
+		obj_read_excel_calculation_page.put_customer_quote_summary_upsell_value_to_excel(upsell, sheet_name);
+
+		double monthlyFinanceRentalFromExcel = 0;
 
 		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
-		
+
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
-			
 		} else {
 			monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 
 		}
 
-		
-		
-		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
-	    System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "+monthlyFinanceRentalFromExcel);
-	    
-		 
-		
-		
-		double diff1 =Difference.of_two_Double_Values(monthly_finance_rental_actual_converted, monthlyFinanceRentalFromExcel);
-		
-		
-		boolean flag = false ;
-		if(diff1<0.2)
-				{
-			    flag = true;
-			     LO.print("Monthly finance rental (after updating customer quote summary upsell value) is found OK" );
-			     System.out.println("Monthly finance rental (after updating customer quote summary upsell value) is found OK" );
-				}
-		else  {
-		     LO.print("Monthly finance and rental (after updating customer quote summary upsell value) is found wrong" );
-		     System.out.println("Monthly finance and rental (after updating customer quote summary upsell value) is found wrong" );
-		      }
-	
-		return flag ;
-		
+		LO.print("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "
+				+ monthlyFinanceRentalFromExcel);
+		System.out.println("Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is "
+				+ monthlyFinanceRentalFromExcel);
+
+		double diff1 = Difference.of_two_Double_Values(monthly_finance_rental_actual_converted,
+				monthlyFinanceRentalFromExcel);
+
+		boolean flag = false;
+		if (diff1 < 0.2) {
+			flag = true;
+			LO.print("Monthly finance rental (after updating customer quote summary upsell value) is found OK");
+			System.out
+					.println("Monthly finance rental (after updating customer quote summary upsell value) is found OK");
+		} else {
+			LO.print("Monthly finance and rental (after updating customer quote summary upsell value) is found wrong");
+			System.out.println(
+					"Monthly finance and rental (after updating customer quote summary upsell value) is found wrong");
+		}
+
+		return flag;
+
 	}
- 
 
 }

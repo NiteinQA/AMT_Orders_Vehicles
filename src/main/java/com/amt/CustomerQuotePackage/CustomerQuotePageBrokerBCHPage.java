@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -115,16 +116,62 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 	private WebElement order_deposit;
 
 	// Document Fee
-	@FindBy(xpath = "//input[@name='documentFee']")
-	private WebElement decumentFee;
+	@FindBy(xpath = "//input[@name='DocumentFee']")
+	private WebElement documentFee;
 
-	// Part Exchange value
-	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
-	private WebElement part_exchange_value;
+	@FindBy(xpath = "//*[normalize-space()='Net part exchange allowance']//ancestor::div[1]//p//strong")
+	private WebElement part_exchange_allowance;
 
-	// Balance due
-	@FindBy(xpath = "//*[contains(text(),' Balance due ')]/span")
-	private WebElement balance_due;
+	@FindBy(xpath = "//*[normalize-space()='Balance due']//ancestor::div[1]//p//strong")
+	private WebElement balance_due_value;
+
+	@FindBy(xpath = "//*[@id='registrationNumber']")
+	private WebElement registration_number;
+
+	@FindBy(xpath = "//*[normalize-space()='Search']")
+	private WebElement search_button;
+
+	@FindBy(xpath = "//*[@id='mileage']")
+	private WebElement mileage;
+
+	@FindBy(xpath = "//*[@id='partExchange']")
+	private WebElement given_part_exchange_value;
+
+	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
+	private WebElement part_exchange_payment;
+
+	@FindBy(xpath = "//*[@id='otrPartExchange']")
+	private WebElement actual_part_exchange_value;
+
+	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
+	private WebElement less_finance_settlement;
+
+	@FindBy(xpath = "//*[@name='orderDeposit']")
+	private WebElement order_Deposit;
+
+	@FindBy(xpath = "//*[@name='financeDeposit']")
+	private WebElement finance_Deposit;
+
+	@FindBy(xpath = "//*[@id='DocumentFee']")
+	private WebElement document_fee;
+
+	@FindBy(xpath = "//*[@name='FunderName']")
+	private WebElement funder_name;
+
+	@FindBy(xpath = "//*[@name='agreementName']")
+	private WebElement agreement_number;
+
+	@FindBy(xpath = "//*[@id='settlementExpiredDate']")
+	private WebElement settlement_expiry_date;
+
+	@FindBy(xpath = "//*[@id='vatQualifying']")
+	private WebElement check_box_vat_qualifying;
+
+	@FindBy(xpath = "//*[@id='OutstandingFinance']")
+	private WebElement check_box_outstanding_finance;
+
+	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
+	private WebElement check_box_supplier_setting_finance;
 
 	public CustomerQuotePageBrokerBCHPage() {
 		PageFactory.initElements(driver, this);
@@ -204,82 +251,119 @@ public class CustomerQuotePageBrokerBCHPage extends TestBase {
 		return flag;
 	}
 
-	public boolean put_part_exchange_and_verify_balance_due(String partExchangeActual , String partExchangeGiven , String lessFinanceSettlement , String orderDeposit ) throws UnsupportedFlavorException, IOException {
-		
+	public boolean put_part_exchange_and_verify_balance_due(String partExchangeActual,
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
+			String order_deposit_from_excel) throws UnsupportedFlavorException, IOException, InterruptedException {
+
 		LO.print("");
 		System.out.println("");
-		
-		
+
 		LO.print("Started verifying Balance Due Value");
 		System.out.println("Started verifying Balance Due Value");
-		 
-		
+
 		Actions act = new Actions(driver);
-       
-		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
-		
-		act.sendKeys(Keys.TAB).build().perform();
-		
-		Click.sendKeys(driver, partExchangegiven ,  partExchangeGiven, 60);
-		
-		act.sendKeys(Keys.TAB).build().perform();
-		
-		Click.sendKeys(driver, lessFinancesettlement ,  lessFinanceSettlement, 60);
-		
-		act.sendKeys(Keys.TAB).build().perform();
-		
-		Click.sendKeys(driver, order_deposit ,  orderDeposit, 60);		
-		
-		act.sendKeys(Keys.TAB).build().perform();
-		
-		ExplicitWait.visibleElement(driver, decumentFee, 60);
-		
-		decumentFee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 
-	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
-	       String documentFeeCopied =(String) clipboard.getData(DataFlavor.stringFlavor);
-		
-	       double balanceDueDefault = ((Double.parseDouble(documentFeeCopied))*1.2);
-	  
-	       double orderDepositConverted = (Double.parseDouble(orderDeposit)) ;
-	       
-		ExplicitWait.visibleElement(driver, part_exchange_value, 30);
-		
-		double part_exchange_value_from_screen=Double.parseDouble(RemoveComma.of(part_exchange_value.getText().trim().substring(2)));
-		
-		
-		double balanceDueExpected = ( balanceDueDefault - part_exchange_value_from_screen + orderDepositConverted );
-		
-		LO.print("Balance Due Value Expected = "+balanceDueExpected);
-		System.out.println("Balance Due Value Expected = "+balanceDueExpected);
-		
-		
-		ExplicitWait.visibleElement(driver, balance_due, 30);
-		
-		double balanceDueFromScreen=Double.parseDouble(RemoveComma.of(balance_due.getText().trim().substring(2)));
+		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		Thread.sleep(4000);
+		// Click.on(driver, part_exchange_payment, 70);
+		LO.print("Clicked on Part Exchange panel");
+		System.out.println("Clicked on Part Exchange panel");
 
-		LO.print("Balance Due Value Actual from screen = "+balanceDueFromScreen);
-		System.out.println("Balance Due Value Actual from screen = "+balanceDueFromScreen);
-		
-		
-		boolean flag=false;
-		if(Difference.of_two_Double_Values(balanceDueExpected, balanceDueFromScreen)<0.2)
-		{
-			flag=true;	
-			
+		Click.on(driver, given_part_exchange_value, 20);
+
+		given_part_exchange_value.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// Clicking on outstanding finance and suppliersettling finance checkbox
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		// ExplicitWait.clickableElement(driver, check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// ExplicitWait.clickableElement(driver, check_box_supplier_setting_finance,
+		// 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, order_Deposit, 20);
+		order_Deposit.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, order_Deposit, order_deposit_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, document_fee, 60);
+
+		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String documentFeeCopied = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		double balanceDueDefault = ((Double.parseDouble(documentFeeCopied)) * 1.2);
+
+		double orderDepositConverted = (Double.parseDouble(order_deposit_from_excel));
+
+		ExplicitWait.visibleElement(driver, part_exchange_allowance, 30);
+
+		double part_exchange_value_from_screen = Double
+				.parseDouble(RemoveComma.of(part_exchange_allowance.getText().trim().substring(2)));
+
+		double balanceDueExpected = (balanceDueDefault - part_exchange_value_from_screen + orderDepositConverted);
+
+		LO.print("Balance Due Value Expected = " + balanceDueExpected);
+		System.out.println("Balance Due Value Expected = " + balanceDueExpected);
+
+		ExplicitWait.visibleElement(driver, balance_due_value, 30);
+
+		double balanceDueFromScreen = Double
+				.parseDouble(RemoveComma.of(balance_due_value.getText().trim().substring(2)));
+
+		LO.print("Balance Due Value Actual from screen = " + balanceDueFromScreen);
+		System.out.println("Balance Due Value Actual from screen = " + balanceDueFromScreen);
+
+		boolean flag = false;
+		if (Difference.of_two_Double_Values(balanceDueExpected, balanceDueFromScreen) < 0.2) {
+			flag = true;
+
 			LO.print("Balance Due Value verified and found OK");
 			System.out.println("Balance Due Value verified and found OK");
-				
+
 		}
-		
-		else
-		{
+
+		else {
 			LO.print("Balance Due Value verified but found wrong");
 			System.err.println("Balance Due Value verified but found wrong");
-		
+
 		}
-		return flag;	
-		
+		return flag;
+
 	}
 
 	public boolean customer_Quote_broker_bch_without_maintenance(String quoteRef, String quoteExpiryDate, String term,

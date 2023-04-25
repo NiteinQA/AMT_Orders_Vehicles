@@ -33,9 +33,6 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
 	private WebElement quote_summary;
 
-//	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-vehicle-details[1]/div[1]/div[1]/div[2]/div[1]/div[2]/app-vehicle-summery[1]/div[1]/div[1]/div[2]/div[2]/div[3]/span[2]")
-//	private WebElement quote_summary_ref_no;
-
 	@FindBy(xpath = "//*[normalize-space()='Quote reference no.:']//ancestor::div[1]//span[2]")
 	private WebElement quote_summary_ref_no;
 
@@ -45,23 +42,11 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[1]/p[1]/strong[1]")
 	private WebElement quote_summary_total_monthly_holding_cost;
 
-//	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[8]/div/div/p/strong")
-//	private WebElement quote_summary_total_monthly_holding_cost;
-
-//	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/app-acquisition-quote-summary[1]/div[1]/div[2]/app-hire-customer-quote-summary-header[1]/div[1]/div[4]/div[1]/p[1]/strong[1]")
-//	private WebElement quote_summary_monthly_finance_rental;
-
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
 	private WebElement quote_summary_monthly_finance_rental;
 
-//  @FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/app-acquisition-quote-summary[1]/div[1]/div[2]/app-hire-customer-quote-summary-header[1]/div[1]/div[5]/div[1]/p[1]/strong[1]")
-//	private WebElement quote_summary_monthly_maintenance_rental;
-
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
-
-//	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/app-acquisition-quote-summary[1]/div[1]/div[2]/app-hire-customer-quote-summary-header[1]/div[1]/div[6]/div[1]/p[1]/strong[1]")
-//	private WebElement quote_summary_monthly_total_rental;
 
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement quote_summary_monthly_total_rental;
@@ -759,7 +744,7 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 			System.err.println("Document Fee - found wrong");
 		}
 
-		if (Difference.of_two_Double_Values (upsell , customer_quote_summary_upsell)<0.2) {
+		if (Difference.of_two_Double_Values(upsell, customer_quote_summary_upsell) < 0.2) {
 			LO.print("Upsell - found OK");
 			System.out.println("Upsell - found OK");
 			count++;
@@ -778,7 +763,7 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 			System.err.println("Default Finance Commission - found wrong");
 		}
 
-		if (Difference.of_two_Double_Values (upsellCommission , customer_quote_summary_upsell_commission)<0.2) {
+		if (Difference.of_two_Double_Values(upsellCommission, customer_quote_summary_upsell_commission) < 0.2) {
 			LO.print("Upsell Commission - found OK");
 			System.out.println("Upsell Commission - found OK");
 			count++;
@@ -1063,7 +1048,7 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 			System.err.println("Document Fee - found wrong");
 		}
 
-		if (Difference.of_two_Double_Values(upsell , customer_quote_summary_upsell)<0.2) {
+		if (Difference.of_two_Double_Values(upsell, customer_quote_summary_upsell) < 0.2) {
 			LO.print("Upsell - found OK");
 			System.out.println("Upsell - found OK");
 			count++;
@@ -1082,7 +1067,7 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 			System.err.println("Default Finance Commission - found wrong");
 		}
 
-		if (Difference.of_two_Double_Values(upsellCommission,customer_quote_summary_upsell_commission)<0.2) {
+		if (Difference.of_two_Double_Values(upsellCommission, customer_quote_summary_upsell_commission) < 0.2) {
 			LO.print("Upsell Commission - found OK");
 			System.out.println("Upsell Commission - found OK");
 			count++;
@@ -1091,7 +1076,7 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 			System.err.println("Upsell Commission - found wrong");
 		}
 
-		if ( Difference.of_two_Double_Values(maintCommission ,customer_quote_summary_maint_commission)<0.2) {
+		if (Difference.of_two_Double_Values(maintCommission, customer_quote_summary_maint_commission) < 0.2) {
 			LO.print("Maintenance Commission - found OK");
 			System.out.println("Maintenance Commission - found OK");
 			count++;
@@ -1235,7 +1220,6 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 			System.err.println("Finance Margin found wrong");
 		}
 
-	
 		if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
 			LO.print("Deductions found OK");
 			System.out.println("Deductions found OK");
@@ -1422,7 +1406,6 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 			System.err.println("Finance Margin found wrong");
 		}
 
-	
 		if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
 			LO.print("Deductions found OK");
 			System.out.println("Deductions found OK");

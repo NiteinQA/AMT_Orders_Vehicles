@@ -73,31 +73,16 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
 	private WebElement customer_quote_payment_profile_dropdown;
 
-	@FindBy(xpath = "//*[@id='otrPartExchange']")
-	private WebElement actual_part_exchange_value;
-
-	@FindBy(xpath = "//*[@id='partExchnage']")
-	private WebElement given_part_exchange_value;
-
 	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
 	private WebElement less_finance_Settlement;
 
 	@FindBy(xpath = "//input[@id='depositRequired']")
 	private WebElement deposit_required;
 
-	@FindBy(xpath = "//div[@class='partex-value']//input[@name='financeDeposit']")
-	private WebElement finance_Deposit;
+	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
+	private WebElement holding_cost_summary;
 
-	@FindBy(xpath = "//div[@class='partex-col docfee-center']//input[@name='DocumentFee']")
-	private WebElement document_fee;
-
-	@FindBy(xpath = "//p[@class='font-14 m-0 bold text-right value-70']")
-	private WebElement net_part_exchange_allowance;
-
-	@FindBy(xpath = "//*[@id=\"collapseThree\"]/div/div/div/div/div[2]/div/div[3]/div/span")
-	private WebElement pending_amount;
-
-	@FindBy(xpath = "//div[@class='bal-finance']/span")
+	@FindBy(xpath = "//*[normalize-space()='Balance to finance']//ancestor::div[1]//div//p//strong")
 	private WebElement balance_to_finance_value;
 
 	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[1]/label")
@@ -139,7 +124,7 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	@FindBy(xpath = "//input[@id='VehicleProfit']")
 	private WebElement vehicle_profit_input;
 
-	@FindBy(xpath = "//div[11]//div[3]//p[1]")
+	@FindBy(xpath = "(//*[normalize-space()='Vehicle sales price'])[5]//ancestor::div[2]//div[3]")
 	private WebElement vehicle_sales_price;
 
 	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/div/div/div/div[2]/div[11]/div[2]/p")
@@ -156,9 +141,63 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 
 	@FindBy(xpath = "//input[@id='offInvoiceSupport']")
 	private WebElement rebate_input_field;
-	
+
 	@FindBy(xpath = "//input[@id='salesTotal']")
 	private WebElement vehicle_sale_price_used_vehicle;
+
+	@FindBy(xpath = "//*[@id='registrationNumber']")
+	private WebElement registration_number;
+
+	@FindBy(xpath = "//*[normalize-space()='Search']")
+	private WebElement search_button;
+
+	@FindBy(xpath = "//*[@id='mileage']")
+	private WebElement mileage;
+
+	@FindBy(xpath = "//*[@id='partExchnage']")
+	private WebElement given_part_exchange_value;
+
+	@FindBy(xpath = "//*[normalize-space()='Part exchange & additional payments']")
+	private WebElement part_exchange_payment;
+
+	@FindBy(xpath = "//*[@id='otrPartExchange']")
+	private WebElement actual_part_exchange_value;
+
+	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
+	private WebElement less_finance_settlement;
+
+	@FindBy(xpath = "//*[@name='depositRequired']")
+	private WebElement order_Deposit;
+
+	@FindBy(xpath = "//*[@name='financeDeposit']")
+	private WebElement finance_Deposit;
+
+	@FindBy(xpath = "//*[@id='DocumentFee']")
+	private WebElement document_fee;
+
+	@FindBy(xpath = "//*[@name='FunderName']")
+	private WebElement funder_name;
+
+	@FindBy(xpath = "//*[@name='agreementName']")
+	private WebElement agreement_number;
+
+	@FindBy(xpath = "//*[@id='settlementExpiredDate']")
+	private WebElement settlement_expiry_date;
+
+	@FindBy(xpath = "//*[@id='vatQualifying']")
+	private WebElement check_box_vat_qualifying;
+
+	@FindBy(xpath = "//*[@id='OutstandingFinance']")
+	private WebElement check_box_outstanding_finance;
+
+	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
+	private WebElement check_box_supplier_setting_finance;
+
+	@FindBy(xpath = "//*[normalize-space()='Net part exchange allowance']//ancestor::div[1]//p//strong")
+	private WebElement net_part_exchange_allowance;
+
+	@FindBy(xpath = "//*[normalize-space()='Pending amount']//ancestor::div[1]//p//strong")
+	private WebElement pending_amount;
 
 	public CustomerQuotePage_OP_OP_Page() {
 		PageFactory.initElements(driver, this);
@@ -384,7 +423,8 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 		double vehicleProfit = Double.parseDouble(vehicle_profit);
 		double vehicleSalesPriceFromActual = vehicleOTRPriceFromScreen + (vehicleProfit * 1.2);
 
-		double diff = Difference.of_two_Double_Values(vehicle_sales_price_from_screen_converted, vehicleSalesPriceFromActual);
+		double diff = Difference.of_two_Double_Values(vehicle_sales_price_from_screen_converted,
+				vehicleSalesPriceFromActual);
 
 		boolean status = true;
 
@@ -400,32 +440,65 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 		return status;
 	}
 
-	public boolean put_part_exchange_values_and_check_monthly_finance_payment(String part_exchange_actual,
-			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
-			String documentFee, String sheet_name)
-			throws UnsupportedFlavorException, IOException, InterruptedException {
+	public boolean put_part_exchange_values_and_check_pending_amount(String part_exchange_actual,
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
+			String order_Deposit_from_excel, String finance_deposit_from_excel, String document_fee_from_excel,
+			String sheet_name) throws UnsupportedFlavorException, IOException, InterruptedException {
 
-		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
+		Actions act = new Actions(driver);
 
-		Click.on(driver, given_part_exchange_value, 30);
+		Click.on(driver, given_part_exchange_value, 20);
+
+		given_part_exchange_value.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
-
-		Click.on(driver, less_finance_Settlement, 30);
+		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 
-		Click.on(driver, deposit_required, 30);
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, deposit_required, order_deposit, 30);
-
-		Click.on(driver, document_fee, 30);
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, document_fee, documentFee, 30);
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_Settlement, 20);
+		less_finance_Settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, order_Deposit, 20);
+		order_Deposit.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, order_Deposit, order_Deposit_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, document_fee, 30);
+		document_fee.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, document_fee, 30);
+		document_fee.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, document_fee, document_fee_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		double vehicleSalesPriceFromScreen = Double
 				.parseDouble(RemoveComma.of(vehicle_sales_price.getText().trim().substring(2)));
@@ -433,9 +506,9 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 		double netPartExchangeAllowance = Double
 				.parseDouble(RemoveComma.of(net_part_exchange_allowance.getText().trim().substring(2)));
 
-		double orderDeposit = Double.parseDouble(order_deposit);
+		double orderDeposit = Double.parseDouble(order_Deposit_from_excel);
 
-		double documentfee = Double.parseDouble(documentFee);
+		double documentfee = Double.parseDouble(order_Deposit_from_excel);
 
 		double pendingAmountExpected = vehicleSalesPriceFromScreen - orderDeposit - netPartExchangeAllowance
 				+ (documentfee * 1.2);

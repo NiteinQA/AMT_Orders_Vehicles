@@ -34,12 +34,14 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	@Test(priority = 1, dataProvider = "testData")
 	public void aquisition_quotes_outright_FL_OTR_calculation_with_maintenance_test(String manufacturer, String model,
-			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
-			String percentage_cap_maintenance_cost_used, String residual_value_used, String main_cost_used,
-			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name)
+			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
+			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
+			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
+			String order_deposit_from_excel, String document_fee_from_excel, String security_deposit,
+			String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
+			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
+			String target_rental, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_acq_listing_page = new AcquisitionListingPage();
@@ -56,34 +58,41 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	}
 
-	@Test(priority = 2, dataProvider = "testData" ,dependsOnMethods = { "aquisition_quotes_outright_FL_OTR_calculation_with_maintenance_test" })
+	@Test(priority = 2, dataProvider = "testData", dependsOnMethods = {
+			"aquisition_quotes_outright_FL_OTR_calculation_with_maintenance_test" })
 
-	public void aquisition_quotes_outright_FL_after_discount_calculations_with_maintenance_test(String manufacturer, String model,
-			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
-			String percentage_cap_maintenance_cost_used, String residual_value_used, String main_cost_used,
-			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+	public void aquisition_quotes_outright_FL_after_discount_calculations_with_maintenance_test(String manufacturer,
+			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
+			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
+			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
+			String order_deposit_from_excel, String document_fee_from_excel, String security_deposit,
+			String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
+			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
+			String target_rental, String sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_FL_Page();
 
 		boolean otr_price_check = obj_contract_types_and_OTR_page
 				.verify_after_discount_calculations_contract_types_page(sheet_name);
 		Assert.assertTrue(otr_price_check);
-			
 
 	}
 
-	@Test(priority = 3, dataProvider = "testData" ,dependsOnMethods = { "aquisition_quotes_outright_FL_after_discount_calculations_with_maintenance_test" })
+	@Test(priority = 3, dataProvider = "testData", dependsOnMethods = {
+			"aquisition_quotes_outright_FL_after_discount_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_outright_FL_other_support_check_with_maintenance_test(String manufacturer, String model,
-			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
-			String percentage_cap_maintenance_cost_used, String residual_value_used, String main_cost_used,
-			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+	public void aquisition_quotes_outright_FL_other_support_check_with_maintenance_test(String manufacturer,
+			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
+			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
+			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
+			String order_deposit_from_excel, String document_fee_from_excel, String security_deposit,
+			String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
+			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
+			String target_rental, String sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_Outright_FL_Page();
 
@@ -100,96 +109,108 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	}
 
-	@Test(priority = 4, dataProvider = "testData" ,dependsOnMethods = { "aquisition_quotes_outright_FL_other_support_check_with_maintenance_test" })
+	@Test(priority = 4, dataProvider = "testData", dependsOnMethods = {
+			"aquisition_quotes_outright_FL_other_support_check_with_maintenance_test" })
 
-	public void aquisition_quotes_outright_FL_holding_cost_calculations_with_maintenance_test(String manufacturer, String model,
-			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
-			String percentage_cap_maintenance_cost_used, String residual_value_used, String main_cost_used,
-			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
+	public void aquisition_quotes_outright_FL_holding_cost_calculations_with_maintenance_test(String manufacturer,
+			String model, String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value,
+			String percentage_cap_residual_value_used, String percentage_cap_maintenance_cost_used,
+			String residual_value_used, String main_cost_used, String actual_part_exchange_value_from_excel,
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
+			String order_deposit_from_excel, String document_fee_from_excel, String security_deposit,
+			String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
+			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
+			String target_rental, String sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_holding_cost_page = new HoldingCostOutrightFLPage();
 
-		boolean holding_cost_before_editing_percentage_values = obj_holding_cost_page.verify_holding_cost_before_editing_cap_data_with_maintenance(
-				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
-				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+		boolean holding_cost_before_editing_percentage_values = obj_holding_cost_page
+				.verify_holding_cost_before_editing_cap_data_with_maintenance(percentage_cap_maintenance_cost_used,
+						residual_value_used, main_cost_used, percentage_cap_residual_value_used, maintenance_required,
+						target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_before_editing_percentage_values);
-		
-		
-		boolean holding_cost_after_editing_percentage_values  = obj_holding_cost_page.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
-				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
-				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_percentage_values );
-		
-		boolean holding_cost_after_editing_residual_and_maint_cost  = obj_holding_cost_page.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
-				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
-				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost );
-		
+
+		boolean holding_cost_after_editing_percentage_values = obj_holding_cost_page
+				.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
+						percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
+						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_percentage_values);
+
+		boolean holding_cost_after_editing_residual_and_maint_cost = obj_holding_cost_page
+				.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
+						percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
+						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost);
+
 		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
 				.edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(add_terms, add_mileage,
 						maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
 
-		
-
-
 	}
 
-	@Test(priority =5, dataProvider = "testData" ,dependsOnMethods = { "aquisition_quotes_outright_FL_holding_cost_calculations_with_maintenance_test" })
+	@Test(priority = 5, dataProvider = "testData", dependsOnMethods = {
+			"aquisition_quotes_outright_FL_holding_cost_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_with_maintenance_test(String manufacturer, String model,
-			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
+	public void aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_with_maintenance_test(
+			String manufacturer, String model, String road_tax_for_first_year, String on_road_price_for_invoice,
+			String other_support_value, String percentage_cap_residual_value_used,
 			String percentage_cap_maintenance_cost_used, String residual_value_used, String main_cost_used,
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException, FormulaParseException, IllegalStateException {
+			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
+			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
+			String target_rental, String sheet_name) throws InterruptedException, IOException,
+			UnsupportedFlavorException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 
 		obj_customer_quote_page = new CustomerQuotePageOutrightFLPage();
 
 		boolean cust_quote_for_one_payment_boolean_status = obj_customer_quote_page
 				.customer_Quote_outright_FL_for_one_payment_option_with_maintenance_calculation(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
-						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell,
-						maintenance_required, maintenance_margin, initial_payment, part_exchange_status, target_rental,
-						sheet_name);
+						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
+						matrix_upsell, maintenance_required, maintenance_margin, initial_payment, part_exchange_status,
+						target_rental, sheet_name);
 
 		Assert.assertTrue(cust_quote_for_one_payment_boolean_status);
-		
 
+		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
+				.check_monthly_payments_on_adding_upsell_values_with_maintenance(security_deposit, matrix_upsell,
+						referrer_upsell, add_terms, add_mileage, sheet_name);
 
-
-        boolean cust_quote_for_upsell_values_boolean_status =obj_customer_quote_page.check_monthly_payments_on_adding_upsell_values_with_maintenance(security_deposit, matrix_upsell, referrer_upsell, add_terms, add_mileage, sheet_name);
-		
 		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
 
 		System.out.println("");
 		System.out.println("");
 
 		boolean finance_rental_with_part_exchange = obj_customer_quote_page
-				.check_monthly_finance_rental_with_part_exchange_with_maintenance(
-						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
-						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
-						sheet_name);
+				.check_monthly_finance_rental_with_part_exchange_with_maintenance(actual_part_exchange_value_from_excel,
+						given_part_exchange_value_from_excel, less_finance_settlement_from_excel,
+						order_deposit_from_excel, document_fee_from_excel, sheet_name);
 
 		Assert.assertTrue(finance_rental_with_part_exchange);
-		
-		boolean monthly_rental_values_with_balloon_toggle_on_off = obj_customer_quote_page.check_monthly_finance_payment_with_balloon_payment_on_off_with_maintenance(sheet_name);
-				
+
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value);
+
+		System.out.println("");
+		System.out.println("");
+
+		boolean monthly_rental_values_with_balloon_toggle_on_off = obj_customer_quote_page
+				.check_monthly_finance_payment_with_balloon_payment_on_off_with_maintenance(sheet_name);
+
 		Assert.assertTrue(monthly_rental_values_with_balloon_toggle_on_off);
-		
-		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(matrix_upsell, sheet_name);
+
+		boolean monthly_rental_values_on_updating_upsell_value = obj_customer_quote_page
+				.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(matrix_upsell,
+						sheet_name);
 
 		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
 
-			
 //		boolean monthly_rental_values_on_updating_final_balloon_payment_value = obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_final_balloon_payment_with_maintenance(sheet_name);
 //		Assert.assertTrue(monthly_rental_values_on_updating_final_balloon_payment_value);
 
-		
 //		boolean cust_quote_for_all_payment_boolean_status = obj_customer_quote_page
 //				.customer_Quote_outright_FL_for_all_payment_option_with_maintenance_calculation(initial_payment,
 //						sheet_name);
@@ -197,15 +218,19 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 
 	}
 
-	@Test(priority =6, dataProvider = "testData",dependsOnMethods = { "aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_with_maintenance_test" })
+	@Test(priority = 6, dataProvider = "testData", dependsOnMethods = {
+			"aquisition_quotes_outright_FL_customer_quote_payment_profile_calculations_with_maintenance_test" })
 
-	public void aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test(String manufacturer, String model,
-			String road_tax_for_first_year, String on_road_price_for_invoice, String other_support_value ,String percentage_cap_residual_value_used,
+	public void aquisition_quotes_outright_FL_quote_summary_values_verification_with_maintenance_test(
+			String manufacturer, String model, String road_tax_for_first_year, String on_road_price_for_invoice,
+			String other_support_value, String percentage_cap_residual_value_used,
 			String percentage_cap_maintenance_cost_used, String residual_value_used, String main_cost_used,
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
 			String less_finance_settlement_from_excel, String order_deposit_from_excel, String document_fee_from_excel,
-			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage, String maintenance_required, String maintenance_margin, String initial_payment,
-			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
+			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
+			String target_rental, String sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_quote_summary_page = new QuoteSummaryOutrightFLPage();
 
@@ -215,6 +240,9 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
+
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value);
 
 		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
@@ -233,9 +261,12 @@ public class Acquisition_Quotes_Outright_FL_with_maintenance_Test extends TestBa
 				.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation1);
 
+		boolean balance_due_value1 = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value1);
+
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		Assert.assertTrue(quote_summary_customer_quote_calculation1);
 
 		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
 				.quote_summary_configuration_value_verification_with_maintenance(sheet_name);

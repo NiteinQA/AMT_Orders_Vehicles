@@ -5,55 +5,55 @@
 
 	<test name="Acquisition_Quotes_Broker_BCH_without_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.BROKER.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" />
+			<class name="newCar.BROKER.Acquisition_Quotes_Broker_BCH_without_maintenance_Test" />
 		</classes>
 	</test>
 	
 	<test name="Acquisition_Quotes_Outright_BCH_without_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" />
+			<class name="newCar.OP.Acquisition_Quotes_Outright_BCH_without_maintenance_Test" />
 		</classes>
 	</test>
 	
 	<test name="Acquisition_Quotes_Outright_CP_without_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.OP.Acquisition_Quotes_Outright_CP_without_maintenance_Test" />
+			<class name="newCar.OP.Acquisition_Quotes_Outright_CP_without_maintenance_Test" />
 		</classes>
 	</test>
 	
 	<test name="Acquisition_Quotes_HPNR_HPNR_with_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_HPNR_with_maintenance_Test" />
+			<class name="newCar.HPNR.Acquisition_Quotes_HPNR_HPNR_with_maintenance_Test" />
 		</classes>
 	</test>
 	
 		<test name="Acquisition_Quotes_HPNR_PCH_with_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.HPNR.Acquisition_Quotes_HPNR_PCH_with_maintenance_Test" />
+			<class name="newCar.HPNR.Acquisition_Quotes_HPNR_PCH_with_maintenance_Test" />
 		</classes>
 	</test>
 	
 		<test name="Acquisition_Quotes_FL_FL_with_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.FL.Acquisition_Quotes_FL_FL_with_maintenance_Test" />
+			<class name="newCar.FL.Acquisition_Quotes_FL_FL_with_maintenance_Test" />
 		</classes>
 	</test>
 	
 		<test name="Acquisition_Quotes_CP_CP_without_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.CP.Acquisition_Quotes_CP_CP_without_maintenance_Test" />
+			<class name="newCar.CP.Acquisition_Quotes_CP_CP_without_maintenance_Test" />
 		</classes>
 	</test>
 	
 		<test name="Acquisition_Quotes_CP_PCH_with_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.CP.Acquisition_Quotes_CP_PCH_with_maintenance_Test" />
+			<class name="newCar.CP.Acquisition_Quotes_CP_PCH_with_maintenance_Test" />
 		</classes>
 	</test>
 	
 		<test name="Acquisition_Quotes_BCH_PCH_with_maintenance_Test">
 		<classes>
-			<class name="com.amt.test.BCH.Acquisition_Quotes_BCH_PCH_with_maintenance_Test" />
+			<class name="newCar.BCH.Acquisition_Quotes_BCH_PCH_with_maintenance_Test" />
 		</classes>
 	</test>
 	

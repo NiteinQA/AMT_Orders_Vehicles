@@ -28,36 +28,34 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
-	
 
-	//vehicle_discount_cost_price
+	// vehicle_discount_cost_price
 	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]//div//p")
-		private WebElement vehicle_discount_cost_price;
+	private WebElement vehicle_discount_cost_price;
 
-	//vehicle_additional_discount_cost_price
+	// vehicle_additional_discount_cost_price
 	@FindBy(xpath = "(//*[@id='bdiscountvalue']//ancestor::div[3]//div)[1]")
-		private WebElement vehicle_additional_discount_cost_price;
-		
-		
-		//paint_discount_cost_price
+	private WebElement vehicle_additional_discount_cost_price;
+
+	// paint_discount_cost_price
 	@FindBy(xpath = "(//*[@id='pdiscountper']//ancestor::div[3]//div)[1]")
-		private WebElement paint_discount_cost_price;
+	private WebElement paint_discount_cost_price;
 
-	//paint_additional_discount_cost_price
+	// paint_additional_discount_cost_price
 	@FindBy(xpath = "(//*[@id='pdiscountvalue']//ancestor::div[3]//div)[1]")
-		private WebElement paint_additional_discount_cost_price;
-		
-		//options_discount_cost_price
-	@FindBy(xpath = "(//*[@id='odiscount']//ancestor::div[3]//div)[1]")
-		private WebElement options_discount_cost_price;
+	private WebElement paint_additional_discount_cost_price;
 
-	//options_additional_discount_cost_price
+	// options_discount_cost_price
+	@FindBy(xpath = "(//*[@id='odiscount']//ancestor::div[3]//div)[1]")
+	private WebElement options_discount_cost_price;
+
+	// options_additional_discount_cost_price
 	@FindBy(xpath = "(//*[@id='odiscountvalue']//ancestor::div[3]//div)[1]")
-		private WebElement options_additional_discount_cost_price;
+	private WebElement options_additional_discount_cost_price;
 
 	@FindBy(xpath = "//input[@id='profit']")
 	private WebElement vehicleprofit;
-	
+
 	@FindBy(xpath = "//input[@id='profit']")
 	private WebElement vehicle_profit_input;
 
@@ -129,15 +127,13 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[10]/div[2]/p")
 	private WebElement otrScreenPrice;
-	
-	
-	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[10]/div[3]/p")
+
+	@FindBy(xpath = "//*[@class='salepricerighttpart']//*[normalize-space()='Vehicle sales price']//ancestor::div[1]//div[3]")
 	private WebElement vehicle_sale_price;
-	
+
 	@FindBy(xpath = "//*[contains(text(),'On the road price')]//following::div[1]")
 	private WebElement otrScreenPriceUsedVehicle;
 
-	
 	@FindBy(xpath = "//input[@id='salesTotal']")
 	private WebElement vehicle_sale_price_used_vehicle;
 
@@ -162,13 +158,13 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),' Customer quote summary ')]")
 	private WebElement customer_quote_summary;
 
-	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[3]/div/span")
-	private WebElement customer_quote_summary_balance_to_finance;
+	@FindBy(xpath = "//app-part-exchange-broker//*[normalize-space()='Balance to finance']//ancestor::div[1]//div//p//strong")
+	private WebElement balance_to_finance;
 
-//	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
-//	private WebElement part_exchange_profit;
+	@FindBy(xpath = "//*[normalize-space()='Part exchange']//ancestor::div[1]//div//p//strong")
+	private WebElement part_exchange_profit;
 
-	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
+	@FindBy(xpath = "//*[normalize-space()='Net part exchange allowance']//ancestor::div[1]//div//p//strong")
 	private WebElement part_exchange_value;
 
 	@FindBy(xpath = "((//*[normalize-space()='On the road price']//ancestor::div[1])[1])//div[2]")
@@ -176,6 +172,54 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 	@FindBy(xpath = "//*[@name='salesTotal']")
 	private WebElement sales_total_input;
+
+	@FindBy(xpath = "//*[@id='registrationNumber']")
+	private WebElement registration_number;
+
+	@FindBy(xpath = "//*[normalize-space()='Search']")
+	private WebElement search_button;
+
+	@FindBy(xpath = "//*[@id='mileage']")
+	private WebElement mileage;
+
+	@FindBy(xpath = "//*[@id='partExchnage']")
+	private WebElement given_part_exchange_value;
+
+	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
+	private WebElement part_exchange_payment;
+
+	@FindBy(xpath = "//*[@id='otrPartExchange']")
+	private WebElement actual_part_exchange_value;
+
+	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
+	private WebElement less_finance_settlement;
+
+	@FindBy(xpath = "//*[@name='orderDeposit']")
+	private WebElement order_Deposit;
+
+	@FindBy(xpath = "//*[@name='financeDeposit']")
+	private WebElement finance_Deposit;
+
+	@FindBy(xpath = "//*[@id='DocumentFee']")
+	private WebElement document_fee;
+
+	@FindBy(xpath = "//*[@name='FunderName']")
+	private WebElement funder_name;
+
+	@FindBy(xpath = "//*[@name='agreementName']")
+	private WebElement agreement_number;
+
+	@FindBy(xpath = "//*[@id='settlementExpiredDate']")
+	private WebElement settlement_expiry_date;
+
+	@FindBy(xpath = "//*[@id='vatQualifying']")
+	private WebElement check_box_vat_qualifying;
+
+	@FindBy(xpath = "//*[@id='OutstandingFinance']")
+	private WebElement check_box_outstanding_finance;
+
+	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
+	private WebElement check_box_supplier_setting_finance;
 
 	public CustomerQuotePageBrokerHPNRPage() {
 		PageFactory.initElements(driver, this);
@@ -230,8 +274,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		return status;
 	}
 
-	public boolean edit_otr_sales_price_and_verify_profit_broker_purchase_used_vehicle(String sales_price_percentage, String sheet_name)
-			throws InterruptedException, UnsupportedFlavorException, IOException {
+	public boolean edit_otr_sales_price_and_verify_profit_broker_purchase_used_vehicle(String sales_price_percentage,
+			String sheet_name) throws InterruptedException, UnsupportedFlavorException, IOException {
 
 		LO.print("");
 		System.out.println("");
@@ -279,7 +323,6 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		return status;
 	}
 
-	
 	public boolean customer_Quote_vehicle_profit_checking_broker_hpnr(String vehicleProfit, String quoteRef,
 			String quoteExpiryDate, String term, String milesperannum, String contractMileage, String cahDeposit,
 			String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment,
@@ -337,17 +380,15 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		return vehicle_profit_status;
 	}
 
-	
-	
 	public boolean customer_Quote_balance_to_finance_checking_broker_hpnr(String vehicleProfit, String quoteRef,
 			String quoteExpiryDate, String term, String milesperannum, String contractMileage, String cahDeposit,
 			String financeCharges, String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment,
 			String optionToPurchaseFee, String rflIncluded, String aPR, String commission2, String partExchangeActual,
-			String partExchangeGiven, String lessFinanceSettlement, String sheet_name)
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel, String sheet_name)
 			throws InterruptedException, IOException {
 
-		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
-		String otr_screen_price = otrScreenPrice.getText().trim().substring(2);
+		ExplicitWait.visibleElement(driver, vehicle_sale_price, 30);
+		String otr_screen_price = vehicle_sale_price.getText().trim().substring(2);
 		String otr = RemoveComma.of(otr_screen_price);
 		double otr_screen_price_converted = Double.parseDouble(otr);
 
@@ -414,13 +455,59 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		LO.print("Entering Part Exchange Values to screen");
 		System.out.println("Entering Part Exchange Values to screen");
 
-		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
+		LO.print("");
+		System.out.println("");
 
-		Click.sendKeys(driver, partExchangegiven, partExchangeGiven, 60);
+		LO.print("Started verifying Balance Due Value");
+		System.out.println("Started verifying Balance Due Value");
 
-		Click.sendKeys(driver, lessFinancesettlement, lessFinanceSettlement, 60);
+		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		Thread.sleep(4000);
+		// Click.on(driver, part_exchange_payment, 70);
+		LO.print("Clicked on Part Exchange panel");
+		System.out.println("Clicked on Part Exchange panel");
 
-		act.sendKeys(Keys.TAB).build().perform();
+		Click.on(driver, given_part_exchange_value, 20);
+
+		given_part_exchange_value.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// Clicking on outstanding finance and suppliersettling finance checkbox
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		// ExplicitWait.clickableElement(driver, check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// ExplicitWait.clickableElement(driver, check_box_supplier_setting_finance,
+		// 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("");
 		System.out.println("");
@@ -441,10 +528,10 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		LO.print("Balance To Finance Expected is =" + balance_to_finance_expected);
 		System.out.println("Balance To Finance Expected is =" + balance_to_finance_expected);
 
-		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);
+		ExplicitWait.visibleElement(driver, balance_to_finance, 20);
 
 		double balance_to_finance_actual = Double
-				.parseDouble(RemoveComma.of(customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
+				.parseDouble(RemoveComma.of(balance_to_finance.getText().trim().substring(2)));
 
 		LO.print("Balance To Finance Actual From Screen is =" + balance_to_finance_actual);
 		System.out.println("Balance To Finance Actual From Screen is =" + balance_to_finance_actual);
@@ -493,13 +580,12 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		double vehicleProfit_converted = Double.parseDouble(vehicleProfit);
 		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
-		
+
 		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 
-	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
-	       String vehicle_sales_price_copied =(String) clipboard.getData(DataFlavor.stringFlavor);
-	       
-	       
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String vehicle_sales_price_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+
 		double vehicle_sales_price_from_screen_converted = Double.parseDouble(vehicle_sales_price_copied);
 
 		double diff2 = Difference.of_two_Double_Values(otr_screen_price_converted,
@@ -526,13 +612,12 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		return vehicle_profit_status;
 	}
 
-	
-	public boolean customer_Quote_balance_to_finance_checking_broker_purchase_used_vehicle(String vehicleProfit, String quoteRef,
-			String quoteExpiryDate, String term, String milesperannum, String contractMileage, String cahDeposit,
-			String financeCharges, String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment,
-			String optionToPurchaseFee, String rflIncluded, String aPR, String commission2, String partExchangeActual,
-			String partExchangeGiven, String lessFinanceSettlement, String sheet_name)
-			throws InterruptedException, IOException {
+	public boolean customer_Quote_balance_to_finance_checking_broker_purchase_used_vehicle(String vehicleProfit,
+			String quoteRef, String quoteExpiryDate, String term, String milesperannum, String contractMileage,
+			String cashDeposit, String financeCharges, String noOfMonthlyPayments, String monthlyFinancePayment,
+			String finalBallonPayment, String optionToPurchaseFee, String rflIncluded, String aPR, String commission2,
+			String partExchangeActual, String given_part_exchange_value_from_excel,
+			String less_finance_settlement_from_excel, String sheet_name) throws InterruptedException, IOException {
 
 		ExplicitWait.visibleElement(driver, otrScreenPriceUsedVehicle, 30);
 		String otr_screen_price = otrScreenPriceUsedVehicle.getText().trim().substring(2);
@@ -541,7 +626,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		double on_road_price_for_invoice = GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
 
-	//	double diff = Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
+		// double diff = Difference.of_two_Double_Values(on_road_price_for_invoice,
+		// otr_screen_price_converted);
 
 		LO.print("");
 		System.out.println("");
@@ -567,7 +653,7 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		Click.on(driver, contract_miles, 20);
 
-		Click.sendKeys(driver, cashdeposit, cahDeposit, 60);
+		Click.sendKeys(driver, cashdeposit, cashDeposit, 60);
 
 		Click.sendKeys(driver, financecharges, financeCharges, 60);
 
@@ -599,16 +685,56 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		LO.print("");
 		System.out.println("");
 
-		LO.print("Entering Part Exchange Values to screen");
-		System.out.println("Entering Part Exchange Values to screen");
+		LO.print("Started verifying Balance Due Value");
+		System.out.println("Started verifying Balance Due Value");
 
-		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
+		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		Thread.sleep(4000);
+		// Click.on(driver, part_exchange_payment, 70);
+		LO.print("Clicked on Part Exchange panel");
+		System.out.println("Clicked on Part Exchange panel");
 
-		Click.sendKeys(driver, partExchangegiven, partExchangeGiven, 60);
+		Click.on(driver, given_part_exchange_value, 20);
 
-		Click.sendKeys(driver, lessFinancesettlement, lessFinanceSettlement, 60);
+		given_part_exchange_value.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		act.sendKeys(Keys.TAB).build().perform();
+		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// Clicking on outstanding finance and suppliersettling finance checkbox
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		// ExplicitWait.clickableElement(driver, check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// ExplicitWait.clickableElement(driver, check_box_supplier_setting_finance,
+		// 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("");
 		System.out.println("");
@@ -623,16 +749,16 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		Click.on(driver, customer_quote_summary, 60);
 
-		double balance_to_finance_expected = (otr_screen_price_converted - Double.parseDouble(cahDeposit)
+		double balance_to_finance_expected = (otr_screen_price_converted - Double.parseDouble(cashDeposit)
 				- part_exchange_profit_from_screen);
 
 		LO.print("Balance To Finance Expected is =" + balance_to_finance_expected);
 		System.out.println("Balance To Finance Expected is =" + balance_to_finance_expected);
 
-		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);
+		ExplicitWait.visibleElement(driver, balance_to_finance, 20);
 
 		double balance_to_finance_actual = Double
-				.parseDouble(RemoveComma.of(customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
+				.parseDouble(RemoveComma.of(balance_to_finance.getText().trim().substring(2)));
 
 		LO.print("Balance To Finance Actual From Screen is =" + balance_to_finance_actual);
 		System.out.println("Balance To Finance Actual From Screen is =" + balance_to_finance_actual);
@@ -651,5 +777,4 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		return balance_to_finance_status;
 	}
 
-	
 }

@@ -28,36 +28,34 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
-	
 
-	//vehicle_discount_cost_price
+	// vehicle_discount_cost_price
 	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]//div//p")
-		private WebElement vehicle_discount_cost_price;
+	private WebElement vehicle_discount_cost_price;
 
-	//vehicle_additional_discount_cost_price
+	// vehicle_additional_discount_cost_price
 	@FindBy(xpath = "(//*[@id='bdiscountvalue']//ancestor::div[3]//div)[1]")
-		private WebElement vehicle_additional_discount_cost_price;
-		
-		
-		//paint_discount_cost_price
+	private WebElement vehicle_additional_discount_cost_price;
+
+	// paint_discount_cost_price
 	@FindBy(xpath = "(//*[@id='pdiscountper']//ancestor::div[3]//div)[1]")
-		private WebElement paint_discount_cost_price;
+	private WebElement paint_discount_cost_price;
 
-	//paint_additional_discount_cost_price
+	// paint_additional_discount_cost_price
 	@FindBy(xpath = "(//*[@id='pdiscountvalue']//ancestor::div[3]//div)[1]")
-		private WebElement paint_additional_discount_cost_price;
-		
-		//options_discount_cost_price
-	@FindBy(xpath = "(//*[@id='odiscount']//ancestor::div[3]//div)[1]")
-		private WebElement options_discount_cost_price;
+	private WebElement paint_additional_discount_cost_price;
 
-	//options_additional_discount_cost_price
+	// options_discount_cost_price
+	@FindBy(xpath = "(//*[@id='odiscount']//ancestor::div[3]//div)[1]")
+	private WebElement options_discount_cost_price;
+
+	// options_additional_discount_cost_price
 	@FindBy(xpath = "(//*[@id='odiscountvalue']//ancestor::div[3]//div)[1]")
-		private WebElement options_additional_discount_cost_price;
+	private WebElement options_additional_discount_cost_price;
 
 	@FindBy(xpath = "//input[@id='profit']")
 	private WebElement vehicleprofit;
-	
+
 	@FindBy(xpath = "//input[@id='profit']")
 	private WebElement vehicle_profit_input;
 
@@ -130,7 +128,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[9]/div[2]/p")
 	private WebElement otrScreenPrice;
 
-	@FindBy(xpath = "//*[@id='collapseTwo']/div/div[2]/div[10]/div[3]/p")
+	@FindBy(xpath = "//*[@class='salepricerighttpart']//*[normalize-space()='Vehicle sales price']//ancestor::div[1]//div[3]")
 	private WebElement vehicle_sale_price;
 
 	@FindBy(xpath = "//input[@id='pencePerExcessMileageMaintenance']")
@@ -154,25 +152,20 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),' Customer quote summary ')]")
 	private WebElement customer_quote_summary;
 
-	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[3]/div/span")
-	private WebElement customer_quote_summary_balance_to_finance;
+	@FindBy(xpath = "//app-part-exchange-broker//*[normalize-space()='Balance to finance']//ancestor::div[1]//div//p//strong")
+	private WebElement balance_to_finance;
 
-	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[4]/span[1]")
+	@FindBy(xpath = "//*[normalize-space()='Part exchange']//ancestor::div[1]//div//p//strong")
 	private WebElement part_exchange_profit;
 
-	@FindBy(xpath = "//*[@id='partExchange_2']/div/div/div[1]/ul/li[3]/span[2]")
+	@FindBy(xpath = "//*[normalize-space()='Net part exchange allowance']//ancestor::div[1]//div//p//strong")
 	private WebElement part_exchange_value;
-	
+
 	@FindBy(xpath = "((//*[normalize-space()='On the road price']//ancestor::div[1])[1])//div[2]")
-	private WebElement otr_cost_price;	
-	
-	
-@FindBy(xpath = "//*[@name='salesTotal']")
+	private WebElement otr_cost_price;
+
+	@FindBy(xpath = "//*[@name='salesTotal']")
 	private WebElement sales_total_input;
-
-	
-
-
 
 	public CustomerQuotePageBrokerPCPPage() {
 		PageFactory.initElements(driver, this);
@@ -290,8 +283,8 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 			String partExchangeGiven, String lessFinanceSettlement, String sheet_name)
 			throws InterruptedException, IOException {
 
-		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
-		String otr_screen_price = otrScreenPrice.getText().trim().substring(2);
+		ExplicitWait.visibleElement(driver, vehicle_sale_price, 30);
+		String otr_screen_price = vehicle_sale_price.getText().trim().substring(2);
 		String otr = RemoveComma.of(otr_screen_price);
 		double otr_screen_price_converted = Double.parseDouble(otr);
 
@@ -385,10 +378,10 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		LO.print("Balance To Finance Expected is =" + balance_to_finance_expected);
 		System.out.println("Balance To Finance Expected is =" + balance_to_finance_expected);
 
-		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);
+		ExplicitWait.visibleElement(driver, balance_to_finance, 20);
 
 		double balance_to_finance_actual = Double
-				.parseDouble(RemoveComma.of(customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
+				.parseDouble(RemoveComma.of(balance_to_finance.getText().trim().substring(2)));
 
 		LO.print("Balance To Finance Actual From Screen is =" + balance_to_finance_actual);
 		System.out.println("Balance To Finance Actual From Screen is =" + balance_to_finance_actual);
@@ -470,8 +463,8 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 			String partExchangeActual, String partExchangeGiven, String lessFinanceSettlement, String sheet_name)
 			throws InterruptedException, IOException {
 
-		ExplicitWait.visibleElement(driver, otrScreenPrice, 30);
-		String otr_screen_price = otrScreenPrice.getText().trim().substring(2);
+		ExplicitWait.visibleElement(driver, vehicle_sale_price, 30);
+		String otr_screen_price = vehicle_sale_price.getText().trim().substring(2);
 		String otr = RemoveComma.of(otr_screen_price);
 		double otr_screen_price_converted = Double.parseDouble(otr);
 
@@ -569,10 +562,10 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		LO.print("Balance To Finance Expected is =" + balance_to_finance_expected);
 		System.out.println("Balance To Finance Expected is =" + balance_to_finance_expected);
 
-		ExplicitWait.visibleElement(driver, customer_quote_summary_balance_to_finance, 20);
+		ExplicitWait.visibleElement(driver, balance_to_finance, 20);
 
 		double balance_to_finance_actual = Double
-				.parseDouble(RemoveComma.of(customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
+				.parseDouble(RemoveComma.of(balance_to_finance.getText().trim().substring(2)));
 
 		LO.print("Balance To Finance Actual From Screen is =" + balance_to_finance_actual);
 		System.out.println("Balance To Finance Actual From Screen is =" + balance_to_finance_actual);

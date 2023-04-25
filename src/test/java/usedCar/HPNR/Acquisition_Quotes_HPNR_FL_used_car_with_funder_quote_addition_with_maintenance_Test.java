@@ -135,18 +135,15 @@ public class Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_with
 		System.out.println("");
 
 		boolean monthly_finance_rental = obj_customer_quote_page
-				.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on_with_maintenance(
+				.customer_quote_monthly_finance_rental_value_verification_with_part_exchange_with_maintenance(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						matrix_upsell, part_exchange_status, target_rental, sheet_name);
 
 		Assert.assertTrue(monthly_finance_rental);
 
-		boolean balance_due_value = obj_customer_quote_page.customer_quote_part_balance_due_value_verification(
-				actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
-				less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, matrix_upsell,
-				part_exchange_status, target_rental, sheet_name);
-
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		
 		Assert.assertTrue(balance_due_value);
 
 		boolean monthly_rental_values_on_updating_upsell_value = obj_customer_quote_page
@@ -174,7 +171,7 @@ public class Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_with
 			String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_BCHPage();
 
@@ -184,6 +181,10 @@ public class Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_with
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_with_maintenance_for_funder(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean balance_due_value = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value);
 
 		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
@@ -201,10 +202,14 @@ public class Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_with
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_with_maintenance_for_funder(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+		
+		boolean balance_due_value1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value1);
 
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		Assert.assertTrue(quote_summary_customer_quote_calculation1);
 
 		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
 				.quote_summary_configuration_value_verification_with_maintenance_for_funder(sheet_name);

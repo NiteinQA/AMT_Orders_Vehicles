@@ -186,13 +186,13 @@ public class Acquisition_Quotes_HPNR_FL_without_maintenance_Test extends TestBas
 		System.out.println("");
 		System.out.println("");
 		
-		boolean monthly_rental_values_with_ballon_payment = obj_customer_quote_page
-				.check_monthly_finance_payment_with_balloon_payment_on_off_without_maintenance(sheet_name);
-
-		Assert.assertTrue(monthly_rental_values_with_ballon_payment);
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due_value);
+		
 		
 		System.out.println("");
 		System.out.println("");
+		
 		
 		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(matrix_upsell, sheet_name);
 
@@ -201,15 +201,15 @@ public class Acquisition_Quotes_HPNR_FL_without_maintenance_Test extends TestBas
 		System.out.println("");
 		System.out.println("");
 		
-//		boolean monthly_rental_values_on_updating_final_balloon_payment_value = obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_final_balloon_payment_without_maintenance(sheet_name);
-//		Assert.assertTrue(monthly_rental_values_on_updating_final_balloon_payment_value);
+		boolean monthly_rental_values_on_updating_final_balloon_payment_value = obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_final_balloon_payment_without_maintenance(sheet_name);
+		Assert.assertTrue(monthly_rental_values_on_updating_final_balloon_payment_value);
 
 
-//
-//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-//				.customer_Quote_HPNR_FL_for_all_payment_option_without_maintenance_calculation(initial_payment,
-//						sheet_name);
-//		Assert.assertTrue(cutomer_quote_monthly_rental);
+
+		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+				.customer_Quote_HPNR_FL_for_all_payment_option_without_maintenance_calculation(initial_payment,
+						sheet_name);
+		Assert.assertTrue(cutomer_quote_monthly_rental);
 
 	}
 
@@ -224,45 +224,85 @@ public class Acquisition_Quotes_HPNR_FL_without_maintenance_Test extends TestBas
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_FL_Page();
 
 		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
-
+		
+		System.out.println("");
+		System.out.println("");
+		
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		System.out.println("");
+		System.out.println("");
+		
+		boolean balance_due = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due);
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean quote_summary_configuration_value_check = obj_quote_summary_page
 				.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_configuration_value_check);
+		
+		System.out.println("");
+		System.out.println("");
 
 		obj_quote_summary_page.save_quote();
 
 		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation1);
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+		
+		System.out.println("");
+		System.out.println("");
+		
+		boolean balance_due1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		Assert.assertTrue(balance_due1);
+		
+		System.out.println("");
+		System.out.println("");
+		
 
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_customer_quote_calculation1);
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
 				.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_configuration_value_check1);
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean value_check_after_Base_Int_change = obj_quote_summary_page
 				.quote_summary_edit_base_int_rate_value_verification_without_maintenance(sheet_name);
 		Assert.assertTrue(value_check_after_Base_Int_change);
+		
+		System.out.println("");
+		System.out.println("");
 
 		boolean value_check_after_Finance_margin_change = obj_quote_summary_page
 				.quote_summary_edit_finance_margin_value_verification(sheet_name);

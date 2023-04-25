@@ -150,6 +150,10 @@ public class Acquisition_Quotes_HPNR_BCH_used_LCV_without_maintenance_Test exten
 						sheet_name);
 
 		Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
+		
+		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value);
 
 		boolean monthly_rental_values_on_updating_upsell_value = obj_customer_quote_page
 				.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(
@@ -175,7 +179,7 @@ public class Acquisition_Quotes_HPNR_BCH_used_LCV_without_maintenance_Test exten
 			String security_deposit, String matrix_upsell, String referrer_upsell, String add_terms, String add_mileage,
 			String maintenance_required, String maintenance_margin, String initial_payment, String part_exchange_status,
 			String target_rental, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_BCHPage();
 
@@ -186,6 +190,10 @@ public class Acquisition_Quotes_HPNR_BCH_used_LCV_without_maintenance_Test exten
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
 		// Assert.assertTrue(quote_summary_holding_cost_calculation);
+		
+		boolean balance_due_value = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value);
 
 		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
@@ -204,6 +212,10 @@ public class Acquisition_Quotes_HPNR_BCH_used_LCV_without_maintenance_Test exten
 		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
 				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+		
+		boolean balance_due_value1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value1);
 
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name); // Assert.assertTrue(quote_summary_customer_quote_calculation);

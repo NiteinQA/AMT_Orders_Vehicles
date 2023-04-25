@@ -144,7 +144,7 @@ public class Acquisition_Quotes_BCH_BCH_used_LCV_without_maintenance_Test extend
 		LO.print("****************************************************************");
 
 		
-		boolean finance_rental_with_part_exchange = obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_toggle_on_without_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
+		boolean finance_rental_with_part_exchange = obj_customer_quote_page.check_monthly_finance_rental_with_part_exchange_without_maintenance(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel, sheet_name);
 		 
 		Assert.assertTrue(finance_rental_with_part_exchange);
 		
@@ -166,17 +166,7 @@ public class Acquisition_Quotes_BCH_BCH_used_LCV_without_maintenance_Test extend
 		LO.print("*************Assertion Passed For Balance Due Value*************");
 		LO.print("****************************************************************");
 		
-		boolean monthly_finance_rental =obj_customer_quote_page.customer_quote_monthly_finance_rental_value_verification_when_part_exchange_toggle_on(actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel,
-				document_fee_from_excel, matrix_upsell, part_exchange_status, target_rental, sheet_name);
-		
-		Assert.assertTrue(monthly_finance_rental);
-		
-		System.out.println("Assertion Passed For Monthly Finance Rental with part Exchange On");
-		System.out.println("****************************************************************");
-
-		LO.print("Assertion Passed For Monthly Finance Rental with part Exchange On");
-		LO.print("****************************************************************");
-		
+	
 		
 		boolean monthly_rental_values_on_updating_upsell_value =obj_customer_quote_page.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(matrix_upsell, sheet_name);
 

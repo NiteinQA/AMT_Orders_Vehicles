@@ -8,6 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_HPRPage;
 import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_PCP_Page;
 import com.amt.HoldingCostPages.HoldingCost_HPNR_PCP_Page;
 import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_PCP_Page;
@@ -30,7 +31,7 @@ public class Acquisition_Quotes_HPNR_PCP_without_maintenance_Test extends TestBa
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_HPNR_PCP_Page obj_contract_types_and_OTR_page ;
 	HoldingCost_HPNR_PCP_Page obj_holding_cost;
-	CustomerQuotePage_HPNR_PCP_Page obj_customer_quote_page;
+	CustomerQuotePage_HPNR_HPRPage obj_customer_quote_page;
 	QuoteSummary_HPNR_PCP_Page obj_quote_summary_page;
 	
 
@@ -110,7 +111,7 @@ public class Acquisition_Quotes_HPNR_PCP_without_maintenance_Test extends TestBa
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 
-		obj_customer_quote_page = new CustomerQuotePage_HPNR_PCP_Page();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 		
 		boolean monthly_finance_payment_check =obj_customer_quote_page.check_monthly_finance_payment_on_customer_quote(driver,maintenance_status, matrix_credit_type, balloon_payment_status,order_deposit, finance_deposit,document_fee, sheet_name);
 		Assert.assertTrue(monthly_finance_payment_check);
@@ -134,7 +135,7 @@ public class Acquisition_Quotes_HPNR_PCP_without_maintenance_Test extends TestBa
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 
-		obj_customer_quote_page = new CustomerQuotePage_HPNR_PCP_Page();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 		
 
 		
@@ -157,7 +158,7 @@ public class Acquisition_Quotes_HPNR_PCP_without_maintenance_Test extends TestBa
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 
-		obj_customer_quote_page = new CustomerQuotePage_HPNR_PCP_Page();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 		
 		
 		boolean monthlyFinanceandBalanceToFinanceCheck = obj_customer_quote_page.put_part_exchange_values_and_check_monthly_finance_payment(part_exchange_actual, part_exchange_given, less_finance_settlement, order_deposit, finance_deposit, sheet_name);

@@ -90,7 +90,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 	@FindBy(xpath = "//div[@class='partex-col docfee-center']//input[@name='DocumentFee']")
 	private WebElement document_fee;
 
-	@FindBy(xpath = "//div[@class='bal-finance']/span")
+	@FindBy(xpath = "//*[normalize-space()='Balance to finance']//ancestor::div[1]//div//p//strong")
 	private WebElement balance_to_finance_value;
 
 	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[1]/label")
@@ -152,8 +152,8 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Basic cash price']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_summary_basic_cash_price;
-	
-	@FindBy(xpath = "//div[@class='acc-head havebtns']")
+
+	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
 	private WebElement holding_cost_summary;
 
 	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]//p//strong")
@@ -165,8 +165,8 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 	public boolean check_monthly_finance_payment_on_customer_quote(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
-			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
+			String document_fee, String sheet_name) throws InterruptedException, IOException,
+			UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -451,16 +451,14 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 			ClassNotFoundException {
 
 		Thread.sleep(2000);
-		
-		
-	     Click.on(driver, holding_cost_summary, 30);
-		 
-		 ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
-		 
-		 double totalCapMaintenanceValue = Double.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
 
-		 
-		
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+
+		double totalCapMaintenanceValue = Double
+				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
+
 		Click.on(driver, customer_quote, 30);
 
 		LO.print("***********Entered in Customer Quote page ***********");
@@ -468,9 +466,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-	   Actions act = new Actions(driver);	
-		 
-		if (totalCapMaintenanceValue==0) {
+		Actions act = new Actions(driver);
+
+		if (totalCapMaintenanceValue == 0) {
 
 			act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
 					Keys.TAB, Keys.ENTER).build().perform();
@@ -1341,8 +1339,8 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 	public boolean check_monthly_payment_on_customer_quote_with_maintenance(WebDriver driver, String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
-			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
+			String document_fee, String sheet_name) throws InterruptedException, IOException,
+			UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 		Thread.sleep(2000);
 
@@ -1827,7 +1825,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
-		
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
 		double monthly_finance_payment_actual_from_excel = obj_read_excel_calculation_page
@@ -1872,9 +1870,8 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		Click.on(driver, balloon_payment_toggle, 40);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 40);
 
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 40);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));

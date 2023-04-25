@@ -211,7 +211,7 @@ public class Acquisition_Quotes_HPNR_FL_LCV_with_maintenance_Test extends TestBa
 		System.out.println("");
 
 		boolean monthlyFinanceAndMaintenanceWithPartExchange = obj_customer_quote_page
-				.check_monthly_finance_rental_with_part_exchange_toggle_on_with_maintenance(
+				.check_monthly_finance_rental_with_part_exchange_with_maintenance(
 						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
 						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
 						sheet_name);
@@ -221,9 +221,9 @@ public class Acquisition_Quotes_HPNR_FL_LCV_with_maintenance_Test extends TestBa
 		System.out.println("");
 		System.out.println("");
 		
-		boolean monthly_rental_values_with_balloon_toggle_on_off = obj_customer_quote_page.check_monthly_finance_payment_with_balloon_payment_on_off_with_maintenance(sheet_name);
+		boolean balance_due_value1 = obj_customer_quote_page.verify_balance_due_value(sheet_name);
 		
-		Assert.assertTrue(monthly_rental_values_with_balloon_toggle_on_off);
+		Assert.assertTrue(balance_due_value1);
 		
 		System.out.println("");
 		System.out.println("");

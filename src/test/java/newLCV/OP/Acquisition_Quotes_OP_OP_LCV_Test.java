@@ -101,7 +101,7 @@ public class Acquisition_Quotes_OP_OP_LCV_Test extends TestBase {
 		obj_customer_quote_page = new CustomerQuotePage_OP_OP_Page();
 		
 		
-		boolean monthlyTotalandBalanceToFinanceCheck = obj_customer_quote_page.put_part_exchange_values_and_check_monthly_finance_payment(part_exchange_actual, part_exchange_given, less_finance_settlement, order_deposit, finance_deposit, document_fee , sheet_name);
+		boolean monthlyTotalandBalanceToFinanceCheck = obj_customer_quote_page.put_part_exchange_values_and_check_pending_amount(part_exchange_actual, part_exchange_given, less_finance_settlement, order_deposit, finance_deposit, document_fee , sheet_name);
 	Assert.assertTrue(monthlyTotalandBalanceToFinanceCheck);
 
 	}

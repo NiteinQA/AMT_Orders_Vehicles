@@ -141,17 +141,17 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 	private WebElement quote_summary_customer_quote_summary_total_cash_price;
 
 	// Order deposit
-	@FindBy(xpath = "//*[normalize-space()='Order deposit']//ancestor::div[1]//div//strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-detail//*[normalize-space()='Order deposit']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_order_deposit;
 
 	// Finance deposit
-	@FindBy(xpath = "//*[normalize-space()='Finance deposit']//ancestor::div[1]//div//strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-detail//*[normalize-space()='Finance deposit']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_finance_deposit;
 
 	// Total deposit
-	@FindBy(xpath = "//*[normalize-space()='Total deposit']//ancestor::div[1]//div//strong")
+	@FindBy(xpath = "//app-purchase-customer-quote-summary-detail//*[normalize-space()='Total deposit']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_total_deposit;
-
+	
 	@FindBy(xpath = "//app-purchase-customer-quote-summary-detail//*[normalize-space()='Part exchange value']//ancestor::div[1]//div/p/strong")
 	private WebElement quote_summary_customer_quote_summary_part_exchange_value;
 
