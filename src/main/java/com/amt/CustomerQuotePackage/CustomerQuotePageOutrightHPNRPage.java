@@ -149,6 +149,9 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 
 	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
 	private WebElement holding_cost_summary;
+	
+	@FindBy(xpath = "//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select")
+	private WebElement matrix_credit_type_dropdown;
 
 	public CustomerQuotePageOutrightHPNRPage() {
 		PageFactory.initElements(driver, this);
@@ -889,9 +892,9 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.ENTER).build().perform();
+	       Click.on(driver, matrix_credit_type_dropdown , 50);
+	          
+	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
@@ -991,9 +994,9 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.ENTER).build().perform();
+	       Click.on(driver, matrix_credit_type_dropdown , 50);
+	          
+	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(3000);
 		try {

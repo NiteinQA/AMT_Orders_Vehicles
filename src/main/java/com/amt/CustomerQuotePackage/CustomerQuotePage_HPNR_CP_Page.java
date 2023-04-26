@@ -1496,14 +1496,10 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.ENTER).build().perform();
+	       Click.on(driver, matrix_credit_type_dropdown , 50);
+	          
+	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-//		WebElement creditDropdown = driver.findElement(By.xpath("//*[@id='collapseFirst']/div/div/div[2]/div/div/div/ng-select/div/div/div[1]"));
-//		new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(creditDropdown));
-//		jse = (JavascriptExecutor)driver;
-//		jse.executeScript("arguments[0].click();", creditDropdown);
 
 		Thread.sleep(3000);
 		try {
