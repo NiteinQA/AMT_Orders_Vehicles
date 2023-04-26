@@ -1993,7 +1993,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(" " + dropdown_option + " ");
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(107).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
-		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue(maintenance_required);
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(110).getCell(3).setCellValue(Double.parseDouble(initial_payment));
 		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue("NO");
@@ -2008,7 +2008,7 @@ public class ReadExcelCalculation extends TestBase {
 		LO.print("Reading  Monthly Finance Rental from  Excel   -started");
 		System.out.println("Reading  Monthly Finance Rental from  Excel   -started");
 
-		double monthly_finance_rental_expected = GetExcelFormulaValue.get_formula_value(96, 1, sheet_name);
+		double monthly_finance_rental_expected = GetExcelFormulaValue.get_formula_value(95, 1, sheet_name);
 
 		LO.print("Reading  Monthly Finance Rental from  Excel   -completed");
 		System.out.println("Reading  Monthly Finance Rental from  Excel   -completed");
@@ -2074,7 +2074,7 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(" " + dropdown_option + " ");
 		wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(107).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
-		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue(maintenance_required);
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("YES");
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
 		wb.getSheet(sheet_name).getRow(110).getCell(3).setCellValue(Double.parseDouble(initial_payment));
 		wb.getSheet(sheet_name).getRow(115).getCell(1).setCellValue("NO");

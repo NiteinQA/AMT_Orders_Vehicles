@@ -148,7 +148,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_residual_value_used;
 
-	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]//p//strong")
+	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p|//*[normalize-space()='Total CAP maint. value (ex. VAT) :']//ancestor::div[1]//p")
 	private WebElement total_cap_maintenance_value;
 
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
@@ -203,8 +203,11 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	private WebElement check_box_outstanding_finance;
 
 	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
-	private WebElement check_box_supplier_setting_finance;
+	private WebElement check_box_supplier_setting_finance;	
 
+	@FindBy(xpath = "//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select")
+	private WebElement matrix_credit_type_dropdown;
+	
 	public CustomerQuotePage_HPNR_HPRPage() {
 		PageFactory.initElements(driver, this);
 
@@ -394,9 +397,9 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.ENTER).build().perform();
+	       Click.on(driver, matrix_credit_type_dropdown , 50);
+	          
+	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
@@ -498,8 +501,9 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+	       Click.on(driver, matrix_credit_type_dropdown , 50);
+	          
+	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(3000);
 		try {
@@ -1404,9 +1408,9 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.ENTER).build().perform();
+	       Click.on(driver, matrix_credit_type_dropdown , 50);
+	          
+	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
@@ -1510,25 +1514,17 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		double totalCapMaintenanceValue = Double
 				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
 
+		
 		Click.on(driver, customer_quote, 30);
 
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Actions act = new Actions(driver);
-
-		if (totalCapMaintenanceValue == 0) {
-
-			act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-					Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
-
-		} else {
-			act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-					Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
-
-		}
+		
+		Click.on(driver, matrix_credit_type_dropdown, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
 
 		Thread.sleep(3000);
 		try {

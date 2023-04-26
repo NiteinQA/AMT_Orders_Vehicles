@@ -100,7 +100,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_residual_value_used;
 
-	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]//p//strong")
+	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p|//*[normalize-space()='Total CAP maint. value (ex. VAT) :']//ancestor::div[1]//p")
 	private WebElement total_cap_maintenance_value;
 
 	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
@@ -582,12 +582,25 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 			throws IOException, InterruptedException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
-		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 10);
+		Click.on(driver, holding_cost, 60);
 
-		double total_cap_maint_value = Double
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+
+
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+
+		double totalCapMaintenanceValue = Double
 				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
 
-		if (total_cap_maint_value == 0) {
+		Click.on(driver, customer_quote, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Actions act = new Actions(driver);
+
+		if (totalCapMaintenanceValue == 0) {
+
 			obj_read_excel_calculation_page = new ReadExcelCalculation();
 			Click.on(driver, customer_quote, 50);
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -603,7 +616,9 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 							document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
 							maintenance_required, maintenance_margin, initial_payment, part_exchange_status,
 							target_rental, sheet_name);
+
 		} else {
+
 			Click.on(driver, customer_quote, 50);
 
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -1042,6 +1057,8 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 			String upsell, String part_exchange_status, String target_rental, String sheet_name)
 			throws InterruptedException, IOException {
 
+		ExplicitWait.clickableElement(driver, holding_cost, 30);
+		
 		Click.on(driver, holding_cost, 60);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -1135,7 +1152,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 			FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 			wb.write(out);
 
-			double monthly_finance_rental_expected_with_part_exchange = GetExcelFormulaValue.get_formula_value(96, 1,
+			double monthly_finance_rental_expected_with_part_exchange = GetExcelFormulaValue.get_formula_value(95, 1,
 					sheet_name);
 
 			LO.print("Expected Monthly Finance Rental From Excel is ="
@@ -1556,6 +1573,8 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 	public boolean check_monthly_payments_on_updating_customer_quote_summary_upsell_value_with_maintenance(
 			String matrix_upsell, String sheet_name) throws IOException, InterruptedException {
 
+		ExplicitWait.clickableElement(driver, holding_cost, 30);
+		
 		Click.on(driver, holding_cost, 60);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -1574,9 +1593,9 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 		Actions act = new Actions(driver);
 
 		if (totalCapMaintenanceValue == 0) {
-			
+
 			Click.on(driver, customer_quote_summary, 30);
-				
+
 			ExplicitWait.visibleElement(driver, summary_upsell_input_field, 30);
 
 			double upsell = Double.parseDouble(matrix_upsell);
@@ -1641,7 +1660,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 		} else {
 
 			Click.on(driver, customer_quote_summary, 30);
-			
+
 			ExplicitWait.visibleElement(driver, summary_upsell_input_field, 30);
 
 			double upsell = Double.parseDouble(matrix_upsell);

@@ -617,17 +617,12 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 			String cashDeposit, String financeCharges, String noOfMonthlyPayments, String monthlyFinancePayment,
 			String finalBallonPayment, String optionToPurchaseFee, String rflIncluded, String aPR, String commission2,
 			String partExchangeActual, String given_part_exchange_value_from_excel,
-			String less_finance_settlement_from_excel, String sheet_name) throws InterruptedException, IOException {
+			String less_finance_settlement_from_excel, String sheet_name) throws InterruptedException, IOException, NumberFormatException, UnsupportedFlavorException {
 
-		ExplicitWait.visibleElement(driver, otrScreenPriceUsedVehicle, 30);
-		String otr_screen_price = otrScreenPriceUsedVehicle.getText().trim().substring(2);
-		String otr = RemoveComma.of(otr_screen_price);
-		double otr_screen_price_converted = Double.parseDouble(otr);
-
-		double on_road_price_for_invoice = GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
-
-		// double diff = Difference.of_two_Double_Values(on_road_price_for_invoice,
-		// otr_screen_price_converted);
+		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 30);
+		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		double vehicle_sales_price_copied = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
 
 		LO.print("");
 		System.out.println("");
@@ -749,7 +744,7 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 
 		Click.on(driver, customer_quote_summary, 60);
 
-		double balance_to_finance_expected = (otr_screen_price_converted - Double.parseDouble(cashDeposit)
+		double balance_to_finance_expected = (vehicle_sales_price_copied - Double.parseDouble(cashDeposit)
 				- part_exchange_profit_from_screen);
 
 		LO.print("Balance To Finance Expected is =" + balance_to_finance_expected);

@@ -3246,32 +3246,6 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 
-		LO.print("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
-		System.out.println("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
-
-		LO.print("holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
-		System.out.println(
-				"holding_cost_miles_per_annum_from_screen" + holding_cost_miles_per_annum_from_screen_converted);
-
-		LO.print("holding_cost_monthly_finance_cost_from_screen"
-				+ holding_cost_monthly_finance_cost_from_screen_converted);
-		System.out.println("holding_cost_monthly_finance_cost_from_screen"
-				+ holding_cost_monthly_finance_cost_from_screen_converted);
-
-		LO.print("holding_cost_monthly_maint_cost_used_from_screen"
-				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
-		System.out.println("holding_cost_monthly_maint_cost_used_from_screen"
-				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
-
-		LO.print("holding_cost_CAP_monthly_maint_cost_from_screen"
-				+ holding_cost_CAP_monthly_maint_cost_from_screen_converted);
-		System.out.println("holding_cost_CAP_monthly_maint_cost_from_screen"
-				+ holding_cost_CAP_monthly_maint_cost_from_screen_converted);
-
-		LO.print("holding_cost_total_monthly_holding_cost_from_screen ="
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
-		System.out.println("holding_cost_total_monthly_holding_cost_from_screen ="
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
 
 		double holding_cost_terms_from_excel = GetExcelFormulaValue.get_string_value(52, 0, sheet_name);
 		double holding_cost_miles_per_annum_from_excel = GetExcelFormulaValue.get_string_value(51, 1, sheet_name);
@@ -3296,6 +3270,55 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		double diff_total_monthly_holding_cost = Difference.of_two_Double_Values(
 				holding_cost_total_monthly_holding_cost_from_excel,
 				holding_cost_total_monthly_holding_cost_from_screen_converted);
+		
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Holding cost Terms from screen" + holding_cost_terms_from_screen_converted);
+		System.out.println("Holding cost Terms from screen is " + holding_cost_terms_from_screen_converted);
+
+		LO.print("Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
+		System.out.println(
+				"Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
+
+		LO.print("Holding cost monthly finance cost from screen is "
+				+ holding_cost_monthly_finance_cost_from_screen_converted);
+		System.out.println("Holding cost monthly finance cost from screen is "
+				+ holding_cost_monthly_finance_cost_from_screen_converted);
+
+		LO.print("Holding cost monthly maint cost used from screen is "
+				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
+		System.out.println("Holding cost monthly maint cost used from screen is "
+				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
+
+		LO.print("Holding cost total monthly holding cost from screen is "
+				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
+		System.out.println("Holding cost total monthly holding cost from screen is "
+				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+		System.out.println("Holding cost Terms from excel is " + holding_cost_terms_from_excel);
+
+		LO.print("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+		System.out.println("Holding cost miles per annum from excel is " + holding_cost_miles_per_annum_from_excel);
+
+		LO.print("Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+		System.out.println(
+				"Holding cost monthly finance cost from excel is " + holding_cost_monthly_finance_cost_from_excel);
+
+		LO.print("Holding cost monthly maint cost used from excel is "
+				+ holding_cost_monthly_maint_cost_used_from_excel);
+		System.out.println("Holding cost monthly maint cost used from excel is "
+				+ holding_cost_monthly_maint_cost_used_from_excel);
+		
+		
+		LO.print("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+		System.out.println("Holding cost total monthly holding cost from excel is "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
 
 		int count = 0;
 		boolean status = false;

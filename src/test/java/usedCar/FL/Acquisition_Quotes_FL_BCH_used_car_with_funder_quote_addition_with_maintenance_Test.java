@@ -199,7 +199,7 @@ public class Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_with_
 
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		Assert.assertTrue(quote_summary_customer_quote_calculation1);
 
 		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
 				.quote_summary_configuration_value_verification_with_maintenance_for_funder(sheet_name);

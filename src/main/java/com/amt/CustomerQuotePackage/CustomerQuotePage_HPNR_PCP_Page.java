@@ -150,7 +150,7 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
 	private WebElement holding_cost_summary;
 
-	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]//p//strong")
+	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p|//*[normalize-space()='Total CAP maint. value (ex. VAT) :']//ancestor::div[1]//p")
 	private WebElement total_cap_maintenance_value;
 
 	// part Exchage elements
@@ -199,6 +199,9 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
 	private WebElement check_box_supplier_setting_finance;
+	
+	@FindBy(xpath = "//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select")
+	private WebElement matrix_credit_type_dropdown;
 
 	public CustomerQuotePage_HPNR_PCP_Page() {
 		PageFactory.initElements(driver, this);
@@ -233,8 +236,9 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 
 		if (totalCapMaintenanceValue == 0) {
 
-			act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-					Keys.TAB, Keys.ENTER).build().perform();
+		       Click.on(driver, matrix_credit_type_dropdown , 50);
+		          
+		          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			Thread.sleep(5000);
 			try {
@@ -310,8 +314,9 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 
 		else {
 
-			act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-					Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+		       Click.on(driver, matrix_credit_type_dropdown , 50);
+		          
+		          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			Thread.sleep(5000);
 			try {
@@ -426,8 +431,10 @@ public class CustomerQuotePage_HPNR_PCP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB,
-				Keys.TAB, Keys.ENTER).build().perform();
+
+        Click.on(driver, matrix_credit_type_dropdown , 50);
+        
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
