@@ -80,7 +80,7 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 	@FindBy(xpath = "//button[@class='btn btn-outline-secondary px-4 mr-2']")
 	private WebElement add_funder_quote;
 
-	@FindBy(xpath = "//label[@class='switch ml-1 mr-1']//span[@class='slider round sliderRed']")
+	@FindBy(xpath = "//*[contains(text(),'Holding cost based on funder quote')]//label//span")
 	private WebElement holding_cost_based_on_funder_quote_toggle_button;
 
 	@FindBy(xpath = "//input[@role='combobox']")

@@ -30,6 +30,10 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 	Clipboard clipboard;
 
+	// quote summary
+	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
+	private WebElement quote_summary;
+
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
 
@@ -63,8 +67,14 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-all-customer-quotes[1]/div[1]/app-aquisition-hire-agreement[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[6]/div[4]")
 	private WebElement customer_quote_matrix_default_cell;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_maintenance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_total_rental;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[2]/div[3]/button[1]")
 	private WebElement save_button;
@@ -75,7 +85,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 	@FindBy(xpath = "//*[@id='otrPartExchange']")
 	private WebElement actual_part_exchange_value;
 
-	@FindBy(xpath = "//*[@id='partExchnage']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
@@ -95,9 +105,6 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[1]/label")
 	private WebElement customer_quote_maintenance_toggle_button;
-
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[5]/div/p/strong")
-	private WebElement customer_quote_monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
@@ -158,9 +165,12 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p|//*[normalize-space()='Total CAP maint. value (ex. VAT) :']//ancestor::div[1]//p")
 	private WebElement total_cap_maintenance_value;
-	
+
 	@FindBy(xpath = "//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select")
 	private WebElement matrix_credit_type_dropdown;
+
+	@FindBy(xpath = "//*[normalize-space()='Term']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_summary_terms;
 
 	public CustomerQuotePage_HPNR_HPNRPage() {
 		PageFactory.initElements(driver, this);
@@ -182,9 +192,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-	       Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, matrix_credit_type_dropdown, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
@@ -207,9 +217,13 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
 		System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
 
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(matrix_credit_type,
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(term, matrix_credit_type,
 				sheet_name);
 
 		ExplicitWait.visibleElement(driver, vehicle_discount, 30);
@@ -257,9 +271,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 						options_discount_copied, vehicle_additional_copied, paint_additional_copied,
 						options_additional_copied, sheet_name);
 
-		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+		LO.print("Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 		System.out.println(
-				"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+				"Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
 				monthly_finance_payment_expected_from_excel);
@@ -287,9 +301,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-	       Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, matrix_credit_type_dropdown, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
@@ -316,12 +330,28 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(term,
 				document_fee, matrix_credit_type, sheet_name);
 
-		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+	
 
 		Thread.sleep(3000);
+		
+		Click.on(driver, quote_summary, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		Click.on(driver, customer_quote, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
@@ -334,9 +364,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 				.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
 						balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
 
-		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+		LO.print("Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 		System.out.println(
-				"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+				"Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
 				monthly_finance_payment_expected_from_excel);
@@ -364,10 +394,10 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-	       Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-	        
+		Click.on(driver, matrix_credit_type_dropdown, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
 		Thread.sleep(5000);
 		try {
 			List<WebElement> list = driver
@@ -397,14 +427,28 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(term,
 				document_fee, matrix_credit_type, sheet_name);
 
+
+
+		Thread.sleep(3000);
+
+		Click.on(driver, quote_summary, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, customer_quote, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
-
-		Thread.sleep(3000);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
@@ -420,9 +464,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 				.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
 						balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
 
-		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+		LO.print("Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 		System.out.println(
-				"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+				"Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 
 		LO.print("Actual Monthly Maintenance Payment from screen is " + monthly_maintenance_payment_actual_from_screen);
 		System.out.println(
@@ -475,8 +519,8 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		if (totalCapMaintenanceValue == 0) {
 
-	        Click.on(driver, matrix_credit_type_dropdown, 30);
-	        
+			Click.on(driver, matrix_credit_type_dropdown, 30);
+
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			Thread.sleep(5000);
@@ -497,6 +541,21 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+
+				List<WebElement> list = driver
+						.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+
+				Thread.sleep(3000);
+
+				for (WebElement e1 : list) {
+
+					if (e1.getText().equalsIgnoreCase(matrix_credit_type)) {
+
+						Click.on(driver, e1, 20);
+						Thread.sleep(3000);
+						break;
+					}
+				}
 			}
 
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -514,13 +573,19 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 			double basic_cash_price_from_screen = Double
 					.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
 
+			ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+			String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
+			System.out.println("term " + term);
+
 			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
 			obj_read_excel_calculation_page
 					.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);
 
 			obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
-					document_fee, matrix_credit_type, sheet_name);
+					term, document_fee, matrix_credit_type, sheet_name);
 
 			ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
@@ -537,9 +602,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 					.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
 							balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
 
-			LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+			LO.print("Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 			System.out.println(
-					"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+					"Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 
 			double diff1 = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
 					monthly_finance_payment_expected_from_excel);
@@ -553,8 +618,8 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		else {
 
-	        Click.on(driver, matrix_credit_type_dropdown, 30);
-	        
+			Click.on(driver, matrix_credit_type_dropdown, 30);
+
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			Thread.sleep(5000);
@@ -575,6 +640,21 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+
+				List<WebElement> list = driver
+						.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+
+				Thread.sleep(3000);
+
+				for (WebElement e1 : list) {
+
+					if (e1.getText().equalsIgnoreCase(matrix_credit_type)) {
+
+						Click.on(driver, e1, 20);
+						Thread.sleep(3000);
+						break;
+					}
+				}
 			}
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 			LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
@@ -593,13 +673,17 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 			double basic_cash_price_from_screen = Double
 					.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
 
+			ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+			String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
 			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
 			obj_read_excel_calculation_page
 					.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);
 
 			obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
-					document_fee, matrix_credit_type, sheet_name);
+					term, document_fee, matrix_credit_type, sheet_name);
 
 			ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
@@ -621,9 +705,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 					.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
 							balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
 
-			LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+			LO.print("Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 			System.out.println(
-					"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+					"Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 
 			LO.print("Actual Monthly Maintenance Payment from screen is "
 					+ monthly_maintenance_payment_actual_from_screen);
@@ -650,7 +734,6 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 			}
 			return status;
 		}
-
 	}
 
 	public boolean check_monthly_finance_payment_on_customer_quote_for_used_car_with_funder_quote_addition_without_maintenance(
@@ -670,14 +753,14 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-        Click.on(driver, matrix_credit_type_dropdown, 30);
-        
+		Click.on(driver, matrix_credit_type_dropdown, 30);
+
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
-			List<WebElement> list = driver
-					.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+			List<WebElement> list = driver.findElements(By.xpath(
+					"//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select//ng-dropdown-panel//div//div//span"));
 
 			Thread.sleep(3000);
 
@@ -692,6 +775,21 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+
+			List<WebElement> list = driver.findElements(By.xpath(
+					"//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select//ng-dropdown-panel//div//div//span"));
+
+			Thread.sleep(3000);
+
+			for (WebElement e1 : list) {
+
+				if (e1.getText().equalsIgnoreCase(matrix_credit_type)) {
+
+					Click.on(driver, e1, 20);
+					Thread.sleep(3000);
+					break;
+				}
+			}
 		}
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
@@ -706,12 +804,16 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		double basic_cash_price_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
 
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
 		obj_read_excel_calculation_page
 				.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(term,
 				document_fee, matrix_credit_type, sheet_name);
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
@@ -729,9 +831,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 				.get_monthly_finance_payment_from_excel_for_funder_addition(maintenance_status, matrix_credit_type,
 						balloon_payment_status, order_deposit, finance_deposit, document_fee, sheet_name);
 
-		LO.print("Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+		LO.print("Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 		System.out.println(
-				"Expected Monthly Finannce Rental from excel is " + monthly_finance_payment_expected_from_excel);
+				"Expected Monthly Finance Rental from excel is " + monthly_finance_payment_expected_from_excel);
 
 		double diff1 = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
 				monthly_finance_payment_expected_from_excel);
@@ -1350,9 +1452,9 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-	       Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, matrix_credit_type_dropdown, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(3000);
 		try {
@@ -1381,9 +1483,13 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(matrix_credit_type,
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(term, matrix_credit_type,
 				sheet_name);
 
 		ExplicitWait.visibleElement(driver, vehicle_discount, 30);
@@ -1794,6 +1900,22 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
 				monthly_finance_payment_expected_from_excel);
 
+		LO.print("Actual Monthly Finance Payment after making balloon payment toggle button off is "
+				+ monthly_finance_payment_actual_from_screen);
+		System.out.println("Actual Monthly Finance Payment after making balloon payment toggle button off is "
+				+ monthly_finance_payment_actual_from_screen);
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Expected Monthly Finance Payment after making balloon payment toggle button off is "
+				+ monthly_finance_payment_expected_from_excel);
+		System.out.println("Expected Finance Payment after making balloon payment toggle button off is "
+				+ monthly_finance_payment_expected_from_excel);
+
+		LO.print("");
+		System.out.println("");
+
 		boolean status = false;
 		if (diff < 0.2) {
 			status = true;
@@ -1820,32 +1942,32 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 40);
 
-		double monthly_finance_payment_actual_from_screen = Double
+		double monthly_total_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		double monthly_finance_payment_actual_from_excel = obj_read_excel_calculation_page
+		double monthly_total_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_total_payment_after_making_balloon_payment_off(sheet_name);
 
 		LO.print("Actual Monthly Finance Payment after making balloon payment toggle button off is "
-				+ monthly_finance_payment_actual_from_excel);
+				+ monthly_total_payment_actual_from_screen);
 		System.out.println("Actual Monthly Finance Payment after making balloon payment toggle button off is "
-				+ monthly_finance_payment_actual_from_excel);
+				+ monthly_total_payment_actual_from_screen);
 
 		LO.print("");
 		System.out.println("");
 
 		LO.print("Expected Monthly Finance Payment after making balloon payment toggle button off is "
-				+ monthly_finance_payment_actual_from_excel);
-		System.out.println("Expected Finance Total Payment after making balloon payment toggle button off is "
-				+ monthly_finance_payment_actual_from_excel);
+				+ monthly_total_payment_expected_from_excel);
+		System.out.println("Expected Finance Payment after making balloon payment toggle button off is "
+				+ monthly_total_payment_expected_from_excel);
 
 		LO.print("");
 		System.out.println("");
 
-		double diff = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
-				monthly_finance_payment_actual_from_excel);
+		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
+				monthly_total_payment_expected_from_excel);
 
 		boolean status = false;
 		if (diff < 0.2) {
@@ -1880,6 +2002,22 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
 				monthly_finance_payment_expected_from_excel);
+
+		LO.print("Actual Monthly Finance Payment after making balloon payment toggle button off is "
+				+ monthly_finance_payment_actual_from_screen);
+		System.out.println("Actual Monthly Finance Payment after making balloon payment toggle button off is "
+				+ monthly_finance_payment_actual_from_screen);
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Expected Monthly Finance Payment after making balloon payment toggle button off is "
+				+ monthly_finance_payment_expected_from_excel);
+		System.out.println("Expected Finance Payment after making balloon payment toggle button off is "
+				+ monthly_finance_payment_expected_from_excel);
+
+		LO.print("");
+		System.out.println("");
 
 		boolean status = false;
 		if (diff < 0.2) {

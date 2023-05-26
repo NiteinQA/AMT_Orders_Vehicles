@@ -184,7 +184,7 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 	@FindBy(xpath = "//*[@id='mileage']")
 	private WebElement mileage;
 
-	@FindBy(xpath = "//*[@id='partExchnage']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
@@ -354,9 +354,13 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		ExplicitWait.visibleElement(driver, otr_cost_price, 30);
 		double otrCostPrice = Double.parseDouble(RemoveComma.of(otr_cost_price.getText().trim().substring(2)));
 
+		Thread.sleep(2000);
+		
 		// code for sending input to sales total input
 		ExplicitWait.visibleElement(driver, sales_total_input, 30);
 		sales_total_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		
+		Thread.sleep(2000);
 		double salesPricePercentage = Double.parseDouble(sales_price_percentage);
 		double salesPrice = (((otrCostPrice * salesPricePercentage) / 100) + otrCostPrice);
 		Click.sendKeys(driver, sales_total_input, String.valueOf(salesPrice), 20);
@@ -411,7 +415,9 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
 		int profit = Integer.parseInt(vehicleProfit);
-
+		
+		Thread.sleep(2000);
+		
 		Click.sendKeysint(driver, vehicle_profit_input, profit, 40);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
@@ -512,7 +518,7 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 			String quoteRef, String quoteExpiryDate, String term, String milesperannum, String contractMileage,
 			String cahDeposit, String noOfMonthlyPayments, String monthlyFinancePayment, String optionalFinalPayment,
 			String optionToPurchaseFee, String rflIncluded, String pensePerExcessMileFinance, String aPR,
-			String commission2, String partExchangeActual, String partExchangeGiven, String lessFinanceSettlement,
+			String commission2, String partExchangeActual, String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String sheet_name) throws InterruptedException, IOException {
 
 		ExplicitWait.visibleElement(driver, vehicle_sale_price, 30);
@@ -574,19 +580,60 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+
 		LO.print("");
 		System.out.println("");
 
 		LO.print("Entering Part Exchange Values to screen");
 		System.out.println("Entering Part Exchange Values to screen");
 
-		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
+		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
+		Thread.sleep(4000);
+		// Click.on(driver, part_exchange_payment, 70);
+		LO.print("Clicked on Part Exchange panel");
+		System.out.println("Clicked on Part Exchange panel");
 
-		Click.sendKeys(driver, partExchangegiven, partExchangeGiven, 60);
+		Click.on(driver, given_part_exchange_value, 20);
 
-		Click.sendKeys(driver, lessFinancesettlement, lessFinanceSettlement, 60);
+		given_part_exchange_value.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		act.sendKeys(Keys.TAB).build().perform();
+		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// Clicking on outstanding finance and suppliersettling finance checkbox
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		// ExplicitWait.clickableElement(driver, check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// ExplicitWait.clickableElement(driver, check_box_supplier_setting_finance,
+		// 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("");
 		System.out.println("");
@@ -817,6 +864,8 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
 		int profit = Integer.parseInt(vehicleProfit);
+		
+		Thread.sleep(2000);
 
 		Click.sendKeysint(driver, vehicle_profit_input, profit, 40);
 		Actions act = new Actions(driver);
@@ -929,9 +978,6 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		String otr = RemoveComma.of(otr_screen_price);
 		double otr_screen_price_converted = Double.parseDouble(otr);
 
-		double on_road_price_for_invoice = GetExcelFormulaValue.get_formula_value(14, 4, sheet_name);
-
-		double diff = Difference.of_two_Double_Values(on_road_price_for_invoice, otr_screen_price_converted);
 		Thread.sleep(4000);
 
 		Click.on(driver, maintenance_toggle_button, 20);

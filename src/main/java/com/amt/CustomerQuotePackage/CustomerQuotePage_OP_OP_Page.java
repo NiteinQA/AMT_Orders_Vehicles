@@ -64,8 +64,14 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-all-customer-quotes[1]/div[1]/app-aquisition-hire-agreement[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[6]/div[4]")
 	private WebElement customer_quote_matrix_default_cell;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
+	
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_maintenance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_total_rental;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[2]/div[3]/button[1]")
 	private WebElement save_button;
@@ -87,9 +93,6 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[1]/label")
 	private WebElement customer_quote_maintenance_toggle_button;
-
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
-	private WebElement customer_quote_monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
@@ -124,10 +127,10 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	@FindBy(xpath = "//input[@id='VehicleProfit']")
 	private WebElement vehicle_profit_input;
 
-	@FindBy(xpath = "(//*[normalize-space()='Vehicle sales price'])[5]//ancestor::div[2]//div[3]")
+	@FindBy(xpath = "(//*[normalize-space()='Vehicle sales price'])[2]//ancestor::div[2]//div[3]")
 	private WebElement vehicle_sales_price;
 
-	@FindBy(xpath = "//*[@id=\"collapseTwo\"]/div/div/div/div[2]/div[11]/div[2]/p")
+	@FindBy(xpath = "//*[normalize-space()='On the road price']//ancestor::div[1]//div[2]//p//strong")
 	private WebElement vehicle_otr_price;
 
 	@FindBy(xpath = "//*[contains(text(),' Part exchange & additional payments ')]")
@@ -142,7 +145,7 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	@FindBy(xpath = "//input[@id='offInvoiceSupport']")
 	private WebElement rebate_input_field;
 
-	@FindBy(xpath = "//input[@id='salesTotal']")
+	@FindBy(xpath = "//input[@id='salesTotal']|//input[@id='OnTheRoadPrice']")
 	private WebElement vehicle_sale_price_used_vehicle;
 
 	@FindBy(xpath = "//*[@id='registrationNumber']")
@@ -154,7 +157,7 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='mileage']")
 	private WebElement mileage;
 
-	@FindBy(xpath = "//*[@id='partExchnage']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[normalize-space()='Part exchange & additional payments']")
@@ -532,20 +535,47 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	}
 
 	public boolean put_part_exchange_values_and_check_pending_amount_for_used_vehicle(String part_exchange_actual,
-			String part_exchange_given, String less_finance_settlement, String deposit, String documentFee,
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel, String deposit, String documentFee,
 			String sheet_name) throws UnsupportedFlavorException, IOException, InterruptedException {
 
-		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
+		Actions act = new Actions(driver);
+		Click.on(driver, given_part_exchange_value, 20);
 
-		Click.on(driver, given_part_exchange_value, 30);
+		given_part_exchange_value.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
-
-		Click.on(driver, less_finance_Settlement, 30);
+		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		
+		
 
 		Click.on(driver, deposit_required, 30);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -556,9 +586,20 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Click.sendKeys(driver, document_fee, documentFee, 30);
+		
+		
+		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
+		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 
-		double vehicleSalesPriceFromScreen = Double
-				.parseDouble(RemoveComma.of(vehicle_sales_price.getText().trim().substring(2)));
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String vehicle_sales_price_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+
+		double vehicleSalesPriceFromScreen = Double.parseDouble(vehicle_sales_price_copied);
+		
+		System.out.println("Sale price "+vehicleSalesPriceFromScreen);
+
+//		double vehicleSalesPriceFromScreen = Double
+//				.parseDouble(RemoveComma.of(vehicle_sales_price.getText().trim().substring(2)));
 
 		double netPartExchangeAllowance = Double
 				.parseDouble(RemoveComma.of(net_part_exchange_allowance.getText().trim().substring(2)));

@@ -182,7 +182,7 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 	@FindBy(xpath = "//*[@id='mileage']")
 	private WebElement mileage;
 
-	@FindBy(xpath = "//*[@id='partExchnage']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
@@ -344,6 +344,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		vehicleprofit.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
 		int profit = Integer.parseInt(vehicleProfit);
+		
+		Thread.sleep(2000);
 
 		Click.sendKeysint(driver, vehicleprofit, profit, 40);
 		Actions act = new Actions(driver);
@@ -458,8 +460,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		LO.print("");
 		System.out.println("");
 
-		LO.print("Started verifying Balance Due Value");
-		System.out.println("Started verifying Balance Due Value");
+		LO.print("Started verifying Balance To Finance Value");
+		System.out.println("Started verifying Balance To Finance Value");
 
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
 		Thread.sleep(4000);
@@ -680,8 +682,8 @@ public class CustomerQuotePageBrokerHPNRPage extends TestBase {
 		LO.print("");
 		System.out.println("");
 
-		LO.print("Started verifying Balance Due Value");
-		System.out.println("Started verifying Balance Due Value");
+		LO.print("Started verifying Balance To Finance Value");
+		System.out.println("Started verifying Balance To Finance Value");
 
 		ExplicitWait.clickableElement(driver, part_exchange_payment, 50);
 		Thread.sleep(4000);

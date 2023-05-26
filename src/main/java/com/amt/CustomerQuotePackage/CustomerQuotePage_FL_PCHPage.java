@@ -45,14 +45,18 @@ public class CustomerQuotePage_FL_PCHPage extends TestBase {
 	@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
 	private WebElement customer_quote_payment_profile_dropdown;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
+	
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_maintenance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_total_rental;
 
 	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
 	private WebElement customer_quote_maintenance_toggle_button;
 
-	@FindBy(xpath = "//*[@id=\"headingCustomerQuote\"]/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
-	private WebElement customer_quote_monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
@@ -94,7 +98,7 @@ public class CustomerQuotePage_FL_PCHPage extends TestBase {
 	@FindBy(xpath = "//*[@id='mileage']")
 	private WebElement mileage;
 
-	@FindBy(xpath = "//*[@id='partExchange']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
@@ -144,7 +148,7 @@ public class CustomerQuotePage_FL_PCHPage extends TestBase {
 	}
 
 	public boolean verify_balance_due_value(String sheet_name)
-			throws UnsupportedFlavorException, IOException, InterruptedException {
+			throws UnsupportedFlavorException, IOException, InterruptedException, ClassNotFoundException {
 
 		LO.print("");
 		System.out.println("");
@@ -162,7 +166,12 @@ public class CustomerQuotePage_FL_PCHPage extends TestBase {
 		double balanceDueFromScreen = Double
 				.parseDouble(RemoveComma.of(balance_due_value.getText().trim().substring(2)));
 
-		double balance_due_expected = GetExcelFormulaValue.get_formula_value(118, 4, sheet_name);
+		double balance_due_expected = 0;
+		if (Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName().contains("funder")) {
+			balance_due_expected = GetExcelFormulaValue.get_formula_value(124, 4, sheet_name);
+		} else {
+			balance_due_expected = GetExcelFormulaValue.get_formula_value(118, 4, sheet_name);
+		}
 
 		LO.print("Balance due value Actual from screen is " + balanceDueFromScreen);
 		System.out.println("Balance due value Actual from screen is " + balanceDueFromScreen);

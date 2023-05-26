@@ -322,6 +322,9 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 		vehicleprofit.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
 		int profit = Integer.parseInt(vehicleProfit);
+		
+		
+		Thread.sleep(2000);
 
 		Click.sendKeysint(driver, vehicleprofit, profit, 40);
 		Actions act = new Actions(driver);

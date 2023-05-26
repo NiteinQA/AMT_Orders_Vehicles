@@ -136,7 +136,7 @@ public class CustomerQuotePageBrokerPCHPage extends TestBase {
 	@FindBy(xpath = "//*[@id='mileage']")
 	private WebElement mileage;
 
-	@FindBy(xpath = "//*[@id='partExchange']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")

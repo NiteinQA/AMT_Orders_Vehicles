@@ -33,6 +33,10 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 	JavascriptExecutor jse;
 
+	// quote summary
+	@FindBy(xpath = "//p[normalize-space()='Quote summary']")
+	private WebElement quote_summary;
+
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
 
@@ -66,8 +70,14 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-all-customer-quotes[1]/div[1]/app-aquisition-hire-agreement[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[6]/div[4]")
 	private WebElement customer_quote_matrix_default_cell;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_maintenance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_total_rental;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[2]/div[3]/button[1]")
 	private WebElement save_button;
@@ -78,7 +88,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='otrPartExchange']")
 	private WebElement actual_part_exchange_value;
 
-	@FindBy(xpath = "//*[@id='partExchnage']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
@@ -98,9 +108,6 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[1]/label")
 	private WebElement customer_quote_maintenance_toggle_button;
-
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[5]/div/p/strong")
-	private WebElement customer_quote_monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
@@ -161,9 +168,12 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p|//*[normalize-space()='Total CAP maint. value (ex. VAT) :']//ancestor::div[1]//p")
 	private WebElement total_cap_maintenance_value;
-	
+
 	@FindBy(xpath = "//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select")
 	private WebElement matrix_credit_type_dropdown;
+
+	@FindBy(xpath = "//*[normalize-space()='Term']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_summary_terms;
 
 	public CustomerQuotePage_HPNR_CP_Page() {
 		PageFactory.initElements(driver, this);
@@ -198,14 +208,14 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		if (totalCapMaintenanceValue == 0) {
 
-          Click.on(driver, matrix_credit_type_dropdown , 50);
-          
-          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			Click.on(driver, matrix_credit_type_dropdown, 50);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			Thread.sleep(5000);
 			try {
-				List<WebElement> list = driver
-						.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+				List<WebElement> list = driver.findElements(By.xpath(
+						"//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select//ng-dropdown-panel//div//div//span"));
 
 				Thread.sleep(3000);
 
@@ -220,6 +230,22 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+
+				List<WebElement> list = driver.findElements(By.xpath(
+						"//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select//ng-dropdown-panel//div//div//span"));
+
+				Thread.sleep(3000);
+
+				for (WebElement e1 : list) {
+
+					if (e1.getText().equalsIgnoreCase(matrix_credit_type)) {
+
+						Click.on(driver, e1, 20);
+						Thread.sleep(3000);
+						break;
+					}
+				}
+
 			}
 
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -239,12 +265,17 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
+			ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+			String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
+			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
 			obj_read_excel_calculation_page
 					.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);
 
 			obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
-					document_fee, matrix_credit_type, sheet_name);
-
+					term, document_fee, matrix_credit_type, sheet_name);
 			ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
 			Thread.sleep(3000);
@@ -276,14 +307,14 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		else {
 
-	          Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			Click.on(driver, matrix_credit_type_dropdown, 50);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			Thread.sleep(5000);
 			try {
-				List<WebElement> list = driver
-						.findElements(By.xpath("//*[@class='ng-dropdown-panel-items scroll-host']/div/div/span"));
+				List<WebElement> list = driver.findElements(By.xpath(
+						"//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select//ng-dropdown-panel//div//div//span"));
 
 				Thread.sleep(3000);
 
@@ -298,6 +329,22 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+
+				List<WebElement> list = driver.findElements(By.xpath(
+						"//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select//ng-dropdown-panel//div//div//span"));
+
+				Thread.sleep(3000);
+
+				for (WebElement e1 : list) {
+
+					if (e1.getText().equalsIgnoreCase(matrix_credit_type)) {
+
+						Click.on(driver, e1, 20);
+						Thread.sleep(3000);
+						break;
+					}
+				}
+
 			}
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 			LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
@@ -318,11 +365,15 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
+			ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+			String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
 			obj_read_excel_calculation_page
 					.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);
 
 			obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
-					document_fee, matrix_credit_type, sheet_name);
+					term, document_fee, matrix_credit_type, sheet_name);
 
 			ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
@@ -393,9 +444,9 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
-        Click.on(driver, matrix_credit_type_dropdown , 50);
-        
-        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, matrix_credit_type_dropdown, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
@@ -429,12 +480,16 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		double basic_cash_price_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
 
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
 		obj_read_excel_calculation_page
 				.write_basic_cash_price_to_excel_for_used_car_funder(basic_cash_price_from_screen, sheet_name);
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(term,
 				document_fee, matrix_credit_type, sheet_name);
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
@@ -614,9 +669,9 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
-	       Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, matrix_credit_type_dropdown, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		Thread.sleep(4000);
 		try {
 			List<WebElement> list = driver.findElements(
@@ -642,12 +697,27 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(term,
 				document_fee, matrix_credit_type, sheet_name);
+		
+		
+		Click.on(driver, quote_summary, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		Click.on(driver, customer_quote, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
 		Thread.sleep(4000);
+		
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 20);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
@@ -689,9 +759,9 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
-	       Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, matrix_credit_type_dropdown, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 //		WebElement creditDropdown = driver.findElement(By.xpath("//*[@id='collapseFirst']/div/div/div[2]/div/div/div/ng-select/div/div/div[1]"));
 //		new WebDriverWait(driver , Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(creditDropdown));
@@ -718,9 +788,13 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 		LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
 		System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
 
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(matrix_credit_type,
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(term, matrix_credit_type,
 				sheet_name);
 
 		ExplicitWait.visibleElement(driver, vehicle_discount, 30);
@@ -798,9 +872,9 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
-	       Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, matrix_credit_type_dropdown, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(4000);
 		try {
@@ -833,14 +907,28 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(term,
 				document_fee, matrix_credit_type, sheet_name);
 
+
+
+		Thread.sleep(3000);
+
+		Click.on(driver, quote_summary, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, customer_quote, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_maintenance_rental, 30);
-
-		Thread.sleep(3000);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
@@ -1496,10 +1584,9 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
-	       Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, matrix_credit_type_dropdown, 50);
 
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(3000);
 		try {
@@ -1526,9 +1613,13 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(matrix_credit_type,
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(term, matrix_credit_type,
 				sheet_name);
 
 		ExplicitWait.visibleElement(driver, vehicle_discount, 30);

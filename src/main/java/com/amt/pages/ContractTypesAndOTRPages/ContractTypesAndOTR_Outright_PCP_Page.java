@@ -105,7 +105,7 @@ public class ContractTypesAndOTR_Outright_PCP_Page extends TestBase {
 
 			//add_other_support_button
 			
-			@FindBy(xpath = "//*[@class='hand-cursor addContractBtn minwidth40px']")
+			@FindBy(xpath = "//*[normalize-space()='Other support']//ancestor::div[1]//div[2]//div/div[4]/a")
 			private WebElement add_other_support_button;
 			
 			//on_road_price_for_calculation

@@ -36,6 +36,9 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 	@FindBy(xpath = "//p[contains(text(),'Broker')]")
 	private WebElement acq_contractTypes_option_broker;
 
+	@FindBy(xpath = "//*[@id='customer_contract_change_supplier']/div/div/div[3]/div/button[1]")
+	private WebElement popup_yes;
+
 	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/div[7]/div[1]/div[1]/div[3]/div[1]/button[1]")
 	private WebElement quote_alert;
 
@@ -101,7 +104,7 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 
 	// add_other_support_button
 
-	@FindBy(xpath = "//*[@class='hand-cursor addContractBtn minwidth40px']")
+	@FindBy(xpath = "//*[normalize-space()='Other support']//ancestor::div[1]//div[2]//div/div[4]/a")
 	private WebElement add_other_support_button;
 
 	// on_road_price_for_calculation
@@ -113,7 +116,7 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[@src='/assets/images/delete.svg']")
 	private WebElement delete_other_support;
-	
+
 	@FindBy(xpath = "//*[normalize-space()='Cost price ex. VAT & RFL']//ancestor::div[1]//div//strong")
 	private WebElement contract_types_cost_price_ex_vat_and_rfl;
 
@@ -138,40 +141,53 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 	public ContractTypesAndOTR_Broker_PCP_Page() {
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	public boolean contractTypes_selection_and_OTR_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		Click.on(driver, acq_contractTypes, 50);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
-		   Click.on(driver, acq_contractTypes_option_broker, 50);
-		   
-		   Thread.sleep(3000);
-		   
-	        Actions act = new Actions(driver);
-		   
-		//   act.sendKeys(Keys.TAB,Keys.TAB , Keys.ENTER ).build().perform();
-		   
-		   LO.print("Acquisition Contract type option selected = Broker ");
-		   System.out.println("Acquisition Contract type option selected = Broker ");
+		try {
 
-		    Click.on(driver, acq_contractTypes_customer_contract_PCP , 50);
-		    
-		    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
-		    
-		    LO.print("Customer Contract type option selected = Personal Contrct Purchase (PCP)");
-		  		System.out.println("Customer Contract type option selected = Personal Contrct Purchase (PCP)");
+			Click.on(driver, acq_contractTypes_option_broker, 50);
+			Thread.sleep(2000);
+			Click.on(driver, acq_contractTypes_customer_contract_PCP, 50);
+			Thread.sleep(2000);
+
+		} catch (Exception e) {
+			Click.on(driver, popup_yes, 50);
+			Thread.sleep(2000);
+
+		}
+	
+
+		Thread.sleep(3000);
+
+		Actions act = new Actions(driver);
+
+		// act.sendKeys(Keys.TAB,Keys.TAB , Keys.ENTER ).build().perform();
+
+		LO.print("Acquisition Contract type option selected = Broker ");
+		System.out.println("Acquisition Contract type option selected = Broker ");
+
+		Click.on(driver, acq_contractTypes_customer_contract_PCP, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		LO.print("Customer Contract type option selected = Personal Contrct Purchase (PCP)");
+		System.out.println("Customer Contract type option selected = Personal Contrct Purchase (PCP)");
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		ExplicitWait.visibleElement(driver, contract_types_cost_price_ex_vat_and_rfl, 20);
 		ExplicitWait.visibleElement(driver, contract_types_vat, 20);
-		//ExplicitWait.visibleElement(driver, contract_types_rfl_and_frf, 20);
+		// ExplicitWait.visibleElement(driver, contract_types_rfl_and_frf, 20);
 		ExplicitWait.visibleElement(driver, contract_types_otr, 20);
 
 		double cost_price_ex_vat_and_rfl_from_screen = Double
 				.parseDouble(RemoveComma.of(contract_types_cost_price_ex_vat_and_rfl.getText().substring(2)));
 		double vat = Double.parseDouble(RemoveComma.of(contract_types_vat.getText().substring(2)));
-	//	double rfl_and_frf = Double.parseDouble(RemoveComma.of(contract_types_rfl_and_frf.getText().substring(2)));
+		// double rfl_and_frf =
+		// Double.parseDouble(RemoveComma.of(contract_types_rfl_and_frf.getText().substring(2)));
 		double otr = Double.parseDouble(RemoveComma.of(contract_types_otr.getText().substring(2)));
 
 		LO.print("Cost Price ex VAT and RFL from screen is " + cost_price_ex_vat_and_rfl_from_screen);
@@ -183,17 +199,15 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 //		LO.print("RFL AND FRF from screen is " + rfl_and_frf);
 //		System.out.println("RFL AND FRF from screen is " + rfl_and_frf);
 
-		//double cost_price_ex_vat_and_rfl_expected = (otr - (rfl_and_frf + vat));
+		// double cost_price_ex_vat_and_rfl_expected = (otr - (rfl_and_frf + vat));
 
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
-		obj_read_excel_calculation_page.write_vehicle_cost_Price_to_excel_for_used_car(
-				cost_price_ex_vat_and_rfl_from_screen, 0, sheet_name);
+		obj_read_excel_calculation_page
+				.write_vehicle_cost_Price_to_excel_for_used_car(cost_price_ex_vat_and_rfl_from_screen, 0, sheet_name);
 
 		double cost_price_ex_vat_and_rfl_expected = GetExcelFormulaValue.get_formula_value(1, 1, sheet_name);
 
-		
-		
 		LO.print("Cost Price ex VAT and RFL calculated is " + cost_price_ex_vat_and_rfl_expected);
 		System.out.println("Cost Price ex VAT and RFL calculated is " + cost_price_ex_vat_and_rfl_expected);
 
@@ -212,7 +226,6 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 
 	}
 
-
 	public boolean contractTypes_and_OTR_selection_broker_pcp(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
@@ -220,13 +233,24 @@ public class ContractTypesAndOTR_Broker_PCP_Page extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
-		Click.on(driver, acq_contractTypes_option_broker, 50);
-		
+		try {
+
+			Click.on(driver, acq_contractTypes_option_broker, 50);
+			Thread.sleep(2000);
+			Click.on(driver, acq_contractTypes_customer_contract_PCP, 50);
+			Thread.sleep(2000);
+
+		} catch (Exception e) {
+			Click.on(driver, popup_yes, 50);
+			Thread.sleep(2000);
+
+		}
+
 		Thread.sleep(3000);
 
 		Actions act = new Actions(driver);
 
-	//	act.sendKeys(Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+		// act.sendKeys(Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
 		LO.print("Acquisition Contract type option selected = Broker ");
 		System.out.println("Acquisition Contract type option selected = Broker ");

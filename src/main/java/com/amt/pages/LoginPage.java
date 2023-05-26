@@ -50,7 +50,7 @@ public class LoginPage extends TestBase {
 		HelperClass.highlightElement(driver,password);
 		password.sendKeys(prop.getProperty("password"));
 
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 
 		
 		ExplicitWait.clickableElement(driver, submit, 30);

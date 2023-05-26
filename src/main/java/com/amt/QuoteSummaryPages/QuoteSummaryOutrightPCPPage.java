@@ -1319,18 +1319,6 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 		
 		
 		
-		System.out.println("totalCashPrice"+totalCashPrice);
-		System.out.println("financeDeposit"+financeDeposit);
-		System.out.println("totalDeposit"+totalDeposit);
-		System.out.println("financeCharges"+financeCharges);
-		System.out.println("balancePayable"+balancePayable);
-		System.out.println("initialCashPayment"+initialCashPayment);
-		System.out.println("pencePerExcessMileMaintenance"+pencePerExcessMileMaintenance);
-		System.out.println("defaultFinanceCommission"+defaultFinanceCommission);
-		System.out.println("docFeeCommission"+docFeeCommission);
-		System.out.println("totalCommission"+totalCommission);
-
-
 		// comparing actul and expected values
 
 		boolean status = false;
@@ -2577,11 +2565,14 @@ public class QuoteSummaryOutrightPCPPage extends TestBase {
 
 	public void save_quote() throws InterruptedException {
 
-		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		js.executeScript("arguments[0].click();", quote_summary_save_button);
+//		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+//
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//		js.executeScript("arguments[0].click();", quote_summary_save_button);
+		
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 

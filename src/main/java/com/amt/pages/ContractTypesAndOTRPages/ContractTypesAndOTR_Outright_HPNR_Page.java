@@ -100,7 +100,7 @@ public class ContractTypesAndOTR_Outright_HPNR_Page extends TestBase {
 
 			//add_other_support_button
 			
-			@FindBy(xpath = "//*[@class='hand-cursor addContractBtn minwidth40px']")
+			@FindBy(xpath = "//*[normalize-space()='Other support']//ancestor::div[1]//div[2]//div/div[4]/a")
 			private WebElement add_other_support_button;
 			
 			//on_road_price_for_calculation
@@ -143,7 +143,9 @@ public class ContractTypesAndOTR_Outright_HPNR_Page extends TestBase {
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		Click.on(driver, acq_contractTypes, 50);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		Thread.sleep(4000);
+		
 		Click.on(driver, acq_acq_contractTypes_outright, 50);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
@@ -155,7 +157,7 @@ public class ContractTypesAndOTR_Outright_HPNR_Page extends TestBase {
 
 		LO.print(" Customer Contract type option = HPNR has been selected");
 		System.out.println(" Customer Contract type option = HPNR has been selected");
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		ExplicitWait.visibleElement(driver, contract_types_cost_price_ex_vat_and_rfl, 20);
 		ExplicitWait.visibleElement(driver, contract_types_vat, 20);

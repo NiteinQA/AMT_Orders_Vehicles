@@ -66,8 +66,14 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-all-customer-quotes[1]/div[1]/app-aquisition-hire-agreement[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[6]/div[4]")
 	private WebElement customer_quote_matrix_default_cell;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
+	
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_maintenance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_total_rental;
 
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/app-aquisition-header[1]/div[1]/div[2]/div[3]/button[1]")
 	private WebElement save_button;
@@ -78,7 +84,7 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='otrPartExchange']")
 	private WebElement actual_part_exchange_value;
 
-	@FindBy(xpath = "//*[@id='partExchnage']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
@@ -98,9 +104,6 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[1]/label")
 	private WebElement customer_quote_maintenance_toggle_button;
-
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-purchase-customer-quote-summary-header/div/div[5]/div/p/strong")
-	private WebElement customer_quote_monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
@@ -161,9 +164,12 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value (ex. VAT):']//ancestor::div[1]//p|//*[normalize-space()='Total CAP maint. value (ex. VAT) :']//ancestor::div[1]//p")
 	private WebElement total_cap_maintenance_value;
-	
+
 	@FindBy(xpath = "//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select")
 	private WebElement matrix_credit_type_dropdown;
+
+	@FindBy(xpath = "//*[normalize-space()='Term']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_summary_terms;
 
 	public CustomerQuotePage_CP_CP_Page() {
 		PageFactory.initElements(driver, this);
@@ -198,10 +204,9 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 
 		if (totalCapMaintenanceValue == 0) {
 
+			Click.on(driver, matrix_credit_type_dropdown, 50);
 
-	          Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			Thread.sleep(5000);
 			try {
@@ -276,10 +281,9 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 
 		else {
 
+			Click.on(driver, matrix_credit_type_dropdown, 50);
 
-	          Click.on(driver, matrix_credit_type_dropdown , 50);
-	          
-	          ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 			Thread.sleep(5000);
 			try {
@@ -394,10 +398,9 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 
 		Actions act = new Actions(driver);
 
+		Click.on(driver, matrix_credit_type_dropdown, 50);
 
-        Click.on(driver, matrix_credit_type_dropdown , 50);
-        
-        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(5000);
 		try {
@@ -1426,9 +1429,13 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 		LO.print("Matrix credit type " + matrix_credit_type + " has been selected");
 		System.out.println("Matrix credit type " + matrix_credit_type + " has been selected");
 
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(matrix_credit_type,
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(term, matrix_credit_type,
 				sheet_name);
 
 		ExplicitWait.visibleElement(driver, vehicle_discount, 30);
@@ -1539,9 +1546,13 @@ public class CustomerQuotePage_CP_CP_Page extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
+
+		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(matrix_credit_type,
+		obj_read_excel_calculation_page.set_global_variables_to_excel_for_purchase_agreement(term, matrix_credit_type,
 				sheet_name);
 
 		ExplicitWait.visibleElement(driver, vehicle_discount, 30);

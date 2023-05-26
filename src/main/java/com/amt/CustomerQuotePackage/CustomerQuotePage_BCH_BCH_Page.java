@@ -45,14 +45,17 @@ public class CustomerQuotePage_BCH_BCH_Page extends TestBase {
 	@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
 	private WebElement customer_quote_payment_profile_dropdown;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
+	
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_maintenance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_total_rental;
 
 	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
 	private WebElement customer_quote_maintenance_toggle_button;
-
-	@FindBy(xpath = "//*[@id=\"headingCustomerQuote\"]/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
-	private WebElement customer_quote_monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
@@ -95,7 +98,7 @@ public class CustomerQuotePage_BCH_BCH_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='mileage']")
 	private WebElement mileage;
 
-	@FindBy(xpath = "//*[@id='partExchange']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
@@ -335,7 +338,7 @@ public class CustomerQuotePage_BCH_BCH_Page extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 		String monthly_finance_rental = customer_quote_monthly_finance_rental.getText().substring(2);
 		String monthly_finance_rental_actual = RemoveComma.of(monthly_finance_rental);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
@@ -514,7 +517,7 @@ public class CustomerQuotePage_BCH_BCH_Page extends TestBase {
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue(part_exchange_status);
+		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(111).getCell(3)
 				.setCellValue(Double.parseDouble(actual_part_exchange_value_from_excel));
 		wb.getSheet(sheet_name).getRow(111).getCell(4)
@@ -529,7 +532,7 @@ public class CustomerQuotePage_BCH_BCH_Page extends TestBase {
 		double monthly_finance_rental_expected_with_part_exchange = GetExcelFormulaValue.get_formula_value(89, 1,
 				sheet_name);
 
-		ExplicitWait.clickableElement(driver, customer_quote_monthly_finance_rental, 30);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
 		Thread.sleep(5000);
 

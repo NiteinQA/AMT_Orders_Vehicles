@@ -78,9 +78,9 @@ public class VehicleSelectionPage extends TestBase {
 		
 		Actions act=new Actions(driver);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		
-		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 40);
+		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 120);
 		
 
 		LO.print("Manufacture ="+manufacturer+" has been selected");
@@ -90,10 +90,10 @@ public class VehicleSelectionPage extends TestBase {
 		act.sendKeys(Keys.ENTER).perform();
 	
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		
-		Click.sendKeys(driver, select_model_range, model , 40);	
+		Click.sendKeys(driver, select_model_range, model , 120);	
 		 
 		LO.print("Model range ="+model+" has been selected");
 		System.out.println("Model range ="+model+" has been selected");
@@ -101,10 +101,10 @@ public class VehicleSelectionPage extends TestBase {
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		
-		Click.on(driver, select_model, 30);
+		Click.on(driver, select_model, 120);
 		
 		Thread.sleep(3000);
 		
@@ -123,14 +123,14 @@ public void select_LCV_vehicle(String manufacturer, String model) throws Interru
 		
 		Actions act=new Actions(driver);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		
-		Dropdown.selectByVisibleText(driver, dropdown_asset_type, " LCV", 60);
+		Dropdown.selectByVisibleText(driver, dropdown_asset_type, " LCV", 120);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 	
 		
-		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 40);
+		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 120);
 		
 
 		LO.print("Manufacture ="+manufacturer+" has been selected");
@@ -140,10 +140,10 @@ public void select_LCV_vehicle(String manufacturer, String model) throws Interru
 		act.sendKeys(Keys.ENTER).perform();
 	
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		
-		Click.sendKeys(driver, select_model_range, model , 40);	
+		Click.sendKeys(driver, select_model_range, model ,120);	
 		 
 		LO.print("Model range ="+model+" has been selected");
 		System.out.println("Model range ="+model+" has been selected");
@@ -151,10 +151,10 @@ public void select_LCV_vehicle(String manufacturer, String model) throws Interru
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		
-		Click.on(driver, select_model, 30);
+		Click.on(driver, select_model, 120);
 		
 		Thread.sleep(3000);
 		
@@ -174,16 +174,16 @@ public void select_vehicle_lcv(String manufacturer, String model) throws Interru
 		
 	
 	
-	    Dropdown.selectByVisibleText(driver, asset_type, " LCV", 20);
+	    Dropdown.selectByVisibleText(driver, asset_type, " LCV", 120);
 	    
-	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+	    ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon,120);
 	    
 	
 		Actions act=new Actions(driver);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		
-		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 40);
+		Click.sendKeys(driver, select_manufacturer_button, manufacturer, 120);
 		
 
 		LO.print("Manufacture ="+manufacturer+" has been selected");
@@ -193,10 +193,10 @@ public void select_vehicle_lcv(String manufacturer, String model) throws Interru
 		act.sendKeys(Keys.ENTER).perform();
 	
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		
-		Click.sendKeys(driver, select_model_range, model , 40);	
+		Click.sendKeys(driver, select_model_range, model , 120);	
 		 
 		LO.print("Model range ="+model+" has been selected");
 		System.out.println("Model range ="+model+" has been selected");
@@ -204,10 +204,10 @@ public void select_vehicle_lcv(String manufacturer, String model) throws Interru
 		Thread.sleep(4000);
 		act.sendKeys(Keys.ENTER).perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		
-		Click.on(driver, select_model, 30);
+		Click.on(driver, select_model, 120);
 		
 		Thread.sleep(3000);
 		
@@ -229,15 +229,15 @@ public void select_vehicle_for_used_car_flow(String regitrationNumber , String m
 	System.out.println("Selecting used vehicle with registration no. = "+regitrationNumber+" and mileage = "+mileage);
 	
 	
-	Click.on(driver, used_vehicle, 30);   
+	Click.on(driver, used_vehicle, 120);   
 	 
-    Click.sendKeys(driver, registration_no, regitrationNumber, 30);
+    Click.sendKeys(driver, registration_no, regitrationNumber, 120);
     
-    Click.sendKeys(driver, used_vehicle_mileage, mileage, 30);
+    Click.sendKeys(driver, used_vehicle_mileage, mileage, 120);
     
-    Click.on(driver, search_button, 30);
+    Click.on(driver, search_button, 120);
     
-    ExplicitWait.visibleElement(driver, vehicle_option_used_car, 30);
+    ExplicitWait.visibleElement(driver, vehicle_option_used_car, 120);
     
     
     Actions act = new Actions(driver);
@@ -270,7 +270,7 @@ public void select_vehicle_for_used_LCV(String regitrationNumber , String mileag
     
     Click.sendKeys(driver, used_vehicle_mileage, mileage, 30);
     
-    Click.on(driver, search_button, 30);
+    Click.on(driver, search_button, 120);
     
     ExplicitWait.visibleElement(driver, vehicle_option_used_car, 30);
     

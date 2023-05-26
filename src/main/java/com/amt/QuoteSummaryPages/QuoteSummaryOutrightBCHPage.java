@@ -197,7 +197,7 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -1907,11 +1907,14 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 
 	public void save_quote() throws InterruptedException {
 
-		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		js.executeScript("arguments[0].click();", quote_summary_save_button);
+//		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+//
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//		js.executeScript("arguments[0].click();", quote_summary_save_button);
+		
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 

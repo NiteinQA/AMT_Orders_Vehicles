@@ -49,14 +49,18 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
 	private WebElement customer_quote_payment_profile_dropdown;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
+	
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_maintenance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_total_rental;
 
 	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
 	private WebElement customer_quote_maintenance_toggle_button;
 
-	@FindBy(xpath = "//*[@id=\"headingCustomerQuote\"]/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
-	private WebElement customer_quote_monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
@@ -132,7 +136,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 	@FindBy(xpath = "//*[@id='mileage']")
 	private WebElement mileage;
 
-	@FindBy(xpath = "//*[@id='partExchange']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
@@ -246,6 +250,10 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
 		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -290,9 +298,9 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 		String monthly_finance_rental = customer_quote_monthly_finance_rental.getText().substring(2);
 		String monthly_finance_rental_actual = RemoveComma.of(monthly_finance_rental);
 		double monthly_finance_rental_actual_converted = Double.parseDouble(monthly_finance_rental_actual);
-		LO.print("Monthly Finance Rental from screen (after making part exchange toggle on) is "
+		LO.print("Monthly Finance Rental from screen (with part exchange values) is "
 				+ monthly_finance_rental_actual_converted);
-		System.out.println("Monthly Finance Rental from screen (after making part exchange toggle on) is "
+		System.out.println("Monthly Finance Rental from screen (with part exchange values) is "
 				+ monthly_finance_rental_actual_converted);
 
 		LO.print("Writing part exchange values to excel");
@@ -306,26 +314,26 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
 		wb.getSheet(sheet_name).getRow(112).getCell(4)
 				.setCellValue(Double.parseDouble(less_finance_settlement_from_excel));
-		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(109).getCell(1).setCellValue("NO");
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 
 		double monthlyFinanceRentalFromExcel = GetExcelFormulaValue.get_formula_value(89, 1, sheet_name);
 
-		LO.print("Monthly Finance Rental from Excel (after making part exchange toggle on) is "
+		LO.print("Monthly Finance Rental from Excel (with part exchange values) is "
 				+ monthlyFinanceRentalFromExcel);
-		System.out.println("Monthly Finance Rental from Excel (after making part exchange toggle on) is "
+		System.out.println("Monthly Finance Rental from Excel (with part exchange values) is "
 				+ monthlyFinanceRentalFromExcel);
 
 		boolean flag = false;
 		if ((Difference.of_two_Double_Values(monthly_finance_rental_actual_converted,
 				monthlyFinanceRentalFromExcel) < 0.2)) {
 			flag = true;
-			LO.print("Monthly finance rental (after makking part exchage toggle on) is found OK");
-			System.out.println("Monthly finance rental (after makking part exchage toggle on) is found OK");
+			LO.print("Monthly finance rental (with part exchange values) is found OK");
+			System.out.println("Monthly finance rental (with part exchange values) is found OK");
 		} else {
-			LO.print("Monthly finance rental (after making part exchage toggle on) is found wrong");
-			System.out.println("Monthly finance rental (after making part exchage toggle on) is found wrong");
+			LO.print("Monthly finance rental (with part exchange values) is found wrong");
+			System.out.println("Monthly finance rental (with part exchange values) is found wrong");
 		}
 
 //		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -782,29 +790,29 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 
 		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
 
-		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 30);
-
 		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
 		ExplicitWait.visibleElement(driver, holding_cost_percentage_maintenance_cost_used, 20);
-
+		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, maintenance_cost_used, 20);
+		
+		
 		holding_cost_percentage_cap_residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String percentage_cap_residual_value_used = (String) clipboard.getData(DataFlavor.stringFlavor);
+		double percentage_cap_residual_value = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
 
+		Thread.sleep(1000);
+		
 		holding_cost_percentage_maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		String percentage_cap_maintenance_cost_used = (String) clipboard.getData(DataFlavor.stringFlavor);
-
-		double used_residual_value = Double
-				.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
-
-		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
-
-		double total_cap_maintenance_value_converted = Double
-				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().substring(2)));
-
-		double percentage_cap_residual_value = Double.parseDouble(percentage_cap_residual_value_used);
-
-		double percentage_cap_maintenance_cost = Double.parseDouble(percentage_cap_maintenance_cost_used);
+		double percentage_cap_maintenance_cost = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
+		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		 
+		double used_residual_value = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
+		maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double total_cap_maintenance_value_converted = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		
+		Thread.sleep(1000);
 
 		Click.on(driver, customer_quote, 50);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -1320,7 +1328,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 		double totalCapMaintenanceValue = Double
 				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
 
-		System.out.println(totalCapMaintenanceValue);
+		 
 
 		Click.on(driver, customer_quote, 30);
 

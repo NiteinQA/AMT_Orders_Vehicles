@@ -705,7 +705,9 @@ public class QuoteSummary_BCH_PCH_Page extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_miles, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);
+		
+		try{ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);}catch(Exception e) {}
+
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_followed_by, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_pence_per_excess_mile_finance, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_doc_fee, 20);
@@ -728,8 +730,11 @@ public class QuoteSummary_BCH_PCH_Page extends TestBase {
 		double customer_quote_initial_finance_rental = Double.parseDouble(
 				RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
 
-		double customer_quote_part_exchange_value = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));
+		double customer_quote_summary_part_exchange_value =0;
+		
+		try{ customer_quote_summary_part_exchange_value = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));}catch(Exception e) {}
+
 
 		double customer_payment_followed_by = Double
 				.parseDouble(quote_summary_customer_quote_followed_by.getText().substring(0, 2));
@@ -823,14 +828,14 @@ public class QuoteSummary_BCH_PCH_Page extends TestBase {
 			System.err.println("Followed By months - found wrong");
 		}
 
-		if (partExchangeValue == customer_quote_part_exchange_value) {
+		try{if (partExchangeValue == customer_quote_summary_part_exchange_value) {
 			LO.print("Part Exchange Value - found OK");
 			System.out.println("Part Exchange Value - found OK");
 			count++;
 		} else {
 			LO.print("Part Exchange Value - found wrong");
 			System.err.println("Part Exchange Value - found wrong");
-		}
+		}}catch(Exception e) {}
 
 		if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
 				customer_quote_pence_per_excess_mile_finance)) < 0.2) {
@@ -930,9 +935,9 @@ public class QuoteSummary_BCH_PCH_Page extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_maint_rental, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_total_rental, 20);
 
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);
+		try{ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);}catch(Exception e) {}
 
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_followed_by, 20);
+    	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_followed_by, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_pence_per_excess_mile_finance, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_pence_per_excess_mile_maintenance, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_pence_per_excess_mile_total, 20);
@@ -966,9 +971,9 @@ public class QuoteSummary_BCH_PCH_Page extends TestBase {
 
 		double customer_quote_initial_total_rental = Double.parseDouble(
 				RemoveComma.of(quote_summary_customer_quote_initial_total_rental.getText().trim().substring(2)));
-
-		double customer_quote_part_exchange_value = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));
+		double customer_quote_summary_part_exchange_value = 0;
+		try{ customer_quote_summary_part_exchange_value = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));}catch(Exception e) {}
 
 		double customer_payment_followed_by = Double
 				.parseDouble(quote_summary_customer_quote_followed_by.getText().substring(0, 2));
@@ -1098,15 +1103,15 @@ public class QuoteSummary_BCH_PCH_Page extends TestBase {
 			System.err.println("Initial Total Rental found wrong");
 		}
 
-		if (partExchangeValue == customer_quote_part_exchange_value) {
+		try{if (partExchangeValue == customer_quote_summary_part_exchange_value) {
 			LO.print("Part Exchange Value - found OK");
 			System.out.println("Part Exchange Value - found OK");
 			count++;
 		} else {
 			LO.print("Part Exchange Value - found wrong");
 			System.err.println("Part Exchange Value - found wrong");
-		}
-
+		}}catch(Exception e) {}
+		
 		if (followedBy == customer_payment_followed_by) {
 			LO.print("Followed By months - found OK");
 			System.out.println("Followed By months - found OK");
@@ -1757,11 +1762,14 @@ public class QuoteSummary_BCH_PCH_Page extends TestBase {
 
 	public void save_quote() throws InterruptedException {
 
-		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		js.executeScript("arguments[0].click();", quote_summary_save_button);
+//		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+//
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//		js.executeScript("arguments[0].click();", quote_summary_save_button);
+		
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 

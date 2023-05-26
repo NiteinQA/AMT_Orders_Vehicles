@@ -116,8 +116,12 @@ public class ContractTypesAndOTR_HPNR_FL_Page extends TestBase {
 
 		//add_other_support_button
 		
-		@FindBy(xpath = "//*[@class='hand-cursor addContractBtn minwidth40px']")
-		private WebElement add_other_support_button;
+//		@FindBy(xpath = "//*[normalize-space()='Other support']//ancestor::div[1]//div[2]//div/div[4]/a")
+//		private WebElement add_other_support_button;
+		
+		@FindBy(xpath = "//*[normalize-space()='Other support']//ancestor::div[1]//div[2]//div/div[4]/a")
+		private WebElement add_other_support_button;		
+		
 		
 		//on_road_price_for_calculation
 

@@ -227,7 +227,7 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -256,8 +256,6 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, quote_summary_otr_vat, 120);
 
-		ExplicitWait.visibleElement(driver, quote_summary_otr_rfl_and_frf, 120);
-
 		LO.print("Reading values from OTR calculation -Quote Summary Page");
 		System.out.println("Reading values from OTR calculation -Quote Summary Page");
 
@@ -270,29 +268,19 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 		double OTR_calculation_otr_vat_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_otr_vat.getText().trim().substring(2)));
 
-		double OTR_calculation_otr_rfl_and_frf_from_screen_converted = Double
-				.parseDouble(RemoveComma.of(quote_summary_otr_rfl_and_frf.getText().trim().substring(2)));
 
-		LO.print("OTR_calculation_cost_otr_price_from_screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
-		System.out.println(
-				"OTR_calculation_cost_otr_price_from_screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
+		LO.print("Cost otr price from screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
+		System.out.println("Cost otr price from screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
 
-		LO.print("OTR_calculation_cost_price_ex_vat_and_rfl_from_screen ="
-				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
-		System.out.println("OTR_calculation_cost_price_ex_vat_and_rfl_from_screen ="
-				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		LO.print("Cost price ex vat and rfl from screen ="+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		System.out.println("Cost price ex vat and rfl from screen ="+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
 
-		LO.print("OTR_calculation_otr_vat_from_screen =" + OTR_calculation_otr_vat_from_screen_converted);
-		System.out.println("OTR_calculation_otr_vat_from_screen =" + OTR_calculation_otr_vat_from_screen_converted);
+		LO.print("OTR vat from screen =" + OTR_calculation_otr_vat_from_screen_converted);
+		System.out.println("OTR vat from screen =" + OTR_calculation_otr_vat_from_screen_converted);
 
-		LO.print("OTR_calculation_otr_rfl_and_frf_from_screen ="
-				+ OTR_calculation_otr_rfl_and_frf_from_screen_converted);
-		System.out.println("OTR_calculation_otr_rfl_and_frf_from_screen ="
-				+ OTR_calculation_otr_rfl_and_frf_from_screen_converted);
 
 		double OTR_calculation_cost_price_ex_vat_and_rfl_expected = (OTR_calculation_cost_otr_price_from_screen_converted
-				- (OTR_calculation_otr_vat_from_screen_converted
-						+ OTR_calculation_otr_rfl_and_frf_from_screen_converted));
+				- (OTR_calculation_otr_vat_from_screen_converted));
 
 		double diff = Difference.of_two_Double_Values(OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted,
 				OTR_calculation_cost_price_ex_vat_and_rfl_expected);
@@ -1930,11 +1918,14 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 
 	public void save_quote() throws InterruptedException {
 
-		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		js.executeScript("arguments[0].click();", quote_summary_save_button);
+//		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+//
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//		js.executeScript("arguments[0].click();", quote_summary_save_button);
+		
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 

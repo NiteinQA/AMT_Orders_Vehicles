@@ -117,7 +117,7 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 
 	// add_other_support_button
 
-	@FindBy(xpath = "//*[@class='hand-cursor addContractBtn minwidth40px']")
+	@FindBy(xpath = "//*[normalize-space()='Other support']//ancestor::div[1]//div[2]//div/div[4]/a")
 	private WebElement add_other_support_button;
 
 	// on_road_price_for_calculation
@@ -288,7 +288,7 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 
 		options_cost_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
-		Click.sendKeys(driver, options_cost_input, options_and_preparation_cost, 30);
+		Click.sendKeysint(driver, options_cost_input, 0, 30);
 
 		act.sendKeys(Keys.TAB).build().perform();
 
@@ -297,13 +297,13 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		
 		ExplicitWait.visibleElement(driver, contract_types_cost_price_ex_vat_and_rfl, 20);
 		ExplicitWait.visibleElement(driver, contract_types_vat, 20);
-		ExplicitWait.visibleElement(driver, contract_types_rfl_and_frf, 20);
+		//ExplicitWait.visibleElement(driver, contract_types_rfl_and_frf, 20);
 		ExplicitWait.visibleElement(driver, contract_types_otr, 20);
 
 		double cost_price_ex_vat_and_rfl_from_screen = Double
 				.parseDouble(RemoveComma.of(contract_types_cost_price_ex_vat_and_rfl.getText().substring(2)));
 		double vat = Double.parseDouble(RemoveComma.of(contract_types_vat.getText().substring(2)));
-		double rfl_and_frf = Double.parseDouble(RemoveComma.of(contract_types_rfl_and_frf.getText().substring(2)));
+	//	double rfl_and_frf = Double.parseDouble(RemoveComma.of(contract_types_rfl_and_frf.getText().substring(2)));
 		double otr = Double.parseDouble(RemoveComma.of(contract_types_otr.getText().substring(2)));
 
 		LO.print("Reading values from screen after editing Vehicle cost price and options cost");
@@ -315,13 +315,13 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		LO.print("VAT from screen is " + vat);
 		System.out.println("VAT from screen is " + vat);
 
-		LO.print("RFL AND FRF from screen is " + rfl_and_frf);
-		System.out.println("RFL AND FRF from screen is " + rfl_and_frf);
+	//	LO.print("RFL AND FRF from screen is " + rfl_and_frf);
+	//	System.out.println("RFL AND FRF from screen is " + rfl_and_frf);
 
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
 		obj_read_excel_calculation_page.write_vehicle_cost_Price_to_excel_for_used_car(
-				Double.parseDouble(vehicelCostPrice), Double.parseDouble(options_and_preparation_cost), sheet_name);
+				Double.parseDouble(vehicelCostPrice), 0, sheet_name);
 
 		double cost_price_ex_vat_and_rfl_expected = GetExcelFormulaValue.get_formula_value(1, 1, sheet_name);
 

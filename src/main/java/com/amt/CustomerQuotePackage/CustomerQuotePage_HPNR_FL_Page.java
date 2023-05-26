@@ -52,14 +52,17 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 	@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
 	private WebElement customer_quote_payment_profile_dropdown;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
+	
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_maintenance_rental;
+
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
+	private WebElement customer_quote_monthly_total_rental;
 
 	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
 	private WebElement customer_quote_maintenance_toggle_button;
-
-	@FindBy(xpath = "//*[@id=\"headingCustomerQuote\"]/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
-	private WebElement customer_quote_monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
 	private WebElement initial_payment_input_field;
@@ -139,7 +142,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='mileage']")
 	private WebElement mileage;
 
-	@FindBy(xpath = "//*[@id='partExchange']")
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
 	private WebElement given_part_exchange_value;
 
 	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
@@ -300,25 +303,27 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
 		ExplicitWait.visibleElement(driver, holding_cost_percentage_maintenance_cost_used, 20);
-
+		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, maintenance_cost_used, 20);
+		
+		
 		holding_cost_percentage_cap_residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String percentage_cap_residual_value_used = (String) clipboard.getData(DataFlavor.stringFlavor);
+		double percentage_cap_residual_value = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
 
+		Thread.sleep(1000);
+		
 		holding_cost_percentage_maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		String percentage_cap_maintenance_cost_used = (String) clipboard.getData(DataFlavor.stringFlavor);
-
-		double used_residual_value = Double
-				.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
-
-		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
-
-		double total_cap_maintenance_value_converted = Double
-				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().substring(2)));
-
-		double percentage_cap_residual_value = Double.parseDouble(percentage_cap_residual_value_used);
-
-		double percentage_cap_maintenance_cost = Double.parseDouble(percentage_cap_maintenance_cost_used);
+		double percentage_cap_maintenance_cost = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
+		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		 
+		double used_residual_value = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		Thread.sleep(1000);
+		maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double total_cap_maintenance_value_converted = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		
+		Thread.sleep(1000);
 
 		Click.on(driver, customer_quote, 50);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);

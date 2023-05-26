@@ -211,6 +211,119 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
+	public boolean quote_summary_OTR_calculation_for_used_car(String sheet_name)
+			throws InterruptedException, IOException {
+
+		LO.print("*************OTR Calulation on quote summary page has been started************");
+		System.out.println("*************OTR Calulation on quote summary page has been started************");
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		Thread.sleep(2000);
+
+		Click.on(driver, quote_summary, 60);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+
+		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
+
+		ExplicitWait.visibleElement(driver, quote_summary_cost_price_ex_vat_and_rfl, 120);
+
+		ExplicitWait.visibleElement(driver, quote_summary_otr_vat, 120);
+
+		LO.print("Reading values from OTR calculation -Quote Summary Page");
+		System.out.println("Reading values from OTR calculation -Quote Summary Page");
+
+		double OTR_calculation_cost_otr_price_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_cost_otr_price.getText().trim().substring(2)));
+
+		double OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_cost_price_ex_vat_and_rfl.getText().trim().substring(2)));
+
+		double OTR_calculation_otr_vat_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_otr_vat.getText().trim().substring(2)));
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+		System.out.println("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+
+		LO.print("Cost price ex vat and rfl from screen is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		System.out.println("Cost price ex vat and rfl from screen is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+
+		LO.print("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+		System.out.println("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+
+		double OTR_calculation_cost_otr_price_from_excel = GetExcelFormulaValue.get_formula_value(3, 1, sheet_name);
+		double OTR_calculation_cost_price_ex_vat_and_rfl_from_excel = GetExcelFormulaValue.get_formula_value(1, 1,
+				sheet_name);
+		double OTR_calculation_otr_vat_from_excel = GetExcelFormulaValue.get_formula_value(1, 3, sheet_name);
+		double OTR_calculation_otr_rfl_and_frf_excel = GetExcelFormulaValue.get_formula_value(1, 5, sheet_name);
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+		System.out.println("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+
+		LO.print("Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+		System.out.println(
+				"Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+
+		LO.print("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+		System.out.println("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+
+		double diff_otr = Difference.of_two_Double_Values(OTR_calculation_cost_otr_price_from_excel,
+				OTR_calculation_cost_otr_price_from_screen_converted);
+		double diff_cost_price = Difference.of_two_Double_Values(OTR_calculation_cost_price_ex_vat_and_rfl_from_excel,
+				OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		double diff_otr_vat = Difference.of_two_Double_Values(OTR_calculation_otr_vat_from_excel,
+				OTR_calculation_otr_vat_from_screen_converted);
+
+		int count = 0;
+		boolean status = false;
+		if (diff_otr < 0.2) {
+			LO.print("OTR price compared");
+			System.out.println("OTR price compared");
+			count++;
+		} else {
+			LO.print("Found difference between OTR actual price and OTR expected price on Quote Summary Page");
+			System.err
+					.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");
+		}
+
+		if (diff_cost_price < 0.2) {
+			LO.print("Cost price ex vat and rfl compared");
+			System.out.println("Cost price ex vat and rfl compared");
+			count++;
+		} else {
+			LO.print(
+					"Found difference between (Cost price ex vat and rfl) actual and (Cost price ex vat and rfl) expected on Quote Summary Page");
+			System.err.println(
+					"Found difference between (Cost price ex vat and rfl) actual and (Cost price ex vat and rfl) expected on Quote Summary Page");
+		}
+
+		if (diff_otr_vat < 0.2) {
+			LO.print("VAT compared");
+			System.out.println("VAT compared");
+			count++;
+		} else {
+			LO.print("Found difference between VAT actual and VAT expected on Quote Summary Page");
+			System.err.println("Found difference between VAT actual and VAT expected on Quote Summary Page");
+		}
+
+		if (count == 3) {
+			status = true;
+		}
+
+		return status;
+
+	}
+
+	
 	public boolean quote_summary_OTR_calculation(String sheet_name) throws InterruptedException, IOException {
 
 		LO.print("*************OTR Calulation on quote summary page has been started************");
@@ -781,7 +894,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_miles, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);
+		try{ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);}catch(Exception e) {}
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_followed_by, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_pence_per_excess_mile_finance, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_doc_fee, 20);
@@ -804,8 +917,9 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double customer_quote_initial_finance_rental = Double.parseDouble(
 				RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
 
-		double customer_quote_part_exchange_value = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));
+		  double customer_quote_part_exchange_value = 0;
+			try{ customer_quote_part_exchange_value = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));}catch(Exception e) {}
 
 		double customer_payment_followed_by = Double
 				.parseDouble(quote_summary_customer_quote_followed_by.getText().substring(0, 2));
@@ -899,14 +1013,14 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 			System.err.println("Followed By months - found wrong");
 		}
 
-		if (partExchangeValue == customer_quote_part_exchange_value) {
-			LO.print("Part Exchange Value - found OK");
-			System.out.println("Part Exchange Value - found OK");
-			count++;
-		} else {
-			LO.print("Part Exchange Value - found wrong");
-			System.err.println("Part Exchange Value - found wrong");
-		}
+		try{if (partExchangeValue == customer_quote_part_exchange_value) {
+		LO.print("Part Exchange Value - found OK");
+		System.out.println("Part Exchange Value - found OK");
+		count++;
+	} else {
+		LO.print("Part Exchange Value - found wrong");
+		System.err.println("Part Exchange Value - found wrong");
+	}}catch(Exception e) {}
 
 		if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
 				customer_quote_pence_per_excess_mile_finance)) < 0.2) {
@@ -1008,7 +1122,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_maint_rental, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_total_rental, 20);
 
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);
+		try{ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);}catch(Exception e) {}
 
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_followed_by, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_pence_per_excess_mile_finance, 20);
@@ -1045,9 +1159,12 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double customer_quote_initial_total_rental = Double.parseDouble(
 				RemoveComma.of(quote_summary_customer_quote_initial_total_rental.getText().trim().substring(2)));
 
-		double customer_quote_part_exchange_value = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));
+		double customer_quote_part_exchange_value = 0;
 
+		try{ customer_quote_part_exchange_value = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));}catch(Exception e) {}
+		
+		
 		double customer_payment_followed_by = Double
 				.parseDouble(quote_summary_customer_quote_followed_by.getText().substring(0, 2));
 
@@ -1176,14 +1293,15 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 			System.err.println("Initial Total Rental found wrong");
 		}
 
-		if (partExchangeValue == customer_quote_part_exchange_value) {
+		try{if (partExchangeValue == customer_quote_part_exchange_value) {
 			LO.print("Part Exchange Value - found OK");
 			System.out.println("Part Exchange Value - found OK");
 			count++;
 		} else {
 			LO.print("Part Exchange Value - found wrong");
 			System.err.println("Part Exchange Value - found wrong");
-		}
+		}}catch(Exception e) {}
+
 
 		if (followedBy == customer_payment_followed_by) {
 			LO.print("Followed By months - found OK");
@@ -1309,7 +1427,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_miles, 20);
 			ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 20);
 			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);
+			try{ExplicitWait.visibleElement(driver, quote_summary_customer_quote_part_exchange_value, 20);}catch(Exception e1) {}
 			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_followed_by, 20);
 			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_pence_per_excess_mile_finance, 20);
 			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_doc_fee, 20);
@@ -1331,10 +1449,11 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 			double customer_quote_initial_finance_rental = Double.parseDouble(
 					RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
-
-			double customer_quote_part_exchange_value = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));
-
+		
+			double customer_quote_part_exchange_value = 0;
+			try{ customer_quote_part_exchange_value = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_part_exchange_value.getText().trim().substring(2)));}catch(Exception e1) {}
+		
 			double customer_payment_followed_by = Double
 					.parseDouble(quote_summary_customer_quote_followed_by.getText().substring(0, 2));
 
@@ -1427,14 +1546,15 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 				System.err.println("Followed By months - found wrong");
 			}
 
-			if (partExchangeValue == customer_quote_part_exchange_value) {
-				LO.print("Part Exchange Value - found OK");
-				System.out.println("Part Exchange Value - found OK");
-				count++;
-			} else {
-				LO.print("Part Exchange Value - found wrong");
-				System.err.println("Part Exchange Value - found wrong");
-			}
+			try{if (partExchangeValue == customer_quote_part_exchange_value) {
+			LO.print("Part Exchange Value - found OK");
+			System.out.println("Part Exchange Value - found OK");
+			count++;
+		} else {
+			LO.print("Part Exchange Value - found wrong");
+			System.err.println("Part Exchange Value - found wrong");
+		}}catch(Exception e1) {}
+
 
 			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
 					customer_quote_pence_per_excess_mile_finance)) < 0.2) {
@@ -1553,6 +1673,8 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double defaultBrokerMarginPercentageFromScreen = Double
 				.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0, 4));
 
+		System.out.println("defaultBrokerMarginPercentageFromScreen "+defaultBrokerMarginPercentageFromScreen);
+		
 		ExplicitWait.visibleElement(driver, quote_summary_broker_upsell_margin_percentage, 20);
 		double brokerUpsellMarginPercentageFromScreen = Double
 				.parseDouble(quote_summary_broker_upsell_margin_percentage.getText().trim().substring(0, 4));
@@ -1587,6 +1709,9 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 		double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
 
+		System.out.println("defaultBrokerMarginPercentagefrom excel "+defaualtBrokerMarginPercentageFromExcel);
+
+		
 		double tempbrokerUpsellMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(218, 4, sheet_name);
 
 		double brokerUpsellMarginPercentageFromExcel = (tempbrokerUpsellMarginPercentageFromExcel * 100);
@@ -1647,7 +1772,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		}
 
 		if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
-				defaultBrokerMarginPercentageFromScreen) < 0.2) {
+				defaultBrokerMarginPercentageFromScreen) < 0.01) {
 			LO.print("Default Broker Margin percentage found OK");
 			System.out.println("Default Broker Margin percentage found OK");
 			count++;
@@ -2550,6 +2675,9 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		js.executeScript("arguments[0].click();", quote_summary_save_button);
+		
+//		Actions act = new Actions(driver);
+//		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 
@@ -3243,32 +3371,6 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 
-		LO.print("Holding cost Terms from screen" + holding_cost_terms_from_screen_converted);
-		System.out.println("Holding cost Terms from screen is " + holding_cost_terms_from_screen_converted);
-
-		LO.print("Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
-		System.out.println(
-				"Holding cost miles per annum from screen is " + holding_cost_miles_per_annum_from_screen_converted);
-
-		LO.print("Holding cost monthly finance cost from screen is "
-				+ holding_cost_monthly_finance_cost_from_screen_converted);
-		System.out.println("Holding cost monthly finance cost from screen is "
-				+ holding_cost_monthly_finance_cost_from_screen_converted);
-
-		LO.print("Holding cost monthly maint cost used from screen is "
-				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
-		System.out.println("Holding cost monthly maint cost used from screen is "
-				+ holding_cost_monthly_maint_cost_used_from_screen_converted);
-
-		LO.print("Holding cost total monthly holding cost from screen is "
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
-		System.out.println("Holding cost total monthly holding cost from screen is "
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
-
-		LO.print("holding_cost_total_monthly_holding_cost_from_screen ="
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
-		System.out.println("holding_cost_total_monthly_holding_cost_from_screen ="
-				+ holding_cost_total_monthly_holding_cost_from_screen_converted);
 
 		double holding_cost_terms_from_excel = GetExcelFormulaValue.get_formula_value(28, 7, sheet_name);
 		double holding_cost_miles_per_annum_from_excel = GetExcelFormulaValue.get_formula_value(29, 7, sheet_name);

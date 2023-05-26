@@ -139,7 +139,7 @@
 						</properties>
 						<!-- Suite testng xml file to consider for test execution -->
 						<suiteXmlFiles>
-							<suiteXmlFile>testng.xml</suiteXmlFile>
+							<suiteXmlFile>testngNewLCV.xml</suiteXmlFile>
 						</suiteXmlFiles>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>

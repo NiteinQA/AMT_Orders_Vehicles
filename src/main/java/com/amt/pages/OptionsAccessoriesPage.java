@@ -15,7 +15,7 @@ public class OptionsAccessoriesPage extends TestBase {
 
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
-	@FindBy(xpath = "//*[@id='child2_0016']/div/div[1]/div[1]/label")
+	@FindBy(xpath = "//*[contains(text(),'Paint -')]//ancestor::div[1]//div/div/div/div/label")
 	private WebElement paint;  
 	
 	
@@ -28,11 +28,16 @@ public class OptionsAccessoriesPage extends TestBase {
 	@FindBy(xpath = "//*[@id=\"child2_0014\"]/div[1]/div[1]/div[1]/label")
 	private WebElement acq_interior_trim_used_car; 
 	
-	@FindBy(xpath = "//*[@id='optionid_8116']")
+	@FindBy(xpath = "//*[contains(text(),'Trim')]//ancestor::div[1]//div/div/div/div/label")
 	private WebElement acq_interior_trim_used_LCV; 
 	
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
+	
+	@FindBy(xpath = "//*[@id='Rule_Modal']/div/div/div[3]/div/input")
+	private WebElement popup_yes;
+	
+	
 	
 	
 	public OptionsAccessoriesPage() {
@@ -48,11 +53,34 @@ public class OptionsAccessoriesPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 
-		js.executeScript("arguments[0].click();", paint);
-
-		
+		js.executeScript("arguments[0].click();", paint);		
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		
+		try {
+
+			ExplicitWait.clickableElement(driver, paint, 30);
+			js.executeScript("arguments[0].click();", paint);		
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+			 
+			Click.on(driver, acq_interior, 40);
+		 
+
+		} catch (Exception e) {
+			
+			try{
+				Click.on(driver, popup_yes, 50);
+				Thread.sleep(2000);	}catch (Exception e1)
+			{
+					
+			}
+			
+
+		}
+
+		
 
 
 		Click.on(driver, acq_interior, 40);
@@ -88,7 +116,7 @@ public void options_And_Accessories_selection_for_used_car() throws InterruptedE
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 		
-		js.executeScript("arguments[0].click();", acq_interior_trim_used_car);
+		js.executeScript("arguments[0].click();", acq_interior_trim_used_LCV);
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 			
