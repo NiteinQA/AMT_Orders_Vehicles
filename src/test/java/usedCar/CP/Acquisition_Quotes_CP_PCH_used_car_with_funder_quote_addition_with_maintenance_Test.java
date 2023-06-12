@@ -8,10 +8,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_BCHPage;
 import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_PCHPage;
 import com.amt.HoldingCostPages.HoldingCost_CP_PCH_Page;
-import com.amt.QuoteSummaryPages.QuoteSummary_CP_BCH_Page;
 import com.amt.QuoteSummaryPages.QuoteSummary_CP_PCH_Page;
 import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
@@ -30,8 +28,8 @@ public class Acquisition_Quotes_CP_PCH_used_car_with_funder_quote_addition_with_
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_CP_PCH_Page obj_contract_types_and_OTR_page;
 	HoldingCost_CP_PCH_Page obj_holding_cost_CP_PCH_page;
-	CustomerQuotePage_HPNR_BCHPage obj_customer_quote_page;
-	QuoteSummary_CP_BCH_Page obj_quote_summary_page;
+	CustomerQuotePage_HPNR_PCHPage obj_customer_quote_page;
+	QuoteSummary_CP_PCH_Page obj_quote_summary_page;
 
 	@Test(priority = 1, dataProvider = "testData")
 	public void aquisition_quotes_used_car_OTR_calculation_with_maintenance_test(String registrationNumber, String mileage, String vehicelCostPrice, String options_and_preparation_cost,
@@ -106,7 +104,7 @@ public class Acquisition_Quotes_CP_PCH_used_car_with_funder_quote_addition_with_
 			String part_exchange_status, String target_rental, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
-		obj_customer_quote_page = new CustomerQuotePage_HPNR_BCHPage();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_PCHPage();
 
 		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
 				.customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_with_maintenance_calculation(
@@ -162,7 +160,7 @@ public class Acquisition_Quotes_CP_PCH_used_car_with_funder_quote_addition_with_
 			String part_exchange_status, String target_rental, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
-		obj_quote_summary_page = new QuoteSummary_CP_BCH_Page();
+		obj_quote_summary_page = new QuoteSummary_CP_PCH_Page();
 
 		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);

@@ -184,7 +184,7 @@ public class Acquisition_Quotes_HPNR_FL_used_LCV_with_funder_quote_addition_with
 		
 		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
 		
-		//Assert.assertTrue(balance_due_value);	
+		Assert.assertTrue(balance_due_value);	
 		
 
 		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
@@ -206,7 +206,7 @@ public class Acquisition_Quotes_HPNR_FL_used_LCV_with_funder_quote_addition_with
 
 		boolean balance_due_value1 = obj_customer_quote_page.verify_balance_due_value(sheet_name);
 		
-		//Assert.assertTrue(balance_due_value1);
+		Assert.assertTrue(balance_due_value1);
 		
 		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
 				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);

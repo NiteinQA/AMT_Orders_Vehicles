@@ -90,7 +90,7 @@ public class Acquisition_Quotes_HPNR_PCH_used_LCV_with_maintenance_Test extends 
 
 		obj_holding_cost_page = new HoldingCost_HPNR_BCHPage();
 
-		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page.verify_holding_cost_for_used_vehicle_with_maintenance(
+		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page.verify_holding_cost_before_editing_cap_data_with_maintenance(
 				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
 				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_with_maintenance_boolean);

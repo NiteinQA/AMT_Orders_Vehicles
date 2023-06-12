@@ -34,8 +34,13 @@ public class OptionsAccessoriesPage extends TestBase {
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
 	
-	@FindBy(xpath = "//*[@id='Rule_Modal']/div/div/div[3]/div/input")
+//	@FindBy(xpath = "//*[@id='Rule_Modal']/div/div/div[3]/div/input")
+//	private WebElement popup_yes;
+	
+	
+	@FindBy(css = "input[value='Ok']")
 	private WebElement popup_yes;
+	
 	
 	
 	
@@ -52,6 +57,8 @@ public class OptionsAccessoriesPage extends TestBase {
 		System.out.println("Paint option has been selected");
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		Thread.sleep(3000);
 
 		js.executeScript("arguments[0].click();", paint);		
 
@@ -103,6 +110,8 @@ public class OptionsAccessoriesPage extends TestBase {
 public void options_And_Accessories_selection_for_used_car() throws InterruptedException {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+		Thread.sleep(2000);
 
 		js.executeScript("arguments[0].click();", paint);
 
@@ -129,6 +138,8 @@ public void options_And_Accessories_selection_for_used_car() throws InterruptedE
 public void options_And_Accessories_selection_for_used_LCV() throws InterruptedException {
 
 	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+	
+	Thread.sleep(2000);
 
 	js.executeScript("arguments[0].click();", paint);
 

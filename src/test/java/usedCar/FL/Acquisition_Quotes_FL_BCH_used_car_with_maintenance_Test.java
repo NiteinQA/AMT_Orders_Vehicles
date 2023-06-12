@@ -90,7 +90,7 @@ public class Acquisition_Quotes_FL_BCH_used_car_with_maintenance_Test extends Te
 
 		obj_holding_cost_page = new HoldingCost_HPNR_BCHPage();
 
-		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page.verify_holding_cost_for_used_vehicle_with_maintenance(
+		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page.verify_holding_cost_before_editing_cap_data_with_maintenance(
 				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
 				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_with_maintenance_boolean);
@@ -144,6 +144,14 @@ public class Acquisition_Quotes_FL_BCH_used_car_with_maintenance_Test extends Te
 						referrer_upsell, add_terms, add_mileage, sheet_name);
 
 		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+		
+		boolean monthlyFinanceAndMaintenanceWithPartExchange = obj_customer_quote_page
+				.check_monthly_finance_rental_with_part_exchange_with_maintenance(
+						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
+						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
+						sheet_name);
+
+		Assert.assertTrue(monthlyFinanceAndMaintenanceWithPartExchange);
 
 
 		boolean balance_due_value1 = obj_customer_quote_page.verify_balance_due_value(sheet_name);

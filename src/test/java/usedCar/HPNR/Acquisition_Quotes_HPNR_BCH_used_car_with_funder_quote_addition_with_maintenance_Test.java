@@ -70,9 +70,9 @@ public class Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_wit
 			String target_rental, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
-//boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
-//		.edit_vehicle_cost_price_and_check_OTR_price(vehicelCostPrice, options_and_preparation_cost, sheet_name);
-//Assert.assertTrue(cost_price_ex_vat_and_options_and_preparation_cost);
+boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
+		.edit_vehicle_cost_price_and_check_OTR_price(vehicelCostPrice, options_and_preparation_cost, sheet_name);
+Assert.assertTrue(cost_price_ex_vat_and_options_and_preparation_cost);
 
 	}
 

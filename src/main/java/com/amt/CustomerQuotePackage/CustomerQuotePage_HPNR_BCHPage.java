@@ -308,7 +308,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-
+		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_Deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(111).getCell(4)
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
@@ -436,7 +436,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-
+		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_Deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(111).getCell(4)
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));

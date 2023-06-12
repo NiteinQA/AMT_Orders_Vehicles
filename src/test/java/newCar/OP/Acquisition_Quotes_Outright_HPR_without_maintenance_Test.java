@@ -9,6 +9,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.amt.CustomerQuotePackage.CustomerQuotePageOutrightHPRPage;
+import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_HPRPage;
 import com.amt.HoldingCostPages.HoldingCostOutrightHPRPage;
 import com.amt.QuoteSummaryPages.QuoteSummaryOutrightHPRPage;
 import com.amt.pages.AcquisitionListingPage;
@@ -30,7 +31,7 @@ public class Acquisition_Quotes_Outright_HPR_without_maintenance_Test extends Te
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_Outright_HPR_Page obj_contract_types_and_OTR_page ;
 	HoldingCostOutrightHPRPage obj_holding_cost;
-	CustomerQuotePageOutrightHPRPage obj_customer_quote_page;
+	CustomerQuotePage_HPNR_HPRPage obj_customer_quote_page;
 	QuoteSummaryOutrightHPRPage obj_quote_summary_page;
 
 
@@ -113,7 +114,7 @@ public class Acquisition_Quotes_Outright_HPR_without_maintenance_Test extends Te
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, NumberFormatException, ClassNotFoundException {
 
 
-		obj_customer_quote_page = new CustomerQuotePageOutrightHPRPage();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 		
 		boolean monthly_finance_payment_check =obj_customer_quote_page.check_monthly_finance_payment_on_customer_quote(driver,maintenance_status, matrix_credit_type, balloon_payment_status,order_deposit, finance_deposit,document_fee, sheet_name);
 		Assert.assertTrue(monthly_finance_payment_check);
@@ -136,7 +137,7 @@ public class Acquisition_Quotes_Outright_HPR_without_maintenance_Test extends Te
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 
-		obj_customer_quote_page = new CustomerQuotePageOutrightHPRPage();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 		
 		boolean monthly_finance_payment_after_editing_vehicle_profit =obj_customer_quote_page.edit_vehicle_profit_and_check_monthly_finance_payment(vehicle_profit, sheet_name);
 		Assert.assertTrue(monthly_finance_payment_after_editing_vehicle_profit);
@@ -155,7 +156,7 @@ public class Acquisition_Quotes_Outright_HPR_without_maintenance_Test extends Te
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 
-		obj_customer_quote_page = new CustomerQuotePageOutrightHPRPage();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();
 		
 		
 		boolean monthlyFinanceandBalanceToFinanceCheck = obj_customer_quote_page.put_part_exchange_values_and_check_monthly_finance_payment(part_exchange_actual, part_exchange_given, less_finance_settlement, order_deposit, finance_deposit, sheet_name);
@@ -171,7 +172,7 @@ public class Acquisition_Quotes_Outright_HPR_without_maintenance_Test extends Te
 			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 
-		obj_customer_quote_page = new CustomerQuotePageOutrightHPRPage();		
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_HPRPage();		
 		
 		boolean monthlyFinancePaymentCheckAfterBalloonPaymentOff = obj_customer_quote_page.check_monthly_finance_payment_after_making_balloon_payment_off(sheet_name);
         

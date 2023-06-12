@@ -231,22 +231,22 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		PageFactory.initElements(driver, this);
 
 	}
-//
-//	public void save_changes_and_back_to_customer_quote_page() throws InterruptedException {
-//
-//		Thread.sleep(2000);
-//
-//		QuoteSummaryOutrightHPNRPage obj_save_method = new QuoteSummaryOutrightHPNRPage();
-//
-//		obj_save_method.save_changes();
-//
-//		Click.on(driver, customer_quote, 30);
-//
-//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-//
-//		Thread.sleep(2000);
-//
-//	}
+
+	public void save_changes_and_back_to_customer_quote_page() throws InterruptedException {
+
+		Thread.sleep(2000);
+
+		QuoteSummaryOutrightHPNRPage obj_save_method = new QuoteSummaryOutrightHPNRPage();
+
+		obj_save_method.save_changes();
+
+		Click.on(driver, customer_quote, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Thread.sleep(2000);
+
+	}
 
 	public boolean edit_otr_sales_price_and_check_monthly_total_payment_with_maintenance(String sales_price_percentage,
 			String sheet_name) throws InterruptedException, UnsupportedFlavorException, IOException {
@@ -2040,40 +2040,26 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	public boolean edit_vehicle_profit_and_check_monthly_finance_payment(String vehicle_profit, String sheet_name)
 			throws InterruptedException, UnsupportedFlavorException, IOException {
 
-		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
-		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		//enter vehicle profit 
+		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);	
+		Thread.sleep(1000);
+		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));		
 		Click.sendKeys(driver, vehicle_profit_input, vehicle_profit, 30);
+		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
+		Thread.sleep(1000);
 		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String vehicle_additional_discount_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+		
+		//verify monthly finance payment 
 		double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
-
-//		//calling save method
-//		CustomerQuotePage_HPNR_HPRPage obj_cust_quote_class = new CustomerQuotePage_HPNR_HPRPage();		
-//		obj_cust_quote_class.save_changes_and_back_to_customer_quote_page();
-
-//		try {
-//			HttpURLConnection c = (HttpURLConnection) new URL(prop.getProperty("calculate_purchase_ownBook"))
-//					.openConnection();
-//			c.setRequestMethod("HEAD");
-//			c.connect();
-//			int r = c.getResponseCode();
-//
-//			int i = 0;
-//			while (i <= 15 && r != 200 || r != 405) {
-//				Thread.sleep(1000);
-//				r = c.getResponseCode();
-//				i++;
-//			}
-//		} catch (Exception e) {
-//		}
 
 		Click.on(driver, quote_summary, 30);
 
@@ -2087,12 +2073,31 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_expected_from_excel,
 				monthly_finance_payment_actual_from_screen);
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("Actual Monthly Finance Payment after editing vehicle profit = "+monthly_finance_payment_actual_from_screen);
+		System.out.println("Actual Monthly Finance Payment after editing vehicle profit = "+monthly_finance_payment_actual_from_screen);
+		
+		LO.print("Expected  Monthly Finance Payment after editing vehicle profit = "+monthly_finance_payment_expected_from_excel);
+		System.out.println("Expected Monthly Finance Payment after editing vehicle profit = "+monthly_finance_payment_expected_from_excel);
+		
+		LO.print("");
+		System.out.println("");
+		
 		boolean status = false;
 		if (diff < 0.2) {
 			status = true;
 
 			LO.print("Monthly Finance Payment verified after editing vehicle profit");
 			System.out.println("Monthly Finance Payment verified after editing vehicle profit");
+		}
+		
+		else {
+			
+			LO.print("Monthly Finance Payment verified after editing vehicle profit but found wrong");
+			System.err.println("Monthly Finance Payment verified after editing vehicle profit but found wrong");
 		}
 
 		return status;

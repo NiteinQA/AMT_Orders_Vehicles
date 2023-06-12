@@ -48,8 +48,8 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test extends 
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_HPR_Page();
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle_for_used_LCV(registrationNumber, mileage);
-		obj_options_accessories.options_And_Accessories_selection_for_used_LCV();
+		obj_vehicle_selection_page.select_vehicle_for_used_car_flow(registrationNumber, mileage);
+		obj_options_accessories.options_And_Accessories_selection_for_used_car();
 
 		boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
 				.contractTypes_selection_and_OTR_calculation(sheet_name);
@@ -78,20 +78,20 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test extends 
 		Assert.assertTrue(holding_cost_before_editing_percentage_values);
 		
 		
-//		boolean holding_cost_after_editing_percentage_values  = obj_holding_cost_page.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
-//				percentage_cap_maint_value, residual_value_used, maint_cost_used,
-//				percentage_cap_residual_value, maintenance_status, target_rental, sheet_name);
-//		Assert.assertTrue(holding_cost_after_editing_percentage_values );
-//		
-//		boolean holding_cost_after_editing_residual_and_maint_cost  = obj_holding_cost_page.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
-//				percentage_cap_maint_value, residual_value_used, maint_cost_used,
-//				percentage_cap_residual_value, maintenance_status, target_rental, sheet_name);
-//		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost );
-//		
-//		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
-//				.edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(additional_terms, additional_mileage,
-//						maintenance_status, target_rental, sheet_name);
-//		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
+		boolean holding_cost_after_editing_percentage_values  = obj_holding_cost_page.edit_percentage_residual_and_maint_cost_then_verify_holding_cost_with_maintenance(
+				percentage_cap_maint_value, residual_value_used, maint_cost_used,
+				percentage_cap_residual_value, maintenance_status, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_percentage_values );
+		
+		boolean holding_cost_after_editing_residual_and_maint_cost  = obj_holding_cost_page.edit_residual_value_and_maint_cost_then_verify_holding_cost_with_maintenance(
+				percentage_cap_maint_value, residual_value_used, maint_cost_used,
+				percentage_cap_residual_value, maintenance_status, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_residual_and_maint_cost );
+		
+		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
+				.edit_additional_term_and_mileage_then_verify_holding_cost_with_maintenance(additional_terms, additional_mileage,
+						maintenance_status, target_rental, sheet_name);
+		Assert.assertTrue(holding_cost_after_editing_additional_terms_and_mileage);
 
 	
 
@@ -228,7 +228,7 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test extends 
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("HPNR_HPR_Maint_used_LCV");
+		Object[][] data = ReadExcelData.getTestData("HPNR_HPR_Maint_used_car");
 		return data;
 	}
 

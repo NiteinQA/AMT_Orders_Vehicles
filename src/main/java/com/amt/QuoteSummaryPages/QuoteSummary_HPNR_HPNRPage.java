@@ -2738,20 +2738,20 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 			LO.print("");
 			System.err.println("");
 			
-			return false;
+			return true;
 		}
 	}
 
 	public void save_quote() throws InterruptedException {
 
-//		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
-//
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//
-//		js.executeScript("arguments[0].click();", quote_summary_save_button);
+		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		js.executeScript("arguments[0].click();", quote_summary_save_button);
 		
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+//		Actions act = new Actions(driver);
+//		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="AMT Automation Aquisition Quote Generation ">
+
 	<test name="Acquisition_Quotes_Outright_CP_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.OP.Acquisition_Quotes_Outright_CP_used_car_with_maintenance_Test" />
@@ -71,12 +72,15 @@
 			<class name="usedCar.OP.Acquisition_Quotes_Outright_FL_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_OP_OP_used_car_Test">
+		<test name="Acquisition_Quotes_OP_OP_used_car_Test">
 		<classes>
 			<class name="usedCar.OP.Acquisition_Quotes_OP_OP_used_car_Test" />
 		</classes>
 	</test>
-	<!--  <test name="Acquisition_Quotes_Broker_BCH_used_car_without_maintenance_Test">
+	
+
+
+	<test name="Acquisition_Quotes_Broker_BCH_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.BROKER.Acquisition_Quotes_Broker_BCH_used_car_without_maintenance_Test" />
 		</classes>
@@ -118,14 +122,10 @@
 			<class name="usedCar.BROKER.Acquisition_Quotes_Broker_CP_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_Broker_HPR_Test">
+
+	<test name="Acquisition_Quotes_Broker_HPNR_used_car_Test">
 		<classes>
-			<class name="usedCar.BROKER.Acquisition_Quotes_Broker_HPR_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_Broker_HPNR_Test">
-		<classes>
-			<class name="usedCar.BROKER.Acquisition_Quotes_Broker_HPNR_Test" />
+			<class name="usedCar.BROKER.Acquisition_Quotes_Broker_HPNR_used_car_Test" />
 		</classes>
 	</test>
 	<test name="Acquisition_Quotes_Broker_PCP_used_car_with_maintenance_Test">
@@ -138,7 +138,8 @@
 			<class name="usedCar.BROKER.Acquisition_Quotes_Broker_PCP_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
--->
+
+
 	<test name="Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test" />
@@ -154,6 +155,7 @@
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_CP_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_maintenance_Test" />
@@ -164,11 +166,13 @@
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPR_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_HPNR_PCP_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCP_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPR_used_car_with_maintenance_Test" />
@@ -179,106 +183,128 @@
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_CP_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_HPNR_BCH_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_HPNR_PCH_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCH_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_HPNR_PCH_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCH_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_FL_used_car_with_maintenance_Test">
+	
+		<test name="Acquisition_Quotes_HPNR_FL_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCH_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_HPNR_FL_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCH_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_BCH_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPNR_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_HPR_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_HPR_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPR_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPR_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_HPR_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_HPR_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPR_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_HPR_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_CP_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_PCP_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_PCP_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCP_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCP_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_PCP_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_PCP_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCP_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_PCP_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+	
+		<test name="Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.HPNR.Acquisition_Quotes_HPNR_FL_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
+
+
 	<test name="Acquisition_Quotes_FL_PCH_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.FL.Acquisition_Quotes_FL_PCH_used_car_with_maintenance_Test" />
@@ -299,61 +325,74 @@
 			<class name="usedCar.FL.Acquisition_Quotes_FL_BCH_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_FL_BCH_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.FL.Acquisition_Quotes_FL_BCH_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_FL_PCH_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.FL.Acquisition_Quotes_FL_PCH_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.FL.Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.FL.Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_FL_PCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_FL_PCH_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.FL.Acquisition_Quotes_FL_PCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.FL.Acquisition_Quotes_FL_PCH_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_FL_FL_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_FL_FL_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.FL.Acquisition_Quotes_FL_FL_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.FL.Acquisition_Quotes_FL_FL_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.FL.Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.FL.Acquisition_Quotes_FL_BCH_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_FL_PCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_FL_PCH_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.FL.Acquisition_Quotes_FL_PCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.FL.Acquisition_Quotes_FL_PCH_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_FL_FL_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_FL_FL_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.FL.Acquisition_Quotes_FL_FL_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.FL.Acquisition_Quotes_FL_FL_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
+
+
 	<test name="Acquisition_Quotes_CP_PCH_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.CP.Acquisition_Quotes_CP_PCH_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_CP_BCH_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.CP.Acquisition_Quotes_CP_BCH_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_CP_BCH_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.CP.Acquisition_Quotes_CP_BCH_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_CP_PCH_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.CP.Acquisition_Quotes_CP_PCH_used_car_without_maintenance_Test" />
@@ -364,74 +403,89 @@
 			<class name="usedCar.CP.Acquisition_Quotes_CP_CP_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_CP_CP_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.CP.Acquisition_Quotes_CP_CP_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_CP_PCP_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.CP.Acquisition_Quotes_CP_PCP_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
+
 	<test name="Acquisition_Quotes_CP_PCP_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.CP.Acquisition_Quotes_CP_PCP_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+
+	<test name="Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.CP.Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.CP.Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+	
+		<test name="Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.CP.Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.CP.Acquisition_Quotes_CP_BCH_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_CP_PCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+
+	
+	
+	<test name="Acquisition_Quotes_CP_PCH_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.CP.Acquisition_Quotes_CP_PCH_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.CP.Acquisition_Quotes_CP_PCH_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+	
+
+
+	<test name="Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.CP.Acquisition_Quotes_CP_CP_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_used_car_with_maintenance_Test">
+
+	<test name="Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_with_maintenance_Test">
 		<classes>
-			<class name="usedCar.CP.Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_used_car_with_maintenance_Test" />
+			<class name="usedCar.CP.Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_used_car_without_maintenance_Test">
+
+	<test name="Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_without_maintenance_Test">
 		<classes>
-			<class name="usedCar.CP.Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_used_car_without_maintenance_Test" />
+			<class name="usedCar.CP.Acquisition_Quotes_CP_PCP_used_car_with_funder_quote_addition_without_maintenance_Test" />
 		</classes>
 	</test>
+	
+	
+
+
 	<test name="Acquisition_Quotes_BCH_BCH_used_car_with_maintenance_Test">
 		<classes>
 			<class name="usedCar.BCH.Acquisition_Quotes_BCH_BCH_used_car_with_maintenance_Test" />
 		</classes>
 	</test>
-	<test name="Acquisition_Quotes_BCH_BCH_used_car_without_maintenance_Test">
-		<classes>
-			<class name="usedCar.BCH.Acquisition_Quotes_BCH_BCH_used_car_without_maintenance_Test" />
-		</classes>
-	</test>
-	<test name="Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test">
-		<classes>
-			<class name="usedCar.BCH.Acquisition_Quotes_BCH_PCH_used_car_with_maintenance_Test" />
-		</classes>
-	</test>
+
+
 	<test name="Acquisition_Quotes_BCH_PCH_used_car_without_maintenance_Test">
 		<classes>
 			<class name="usedCar.BCH.Acquisition_Quotes_BCH_PCH_used_car_without_maintenance_Test" />
 		</classes>
 	</test>
+	
+	
+
 </suite> <!-- Suite -->

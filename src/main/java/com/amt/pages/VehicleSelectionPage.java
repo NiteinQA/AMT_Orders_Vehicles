@@ -108,7 +108,7 @@ public class VehicleSelectionPage extends TestBase {
 		
 		Thread.sleep(3000);
 		
-		act.sendKeys(Keys.ARROW_DOWN).build().perform();
+		act.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN).build().perform();
 		act.sendKeys(Keys.ENTER).perform();
 		
 	

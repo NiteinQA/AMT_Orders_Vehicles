@@ -1457,7 +1457,7 @@ public class ReadExcelCalculation extends TestBase {
 	
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used")) {
 			wb.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B60*B63");
-			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B60*B66");
+			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B61*B66");
 		}
 		else
 		{
@@ -1477,19 +1477,21 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(71).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
 		
-		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used")) {
 		
-			if (sheet_name.contains("Formula1-FL_Used_LCV")) {
-			
-			wb.getSheet(sheet_name).getRow(73).getCell(1)
-				.setCellValue(0);
-			
-			}
-			else
-			{
+			if (sheet_name.contains("Formula1-FL_Used")) {wb.getSheet(sheet_name).getRow(73).getCell(1).setCellValue(0);}
+			else{
+				if(sheet_name.contains("Used_LCV"))
+				{
 				wb.getSheet(sheet_name).getRow(73).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum_used_LCV")));
-			}
+				}
+				else
+				{
+					wb.getSheet(sheet_name).getRow(73).getCell(1)
+					.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
+				}
+			}				
 		}
 		else {
 			
@@ -1509,9 +1511,16 @@ public class ReadExcelCalculation extends TestBase {
 		if (sheet_name.contains("Formula1") || sheet_name.contains("BCH (Formula 3)")) {
 			wb.getSheet(sheet_name).getRow(101).getCell(1).setCellValue(0);
 			wb.getSheet(sheet_name).getRow(101).getCell(3).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(111).getCell(4).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(112).getCell(4).setCellValue(0);
+			
 		} else {
 			wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(0);
 			wb.getSheet(sheet_name).getRow(107).getCell(3).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(104).getCell(3).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(117).getCell(4).setCellValue(0);
+			wb.getSheet(sheet_name).getRow(118).getCell(4).setCellValue(0);
 		}
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
@@ -1673,6 +1682,10 @@ public class ReadExcelCalculation extends TestBase {
 			if (sheet_name.contains("Used")) {
 				wb.getSheet(sheet_name).getRow(80).getCell(1).setCellValue(
 						Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum_used_car")));
+				wb.getSheet(sheet_name).getRow(79).getCell(1)
+				.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
+			
+			
 			} else {
 
 				wb.getSheet(sheet_name).getRow(79).getCell(1)
@@ -1909,7 +1922,6 @@ public class ReadExcelCalculation extends TestBase {
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 
 		wb.getSheet(sheet_name).getRow(98).getCell(1).setCellValue(" " + dropdown_option + " ");
-		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(101).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
 		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));
@@ -3684,7 +3696,6 @@ public class ReadExcelCalculation extends TestBase {
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 
 		wb.getSheet(sheet_name).getRow(98).getCell(1).setCellValue(" " + dropdown_option + " ");
-		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(101).getCell(0).setCellValue(Double.parseDouble(document_fee_from_excel));
 		wb.getSheet(sheet_name).getRow(104).getCell(0).setCellValue(maintenance_required);
 		wb.getSheet(sheet_name).getRow(104).getCell(1).setCellValue(Double.parseDouble(maintenance_margin));

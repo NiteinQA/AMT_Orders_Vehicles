@@ -106,7 +106,7 @@ public class Acquisition_Quotes_Broker_PCP_without_maintenance_Test extends Test
 		boolean customer_quote_balance_to_finance_check=obj_customer_quote_page.customer_Quote_balance_to_finance_checking_broker_pcp_without_maintenance(vehicle_profit,quoteRef,quoteExpiryDate, term, milesperannum,
 				contractMileage,cahDeposit,noOfMonthlyPayments, monthlyFinancePayment, optionalFinalPayment, optionToPurchaseFee, 
 			rflIncluded, pensePerExcessMileFinance,  apr,commission, partExchangeActual, partExchangeGiven, lessFinanceSettlemnet, sheet_name);	
-		//Assert.assertTrue(customer_quote_balance_to_finance_check);
+		Assert.assertTrue(customer_quote_balance_to_finance_check);
 		//this assertion is commented because this fails test as part exchange profit is not updated in runtime, when this will be solved then this assertion will be uncommented
 
 				

@@ -19,7 +19,7 @@ public class GetExcelFormulaValue extends ReadExcelCalculation {
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream("D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
@@ -36,7 +36,9 @@ public class GetExcelFormulaValue extends ReadExcelCalculation {
 		
 	}	
 	 
-	return   cell.getNumericCellValue(); 
+	   
+			
+			try{return cell.getNumericCellValue(); }catch(Exception e) {return Double.parseDouble(cell.getStringCellValue());}
 		
 }
 	
@@ -44,7 +46,7 @@ public static double get_string_value(int rounum, int columnnum, String sheet_na
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream("D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
@@ -68,7 +70,7 @@ public static double get_string_value(int rounum, int columnnum, String sheet_na
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream("D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("quote_save_excel_path"));

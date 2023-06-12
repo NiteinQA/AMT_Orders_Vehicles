@@ -47,8 +47,8 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_without_maintenance_Test exten
 		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_HPR_Page();
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
-		obj_vehicle_selection_page.select_vehicle_for_used_LCV(registrationNumber, mileage);
-		obj_options_accessories.options_And_Accessories_selection_for_used_LCV();
+		obj_vehicle_selection_page.select_vehicle_for_used_car_flow(registrationNumber, mileage);
+		obj_options_accessories.options_And_Accessories_selection_for_used_car();
 
 		boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
 				.contractTypes_selection_and_OTR_calculation(sheet_name);
@@ -225,7 +225,7 @@ public class Acquisition_Quotes_HPNR_HPR_used_car_without_maintenance_Test exten
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("HPNR_HPR_w-oMaint_used_LCV");
+		Object[][] data = ReadExcelData.getTestData("HPNR_HPR_w-oMaint_used_car");
 		return data;
 	}
 

@@ -69,9 +69,9 @@ public class Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test extends 
 			String part_exchange_status, String target_rental, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
-//		boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
-//				.edit_vehicle_cost_price_and_check_OTR_price(vehicelCostPrice, options_and_preparation_cost, sheet_name);
-//		Assert.assertTrue(cost_price_ex_vat_and_options_and_preparation_cost);
+		boolean cost_price_ex_vat_and_options_and_preparation_cost = obj_contract_types_and_OTR_page
+				.edit_vehicle_cost_price_and_check_OTR_price(vehicelCostPrice, options_and_preparation_cost, sheet_name);
+		Assert.assertTrue(cost_price_ex_vat_and_options_and_preparation_cost);
 
 	}
 
@@ -90,7 +90,7 @@ public class Acquisition_Quotes_HPNR_BCH_used_car_with_maintenance_Test extends 
 
 		obj_holding_cost_page = new HoldingCost_HPNR_BCHPage();
 
-		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page.verify_holding_cost_for_used_vehicle_with_maintenance(
+		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page.verify_holding_cost_before_editing_cap_data_with_maintenance(
 				percentage_cap_maintenance_cost_used, residual_value_used, main_cost_used,
 				percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_with_maintenance_boolean);

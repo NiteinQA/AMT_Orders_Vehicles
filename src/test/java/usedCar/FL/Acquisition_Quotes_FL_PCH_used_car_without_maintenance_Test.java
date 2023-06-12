@@ -91,7 +91,7 @@ public class Acquisition_Quotes_FL_PCH_used_car_without_maintenance_Test extends
 		obj_holding_cost_page = new HoldingCost_HPNR_BCHPage();
 
 		boolean holding_cost_with_maintenance_boolean = obj_holding_cost_page
-				.verify_holding_cost_for_used_vehicle_without_maintenance(residual_value_used,
+				.verify_holding_cost_before_editing_cap_values_without_maintenance(residual_value_used,
 						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_with_maintenance_boolean);
 

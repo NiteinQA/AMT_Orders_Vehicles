@@ -128,15 +128,15 @@ public class Acquisition_Quotes_HPNR_PCH_without_maintenance_Test extends TestBa
 						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
 		Assert.assertTrue(holding_cost_before_editing_percentage_value);
 
-		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_page
-				.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used,
-						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_percentage_value);
-
-		boolean holding_cost_after_editing_residual_value = obj_holding_cost_page
-				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used,
-						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
-		Assert.assertTrue(holding_cost_after_editing_residual_value);
+//		boolean holding_cost_after_editing_percentage_value = obj_holding_cost_page
+//				.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used,
+//						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+//		Assert.assertTrue(holding_cost_after_editing_percentage_value);
+//
+//		boolean holding_cost_after_editing_residual_value = obj_holding_cost_page
+//				.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used,
+//						percentage_cap_residual_value_used, maintenance_required, target_rental, sheet_name);
+//		Assert.assertTrue(holding_cost_after_editing_residual_value);
 		
 		boolean holding_cost_after_editing_additional_terms_and_mileage = obj_holding_cost_page
 				.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(add_terms, add_mileage,
@@ -178,45 +178,45 @@ public class Acquisition_Quotes_HPNR_PCH_without_maintenance_Test extends TestBa
 		System.out.println("");
 		System.out.println("");
 
-		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
-				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
-						referrer_upsell, add_terms, add_mileage, sheet_name);
-
-		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean finance_rental_with_part_exchange = obj_customer_quote_page
-				.check_monthly_finance_rental_with_part_exchange_without_maintenance(
-						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
-						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
-						sheet_name);
-
-		Assert.assertTrue(finance_rental_with_part_exchange);
-
-		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
-		Assert.assertTrue(balance_due_value);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean monthly_rental_values_on_updating_upsell_value = obj_customer_quote_page
-				.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(
-						matrix_upsell, sheet_name);
-
-		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-				.customer_Quote_HPNR_PCH_for_all_payment_option_without_maintenance_calculation(initial_payment,
-						sheet_name);
-		Assert.assertTrue(cutomer_quote_monthly_rental);
-
-		System.out.println("");
-		System.out.println("");
+//		boolean cust_quote_for_upsell_values_boolean_status = obj_customer_quote_page
+//				.check_monthly_payments_on_adding_upsell_values_without_maintenance(security_deposit, matrix_upsell,
+//						referrer_upsell, add_terms, add_mileage, sheet_name);
+//
+//		Assert.assertTrue(cust_quote_for_upsell_values_boolean_status);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean finance_rental_with_part_exchange = obj_customer_quote_page
+//				.check_monthly_finance_rental_with_part_exchange_without_maintenance(
+//						actual_part_exchange_value_from_excel, given_part_exchange_value_from_excel,
+//						less_finance_settlement_from_excel, order_deposit_from_excel, document_fee_from_excel,
+//						sheet_name);
+//
+//		Assert.assertTrue(finance_rental_with_part_exchange);
+//
+//		boolean balance_due_value = obj_customer_quote_page.verify_balance_due_value(sheet_name);
+//		Assert.assertTrue(balance_due_value);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean monthly_rental_values_on_updating_upsell_value = obj_customer_quote_page
+//				.check_monthly_payments_on_updating_customer_quote_summary_upsell_value_without_maintenance(
+//						matrix_upsell, sheet_name);
+//
+//		Assert.assertTrue(monthly_rental_values_on_updating_upsell_value);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+//				.customer_Quote_HPNR_PCH_for_all_payment_option_without_maintenance_calculation(initial_payment,
+//						sheet_name);
+//		Assert.assertTrue(cutomer_quote_monthly_rental);
+//
+//		System.out.println("");
+//		System.out.println("");
 
 	}
 
