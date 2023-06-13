@@ -22,7 +22,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

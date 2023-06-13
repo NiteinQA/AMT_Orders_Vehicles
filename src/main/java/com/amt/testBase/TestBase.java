@@ -35,7 +35,7 @@ public class TestBase {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\config.properties");
+					"D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -44,6 +44,8 @@ public class TestBase {
 		}
 	}
 
+	//Acquisition
+	
 	public static void initialization(String browser) throws InterruptedException {
 
 		if (browser.equalsIgnoreCase("chrome")) {
@@ -81,7 +83,7 @@ public class TestBase {
 
 		prop = new Properties();
 		FileInputStream ip = new FileInputStream(
-				"D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\config.properties");
+				"D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\config.properties");
 		prop.load(ip);
 
 		initialization(prop.getProperty("browser"));

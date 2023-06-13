@@ -30,7 +30,7 @@ public class ReadExcelCalculation extends TestBase {
 			// Properties class object initialization
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
 			// load property file
 			prop.load(ip);
 		} catch (FileNotFoundException e) {

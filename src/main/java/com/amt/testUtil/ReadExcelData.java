@@ -17,7 +17,7 @@ public class ReadExcelData extends TestBase {
 	
 	public static Object[][] getTestData(String sheetName) throws IOException
 	{
-		FileInputStream fis=new FileInputStream("D:\\usedCar\\AMT_Automation\\src\\main\\java\\com\\amt\\testData\\NewTestData.xlsx");
+		FileInputStream fis=new FileInputStream("D:\\Acquisition\\AMT_Automation\\src\\main\\java\\com\\amt\\testData\\NewTestData.xlsx");
 		XSSFWorkbook wb  = new XSSFWorkbook(fis);
 		 XSSFSheet sheet=wb.getSheet(sheetName);//selecting sheet with its name as a parameter
 		int rowCount=sheet.getPhysicalNumberOfRows();//no. of rows
@@ -44,7 +44,7 @@ public class ReadExcelData extends TestBase {
 	
 	public static Object[][] getTestDataForLeadOppoUnderwriting(String sheetName) throws IOException
 	{
-		FileInputStream fis=new FileInputStream("D:\\usedCar\\AMT_Automation\\src\\main\\java\\com\\amt\\testData\\LeadOppoUndTestData.xlsx");
+		FileInputStream fis=new FileInputStream("D:\\Acquisition\\AMT_Automation\\src\\main\\java\\com\\amt\\testData\\LeadOppoUndTestData.xlsx");
 		XSSFWorkbook wb  = new XSSFWorkbook(fis);
 		 XSSFSheet sheet=wb.getSheet(sheetName);//selecting sheet with its name as a parameter
 		int rowCount=sheet.getPhysicalNumberOfRows();//no. of rows
