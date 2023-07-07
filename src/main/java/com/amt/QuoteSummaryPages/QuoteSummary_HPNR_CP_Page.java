@@ -41,28 +41,19 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Cost OTR price']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_cost_otr_price;
 
-//	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[8]/div/div/p/strong")
-//	private WebElement quote_summary_total_monthly_holding_cost;
-
-	@FindBy(xpath = "//*[@id='headingHoldingCost']//div[8]/div/div/p/strong")
-	private WebElement quote_summary_total_monthly_holding_cost_with_maintenance;
-
-	@FindBy(xpath = "//div[@id='headingHoldingCost']//div[7]//div[1]//div[1]//p[1]//strong[1]")
-	private WebElement quote_summary_total_monthly_holding_cost_without_maintenance;
-
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']//div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_finance_rental;
 
-	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[5]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
 
-	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_total_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
+	@FindBy(xpath = "//*[@id='headingHoldingCost']//*[normalize-space()='Contract type']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_acq_contract_type;
 
-	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[1]/div/p/strong")
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']//*[normalize-space()='Contract type']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_contract_type;
 
 	// ***********OTR Elements***********
@@ -576,7 +567,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, quote_summary_holding_cost_monthly_finance_cost, 30);
 
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 30);
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
 
 		LO.print("Reading values from Holding Cost summary -Quote Summary Page");
 		System.out.println("Reading values from Holding Cost summary -Quote Summary Page");
@@ -591,7 +582,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 				RemoveComma.of(quote_summary_holding_cost_monthly_finance_cost.getText().trim().substring(2)));
 
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double.parseDouble(RemoveComma
-				.of(quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2)));
+				.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 
 		LO.print("");
 		System.out.println("");
@@ -2946,10 +2937,10 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 		// Getting values from screen
 
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 30);
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
 
 		double holding_cost_total_monthly_holding_cost_from_screen = Double.parseDouble(RemoveComma
-				.of(quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2)));
+				.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
 
@@ -3488,6 +3479,8 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 	public void save_quote() throws InterruptedException {
 
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		
 		ExplicitWait.clickableElement(driver, quote_summary_save_button, 30);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -3497,7 +3490,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 //		Actions act = new Actions(driver);
 //		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 
@@ -3522,7 +3515,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, quote_summary_holding_cost_monthly_finance_cost, 30);
 
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 30);
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
 
 		LO.print("Reading values from Holding Cost summary -Quote Summary Page");
 		System.out.println("Reading values from Holding Cost summary -Quote Summary Page");
@@ -3537,7 +3530,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 				RemoveComma.of(quote_summary_holding_cost_monthly_finance_cost.getText().trim().substring(2)));
 
 		double holding_cost_total_monthly_holding_cost_from_screen_converted = Double.parseDouble(RemoveComma
-				.of(quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2)));
+				.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
 
 		LO.print("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
 		System.out.println("holding_cost_terms_from_screen" + holding_cost_terms_from_screen_converted);
@@ -5575,7 +5568,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
@@ -5585,7 +5578,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 		String quote_ref_no = quote_summary_ref_no.getText();
 		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_without_maintenance
+		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost
 				.getText().trim().substring(2);
 		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
 				.substring(2);
@@ -5635,103 +5628,6 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 	}
 
-	public boolean quote_summary_HPNR_CP_for_funder_quote_with_maintenance(String sheet_name)
-			throws InterruptedException, IOException {
-
-		LO.print("*************Calculations for Quote Summary page has been started************");
-		System.out.println("*************Calculations for Quote Summary page has been started************");
-
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		Click.on(driver, quote_summary, 60);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
-
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
-		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_with_maintenance, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 120);
-
-		LO.print("Reading values from sceen -Quote Summary Page");
-		System.out.println("Reading values from sceen -Quote Summary Page");
-
-		String quote_ref_no = quote_summary_ref_no.getText();
-		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_with_maintenance
-				.getText().trim().substring(2);
-		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
-				.substring(2);
-		String temp_quote_summary_monthly_maintenance_rental = quote_summary_monthly_maintenance_rental.getText().trim()
-				.substring(2);
-		String temp_quote_summary_monthly_total_rental = quote_summary_monthly_total_rental.getText().trim()
-				.substring(2);
-		String acq_contract_type = quote_summary_acq_contract_type.getText();
-		String customer_contract_type = quote_summary_customer_contract_type.getText();
-
-		LO.print("Getting values from screen");
-		System.out.println("Getting values from screen");
-
-		LO.print("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-		System.out.println("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-
-		LO.print("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-		System.out
-				.println("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-
-		LO.print("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-
-		LO.print("Quote_summary_monthly_maintenance_rental =" + temp_quote_summary_monthly_maintenance_rental);
-		System.out
-				.println("Quote_summary_monthly_maintenance_rental =" + temp_quote_summary_monthly_maintenance_rental);
-
-		LO.print("Quote_summary_monthly_total_rental =" + temp_quote_summary_monthly_total_rental);
-		System.out.println("Quote_summary_monthly_total_rental =" + temp_quote_summary_monthly_total_rental);
-
-		LO.print("Acquisition contract_type =" + acq_contract_type);
-		System.out.println("Acquisition contract_type =" + acq_contract_type);
-
-		LO.print("Customer contract_type =" + customer_contract_type);
-		System.out.println("Customer contract_type =" + customer_contract_type);
-
-		LO.print("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-		System.out.println("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-
-		String quote_summary_cost_otr_price_from_screen = RemoveComma.of(temp_quote_summary_cost_otr_price);
-		String quote_summary_total_monthly_holding_cost_from_screen = RemoveComma
-				.of(temp_quote_summary_total_monthly_holding_cost);
-		String quote_summary_monthly_finance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_finance_rental);
-		String quote_summary_monthly_maintenance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_maintenance_rental);
-		String quote_summary_monthly_total_rental_from_screen = RemoveComma.of(temp_quote_summary_monthly_total_rental);
-
-		double quote_summary_cost_otr_price_from_screen_converted = Double
-				.parseDouble(quote_summary_cost_otr_price_from_screen);
-		double quote_summary_total_monthly_holding_cost_from_screen_converted = Double
-				.parseDouble(quote_summary_total_monthly_holding_cost_from_screen);
-		double quote_summary_monthly_finance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_finance_rental_from_screen);
-		double quote_summary_monthly_maintenance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_maintenance_rental_from_screen);
-		double quote_summary_monthly_total_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_total_rental_from_screen);
-
-		return obj_read_excel_calculation_page
-				.verify_quote_summary_values_from_excel_for_funder_quote_addition_with_maintenance(
-						quote_summary_cost_otr_price_from_screen_converted,
-						quote_summary_total_monthly_holding_cost_from_screen_converted,
-						quote_summary_monthly_finance_rental_from_screen_converted,
-						quote_summary_monthly_maintenance_rental_from_screen_converted,
-						quote_summary_monthly_total_rental_from_screen_converted, sheet_name);
-
-	}
 
 	public boolean quote_summary_HPNR_CP_without_maintenance(String sheet_name)
 			throws InterruptedException, IOException {
@@ -5749,7 +5645,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
@@ -5759,7 +5655,7 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 		String quote_ref_no = quote_summary_ref_no.getText();
 		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_without_maintenance
+		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost
 				.getText().trim().substring(2);
 		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
 				.substring(2);
@@ -5808,99 +5704,5 @@ public class QuoteSummary_HPNR_CP_Page extends TestBase {
 
 	}
 
-	public boolean quote_summary_HPNR_CP_with_maintenance(String sheet_name) throws InterruptedException, IOException {
-
-		LO.print("*************Calculations for Quote Summary page has been started************");
-		System.out.println("*************Calculations for Quote Summary page has been started************");
-
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		Click.on(driver, quote_summary, 60);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
-
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
-		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_with_maintenance, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 120);
-
-		LO.print("Reading values from sceen -Quote Summary Page");
-		System.out.println("Reading values from sceen -Quote Summary Page");
-
-		String quote_ref_no = quote_summary_ref_no.getText();
-		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_with_maintenance
-				.getText().trim().substring(2);
-		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
-				.substring(2);
-		String temp_quote_summary_monthly_maintenance_rental = quote_summary_monthly_maintenance_rental.getText().trim()
-				.substring(2);
-		String temp_quote_summary_monthly_total_rental = quote_summary_monthly_total_rental.getText().trim()
-				.substring(2);
-		String acq_contract_type = quote_summary_acq_contract_type.getText();
-		String customer_contract_type = quote_summary_customer_contract_type.getText();
-
-		LO.print("Getting values from screen");
-		System.out.println("Getting values from screen");
-
-		LO.print("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-		System.out.println("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-
-		LO.print("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-		System.out
-				.println("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-
-		LO.print("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-
-		LO.print("Quote_summary_monthly_maintenance_rental =" + temp_quote_summary_monthly_maintenance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_maintenance_rental);
-
-		LO.print("Quote_summary_monthly_total_rental =" + temp_quote_summary_monthly_total_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_total_rental);
-
-		LO.print("Acquisition contract_type =" + acq_contract_type);
-		System.out.println("Acquisition contract_type =" + acq_contract_type);
-
-		LO.print("Customer contract_type =" + customer_contract_type);
-		System.out.println("Customer contract_type =" + customer_contract_type);
-
-		LO.print("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-		System.out.println("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-
-		String quote_summary_cost_otr_price_from_screen = RemoveComma.of(temp_quote_summary_cost_otr_price);
-		String quote_summary_total_monthly_holding_cost_from_screen = RemoveComma
-				.of(temp_quote_summary_total_monthly_holding_cost);
-		String quote_summary_monthly_finance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_finance_rental);
-		String quote_summary_monthly_maintenance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_maintenance_rental);
-		String quote_summary_monthly_total_rental_from_screen = RemoveComma.of(temp_quote_summary_monthly_total_rental);
-
-		double quote_summary_cost_otr_price_from_screen_converted = Double
-				.parseDouble(quote_summary_cost_otr_price_from_screen);
-		double quote_summary_total_monthly_holding_cost_from_screen_converted = Double
-				.parseDouble(quote_summary_total_monthly_holding_cost_from_screen);
-		double quote_summary_monthly_finance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_finance_rental_from_screen);
-		double quote_summary_monthly_maintenance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_maintenance_rental_from_screen);
-		double quote_summary_monthly_total_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_total_rental_from_screen);
-
-		return obj_read_excel_calculation_page.verify_quote_summary_values_from_excel_with_maintenance(
-				quote_summary_cost_otr_price_from_screen_converted,
-				quote_summary_total_monthly_holding_cost_from_screen_converted,
-				quote_summary_monthly_finance_rental_from_screen_converted,
-				quote_summary_monthly_maintenance_rental_from_screen_converted,
-				quote_summary_monthly_total_rental_from_screen_converted, sheet_name);
-
-	}
 
 }

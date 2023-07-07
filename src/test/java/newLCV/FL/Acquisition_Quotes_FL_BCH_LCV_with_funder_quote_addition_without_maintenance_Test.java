@@ -189,7 +189,7 @@ System.out.println("");
 		Assert.assertTrue(balance_due_value1);
 		
 		boolean quote_summary_customer_quote_calculation1= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation);
+		Assert.assertTrue(quote_summary_customer_quote_calculation1);
 		
 		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page.quote_summary_configuration_value_verification_without_maintenance_for_funder(sheet_name);
 		Assert.assertTrue(quote_summary_configuration_value_check1);

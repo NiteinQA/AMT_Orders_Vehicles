@@ -236,7 +236,7 @@ public class Acquisition_Quotes_CP_BCH_used_LCV_without_maintenance_Test extends
 
 	@DataProvider(name = "testData")
 	public Object[][] getTestData() throws IOException {
-		Object[][] data = ReadExcelData.getTestData("CP_BCH_withoutMaint_used_car");
+		Object[][] data = ReadExcelData.getTestData("CP_BCH_withoutMaint_used_LCV");
 		return data;
 	}
 

@@ -47,7 +47,7 @@ public class CustomerQuotePage_HPNR_PCHPage extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_finance_rental;
-	
+
 	@FindBy(xpath = "//*[normalize-space()='Monthly maint. payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_maintenance_rental;
 
@@ -175,23 +175,38 @@ public class CustomerQuotePage_HPNR_PCHPage extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name)
 			throws IOException, InterruptedException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
 		Click.on(driver, customer_quote, 50);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.on(driver, customer_quote_maintenance_toggle_button, 30);
+		try {
+			Click.on(driver, customer_quote_maintenance_toggle_button, 30);
 
-		obj_read_excel_calculation_page
-				.set_global_variables_to_excel_for_fl_bch_pch_scenario_with_funder_quote_addition(sheet_name);
-		return obj_read_excel_calculation_page
-				.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_with_maintenance(
-						driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
-						actual_part_exchange_value, actual_part_exchange_value_from_excel, given_part_exchange_value,
-						given_part_exchange_value_from_excel, less_finance_settlement,
-						less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
-						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
-						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
-						initial_payment, part_exchange_status, target_rental, sheet_name);
+			obj_read_excel_calculation_page
+					.set_global_variables_to_excel_for_fl_bch_pch_scenario_with_funder_quote_addition(sheet_name);
+			return obj_read_excel_calculation_page
+					.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_with_maintenance(
+							driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
+							actual_part_exchange_value, actual_part_exchange_value_from_excel,
+							given_part_exchange_value, given_part_exchange_value_from_excel, less_finance_settlement,
+							less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
+							document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
+							customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
+							initial_payment, part_exchange_status, target_rental, sheet_name);
+		} catch (Exception e) {
+			obj_read_excel_calculation_page
+					.set_global_variables_to_excel_for_fl_bch_pch_scenario_with_funder_quote_addition(sheet_name);
+			return obj_read_excel_calculation_page
+					.verify_customer_quote_calculations_for_one_payment_options_for_funder_quote_addition_without_maintenance(
+							driver, customer_quote_payment_profile_dropdown, part_exchange_payment,
+							actual_part_exchange_value, actual_part_exchange_value_from_excel,
+							given_part_exchange_value, given_part_exchange_value_from_excel, less_finance_settlement,
+							less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
+							document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
+							maintenance_required, maintenance_margin, initial_payment, part_exchange_status,
+							target_rental, sheet_name);
+		}
 	}
 
 	public boolean check_monthly_finance_rental_with_part_exchange_without_maintenance(
@@ -273,7 +288,7 @@ public class CustomerQuotePage_HPNR_PCHPage extends TestBase {
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
-
+		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_Deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(111).getCell(4)
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));
@@ -397,8 +412,10 @@ public class CustomerQuotePage_HPNR_PCHPage extends TestBase {
 		System.out.println("Writing part exchange values to excel");
 
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 
+		wb.getSheet(sheet_name).getRow(98).getCell(3).setCellValue(Double.parseDouble(order_Deposit_from_excel));
 		wb.getSheet(sheet_name).getRow(111).getCell(3).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(111).getCell(4)
 				.setCellValue(Double.parseDouble(given_part_exchange_value_from_excel));

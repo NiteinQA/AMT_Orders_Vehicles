@@ -223,10 +223,10 @@ public class Acquisition_Quotes_HPNR_BCH_without_maintenance_Test extends TestBa
 		System.out.println("");
 		System.out.println("");
 
-//		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
-//				.customer_Quote_HPNR_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,
-//						sheet_name);
-//		Assert.assertTrue(cutomer_quote_monthly_rental);
+		boolean cutomer_quote_monthly_rental = obj_customer_quote_page
+				.customer_Quote_HPNR_BCH_for_all_payment_option_without_maintenance_calculation(initial_payment,
+						sheet_name);
+		Assert.assertTrue(cutomer_quote_monthly_rental);
 
 		System.out.println("");
 		System.out.println("");

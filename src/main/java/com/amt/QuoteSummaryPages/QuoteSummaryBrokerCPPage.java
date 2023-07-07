@@ -31,22 +31,22 @@ public class QuoteSummaryBrokerCPPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Cost OTR price']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_cost_otr_price;
 
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[1]/p[1]/strong[1]")
+	@FindBy(xpath = "//*[normalize-space()='Total monthly holding cost']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_total_monthly_holding_cost;
 
-	@FindBy(xpath = "//*[@id=\"headingBchSummary\"]/div/app-broker-bch-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_finance_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_total_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
+	@FindBy(xpath = "//*[@id='headingHoldingCost']//*[normalize-space()='Contract type']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_acq_contract_type;
 
-	@FindBy(xpath = "//*[normalize-space()='Contract type']//ancestor::div[1]//div//p//strong")
+	@FindBy(xpath = "//*[normalize-space()='Contract type']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_contract_type;
 
 	@FindBy(xpath = "//div[@id='headingHoldingCost']//div[7]//div[1]//div[1]//p[1]//strong[1]")

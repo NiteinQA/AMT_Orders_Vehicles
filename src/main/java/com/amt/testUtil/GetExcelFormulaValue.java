@@ -19,7 +19,7 @@ public class GetExcelFormulaValue extends ReadExcelCalculation {
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream("D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
@@ -46,7 +46,7 @@ public static double get_string_value(int rounum, int columnnum, String sheet_na
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream("D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
@@ -70,7 +70,7 @@ public static double get_string_value(int rounum, int columnnum, String sheet_na
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream("D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("quote_save_excel_path"));

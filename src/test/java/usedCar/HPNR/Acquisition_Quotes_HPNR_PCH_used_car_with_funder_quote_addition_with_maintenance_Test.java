@@ -8,6 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_BCHPage;
 import com.amt.CustomerQuotePackage.CustomerQuotePage_HPNR_PCHPage;
 import com.amt.HoldingCostPages.HoldingCost_HPNR_BCHPage;
 import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_BCHPage;
@@ -28,7 +29,7 @@ public class Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_wit
 	OptionsAccessoriesPage obj_options_accessories;
 	ContractTypesAndOTR_HPNR_PCH_Page obj_contract_types_and_OTR_page;
 	HoldingCost_HPNR_BCHPage obj_holding_cost_HPNR_BCH_page;
-	CustomerQuotePage_HPNR_PCHPage obj_customer_quote_page;
+	CustomerQuotePage_HPNR_BCHPage obj_customer_quote_page;
 	QuoteSummary_HPNR_BCHPage obj_quote_summary_page;
 
 	@Test(priority = 1, dataProvider = "testData")
@@ -114,7 +115,7 @@ public class Acquisition_Quotes_HPNR_PCH_used_car_with_funder_quote_addition_wit
 			String target_rental, String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
-		obj_customer_quote_page = new CustomerQuotePage_HPNR_PCHPage();
+		obj_customer_quote_page = new CustomerQuotePage_HPNR_BCHPage();
 
 		boolean customer_quote_for_payment_boolean = obj_customer_quote_page
 				.customer_Quote_for_one_payment_option_for_used_car_with_funder_quote_addition_with_maintenance_calculation(

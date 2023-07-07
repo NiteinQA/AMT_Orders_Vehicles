@@ -167,6 +167,54 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 	@FindBy(xpath = "//*[@name='salesTotal']")
 	private WebElement sales_total_input;
 
+	@FindBy(xpath = "//*[@id='registrationNumber']")
+	private WebElement registration_number;
+
+	@FindBy(xpath = "//*[normalize-space()='Search']")
+	private WebElement search_button;
+
+	@FindBy(xpath = "//*[@id='mileage']")
+	private WebElement mileage;
+
+	@FindBy(xpath = "//*[@id='partExchange']|//*[@id='partExchnage']")
+	private WebElement given_part_exchange_value;
+
+	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
+	private WebElement part_exchange_payment;
+
+	@FindBy(xpath = "//*[@id='otrPartExchange']")
+	private WebElement actual_part_exchange_value;
+
+	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
+	private WebElement less_finance_settlement;
+
+	@FindBy(xpath = "//*[@name='orderDeposit']")
+	private WebElement order_Deposit;
+
+	@FindBy(xpath = "//*[@name='financeDeposit']")
+	private WebElement finance_Deposit;
+
+	@FindBy(xpath = "//*[@id='DocumentFee']")
+	private WebElement document_fee;
+
+	@FindBy(xpath = "//*[@name='FunderName']")
+	private WebElement funder_name;
+
+	@FindBy(xpath = "//*[@name='agreementName']")
+	private WebElement agreement_number;
+
+	@FindBy(xpath = "//*[@id='settlementExpiredDate']")
+	private WebElement settlement_expiry_date;
+
+	@FindBy(xpath = "//*[@id='vatQualifying']")
+	private WebElement check_box_vat_qualifying;
+
+	@FindBy(xpath = "//*[@id='OutstandingFinance']")
+	private WebElement check_box_outstanding_finance;
+
+	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
+	private WebElement check_box_supplier_setting_finance;
+
 	public CustomerQuotePageBrokerHPRPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -322,8 +370,7 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 		vehicleprofit.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
 		int profit = Integer.parseInt(vehicleProfit);
-		
-		
+
 		Thread.sleep(2000);
 
 		Click.sendKeysint(driver, vehicleprofit, profit, 40);
@@ -365,7 +412,7 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 			String quoteExpiryDate, String term, String milesperannum, String contractMileage, String cahDeposit,
 			String financeCharges, String noOfMonthlyPayments, String monthlyFinancePayment, String finalBallonPayment,
 			String optionToPurchaseFee, String rflIncluded, String aPR, String commission2, String partExchangeActual,
-			String partExchangeGiven, String lessFinanceSettlement, String sheet_name)
+			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel, String sheet_name)
 			throws InterruptedException, IOException {
 
 		ExplicitWait.visibleElement(driver, vehicle_sale_price, 30);
@@ -429,13 +476,50 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.sendKeys(driver, partExchangeactual, partExchangeActual, 60);
+		LO.print("Clicked on Part Exchange panel");
+		System.out.println("Clicked on Part Exchange panel");
 
-		Click.sendKeys(driver, partExchangegiven, partExchangeGiven, 60);
+		Click.on(driver, given_part_exchange_value, 20);
 
-		Click.sendKeys(driver, lessFinancesettlement, lessFinanceSettlement, 60);
+		given_part_exchange_value.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		act.sendKeys(Keys.TAB).build().perform();
+		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// Clicking on outstanding finance and suppliersettling finance checkbox
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		// ExplicitWait.clickableElement(driver, check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		// ExplicitWait.clickableElement(driver, check_box_supplier_setting_finance,
+		// 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		LO.print("");
 		System.out.println("");

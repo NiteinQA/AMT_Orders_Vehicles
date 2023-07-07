@@ -2051,6 +2051,8 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 		double default_final_balloon_converted = Double.parseDouble(default_final_balloon);
 
 		summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		
+		Thread.sleep(2000);
 
 		Click.sendKeysdouble(driver, summary_final_balloon_input_field,
 				(default_final_balloon_converted + default_final_balloon_converted), 30);

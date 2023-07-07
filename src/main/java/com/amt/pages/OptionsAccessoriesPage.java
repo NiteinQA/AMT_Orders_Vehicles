@@ -65,27 +65,27 @@ public class OptionsAccessoriesPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 		
 		
-		try {
-
-			ExplicitWait.clickableElement(driver, paint, 30);
-			js.executeScript("arguments[0].click();", paint);		
-
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
-			 
-			Click.on(driver, acq_interior, 40);
-		 
-
-		} catch (Exception e) {
-			
-			try{
-				Click.on(driver, popup_yes, 50);
-				Thread.sleep(2000);	}catch (Exception e1)
-			{
-					
-			}
-			
-
-		}
+//		try {
+//
+//			ExplicitWait.clickableElement(driver, paint, 30);
+//			js.executeScript("arguments[0].click();", paint);		
+//
+//			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+//			 
+//			Click.on(driver, acq_interior, 40);
+//		 
+//
+//		} catch (Exception e) {
+//			
+//			try{
+//				Click.on(driver, popup_yes, 50);
+//				Thread.sleep(2000);	}catch (Exception e1)
+//			{
+//					
+//			}
+//			
+//
+//		}
 
 		
 

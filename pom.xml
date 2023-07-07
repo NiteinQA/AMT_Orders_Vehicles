@@ -23,34 +23,33 @@
 		</dependency>-->
 
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-		
+
 		<dependency>
-    <groupId>org.eclipse.core</groupId>
-    <artifactId>org.eclipse.core.resources</artifactId>
-    <version>3.6.0.v20100526-0737</version>
-</dependency>
-     <dependency>
+			<groupId>org.eclipse.core</groupId>
+			<artifactId>org.eclipse.core.resources</artifactId>
+			<version>3.6.0.v20100526-0737</version>
+		</dependency>
+		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>4.0.3</version>
 		</dependency>
-		
-	<!--	<dependency>
+
+		<!--	<dependency>
     <groupId>com.relevantcodes</groupId>
-    <artifactId>extentreports</artifactId>
+		<artifactId>extentreports</artifactId>
     <version>2.41.2</version>
-</dependency>  -->
+		</dependency>  -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>2.17.2</version>
 		</dependency>
-		<!--<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.5</version>
+		</dependency>
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -75,8 +74,9 @@
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.3.0</version>
 		</dependency>
+
 		<!--<dependency>
-    <groupId>com.aventstack</groupId>
+     <groupId>com.aventstack</groupId>
     <artifactId>extentreports</artifactId>
     <version>3.0.0</version>
 </dependency>-->
@@ -121,6 +121,13 @@
 			<artifactId>jackson-core</artifactId>
 			<version>2.14.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<pluginManagement>
@@ -166,7 +173,7 @@
 						<!-- Suite testng xml file to consider for test
 						execution -->
 						<suiteXmlFiles>
-							<suiteXmlFile>testng.xml</suiteXmlFile>
+							<suiteXmlFile>testng_Used_Car.xml</suiteXmlFile>
 						</suiteXmlFiles>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>
@@ -192,6 +199,70 @@
 				<plugin>
 					<artifactId>maven-project-info-reports-plugin</artifactId>
 					<version>3.0.0</version>
+				</plugin>
+
+				<!-- Email plug in -->
+
+				<plugin>
+					<groupId>ch.fortysix</groupId>
+					<artifactId>maven-postman-plugin</artifactId>
+					<executions>
+
+						<execution>
+							<id>send a mail</id>
+							<phase>test</phase>
+							<goals>
+								<goal>send-mail</goal>
+							</goals>
+							<inherited>true</inherited>
+
+							<configuration>
+								 <message>Started</message>
+								<!-- From Email address -->
+								<from>nitein.kurane@autofacets.in</from>
+
+								<!--  Email subject -->
+								<subject>Test Automation Report</subject>
+
+								<!-- Fail the build if the mail doesnt reach -->
+								<failonerror>false</failonerror>
+
+								<!-- host -->
+								<mailhost>mail.thegatewaydigital.com</mailhost>
+								<!-- port of the host -->
+								<mailport>587</mailport>
+								<mailssl>false</mailssl>
+								<mailAltConfig>false</mailAltConfig>
+                                <message>In mid</message>
+								<!-- Email Authentication(USername and Password) -->
+								<mailuser>nitein.kurane@autofacets.in</mailuser>
+
+								<mailpassword>Nik989%&amp;nhrl4</mailpassword>
+
+								<receivers>
+									<!-- To Email address -->
+									<receiver>mehul.nagar@autofacets.in</receiver>
+									<receiver>nitein.kurane@thegatewaycorp.co.in</receiver>
+								</receivers>
+
+								<fileSets>
+									<fileSet>
+										<!-- Report directory Path -->
+										<directory>
+											D://Acquisition//AMT_Automation_Acquisition//ExtentReport</directory>
+										<includes>
+											<!-- Report file name -->
+											<include>ExtentReport.html</include>
+										</includes>
+										<!-- Use Regular Expressions like
+										**/*.html if you want all the html files
+										to send-->
+									</fileSet>
+								</fileSets>
+
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>

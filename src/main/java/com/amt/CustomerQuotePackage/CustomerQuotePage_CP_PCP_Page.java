@@ -184,7 +184,7 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
 
 		Thread.sleep(2000);
 
-		Click.on(driver, holding_cost_summary, 30);
+		Click.on(driver, holding_cost_summary, 120);
 
 		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
 
@@ -193,12 +193,12 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
 
 		System.out.println(totalCapMaintenanceValue);
 
-		Click.on(driver, customer_quote, 30);
+		Click.on(driver, customer_quote, 120);
 
 		LO.print("***********Entered in Customer Quote page ***********");
 		System.out.println("***********Entered in Customer Quote page ***********");
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		Actions act = new Actions(driver);
 

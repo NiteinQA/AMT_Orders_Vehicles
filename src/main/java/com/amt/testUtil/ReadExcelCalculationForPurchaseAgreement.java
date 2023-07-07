@@ -22,7 +22,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -2259,8 +2259,14 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		LO.print("Writing screen values to Excel for customer quote calculation -completed");
 		System.out.println("Writing screen values to Excel for customer quote calculation -completed");
 
+		if(sheet_name.contains("CP(F2)-"))
+		{
+			return GetExcelFormulaValue.get_formula_value(103, 1, sheet_name);
+		}
+		else
+		{
 		return GetExcelFormulaValue.get_formula_value(94, 1, sheet_name);
-
+		}
 	}
 
 	public double get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_pcp(String maintenance_status,
@@ -2312,8 +2318,14 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		LO.print("Writing screen values to Excel for customer quote calculation -completed");
 		System.out.println("Writing screen values to Excel for customer quote calculation -completed");
 
+		
+		if(sheet_name.contains("CP(F2)-"))
+		{
+			return GetExcelFormulaValue.get_formula_value(103, 1, sheet_name);
+		}else
+		{		
 		return GetExcelFormulaValue.get_formula_value(93, 1, sheet_name);
-
+		}
 	}
 
 	public double get_monthly_maintenance_payment_from_excel_for_funder_addition_cp_pcp(String maintenance_status,

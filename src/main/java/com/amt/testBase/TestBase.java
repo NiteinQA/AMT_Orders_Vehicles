@@ -5,20 +5,33 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.mail.MessagingException;
+
+import org.apache.commons.mail.EmailException;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 
 import com.amt.pages.LoginPage;
 import com.amt.testUtil.Logger;
+import com.amt.testUtil.SendEmail;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 
 public class TestBase {
 	public static WebDriver driver;
@@ -30,12 +43,14 @@ public class TestBase {
 	ExtentReports extent;
 	// helps to generate the logs in the test report.
 	ExtentTest test;
+	
+	
 
 	public TestBase() {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\config.properties");
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -83,7 +98,7 @@ public class TestBase {
 
 		prop = new Properties();
 		FileInputStream ip = new FileInputStream(
-				"D:\\Acquisition\\AMT_Automation\\src\\main\\java\\configs\\config.properties");
+				"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\config.properties");
 		prop.load(ip);
 
 		initialization(prop.getProperty("browser"));
@@ -95,9 +110,29 @@ public class TestBase {
 
 
 
-//	@AfterClass
+	//@AfterClass
 	public void tearDown() {
 		driver.close();
+	}
+	
+@AfterSuite
+	public void end() throws EmailException, MessagingException {
+	
+//	//   Get the project to refresh
+//    String projectName = "AMT_Automation_Acquisition";
+//    IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+//
+//    // Refresh the project
+//    try {
+//        project.refreshLocal(IResource.DEPTH_INFINITE, null);
+//        System.out.println("Project refreshed successfully.");
+//    } catch (CoreException e) {
+//        e.printStackTrace();
+//    }
+    
+    
+	//SendEmail se = new SendEmail();
+	//		se.send_email();		
 	}
 
 

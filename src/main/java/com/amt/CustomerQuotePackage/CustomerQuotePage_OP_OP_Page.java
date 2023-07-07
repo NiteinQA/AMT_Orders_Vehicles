@@ -511,7 +511,7 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 
 		double orderDeposit = Double.parseDouble(order_Deposit_from_excel);
 
-		double documentfee = Double.parseDouble(order_Deposit_from_excel);
+		double documentfee = Double.parseDouble(document_fee_from_excel);
 
 		double pendingAmountExpected = vehicleSalesPriceFromScreen - orderDeposit - netPartExchangeAllowance
 				+ (documentfee * 1.2);
@@ -528,6 +528,13 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 					+ "with applied formula " + pendingAmountExpected + " i.e. true");
 			System.out.println("Pending Amount from screen " + pendingAmountFromScreen + " Verified Successfully "
 					+ "with applied formula " + pendingAmountExpected + " i.e. true");
+		}else
+		{
+			LO.print("Pending Amount from screen is " + pendingAmountFromScreen
+					+ "and Pending Amount Expected is " + pendingAmountExpected + " found wrong");
+			System.out.println("Pending Amount from screen is " + pendingAmountFromScreen
+					+ "and Pending Amount Expected is " + pendingAmountExpected + " found wrong");
+
 		}
 
 		return status;

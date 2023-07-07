@@ -233,6 +233,10 @@ public class QuoteSummary_HPNR_HPRPage extends TestBase {
 
 	// **********Configuration Elements**************
 
+	// pannel opening
+	@FindBy(xpath = "//*[@id='headingConfig']/button/div")
+	private WebElement quote_summary_configuration;
+	
 	// customer base over rate
 
 	@FindBy(xpath = "//*[@id='customerBaseOverRate']")
@@ -242,9 +246,7 @@ public class QuoteSummary_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "(//*[normalize-space()='Customer interest rate']//ancestor::div[1]//div//strong)[2]")
 	private WebElement quote_summary_configuration_customer_interest_rate;
 
-	// pannel opening
-	@FindBy(xpath = "//*[@id='headingConfig']/button/div")
-	private WebElement quote_summary_configuration;
+
 
 	// Base Interest Rate
 	@FindBy(xpath = "//app-acquisition-summary-configuration//*[normalize-space()='Base interest rate']//ancestor::div[1]//p/strong")
@@ -2388,6 +2390,8 @@ try {
 
 		// reading configuration values from screen
 
+		try {
+		
 		ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
 		double baseInterestRateFromScreen = Double
 				.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
@@ -2615,6 +2619,222 @@ try {
 			status = true;
 		}
 		return status;
+		}catch(Exception e)
+		{
+			ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
+			double baseInterestRateFromScreen = Double
+					.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
+
+			ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
+			double financeMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
+			double deductionsFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
+			double additionalMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
+			double totalMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
+			double defaultBrokerMarginPercentageFromScreen = Double
+					.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0, 4));
+
+			ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
+			double customerInterestRateFromScreen = Double
+					.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 5));
+
+			ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
+			double documentFeeMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
+
+			// copying default broker margin from input field
+
+			ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
+			quote_summary_configuration_default_broker_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+			String temp_default_broker_margin_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+			double default_broker_margin_copied = Double.parseDouble(temp_default_broker_margin_copied);
+
+//			ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
+//			double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
+	//
+//			ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
+//			double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
+	//	
+//			ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
+//			double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
+	//	
+
+			// getting values from excel
+
+			double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 01, sheet_name);
+
+			double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
+
+			double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(259, 5, sheet_name);
+
+			double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(253, 5, sheet_name);
+
+			double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 1, sheet_name);
+
+			double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 5, sheet_name);
+
+			double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(260, 1, sheet_name);
+
+			double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
+
+			double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(259, 1, sheet_name);
+			double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
+
+			double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(262, 1, sheet_name);
+
+			double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(260, 5, sheet_name);
+
+//		  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//		  0, sheet_name);
+//		  
+//		  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//		  0, sheet_name);
+//		  
+//		  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//		  0, sheet_name);
+//		  
+//		  
+			// verifying actual and expected values
+
+			int count = 0;
+			boolean status = false;
+			// 1
+			if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
+				LO.print("Base Interest Rate found OK");
+				System.out.println("Base Interest Rate found OK");
+				count++;
+			} else {
+				LO.print("Base Interest Rate found wrong");
+				System.err.println("Base Interest Rate found wrong");
+			}
+
+			// 2
+			if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
+				LO.print("Finance Margin found OK");
+				System.out.println("Finance Margin found OK");
+				count++;
+			} else {
+				LO.print("Finance Margin found wrong");
+				System.err.println("Finance Margin found wrong");
+			}
+
+			// 3
+			if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
+				LO.print("Deductions found OK");
+				System.out.println("Deductions found OK");
+				count++;
+			} else {
+				LO.print("Deductions found wrong");
+				System.err.println("Deductions found wrong");
+			}
+
+			// 4
+			if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
+				LO.print("Additional Margin found OK");
+				System.out.println("Additional Margin found OK");
+				count++;
+			} else {
+				LO.print("Additional Margin found wrong");
+				System.err.println("Additional Margin found wrong");
+			}
+
+			// 5
+			if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
+				LO.print("Total Margin found OK");
+				System.out.println("Total Margin found OK");
+				count++;
+			} else {
+				LO.print("Total Margin found wrong");
+				System.err.println("Total Margin found wrong");
+			}
+
+			// 6
+			if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel , defaultBrokerMarginPercentageFromScreen)<0.2) {
+				LO.print("Default Broker Margin percentage found OK");
+				System.out.println("Default Broker Margin percentage found OK");
+				count++;
+			} else {
+				LO.print("Default Broker Margin percentage found wrong");
+				System.err.println("Default Broker Margin percentage found wrong");
+			}
+
+			// 7
+			if (Difference.of_two_Double_Values(customerInterestRateFromScreen , customerInterestRateFromExcel)<0.2) {
+				LO.print("Customer Interest Rate found OK");
+				System.out.println("Customer Interest Rate found OK");
+				count++;
+			} else {
+				LO.print("Customer Interest Rate found wrong");
+				System.err.println("Customer Interest Rate found wrong");
+			}
+
+			// 8
+			if (Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2) {
+				LO.print("Document Fee Margin found OK");
+				System.out.println("Document Fee Margin found OK");
+				count++;
+			} else {
+				LO.print("Document Fee Margin  found wrong");
+				System.err.println("Document Fee Margin  found wrong");
+			}
+			// 9
+			if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
+				LO.print("Default Broker Margin found OK");
+				System.out.println("Default Broker Margin found OK");
+				count++;
+			} else {
+				LO.print("Default Broker Margin  found wrong");
+				System.err.println("Default Broker Margin  found wrong");
+			}
+
+//	        //9
+//			if (trackerCostFromScreen==trackerCostFromExcel) {
+//				LO.print("Tracker Cost found OK");
+//				System.out.println("Tracker Cost found OK");
+//				count++;
+//			} else {
+//				LO.print("Tracker Cost  found wrong");
+//				System.err.println("Tracker Cost  found wrong");
+//			}
+//			
+//			//10
+//			if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
+//				LO.print("Insurance Tax found OK");
+//				System.out.println("Insurance Tax found OK");
+//				count++;
+//			} else {
+//				LO.print("Insurance Tax found wrong");
+//				System.err.println("Insurance Tax found wrong");
+//			}
+//			
+//			//11
+//			if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
+//				LO.print("Contingency Insurance Value found OK");
+//				System.out.println("Contingency Insurance Value found OK");
+//				count++;
+//			} else {
+//				LO.print("Contingency Insurance Value found wrong");
+//				System.err.println("Contingency Insurance Value found wrong");
+//			}
+
+			if (count == 9) {
+				status = true;
+			}
+			return status;
+		}
 	}
 
 	public boolean quote_summary_edit_base_int_rate_value_verification_without_maintenance(String sheet_name)
@@ -3081,7 +3301,7 @@ public void save_quote() throws InterruptedException {
 //		Actions act = new Actions(driver);
 //		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 

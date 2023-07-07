@@ -32,24 +32,24 @@ public class ScreenshotListener implements ITestListener {
 		// When Test case get failed, this method is called.
 		@Override
 		public void onTestFailure(ITestResult result) {
-//					Calendar calendar = Calendar.getInstance();
-//			        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
-//			        String methodName = result.getName();
-//			        if(!result.isSuccess()){
-//			            File scrFile = ((TakesScreenshot)(TestBase.driver)).getScreenshotAs(OutputType.FILE);
-//			            try {
-//			                String reportDirectory = new File(System.getProperty("user.dir")).getAbsolutePath() + "/target/surefire-reports/html";
-//			                File destFile = new File((String) reportDirectory+"/failure_screenshots/"+methodName+"_"+formater.format(calendar.getTime())+".png");
-//			                FileUtils.copyFile(scrFile, destFile);
-//			                Reporter.log("<br>----------Screenshot---------<br>");
-//			                String path = "<img src=\"" + destFile.getAbsolutePath() + "\" height=\"800\" width=\"1000\">";		                
-//			                System.setProperty("org.uncommons.reportng.escape-output", "false"); 		               
-//			                Reporter.log(path);
-//			                
-//			            } catch (IOException e) {
-//			                e.printStackTrace();
-//			            }
-//			        }
+					Calendar calendar = Calendar.getInstance();
+			        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+			        String methodName = result.getName();
+			        if(!result.isSuccess()){
+			            File scrFile = ((TakesScreenshot)(TestBase.driver)).getScreenshotAs(OutputType.FILE);
+			            try {
+			                String reportDirectory = new File(System.getProperty("user.dir")).getAbsolutePath() + "/target/surefire-reports/html";
+			                File destFile = new File((String) reportDirectory+"/failure_screenshots/"+methodName+"_"+formater.format(calendar.getTime())+".png");
+			                FileUtils.copyFile(scrFile, destFile);
+			                Reporter.log("<br>----------Screenshot---------<br>");
+			                String path = "<img src=\"" + destFile.getAbsolutePath() + "\" height=\"800\" width=\"1000\">";		                
+			                System.setProperty("org.uncommons.reportng.escape-output", "false"); 		               
+			                Reporter.log(path);
+			                
+			            } catch (IOException e) {
+			                e.printStackTrace();
+			            }
+			        }
 			        }
 
 		@Override

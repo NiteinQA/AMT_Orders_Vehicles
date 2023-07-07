@@ -189,6 +189,11 @@ public class Acquisition_Quotes_HPNR_HPR_without_maintenance_Test extends TestBa
 		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
 		//Assert.assertTrue(quote_summary_customer_quote_calculation); 
 		
+		
+		boolean quote_summary_configuration_value_check = obj_quote_summary_page
+				.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
+		// Assert.assertTrue(quote_summary_configuration_value_check);
+		
 		obj_quote_summary_page.save_quote();
 		
 		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);

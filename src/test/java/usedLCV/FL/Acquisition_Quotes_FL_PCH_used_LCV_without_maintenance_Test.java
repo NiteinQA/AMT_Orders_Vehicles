@@ -15,6 +15,7 @@ import com.amt.pages.AcquisitionListingPage;
 import com.amt.pages.LoginPage;
 import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
+import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_FL_PCH_Page;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_PCH_Page;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
@@ -26,7 +27,7 @@ public class Acquisition_Quotes_FL_PCH_used_LCV_without_maintenance_Test extends
 	AcquisitionListingPage obj_acq_listing_page;
 	VehicleSelectionPage obj_vehicle_selection_page;
 	OptionsAccessoriesPage obj_options_accessories;
-	ContractTypesAndOTR_HPNR_PCH_Page obj_contract_types_and_OTR_page;
+	ContractTypesAndOTR_FL_PCH_Page obj_contract_types_and_OTR_page;
 	HoldingCost_HPNR_BCHPage obj_holding_cost_page;
 	CustomerQuotePage_HPNR_BCHPage obj_customer_quote_page;
 	QuoteSummary_HPNR_BCHPage obj_quote_summary_page;
@@ -45,7 +46,7 @@ public class Acquisition_Quotes_FL_PCH_used_LCV_without_maintenance_Test extends
 		obj_acq_listing_page = new AcquisitionListingPage();
 		obj_vehicle_selection_page = new VehicleSelectionPage();
 		obj_options_accessories = new OptionsAccessoriesPage();
-		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_HPNR_PCH_Page();
+		obj_contract_types_and_OTR_page = new ContractTypesAndOTR_FL_PCH_Page();
 
 		obj_acq_listing_page.aquisition_Listingpage_AddnewQuote();
 		obj_vehicle_selection_page.select_vehicle_for_used_LCV(registrationNumber, mileage);

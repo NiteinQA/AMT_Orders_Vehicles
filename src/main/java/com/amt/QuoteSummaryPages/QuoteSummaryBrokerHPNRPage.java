@@ -37,10 +37,10 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 	@FindBy(xpath = "//*[@id=\"headingBchSummary\"]/div/app-broker-bch-customer-quote-summary-header/div/div[4]/div/p/strong")
 	private WebElement quote_summary_monthly_finance_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
+	@FindBy(xpath = "//*[@class='row']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
+	@FindBy(xpath = "//*[@class='row']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement quote_summary_monthly_total_rental;
 
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")

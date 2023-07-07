@@ -45,26 +45,85 @@ public class QuoteSummaryBrokerBCHPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='RFL & FRF']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_otr_rfl_and_frf;
 
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[1]/p[1]/strong[1]")
+	@FindBy(xpath = "//*[normalize-space()='Total monthly holding cost']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_total_monthly_holding_cost;
 
-	@FindBy(xpath = "//*[@id=\"headingBchSummary\"]/div/app-broker-bch-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_finance_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly maint. rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_maintenance_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[6]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_monthly_total_rental;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingHoldingCost']/div/div[1]/div/div/p/strong")
+	@FindBy(xpath = "//*[@id='headingHoldingCost']//*[normalize-space()='Contract type']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_acq_contract_type;
 
-	@FindBy(xpath = "//strong[normalize-space()='Business Contract Hire']")
+	@FindBy(xpath = "//*[normalize-space()='Contract type']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_contract_type;
 
-	@FindBy(xpath = "//div[@id='headingHoldingCost']//div[7]//div[1]//div[1]//p[1]//strong[1]")
-	private WebElement quote_summary_total_monthly_holding_cost_without_maintenance;
+    // vehicle details
+	
+	@FindBy(xpath = "//*[@class='heading ng-star-inserted']")
+	private WebElement quote_summary_vehicle_heading;
+	
+	
+	//customer quote summary button
+	
+	@FindBy(xpath = "//button[@data-target='#collapseBchSummary']//div[@class='acc-head']")
+	private WebElement quote_summary_customer_quote_summary_button;
+	
+		// terms
+	@FindBy(xpath = "//*[normalize-space()='Term']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_terms;
+
+	// Miles per annum
+	@FindBy(xpath = "//*[normalize-space()='Miles per annum']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_miles_per_annum;
+	
+	//Funder name
+	@FindBy(xpath = "//*[normalize-space()='Funder']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_funder_name;
+	
+	//quote ref no.
+	@FindBy(xpath = "//*[normalize-space()='Quote reference']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_quote_ref_number;
+	
+	//quote exp date
+	@FindBy(xpath = "//*[normalize-space()='Quote expiry date']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_quote_exp_date;	
+	
+	
+	//payment profile
+	@FindBy(xpath = "//*[normalize-space()='Payment profile']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_payment_profile;
+	
+	//Initial finance rental
+	@FindBy(xpath = "//*[normalize-space()='Initial finance rental']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_initial_finance_rental;
+	
+	//Total initial rental
+	@FindBy(xpath = "//*[normalize-space()='Total initial rental']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_total_initial_rental;
+	
+	//Pence per excess mile - finance
+	@FindBy(xpath = "//*[normalize-space()='Pence per excess mile - finance']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_pence_per_excess_mile_finance;
+	
+	//Pence per excess mile - maint.
+	@FindBy(xpath = "//*[normalize-space()='Pence per excess mile - maint.']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_pence_per_excess_mile_maint;
+	
+	//Pence per excess mile - total
+	@FindBy(xpath = "//*[normalize-space()='Pence per excess mile - total']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_pence_per_excess_mile_total;
+	
+	//commission
+	@FindBy(xpath = "//*[normalize-space()='Commission']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_commission;
+	
+	
 
 	public QuoteSummaryBrokerBCHPage() {
 		PageFactory.initElements(driver, this);

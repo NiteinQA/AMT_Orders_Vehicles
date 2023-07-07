@@ -1786,6 +1786,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
+		Thread.sleep(5000);
+		
 		ExplicitWait.visibleElement(driver, customer_quote_monthly_total_rental, 30);
 
 		double monthly_total_payment_actual_from_screen = Double
@@ -2069,6 +2071,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
+		Thread.sleep(4000);
+		
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		double diff = Difference.of_two_Double_Values(monthly_finance_payment_expected_from_excel,
@@ -2186,6 +2190,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		given_part_exchange_value.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
@@ -2200,40 +2205,48 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		Click.sendKeys(driver, funder_name, "Funder X", 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		Click.sendKeys(driver, agreement_number, "123", 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
 		less_finance_settlement.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		ExplicitWait.visibleElement(driver, order_Deposit, 20);
 		order_Deposit.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		Click.sendKeys(driver, order_Deposit, order_deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		ExplicitWait.visibleElement(driver, finance_Deposit, 20);
 		finance_Deposit.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
+		Thread.sleep(2000);
 		Click.sendKeys(driver, finance_Deposit, finance_deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		ExplicitWait.visibleElement(driver, document_fee, 30);
-
+		Thread.sleep(2000);
 		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
 
 		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -2270,6 +2283,8 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
+		
+		Thread.sleep(4000);
 
 		double balance_to_finance_value_from_screen = Double
 				.parseDouble(RemoveComma.of(balance_to_finance_value.getText().trim().substring(2)));

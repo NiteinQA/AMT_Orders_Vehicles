@@ -160,6 +160,9 @@ public class HoldingCost_CP_CP_Page extends TestBase {
 
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
+	
+	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
+	private WebElement customer_quote;
 
 	public HoldingCost_CP_CP_Page() {
 		PageFactory.initElements(driver, this);
@@ -303,12 +306,14 @@ public class HoldingCost_CP_CP_Page extends TestBase {
 
 		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
 
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 		Click.on(driver, add, 30);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
+		
+		
 //		 Click.on(driver, holding_cost_maintenance_toggle_button, 30);
 //
 //			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
@@ -327,6 +332,12 @@ public class HoldingCost_CP_CP_Page extends TestBase {
 						milesPerAnnum, monthlyPayment, optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment,
 						documentFee, totalCapMaintenanceValue, sheet_name);
 
+		Click.on(driver, customer_quote, 30);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		Click.on(driver, holding_cost, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
 		String monthly_holding_cost = total_monthly_holding_cost.getText().substring(2);
 
