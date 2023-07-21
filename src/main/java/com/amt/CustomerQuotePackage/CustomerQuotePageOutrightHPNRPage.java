@@ -4,8 +4,11 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -160,7 +163,23 @@ public class CustomerQuotePageOutrightHPNRPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Term']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_summary_terms;
 
+	Properties prop;
+	
 	public CustomerQuotePageOutrightHPNRPage() {
+		
+	
+
+		try {
+			 prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		PageFactory.initElements(driver, this);
 	}
 

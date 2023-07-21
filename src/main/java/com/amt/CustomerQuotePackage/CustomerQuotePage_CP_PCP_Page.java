@@ -4,8 +4,10 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -171,7 +173,12 @@ public class CustomerQuotePage_CP_PCP_Page extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Term']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_summary_terms;
 
+
+	
 	public CustomerQuotePage_CP_PCP_Page() {
+		
+		
+
 		PageFactory.initElements(driver, this);
 
 	}

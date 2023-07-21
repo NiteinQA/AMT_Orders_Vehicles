@@ -2,9 +2,11 @@ package com.amt.CustomerQuotePackage;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.poi.ss.formula.FormulaParseException;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -140,7 +142,20 @@ public class CustomerQuotePage_CP_BCH_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
 	private WebElement check_box_supplier_setting_finance;
 
+	Properties prop;
+	
 	public CustomerQuotePage_CP_BCH_Page() {
+		
+		try {
+			 prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		PageFactory.initElements(driver, this);
 	}
 
