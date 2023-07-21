@@ -357,6 +357,10 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 
 		System.out.println("");
 		System.out.println("");
+		
+		obj_quote_summary_page.save_quote();
+		
+		obj_quote_summary_page.write_quote_no_to_excel();
 
 	}
 

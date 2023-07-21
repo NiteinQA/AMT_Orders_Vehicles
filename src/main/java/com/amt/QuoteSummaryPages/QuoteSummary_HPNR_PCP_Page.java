@@ -3332,7 +3332,7 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 
 		// Getting values from screen
 
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
+	try {ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost, 30);
 
 		double holding_cost_total_monthly_holding_cost_from_screen = Double
 				.parseDouble(RemoveComma.of(quote_summary_total_monthly_holding_cost.getText().trim().substring(2)));
@@ -3437,31 +3437,133 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		if (count == 5) {
 			status = true;
 		}
+		return status;
+		
+	}catch(Exception e)
+	{
+		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 30);
 
-		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
-		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+		double holding_cost_total_monthly_holding_cost_from_screen = Double.parseDouble(RemoveComma
+				.of(quote_summary_total_monthly_holding_cost_without_maintenance.getText().trim().substring(2)));
 
-		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		double customer_quote_summary_monthly_finance_rental_from_screen = Double
+				.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
 
-		LO.print("Base Interest Rate changed to 6.5 %");
-		System.out.println("Base Interest Rate changed to 6.5 %");
+		double customer_quote_summary_finance_charges = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
+
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
+		double customer_quote_summary_balance_payable = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
 
 		// writing values to excel
 
-		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
-		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
 
-		wb1.getSheet(sheet_name).getRow(34).getCell(10).setCellValue(0.065);
-		wb1.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(0.065);
+		wb.getSheet(sheet_name).getRow(34).getCell(10).setCellValue(0.07);
+		wb.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(0.07);
 
-		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
 
-		wb1.write(out1);
+		// getting values from excel
 
+		double holding_cost_total_monthly_holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1,
+				sheet_name);
+
+		double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(166, 0, sheet_name);
+
+		double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
+
+		double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
+
+		// verifying actual and expected values
+
+		int count = 0;
+
+		boolean status = false;
+		// 1
+		if (Difference.of_two_Double_Values(holding_cost_total_monthly_holding_cost_from_screen,
+				holding_cost_total_monthly_holding_cost_from_excel) < 0.2) {
+			LO.print("Holding Cost after changing Base Int. Rate -  found OK");
+			System.out.println("Holding Cost after changing Base Int. Rate -  found OK");
+			count++;
+		} else {
+			LO.print("Holding Cost after changing Base Int. Rate -  found wrong");
+			System.err.println("Holding Cost after changing Base Int. Rate -  found wrong");
+		}
+
+		System.out.println("holding_cost_total_monthly_holding_cost_from_screen "
+				+ holding_cost_total_monthly_holding_cost_from_screen);
+		System.out.println("holding_cost_total_monthly_holding_cost_from_excel "
+				+ holding_cost_total_monthly_holding_cost_from_excel);
+
+		// 2
+		if (Difference.of_two_Double_Values(customer_quote_summary_monthly_finance_rental_from_screen,
+				monthlyFinanceRental) < 0.2) {
+			LO.print("Monthly Finance Rental after changing Base Int. Rate -  found OK");
+			System.out.println("Monthly Finance Rental after changing Base Int. Rate -  found OK");
+			count++;
+		} else {
+			LO.print("Monthly Finance Rental after changing Base Int. Rate -  found wrong");
+			System.err.println("Monthly Finance Rental after changing Base Int. Rate -  found wrong");
+		}
+		// 3
+		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+			LO.print("Finance Charges - found OK");
+			System.out.println("Finance Charges - found OK");
+			count++;
+		} else {
+			LO.print("Finance Charges - found wrong");
+			System.err.println("Finance Charges - found wrong");
+		}
+
+		// 4
+		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+			LO.print("Balance Payable - found OK");
+			System.out.println("Balance Payable - found OK");
+			count++;
+		} else {
+			LO.print("Balance Payable - found wrong");
+			System.err.println("Balance Payable - found wrong");
+		}
+
+		if (count == 4) {
+			status = true;
+		}
+		
 		return status;
+
+	}
+
+//		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+//		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+//		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+//
+//		act.sendKeys(Keys.TAB).build().perform();
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+//
+//		LO.print("Base Interest Rate changed to 6.5 %");
+//		System.out.println("Base Interest Rate changed to 6.5 %");
+//
+//		// writing values to excel
+//
+//		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+//		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+//
+//		wb1.getSheet(sheet_name).getRow(34).getCell(10).setCellValue(0.065);
+//		wb1.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(0.065);
+//
+//		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+//
+//		wb1.write(out1);
+
+		 
 	}
 
 	public boolean quote_summary_edit_customer_rate_over_base_value_verification(String sheet_name)

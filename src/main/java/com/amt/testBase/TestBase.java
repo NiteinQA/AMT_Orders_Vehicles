@@ -8,11 +8,6 @@ import java.util.Properties;
 import javax.mail.MessagingException;
 
 import org.apache.commons.mail.EmailException;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,14 +19,10 @@ import org.testng.annotations.BeforeClass;
 
 import com.amt.pages.LoginPage;
 import com.amt.testUtil.Logger;
-import com.amt.testUtil.SendEmail;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
 
 public class TestBase {
 	public static WebDriver driver;
@@ -69,8 +60,8 @@ public class TestBase {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--remote-allow-origins=*");
-			options.addArguments("force-device-scale-factor=0.67");
-			options.addArguments("high-dpi-support=0.67");
+			//options.addArguments("force-device-scale-factor=0.67");
+			//options.addArguments("high-dpi-support=0.67");
 			options.addArguments("disable-infobars");
 
 			driver = new ChromeDriver(options);
@@ -110,7 +101,7 @@ public class TestBase {
 
 
 
-	@AfterClass
+//	@AfterClass
 	public void tearDown() {
 		driver.close();
 	}

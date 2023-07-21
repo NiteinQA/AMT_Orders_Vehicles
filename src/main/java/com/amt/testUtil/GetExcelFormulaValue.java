@@ -14,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class GetExcelFormulaValue extends ReadExcelCalculation {
 	
-	
+public	static Properties prop;
 	public static double  get_formula_value(int rounum, int columnnum, String sheet_name) throws IOException {
 	
 		

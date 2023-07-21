@@ -2,12 +2,15 @@ package com.amt.pages;
 
 
 
+import java.time.Duration;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.amt.testBase.TestBase;
+import com.amt.testUtil.Click;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.HelperClass;
 
@@ -57,6 +60,8 @@ public class LoginPage extends TestBase {
 		
 		jse.executeScript("arguments[0].click();", submit);
 		
+		
+	
 		 
 	}
 	

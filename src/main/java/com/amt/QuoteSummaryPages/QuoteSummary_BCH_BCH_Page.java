@@ -39,7 +39,7 @@ public class QuoteSummary_BCH_BCH_Page extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-acquisition-summary-quote[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[1]/p[1]/strong[1]")
 	private WebElement quote_summary_total_monthly_holding_cost;
 
-	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div/p/strong")
 	private WebElement quote_summary_monthly_finance_rental;
 
 	@FindBy(xpath = "//*[@class='row']//*[@id='headingCustomerQuote']/div[2]/app-hire-customer-quote-summary-header/div/div[5]/div/p/strong")
@@ -919,7 +919,7 @@ public class QuoteSummary_BCH_BCH_Page extends TestBase {
 		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
 		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
 
-		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 0);
+		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 30);
 
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_term, 20);
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_miles, 20);
@@ -1595,16 +1595,27 @@ public class QuoteSummary_BCH_BCH_Page extends TestBase {
 
 		// Getting values from screen
 		Thread.sleep(2000);
+		
+		QuoteSummary_BCH_BCH_Page obj_quote_summary = new QuoteSummary_BCH_BCH_Page();
+		
+		obj_quote_summary.save_quote();	
+		
+		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 30);
 
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
 
 		double customer_quote_summary_monthly_finance_rental_from_screen = Double
 				.parseDouble(RemoveComma.of(quote_summary_monthly_finance_rental.getText().trim().substring(2)));
+		
+		System.out.println("Monthly Finance from screen "+customer_quote_summary_monthly_finance_rental_from_screen);
 
 		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_initial_finance_rental, 30);
 
 		double customer_quote_initial_finance_rental = Double.parseDouble(
 				RemoveComma.of(quote_summary_customer_quote_initial_finance_rental.getText().trim().substring(2)));
+		
+		System.out.println("Initial Finance from screen "+customer_quote_initial_finance_rental);
+
 
 		// writing values to excel
 
@@ -1618,8 +1629,12 @@ public class QuoteSummary_BCH_BCH_Page extends TestBase {
 		// getting values from excel
 
 		double monthlyFinanceRental = GetExcelFormulaValue.get_formula_value(170, 0, sheet_name);
+		
+		System.out.println("Monthly Finance from excel "+monthlyFinanceRental);
 
 		double initialFinanceRental = GetExcelFormulaValue.get_formula_value(173, 1, sheet_name);
+		
+		System.out.println("Initial Finance from excel "+initialFinanceRental);
 
 		// verifying actual and expected values
 
@@ -1766,14 +1781,14 @@ public class QuoteSummary_BCH_BCH_Page extends TestBase {
 //		Actions act = new Actions(driver);
 //		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 
 		String quote_ref_no = quote_summary_ref_no.getText();
 
-		LO.print("*********Customer Quote generated successfully and Quote_ref_no is=" + quote_ref_no);
-		System.out.println("*********Customer Quote generated successfully and Quote_ref_no is=" + quote_ref_no);
+		LO.print("*********Quote generated successfully and Quote_ref_no is=" + quote_ref_no);
+		System.out.println("*********Quote generated successfully and Quote_ref_no is=" + quote_ref_no);
 
 	}
 

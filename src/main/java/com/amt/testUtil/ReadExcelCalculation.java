@@ -21,6 +21,8 @@ import org.openqa.selenium.support.ui.Select;
 import com.amt.testBase.TestBase;
 
 public class ReadExcelCalculation extends TestBase {
+	
+	Properties prop;
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
@@ -247,6 +249,24 @@ public class ReadExcelCalculation extends TestBase {
 
 	}
 
+	public void write_road_tax_for_first_year_to_calculation_excel(String road_tax_for_first_year , String calculation_excel_sheet_name ) throws IOException {
+
+	
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		wb.getSheet(calculation_excel_sheet_name).getRow(12).getCell(4).setCellValue(Double.parseDouble(road_tax_for_first_year));
+
+	
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		wb.close();
+		out.close();
+		
+	}
+
+	
+	
 	public double verify_table_calculations_contract_types_page_cp_hire(WebDriver driver, String vehicle_price_copied,
 			WebElement acq_contractTypes_table_calculation_basic_paint_price,
 			WebElement acq_contractTypes_table_calculation_basic_options_price,
@@ -1398,6 +1418,15 @@ public class ReadExcelCalculation extends TestBase {
 
 		wb.getSheet(sheet_name).getRow(61).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
+		
+		
+		if (sheet_name.contains("Use")) {
+
+			wb.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B60*B63");
+
+		} else {
+			wb.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B61*B63");
+	}
 		wb.getSheet(sheet_name).getRow(64).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
 		wb.getSheet(sheet_name).getRow(67).getCell(1)

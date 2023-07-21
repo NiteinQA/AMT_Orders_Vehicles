@@ -93,6 +93,9 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 
 	@FindBy(xpath = "//input[@id='ListingPriceUsed']")
 	private WebElement vehicle_cost_price_input;
+	
+	@FindBy(xpath = "//input[@id='roadTaxFirstYear']")
+	private WebElement road_tax_for_first_year_input;
 
 	@FindBy(xpath = "//input[@id='roadTaxFirstYear']")
 	private WebElement rfl_input;
@@ -129,6 +132,9 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 
 	@FindBy(xpath = "//*[@src='/assets/images/delete.svg']")
 	private WebElement delete_other_support;
+	
+	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
+	private WebElement quote_summary_save_button;
 
 	
 	
@@ -194,6 +200,57 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 		return flag;
 	}
 
+	public void edit_road_tax_for_first_year_on_otr_page(String road_tax_for_first_year ,String calculation_excel_sheet_name)
+			throws InterruptedException, IOException, UnsupportedFlavorException {
+		
+		
+		Click.on(driver, acq_contractTypes, 50);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon,200);
+		
+		
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Sending Road tax for first year "+road_tax_for_first_year+" from test data to sceen");
+		System.out.println("Sending Road tax for first year "+road_tax_for_first_year+" from test data to sceen");
+
+		
+		ExplicitWait.visibleElement(driver, road_tax_for_first_year_input, 20);
+
+		road_tax_for_first_year_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		
+		Thread.sleep(1000);
+		
+		Click.sendKeys(driver, road_tax_for_first_year_input, road_tax_for_first_year, 30);
+
+		act = new Actions(driver);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		Thread.sleep(2000);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		//write same to calculation sheet
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		
+		obj_read_excel_calculation_page.write_road_tax_for_first_year_to_calculation_excel(road_tax_for_first_year ,calculation_excel_sheet_name );
+		
+		
+		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		js.executeScript("arguments[0].click();", quote_summary_save_button);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		
+	}
+
+	
+	
 	public boolean contractTypes_selection_and_OTR_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 
@@ -284,15 +341,6 @@ public class ContractTypesAndOTR_HPNR_BCH_Page extends TestBase {
 
 		Thread.sleep(2000);
 
-		ExplicitWait.visibleElement(driver, options_cost_input, 20);
-
-		options_cost_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-
-		Click.sendKeysint(driver, options_cost_input, 0, 30);
-
-		act.sendKeys(Keys.TAB).build().perform();
-
-		Thread.sleep(2000);
 
 		
 		ExplicitWait.visibleElement(driver, contract_types_cost_price_ex_vat_and_rfl, 20);

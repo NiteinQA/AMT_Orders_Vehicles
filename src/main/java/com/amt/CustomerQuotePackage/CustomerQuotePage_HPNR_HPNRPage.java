@@ -1888,6 +1888,8 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		Click.on(driver, balloon_payment_toggle, 40);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
 
 		double monthly_finance_payment_actual_from_screen = Double
 				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
@@ -1939,11 +1941,13 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		Thread.sleep(2000);
+		
+		try {
 
-		ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 40);
+		ExplicitWait.visibleElement(driver, customer_quote_monthly_total_rental, 40);
 
 		double monthly_total_payment_actual_from_screen = Double
-				.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+				.parseDouble(RemoveComma.of(customer_quote_monthly_total_rental.getText().trim().substring(2)));
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -1966,7 +1970,7 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		LO.print("");
 		System.out.println("");
 
-		double diff = Difference.of_two_Double_Values(monthly_total_payment_expected_from_excel,
+		double diff = Difference.of_two_Double_Values(monthly_total_payment_actual_from_screen,
 				monthly_total_payment_expected_from_excel);
 
 		boolean status = false;
@@ -1982,6 +1986,53 @@ public class CustomerQuotePage_HPNR_HPNRPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		return status;
+		}
+		catch(Exception e)
+		{
+			ExplicitWait.visibleElement(driver, customer_quote_monthly_finance_rental, 30);
+
+			double monthly_finance_payment_actual_from_screen = Double
+					.parseDouble(RemoveComma.of(customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+			double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
+					.get_monthly_finance_payment_after_making_balloon_payment_off(sheet_name);
+
+			double diff = Difference.of_two_Double_Values(monthly_finance_payment_actual_from_screen,
+					monthly_finance_payment_expected_from_excel);
+
+			LO.print("Actual Monthly Finance Payment after making balloon payment toggle button off is "
+					+ monthly_finance_payment_actual_from_screen);
+			System.out.println("Actual Monthly Finance Payment after making balloon payment toggle button off is "
+					+ monthly_finance_payment_actual_from_screen);
+
+			LO.print("");
+			System.out.println("");
+
+			LO.print("Expected Monthly Finance Payment after making balloon payment toggle button off is "
+					+ monthly_finance_payment_expected_from_excel);
+			System.out.println("Expected Finance Payment after making balloon payment toggle button off is "
+					+ monthly_finance_payment_expected_from_excel);
+
+			LO.print("");
+			System.out.println("");
+
+			boolean status = false;
+			if (diff < 0.2) {
+				status = true;
+
+				LO.print("Monthly Finance Payment verified after making balloon payment toggle button off");
+				System.out.println("Monthly Finance Payment verified after making balloon payment toggle button off");
+			}
+
+			Click.on(driver, balloon_payment_toggle, 40);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+			return status;
+
+		}
 	}
 
 	public boolean check_monthly_total_payment_after_making_balloon_payment_off(String sheet_name)

@@ -3,56 +3,69 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.amt.test.FL.Acquisition_Quotes_FL_PCH_used_car_without_maintenance_Test">
+      <class name="usedLCV.CP.Acquisition_Quotes_CP_PCH_used_LCV_without_maintenance_Test">
         <methods>
-          <include name="aquisition_quotes_HPNR_PCH_used_car_OTR_calculation_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCH_customer_quote_payment_profile_calculations_without_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_HPNR_PCH_used_car_holding_cost_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCH_quote_summary_values_verification_without_maintenance_test"/>
-          <include name="aquisition_quotes_HPNR_PCH_used_car_edit_cost_price_and_check_OTR_without_maintenance_test"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.amt.test.FL.Acquisition_Quotes_FL_PCH_used_car_without_maintenance_Test -->
-      <class name="com.amt.test.FL.Acquisition_Quotes_FL_BCH_used_car_without_maintenance_Test">
-        <methods>
-          <include name="aquisition_quotes_customer_quote_payment_profile_calculations_without_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_quote_summary_values_verification_without_maintenance_test"/>
-          <include name="aquisition_quotes_used_car_holding_cost_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_used_car_OTR_calculation_without_maintenance_test"/>
-          <include name="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.amt.test.FL.Acquisition_Quotes_FL_BCH_used_car_without_maintenance_Test -->
-      <class name="com.amt.test.FL.Acquisition_Quotes_FL_BCH_used_car_with_maintenance_Test">
-        <methods>
-          <include name="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test"/>
-          <include name="aquisition_quotes_quote_summary_values_verification_with_maintenance_test"/>
-          <include name="aquisition_quotes_customer_quote_payment_profile_calculations_with_maintenance_test" invocation-numbers="0"/>
-          <include name="aquisition_quotes_used_car_holding_cost_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_used_car_OTR_calculation_with_maintenance_test"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.amt.test.FL.Acquisition_Quotes_FL_BCH_used_car_with_maintenance_Test -->
-      <class name="com.amt.test.FL.Acquisition_Quotes_FL_FL_used_car_with_maintenance_Test">
-        <methods>
-          <include name="aquisition_quotes_used_car_holding_cost_calculations_with_maintenance_test"/>
-          <include name="aquisition_quotes_used_car_OTR_calculation_with_maintenance_test"/>
-          <include name="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test"/>
-          <include name="aquisition_quotes_quote_summary_values_verification_with_maintenance_test"/>
-          <include name="aquisition_quotes_customer_quote_payment_profile_calculations_with_maintenance_test" invocation-numbers="0"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.amt.test.FL.Acquisition_Quotes_FL_FL_used_car_with_maintenance_Test -->
-      <class name="com.amt.test.FL.Acquisition_Quotes_FL_FL_used_car_without_maintenance_Test">
-        <methods>
-          <include name="aquisition_quotes_quote_summary_values_verification_without_maintenance_test"/>
           <include name="aquisition_quotes_customer_quote_payment_profile_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_used_car_OTR_calculation_without_maintenance_test"/>
+          <include name="end"/>
+          <include name="aquisition_quotes_quote_summary_values_verification_without_maintenance_test"/>
           <include name="aquisition_quotes_used_car_holding_cost_calculations_without_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_used_car_OTR_calculation_without_maintenance_test"/>
           <include name="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_without_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amt.test.FL.Acquisition_Quotes_FL_FL_used_car_without_maintenance_Test -->
+      </class> <!-- usedLCV.CP.Acquisition_Quotes_CP_PCH_used_LCV_without_maintenance_Test -->
+      <class name="usedLCV.BCH.Acquisition_Quotes_BCH_PCH_used_LCV_with_maintenance_Test">
+        <methods>
+          <include name="end"/>
+          <include name="aquisition_quotes_customer_quote_payment_profile_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_quote_summary_values_verification_with_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_holding_cost_calculations_with_maintenance_test"/>
+          <include name="aquisition_quotes_OTR_calculation_with_maintenance_test"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- usedLCV.BCH.Acquisition_Quotes_BCH_PCH_used_LCV_with_maintenance_Test -->
+      <class name="usedLCV.BROKER.Acquisition_Quotes_Broker_HPR_used_LCV_Test">
+        <methods>
+          <include name="end"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_quote_summary_values_verification_test"/>
+          <include name="aquisition_quotes_used_car_edit_cost_price_and_check_OTR_with_maintenance_test"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_vehicle_profit_check_test"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_balance_to_finance_check_test"/>
+          <include name="aquisition_quotes_user_flow_broker_HPNR_OTR_calculation_test" invocation-numbers="0"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- usedLCV.BROKER.Acquisition_Quotes_Broker_HPR_used_LCV_Test -->
+      <class name="usedLCV.HPNR.Acquisition_Quotes_HPNR_CP_used_LCV_with_funder_quote_addition_without_maintenance_Test">
+        <methods>
+          <include name="end"/>
+          <include name="aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test"/>
+          <include name="aquisition_quotes_quote_summary_values_verification_without_maintenance_test"/>
+          <include name="aquisition_quotes_OTR_calculation_without_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_used_LCV_edit_cost_price_and_check_OTR_without_maintenance_test"/>
+          <include name="aquisition_quotes_holding_cost_calculations_without_maintenance_test"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- usedLCV.HPNR.Acquisition_Quotes_HPNR_CP_used_LCV_with_funder_quote_addition_without_maintenance_Test -->
+      <class name="usedLCV.BROKER.Acquisition_Quotes_Broker_FL_used_LCV_without_maintenance_Test">
+        <methods>
+          <include name="end"/>
+          <include name="aquisition_quotes_user_flow_broker_fl_quote_summary_values_verification_without_maintenance_test"/>
+          <include name="aquisition_quotes_user_flow_broker_fl__without_maintenance_test"/>
+          <include name="aquisition_quotes_user_flow_broker_fl_OTR_calculation_without_maintenance_test" invocation-numbers="0"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- usedLCV.BROKER.Acquisition_Quotes_Broker_FL_used_LCV_without_maintenance_Test -->
+      <class name="usedLCV.OP.Acquisition_Quotes_Outright_FL_used_LCV_without_maintenance_Test">
+        <methods>
+          <include name="end"/>
+          <include name="aquisition_quotes_customer_quote_payment_profile_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_quote_summary_values_verification_without_maintenance_test"/>
+          <include name="aquisition_quotes_used_LCV_edit_cost_price_and_check_OTR_without_maintenance_test"/>
+          <include name="aquisition_quotes_used_LCV_OTR_calculation_without_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_used_LCV_holding_cost_calculations_without_maintenance_test"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- usedLCV.OP.Acquisition_Quotes_Outright_FL_used_LCV_without_maintenance_Test -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

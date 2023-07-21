@@ -2321,7 +2321,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		
 		if(sheet_name.contains("CP(F2)-"))
 		{
-			return GetExcelFormulaValue.get_formula_value(103, 1, sheet_name);
+			return GetExcelFormulaValue.get_formula_value(102, 1, sheet_name);
 		}else
 		{		
 		return GetExcelFormulaValue.get_formula_value(93, 1, sheet_name);

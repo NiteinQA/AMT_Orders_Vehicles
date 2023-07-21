@@ -5,10 +5,12 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
@@ -30,6 +32,7 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 
 	CustomerQuotePage_HPNR_BCHPage obj_cust_quote_outright_bchPage;
 	ReadExcelCalculation obj_read_excel_calculation_page;
+	Properties prop;
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
@@ -176,6 +179,18 @@ public class CustomerQuotePage_HPNR_BCHPage extends TestBase {
 	private WebElement check_box_supplier_setting_finance;
 
 	public CustomerQuotePage_HPNR_BCHPage() {
+		
+		try {
+			prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		PageFactory.initElements(driver, this);
 	}
 

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -154,11 +155,61 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
 	private WebElement holding_cost_summary;
 
-	@FindBy(xpath = "//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select")
-	private WebElement matrix_credit_type_dropdown;
 
 	@FindBy(xpath = "//*[normalize-space()='Term']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_summary_terms;
+	
+	@FindBy(xpath = "//*[@id='registrationNumber']")
+	private WebElement registration_number;
+
+	@FindBy(xpath = "//*[normalize-space()='Search']")
+	private WebElement search_button;
+
+	@FindBy(xpath = "//*[@id='mileage']")
+	private WebElement mileage;
+
+
+	@FindBy(xpath = "//*[@id='partExchange_1']/button/div")
+	private WebElement part_exchange_payment;
+
+
+
+	@FindBy(xpath = "//*[@name='FunderName']")
+	private WebElement funder_name;
+
+	@FindBy(xpath = "//*[@name='agreementName']")
+	private WebElement agreement_number;
+
+	@FindBy(xpath = "//*[@id='settlementExpiredDate']")
+	private WebElement settlement_expiry_date;
+
+	@FindBy(xpath = "//*[@id='vatQualifying']")
+	private WebElement check_box_vat_qualifying;
+
+	@FindBy(xpath = "//*[@id='OutstandingFinance']")
+	private WebElement check_box_outstanding_finance;
+
+	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
+	private WebElement check_box_supplier_setting_finance;
+
+	@FindBy(xpath = "//*[normalize-space()='Matrix Credit type']//ancestor::div[1]//div//ng-select")
+	private WebElement matrix_credit_type_dropdown;
+
+	@FindBy(xpath = "//*[@id='ResidualPercentage']")
+	private WebElement holding_cost_percentage_cap_residual_value_used;
+
+	@FindBy(xpath = "//input[@id='CapMaintenancePercentage']")
+	private WebElement holding_cost_percentage_maintenance_cost_used;
+
+	@FindBy(xpath = "//input[@id='ResidualValue']")
+	private WebElement residual_value_used;
+
+	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
+	private WebElement maintenance_cost_used;
+	
+	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
+	private WebElement less_finance_settlement;
+
 
 	public CustomerQuotePageOutrightHPRPage() {
 		PageFactory.initElements(driver, this);
@@ -1180,32 +1231,65 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	}
 
 	public boolean put_part_exchange_values_and_check_monthly_finance_payment(String part_exchange_actual,
-			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
+			String part_exchange_given_from_excel, String less_finance_settlement_from_excel, String order_deposit_from_excel, String finance_deposit_from_excel,
 			String sheet_name) throws UnsupportedFlavorException, IOException, InterruptedException {
 		Actions act = new Actions(driver);
 
-		Click.on(driver, part_exchange_and_additional_payment_button, 30);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
+		ExplicitWait.clickableElement(driver, part_exchange_and_additional_payment_button, 50);
+		Thread.sleep(4000);
+		Click.on(driver, part_exchange_and_additional_payment_button, 70);
+		LO.print("Clicked on Part Exchange panel");
+		System.out.println("Clicked on Part Exchange panel");
+		
+
+		Click.on(driver, given_part_exchange_value, 20);
+
+		given_part_exchange_value.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, order_Deposit, 20);
+		order_Deposit.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, order_Deposit, order_deposit_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, finance_Deposit, 20);
+		finance_Deposit.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, finance_Deposit, finance_deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		Thread.sleep(1000);
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
 		document_fee.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
@@ -1228,8 +1312,8 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 
 		double[] monthlyFinanceAndBalanceToFinance = obj_read_excel_calculation_page
 				.get_monthly_finance_payment_and_balance_to_finance_payment_after_editing_part_exchange_values(
-						part_exchange_actual, part_exchange_given, less_finance_settlement, order_deposit,
-						finance_deposit, document_fee_copied, sheet_name);
+						part_exchange_actual, part_exchange_given_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel,
+						finance_deposit_from_excel, document_fee_copied, sheet_name);
 
 		double monthly_finance_payment_expected = monthlyFinanceAndBalanceToFinance[0];
 		double balance_to_finance_expected = monthlyFinanceAndBalanceToFinance[1];
@@ -1252,37 +1336,67 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 	}
 
 	public boolean put_part_exchange_values_and_check_monthly_total_payment_with_maintenance(
-			String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
-			String order_deposit, String finance_deposit, String sheet_name)
+			String part_exchange_actual, String part_exchange_given_from_excel, String less_finance_settlement_from_excel,
+			String order_deposit_from_excel, String finance_deposit_from_excel, String sheet_name)
 			throws UnsupportedFlavorException, IOException, InterruptedException {
 
 		Actions act = new Actions(driver);
 
-		Click.on(driver, part_exchange_and_additional_payment_button, 30);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, actual_part_exchange_value, part_exchange_actual, 30);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given, 30);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, less_finance_Settlement, less_finance_settlement, 30);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		Thread.sleep(1000);
-		Click.sendKeys(driver, order_Deposit, order_deposit, 30);
-		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.clickableElement(driver, part_exchange_and_additional_payment_button, 50);
+		Thread.sleep(4000);
+		Click.on(driver, part_exchange_and_additional_payment_button, 70);
+		LO.print("Clicked on Part Exchange panel");
+		System.out.println("Clicked on Part Exchange panel");
+		
+
+		Click.on(driver, given_part_exchange_value, 20);
+
+		given_part_exchange_value.clear();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Thread.sleep(2000);
-
-		Click.sendKeys(driver, finance_Deposit, finance_deposit, 30);
-		act.sendKeys(Keys.TAB).build().perform();
+		Click.sendKeys(driver, given_part_exchange_value, part_exchange_given_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+
+		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, funder_name, "Funder X", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, agreement_number, "123", 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+		less_finance_settlement.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, order_Deposit, 20);
+		order_Deposit.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, order_Deposit, order_deposit_from_excel, 30);
+		act.sendKeys(Keys.TAB).perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, finance_Deposit, 20);
+		finance_Deposit.clear();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.sendKeys(driver, finance_Deposit, finance_deposit_from_excel, 30);
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
@@ -1305,8 +1419,8 @@ public class CustomerQuotePageOutrightHPRPage extends TestBase {
 
 		double[] monthlyFinanceAndBalanceToFinance = obj_read_excel_calculation_page
 				.get_monthly_total_payment_and_balance_to_finance_payment_after_editing_part_exchange_values(
-						part_exchange_actual, part_exchange_given, less_finance_settlement, order_deposit,
-						finance_deposit, document_fee_copied, sheet_name);
+						part_exchange_actual, part_exchange_given_from_excel, less_finance_settlement_from_excel, order_deposit_from_excel,
+						finance_deposit_from_excel, document_fee_copied, sheet_name);
 
 		double monthly_total_payment_expected = monthlyFinanceAndBalanceToFinance[0];
 		double balance_to_finance_expected = monthlyFinanceAndBalanceToFinance[1];

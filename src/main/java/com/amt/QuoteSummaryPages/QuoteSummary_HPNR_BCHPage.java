@@ -27,6 +27,7 @@ import com.amt.testUtil.RemoveComma;
 public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 	ReadExcelCalculation obj_read_excel_calculation_page;
+	Properties prop;
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
@@ -201,7 +202,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\StagingNew\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -2330,7 +2331,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB).build().perform();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		LO.print("Base Interest Rate changed to 7.0 %");
 		System.out.println("Base Interest Rate changed to 7.0 %");
@@ -2408,27 +2409,27 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 			status = true;
 		}
 
-		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
-		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+//		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+//		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+//		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+//
+//		act.sendKeys(Keys.TAB).build().perform();
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+//
+//		LO.print("Base Interest Rate changed to 6.5 %");
+//		System.out.println("Base Interest Rate changed to 6.5 %");
+//
+//		// writing values to excel
+//
+//		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+//		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+//
+//		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);
+//
+//		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
 
-		act.sendKeys(Keys.TAB).build().perform();
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		LO.print("Base Interest Rate changed to 6.5 %");
-		System.out.println("Base Interest Rate changed to 6.5 %");
-
-		// writing values to excel
-
-		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
-		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
-
-		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);
-
-		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
-
-		wb1.write(out1);
+//		wb1.write(out1);
 
 		return status;
 	}
@@ -2514,26 +2515,26 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 		// writing values to excel
 
-		if (sheet_name.contains("Use")) {
-
-			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
-			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
-
-			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B60*B63");
-
-			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
-
-			wb1.write(out1);
-		} else {
-			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
-			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
-
-			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B61*B63");
-
-			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
-
-			wb1.write(out1);
-		}
+//		if (sheet_name.contains("Use")) {
+//
+//			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+//			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+//
+//			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B60*B63");
+//
+//			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+//
+//			wb1.write(out1);
+//		} else {
+//			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+//			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+//
+//			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B61*B63");
+//
+//			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+//
+//			wb1.write(out1);
+//		}
 
 		return status;
 	}
@@ -2676,9 +2677,6 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 		js.executeScript("arguments[0].click();", quote_summary_save_button);
 		
-//		Actions act = new Actions(driver);
-//		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
-
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
@@ -2690,6 +2688,28 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 	}
 
+	public void write_quote_no_to_excel() throws InterruptedException, IOException {
+
+		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+		String quote_ref_no = quote_summary_ref_no.getText();
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty("HPNRBCHQuoteNoEdit");
+       //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(0).setCellValue(quote_ref_no);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+
+
+
+
+	}
+
+	
 	public boolean quote_summary_configuration_value_verification_without_maintenance_for_funder(String sheet_name)
 			throws IOException {
 

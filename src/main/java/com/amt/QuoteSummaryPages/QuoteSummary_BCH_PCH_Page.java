@@ -1599,7 +1599,9 @@ public class QuoteSummary_BCH_PCH_Page extends TestBase {
 		System.out.println("Finance margin changed to 10000");
 
 		// Getting values from screen
-		Thread.sleep(5000);
+		QuoteSummary_BCH_PCH_Page obj_quote_summary = new QuoteSummary_BCH_PCH_Page();
+		
+		obj_quote_summary.save_quote();	
 
 		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 30);
 
