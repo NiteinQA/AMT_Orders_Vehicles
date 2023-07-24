@@ -197,6 +197,9 @@ public class QuoteSummary_CP_PCH_Page extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Balance due']//ancestor::div[1]//p//strong")
 	private WebElement balance_due_value;
 
+	Properties prop;
+
+	
 	public QuoteSummary_CP_PCH_Page() {
 
 		try {

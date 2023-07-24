@@ -1,7 +1,10 @@
 package com.amt.QuoteSummaryPages;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -61,7 +64,21 @@ public class QuoteSummaryBrokerCPPage extends TestBase {
 	@FindBy(xpath = "//app-broker-cp-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement quote_summary_total_monthly_payment;
 
+	Properties prop;
+	
 	public QuoteSummaryBrokerCPPage() {
+		
+		try {
+			 prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		PageFactory.initElements(driver, this);
 	}
 

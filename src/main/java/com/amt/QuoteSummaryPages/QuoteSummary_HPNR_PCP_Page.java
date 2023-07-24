@@ -5,9 +5,11 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
@@ -310,7 +312,22 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement quote_summary_save_button;
 
+	Properties prop;
+	
+	
 	public QuoteSummary_HPNR_PCP_Page() {
+		
+		try {
+			prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		PageFactory.initElements(driver, this);
 	}
 

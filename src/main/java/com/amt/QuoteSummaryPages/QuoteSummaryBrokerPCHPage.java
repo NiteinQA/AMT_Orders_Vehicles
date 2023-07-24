@@ -1,9 +1,11 @@
 package com.amt.QuoteSummaryPages;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
@@ -69,7 +71,20 @@ public class QuoteSummaryBrokerPCHPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='RFL & FRF']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_otr_rfl_and_frf;
 
+	Properties prop;
 	public QuoteSummaryBrokerPCHPage() {
+		
+		try {
+			 prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		PageFactory.initElements(driver, this);
 	}
 

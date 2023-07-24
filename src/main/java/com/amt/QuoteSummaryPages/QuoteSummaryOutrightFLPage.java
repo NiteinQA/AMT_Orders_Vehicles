@@ -212,22 +212,20 @@ public class QuoteSummaryOutrightFLPage extends TestBase {
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement quote_summary_save_button;
 	
+	Properties prop;
+	
 	public QuoteSummaryOutrightFLPage() {
 		
-    	try
-    	{
-    		prop=new Properties();
-    		FileInputStream ip = new FileInputStream("D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
-    		prop.load(ip);
-    	}
-    	catch(FileNotFoundException e)
-    	{
-    		e.printStackTrace();
-    	}
-    	catch(IOException e)
-    	{
-    		e.printStackTrace();
-    	}
+		try {
+			 prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		PageFactory.initElements(driver, this);
 	}

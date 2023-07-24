@@ -192,12 +192,14 @@ public class QuoteSummaryOutrightBCHPage extends TestBase {
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement quote_summary_save_button;
 
+	Properties prop;
+	
 	public QuoteSummaryOutrightBCHPage() {
 
 		try {
-			prop = new Properties();
+			 prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

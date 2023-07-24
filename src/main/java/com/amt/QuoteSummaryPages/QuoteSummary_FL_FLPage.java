@@ -195,13 +195,16 @@ public class QuoteSummary_FL_FLPage extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Balance due']//ancestor::div[1]//p//strong")
 	private WebElement balance_due_value;
+	
+
+Properties prop;
 
 	public QuoteSummary_FL_FLPage() {
 
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\usedCar\\AMT_Automation\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
