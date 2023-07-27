@@ -173,7 +173,7 @@
 						<!-- Suite testng xml file to consider for test
 						execution -->
 						<suiteXmlFiles>
-							<suiteXmlFile>NewCarTestng.xml</suiteXmlFile>
+							<suiteXmlFile>smokeTesting3.xml</suiteXmlFile>
 						</suiteXmlFiles>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>

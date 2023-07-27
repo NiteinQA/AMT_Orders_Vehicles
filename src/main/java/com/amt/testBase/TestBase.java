@@ -16,6 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 
 import com.amt.pages.LoginPage;
 import com.amt.testUtil.Logger;
@@ -83,6 +84,25 @@ public class TestBase {
 
 		driver.get(prop.getProperty("url"));
 	}
+	
+	@BeforeTest
+	public void start_info() throws InterruptedException, IOException {
+
+		prop = new Properties();
+		FileInputStream ip = new FileInputStream(
+				"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\config.properties");
+		prop.load(ip);
+
+
+		
+		System.out.println("Welcome to the AMT Automation");
+		System.out.println("");
+		System.out.println("We are running suite on "+prop.getProperty("browser")+" browser");
+		System.out.println("");
+		System.out.println("Url of the enviroment is "+prop.getProperty("url"));
+		System.out.println("");
+
+	}
 
 	@BeforeClass
 	public void setup() throws InterruptedException, IOException {
@@ -93,6 +113,9 @@ public class TestBase {
 		prop.load(ip);
 
 		initialization(prop.getProperty("browser"));
+		
+		System.out.println("Browser opened successfully");
+		System.out.println("");
 
 		obj_Login_Page = new LoginPage();
 		obj_Login_Page.enter_credentials();
@@ -104,6 +127,9 @@ public class TestBase {
 	@AfterClass
 	public void tearDown() {
 		driver.close();
+		System.out.println("");
+		System.out.println("Browser closed successfully");
+		System.out.println("");
 	}
 	
 @AfterSuite
