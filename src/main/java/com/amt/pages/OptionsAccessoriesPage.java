@@ -16,16 +16,21 @@ public class OptionsAccessoriesPage extends TestBase {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	@FindBy(xpath = "//*[contains(text(),'Paint -')]//ancestor::div[1]//div/div/div/div/label")
-	private WebElement paint;  
+	private WebElement paint;
+	
+	
+	
+	@FindBy(xpath = "//input[@value='Ok']")
+	private WebElement ok_pop_up;
 	
 	
 	@FindBy(linkText = "Interior")
 	private WebElement acq_interior;
 
-	@FindBy(xpath = "//*[@id=\"child2_1014\"]/div[1]/div[1]/div[1]/label")
+	@FindBy(xpath = "//*[contains(text(),'Trim')]//ancestor::div[1]//div/div/div/div/label")
 	private WebElement acq_interior_trim; 
 	
-	@FindBy(xpath = "//*[@id=\"child2_0014\"]/div[1]/div[1]/div[1]/label")
+	@FindBy(xpath = "//*[contains(text(),'Trim')]//ancestor::div[1]//div/div/div/div/label")
 	private WebElement acq_interior_trim_used_car; 
 	
 	@FindBy(xpath = "//*[contains(text(),'Trim')]//ancestor::div[1]//div/div/div/div/label")
@@ -59,10 +64,21 @@ public class OptionsAccessoriesPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
 		
 		Thread.sleep(3000);
+		
+
 
 		js.executeScript("arguments[0].click();", paint);		
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
+		
+	    try {
+		Click.on(driver, ok_pop_up, 30);
+	    }
+	    catch(Exception e)
+	    {
+	    	
+	    }
+		
 		
 		
 //		try {

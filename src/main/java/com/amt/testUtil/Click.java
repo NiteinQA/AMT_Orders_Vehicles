@@ -15,13 +15,30 @@ public class Click extends TestBase {
 	{
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.elementToBeClickable(element));
 		
+		
+        HelperClass.highlightElement(driver, element);
+
 		element.click();
+		
+//		try {
+//			if(element.getText().isBlank()) {}else 
+//			{
+//		System.out.println("Clicked "+element.getText());
+//		LO.print("Clicked "+element.getText());
+//			}
+//		}
+//		catch(Exception e)
+//		{
+//			
+//		}
+		
+		
 	}
 	
 	public static void sendKeys(WebDriver driver, WebElement element ,String values, int timeout)
 	{
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
-		
+		HelperClass.highlightElement(driver, element);
 		element.clear();
 		
 		element.sendKeys(values);
@@ -30,14 +47,14 @@ public class Click extends TestBase {
 	public static void sendKeysint(WebDriver driver, WebElement element ,int d, int timeout)
 	{
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
-		 	
+		HelperClass.highlightElement(driver, element);	
 		element.sendKeys(String.valueOf(d));
 	}
 	
 	public static void sendKeysdouble(WebDriver driver, WebElement element ,double d, int timeout)
 	{
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
-		 	
+		HelperClass.highlightElement(driver, element); 	
 		element.sendKeys(String.valueOf(d));
 	}
 

@@ -104,15 +104,17 @@ public class VehicleSelectionPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		
-		Click.on(driver, select_model, 120);
-		
-		Thread.sleep(3000);
-		
-		act.sendKeys(Keys.ARROW_DOWN).build().perform();
-		act.sendKeys(Keys.ENTER).perform();
-		
-	
+//		Click.on(driver, select_model, 120);
+//		
+//		Thread.sleep(3000);
+//		
+//		act.sendKeys(Keys.ARROW_DOWN).build().perform();
+//		act.sendKeys(Keys.ENTER).perform();
+//		
+//	
 		act.doubleClick(vehile_table_option).build().perform();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		
 		LO.print("Vehicle has been selected");
 		System.out.println("Vehicle has been selected");

@@ -196,6 +196,58 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Balance due']//ancestor::div[1]//p//strong")
 	private WebElement balance_due_value;
+	
+	
+	//create order quote summary page button
+	@FindBy(xpath = "//button[normalize-space()='Create order']")
+	private WebElement quote_summary_create_order;	
+	
+//Channel Dropdown	
+	@FindBy(xpath = "//*[normalize-space()='Channel']//ancestor::div[1]//div//div//div//span[2]")
+	private WebElement quote_summary_channel_dropdown;	
+	
+//Channel option all	
+	@FindBy(xpath = "(//*[normalize-space()='All']//li//input)[1]")
+	private WebElement quote_summary_channel_option_all;	
+	
+//Delivery date picker 	
+	@FindBy(xpath = "(//*[normalize-space()='Requested delivery']//ancestor::div[1]//div//input)[5]")
+	private WebElement quote_summary_requested_delivery_date_picker;
+	
+	
+	//first enabled month
+	@FindBy(xpath = "//table//td[@class='ng-star-inserted']")
+	private WebElement quote_summary_requested_delivery_month;
+	
+	
+	//List of month	
+	@FindBy(xpath = "//bs-calendar-layout//table//tbody//tr//td")
+	private List<WebElement> quote_summary_list_of_months;
+
+//Enter Supplier Name	
+	@FindBy(xpath = "//label[normalize-space()='Name']//ancestor::div[1]//div//input")
+	private WebElement quote_summary_input_supplier_name;	
+	
+//Pick Supplier Name	
+	@FindBy(xpath = "//*[@id='convert_to_order_modal']//*[normalize-space()='Dummy Company']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_pick_supplier_name;	
+	
+//Confirm Create order button	
+	@FindBy(xpath = "//*[@class='modal-footer']//*[contains(text(), 'Create order')]")
+	private WebElement quote_summary_create_order_pop_up_button;
+	
+	//Click on OK to confirm
+	@FindBy(xpath = "//*[@id='convert_to_order_confrim']//*[contains(text(), 'Ok')]")
+	private WebElement quote_summary_create_order_ok_button;
+	
+	//Order ID Number 
+	@FindBy(xpath = "//*[contains(text(), 'New Order ID')]")
+	private WebElement quote_summary_order_id_text;
+	
+	
+	//Click on OK to confirm
+	@FindBy(xpath = "//*[contains(text(), 'Ok')]")
+	private WebElement quote_summary_ok_button_after_getting_order_id;
 
 		
 	public QuoteSummary_HPNR_BCHPage() {
@@ -2293,7 +2345,8 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
 		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+		String default_base_rate =  String.valueOf((Double.parseDouble(prop.getProperty("base_rate"))*100));
+		quote_summary_configuration_base_int_rate_input.sendKeys(default_base_rate);
 
 		act.sendKeys(Keys.TAB).build().perform();
 
@@ -2307,7 +2360,7 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
 
-		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);
+		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
 
 		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
 
@@ -2688,6 +2741,124 @@ public class QuoteSummary_HPNR_BCHPage extends TestBase {
 		System.out.println("*********Customer Quote generated successfully and Quote_ref_no is=" + quote_ref_no);
 
 	}
+	
+	public void create_order(String sheet_name) throws InterruptedException, IOException
+	{
+		LO.print(" ");
+		System.out.println(" ");
+		
+		LO.print          ("*****Creating Order Started*****");
+		System.out.println("*****Creating Order Started*****");
+		
+		//Click on create order
+		Click.on(driver, quote_summary_create_order, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		
+		
+		//Select Channel 
+		Click.on(driver, quote_summary_channel_dropdown, 20);		
+		Thread.sleep(2000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		
+		//Click on first option	
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        ExplicitWait.visibleElement(driver, quote_summary_channel_option_all, 60);
+        jse.executeScript("arguments[0].click();", quote_summary_channel_option_all);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		//Send Input to Name
+		Click.on(driver, quote_summary_input_supplier_name, 30);
+		Thread.sleep(2000);
+		Click.sendKeys(driver, quote_summary_input_supplier_name, "D", 60);
+		Thread.sleep(2000);
+		quote_summary_input_supplier_name.sendKeys("u");
+		Thread.sleep(500);
+		quote_summary_input_supplier_name.sendKeys("m");
+		Thread.sleep(500);
+		quote_summary_input_supplier_name.sendKeys("m");
+		Thread.sleep(500);
+		
+		
+		//pick supplier name
+		Click.on(driver, quote_summary_pick_supplier_name, 20);		
+		Thread.sleep(2000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		
+		//Click on Month input 
+		Click.on(driver, quote_summary_requested_delivery_date_picker, 20);		
+		Thread.sleep(2000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		//select month
+		Click.on(driver, quote_summary_requested_delivery_month, 20);		
+		Thread.sleep(2000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+
+        //Finally create Order
+        Click.on(driver, quote_summary_create_order_pop_up_button, 20);	
+        Thread.sleep(2000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		
+        //Click on  OK button to confirm
+        Click.on(driver, quote_summary_create_order_ok_button, 20);	
+        Thread.sleep(2000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		
+		ExplicitWait.visibleElement(driver, quote_summary_order_id_text, 60);
+		String text = quote_summary_order_id_text.getText();
+		
+		
+	    // Find the index where the last 8 characters start
+        int startIndex = text.length() - 8;
+        
+        // Use substring to extract the last 8 characters
+        String orderID = text.substring(startIndex);     
+        
+        
+        
+       //Click on  OK button after getting order id 
+        Click.on(driver, quote_summary_ok_button_after_getting_order_id, 20);	
+        Thread.sleep(2000);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		
+		
+        
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+		
+	
+	   //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(1).setCellValue(orderID);
+	    //quote ref no 
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();	
+		
+		LO.print          (" ");
+		System.out.println(" ");
+		
+		LO.print          ("***** Order Created Successfully *****");
+		System.out.println("***** Order Created Successfully *****");
+		
+		LO.print("Order ID "+orderID+" is saved to Excel sheet named Quote Save, in the sheet "+sheetname);
+		System.out.println("Order ID "+orderID+" is saved to Excel sheet named Quote Save, in the sheet "+sheetname);
+
+		LO.print          ("*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****");
+		System.out.println("*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****");
+		
+
+	}
+	
 
 	public void write_quote_no_to_excel() throws InterruptedException, IOException {
 

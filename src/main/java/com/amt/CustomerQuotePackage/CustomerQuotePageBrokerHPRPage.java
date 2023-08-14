@@ -521,7 +521,7 @@ public class CustomerQuotePageBrokerHPRPage extends TestBase {
 		// ExplicitWait.clickableElement(driver, check_box_supplier_setting_finance,
 		// 20);
 
-		jse.executeScript("arguments[0].click();", check_box_supplier_setting_finance, 20);
+	
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 

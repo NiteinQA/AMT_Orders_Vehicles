@@ -747,15 +747,20 @@ public boolean quote_summary_edit_base_int_rate_value_verification_with_maintena
 	 
 		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
 		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+		String default_base_rate =  String.valueOf((Double.parseDouble(prop.getProperty("base_rate"))*100));
+
+		
+
+		
+		quote_summary_configuration_base_int_rate_input.sendKeys(default_base_rate);
 		
 	 
 		act.sendKeys(Keys.TAB).build().perform();
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
-		 LO.print("Base Interest Rate changed to 6.5 %");
-		System.out.println("Base Interest Rate changed to 6.5 %");			
+		 LO.print("Base Interest Rate changed to default");
+		System.out.println("Base Interest Rate changed to default");			
 		
 		
 		 // writing values to excel
@@ -763,7 +768,7 @@ public boolean quote_summary_edit_base_int_rate_value_verification_with_maintena
 		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
 
-		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);	
+		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));	
 		
 		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
 	 
@@ -1783,15 +1788,20 @@ public boolean quote_summary_customer_quote_summary_value_verification_without_m
 	 
 		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
 		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		quote_summary_configuration_base_int_rate_input.sendKeys("6.5");
+		String default_base_rate =  String.valueOf((Double.parseDouble(prop.getProperty("base_rate"))*100));
+
+		
+
+		
+		quote_summary_configuration_base_int_rate_input.sendKeys(default_base_rate);
 		
 	 
 		act.sendKeys(Keys.TAB).build().perform();
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 		
-		 LO.print("Base Interest Rate changed to 6.5 %");
-		System.out.println("Base Interest Rate changed to 6.5 %");			
+		 LO.print("Base Interest Rate changed to default");
+		System.out.println("Base Interest Rate changed to default");			
 		
 		
 		 // writing values to excel
@@ -1799,7 +1809,7 @@ public boolean quote_summary_customer_quote_summary_value_verification_without_m
 		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
 
-		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(0.065);	
+		wb1.getSheet(sheet_name).getRow(34).getCell(7).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));	
 		
 		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
 	 
