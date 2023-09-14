@@ -16,6 +16,7 @@ import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_OP_OP_Page;
 import com.amt.testBase.TestBase;
+import com.amt.testUtil.CommonClass;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
@@ -30,6 +31,7 @@ public class Acquisition_Quotes_OP_OP_Test extends TestBase {
 	ContractTypesAndOTR_OP_OP_Page obj_contract_types_and_OTR_page;	 
 	CustomerQuotePage_OP_OP_Page obj_customer_quote_page;
 	QuoteSummary_OP_OP_Page obj_quote_summary_page;
+	CommonClass obj_common_class;
 
 
 	@Test(priority = 1, dataProvider = "testData")
@@ -117,10 +119,12 @@ public class Acquisition_Quotes_OP_OP_Test extends TestBase {
 
 		obj_quote_summary_page = new QuoteSummary_OP_OP_Page();
 		
-		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_OTR_calculation("OP-OP-Orders");
+		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_OTR_calculation("Order_ID");
 		Assert.assertTrue(quote_summary_value_check);       
 		
-		obj_quote_summary_page.create_order("OP-OP-Orders");
+		 obj_common_class = new CommonClass();
+		 
+		 obj_common_class.create_order("Order_ID");
 		
 	}
 	

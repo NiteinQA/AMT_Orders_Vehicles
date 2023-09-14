@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,10 +17,10 @@ public class Click extends TestBase {
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.elementToBeClickable(element));
 		
 		
-        HelperClass.highlightElement(driver, element);
+      //  HelperClass.highlightElement(driver, element);
 
 		element.click();
-		
+//		
 //		try {
 //			if(element.getText().isBlank()) {}else 
 //			{
@@ -34,6 +35,22 @@ public class Click extends TestBase {
 		
 		
 	}
+	
+	public static void doubleClick(WebDriver driver, WebElement element , int timeout )
+	{
+		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.elementToBeClickable(element));
+		
+		
+      //  HelperClass.highlightElement(driver, element);
+
+		element.click();
+		
+		Actions act = new Actions(driver);
+		
+		act.doubleClick(element);	
+		
+	}
+
 	
 	public static void sendKeys(WebDriver driver, WebElement element ,String values, int timeout)
 	{

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Create Order From Opportunity Broker Purchase">
+    <classes>
+      <class name="acquisition.Acquisition_Quotes_Broker_HPNR_Test"/>
+      <class name="opportunity.LOU_broker_business_purchase_accept_flow_Test"/>
+      <class name="opportunity.Create_order_from_opportunity_Test"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

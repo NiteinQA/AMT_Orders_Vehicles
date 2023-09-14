@@ -3,6 +3,7 @@ package com.amt.pages;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 
@@ -36,7 +37,7 @@ public class OrdersListPage extends TestBase {
 	private WebElement orders_search_bar;
 
 	// Searched Order
-	@FindBy(xpath = "//table//tbody//tr")
+	@FindBy(xpath = "(//table//tbody//tr)[5]")
 	private WebElement orders_lists_search_output;
 	
 	// Order summary Element
@@ -68,6 +69,12 @@ public class OrdersListPage extends TestBase {
 	public void search_order_in_list() throws IOException, InterruptedException {
 
 		// Click on orders menu and enter to orders list page
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Thread.sleep(15000);
+		
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
+		
 		Click.on(driver, orders_menu, 60);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
@@ -79,7 +86,7 @@ public class OrdersListPage extends TestBase {
 
 	public void search_in_search_bar() throws IOException, InterruptedException {
 		// Getting Order number from associated sheet
-		String sheetName = prop.getProperty("OP-OP-Orders");
+		String sheetName = prop.getProperty("Order_ID");
 		String orderNumber = GetExcelFormulaValue.get_cell_value(1, 1, sheetName);
 		
 		System.out.println("Searching for Order ID "+orderNumber);
@@ -95,6 +102,7 @@ public class OrdersListPage extends TestBase {
 
 		// double click o output and land to order summary page
 		act = new Actions(driver);
+		Thread.sleep(2000);
 		act.doubleClick(orders_lists_search_output).perform();
 		
 		Thread.sleep(5000);

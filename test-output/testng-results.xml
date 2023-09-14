@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[<b>Searching for Order ID BP-36254</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
+      <![CDATA[<b>Searching for Order ID NO-34137</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
@@ -14,64 +11,69 @@
       <![CDATA[<b>Status updated is Delivered</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Clicking on Save & Exit</b> <br />]]>
+      <![CDATA[<b>Name of the 1 Stocking plan is Lombard Demo</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Searching for Order ID BP-36254</b> <br />]]>
+      <![CDATA[<b>Status of the 1 Stocking plan is Eligible</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Choosing 1 Stocking plan for this order</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Current Status of the 1 Stocking plan after adding is Pending Activation</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-08-11T16:19:13 IST" name="Default suite" finished-at="2023-08-11T16:30:54 IST" duration-ms="700857">
+  <suite started-at="2023-09-14T17:48:00 IST" name="Default suite" finished-at="2023-09-14T17:51:51 IST" duration-ms="231036">
     <groups>
     </groups>
-    <test started-at="2023-08-11T16:19:13 IST" name="Default test" finished-at="2023-08-11T16:30:54 IST" duration-ms="700857">
-      <class name="orders.OrdersTest">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.OrdersTest@2e385cce]" started-at="2023-08-11T16:19:13 IST" name="start_info" finished-at="2023-08-11T16:19:13 IST" duration-ms="5" status="PASS">
+    <test started-at="2023-09-14T17:48:00 IST" name="Default test" finished-at="2023-09-14T17:51:51 IST" duration-ms="231036">
+      <class name="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:48:00 IST" name="start_info" finished-at="2023-09-14T17:48:00 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.OrdersTest@2e385cce]" started-at="2023-08-11T16:19:13 IST" name="setup" finished-at="2023-08-11T16:19:28 IST" duration-ms="14320" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:48:00 IST" name="setup" finished-at="2023-09-14T17:48:15 IST" duration-ms="15140" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.OrdersTest@2e385cce]" started-at="2023-08-11T16:19:28 IST" name="open_order_created_in_acquisition_test" finished-at="2023-08-11T16:20:50 IST" duration-ms="82388" status="PASS">
+        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:48:15 IST" name="open_order_created_in_acquisition_test" finished-at="2023-09-14T17:49:43 IST" duration-ms="88048" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Searching for Order ID BP-36254</b> <br />]]>
+              <![CDATA[<b>Searching for Order ID NO-34137</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- open_order_created_in_acquisition_test -->
-        <test-method signature="open_vehicle_order_tab_test()[pri:2, instance:orders.OrdersTest@2e385cce]" started-at="2023-08-11T16:20:50 IST" name="open_vehicle_order_tab_test" finished-at="2023-08-11T16:26:10 IST" depends-on-methods="orders.OrdersTest.open_order_created_in_acquisition_test" duration-ms="319995" status="PASS">
+        <test-method signature="deliver_vehicle_tab_test()[pri:2, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:49:43 IST" name="deliver_vehicle_tab_test" finished-at="2023-09-14T17:51:41 IST" depends-on-methods="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test.open_order_created_in_acquisition_test" duration-ms="117952" status="PASS">
           <reporter-output>
-            <line>
-              <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
-            </line>
             <line>
               <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Status updated is Delivered</b> <br />]]>
             </line>
-            <line>
-              <![CDATA[<b>Clicking on Save & Exit</b> <br />]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- open_vehicle_order_tab_test -->
-        <test-method signature="open_order_in_stocklist_after_delivering_vehicel_from_orders()[pri:3, instance:orders.OrdersTest@2e385cce]" started-at="2023-08-11T16:26:10 IST" name="open_order_in_stocklist_after_delivering_vehicel_from_orders" finished-at="2023-08-11T16:27:23 IST" depends-on-methods="orders.OrdersTest.open_vehicle_order_tab_test" duration-ms="72405" status="PASS">
+        </test-method> <!-- deliver_vehicle_tab_test -->
+        <test-method signature="add_stocking_plan_test()[pri:3, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:51:41 IST" name="add_stocking_plan_test" finished-at="2023-09-14T17:51:51 IST" depends-on-methods="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test.deliver_vehicle_tab_test" duration-ms="9865" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Searching for Order ID BP-36254</b> <br />]]>
+              <![CDATA[<b>Name of the 1 Stocking plan is Lombard Demo</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Status of the 1 Stocking plan is Eligible</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Choosing 1 Stocking plan for this order</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Current Status of the 1 Stocking plan after adding is Pending Activation</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- open_order_in_stocklist_after_delivering_vehicel_from_orders -->
-        <test-method signature="publish_vehicle_to_front_office()[pri:4, instance:orders.OrdersTest@2e385cce]" started-at="2023-08-11T16:27:23 IST" name="publish_vehicle_to_front_office" finished-at="2023-08-11T16:30:54 IST" depends-on-methods="orders.OrdersTest.open_order_in_stocklist_after_delivering_vehicel_from_orders" duration-ms="211713" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- publish_vehicle_to_front_office -->
-        <test-method is-config="true" signature="end()[pri:0, instance:orders.OrdersTest@2e385cce]" started-at="2023-08-11T16:30:54 IST" name="end" finished-at="2023-08-11T16:30:54 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- add_stocking_plan_test -->
+        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:51:51 IST" name="end" finished-at="2023-09-14T17:51:51 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- orders.OrdersTest -->
+      </class> <!-- orders.Orders_Asset_Funding_Add_Stocking_Plan_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

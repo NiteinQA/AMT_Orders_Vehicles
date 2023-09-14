@@ -4,9 +4,14 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +22,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
+import com.amt.testUtil.HelperClass;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
 
@@ -160,10 +166,64 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
+	
+	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
+	private WebElement total_cap_maintenance_cost;
 
+	Properties prop;
+	
 	public HoldingCost_HPNR_HPRPage() {
+		
+		try {
+			prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		PageFactory.initElements(driver, this);
 	}
+	
+	
+	public void save_maint_value_to_excel_for_without_funder_scenario(String sheet_name) throws InterruptedException, IOException {
+		
+		
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, common_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_cost, 30);
+		
+		HelperClass.highlightElement(driver,total_cap_maintenance_cost);
+
+		String capMaintValue = RemoveComma.of(total_cap_maintenance_cost.getText().trim().substring(2));
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+
+		wb.getSheet(sheetname).getRow(4).getCell(9).setCellValue(capMaintValue);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+
+		Click.on(driver, maintenance_toggle_button, 120);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+	}
+
 
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,

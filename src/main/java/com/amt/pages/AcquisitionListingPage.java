@@ -1,9 +1,12 @@
 package com.amt.pages;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -56,8 +59,21 @@ public class AcquisitionListingPage extends TestBase {
 	 	@FindBy(xpath = "// *[@id='vehicleSearchInp']")
 	 	private WebElement acquisition_quote_search_bar;  
 			
-				
+	 	Properties prop; 
+	 	
 		public AcquisitionListingPage() {
+			
+			try {
+				prop = new Properties();
+				FileInputStream ip = new FileInputStream(
+						"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+				prop.load(ip);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 			PageFactory.initElements(driver, this);
 		}		
 		
@@ -109,6 +125,7 @@ public class AcquisitionListingPage extends TestBase {
 			
 			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
 			
+			 Thread.sleep(10000);
 			
 			Click.on(driver, roles_dropdown, 60);
 			
@@ -192,6 +209,111 @@ public class AcquisitionListingPage extends TestBase {
 			
 		}
 	
+	public String quote_save_sheet_name_from_quote_save_excel_sheet(String classOrMethodName) {
+		String sheetName = "";
+		
+		if (classOrMethodName.contains("broker_business_hire")) {
+			sheetName = prop.getProperty("BrokerBCHQuoteNo");
+		}
+
+		if (classOrMethodName.contains("broker_individual_hire")) {
+			sheetName = prop.getProperty("BrokerPCHQuoteNo");
+		}
+
+		if (classOrMethodName.contains("broker_business_purchase")) {
+			sheetName = prop.getProperty("BrokerHPNRQuoteNo");
+		}
+
+		if (classOrMethodName.contains("broker_individual_purchase")) {
+			sheetName = prop.getProperty("BrokerPCPQuoteNo");
+		}
+		
+		if (classOrMethodName.contains("ownbook_business_hire")) {
+			
+			if (classOrMethodName.contains("ownbook_business_hire_accept_with_changes_for_quotes_of_maint_exists"))
+			{				
+				sheetName = prop.getProperty("HPNRBCH_withMaint");					
+			}else
+			{
+				sheetName = prop.getProperty("HPNRBCHQuoteNo");
+			}
+		}
+
+		if (classOrMethodName.contains("ownbook_individual_hire")) {
+			sheetName = prop.getProperty("HPNRPCHQuoteNo");
+		}
+
+		if (classOrMethodName.contains("ownbook_business_purchase")) {
+			sheetName = prop.getProperty("HPNRHPNRQuoteNo");
+		}
+
+		if (classOrMethodName.contains("ownbook_individual_purchase")) {
+			sheetName = prop.getProperty("HPNRPCPQuoteNo");
+		}
+		
+		if (classOrMethodName.contains("ownbook_business_hire_funder")) {
+			sheetName = prop.getProperty("HPNRBCHFunderQuoteNo");
+		}
+		
+		if (classOrMethodName.contains("ownbook_individual_hire_funder")) {
+			sheetName = prop.getProperty("HPNRPCHFunderQuoteNo");
+		}
+		
+		if (classOrMethodName.contains("ownbook_business_purchase_funder")) {
+			sheetName = prop.getProperty("HPNRHPNRFunderQuoteNo");
+		}
+		
+		if (classOrMethodName.contains("ownbook_individual_purchase_funder")) {
+			sheetName = prop.getProperty("HPNRPCPFunderQuoteNo");
+		}
+		
+		
+		
+		return sheetName;
+	}
 
 
+
+
+public String calculation_sheet_name_from_quote_save_excel_sheet(String classOrMethodName) {
+	String sheetName = "";
+	
+	
+	if (classOrMethodName.contains("ownbook_business_hire")) {
+		sheetName = prop.getProperty("calculation_sheet_ownbook_business_hire");
+	}
+
+	if (classOrMethodName.contains("ownbook_individual_hire")) {
+		sheetName = prop.getProperty("calculation_sheet_ownbook_individual_hire");
+	}
+
+	if (classOrMethodName.contains("ownbook_business_purchase")) {
+		sheetName = prop.getProperty("calculation_sheet_ownbook_business_purchase");
+	}
+
+	if (classOrMethodName.contains("ownbook_individual_purchase")) {
+		sheetName = prop.getProperty("calculation_sheet_ownbook_individual_purchase");
+	}
+	
+	
+	if (classOrMethodName.contains("ownbook_business_hire_funder")) {
+		sheetName = prop.getProperty("calculation_sheet_ownbook_business_hire_funder");
+	}
+	
+	if (classOrMethodName.contains("ownbook_individual_hire_funder")) {
+		sheetName = prop.getProperty("calculation_sheet_ownbook_individual_hire_funder");
+	}
+	
+	if (classOrMethodName.contains("ownbook_business_purchase_funder")) {
+		sheetName = prop.getProperty("calculation_sheet_ownbook_business_purchase_funder");
+	}
+	
+	if (classOrMethodName.contains("ownbook_individual_purchase_funder")) {
+		sheetName = prop.getProperty("calculation_sheet_ownbook_individual_purchase_funder");
+	}
+	
+	return sheetName;
 }
+}
+
+

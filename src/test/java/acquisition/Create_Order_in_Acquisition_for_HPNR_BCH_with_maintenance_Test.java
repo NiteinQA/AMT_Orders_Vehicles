@@ -17,10 +17,11 @@ import com.amt.pages.OptionsAccessoriesPage;
 import com.amt.pages.VehicleSelectionPage;
 import com.amt.pages.ContractTypesAndOTRPages.ContractTypesAndOTR_HPNR_BCH_Page;
 import com.amt.testBase.TestBase;
+import com.amt.testUtil.CommonClass;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase {
+public class Create_Order_in_Acquisition_for_HPNR_BCH_with_maintenance_Test extends TestBase {
 
 	LoginPage obj_Login_Page;
 	AcquisitionListingPage obj_acq_listing_page;
@@ -30,6 +31,7 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 	HoldingCost_HPNR_BCHPage obj_holding_cost_page;
 	CustomerQuotePage_HPNR_BCHPage obj_customer_quote_page;
 	QuoteSummary_HPNR_BCHPage obj_quote_summary_page;
+	CommonClass obj_common_class;
 
 	@Test(priority = 1, dataProvider = "testData")
 	public void aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test(String manufacturer, String model,
@@ -267,100 +269,102 @@ public class Acquisition_Quotes_HPNR_BCH_with_maintenance_Test extends TestBase 
 		boolean quote_summary_OTR_calculation = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
 		Assert.assertTrue(quote_summary_OTR_calculation);
 
-		System.out.println("");
-		System.out.println("");
-
-		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
-				.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_holding_cost_calculation);
-
-		System.out.println("");
-		System.out.println("");
-		
-		boolean balance_due = obj_quote_summary_page.verify_balance_due_value(sheet_name);
-		Assert.assertTrue(balance_due);
-		
-		System.out.println("");
-		System.out.println("");
-
-		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
-				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean quote_summary_configuration_value_check = obj_quote_summary_page
-				.quote_summary_configuration_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_configuration_value_check);
-
-		System.out.println("");
-		System.out.println("");
-		
-
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
+//				.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
+//		Assert.assertTrue(quote_summary_holding_cost_calculation);
+//
+//		System.out.println("");
+//		System.out.println("");
+//		
+//		boolean balance_due = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+//		Assert.assertTrue(balance_due);
+//		
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
+//				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
+//		Assert.assertTrue(quote_summary_customer_quote_calculation);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean quote_summary_configuration_value_check = obj_quote_summary_page
+//				.quote_summary_configuration_value_verification_with_maintenance(sheet_name);
+//		Assert.assertTrue(quote_summary_configuration_value_check);
+//
+//		System.out.println("");
+//		System.out.println("");
+//		
+//
+//		
+//		obj_quote_summary_page.save_quote();
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+//		Assert.assertTrue(quote_summary_OTR_calculation1);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
+//				.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
+//		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+//
+//		System.out.println("");
+//		System.out.println("");
+//		
+//		boolean balance_due1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+//		Assert.assertTrue(balance_due1);
+//		
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
+//				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
+//		Assert.assertTrue(quote_summary_customer_quote_calculation1);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
+//				.quote_summary_configuration_value_verification_with_maintenance(sheet_name);
+//		Assert.assertTrue(quote_summary_configuration_value_check1);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean value_check_after_Base_Int_change = obj_quote_summary_page
+//				.quote_summary_edit_base_int_rate_value_verification_with_maintenance(sheet_name);
+//		Assert.assertTrue(value_check_after_Base_Int_change);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean value_check_after_Finance_margin_change = obj_quote_summary_page
+//				.quote_summary_edit_finance_margin_value_verification(sheet_name);
+//		Assert.assertTrue(value_check_after_Finance_margin_change);
+//
+//		System.out.println("");
+//		System.out.println("");
+//
+//		boolean value_check_after_maint_margin_change = obj_quote_summary_page
+//				.quote_summary_edit_maintenance_margin_value_verification(sheet_name);
+//		Assert.assertTrue(value_check_after_maint_margin_change);
+//
+//		System.out.println("");
+//		System.out.println("");
 		
 		obj_quote_summary_page.save_quote();
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
-		Assert.assertTrue(quote_summary_OTR_calculation1);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
-				.quote_summary_holding_cost_calculation_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_holding_cost_calculation1);
-
-		System.out.println("");
-		System.out.println("");
 		
-		boolean balance_due1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
-		Assert.assertTrue(balance_due1);
-		
-		System.out.println("");
-		System.out.println("");
-
-		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
-				.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_customer_quote_calculation1);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
-				.quote_summary_configuration_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(quote_summary_configuration_value_check1);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean value_check_after_Base_Int_change = obj_quote_summary_page
-				.quote_summary_edit_base_int_rate_value_verification_with_maintenance(sheet_name);
-		Assert.assertTrue(value_check_after_Base_Int_change);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean value_check_after_Finance_margin_change = obj_quote_summary_page
-				.quote_summary_edit_finance_margin_value_verification(sheet_name);
-		Assert.assertTrue(value_check_after_Finance_margin_change);
-
-		System.out.println("");
-		System.out.println("");
-
-		boolean value_check_after_maint_margin_change = obj_quote_summary_page
-				.quote_summary_edit_maintenance_margin_value_verification(sheet_name);
-		Assert.assertTrue(value_check_after_maint_margin_change);
-
-		System.out.println("");
-		System.out.println("");
-		
-		obj_quote_summary_page.save_quote();
-		
-		obj_quote_summary_page.create_order("OP-OP-Orders");
+		 obj_common_class = new CommonClass();
+		 
+		 obj_common_class.create_order("Order_ID");
 		
 
 

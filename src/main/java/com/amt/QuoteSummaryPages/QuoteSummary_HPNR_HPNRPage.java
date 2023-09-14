@@ -2784,6 +2784,8 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 		System.out.println("*********Customer Quote generated successfully and Quote_ref_no is=" + quote_ref_no);
 
 	}
+	
+	
 
 
 	public boolean quote_summary_holding_cost_calculation_for_funder_without_maintenance(String sheet_name)

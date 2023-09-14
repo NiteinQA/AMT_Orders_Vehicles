@@ -295,122 +295,6 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void create_order(String sheet_name) throws InterruptedException, IOException
-	{
-		LO.print(" ");
-		System.out.println(" ");
-		
-		LO.print          ("*****Creating Order Started*****");
-		System.out.println("*****Creating Order Started*****");
-		
-		//Click on create order
-		Click.on(driver, quote_summary_create_order, 20);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-		
-		//Select Channel 
-		Click.on(driver, quote_summary_channel_dropdown, 20);		
-		Thread.sleep(2000);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-		//Click on first option	
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
-        ExplicitWait.visibleElement(driver, quote_summary_channel_option_all, 60);
-        jse.executeScript("arguments[0].click();", quote_summary_channel_option_all);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		//Send Input to Name
-		Click.on(driver, quote_summary_input_supplier_name, 30);
-		Thread.sleep(2000);
-		Click.sendKeys(driver, quote_summary_input_supplier_name, "D", 60);
-		Thread.sleep(2000);
-		quote_summary_input_supplier_name.sendKeys("u");
-		Thread.sleep(500);
-		quote_summary_input_supplier_name.sendKeys("m");
-		Thread.sleep(500);
-		quote_summary_input_supplier_name.sendKeys("m");
-		Thread.sleep(500);
-		
-		
-		//pick supplier name
-		Click.on(driver, quote_summary_pick_supplier_name, 20);		
-		Thread.sleep(2000);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-		//Click on Month input 
-		Click.on(driver, quote_summary_requested_delivery_date_picker, 20);		
-		Thread.sleep(2000);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		//select month
-		Click.on(driver, quote_summary_requested_delivery_month, 20);		
-		Thread.sleep(2000);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-
-        //Finally create Order
-        Click.on(driver, quote_summary_create_order_pop_up_button, 20);	
-        Thread.sleep(2000);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-        //Click on  OK button to confirm
-        Click.on(driver, quote_summary_create_order_ok_button, 20);	
-        Thread.sleep(2000);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-		ExplicitWait.visibleElement(driver, quote_summary_order_id_text, 60);
-		String text = quote_summary_order_id_text.getText();
-		
-		
-	    // Find the index where the last 8 characters start
-        int startIndex = text.length() - 8;
-        
-        // Use substring to extract the last 8 characters
-        String orderID = text.substring(startIndex);     
-        
-        
-        
-       //Click on  OK button after getting order id 
-        Click.on(driver, quote_summary_ok_button_after_getting_order_id, 20);	
-        Thread.sleep(2000);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-		
-        
-		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
-		XSSFWorkbook wb = new XSSFWorkbook(in);
-
-		String sheetname = prop.getProperty(sheet_name);
-		
-	
-	   //quote ref no 
-		wb.getSheet(sheetname).getRow(1).getCell(1).setCellValue(orderID);
-	    //quote ref no 
-		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
-		wb.write(out);
-		wb.close();	
-		
-		LO.print          (" ");
-		System.out.println(" ");
-		
-		LO.print          ("***** Order Created Successfully *****");
-		System.out.println("***** Order Created Successfully *****");
-		
-		LO.print("Order ID "+orderID+" is saved to Excel sheet named Quote Save, in the sheet "+sheetname);
-		System.out.println("Order ID "+orderID+" is saved to Excel sheet named Quote Save, in the sheet "+sheetname);
-
-		LO.print          ("*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****");
-		System.out.println("*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****");
-		
-
-	}
 	
 	public boolean quote_summary_OTR_calculation(String sheet_name) throws InterruptedException, IOException {
 
@@ -518,7 +402,108 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 
 	}
 
-	
+	public boolean quote_summary_OTR_calculation_for_used_car(String sheet_name) throws InterruptedException, IOException {
+
+		LO.print("*************OTR Calulation on quote summary page has been started************");
+		System.out.println("*************OTR Calulation on quote summary page has been started************");
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		Thread.sleep(2000);
+
+		Click.on(driver, quote_summary, 60);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
+
+		ExplicitWait.visibleElement(driver, quote_summary_cost_price_ex_vat_and_rfl, 120);
+
+		ExplicitWait.visibleElement(driver, quote_summary_otr_vat, 120);
+		
+		 
+
+		LO.print("Reading values from OTR calculation -Quote Summary Page");
+		System.out.println("Reading values from OTR calculation -Quote Summary Page");
+
+		double cost_otr_price = Double
+				.parseDouble(RemoveComma.of(quote_summary_cost_otr_price.getText().trim().substring(2)));
+
+		double cost_price_ex_vat_and_rfl = Double
+				.parseDouble(RemoveComma.of(quote_summary_cost_price_ex_vat_and_rfl.getText().trim().substring(2)));
+
+		double vat = Double
+				.parseDouble(RemoveComma.of(quote_summary_otr_vat.getText().trim().substring(2)));
+
+		 
+
+		LO.print("Cost otr price from screen =" + cost_otr_price);
+		System.out.println("Cost otr price from screen =" + cost_otr_price);
+
+		LO.print("Cost price ex vat and rfl from screen ="+ cost_price_ex_vat_and_rfl);
+		System.out.println("Cost price ex vat and rfl from screen ="+ cost_price_ex_vat_and_rfl);
+
+		LO.print("OTR vat from screen =" + vat);
+		System.out.println("OTR vat from screen =" + vat);
+		
+	 
+
+		double cost_price_ex_vat_and_rfl_expected = (cost_otr_price
+				- vat);
+
+		double diff = Difference.of_two_Double_Values(cost_price_ex_vat_and_rfl,
+				cost_price_ex_vat_and_rfl_expected);
+
+		int count = 0;
+		boolean status = false;
+		if (diff < 0.2) {
+			LO.print("Cost price compared");
+			System.out.println("Cost price compared");
+			count++;
+		} else {
+			LO.print("Cost price found wrong");
+			System.out.println("Cost price found wrong");
+		}
+
+		if (count == 1) {
+			status = true;
+		}
+		
+		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		js.executeScript("arguments[0].click();", quote_summary_save_button);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+		
+		String quote_ref_no = quote_summary_ref_no.getText();
+
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+		
+		System.out.println("Sheet Name Provided is "+sheetname);
+		
+				
+	   //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(0).setCellValue(quote_ref_no);
+	    //quote ref no 
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();	
+		
+		LO.print("Quote no. "+quote_ref_no+" is saved to Excel sheet named Quote Save, in the sheet "+sheetname);
+		System.out.println("Quote no. "+quote_ref_no+" is saved to Excel sheet named Quote Save, in the sheet "+sheetname);
+
+		return status;
+
+	}
+
 	
 	public boolean quote_summary_holding_cost_calculation_without_maintenance(String sheet_name)
 			throws InterruptedException, IOException {

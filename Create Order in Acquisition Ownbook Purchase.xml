@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" name="Suite">
+  <test thread-count="5" parallel="methods" name="Create Order in Acquisition Ownbook Purchase">
+    <classes>
+      <class name="acquisition.Create_Order_in_Acquisition_for_HPNR_HPNR_with_maintenance_Test"/>
+      <class name="orders.Orders_and_Stocklist_Publish_Test"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

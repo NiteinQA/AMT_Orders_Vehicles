@@ -4,8 +4,11 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -161,7 +164,22 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
 
+	Properties prop;
+	
 	public HoldingCost_HPNR_HPNRPage() {
+		
+		try {
+			prop = new Properties();
+			FileInputStream ip = new FileInputStream(
+					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
 		PageFactory.initElements(driver, this);
 	}
 

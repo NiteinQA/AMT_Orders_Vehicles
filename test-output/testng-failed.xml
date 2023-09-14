@@ -3,17 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="orders.OrdersTest">
+      <class name="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test">
         <methods>
           <include name="end"/>
-          <include name="open_vehicle_order_tab_test"/>
-          <include name="publish_vehicle_to_front_office"/>
+          <include name="deliver_vehicle_tab_test"/>
+          <include name="add_stocking_plan_test"/>
           <include name="start_info"/>
           <include name="open_order_created_in_acquisition_test"/>
-          <include name="open_order_in_stocklist_after_delivering_vehicel_from_orders"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- orders.OrdersTest -->
+      </class> <!-- orders.Orders_Asset_Funding_Add_Stocking_Plan_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

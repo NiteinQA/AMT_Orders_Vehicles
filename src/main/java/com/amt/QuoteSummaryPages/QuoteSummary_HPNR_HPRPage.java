@@ -306,6 +306,16 @@ public class QuoteSummary_HPNR_HPRPage extends TestBase {
 
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement quote_summary_save_button;
+	
+	
+	// vehicle details
+	@FindBy(xpath = "//*[@class='heading ng-star-inserted']")
+	private WebElement quote_summary_vehicle_heading;
+	
+
+	// Monthly finance rental
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//strong|//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_monthly_finance_rental;
 
 	Properties prop;
 
@@ -314,7 +324,7 @@ public class QuoteSummary_HPNR_HPRPage extends TestBase {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -4981,83 +4991,81 @@ public class QuoteSummary_HPNR_HPRPage extends TestBase {
 
 	}
 
-	public boolean quote_summary_HPNR_HPR_without_maintenance(String sheet_name)
+	public void quote_summary_HPNR_HPR_without_maintenance(String sheet_name)
 			throws InterruptedException, IOException {
+		
+		
+		
+	    LO.print          ("*************Calculations for Quote Summary page gas been started************");
+		System.out.println("*************Calculations for Quote Summary page gas been started************");
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		Click.on(driver, quote_summary, 60);
 
-		LO.print("*************Calculations for Quote Summary page has been started************");
-		System.out.println("*************Calculations for Quote Summary page has been started************");
+		Click.on(driver, quote_summary, 90);
+		
+		//First collect OTR elements
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+
+		LO.print("Reading values from OTR calculation -Quote Summary Page");
+		System.out.println("Reading values from OTR calculation -Quote Summary Page");
+
+
+		//cust summary elements
+		
+		String customer_contract_type = quote_summary_customer_contract_type.getText();
+		
+		String customer_quote_summary_terms = quote_summary_customer_quote_summary_terms.getText().trim().substring(0,2);
+
+		String customer_quote_summary_miles = RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim());
+
+		String customer_quote_summary_monthly_finance_rental = RemoveComma.of(quote_summary_customer_quote_summary_monthly_finance_rental.getText().trim().substring(2));
+		
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
+		js.executeScript("arguments[0].click();", quote_summary_save_button);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		ExplicitWait.visibleElement(driver, quote_summary_vehicle_heading, 120);
 		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 
-		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
+		// Vehicle details
+		String vehicle_name = quote_summary_vehicle_heading.getText().trim();
 
-		LO.print("Reading values from sceen -Quote Summary Page");
-		System.out.println("Reading values from sceen -Quote Summary Page");
-
+		// quote no.
 		String quote_ref_no = quote_summary_ref_no.getText();
-		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_without_maintenance
-				.getText().trim().substring(2);
-		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
-				.substring(2);
-		String acq_contract_type = quote_summary_acq_contract_type.getText();
-		String customer_contract_type = quote_summary_customer_contract_type.getText();
 
-		LO.print("Getting values from screen");
-		System.out.println("Getting values from screen");
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
 
-		LO.print("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-		System.out.println("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
+		String sheetname = prop.getProperty(sheet_name);
+	   //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(0).setCellValue(quote_ref_no);
+	    //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(10).setCellValue(vehicle_name);
+		
+		wb.getSheet(sheetname).getRow(4).getCell(1).setCellValue(customer_contract_type);
+		wb.getSheet(sheetname).getRow(4).getCell(3).setCellValue(customer_quote_summary_terms);
+		wb.getSheet(sheetname).getRow(6).getCell(1).setCellValue(customer_quote_summary_miles);
+		wb.getSheet(sheetname).getRow(6).getCell(3).setCellValue(customer_quote_summary_monthly_finance_rental);
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+		
+		
+		LO.print("Writing completed for some of the important required values to quote save excel sheet in the sheet "+sheetname);
+		System.out.println("Writing completed for some of the important required values to quote save excel sheet in the sheet "+sheetname);
 
-		LO.print("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-		System.out
-				.println("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-
-		LO.print("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-
-		LO.print("Acquisition contract_type =" + acq_contract_type);
-		System.out.println("Acquisition contract_type =" + acq_contract_type);
-
-		LO.print("Customer contract_type =" + customer_contract_type);
-		System.out.println("Customer contract_type =" + customer_contract_type);
-
-		LO.print("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-		System.out.println("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-
-		String quote_summary_cost_otr_price_from_screen = RemoveComma.of(temp_quote_summary_cost_otr_price);
-		String quote_summary_total_monthly_holding_cost_from_screen = RemoveComma
-				.of(temp_quote_summary_total_monthly_holding_cost);
-		String quote_summary_monthly_finance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_finance_rental);
-
-		double quote_summary_cost_otr_price_from_screen_converted = Double
-				.parseDouble(quote_summary_cost_otr_price_from_screen);
-		double quote_summary_total_monthly_holding_cost_from_screen_converted = Double
-				.parseDouble(quote_summary_total_monthly_holding_cost_from_screen);
-		double quote_summary_monthly_finance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_finance_rental_from_screen);
-
-		return obj_read_excel_calculation_page.verify_quote_summary_values_from_excel_without_maintenance(
-				quote_summary_cost_otr_price_from_screen_converted,
-				quote_summary_total_monthly_holding_cost_from_screen_converted,
-				quote_summary_monthly_finance_rental_from_screen_converted, sheet_name);
-
-	}
+}
 
 	public boolean quote_summary_HPNR_HPR_with_maintenance(String sheet_name) throws InterruptedException, IOException {
 

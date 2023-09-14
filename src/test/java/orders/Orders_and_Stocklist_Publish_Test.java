@@ -15,7 +15,7 @@ import com.amt.pages.VehicleOrderPage;
 import com.amt.testBase.TestBase;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class OrdersTest extends TestBase {
+public class Orders_and_Stocklist_Publish_Test extends TestBase {
 
 
  OrdersListPage   obj_orders_list;
@@ -38,12 +38,12 @@ public class OrdersTest extends TestBase {
 	}
 	
 	@Test(priority = 2, dependsOnMethods = { "open_order_created_in_acquisition_test" })
-	public void open_vehicle_order_tab_test() throws IOException, InterruptedException, AWTException {
+	public void open_vehicle_order_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
 		obj_vehicle_order_tab = new VehicleOrderPage();
 		
 		
-		Assert.assertEquals(obj_vehicle_order_tab.deliver_vehicle_to_stcklist(), "Delivered");
+		Assert.assertEquals(obj_vehicle_order_tab.deliver_vehicle(), "Delivered");
 	}
 	
 	@Test(priority = 3, dependsOnMethods = { "open_vehicle_order_tab_test" } )

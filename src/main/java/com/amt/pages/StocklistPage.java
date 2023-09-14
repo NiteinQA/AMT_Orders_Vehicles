@@ -64,7 +64,12 @@ public class StocklistPage extends TestBase {
 	public void search_order_in_list() throws IOException, InterruptedException {
 
 		// Click on vehicle menu and enter to orders list page
-		Click.on(driver, vehicles_menu, 60);
+//		Click.on(driver, vehicles_menu, 60);
+		
+		obj_common_class_page = new CommonClass();
+		
+		obj_common_class_page.mouse_hover_to_element(vehicles_menu);
+		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		Thread.sleep(1000);
