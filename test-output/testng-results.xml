@@ -2,7 +2,7 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[<b>Searching for Order ID NO-34137</b> <br />]]>
+      <![CDATA[<b>Searching for Order ID OX-62640</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
@@ -11,39 +11,39 @@
       <![CDATA[<b>Status updated is Delivered</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Name of the 1 Stocking plan is Lombard Demo</b> <br />]]>
+      <![CDATA[<b>Name of the 1 Stocking plan is Black Horse</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Status of the 1 Stocking plan is Eligible</b> <br />]]>
+      <![CDATA[<b>For Single Cannel Selection i.e. OwnBook -- there would not be Lombard Demo So Black Horse is not a Lombard Demo, Hence Test Case Passed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Choosing 1 Stocking plan for this order</b> <br />]]>
+      <![CDATA[<b>Name of the 2 Stocking plan is Lombard</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Current Status of the 1 Stocking plan after adding is Pending Activation</b> <br />]]>
+      <![CDATA[<b>For Single Cannel Selection i.e. OwnBook -- there would not be Lombard Demo So Lombard is not a Lombard Demo, Hence Test Case Passed</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-09-14T17:48:00 IST" name="Default suite" finished-at="2023-09-14T17:51:51 IST" duration-ms="231036">
+  <suite started-at="2023-09-25T18:12:00 IST" name="Default suite" finished-at="2023-09-25T18:16:06 IST" duration-ms="246122">
     <groups>
     </groups>
-    <test started-at="2023-09-14T17:48:00 IST" name="Default test" finished-at="2023-09-14T17:51:51 IST" duration-ms="231036">
-      <class name="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:48:00 IST" name="start_info" finished-at="2023-09-14T17:48:00 IST" duration-ms="6" status="PASS">
+    <test started-at="2023-09-25T18:12:00 IST" name="Default test" finished-at="2023-09-25T18:16:06 IST" duration-ms="246122">
+      <class name="orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test@2a7f1f10]" started-at="2023-09-25T18:12:00 IST" name="start_info" finished-at="2023-09-25T18:12:00 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:48:00 IST" name="setup" finished-at="2023-09-14T17:48:15 IST" duration-ms="15140" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test@2a7f1f10]" started-at="2023-09-25T18:12:00 IST" name="setup" finished-at="2023-09-25T18:12:28 IST" duration-ms="27756" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:48:15 IST" name="open_order_created_in_acquisition_test" finished-at="2023-09-14T17:49:43 IST" duration-ms="88048" status="PASS">
+        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test@2a7f1f10]" started-at="2023-09-25T18:12:28 IST" name="open_order_created_in_acquisition_test" finished-at="2023-09-25T18:13:29 IST" duration-ms="60651" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Searching for Order ID NO-34137</b> <br />]]>
+              <![CDATA[<b>Searching for Order ID OX-62640</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- open_order_created_in_acquisition_test -->
-        <test-method signature="deliver_vehicle_tab_test()[pri:2, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:49:43 IST" name="deliver_vehicle_tab_test" finished-at="2023-09-14T17:51:41 IST" depends-on-methods="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test.open_order_created_in_acquisition_test" duration-ms="117952" status="PASS">
+        <test-method signature="deliver_vehicle_tab_test()[pri:2, instance:orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test@2a7f1f10]" started-at="2023-09-25T18:13:29 IST" name="deliver_vehicle_tab_test" finished-at="2023-09-25T18:15:59 IST" depends-on-methods="orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test.open_order_created_in_acquisition_test" duration-ms="149888" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
@@ -53,27 +53,27 @@
             </line>
           </reporter-output>
         </test-method> <!-- deliver_vehicle_tab_test -->
-        <test-method signature="add_stocking_plan_test()[pri:3, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:51:41 IST" name="add_stocking_plan_test" finished-at="2023-09-14T17:51:51 IST" depends-on-methods="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test.deliver_vehicle_tab_test" duration-ms="9865" status="PASS">
+        <test-method signature="verify_stocking_plan_Lombard_Demo_is_available_for_channel_internal_use_test()[pri:3, instance:orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test@2a7f1f10]" started-at="2023-09-25T18:15:59 IST" name="verify_stocking_plan_Lombard_Demo_is_available_for_channel_internal_use_test" finished-at="2023-09-25T18:16:06 IST" depends-on-methods="orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test.deliver_vehicle_tab_test" duration-ms="7793" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Name of the 1 Stocking plan is Lombard Demo</b> <br />]]>
+              <![CDATA[<b>Name of the 1 Stocking plan is Black Horse</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Status of the 1 Stocking plan is Eligible</b> <br />]]>
+              <![CDATA[<b>For Single Cannel Selection i.e. OwnBook -- there would not be Lombard Demo So Black Horse is not a Lombard Demo, Hence Test Case Passed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Choosing 1 Stocking plan for this order</b> <br />]]>
+              <![CDATA[<b>Name of the 2 Stocking plan is Lombard</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Current Status of the 1 Stocking plan after adding is Pending Activation</b> <br />]]>
+              <![CDATA[<b>For Single Cannel Selection i.e. OwnBook -- there would not be Lombard Demo So Lombard is not a Lombard Demo, Hence Test Case Passed</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- add_stocking_plan_test -->
-        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Add_Stocking_Plan_Test@2a7f1f10]" started-at="2023-09-14T17:51:51 IST" name="end" finished-at="2023-09-14T17:51:51 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- verify_stocking_plan_Lombard_Demo_is_available_for_channel_internal_use_test -->
+        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test@2a7f1f10]" started-at="2023-09-25T18:16:06 IST" name="end" finished-at="2023-09-25T18:16:06 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- orders.Orders_Asset_Funding_Add_Stocking_Plan_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_and_Black_Horse_Are_Available_If_Channel_Is_Ownbook_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

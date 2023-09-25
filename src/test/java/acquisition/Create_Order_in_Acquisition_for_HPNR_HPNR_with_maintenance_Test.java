@@ -227,7 +227,7 @@ public class Create_Order_in_Acquisition_for_HPNR_HPNR_with_maintenance_Test ext
 			String security_deposit, String balloon_payment_status, String part_exchange_actual,
 			String part_exchange_given, String less_finance_settlement, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
+			throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 		obj_quote_summary_page = new QuoteSummary_HPNR_HPRPage();
 

@@ -18,11 +18,12 @@ import com.amt.pages.VehicleOrderPage;
 import com.amt.testBase.TestBase;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Orders_Asset_Funding_Cash_Purchase_Test extends TestBase {
+public class Orders_Asset_Funding_Verify_Stocking_Plan_Is_Not_For_Non_AMT_location_Test extends TestBase {
 
 
  OrdersListPage   obj_orders_list;
 AssetFundingPage obj_asset_funding;
+VehicleOrderPage obj_vehicle_order_tab;
  
 
 	@Test(priority = 1)
@@ -38,32 +39,22 @@ AssetFundingPage obj_asset_funding;
 
 	}
 	
-	
 	@Test(priority = 2, dependsOnMethods = { "open_order_created_in_acquisition_test" })
-	public void open_asset_funding_tab_and_verify_default_status_cash_purchase_pending() throws IOException, InterruptedException, AWTException {
+	public void deliver_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
-		obj_asset_funding = new AssetFundingPage();
+		obj_vehicle_order_tab = new VehicleOrderPage();		
 		
-		 assertTrue(obj_asset_funding.check_status_cash_purchase_pending());
+		Assert.assertEquals(obj_vehicle_order_tab.deliver_vehicle(), "Delivered");
 	}
 
 	
-	@Test(priority = 3, dependsOnMethods = { "open_asset_funding_tab_and_verify_default_status_cash_purchase_pending" })
-	public void complete_cash_purchase() throws IOException, InterruptedException, AWTException {
+	@Test(priority = 3, dependsOnMethods = { "deliver_vehicle_tab_test" })
+	public void stocking_plan_not_enabled_test() throws IOException, InterruptedException, AWTException {
 		
-		obj_asset_funding = new AssetFundingPage();
+		obj_asset_funding = new AssetFundingPage();		
 		
-	   assertTrue(obj_asset_funding.open_asset_funding_tab_and_complete_cash_purchase());
+		assertTrue(obj_asset_funding.verify_stocking_plan_is_not_enabled_for_delivery_location_non_AMT());
 		
-	    
-	}
-	
-	@Test(priority = 4, dependsOnMethods = { "complete_cash_purchase" })
-	public void verify_status_cash_purchase_completed() throws IOException, InterruptedException, AWTException {
-		
-		obj_asset_funding = new AssetFundingPage();
-		
-		 assertTrue( obj_asset_funding.check_status_cash_purchase_completed());
 	}
 	
 	

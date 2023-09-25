@@ -125,7 +125,7 @@ public class AcquisitionListingPage extends TestBase {
 			
 			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
 			
-			 Thread.sleep(10000);
+			 Thread.sleep(25000);
 			
 			Click.on(driver, roles_dropdown, 60);
 			

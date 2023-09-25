@@ -36,6 +36,19 @@ public class CommonClass extends TestBase {
 	// Channel option all
 	@FindBy(xpath = "(//*[normalize-space()='All']//li//input)[1]")
 	private WebElement quote_summary_channel_option_all;
+	
+	
+	// Channel Internal Use
+	@FindBy(xpath = "//*[normalize-space()='Internal Use']/input")
+	private WebElement quote_summary_channel_option_internal_use;
+	
+	// Channel Retail Sales
+	@FindBy(xpath = "//*[normalize-space()='Retail Sales']/input")
+	private WebElement quote_summary_channel_option_retail_sales;
+	
+	// Channel Ownbook
+	@FindBy(xpath = "//*[normalize-space()='Own Book']/input")
+	private WebElement quote_summary_channel_option_ownbook;
 
 	// Delivery date picker
 	@FindBy(xpath = "(//*[normalize-space()='Requested delivery']//ancestor::div[1]//div//input)[5]")
@@ -142,7 +155,7 @@ public class CommonClass extends TestBase {
 
 	}
 
-	public void create_order(String sheet_name) throws InterruptedException, IOException {
+	public void create_order(String sheet_name) throws InterruptedException, IOException, ClassNotFoundException {
 		LO.print(" ");
 		System.out.println(" ");
 
@@ -161,8 +174,31 @@ public class CommonClass extends TestBase {
 
 		// Click on first option
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		ExplicitWait.visibleElement(driver, quote_summary_channel_option_all, 60);
-		jse.executeScript("arguments[0].click();", quote_summary_channel_option_all);
+		
+		String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName();
+		
+		if(classOrMethodName.contains("channel_internal_use"))
+		{
+			ExplicitWait.visibleElement(driver, quote_summary_channel_option_internal_use, 60);
+			jse.executeScript("arguments[0].click();", quote_summary_channel_option_internal_use);
+			
+		}else if(classOrMethodName.contains("channel_retail_sales"))
+		{
+			ExplicitWait.visibleElement(driver, quote_summary_channel_option_retail_sales, 60);
+			jse.executeScript("arguments[0].click();", quote_summary_channel_option_retail_sales);
+			
+		}else if(classOrMethodName.contains("Outright_BCH"))
+		{
+			ExplicitWait.visibleElement(driver, quote_summary_channel_option_ownbook, 60);
+			jse.executeScript("arguments[0].click();", quote_summary_channel_option_ownbook);
+			
+		}else
+		{
+			ExplicitWait.visibleElement(driver, quote_summary_channel_option_all, 60);
+			jse.executeScript("arguments[0].click();", quote_summary_channel_option_all);	
+		}
+		
+		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
 		// Send Input to Name

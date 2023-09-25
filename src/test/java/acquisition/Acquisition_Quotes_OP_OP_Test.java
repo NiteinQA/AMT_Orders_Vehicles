@@ -114,7 +114,7 @@ public class Acquisition_Quotes_OP_OP_Test extends TestBase {
 	public void aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test(String manufacturer, String model, 
 			String Vehicle_Basic_price, String  road_tax_for_first_year,
 			String vehicle_profit , String rebate , String part_exchange_actual, String part_exchange_given, String less_finance_settlement,
-			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
+			String  order_deposit, String finance_deposit, String document_fee, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException, ClassNotFoundException {
 
 
 		obj_quote_summary_page = new QuoteSummary_OP_OP_Page();

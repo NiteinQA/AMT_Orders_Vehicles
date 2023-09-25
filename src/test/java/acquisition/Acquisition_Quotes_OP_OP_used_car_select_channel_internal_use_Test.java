@@ -20,7 +20,7 @@ import com.amt.testUtil.CommonClass;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Acquisition_Quotes_OP_OP_used_car_Test extends TestBase {
+public class Acquisition_Quotes_OP_OP_used_car_select_channel_internal_use_Test extends TestBase {
 
 
 

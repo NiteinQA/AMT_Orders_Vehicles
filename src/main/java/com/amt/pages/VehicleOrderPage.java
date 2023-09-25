@@ -162,17 +162,23 @@ public class VehicleOrderPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'Invoice to')]//ancestor::div[1]//select//option[2]")
 	private WebElement invoice_to_option;
 	
-	//Purchase order Invoice To dropdown
+	//Delivery - Delivered To dropdown
 	@FindBy(xpath = "//*[contains(text(),'Delivered to')]//ancestor::div[1]//select")
 	private WebElement delivered_to_dropdown;
 	
-	//Purchase order Invoice To option
-	@FindBy(xpath = "//*[contains(text(),'Delivered to')]//ancestor::div[1]//select//option[1]")
-	private WebElement delivered_to_option;
+	//Delivery - Delivered To dropdown option 1 AMT
+	@FindBy(xpath = "//*[contains(text(),'Delivered to')]//ancestor::div[1]//select//option[contains(text(),'AMT')]")
+	private WebElement delivered_to_AMT;
+	
+	//Delivery - Delivered To dropdown option 2
+	@FindBy(xpath = "//*[contains(text(),'Delivered to')]//ancestor::div[1]//select//option[contains(text(),'Other')]")
+	private WebElement delivered_to_non_AMT;
 	
 	//Check MOT
 	@FindBy(xpath = "//*[contains(text(),'Check MOT')]")
 	private WebElement check_MOT;
+	
+
 	
 	
 
@@ -337,6 +343,10 @@ public class VehicleOrderPage extends TestBase {
 		
 		Click.on(driver, check_MOT, 30);
 		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Thread.sleep(2000);
+		
 				
 	}
 	
@@ -379,15 +389,25 @@ public class VehicleOrderPage extends TestBase {
 
 	
 	public void fill_up_delivery_info_on_vehicle_order_tab()
-			throws IOException, InterruptedException, AWTException {
+			throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 
 		obj_vehicle_order_tab = new VehicleOrderPage();
 
 		
 		Click.on(driver, delivered_to_dropdown,30);	
 		Thread.sleep(500);
-		Click.on(driver, delivered_to_option,30);		
 		
+		String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName();
+		
+		System.out.println(classOrMethodName);
+		
+		if(classOrMethodName.contains("non_AMT_location"))
+		{			
+			Click.on(driver, delivered_to_non_AMT,30);		
+		}else
+		{			
+		Click.on(driver, delivered_to_AMT,30);		
+		}
 		Thread.sleep(10000);
 		// Click on  Date offered input
 		Click.on(driver, vehicle_order_date_offered_input, 20);
