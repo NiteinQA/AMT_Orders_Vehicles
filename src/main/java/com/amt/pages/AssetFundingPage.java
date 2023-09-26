@@ -16,6 +16,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.ExplicitWait;
+import com.amt.testUtil.JavaScriptExecutor;
 
 public class AssetFundingPage extends TestBase {
 
@@ -102,16 +103,30 @@ public class AssetFundingPage extends TestBase {
 
 	// Status of the stocking plan
 	@FindBy(xpath = "//*[contains(text(),'Status')]//ancestor::div[1]//div/div")
-	private WebElement status;
+	private WebElement stocking_plan_status;
 
 	// *[contains(text(),'Lombard Demo')]
 
 	// Stocking plan - Lombard Demo
 	@FindBy(xpath = "//*[contains(text(),'Lombard Demo')]")
 	private WebElement stocking_plan_lombard_demo;
+	
+	// Stocking plan - Remove
+	@FindBy(xpath = "//*[contains(text(),'Remove')]")
+	private WebElement stocking_plan_remove;
+	
+	@FindBy(xpath = "//*[@id='removeConfirmBtn']")
+	private WebElement confirm_remove_button;
 
-//	
-//	
+
+	@FindBy(xpath = "//*[@id='reject']")
+	private WebElement reject_checkbox;
+
+
+	@FindBy(xpath = "//*[@id='rejectionReason']")
+	private WebElement rejection_reason_input_field;
+	
+	
 //	// Confirm complete funding
 //	@FindBy(xpath = "//*[@id='complete-funding-alert']//*[contains(text(),'Confirm')]")
 //	private WebElement confirm_complete_funding;
@@ -275,6 +290,224 @@ public class AssetFundingPage extends TestBase {
 		}
 		return nameMatching;
 	}
+	
+	
+	public boolean remove_stocking_plan_after_finance_activated() throws InterruptedException, ClassNotFoundException {
+
+		Click.on(driver, asset_funding, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		ExplicitWait.visibleElement(driver, status_stocking_plan, 30);
+
+		Click.on(driver, status_stocking_plan, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		// Check default status is required
+
+		int statusVerificationCount = 0;
+
+		String elementColor = "";
+
+		ExplicitWait.visibleElement(driver, status_Required, 10);
+
+		elementColor = status_Required.getCssValue("background-color");
+
+		if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+
+			LO.print("Default Status for Stocking Plan found OK i.e.Required");
+			System.out.println("Default Status for Stocking Plan found OK i.e.Required");
+			statusVerificationCount++;
+
+		} else {
+			LO.print("Default Status for Stocking Plan found wrong");
+			System.err.println("Default Status for Stocking Plan found wrong");
+
+		}
+
+		ExplicitWait.waitForListOfVisibleElements(driver, stocking_plan_list, 20);
+
+		int noOfStockingPlan = stocking_plan_list.size();
+
+		boolean currentStatus = false;
+
+		for (int i = 1; i <= noOfStockingPlan; i++) {
+
+			WebElement nameOfTheStockingPlan = driver.findElement(By.xpath(
+					"(//*[@id='accStockingPlanSection']//div//div//app-om-stocking-plan-details)[" + i + "]//h5"));
+
+			LO.print("Name of the " + i + " Stocking plan is " + nameOfTheStockingPlan.getText());
+			System.out.println("Name of the " + i + " Stocking plan is " + nameOfTheStockingPlan.getText());
+
+			WebElement statusOfTheStockingPlan = driver
+					.findElement(By.xpath("(//*[@id='accStockingPlanSection']//div//div//app-om-stocking-plan-details)["
+							+ i + "]//*[contains(text(),'Status')]//ancestor::div[1]//div/div"));
+
+			LO.print("Status of the " + i + " Stocking plan is " + statusOfTheStockingPlan.getText());
+			System.out.println("Status of the " + i + " Stocking plan is " + statusOfTheStockingPlan.getText());
+
+			if (statusOfTheStockingPlan.getText().equalsIgnoreCase("Eligible") == true) {
+
+				LO.print("Choosing " + i + " Stocking plan for this order");
+				System.out.println("Choosing " + i + " Stocking plan for this order");
+
+				WebElement addButton = driver.findElement(
+						By.xpath("(//*[@id='accStockingPlanSection']//div//div//app-om-stocking-plan-details)[" + i
+								+ "]//*[contains(text(),'Add')]"));
+
+				addButton.click();
+
+				Thread.sleep(2000);
+
+				confirm_add.click();
+
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+				// check status Pending Activation
+
+				ExplicitWait.visibleElement(driver, status_pending_activation, 10);
+
+				elementColor = status_pending_activation.getCssValue("background-color");
+
+				if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+
+					LO.print("Status for Stocking Plan after adding - found OK i.e.Pending Activation");
+					System.out.println("Status for Stocking Plan after adding - found OK i.e.Pending Activation");
+					statusVerificationCount++;
+
+				} else {
+					LO.print("Status for Stocking Plan after adding - found Wrong");
+					System.err.println("Status for Stocking Plan after adding - found Wrong");
+
+				}
+
+				WebElement statusOfTheStockingPlan2 = driver.findElement(
+						By.xpath("(//*[@id='accStockingPlanSection']//div//div//app-om-stocking-plan-details)[" + i
+								+ "]//*[contains(text(),'Status')]//ancestor::div[1]//div/div"));
+
+				LO.print("Current Status of the " + i + " Stocking plan after adding is "
+						+ statusOfTheStockingPlan2.getText());
+				System.out.println("Current Status of the " + i + " Stocking plan after adding is "
+						+ statusOfTheStockingPlan2.getText());
+
+				break;
+
+			}
+		}
+
+		int i = 0;
+		while (i < 10) {
+
+			driver.navigate().refresh();
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+
+			Click.on(driver, asset_funding, 30);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+			ExplicitWait.visibleElement(driver, stocking_plan_status, 10);
+
+			String statusOfStockingPlan = stocking_plan_status.getText().trim();
+
+			if (statusOfStockingPlan.contains("Activated")) {
+				currentStatus = true;
+				break;
+			}
+			Thread.sleep(10000);
+			i++;
+		}
+
+		// checking status after activating Finance
+		ExplicitWait.visibleElement(driver, status_finance_activated, 10);
+		elementColor = status_finance_activated.getCssValue("background-color");
+
+		if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+
+			LO.print("Status for Stocking Plan after Activating Finance - found OK i.e.Finance Activated");
+			System.out.println("Status for Stocking Plan after Activating Finance - found OK i.e.Finance Activated");
+			statusVerificationCount++;
+
+		} else {
+			LO.print("Status for Stocking Plan after Activating Finance - found Wrong");
+			System.err.println("Status for Stocking Plan after Activating Finance - found Wrong");
+
+		}
+		
+		
+
+		Click.on(driver, stocking_plan_remove, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+
+		String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName();
+		
+		if(classOrMethodName.contains("Reject"))
+		{
+			
+			JavaScriptExecutor.click(driver, reject_checkbox);
+			
+			Click.sendKeys(driver, rejection_reason_input_field, "Test Reject", 20);
+			
+			Click.on(driver, confirm_remove_button, 10);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+
+			// checking status after completing funding
+			ExplicitWait.visibleElement(driver, status_pending_activation, 10);
+			ExplicitWait.visibleElement(driver, stocking_plan_status, 10);
+			
+			String currentStatusStockingPlan = stocking_plan_status.getText();		
+			
+
+			elementColor = status_pending_activation.getCssValue("background-color");
+
+			if (!elementColor.equals("rgba(91, 158, 63, 1)") && currentStatusStockingPlan.equalsIgnoreCase("Rejected")) {
+
+				LO.print("Status for Stocking Plan after Removing Stocking Plan - found OK i.e.Settled");
+				System.out.println("Status for Stocking Plan after Removing Stocking Plan - found OK i.e.Settled");
+				statusVerificationCount++;
+
+			} else {
+				LO.print("Status for Stocking Plan after Removing Stocking Plan - found Wrong");
+				System.err.println("Status for Stocking Plan after Removing Stocking Plan - found Wrong");
+
+			}
+
+		}else
+		{
+		Click.on(driver, confirm_remove_button, 10);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+
+		// checking status after completing funding
+		ExplicitWait.visibleElement(driver, status_pending_activation, 10);
+		ExplicitWait.visibleElement(driver, stocking_plan_status, 10);
+		
+		String currentStatusStockingPlan = stocking_plan_status.getText();		
+		
+
+		elementColor = status_pending_activation.getCssValue("background-color");
+
+		if (!elementColor.equals("rgba(91, 158, 63, 1)") && currentStatusStockingPlan.equalsIgnoreCase("Settled")) {
+
+			LO.print("Status for Stocking Plan after Removing Stocking Plan - found OK i.e.Settled");
+			System.out.println("Status for Stocking Plan after Removing Stocking Plan - found OK i.e.Settled");
+			statusVerificationCount++;
+
+		} else {
+			LO.print("Status for Stocking Plan after Removing Stocking Plan - found Wrong");
+			System.err.println("Status for Stocking Plan after Removing Stocking Plan - found Wrong");
+
+		}
+		}
+		if (statusVerificationCount == 4) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 
 	public boolean stocking_plan() throws InterruptedException {
 
@@ -390,9 +623,9 @@ public class AssetFundingPage extends TestBase {
 
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
-			ExplicitWait.visibleElement(driver, status, 10);
+			ExplicitWait.visibleElement(driver, stocking_plan_status, 10);
 
-			String statusOfStockingPlan = status.getText().trim();
+			String statusOfStockingPlan = stocking_plan_status.getText().trim();
 
 			if (statusOfStockingPlan.contains("Activated")) {
 				currentStatus = true;

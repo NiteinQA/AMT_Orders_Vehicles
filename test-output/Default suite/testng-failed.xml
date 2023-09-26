@@ -3,18 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="acquisition.Acquisition_Quotes_Outright_BCH_used_LCV_without_maintenance_Test">
+      <class name="orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test">
         <methods>
           <include name="end"/>
-          <include name="aquisition_quotes_Outright_BCH_used_LCV_OTR_calculation_without_maintenance_test"/>
-          <include name="aquisition_quotes_Outright_BCH_used_LCV_holding_cost_calculations_without_maintenance_test"/>
-          <include name="aquisition_quotes_Outright_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" invocation-numbers="0"/>
+          <include name="deliver_vehicle_tab_test"/>
           <include name="start_info"/>
-          <include name="aquisition_quotes_Outright_BCH_quote_summary_values_verification_without_maintenance_test"/>
-          <include name="aquisition_quotes_Outright_BCH_used_LCV_edit_cost_price_and_check_OTR_without_maintenance_test"/>
+          <include name="remove_stocking_plan_test"/>
+          <include name="open_order_created_in_acquisition_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- acquisition.Acquisition_Quotes_Outright_BCH_used_LCV_without_maintenance_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -252,6 +252,8 @@ public class VehicleOrderPage extends TestBase {
 		//fill post delivery info
 		obj_vehicle_order_tab.fill_up_post_delivery_info_on_vehicle_order_tab();
 		
+		Thread.sleep(4000);
+		
 		String delivery_status =  obj_vehicle_order_tab.get_status_text(vehicle_order_delivery_status);		
 		
 		//save and Exit
@@ -399,7 +401,6 @@ public class VehicleOrderPage extends TestBase {
 		
 		String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName();
 		
-		System.out.println(classOrMethodName);
 		
 		if(classOrMethodName.contains("non_AMT_location"))
 		{			
