@@ -30,5 +30,40 @@ public class JavaScriptExecutor extends TestBase {
 		js.executeScript("arguments[0].click();", element);
 
 	}
+	
+	public static void scroll_down_to_bottom(WebDriver driver) {
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+	}
+	
+	public static void scroll_up_to_top(WebDriver driver) {
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		js.executeScript("window.scrollTo(0, 0);");
+
+	}
+
+	
+	
+	
+	
+	public static void scroll_in_to_view(WebDriver driver, WebElement element) {
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		ExplicitWait.visibleElement(driver, element, 50);
+
+		js.executeScript("arguments[0].scrollIntoView();", element);
+
+	}
+	
+	
 
 }

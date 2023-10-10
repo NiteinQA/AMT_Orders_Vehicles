@@ -3,8 +3,8 @@
 <suite name="Suite">
   <test thread-count="5" name="Check Cash Purchase in Asset Funding Tab">
     <classes>
-	  <class name="acquisition.Acquisition_Quotes_OP_OP_used_car_Test"/>
-      <class name="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test"/>
+	  <class name="acquisition.Acquisition_Quotes_OP_OP_Test"/>
+      <class name="orders.Orders_Asset_Funding_Cash_Purchase_Test"/>
      </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -1683,26 +1683,26 @@ public class QuoteSummary_BCH_BCH_Page extends TestBase {
 
 		// writing values to excel
 
-		if (sheet_name.contains("Use")) {
-
-			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
-			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
-
-			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B60*B63");
-
-			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
-
-			wb1.write(out1);
-		} else {
-			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
-			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
-
-			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B61*B63");
-
-			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
-
-			wb1.write(out1);
-		}
+//		if (sheet_name.contains("Use")) {
+//
+//			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+//			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+//
+//			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B60*B63");
+//
+//			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+//
+//			wb1.write(out1);
+//		} else {
+//			FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+//			XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+//
+//			wb1.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B61*B63");
+//
+//			FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+//
+//			wb1.write(out1);
+//		}
 
 		return status;
 	}

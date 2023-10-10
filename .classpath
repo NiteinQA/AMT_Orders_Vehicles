@@ -24,5 +24,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/nitein.kurane/.m2/repository/org/apache/felix/org.osgi.foundation/1.2.0/org.osgi.foundation-1.2.0.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.apache.felix"/>
+			<attribute name="maven.artifactId" value="org.osgi.foundation"/>
+			<attribute name="maven.version" value="1.2.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

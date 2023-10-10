@@ -1,8 +1,5 @@
 package com.amt.HoldingCostPages;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,6 +19,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
+import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.HelperClass;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
 import com.amt.testUtil.RemoveComma;
@@ -170,10 +168,11 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
 	private WebElement total_cap_maintenance_cost;
 
+	
 	Properties prop;
 	
+	
 	public HoldingCost_HPNR_HPRPage() {
-		
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
@@ -185,45 +184,9 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 			e.printStackTrace();
 		}
 
+		
 		PageFactory.initElements(driver, this);
 	}
-	
-	
-	public void save_maint_value_to_excel_for_without_funder_scenario(String sheet_name) throws InterruptedException, IOException {
-		
-		
-		Click.on(driver, holding_cost, 30);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-
-		Click.on(driver, common_maintenance_toggle, 30);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-
-		Click.on(driver, holding_cost_summary, 30);
-
-		ExplicitWait.visibleElement(driver, total_cap_maintenance_cost, 30);
-		
-		HelperClass.highlightElement(driver,total_cap_maintenance_cost);
-
-		String capMaintValue = RemoveComma.of(total_cap_maintenance_cost.getText().trim().substring(2));
-
-		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
-		XSSFWorkbook wb = new XSSFWorkbook(in);
-
-		String sheetname = prop.getProperty(sheet_name);
-
-		wb.getSheet(sheetname).getRow(4).getCell(9).setCellValue(capMaintValue);
-
-		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
-		wb.write(out);
-		wb.close();
-
-		Click.on(driver, maintenance_toggle_button, 120);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-	}
-
 
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
@@ -477,12 +440,9 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 		ExplicitWait.visibleElement(driver, residual_value_used, 20);
 		ExplicitWait.visibleElement(driver, maintenance_cost_used, 20);
 
-		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String residual_value_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+		String residual_value_used_from_screen = residual_value_used.getAttribute("value");
 
-		maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		String maint_cost_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+		String maint_cost_used_from_screen = maintenance_cost_used.getAttribute("value");
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -499,25 +459,37 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 			throws IOException, InterruptedException, UnsupportedFlavorException, ClassNotFoundException {
 
 		Actions act = new Actions(driver);
+		
+		additional_terms.clear();
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
+		
+		additional_mileage.clear();
+		act.sendKeys(Keys.TAB).build().perform();
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
+		
+		LO.print("Additional terms to be sent is "+additional_terms_from_excel);
+     	System.out.println("Additional terms to be sent is "+additional_terms_from_excel);
+    	
+		LO.print("Additional Mileage to be sent is "+additional_mileage_from_excel);
+     	System.out.println("Additional Mileage to be sent is "+ additional_mileage_from_excel);		
 
 		// code for editing additional_term_and_mileage
 
 		// send additional terms
 		Click.sendKeys(driver, additional_terms, additional_terms_from_excel, 20);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
 
 		// send additional mileage
 		Click.sendKeys(driver, additional_mileage, additional_mileage_from_excel, 20);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
 
 		// Taking updated values of residual value and maint cost from screen
 		ExplicitWait.visibleElement(driver, residual_value_used, 20);
 
-		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String residual_value_used_from_screen = (String) clipboard.getData(DataFlavor.stringFlavor);
+		String residual_value_used_from_screen = residual_value_used.getAttribute("value");
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -531,7 +503,8 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name)
 			throws InterruptedException, IOException {
-		Click.on(driver, holding_cost, 30);
+		
+		try {Click.on(driver, holding_cost, 30);}catch(Exception e) {}
 
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
@@ -598,6 +571,36 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 
 		LO.print("Total_monthly_holding_cost_from_excel =" + monthly_holding_cost_expected);
 		System.out.println("Total_monthly_holding_cost_from_excel " + monthly_holding_cost_expected);
+
+		double total_monthly_holding_cost_actual1 = Double.parseDouble(total_monthly_holding_cost_from_screen);
+		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual1,
+				monthly_holding_cost_expected);
+		boolean flag = false;
+		if (diff < 0.2) {
+			flag = true;
+		}
+
+		return flag;
+
+	}
+
+	
+	public boolean verify_holding_cost_after_adding_funder_quote_without_maintenance_for_asset_funding_tab(String sheet_name)
+			throws InterruptedException, IOException {	
+
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		String monthly_holding_cost = total_monthly_holding_cost.getText().substring(2);
+
+		String total_monthly_holding_cost_from_screen = RemoveComma.of(monthly_holding_cost);
+
+		LO.print("Total monthly holding cost from screen =" + monthly_holding_cost);
+		System.out.println("Total monthly holding cost from screen =" + monthly_holding_cost);
+		
+		
+		double monthly_holding_cost_expected = GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
+
+		LO.print("Total monthly holding cost from excel =" + monthly_holding_cost_expected);
+		System.out.println("Total monthly holding cost from excel " + monthly_holding_cost_expected);
 
 		double total_monthly_holding_cost_actual1 = Double.parseDouble(total_monthly_holding_cost_from_screen);
 		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual1,
@@ -707,5 +710,41 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 		return flag;
 
 	}
+	
+	public void save_maint_value_to_excel_for_without_funder_scenario(String sheet_name) throws InterruptedException, IOException {
+		
+		
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, common_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_cost, 30);
+		
+		HelperClass.highlightElement(driver,total_cap_maintenance_cost);
+
+		String capMaintValue = RemoveComma.of(total_cap_maintenance_cost.getText().trim().substring(2));
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+
+		wb.getSheet(sheetname).getRow(4).getCell(9).setCellValue(capMaintValue);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+
+		Click.on(driver, maintenance_toggle_button, 120);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+	}
+
 
 }

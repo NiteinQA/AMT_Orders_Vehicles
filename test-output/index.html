@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\nitein.kurane\AppData\Local\Temp\testng-eclipse--1246169904\testng-customsuite.xml</span>
+                    <span>C:\Users\nitein.kurane\AppData\Local\Temp\testng-eclipse-927454046\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,40 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">13 methods, 1 failed,  2 skipped,  10 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_finance_documents_statuses_for_required_flow_test">verify_finance_documents_statuses_for_required_flow_test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Default_suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_completed_status_for_required_flow_test">verify_completed_status_for_required_flow_test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_payments_to_funder_statuses_for_required_flow_test">verify_payments_to_funder_statuses_for_required_flow_test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,12 +137,52 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test" class="method navigator-link" hash-for-method="open_order_created_in_acquisition_test">open_order_created_in_acquisition_test</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="add_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)">add_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test" class="method navigator-link" hash-for-method="remove_stocking_plan_test">remove_stocking_plan_test</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="open_order_created_in_acquisition_test">open_order_created_in_acquisition_test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_default_status_required_flow_test">verify_default_status_required_flow_test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_holding_cost_on_adding_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)">verify_holding_cost_on_adding_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_holding_cost_on_editing_add_term_and_mileage_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)">verify_holding_cost_on_editing_add_term_and_mileage_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_holding_cost_on_editing_percentage_cap_residual_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)">verify_holding_cost_on_editing_percentage_cap_residual_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_holding_cost_on_editing_residual_value_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)">verify_holding_cost_on_editing_residual_value_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_holding_cost_shown_test">verify_holding_cost_shown_test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_status_after_adding_funder_required_flow_test">verify_status_after_adding_funder_required_flow_test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test" class="method navigator-link" hash-for-method="verify_status_after_selecting_the_added_funder_in_required_flow_test">verify_status_after_selecting_the_added_funder_in_required_flow_test</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -124,12 +197,140 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">orders.Orders_Asset_Funding_Required_Flow_HPNR_Test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_finance_documents_statuses_for_required_flow_test">
+                  </a> <!-- verify_finance_documents_statuses_for_required_flow_test -->
+                  <span class="method-name">verify_finance_documents_statuses_for_required_flow_test</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (1c8aa97f07e450c2dd79203ccae2138b)] -&gt; xpath: //*[@id=&apos;financeactivated&apos;]] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53870}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53870/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1c8aa97f07e450c2dd79203ccae2138b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.AssetFundingPage.verify_finance_documents_statuses(AssetFundingPage.java:1574)
+	at orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_finance_documents_statuses_for_required_flow_test(Orders_Asset_Funding_Required_Flow_HPNR_Test.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">orders.Orders_Asset_Funding_Required_Flow_HPNR_Test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_completed_status_for_required_flow_test">
+                  </a> <!-- verify_completed_status_for_required_flow_test -->
+                  <span class="method-name">verify_completed_status_for_required_flow_test</span>
+                  <div class="stack-trace">java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_completed_status_for_required_flow_test()[pri:12, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_payments_to_funder_statuses_for_required_flow_test">
+                  </a> <!-- verify_payments_to_funder_statuses_for_required_flow_test -->
+                  <span class="method-name">verify_payments_to_funder_statuses_for_required_flow_test</span>
+                  <div class="stack-trace">java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_payments_to_funder_statuses_for_required_flow_test()[pri:11, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test</span>
+              <span class="class-name">orders.Orders_Asset_Funding_Required_Flow_HPNR_Test</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="add_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)">
+                  </a> <!-- add_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR) -->
+                  <span class="method-name">add_funder</span>
+                  <span class="parameters">(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="open_order_created_in_acquisition_test">
@@ -139,9 +340,62 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="remove_stocking_plan_test">
-                  </a> <!-- remove_stocking_plan_test -->
-                  <span class="method-name">remove_stocking_plan_test</span>
+                  <a name="verify_default_status_required_flow_test">
+                  </a> <!-- verify_default_status_required_flow_test -->
+                  <span class="method-name">verify_default_status_required_flow_test</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_holding_cost_on_adding_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)">
+                  </a> <!-- verify_holding_cost_on_adding_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR) -->
+                  <span class="method-name">verify_holding_cost_on_adding_funder</span>
+                  <span class="parameters">(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_holding_cost_on_editing_add_term_and_mileage_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)">
+                  </a> <!-- verify_holding_cost_on_editing_add_term_and_mileage_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated) -->
+                  <span class="method-name">verify_holding_cost_on_editing_add_term_and_mileage_test</span>
+                  <span class="parameters">(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_holding_cost_on_editing_percentage_cap_residual_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)">
+                  </a> <!-- verify_holding_cost_on_editing_percentage_cap_residual_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated) -->
+                  <span class="method-name">verify_holding_cost_on_editing_percentage_cap_residual_test</span>
+                  <span class="parameters">(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_holding_cost_on_editing_residual_value_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)">
+                  </a> <!-- verify_holding_cost_on_editing_residual_value_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated) -->
+                  <span class="method-name">verify_holding_cost_on_editing_residual_value_test</span>
+                  <span class="parameters">(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_holding_cost_shown_test">
+                  </a> <!-- verify_holding_cost_shown_test -->
+                  <span class="method-name">verify_holding_cost_shown_test</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_status_after_adding_funder_required_flow_test">
+                  </a> <!-- verify_status_after_adding_funder_required_flow_test -->
+                  <span class="method-name">verify_status_after_adding_funder_required_flow_test</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_status_after_selecting_the_added_funder_in_required_flow_test">
+                  </a> <!-- verify_status_after_selecting_the_added_funder_in_required_flow_test -->
+                  <span class="method-name">verify_status_after_selecting_the_added_funder_in_required_flow_test</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -149,7 +403,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\nitein.kurane\AppData\Local\Temp\testng-eclipse--1246169904\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\nitein.kurane\AppData\Local\Temp\testng-eclipse-927454046\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -158,7 +412,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test&quot;/&gt;
+      &lt;class name=&quot;orders.Orders_Asset_Funding_Required_Flow_HPNR_Test&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -198,20 +452,64 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(13);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'remove_stocking_plan_test')
-data.setCell(0, 2, 'orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test')
-data.setCell(0, 3, 325573);
+data.setCell(0, 1, 'verify_finance_documents_statuses_for_required_flow_test')
+data.setCell(0, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(0, 3, 109603);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'open_order_created_in_acquisition_test')
-data.setCell(1, 2, 'orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test')
-data.setCell(1, 3, 68655);
+data.setCell(1, 1, 'add_funder')
+data.setCell(1, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(1, 3, 47855);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'open_order_created_in_acquisition_test')
+data.setCell(2, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(2, 3, 45765);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'verify_holding_cost_on_editing_add_term_and_mileage_test')
+data.setCell(3, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(3, 3, 15094);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'verify_holding_cost_on_editing_percentage_cap_residual_test')
+data.setCell(4, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(4, 3, 8739);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'verify_holding_cost_on_editing_residual_value_test')
+data.setCell(5, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(5, 3, 7223);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'verify_holding_cost_shown_test')
+data.setCell(6, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(6, 3, 6734);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'verify_default_status_required_flow_test')
+data.setCell(7, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(7, 3, 6462);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'verify_status_after_selecting_the_added_funder_in_required_flow_test')
+data.setCell(8, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(8, 3, 4419);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'verify_holding_cost_on_adding_funder')
+data.setCell(9, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(9, 3, 1571);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'verify_status_after_adding_funder_required_flow_test')
+data.setCell(10, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(10, 3, 1157);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'verify_completed_status_for_required_flow_test')
+data.setCell(11, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(11, 3, 0);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'verify_payments_to_funder_statuses_for_required_flow_test')
+data.setCell(12, 2, 'orders.Orders_Asset_Funding_Required_Flow_HPNR_Test')
+data.setCell(12, 3, 0);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 minutes</span>
+              <span class="suite-total-time">Total running time: 4 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -223,22 +521,130 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">open_order_created_in_acquisition_test</span>
+              <span class="reporter-method-name">verify_holding_cost_on_editing_residual_value_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><b>Searching for Order ID YV-65434</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Editing Residual value used</b> <br /></span>
+                <span class="reporter-method-output"><b>Changing Residual value used to =26000</b> <br /></span>
+                <span class="reporter-method-output"><b>Writing Holding Cost Summary values to excel has been started</b> <br /></span>
+                <span class="reporter-method-output"><b>Writing Holding Cost Summary values to excel has been completed</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been started</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been completed</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_screen =976.29</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_excel =976.2864994363606</b> <br /></span>
+                <span class="reporter-method-output"><b>Total Monthly Holding Cost After Editing Residual Value is Verified and Found OK</b> <br /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">remove_stocking_plan_test</span>
+              <span class="reporter-method-name">verify_status_after_selecting_the_added_funder_in_required_flow_test</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><b>Default Status for Stocking Plan found OK i.e.Required</b> <br /></span>
-                <span class="reporter-method-output"><b>Name of the 1 Stocking plan is Lombard Demo</b> <br /></span>
-                <span class="reporter-method-output"><b>Status of the 1 Stocking plan is Eligible</b> <br /></span>
-                <span class="reporter-method-output"><b>Choosing 1 Stocking plan for this order</b> <br /></span>
-                <span class="reporter-method-output"><b>Status for Stocking Plan after adding - found OK i.e.Pending Activation</b> <br /></span>
-                <span class="reporter-method-output"><b>Current Status of the 1 Stocking plan after adding is Pending Activation</b> <br /></span>
-                <span class="reporter-method-output"><b>Status for Stocking Plan after Activating Finance - found OK i.e.Finance Activated</b> <br /></span>
-                <span class="reporter-method-output"><b>Status for Stocking Plan after Removing Stocking Plan - found OK i.e.Settled</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Select a funder</b> <br /></span>
+                <span class="reporter-method-output"><b>Started verifying Quote Status after selecting a added funder in asset funding tab</b> <br /></span>
+                <span class="reporter-method-output"><b>Status after selecting an added funder Found OK i.e Quote Accepted</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verify_holding_cost_shown_test</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Started verifying Holding Cost Shown</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been started</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been completed</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_screen =1330.05</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_excel =1330.0548290712977</b> <br /></span>
+                <span class="reporter-method-output"><b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verify_status_after_adding_funder_required_flow_test</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Started verifying Quote Status after adding a funder in asset funding tab</b> <br /></span>
+                <span class="reporter-method-output"><b>Quote Status after adding funder in required flow Found OK i.e Quote Received</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verify_default_status_required_flow_test</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Started verifying Default Status for HPNR required flow</b> <br /></span>
+                <span class="reporter-method-output"><b>Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verify_holding_cost_on_editing_add_term_and_mileage_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Additional terms to be sent is 37</b> <br /></span>
+                <span class="reporter-method-output"><b>Additional Mileage to be sent is 31000</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Editing additional terms and mileage</b> <br /></span>
+                <span class="reporter-method-output"><b>Updated Residual Value from screen  (to be sent to calculation excel) is =8600.00</b> <br /></span>
+                <span class="reporter-method-output"><b>Writing Holding Cost Summary values to excel has been started</b> <br /></span>
+                <span class="reporter-method-output"><b>Writing Holding Cost Summary values to excel has been completed</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been started</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been completed</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_screen =1,287.16</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_excel =1287.1614771216039</b> <br /></span>
+                <span class="reporter-method-output"><b>Total Monthly Holding Cost After Editing Additional terms and mileage is Verified and Found OK</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">add_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>***********Entered in holding cost page ***********</b> <br /></span>
+                <span class="reporter-method-output"><b>***********Holding Cost Calculations has been Started*************</b> <br /></span>
+                <span class="reporter-method-output"><b>Writing Holding Cost Summary values to excel has been completed</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_screen =1,287.16</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">open_order_created_in_acquisition_test</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b>Searching for Order ID UZ-79611</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verify_holding_cost_on_editing_percentage_cap_residual_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been started</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Editing % CAP Residual Value used</b> <br /></span>
+                <span class="reporter-method-output"><b>Changing % CAP Residual Value (from test  data) to 43</b> <br /></span>
+                <span class="reporter-method-output"><b>Writing Holding Cost Summary values to excel has been started</b> <br /></span>
+                <span class="reporter-method-output"><b>Writing Holding Cost Summary values to excel has been completed</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been started</b> <br /></span>
+                <span class="reporter-method-output"><b>Reading Monthly Holding Cost value from excel has been completed</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_screen =1359.05</b> <br /></span>
+                <span class="reporter-method-output"><b>Total_monthly_holding_cost_from_excel =1359.046575109675</b> <br /></span>
+                <span class="reporter-method-output"><b>Total Monthly Holding Cost After Editing % Residual Value is Verified and Found OK</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verify_holding_cost_on_adding_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Total monthly holding cost from screen =500.36</b> <br /></span>
+                <span class="reporter-method-output"><b>Total monthly holding cost from excel =500.3636363636364</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">verify_finance_documents_statuses_for_required_flow_test</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Sterted Verifying Finance Document Statuses for required flow</b> <br /></span>
+                <span class="reporter-method-output"><b>Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested</b> <br /></span>
+                <span class="reporter-method-output"><b>Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received</b> <br /></span>
+                <span class="reporter-method-output"><b>Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed</b> <br /></span>
+                <span class="reporter-method-output"><b>Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder</b> <br /></span>
+                <span class="reporter-method-output"><br>----------Screenshot---------<br></span>
+                <span class="reporter-method-output"><img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_finance_documents_statuses_for_required_flow_test_10_10_2023_06_51_34.png" height="800" width="1000"></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -256,26 +662,72 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">orders.Orders_Asset_Funding_Required_Flow_HPNR_Test</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">start_info</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">16 ms</span>
+                <span class="method-start">18 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">open_order_created_in_acquisition_test</span>
-                <span class="method-start">12091 ms</span>
+                <span class="method-start">10598 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">remove_stocking_plan_test</span>
-                <span class="method-start">80749 ms</span>
+                <span class="method-name">verify_default_status_required_flow_test</span>
+                <span class="method-start">56366 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_holding_cost_shown_test</span>
+                <span class="method-start">62829 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_holding_cost_on_editing_percentage_cap_residual_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
+                <span class="method-start">70108 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_holding_cost_on_editing_residual_value_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
+                <span class="method-start">79199 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_holding_cost_on_editing_add_term_and_mileage_test(43, 26000, 37, 31000, NO, HirePurchaseNonRegulated)</span>
+                <span class="method-start">86765 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">add_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)</span>
+                <span class="method-start">102173 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_status_after_adding_funder_required_flow_test</span>
+                <span class="method-start">150029 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_status_after_selecting_the_added_funder_in_required_flow_test</span>
+                <span class="method-start">151187 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_holding_cost_on_adding_funder(REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR)</span>
+                <span class="method-start">155875 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verify_finance_documents_statuses_for_required_flow_test</span>
+                <span class="method-start">157447 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_payments_to_funder_statuses_for_required_flow_test</span>
+                <span class="method-start">267225 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verify_completed_status_for_required_flow_test</span>
+                <span class="method-start">267226 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">end</span>
-                <span class="method-start">406340 ms</span>
+                <span class="method-start">267249 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Remove Socking Plan After Finance Activated">
+    <classes>
+      <class name="acquisition.Acquisition_Quotes_OP_OP_used_car_Test"/>
+      <class name="orders.Orders_Asset_Funding_Remove_Stocking_Plan_After_Finance_Activated_Test"/>
+    </classes>
+  </test> <!-- Remove Socking Plan After Finance Activated -->
+</suite> <!-- Suite -->

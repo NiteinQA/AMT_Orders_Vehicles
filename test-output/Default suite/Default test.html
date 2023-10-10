@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>10/1/2</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Sep 26 16:24:33 IST 2023</td>
+<td>Started on:</td><td>Tue Oct 10 18:47:07 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>406 seconds (406328 ms)</td>
+<tr><td>Total time:</td><td>267 seconds (267230 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,108 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_finance_documents_statuses_for_required_flow_test()'><b>verify_finance_documents_statuses_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br/>
+<a href="#Output-1111801232" onClick='toggleBox("Output-1111801232", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1111801232" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1111801232">
+<b></b> <br /><br/>
+<b>Sterted Verifying Finance Document Statuses for required flow</b> <br /><br/>
+<b>Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested</b> <br /><br/>
+<b>Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received</b> <br /><br/>
+<b>Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed</b> <br /><br/>
+<b>Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_finance_documents_statuses_for_required_flow_test_10_10_2023_06_51_34.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (1c8aa97f07e450c2dd79203ccae2138b)] -&gt; xpath: //*[@id=&apos;financeactivated&apos;]] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53870}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53870/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1c8aa97f07e450c2dd79203ccae2138b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.AssetFundingPage.verify_finance_documents_statuses(AssetFundingPage.java:1574)
+	at orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_finance_documents_statuses_for_required_flow_test(Orders_Asset_Funding_Required_Flow_HPNR_Test.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1111801232", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1111801232'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (1c8aa97f07e450c2dd79203ccae2138b)] -&gt; xpath: //*[@id=&apos;financeactivated&apos;]] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53870}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53870/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1c8aa97f07e450c2dd79203ccae2138b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.AssetFundingPage.verify_finance_documents_statuses(AssetFundingPage.java:1574)
+	at orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_finance_documents_statuses_for_required_flow_test(Orders_Asset_Funding_Required_Flow_HPNR_Test.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>109</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,36 +177,279 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test<br/>
-<a href="#Output-1420770489" onClick='toggleBox("Output-1420770489", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_on_editing_residual_value_test()'><b>verify_holding_cost_on_editing_residual_value_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br>Parameters: 43, 26000, 37, 31000, NO, HirePurchaseNonRegulated<br/>
+<a href="#Output-471983665" onClick='toggleBox("Output-471983665", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1420770489" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1420770489">
-<b>Searching for Order ID YV-65434</b> <br /><br/>
+<a href="#Output-471983665" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-471983665">
+<b></b> <br /><br/>
+<b></b> <br /><br/>
+<b>Editing Residual value used</b> <br /><br/>
+<b>Changing Residual value used to =26000</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been started</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =976.29</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =976.2864994363606</b> <br /><br/>
+<b>Total Monthly Holding Cost After Editing Residual Value is Verified and Found OK</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>68</td>
-<td>orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test@298a5e20</td></tr>
+<td>7</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test.remove_stocking_plan_test()'><b>remove_stocking_plan_test</b><br>Test class: orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test<br/>
-<a href="#Output-895280806" onClick='toggleBox("Output-895280806", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test()'><b>verify_status_after_selecting_the_added_funder_in_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br/>
+<a href="#Output-198937800" onClick='toggleBox("Output-198937800", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-895280806" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-895280806">
-<b>Default Status for Stocking Plan found OK i.e.Required</b> <br /><br/>
-<b>Name of the 1 Stocking plan is Lombard Demo</b> <br /><br/>
-<b>Status of the 1 Stocking plan is Eligible</b> <br /><br/>
-<b>Choosing 1 Stocking plan for this order</b> <br /><br/>
-<b>Status for Stocking Plan after adding - found OK i.e.Pending Activation</b> <br /><br/>
-<b>Current Status of the 1 Stocking plan after adding is Pending Activation</b> <br /><br/>
-<b>Status for Stocking Plan after Activating Finance - found OK i.e.Finance Activated</b> <br /><br/>
-<b>Status for Stocking Plan after Removing Stocking Plan - found OK i.e.Settled</b> <br /><br/>
+<a href="#Output-198937800" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-198937800">
+<b></b> <br /><br/>
+<b>Select a funder</b> <br /><br/>
+<b>Started verifying Quote Status after selecting a added funder in asset funding tab</b> <br /><br/>
+<b>Status after selecting an added funder Found OK i.e Quote Accepted</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>325</td>
-<td>orders.Orders_Asset_Funding_Reject_Stocking_Plan_After_Finance_Activated_Test@298a5e20</td></tr>
+<td>4</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_shown_test()'><b>verify_holding_cost_shown_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br/>
+<a href="#Output-1570117874" onClick='toggleBox("Output-1570117874", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1570117874" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1570117874">
+<b></b> <br /><br/>
+<b>Started verifying Holding Cost Shown</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1330.05</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1330.0548290712977</b> <br /><br/>
+<b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_status_after_adding_funder_required_flow_test()'><b>verify_status_after_adding_funder_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br/>
+<a href="#Output-277725944" onClick='toggleBox("Output-277725944", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-277725944" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-277725944">
+<b></b> <br /><br/>
+<b>Started verifying Quote Status after adding a funder in asset funding tab</b> <br /><br/>
+<b>Quote Status after adding funder in required flow Found OK i.e Quote Received</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_default_status_required_flow_test()'><b>verify_default_status_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br/>
+<a href="#Output-1588635270" onClick='toggleBox("Output-1588635270", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1588635270" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1588635270">
+<b></b> <br /><br/>
+<b>Started verifying Default Status for HPNR required flow</b> <br /><br/>
+<b>Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_on_editing_add_term_and_mileage_test()'><b>verify_holding_cost_on_editing_add_term_and_mileage_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br>Parameters: 43, 26000, 37, 31000, NO, HirePurchaseNonRegulated<br/>
+<a href="#Output-2092474000" onClick='toggleBox("Output-2092474000", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2092474000" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2092474000">
+<b></b> <br /><br/>
+<b>Additional terms to be sent is 37</b> <br /><br/>
+<b>Additional Mileage to be sent is 31000</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Editing additional terms and mileage</b> <br /><br/>
+<b>Updated Residual Value from screen  (to be sent to calculation excel) is =8600.00</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been started</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1,287.16</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1287.1614771216039</b> <br /><br/>
+<b>Total Monthly Holding Cost After Editing Additional terms and mileage is Verified and Found OK</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>15</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.add_funder()'><b>add_funder</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br>Parameters: REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
+<a href="#Output-738671326" onClick='toggleBox("Output-738671326", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-738671326" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-738671326">
+<b></b> <br /><br/>
+<b>***********Entered in holding cost page ***********</b> <br /><br/>
+<b>***********Holding Cost Calculations has been Started*************</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1,287.16</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>47</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br/>
+<a href="#Output-1707458318" onClick='toggleBox("Output-1707458318", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1707458318" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1707458318">
+<b>Searching for Order ID UZ-79611</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>45</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_on_editing_percentage_cap_residual_test()'><b>verify_holding_cost_on_editing_percentage_cap_residual_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br>Parameters: 43, 26000, 37, 31000, NO, HirePurchaseNonRegulated<br/>
+<a href="#Output-368183804" onClick='toggleBox("Output-368183804", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-368183804" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-368183804">
+<b></b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Editing % CAP Residual Value used</b> <br /><br/>
+<b>Changing % CAP Residual Value (from test  data) to 43</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been started</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1359.05</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1359.046575109675</b> <br /><br/>
+<b>Total Monthly Holding Cost After Editing % Residual Value is Verified and Found OK</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_on_adding_funder()'><b>verify_holding_cost_on_adding_funder</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test<br>Parameters: REF001, 05/12/23, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
+<a href="#Output-1768751811" onClick='toggleBox("Output-1768751811", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1768751811" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1768751811">
+<b></b> <br /><br/>
+<b>Total monthly holding cost from screen =500.36</b> <br /><br/>
+<b>Total monthly holding cost from excel =500.3636363636364</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_completed_status_for_required_flow_test()'><b>verify_completed_status_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_completed_status_for_required_flow_test()[pri:12, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1296241063", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1296241063'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_completed_status_for_required_flow_test()[pri:12, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_payments_to_funder_statuses_for_required_flow_test()'><b>verify_payments_to_funder_statuses_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_payments_to_funder_statuses_for_required_flow_test()[pri:11, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1719583527", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1719583527'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_payments_to_funder_statuses_for_required_flow_test()[pri:11, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4</td></tr>
 </table><p>
 </body>
 </html>

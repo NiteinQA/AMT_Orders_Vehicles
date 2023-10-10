@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Verify Stocking Plan Lombard Demo Is Available If Channel Is Internal Use">
+    <classes>
+      <class name="acquisition.Acquisition_Quotes_OP_OP_used_car_select_channel_internal_use_Test"/>
+      <class name="orders.Orders_Asset_Funding_Verify_Stocking_Plan_Lombard_Demo_Is_Available_If_Channel_Is_Internal_Use_Test"/>
+    </classes>
+  </test> <!-- Verify Stocking Plan Lombard Demo Is Available If Channel Is Internal Use -->
+</suite> <!-- Suite -->

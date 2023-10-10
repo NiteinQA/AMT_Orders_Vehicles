@@ -135,6 +135,8 @@ public class CommonClass extends TestBase {
 	}
 
 	public static void move_courser() {
+		
+		try {
 		actions = new Actions(driver);
 
 		// Define the coordinates
@@ -145,6 +147,10 @@ public class CommonClass extends TestBase {
 
 		// Move the mouse cursor from (x1, y1) to (x2, y2)
 		actions.moveByOffset(x1, y1).moveByOffset(x2 - x1, y2 - y1).perform();
+		}catch(Exception e)
+		{
+			
+		}
 	}
 
 	public void mouse_hover_to_element(WebElement element) {
@@ -155,7 +161,7 @@ public class CommonClass extends TestBase {
 
 	}
 
-	public void create_order(String sheet_name) throws InterruptedException, IOException, ClassNotFoundException {
+	public void create_order(String sheet_name, String calculation_sheet) throws InterruptedException, IOException, ClassNotFoundException {
 		LO.print(" ");
 		System.out.println(" ");
 
@@ -200,7 +206,7 @@ public class CommonClass extends TestBase {
 		
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-
+		try {
 		// Send Input to Name
 		Click.on(driver, quote_summary_input_supplier_name, 30);
 		Thread.sleep(2000);
@@ -217,7 +223,8 @@ public class CommonClass extends TestBase {
 		Click.on(driver, quote_summary_pick_supplier_name, 20);
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-
+		}catch(Exception e)
+		{}
 		
 		
 		// Click on Month input
@@ -266,6 +273,9 @@ public class CommonClass extends TestBase {
 
 		// quote ref no
 		wb.getSheet(sheetname).getRow(1).getCell(1).setCellValue(orderID);
+		
+		wb.getSheet(sheetname).getRow(1).getCell(2).setCellValue(calculation_sheet);
+		
 		// quote ref no
 		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
 		wb.write(out);
