@@ -235,7 +235,7 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		try {
 			 prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -278,16 +278,10 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		Thread.sleep(2000);
 
 		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
-
-		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-
-		double vehicle_profit_from_screen_converted = Double.parseDouble(vehicle_profit_copied);
-
+		double vehicle_sales_price_from_screen_converted =  Double.parseDouble(vehicle_sale_price_used_vehicle.getAttribute("value"));
+	
 		double diff2 = Difference.of_two_Double_Values(otr_screen_price_converted,
-				vehicle_profit_from_screen_converted);
+				vehicle_sales_price_from_screen_converted);
 
 		LO.print("Vehicle profit from test data " + vehicleProfit_converted + " added to otr cost price "
 				+ otr_screen_price_converted);
@@ -295,9 +289,9 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 				+ otr_screen_price_converted);
 
 		LO.print("After adding profit to otr price " + otr_screen_price_converted
-				+ " sales price is shown as (considering VAT%) " + vehicle_profit_from_screen_converted);
+				+ " sales price is shown as (considering VAT%) " + vehicle_sales_price_from_screen_converted);
 		System.out.println("After adding profit to otr price " + otr_screen_price_converted
-				+ " sales price is shown as (considering VAT%) " + vehicle_profit_from_screen_converted);
+				+ " sales price is shown as (considering VAT%) " + vehicle_sales_price_from_screen_converted);
 
 		boolean vehicle_profit_status = false;
 
@@ -339,13 +333,11 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		double vehicel_profit_expected = (salesPrice - otrCostPrice) / 1.2;
 
 		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
-		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+		double vehicle_profit_copied =  Double.parseDouble(vehicle_profit_input.getAttribute("value"));
+	
+				
 
-		double vehicel_profit_actual = Double.parseDouble(vehicle_profit_copied);
-
-		double diff1 = Difference.of_two_Double_Values(vehicel_profit_expected, vehicel_profit_actual);
+		double diff1 = Difference.of_two_Double_Values(vehicel_profit_expected, vehicle_profit_copied);
 
 		boolean status = false;
 
@@ -392,13 +384,11 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		double vehicel_profit_expected = (salesPrice - otrCostPrice) / 1.2;
 
 		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
-		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+		double vehicle_profit_copied =  Double.parseDouble(vehicle_profit_input.getAttribute("value"));
 
-		double vehicel_profit_actual = Double.parseDouble(vehicle_profit_copied);
+	 
 
-		double diff1 = Difference.of_two_Double_Values(vehicel_profit_expected, vehicel_profit_actual);
+		double diff1 = Difference.of_two_Double_Values(vehicel_profit_expected, vehicle_profit_copied);
 
 		boolean status = false;
 
@@ -500,16 +490,13 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 		Thread.sleep(2000);
 
 		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
+		double vehicle_sales_price_from_screen_converted =  Double.parseDouble(vehicle_sale_price_used_vehicle.getAttribute("value"));
 
-		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-
-		double vehicle_sale_price_from_screen_converted = Double.parseDouble(vehicle_profit_copied);
 
 		double diff2 = Difference.of_two_Double_Values(otr_screen_price_converted,
-				vehicle_sale_price_from_screen_converted);
+				vehicle_sales_price_from_screen_converted);
+		
+	
 
 		LO.print("Vehicle profit from test data " + vehicleProfit_converted + " added to otr cost price "
 				+ otr_screen_price_converted);
@@ -517,9 +504,9 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 				+ otr_screen_price_converted);
 
 		LO.print("After adding profit to cost price " + otr_screen_price_converted
-				+ " sales price is shown as (considering VAT%) " + vehicle_sale_price_from_screen_converted);
+				+ " sales price is shown as (considering VAT%) " + vehicle_sales_price_from_screen_converted);
 		System.out.println("After adding profit to cost price " + otr_screen_price_converted
-				+ " sales price is shown as (considering VAT%) " + vehicle_sale_price_from_screen_converted);
+				+ " sales price is shown as (considering VAT%) " + vehicle_sales_price_from_screen_converted);
 
 		boolean vehicle_profit_status = false;
 
@@ -705,13 +692,8 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel, String sheet_name)
 			throws InterruptedException, IOException, NumberFormatException, UnsupportedFlavorException {
 
-		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 30);
-
-		
-		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
-	       double vehicle_sales_price_copied =Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
+		double vehicle_sales_price_from_screen_converted =  Double.parseDouble(vehicle_sale_price_used_vehicle.getAttribute("value"));
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
@@ -833,7 +815,7 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 
 		Click.on(driver, customer_quote_summary, 60);
 
-		double balance_to_finance_expected = (vehicle_sales_price_copied - Double.parseDouble(cahDeposit)
+		double balance_to_finance_expected = (vehicle_sales_price_from_screen_converted - Double.parseDouble(cahDeposit)
 				- part_exchange_profit_from_screen);
 
 		LO.print("Balance To Finance Expected is =" + balance_to_finance_expected);
@@ -947,17 +929,8 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 
 		double vehicleProfit_converted = Double.parseDouble(vehicleProfit);
 		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
+		double vehicle_sales_price_from_screen_converted =  Double.parseDouble(vehicle_sale_price_used_vehicle.getAttribute("value"));
 
-		Thread.sleep(2000);
-
-		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String vehicle_sales_price_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-
-		System.out.println("vehicle_sales_price_copied " + vehicle_sales_price_copied);
-
-		double vehicle_sales_price_from_screen_converted = Double.parseDouble(vehicle_sales_price_copied);
 
 		double diff2 = Difference.of_two_Double_Values(otr_screen_price_converted,
 				vehicle_sales_price_from_screen_converted);
@@ -1159,14 +1132,9 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 
 		
 		
-		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 30);
-
-		
-		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-	       Clipboard clipboard =Toolkit.getDefaultToolkit().getSystemClipboard();
-	       double vehicle_sales_price_copied =Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-		
+		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
+		double vehicle_sales_price_from_screen_converted =  Double.parseDouble(vehicle_sale_price_used_vehicle.getAttribute("value"));
+	
 
 		Thread.sleep(4000);
 
@@ -1295,7 +1263,7 @@ public class CustomerQuotePageBrokerCPPage extends TestBase {
 
 		Click.on(driver, customer_quote_summary, 60);
 
-		double balance_to_finance_expected = (vehicle_sales_price_copied - Double.parseDouble(cahDeposit)
+		double balance_to_finance_expected = (vehicle_sales_price_from_screen_converted - Double.parseDouble(cahDeposit)
 				- part_exchange_profit_from_screen);
 
 		LO.print("Balance To Finance Expected is =" + balance_to_finance_expected);

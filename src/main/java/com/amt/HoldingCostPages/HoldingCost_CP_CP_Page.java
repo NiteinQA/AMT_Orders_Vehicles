@@ -361,6 +361,8 @@ public class HoldingCost_CP_CP_Page extends TestBase {
 
 	}
 
+	
+	
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String sheet_name)

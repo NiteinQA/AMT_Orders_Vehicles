@@ -1,498 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="13" passed="10" failed="1" skipped="2">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[<b>Searching for Order ID UZ-79611</b> <br />]]>
+      <![CDATA[<b>Searching for Order ID UU-54189</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Started verifying Default Status for HPNR required flow</b> <br />]]>
+      <![CDATA[<b>Started verifying Default Status for BCH required flow</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started verifying Holding Cost Shown</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =1330.05</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =1330.0548290712977</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br />]]>
+      <![CDATA[<b>Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
+      <![CDATA[<b>Adding funder with same term and mileage which was present already</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Tried adding same funder with same term and mileage , got warning message : Funder quote already exists for this term and mileage combination</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Therefore funder with same term and mileage can not be added</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Editing % CAP Residual Value used</b> <br />]]>
+      <![CDATA[<b>Adding funder with same term and mileage which was present already</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Changing % CAP Residual Value (from test  data) to 43</b> <br />]]>
+      <![CDATA[<b>Tried adding same funder with different term and mileage , got warning message : Funder quote added successfully</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =1359.05</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =1359.046575109675</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Monthly Holding Cost After Editing % Residual Value is Verified and Found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Editing Residual value used</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Changing Residual value used to =26000</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =976.29</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =976.2864994363606</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Monthly Holding Cost After Editing Residual Value is Verified and Found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Additional terms to be sent is 37</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Additional Mileage to be sent is 31000</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Editing additional terms and mileage</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Updated Residual Value from screen  (to be sent to calculation excel) is =8600.00</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =1,287.16</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =1287.1614771216039</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Monthly Holding Cost After Editing Additional terms and mileage is Verified and Found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =1,287.16</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started verifying Quote Status after adding a funder in asset funding tab</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Quote Status after adding funder in required flow Found OK i.e Quote Received</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Select a funder</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started verifying Quote Status after selecting a added funder in asset funding tab</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status after selecting an added funder Found OK i.e Quote Accepted</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total monthly holding cost from screen =500.36</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total monthly holding cost from excel =500.3636363636364</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Sterted Verifying Finance Document Statuses for required flow</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<br>----------Screenshot---------<br>]]>
-    </line>
-    <line>
-      <![CDATA[<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_finance_documents_statuses_for_required_flow_test_10_10_2023_06_51_34.png" height="800" width="1000">]]>
+      <![CDATA[<b>Therefore funder with different term and mileage can not be added</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-10-10T18:47:07 IST" name="Default suite" finished-at="2023-10-10T18:51:34 IST" duration-ms="267230">
+  <suite started-at="2023-10-16T19:13:43 IST" name="Default suite" finished-at="2023-10-16T19:16:06 IST" duration-ms="142536">
     <groups>
     </groups>
-    <test started-at="2023-10-10T18:47:07 IST" name="Default test" finished-at="2023-10-10T18:51:34 IST" duration-ms="267230">
-      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:47:07 IST" name="start_info" finished-at="2023-10-10T18:47:07 IST" duration-ms="7" status="PASS">
+    <test started-at="2023-10-16T19:13:43 IST" name="Default test" finished-at="2023-10-16T19:16:06 IST" duration-ms="142536">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:13:43 IST" name="start_info" finished-at="2023-10-16T19:13:43 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:47:07 IST" name="setup" finished-at="2023-10-10T18:47:17 IST" duration-ms="10573" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:13:43 IST" name="setup" finished-at="2023-10-16T19:13:55 IST" duration-ms="12026" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:47:17 IST" name="open_order_created_in_acquisition_test" finished-at="2023-10-10T18:48:03 IST" duration-ms="45765" status="PASS">
+        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:13:55 IST" name="open_order_created_in_acquisition_test" finished-at="2023-10-16T19:14:43 IST" duration-ms="47873" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Searching for Order ID UZ-79611</b> <br />]]>
+              <![CDATA[<b>Searching for Order ID UU-54189</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- open_order_created_in_acquisition_test -->
-        <test-method signature="verify_default_status_required_flow_test()[pri:2, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:48:03 IST" name="verify_default_status_required_flow_test" finished-at="2023-10-10T18:48:09 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.open_order_created_in_acquisition_test" duration-ms="6462" status="PASS">
+        <test-method signature="verify_default_status_required_flow_test()[pri:2, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:14:43 IST" name="verify_default_status_required_flow_test" finished-at="2023-10-16T19:14:50 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.open_order_created_in_acquisition_test" duration-ms="7516" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Started verifying Default Status for HPNR required flow</b> <br />]]>
+              <![CDATA[<b>Started verifying Default Status for BCH required flow</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote</b> <br />]]>
+              <![CDATA[<b>Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- verify_default_status_required_flow_test -->
-        <test-method signature="verify_holding_cost_shown_test()[pri:3, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:48:09 IST" name="verify_holding_cost_shown_test" finished-at="2023-10-10T18:48:16 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_default_status_required_flow_test" duration-ms="6734" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying Holding Cost Shown</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =1330.05</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =1330.0548290712977</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_holding_cost_shown_test -->
-        <test-method signature="verify_holding_cost_on_editing_percentage_cap_residual_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:48:17 IST" name="verify_holding_cost_on_editing_percentage_cap_residual_test" data-provider="testData" finished-at="2023-10-10T18:48:25 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_shown_test" duration-ms="8739" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[43]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[26000]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[37]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[31000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[HirePurchaseNonRegulated]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Editing % CAP Residual Value used</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Changing % CAP Residual Value (from test  data) to 43</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =1359.05</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =1359.046575109675</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Monthly Holding Cost After Editing % Residual Value is Verified and Found OK</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_holding_cost_on_editing_percentage_cap_residual_test -->
-        <test-method signature="verify_holding_cost_on_editing_residual_value_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:48:26 IST" name="verify_holding_cost_on_editing_residual_value_test" data-provider="testData" finished-at="2023-10-10T18:48:33 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_on_editing_percentage_cap_residual_test" duration-ms="7223" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[43]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[26000]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[37]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[31000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[HirePurchaseNonRegulated]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Editing Residual value used</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Changing Residual value used to =26000</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =976.29</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =976.2864994363606</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Monthly Holding Cost After Editing Residual Value is Verified and Found OK</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_holding_cost_on_editing_residual_value_test -->
-        <test-method signature="verify_holding_cost_on_editing_add_term_and_mileage_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:48:33 IST" name="verify_holding_cost_on_editing_add_term_and_mileage_test" data-provider="testData" finished-at="2023-10-10T18:48:48 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_on_editing_residual_value_test" duration-ms="15094" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[43]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[26000]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[37]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[31000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[HirePurchaseNonRegulated]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Additional terms to be sent is 37</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Additional Mileage to be sent is 31000</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Editing additional terms and mileage</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Updated Residual Value from screen  (to be sent to calculation excel) is =8600.00</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =1,287.16</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =1287.1614771216039</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Monthly Holding Cost After Editing Additional terms and mileage is Verified and Found OK</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_holding_cost_on_editing_add_term_and_mileage_test -->
-        <test-method signature="add_funder(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:48:49 IST" name="add_funder" data-provider="testData1" finished-at="2023-10-10T18:49:37 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_on_editing_add_term_and_mileage_test" duration-ms="47855" status="PASS">
+        <test-method signature="verify_funder_with_same_term_and_mileage_can_not_be_added_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:14:51 IST" name="verify_funder_with_same_term_and_mileage_can_not_be_added_test" data-provider="testData" finished-at="2023-10-16T19:15:42 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_default_status_required_flow_test" duration-ms="51115" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -506,7 +85,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[33]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="3">
@@ -536,17 +115,32 @@
             </param>
             <param index="8">
               <value>
-                <![CDATA[6000]]>
+                <![CDATA[50]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[20]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[HPNR (Formula 3) - HPNR]]>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[CP (Formula 3) - BCH]]>
               </value>
             </param>
           </params>
@@ -555,55 +149,17 @@
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
+              <![CDATA[<b>Adding funder with same term and mileage which was present already</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
+              <![CDATA[<b>Tried adding same funder with same term and mileage , got warning message : Funder quote already exists for this term and mileage combination</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =1,287.16</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br />]]>
+              <![CDATA[<b>Therefore funder with same term and mileage can not be added</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- add_funder -->
-        <test-method signature="verify_status_after_adding_funder_required_flow_test()[pri:8, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:49:37 IST" name="verify_status_after_adding_funder_required_flow_test" finished-at="2023-10-10T18:49:38 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.add_funder" duration-ms="1157" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying Quote Status after adding a funder in asset funding tab</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Quote Status after adding funder in required flow Found OK i.e Quote Received</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_status_after_adding_funder_required_flow_test -->
-        <test-method signature="verify_status_after_selecting_the_added_funder_in_required_flow_test()[pri:9, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:49:38 IST" name="verify_status_after_selecting_the_added_funder_in_required_flow_test" finished-at="2023-10-10T18:49:42 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_status_after_adding_funder_required_flow_test" duration-ms="4419" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Select a funder</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying Quote Status after selecting a added funder in asset funding tab</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status after selecting an added funder Found OK i.e Quote Accepted</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_status_after_selecting_the_added_funder_in_required_flow_test -->
-        <test-method signature="verify_holding_cost_on_adding_funder(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:10, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:49:43 IST" name="verify_holding_cost_on_adding_funder" data-provider="testData1" finished-at="2023-10-10T18:49:44 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test" duration-ms="1571" status="PASS">
+        </test-method> <!-- verify_funder_with_same_term_and_mileage_can_not_be_added_test -->
+        <test-method signature="verify_funder_with_different_term_and_mileage_can_be_added_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:15:43 IST" name="verify_funder_with_different_term_and_mileage_can_be_added_test" data-provider="testData" finished-at="2023-10-16T19:16:06 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_funder_with_same_term_and_mileage_can_not_be_added_test" duration-ms="22743" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -617,7 +173,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[33]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="3">
@@ -647,17 +203,32 @@
             </param>
             <param index="8">
               <value>
-                <![CDATA[6000]]>
+                <![CDATA[50]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[20]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[HPNR (Formula 3) - HPNR]]>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[CP (Formula 3) - BCH]]>
               </value>
             </param>
           </params>
@@ -666,160 +237,21 @@
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Total monthly holding cost from screen =500.36</b> <br />]]>
+              <![CDATA[<b>Adding funder with same term and mileage which was present already</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Total monthly holding cost from excel =500.3636363636364</b> <br />]]>
+              <![CDATA[<b>Tried adding same funder with different term and mileage , got warning message : Funder quote added successfully</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Therefore funder with different term and mileage can not be added</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verify_holding_cost_on_adding_funder -->
-        <test-method signature="verify_finance_documents_statuses_for_required_flow_test()[pri:11, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:49:44 IST" name="verify_finance_documents_statuses_for_required_flow_test" finished-at="2023-10-10T18:51:34 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_holding_cost_on_adding_funder" duration-ms="109603" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (1c8aa97f07e450c2dd79203ccae2138b)] -> xpath: //*[@id='financeactivated']] (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: '4.1.0', revision: '87802e897b'
-System info: host: 'DSK-4052', ip: '172.16.1.80', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53870}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53870/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 1c8aa97f07e450c2dd79203ccae2138b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (1c8aa97f07e450c2dd79203ccae2138b)] -> xpath: //*[@id='financeactivated']] (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: '4.1.0', revision: '87802e897b'
-System info: host: 'DSK-4052', ip: '172.16.1.80', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53870}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53870/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 1c8aa97f07e450c2dd79203ccae2138b
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-at com.amt.testUtil.Click.on(Click.java:17)
-at com.amt.pages.AssetFundingPage.verify_finance_documents_statuses(AssetFundingPage.java:1574)
-at orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_finance_documents_statuses_for_required_flow_test(Orders_Asset_Funding_Required_Flow_HPNR_Test.java:142)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Sterted Verifying Finance Document Statuses for required flow</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<br>----------Screenshot---------<br>]]>
-            </line>
-            <line>
-              <![CDATA[<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_finance_documents_statuses_for_required_flow_test_10_10_2023_06_51_34.png" height="800" width="1000">]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_finance_documents_statuses_for_required_flow_test -->
-        <test-method signature="verify_payments_to_funder_statuses_for_required_flow_test()[pri:11, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:51:34 IST" name="verify_payments_to_funder_statuses_for_required_flow_test" finished-at="2023-10-10T18:51:34 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_finance_documents_statuses_for_required_flow_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_payments_to_funder_statuses_for_required_flow_test()[pri:11, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_payments_to_funder_statuses_for_required_flow_test()[pri:11, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_payments_to_funder_statuses_for_required_flow_test -->
-        <test-method signature="verify_completed_status_for_required_flow_test()[pri:12, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:51:34 IST" name="verify_completed_status_for_required_flow_test" finished-at="2023-10-10T18:51:34 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_payments_to_funder_statuses_for_required_flow_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_completed_status_for_required_flow_test()[pri:12, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_Test.verify_completed_status_for_required_flow_test()[pri:12, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_completed_status_for_required_flow_test -->
-        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Test@25ce9dc4]" started-at="2023-10-10T18:51:34 IST" name="end" finished-at="2023-10-10T18:51:34 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- verify_funder_with_different_term_and_mileage_can_be_added_test -->
+        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:16:06 IST" name="end" finished-at="2023-10-16T19:16:06 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

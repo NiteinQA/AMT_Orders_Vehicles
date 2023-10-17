@@ -107,6 +107,10 @@ public class OrdersListPage extends TestBase {
 		
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+		Thread.sleep(3000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+		
+		
 	}
 	
 	public String validate_selected_order_opened() throws InterruptedException {

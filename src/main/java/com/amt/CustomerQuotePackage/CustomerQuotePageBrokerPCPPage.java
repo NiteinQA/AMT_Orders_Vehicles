@@ -1,8 +1,5 @@
 package com.amt.CustomerQuotePackage;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -226,7 +223,7 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 		try {
 			 prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -265,12 +262,10 @@ public class CustomerQuotePageBrokerPCPPage extends TestBase {
 
 		double vehicel_profit_expected = (salesPrice - otrCostPrice) / 1.2;
 
-		ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
-		vehicle_profit_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String vehicle_profit_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
+		   ExplicitWait.visibleElement(driver, vehicle_profit_input, 30);
+			double vehicel_profit_actual = Double.parseDouble(vehicle_profit_input.getAttribute("value"));
 
-		double vehicel_profit_actual = Double.parseDouble(vehicle_profit_copied);
+		
 
 		double diff1 = Difference.of_two_Double_Values(vehicel_profit_expected, vehicel_profit_actual);
 

@@ -267,6 +267,8 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 		Click.sendKeys(driver, final_balloon_payment, finalBalloonPayment, 30);
 
 		Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+		
+		Thread.sleep(5000);
 
 		Click.on(driver, add, 30);
 

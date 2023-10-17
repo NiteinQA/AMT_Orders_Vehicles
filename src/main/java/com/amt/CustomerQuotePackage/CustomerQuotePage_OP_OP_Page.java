@@ -1,8 +1,5 @@
 package com.amt.CustomerQuotePackage;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,7 +9,6 @@ import java.util.Properties;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +26,7 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 	CustomerQuotePage_OP_OP_Page obj_cust_quote_outright_bchPage;
 	ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
 
-	Clipboard clipboard;
+	
 
 	JavascriptExecutor jse;
 
@@ -213,7 +209,7 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 				try {
 			 prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -225,154 +221,6 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 
 	}
 
-	public boolean enter_sales_price_discount_greater_than_cost_price_discount(WebDriver driver, String sheet_name)
-			throws InterruptedException, IOException, UnsupportedFlavorException {
-
-		LO.print("");
-		System.out.println("");
-
-		LO.print("Started Verifying Sales price discount not to be greater than cost price discount");
-		System.out.println("Started Verifying Sales price discount not to be greater than cost price discount");
-
-		Actions act = new Actions(driver);
-
-		// waiting for cost price elements
-		ExplicitWait.visibleElement(driver, vehicle_discount_cost_price, 30);
-		ExplicitWait.visibleElement(driver, vehicle_additional_discount_cost_price, 30);
-		ExplicitWait.visibleElement(driver, paint_discount_cost_price, 30);
-		ExplicitWait.visibleElement(driver, paint_additional_discount_cost_price, 30);
-		ExplicitWait.visibleElement(driver, options_discount_cost_price, 30);
-		ExplicitWait.visibleElement(driver, options_additional_discount_cost_price, 30);
-
-		// waiting for sales price elements
-
-		ExplicitWait.visibleElement(driver, vehicle_discount, 30);
-		ExplicitWait.visibleElement(driver, paint_discount, 30);
-		ExplicitWait.visibleElement(driver, options_discount, 30);
-		ExplicitWait.visibleElement(driver, vehicle_additional_discount, 30);
-		ExplicitWait.visibleElement(driver, paint_additional_discount, 30);
-		ExplicitWait.visibleElement(driver, options_additional_discount, 30);
-
-		// getting text of cost price elements
-
-		double vehicleDiscountCostPrice = Double
-				.parseDouble(vehicle_discount_cost_price.getText().trim().substring(0, 4));
-		double paintDiscountCostPrice = Double.parseDouble(paint_discount_cost_price.getText().trim().substring(0, 4));
-		double optionsDiscountCostPrice = Double
-				.parseDouble(options_discount_cost_price.getText().trim().substring(0, 4));
-
-		double vehicleAdditionalDiscountCostPrice = Double
-				.parseDouble(vehicle_additional_discount_cost_price.getText().trim().substring(2));
-		double paintAdditionalDiscountCostPrice = Double
-				.parseDouble(paint_additional_discount_cost_price.getText().trim().substring(2));
-		double optionsAdditionalDiscountCostPrice = Double
-				.parseDouble(options_additional_discount_cost_price.getText().trim().substring(2));
-
-		// getting sales price elements
-
-		// started entering sales discount values greater than cost price discount
-		// values
-
-		vehicle_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		Click.sendKeysdouble(driver, vehicle_discount, vehicleDiscountCostPrice + 1, 20);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
-
-		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		Click.sendKeysdouble(driver, paint_discount, paintDiscountCostPrice + 1, 20);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
-
-		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		Click.sendKeysdouble(driver, options_discount, optionsDiscountCostPrice + 1, 20);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
-
-		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		Click.sendKeysdouble(driver, vehicle_additional_discount, vehicleAdditionalDiscountCostPrice + 1, 20);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
-
-		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		Click.sendKeysdouble(driver, paint_additional_discount, paintAdditionalDiscountCostPrice + 1, 20);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
-
-		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		Click.sendKeysdouble(driver, options_additional_discount, optionsAdditionalDiscountCostPrice + 1, 20);
-		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 20);
-
-		clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-
-		// getting updated sales discount prices from input fields
-
-		// getting vehicle Discount Sales Price
-		vehicle_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		double vehicleDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-
-		// getting paint Discount Sales Price
-		paint_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		double paintDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-
-		// getting options Discount Sales Price
-		options_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		double optionsDiscountSalesPrice = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-
-		// getting vehicle additional Discount Sales Price
-		vehicle_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		double vehicleAdditionalDiscountSalesPrice = Double
-				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-
-		// getting paint additional Discount Sales Price
-		paint_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		double paintAdditionalDiscountSalesPrice = Double
-				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-
-		// getting otions additional Discount Sales Price
-		options_additional_discount.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		double optionsAdditionalDiscountSalesPrice = Double
-				.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-
-		int count = 0;
-
-		if (vehicleDiscountCostPrice == vehicleDiscountSalesPrice) {
-			count++;
-		}
-		if (paintDiscountCostPrice == paintDiscountSalesPrice) {
-			count++;
-		}
-		if (optionsDiscountCostPrice == optionsDiscountSalesPrice) {
-			count++;
-		}
-		if (vehicleAdditionalDiscountCostPrice == vehicleAdditionalDiscountSalesPrice) {
-			count++;
-		}
-		if (paintAdditionalDiscountCostPrice == paintAdditionalDiscountSalesPrice) {
-			count++;
-		}
-		if (optionsAdditionalDiscountCostPrice == optionsAdditionalDiscountSalesPrice) {
-			count++;
-		}
-
-		boolean status = false;
-		if (count == 6) {
-
-			status = true;
-			LO.print(
-					"Sales discount price entered greater than Cost discount prices and verified that sales discount input field doesn't accept greater values than cost discount prices");
-			System.out.println(
-					"Sales discount price entered greater than Cost discount prices and verified that sales discount input field doesn't accept greater values than cost discount prices");
-		} else {
-			LO.print(
-					"Sales discount price entered greater than Cost discount prices and verified that sales discount input field does accept greater values than cost discount prices");
-			System.err.println(
-					"Sales discount price entered greater than Cost discount prices and verified that sales discount input field does accept greater values than cost discount prices");
-
-		}
-
-		return status;
-	}
 
 	public boolean edit_vehicle_profit_and_check_monthly_total_payment(String vehicle_profit, String sheet_name)
 			throws InterruptedException, UnsupportedFlavorException, IOException {
@@ -432,12 +280,8 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
-		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String vehicle_sales_price_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-
-		double vehicle_sales_price_from_screen_converted = Double.parseDouble(vehicle_sales_price_copied);
+		double vehicle_sales_price_from_screen_converted =  Double.parseDouble(vehicle_sale_price_used_vehicle.getAttribute("value"));
+		
 
 		double vehicleOTRPriceFromScreen = Double
 				.parseDouble(RemoveComma.of(vehicle_otr_price.getText().trim().substring(2)));
@@ -612,19 +456,14 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 
 		Click.sendKeys(driver, document_fee, documentFee, 30);
 		
+		act.sendKeys(Keys.TAB).perform();		
 		
 		ExplicitWait.visibleElement(driver, vehicle_sale_price_used_vehicle, 20);
-		vehicle_sale_price_used_vehicle.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String vehicle_sales_price_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-
-		double vehicleSalesPriceFromScreen = Double.parseDouble(vehicle_sales_price_copied);
 		
-		System.out.println("Sale price "+vehicleSalesPriceFromScreen);
+		
+		double vehicle_sales_price_from_screen_converted =  Double.parseDouble(vehicle_sale_price_used_vehicle.getAttribute("value"));
+			
 
-//		double vehicleSalesPriceFromScreen = Double
-//				.parseDouble(RemoveComma.of(vehicle_sales_price.getText().trim().substring(2)));
 
 		double netPartExchangeAllowance = Double
 				.parseDouble(RemoveComma.of(net_part_exchange_allowance.getText().trim().substring(2)));
@@ -633,11 +472,12 @@ public class CustomerQuotePage_OP_OP_Page extends TestBase {
 
 		double documentfee = Double.parseDouble(documentFee);
 
-		double pendingAmountExpected = vehicleSalesPriceFromScreen - orderDeposit - netPartExchangeAllowance
+		double pendingAmountExpected = vehicle_sales_price_from_screen_converted - orderDeposit - netPartExchangeAllowance
 				+ (documentfee * 1.2);
 
 		double pendingAmountFromScreen = Double
 				.parseDouble(RemoveComma.of(pending_amount.getText().trim().substring(2)));
+		
 
 		double diff = Difference.of_two_Double_Values(pendingAmountExpected, pendingAmountFromScreen);
 

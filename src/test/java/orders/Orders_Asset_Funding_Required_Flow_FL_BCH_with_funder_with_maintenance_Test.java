@@ -87,6 +87,15 @@ VehicleOrderPage obj_vehicle_order_tab;
 		
 	}
 	
+	
+	@Test(priority = 7, dependsOnMethods = { "verify_funders_are_deleted_on_changing_contract_type_test" })
+	public void verify_funders_with_same_term_and_mileage_can_not_be_added_test() throws IOException, InterruptedException, AWTException {
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		obj_asset_funding.verify_funders_are_deleted_on_changing_contract_type();
+		
+	}
 	//In this test class flow covered are :
 	// 1, 2, 11, 12
 

@@ -1,8 +1,5 @@
 package com.amt.CustomerQuotePackage;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -191,7 +188,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 		try {
 			 prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -324,30 +321,23 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 		ExplicitWait.visibleElement(driver, maintenance_cost_used, 20);
 		
 		
-		holding_cost_percentage_cap_residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		double percentage_cap_residual_value = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
+		double percentage_cap_residual_value =  Double.parseDouble(holding_cost_percentage_cap_residual_value_used.getAttribute("value"));
+		Thread.sleep(1000);		
+		double percentage_cap_maintenance_cost =  Double.parseDouble(holding_cost_percentage_maintenance_cost_used.getAttribute("value"));
+		Thread.sleep(1000);
+		double used_residual_value =  Double.parseDouble(residual_value_used.getAttribute("value"));
+		Thread.sleep(1000);
+		double total_cap_maintenance_value_converted =  Double.parseDouble(maintenance_cost_used.getAttribute("value"));
 
-		Thread.sleep(1000);
-		
-		holding_cost_percentage_maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		double percentage_cap_maintenance_cost = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-		Thread.sleep(1000);
-		residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		 
-		double used_residual_value = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
-		Thread.sleep(1000);
-		maintenance_cost_used.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		double total_cap_maintenance_value_converted = Double.parseDouble((String) clipboard.getData(DataFlavor.stringFlavor));
 		
 		Thread.sleep(1000);
 
 		Click.on(driver, customer_quote, 50);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 160);
 
 		obj_read_excel_calculation_page.set_global_variables_for_used_car_to_excel(sheet_name);
 
-		obj_read_excel_calculation_page.write_holding_cost_cap_values_to_excel_with_maintenance_for_used_car(duration,
+		obj_read_excel_calculation_page.write_holding_cost_cap_values_to_excel_with_maintenance(duration,
 				annual_mileage, used_residual_value, total_cap_maintenance_value_converted,
 				percentage_cap_residual_value, percentage_cap_maintenance_cost, sheet_name);
 
@@ -891,12 +881,45 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 			String part_exchange_status, String target_rental, String sheet_name) throws IOException,
 			InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
-		Click.on(driver, customer_quote, 50);
+		Click.on(driver, holding_cost, 60);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
-		Click.on(driver, customer_quote_maintenance_toggle_button, 30);
 
+
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_value, 30);
+
+		double totalCapMaintenanceValue = Double
+				.parseDouble(RemoveComma.of(total_cap_maintenance_value.getText().trim().substring(2)));
+
+		Click.on(driver, customer_quote, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Actions act = new Actions(driver);
+
+		if (totalCapMaintenanceValue == 0) 
+		
+		{
+		
+			obj_read_excel_calculation_page.set_global_variables_to_excel_for_finance_lease(sheet_name);
+			return obj_read_excel_calculation_page
+					.verify_customer_quote_calculations_for_one_payment_options_without_maintenance(driver,
+							customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,
+							actual_part_exchange_value_from_excel, given_part_exchange_value,
+							given_part_exchange_value_from_excel, less_finance_settlement,
+							less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
+							document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
+							maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
+			
+		}else
+		{
+		
+
+		Click.on(driver, customer_quote_maintenance_toggle_button, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		
 		obj_read_excel_calculation_page
 				.set_global_variables_to_excel_for_finance_lease_for_funder_quote_addition(sheet_name);
 		return obj_read_excel_calculation_page
@@ -908,7 +931,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,
 						customer_quote_monthly_maintenance_rental, maintenance_required, maintenance_margin,
 						initial_payment, part_exchange_status, target_rental, sheet_name);
-	}
+		}}
 
 	public boolean customer_Quote_HPNR_FL_for_one_payment_option_for_funder_quote_addition_without_maintenance_calculation(
 			String actual_part_exchange_value_from_excel, String given_part_exchange_value_from_excel,
@@ -948,8 +971,58 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 			InterruptedException, ClassNotFoundException, FormulaParseException, IllegalStateException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		Click.on(driver, customer_quote_maintenance_toggle_button, 40);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 30);
+
+		double duration = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
+
+		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, holding_cost_percentage_maintenance_cost_used, 20);
+		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+		ExplicitWait.visibleElement(driver, maintenance_cost_used, 20);
+		
+
+		double percentage_cap_residual_value = Double.parseDouble(holding_cost_percentage_cap_residual_value_used.getAttribute("value"));
+		
+		
+		Thread.sleep(1000);
+		
+
+		double percentage_cap_maintenance_cost =  Double.parseDouble(holding_cost_percentage_maintenance_cost_used.getAttribute("value"));
+
+		Thread.sleep(1000);		
+	
+		double used_residual_value =  Double.parseDouble(residual_value_used.getAttribute("value"));
+
+		
+		Thread.sleep(1000);	
+		
+	
+		double total_cap_maintenance_value_converted =  Double.parseDouble(maintenance_cost_used.getAttribute("value"));
+
+		
+		Thread.sleep(1000);
+
+		Click.on(driver, customer_quote, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 160);	
+		
+		obj_read_excel_calculation_page.write_holding_cost_cap_values_to_excel_with_maintenance(duration,
+				annual_mileage, used_residual_value, total_cap_maintenance_value_converted,
+				percentage_cap_residual_value, percentage_cap_maintenance_cost, sheet_name);
 		obj_read_excel_calculation_page.set_global_variables_to_excel_for_finance_lease(sheet_name);
 		return obj_read_excel_calculation_page
 				.verify_customer_quote_calculations_for_one_payment_options_with_maintenance(driver,
@@ -1969,10 +2042,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, summary_final_balloon_input_field, 30);
 
-		summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String default_final_balloon = (String) clipboard.getData(DataFlavor.stringFlavor);
-		double default_final_balloon_converted = Double.parseDouble(default_final_balloon);
+		double default_final_balloon_converted =  Double.parseDouble(summary_final_balloon_input_field.getAttribute("value"));
 
 		summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
@@ -2062,10 +2132,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 
 		ExplicitWait.visibleElement(driver, summary_final_balloon_input_field, 30);
 
-		summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String default_final_balloon = (String) clipboard.getData(DataFlavor.stringFlavor);
-		double default_final_balloon_converted = Double.parseDouble(default_final_balloon);
+		double default_final_balloon_converted =  Double.parseDouble(summary_final_balloon_input_field.getAttribute("value"));
 
 		summary_final_balloon_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		

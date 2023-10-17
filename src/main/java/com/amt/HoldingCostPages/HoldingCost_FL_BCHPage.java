@@ -243,6 +243,106 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 			String finalBallonPayment, String documentFee, String pencePerExcessMileFinance,
 			String pencePerExcessMileMaintenance, String percentageOfSaleProceedToCustomer,
 			String secondaryHirePeriodRental, String sheet_name) throws InterruptedException, IOException {
+		
+		
+		Click.on(driver, holding_cost, 30);
+
+		LO.print("***********Entered in holding cost page ***********");
+		System.out.println("***********Entered in holding cost page ***********");
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		Click.on(driver, add_funder_quote, 30);
+
+		Thread.sleep(3000);
+
+		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		Click.on(driver, funder_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		Click.on(driver, funder, 30);
+
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.ENTER).build().perform();
+
+		Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+		Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+		Dropdown.select(driver, payment_profile_dropdown, 1, 30);
+
+		Click.sendKeys(driver, duration, term, 30);
+
+		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
+
+		Click.on(driver, contract_mileage, 30);
+
+		Click.sendKeys(driver, monthly_finance_rental, monthlyFinanceRental, 30);
+
+		Click.sendKeys(driver, final_balloon_payment, finalBallonPayment, 30);
+
+		Click.sendKeys(driver, document_fee, documentFee, 30);
+
+		Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+		Click.sendKeys(driver, percentage_of_sale_proceed_to_customer, percentageOfSaleProceedToCustomer, 30);
+
+		Click.sendKeys(driver, secondary_hire_period_rental, secondaryHirePeriodRental, 30);
+
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintenanceRental, 30);
+
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
+
+		Thread.sleep(5000);
+
+		Click.on(driver, add, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		double monthly_holding_cost_expected = obj_read_excel_calculation_page
+				.verify_holding_cost_after_adding_funder_with_maintenance(term, milesPerAnnum, monthlyFinanceRental,
+						monthlyMaintenanceRental, finalBallonPayment, documentFee, pencePerExcessMileFinance,
+						pencePerExcessMileMaintenance, percentageOfSaleProceedToCustomer, secondaryHirePeriodRental,
+						sheet_name);
+
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		Thread.sleep(5000);
+		String monthly_holding_cost = total_monthly_holding_cost.getText().substring(2);
+
+		String total_monthly_holding_cost_from_screen = RemoveComma.of(monthly_holding_cost);
+
+		LO.print("Total_monthly_holding_cost_from_screen =" + monthly_holding_cost);
+		System.out.println("Total_monthly_holding_cost_from_screen " + monthly_holding_cost);
+
+		LO.print("Total_monthly_holding_cost_from_excel =" + monthly_holding_cost_expected);
+		System.out.println("Total_monthly_holding_cost_from_excel " + monthly_holding_cost_expected);
+
+		double total_monthly_holding_cost_actual1 = Double.parseDouble(total_monthly_holding_cost_from_screen);
+		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual1,
+				monthly_holding_cost_expected);
+		boolean flag = false;
+		if (diff < 0.2) {
+			flag = true;
+		}
+
+		return flag;
+
+	}
+
+	public boolean add_funder_in_a(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String monthlyFinanceRental, String monthlyMaintenanceRental,
+			String finalBallonPayment, String documentFee, String pencePerExcessMileFinance,
+			String pencePerExcessMileMaintenance, String percentageOfSaleProceedToCustomer,
+			String secondaryHirePeriodRental, String sheet_name) throws InterruptedException, IOException {
+		
+		
 		Click.on(driver, holding_cost, 30);
 
 		LO.print("***********Entered in holding cost page ***********");
@@ -334,6 +434,7 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 
 	}
 
+	
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String target_rental, String sheet_name)

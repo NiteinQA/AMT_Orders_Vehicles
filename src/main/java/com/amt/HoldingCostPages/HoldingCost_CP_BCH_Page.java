@@ -80,7 +80,7 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong")
 	private WebElement total_cap_maintenance_value;
 
-	@FindBy(xpath = "//button[@class='btn btn-outline-secondary px-4 mr-2']")
+	@FindBy(xpath = "//button[@class='btn btn-outline-secondary px-4 mr-2']|//*[text()='Add Funder Quote']")
 	private WebElement add_funder_quote;
 
 	@FindBy(xpath = "//*[contains(text(),'Holding cost based on funder quote')]//label//span")
@@ -160,6 +160,15 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
+	
+	@FindBy(xpath = "//input[@id='optionalFinalPayment']")
+	private WebElement optional_final_payment;
+
+	@FindBy(xpath = "//input[@id='monthlyMaintenancePayment']")
+	private WebElement monthly_maintenance_rental;
+	
+	@FindBy(xpath = "//*[text()=' Reset ']")
+	private WebElement funder_reset_button;
 
 	public HoldingCost_CP_BCH_Page() {
 		PageFactory.initElements(driver, this);
@@ -345,6 +354,90 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 
 	}
 
+	public void add_funder_quote_with_maintenance_in_asset_funding_tab(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException {
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		try { Click.on(driver, funder_reset_button, 30);Thread.sleep(2000);}
+		catch(Exception e) {}
+		
+		
+		Click.on(driver, add_funder_quote, 30);
+
+		Thread.sleep(3000);
+
+		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		Click.on(driver, funder_maintenance_toggle_button, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		Click.on(driver, funder, 30);
+
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.ENTER).build().perform();
+
+		Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+		Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+//		String methodName = Class.forName(Thread.currentThread().getStackTrace()[3].getMethodName()).getName();
+		
+		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+        String callerMethodName = stackTraceElements[2].getMethodName();
+		
+		
+		System.out.println(callerMethodName);
+		
+		
+		if (callerMethodName.contains("funder_with_different_term"))
+		{
+			
+			double term1 = ((Double.parseDouble(term)+1)/10);
+			
+			Click.sendKeysdouble(driver, duration, term1, 30);
+			
+		}else {			
+		
+		Click.sendKeys(driver, duration, term, 30);
+		
+		}
+
+		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
+
+		Click.on(driver, contract_mileage, 30);
+
+		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+
+		Click.sendKeys(driver, document_fee, documentFee, 30);
+
+		Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+
+		Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+				
+		Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 30);
+
+		Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
+
+		Thread.sleep(5000);
+
+		Click.on(driver, add, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+	}
+
+	
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,
 			String maintenance_required, String target_rental, String sheet_name)

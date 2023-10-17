@@ -3,26 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_Test">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test">
         <methods>
-          <include name="verify_holding_cost_on_editing_residual_value_test"/>
-          <include name="open_order_created_in_acquisition_test"/>
-          <include name="verify_payments_to_funder_statuses_for_required_flow_test"/>
-          <include name="verify_holding_cost_on_editing_percentage_cap_residual_test"/>
-          <include name="verify_status_after_selecting_the_added_funder_in_required_flow_test"/>
-          <include name="verify_holding_cost_on_adding_funder"/>
-          <include name="verify_completed_status_for_required_flow_test"/>
-          <include name="add_funder"/>
-          <include name="setup"/>
           <include name="end"/>
+          <include name="verify_funder_with_different_term_and_mileage_can_be_added_test" invocation-numbers="0"/>
           <include name="verify_default_status_required_flow_test"/>
-          <include name="verify_finance_documents_statuses_for_required_flow_test"/>
           <include name="start_info"/>
-          <include name="verify_holding_cost_shown_test"/>
-          <include name="verify_holding_cost_on_editing_add_term_and_mileage_test"/>
-          <include name="verify_status_after_adding_funder_required_flow_test"/>
+          <include name="open_order_created_in_acquisition_test"/>
+          <include name="verify_funder_with_same_term_and_mileage_can_not_be_added_test"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

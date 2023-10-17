@@ -18,6 +18,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import com.amt.HoldingCostPages.HoldingCost_CP_BCH_Page;
 import com.amt.HoldingCostPages.HoldingCost_HPNR_HPRPage;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
@@ -26,6 +27,7 @@ import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.JavaScriptExecutor;
+import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
 
 public class AssetFundingPage extends TestBase {
@@ -460,7 +462,7 @@ public class AssetFundingPage extends TestBase {
 		@FindBy(xpath = "//span[@class='slider round sliderRed']")
 		private WebElement common_maintenance_toggle;
 
-		@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[4]/div/p/strong")
+		@FindBy(xpath = "//*[contains(text(),'CAP monthly maint. cost')]//ancestor::div[1]//p//strong")
 		private WebElement cap_monthly_maint_cost;
 
 		@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']")
@@ -480,8 +482,9 @@ public class AssetFundingPage extends TestBase {
 		
 		@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
 		private WebElement total_cap_maintenance_cost;
+		
 
-	
+	ReadExcelCalculation obj_read_excel_calculation_page;
 
 	Properties prop;
 	
@@ -492,6 +495,8 @@ public class AssetFundingPage extends TestBase {
 	AssetFundingPage obj_vehicle_order_tab;
 	
 	HoldingCost_HPNR_HPRPage obj_holding_cost_page;
+	
+	HoldingCost_CP_BCH_Page obj_holding_cost_CP_BCH_page;
 
 	public AssetFundingPage() {
 		try {
@@ -506,7 +511,114 @@ public class AssetFundingPage extends TestBase {
 		}
 		PageFactory.initElements(driver, this);
 	}
+	
+	public boolean verify_funder_with_same_term_and_mileage_can_not_be_added(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException {
+		
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Adding funder with same term and mileage which was present already");
+		System.out.println("Adding funder with same term and mileage which was present already");
+		
+		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page();
+		boolean status = false;
+		
+		     obj_holding_cost_CP_BCH_page.add_funder_quote_with_maintenance_in_asset_funding_tab( quoteRef,  expiryDate,
+			 term,  milesPerAnnum,  cashDeposit,  financeCharges,  documentFee,
+			 monthlyPayment,  optionalFinalPayment,  optionToPurchaseFee,  monthlyMaintPayment,
+			 pencePerExcessMileFinance,  pencePerExcessMileMaintenance,  sheet_name);	
+		
+			//get warning message displayed on toaster and verify with standard
+			ExplicitWait.visibleElement(driver, toaster, 20);
+			
+			String toasterMessage = toaster.getText();
+			
+			LO.print          ("Tried adding same funder with same term and mileage , got warning message : "+toasterMessage);
+			System.out.println("Tried adding same funder with same term and mileage , got warning message : "+toasterMessage);
 
+			
+			String expectedToasterMessage = "Funder quote already exists for this term and mileage combination";
+			
+			
+			if(toasterMessage.equalsIgnoreCase(expectedToasterMessage))
+			{
+				LO.print          ("Therefore funder with same term and mileage can not be added");
+				System.out.println("Therefore funder with same term and mileage can not be added");
+				
+
+				 status=true;
+				
+			}
+			else
+			{
+				LO.print          ("Warning : Funder with same term and mileage is added");
+				System.err.println("Warning : Funder with same term and mileage is added");
+				 status=false;
+			}			
+		
+		return status;
+		
+		
+	}
+
+	public boolean verify_funder_with_different_term_and_mileage_can_added(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException {
+		
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Adding funder with different term and mileage which was present already");
+		System.out.println("Adding funder with different term and mileage which was present already");
+		
+		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page();
+		boolean status = false;
+		
+		     obj_holding_cost_CP_BCH_page.add_funder_quote_with_maintenance_in_asset_funding_tab( quoteRef,  expiryDate,
+			 term,  milesPerAnnum,  cashDeposit,  financeCharges,  documentFee,
+			 monthlyPayment,  optionalFinalPayment,  optionToPurchaseFee,  monthlyMaintPayment,
+			 pencePerExcessMileFinance,  pencePerExcessMileMaintenance,  sheet_name);	
+		
+			//get warning message displayed on toaster and verify with standard
+			ExplicitWait.visibleElement(driver, toaster, 20);
+			
+			String toasterMessage = toaster.getText();
+			
+			LO.print          ("Tried adding same funder with different term and mileage , got warning message : "+toasterMessage);
+			System.out.println("Tried adding same funder with different term and mileage , got warning message : "+toasterMessage);
+
+			
+			String expectedToasterMessage = "Funder quote added successfully";
+			
+			
+			if(toasterMessage.equalsIgnoreCase(expectedToasterMessage))
+			{
+				LO.print          ("Therefore funder with different term and mileage can be added");
+				System.out.println("Therefore funder with different term and mileage can be added");
+				
+
+				 status=true;
+				
+			}
+			else
+			{
+				LO.print          ("Warning : Funder with different term and mileage is not added");
+				System.err.println("Warning : Funder with different term and mileage is not added");
+				 status=false;
+			}			
+		
+		return status;
+		
+		
+	}
+
+	
 	public boolean open_asset_funding_tab_and_complete_cash_purchase() throws InterruptedException {
 
 		Click.on(driver, complete_cash_purchase, 30);
@@ -910,6 +1022,174 @@ public class AssetFundingPage extends TestBase {
 	}
 
 	
+	public void verify_holding_cost_after_adding_cap_maint_for_BCH() throws InterruptedException, IOException {
+
+	
+		
+		
+		String sheet_Name = GetExcelFormulaValue.get_cell_value(1, 2, prop.getProperty("Order_ID"));
+
+		Click.on(driver, common_maintenance_toggle, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
+		
+		LO.print          ("Made Maint toggle On for adding a cap maint to holding cost");
+		System.out.println("Made Maint toggle On for adding a cap maint to holding cost");
+
+		
+		Click.on(driver, holding_cost_summary, 10);
+		
+		Thread.sleep(3000);
+		
+    	ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
+
+		String cap_monthly_maint_value_from_screen = RemoveComma
+				.of(cap_monthly_maint_cost.getText().trim().substring(2));
+		
+		LO.print          ("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+		System.out.println("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 30);
+		double holding_cost_from_screen = Double
+				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().trim().substring(2)));
+		
+		LO.print          ("Writing Monthly CAP maint cost from screen to excel");
+		System.out.println("Writing Monthly CAP maint cost from screen to excel");
+
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_BCH( "YES", cap_monthly_maint_value_from_screen, 
+				sheet_Name);
+
+		double holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1, sheet_Name);
+
+		double diff = Difference.of_two_Double_Values(holding_cost_from_screen, holding_cost_from_excel);
+
+	
+		LO.print          ("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+		System.out.println("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+
+		LO.print          ("Holding Cost from excel after adding maint" + holding_cost_from_excel);
+		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);	
+
+	
+	}
+
+	
+	public void verify_holding_cost_after_adding_cap_maint_for_HPNR() throws InterruptedException, IOException {
+
+		
+		LO.print          ("");
+		System.out.println("");
+
+		
+		String sheet_Name = GetExcelFormulaValue.get_cell_value(1, 2, prop.getProperty("Order_ID"));
+
+		Click.on(driver, common_maintenance_toggle, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
+		
+		LO.print          ("Made Maint toggle On for adding a cap maint to holding cost");
+		System.out.println("Made Maint toggle On for adding a cap maint to holding cost");
+
+		
+		Click.on(driver, holding_cost_summary, 10);
+		
+		Thread.sleep(3000);
+		
+    	ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
+
+		String cap_monthly_maint_value_from_screen = RemoveComma
+				.of(cap_monthly_maint_cost.getText().trim().substring(2));
+		
+		LO.print          ("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+		System.out.println("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 30);
+		double holding_cost_from_screen = Double
+				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().trim().substring(2)));
+		
+		LO.print          ("Writing Monthly CAP maint cost from screen to excel");
+		System.out.println("Writing Monthly CAP maint cost from screen to excel");
+
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_HPNR( "YES", cap_monthly_maint_value_from_screen, 
+				sheet_Name);
+
+		double holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(57, 1, sheet_Name);
+
+		double diff = Difference.of_two_Double_Values(holding_cost_from_screen, holding_cost_from_excel);
+
+	
+		LO.print          ("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+		System.out.println("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+
+		LO.print          ("Holding Cost from excel after adding maint" + holding_cost_from_excel);
+		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);	
+
+	
+	}
+	
+	
+	public void save_the_order_and_check_the_holding_cost_in_the_quote() throws InterruptedException, IOException {
+
+		
+		LO.print          ("");
+		System.out.println("");
+
+		
+		String sheet_Name = GetExcelFormulaValue.get_cell_value(1, 2, prop.getProperty("Order_ID"));
+
+		Click.on(driver, common_maintenance_toggle, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
+		
+		LO.print          ("Made Maint toggle On for adding a cap maint to holding cost");
+		System.out.println("Made Maint toggle On for adding a cap maint to holding cost");
+
+		
+		Click.on(driver, holding_cost_summary, 10);
+		
+		Thread.sleep(3000);
+		
+    	ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
+
+		String cap_monthly_maint_value_from_screen = RemoveComma
+				.of(cap_monthly_maint_cost.getText().trim().substring(2));
+		
+		LO.print          ("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+		System.out.println("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 30);
+		double holding_cost_from_screen = Double
+				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().trim().substring(2)));
+		
+		LO.print          ("Writing Monthly CAP maint cost from screen to excel");
+		System.out.println("Writing Monthly CAP maint cost from screen to excel");
+
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_HPNR( "YES", cap_monthly_maint_value_from_screen, 
+				sheet_Name);
+
+		double holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(57, 1, sheet_Name);
+
+		double diff = Difference.of_two_Double_Values(holding_cost_from_screen, holding_cost_from_excel);
+
+	
+		LO.print          ("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+		System.out.println("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+
+		LO.print          ("Holding Cost from excel after adding maint" + holding_cost_from_excel);
+		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);	
+
+	
+	}
+
 	public boolean verify_status_after_adding_funder_required_flow() throws InterruptedException, IOException {
 
 
@@ -1404,6 +1684,25 @@ public boolean verify_funders_are_deleted_on_changing_contract_type() throws Int
     	
     }
 	return funderDeleteButton;		
+	
+
+}
+
+
+
+public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws InterruptedException, IOException {
+
+	
+	LO.print          ("");
+	System.out.println("");
+
+	// try to delete funder
+	
+	LO.print          ("Adding funder with same term and mileage");
+	System.out.println("Adding funder with same term and mileage");
+	
+	
+	
 	
 
 }

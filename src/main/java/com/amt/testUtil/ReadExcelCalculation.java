@@ -45,8 +45,41 @@ public class ReadExcelCalculation extends TestBase {
 	}
 
 	public ReadExcelCalculation obj_read_excel_calculation_page;
+	
+	
+	public void write_monthly_maint_cost_to_excel_BCH(String maintenance_required,
+			String monthlyMaintenanceRental, String sheet_name)
+			throws IOException {
 
-	public void write_holding_cost_cap_values_to_excel_with_maintenance_for_used_car(double terms_from_screen,
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);	
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue(maintenance_required);
+	
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(Double.parseDouble(monthlyMaintenanceRental));
+	
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+	}
+
+	
+	public void write_monthly_maint_cost_to_excel_HPNR(String maintenance_required,
+			String monthlyMaintenanceRental, String sheet_name)
+			throws IOException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);	
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue(maintenance_required);
+	
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(Double.parseDouble(monthlyMaintenanceRental));
+	
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+	}
+
+
+	public void write_holding_cost_cap_values_to_excel_with_maintenance(double terms_from_screen,
 			double annual_mileage, double used_residual_value, double total_cap_maintenance_value_converted,
 			double percentage_cap_residual_value, double percentage_cap_maintenance_cost, String sheet_name)
 			throws IOException, ClassNotFoundException {
@@ -1078,10 +1111,10 @@ public class ReadExcelCalculation extends TestBase {
 
 		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));
 
-		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 50);
-
-		double used_residual_value = Double
-				.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
+//		ExplicitWait.visibleElement(driver, holding_cost_summary_residual_value_used, 50);
+//
+//		double used_residual_value = Double
+//				.parseDouble(RemoveComma.of(holding_cost_summary_residual_value_used.getText().substring(2)));
 
 		double residual_value_test_data = Double.parseDouble(residual_value_used_from_excel);
 
@@ -1423,9 +1456,11 @@ public class ReadExcelCalculation extends TestBase {
 		if (sheet_name.contains("Use")) {
 
 			wb.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B60*B63");
+			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B60*B66");
 
 		} else {
 			wb.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B61*B63");
+			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B61*B66");
 	}
 		wb.getSheet(sheet_name).getRow(64).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
@@ -1440,14 +1475,14 @@ public class ReadExcelCalculation extends TestBase {
 
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
 
-			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("E15*B66");
+			
 
 			wb.getSheet(sheet_name).getRow(73).getCell(1)
 					.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum_LCV")));
 			wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(
 					Double.parseDouble(prop.getProperty("additional_rfl_premium_vehicle_over_40k_per_annum_LCV")));
 		} else {
-			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B61*B66");
+			
 			wb.getSheet(sheet_name).getRow(73).getCell(1)
 					.setCellValue(Double.parseDouble(prop.getProperty("additional_rfl_per_annum")));
 			wb.getSheet(sheet_name).getRow(74).getCell(1).setCellValue(
@@ -1486,7 +1521,7 @@ public class ReadExcelCalculation extends TestBase {
 	
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used")) {
 			wb.getSheet(sheet_name).getRow(63).getCell(1).setCellFormula("B60*B63");
-			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B61*B66");
+			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B60*B66");
 		}
 		else
 		{
@@ -1664,7 +1699,7 @@ public class ReadExcelCalculation extends TestBase {
 		
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
 
-			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("E15*B72");
+			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B67*B72");
 			
 			if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {
 				wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B66*B72");
@@ -1673,7 +1708,12 @@ public class ReadExcelCalculation extends TestBase {
 					
 			
           }
-		else
+		else if(Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_car"))
+		{
+			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B66*B72");
+		}
+		
+		else 
 		{
 			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B67*B72");
 		}
@@ -1772,15 +1812,17 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("tracker_subs_per_month_ex_vat")));
 		
 		
-		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used")) {
 
 			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("E15*B72");
+			wb.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("E15*B69");
           }
 		else
 		{
 			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B67*B72");
+			wb.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B67*B69");
 		}
-		
+			
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
 
 			wb.getSheet(sheet_name).getRow(79).getCell(1).setCellValue(0);
@@ -1827,8 +1869,8 @@ public class ReadExcelCalculation extends TestBase {
 		wb.getSheet(sheet_name).getRow(64).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
 
-		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
-			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("E15*B66");
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used")) {
+			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B60*B66");
 		} else {
 			wb.getSheet(sheet_name).getRow(66).getCell(1).setCellFormula("B61*B66");
 		}
@@ -1875,15 +1917,10 @@ public class ReadExcelCalculation extends TestBase {
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage")));
 		wb.getSheet(sheet_name).getRow(70).getCell(1)
 				.setCellValue(Double.parseDouble(prop.getProperty("minimum_margin_percentage_for_broker_vrb")));
-		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
-
-			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("E15*B72");
-			
-			if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used_LCV")) {
+		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("used")) {
 				wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B66*B72");
-			}
-
-          }
+			}          
 		else
 		{
 			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B67*B72");
