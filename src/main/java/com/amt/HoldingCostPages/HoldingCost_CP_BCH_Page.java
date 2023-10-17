@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -50,13 +51,13 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='ResidualValue']")
 	private WebElement holding_cost_summary_residual_value_used_input_field;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
+	@FindBy(xpath = "//*[contains(text(),'Term')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_terms;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[2]/div/p/strong")
+	@FindBy(xpath = "//*[contains(text(),'Miles per annum')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_mileage;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[3]/div/p/strong")
+	@FindBy(xpath = "//*[contains(text(),'Total monthly holding cost')]//ancestor::div[1]//p//strong")
 	private WebElement total_monthly_holding_cost;
 
 	@FindBy(xpath = "//*[@class='slider round sliderRed']")
@@ -74,7 +75,7 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 	@FindBy(xpath = "//input[@id='ResidualValue']")
 	private WebElement residual_value_used;
 
-	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
+	@FindBy(xpath = "//input[@id='Maintenancevalue3']|//input[@id='Maintenancevalue2']")
 	private WebElement maintenance_cost_used;
 
 	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[5]/div/p/strong")
@@ -362,7 +363,7 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
-		try { Click.on(driver, funder_reset_button, 30);Thread.sleep(2000);}
+		try { Click.on(driver, funder_reset_button, 10);Thread.sleep(2000);}
 		catch(Exception e) {}
 		
 		
@@ -436,6 +437,81 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
 	}
+
+	
+	public boolean verify_residual_value_maint_cost_fields_are_freezed()
+			{
+		
+		
+		LO.print("Verifying that Residual Value and Maintenance Cost Fields are freezed");
+		System.out.println("Verifying that Residual Value and Maintenance Cost Fields are freezed");
+		
+		Click.on(driver, holding_cost_summary, 10);
+		
+		ExplicitWait.visibleElement(driver, residual_value_used, 10);
+		
+		ExplicitWait.visibleElement(driver, maintenance_cost_used, 10);
+		
+		if(!residual_value_used.isEnabled()&&!maintenance_cost_used.isEnabled())
+		{
+			LO.print          ("Residual Value and Maintenance Cost Fields are seen freezed");
+			System.out.println("Residual Value and Maintenance Cost Fields are seen freezed");
+			
+			return true;
+			
+
+		}else
+		{
+			LO.print          ("Residual Value and Maintenance Cost Fields are seen not freezed");
+			System.err.println("Residual Value and Maintenance Cost Fields are seen not freezed");
+
+			return false;
+		}	
+
+		}
+	
+	public boolean verify_additional_term_mileage_fields_are_disappeared()
+	{
+
+		
+		
+		LO.print("Verifying that additional term and mileage Fields are disappeared");
+		System.out.println("Verifying that additional term and mileage Fields are disappeared");
+		boolean status=false;
+		 try {	
+			 
+		ExplicitWait.visibleElement(driver, additional_terms, 10);		
+		ExplicitWait.visibleElement(driver, additional_mileage, 10);
+		
+		 }catch(Exception  e)
+		 {
+				LO.print          ("Additional Term and Mileage Fields are disappeared after selecting a funder");
+				System.out.println("Additional Term and Mileage Fields are disappeared after selecting a funder");
+				status=true;
+		 }
+		return status;	
+		
+	}
+
+	
+	public void edit_percentage_residual_value() throws InterruptedException
+	{
+
+		
+		ExplicitWait.visibleElement(driver, holding_cost_percentage_cap_residual_value_used, 20);
+
+		holding_cost_percentage_cap_residual_value_used.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+		Click.sendKeys(driver, holding_cost_percentage_cap_residual_value_used, "65", 20);		
+
+		Actions act = new Actions(driver);
+
+		act.sendKeys(Keys.TAB).build().perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	
+	}
+
 
 	
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(

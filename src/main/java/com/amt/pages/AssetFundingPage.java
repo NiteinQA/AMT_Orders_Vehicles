@@ -590,8 +590,8 @@ public class AssetFundingPage extends TestBase {
 			
 			String toasterMessage = toaster.getText();
 			
-			LO.print          ("Tried adding same funder with different term and mileage , got warning message : "+toasterMessage);
-			System.out.println("Tried adding same funder with different term and mileage , got warning message : "+toasterMessage);
+			LO.print          ("Tried adding same funder with different term and mileage , got validation message : "+toasterMessage);
+			System.out.println("Tried adding same funder with different term and mileage , got validation message : "+toasterMessage);
 
 			
 			String expectedToasterMessage = "Funder quote added successfully";
@@ -616,6 +616,130 @@ public class AssetFundingPage extends TestBase {
 		return status;
 		
 		
+	}
+
+	
+	public boolean verify_holding_cost_after_selecting_newly_added_funder(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException {
+		
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Selecting Newly added funder");
+		System.out.println("Selecting Newly added funder");
+		
+		Click.on(driver, select_a_funder, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		double totalMonthlyHoldingCostActual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+		
+		String term1 = String.valueOf((Double.parseDouble(term)+1));	
+		
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		
+		double totalMonthlyHoldingCostActualExpected = obj_read_excel_calculation_page
+				.verify_holding_cost_after_adding_funder_with_maintenance_for_cp_bch_pch(term1, milesPerAnnum,
+						cashDeposit, monthlyPayment, monthlyMaintPayment, optionalFinalPayment,
+						optionToPurchaseFee, pencePerExcessMileFinance, pencePerExcessMileMaintenance, documentFee,
+						sheet_name);
+		
+		double diff = Difference.of_two_Double_Values(totalMonthlyHoldingCostActual,
+				totalMonthlyHoldingCostActualExpected);
+		boolean flag = false;
+		if (diff < 0.2) {
+			flag = true;
+			LO.print          ("Holding Cost Shown After Selecting Newly Added Funder -- Found OK");
+			System.out.println("Holding Cost Shown After Selecting Newly Added Funder -- Found OK");
+		}else
+		{
+			LO.print          ("Holding Cost Shown After Selecting Newly Added Funder -- Found Wrong");
+			System.err.println("Holding Cost Shown After Selecting Newly Added Funder -- Found Wrong");
+
+		}
+
+		return flag;		
+		
+	}
+	
+	
+	public boolean verify_residualValue_maintCost_fields_are_freezed_after_selecting_a_funder() throws InterruptedException, IOException, ClassNotFoundException {
+		
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared");
+		System.out.println("Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared");
+		
+		
+		
+		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page();
+		 
+		
+		boolean residualAndMaintCost =  obj_holding_cost_CP_BCH_page.verify_residual_value_maint_cost_fields_are_freezed();	
+	
+		boolean addTermAndMileage =  obj_holding_cost_CP_BCH_page.verify_additional_term_mileage_fields_are_disappeared();	
+		
+	
+		boolean flag = false;
+		if ((residualAndMaintCost=true)&&(addTermAndMileage=true)) {
+			flag = true;
+		}else
+		{
+
+		}
+		return flag;		
+	}
+
+	
+	public boolean verify_holding_cost_doesnt_change_if_funder_quote_is_selected() throws InterruptedException, IOException, ClassNotFoundException {
+		
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Funder is selected , now changing % Residual Value");
+		System.out.println("Funder is selected , now changing % Residual Value");
+		
+		
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		double totalMonthlyHoldingCostBeforeEditingPercentageResidualValue = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+
+		LO.print          ("Total Monthly Holding Cost Before Editing % Residual Value , Based on funder Quote is "+totalMonthlyHoldingCostBeforeEditingPercentageResidualValue);
+		System.out.println("Total Monthly Holding Cost Before Editing % Residual Value , Based on funder Quote is "+totalMonthlyHoldingCostBeforeEditingPercentageResidualValue);
+	
+		
+		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page(); 
+		
+	    obj_holding_cost_CP_BCH_page.edit_percentage_residual_value();	
+	    
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		double totalMonthlyHoldingCostAfterEditingPercentageResidualValue = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+
+		LO.print          ("Total Monthly Holding Cost After Editing % Residual Value , Based on funder Quote is "+totalMonthlyHoldingCostAfterEditingPercentageResidualValue);
+		System.out.println("Total Monthly Holding Cost After Editing % Residual Value , Based on funder Quote is "+totalMonthlyHoldingCostAfterEditingPercentageResidualValue);
+
+		
+		boolean flag = false;
+		if ((Difference.of_two_Double_Values(totalMonthlyHoldingCostBeforeEditingPercentageResidualValue, totalMonthlyHoldingCostAfterEditingPercentageResidualValue))<0.1) {
+			flag = true;
+			
+			LO.print          ("Holding Cost after changing % Residual Value ( based on funder quote)- Found OK");
+			System.out.println("Holding Cost after changing % Residual Value ( based on funder quote)- Found OK");
+
+		}else
+		{
+			LO.print          ("Holding Cost after changing % Residual Value ( based on funder quote)- Found Wrong");
+			System.err.println("Holding Cost after changing % Residual Value ( based on funder quote)- Found Wrong");
+
+		}
+		return flag;		
 	}
 
 	

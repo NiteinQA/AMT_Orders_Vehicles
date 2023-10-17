@@ -1299,9 +1299,6 @@ public class ReadExcelCalculation extends TestBase {
 			String pencePerExcessMileMaintenance, String documentFee, String sheet_name)
 			throws IOException, InterruptedException {
 
-		LO.print("***********Holding Cost Calculations has been Started*************");
-		System.out.println("***********Holding Cost Calculations has been Started*************");
-
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 

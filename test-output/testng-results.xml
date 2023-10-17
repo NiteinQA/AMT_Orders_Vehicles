@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[<b>Searching for Order ID UU-54189</b> <br />]]>
@@ -29,36 +29,87 @@
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Adding funder with same term and mileage which was present already</b> <br />]]>
+      <![CDATA[<b>Adding funder with different term and mileage which was present already</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Tried adding same funder with different term and mileage , got warning message : Funder quote added successfully</b> <br />]]>
+      <![CDATA[<b>Tried adding same funder with different term and mileage , got validation message : Funder quote added successfully</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Therefore funder with different term and mileage can not be added</b> <br />]]>
+      <![CDATA[<b>Therefore funder with different term and mileage can be added</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b></b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Selecting Newly added funder</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Holding Cost Shown After Selecting Newly Added Funder -- Found OK</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b></b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b></b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Verifying that Residual Value and Maintenance Cost Fields are freezed</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Residual Value and Maintenance Cost Fields are seen freezed</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b></b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Verifying that additional term and mileage Fields are disappeared</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Additional Term and Mileage Fields are disappeared after selecting a funder</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b></b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Funder is selected , now changing % Residual Value</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b></b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>% Residual Value changed , and Holding Cost based on funder quote Found OK</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-10-16T19:13:43 IST" name="Default suite" finished-at="2023-10-16T19:16:06 IST" duration-ms="142536">
+  <suite started-at="2023-10-17T17:54:23 IST" name="Default suite" finished-at="2023-10-17T17:58:06 IST" duration-ms="222250">
     <groups>
     </groups>
-    <test started-at="2023-10-16T19:13:43 IST" name="Default test" finished-at="2023-10-16T19:16:06 IST" duration-ms="142536">
+    <test started-at="2023-10-17T17:54:23 IST" name="Default test" finished-at="2023-10-17T17:58:06 IST" duration-ms="222250">
       <class name="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:13:43 IST" name="start_info" finished-at="2023-10-16T19:13:43 IST" duration-ms="6" status="PASS">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:54:23 IST" name="start_info" finished-at="2023-10-17T17:54:23 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:13:43 IST" name="setup" finished-at="2023-10-16T19:13:55 IST" duration-ms="12026" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:54:23 IST" name="setup" finished-at="2023-10-17T17:54:42 IST" duration-ms="18807" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:13:55 IST" name="open_order_created_in_acquisition_test" finished-at="2023-10-16T19:14:43 IST" duration-ms="47873" status="PASS">
+        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:54:42 IST" name="open_order_created_in_acquisition_test" finished-at="2023-10-17T17:56:29 IST" duration-ms="106981" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b>Searching for Order ID UU-54189</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- open_order_created_in_acquisition_test -->
-        <test-method signature="verify_default_status_required_flow_test()[pri:2, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:14:43 IST" name="verify_default_status_required_flow_test" finished-at="2023-10-16T19:14:50 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.open_order_created_in_acquisition_test" duration-ms="7516" status="PASS">
+        <test-method signature="verify_default_status_required_flow_test()[pri:2, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:56:29 IST" name="verify_default_status_required_flow_test" finished-at="2023-10-17T17:56:38 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.open_order_created_in_acquisition_test" duration-ms="8510" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
@@ -71,7 +122,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- verify_default_status_required_flow_test -->
-        <test-method signature="verify_funder_with_same_term_and_mileage_can_not_be_added_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:14:51 IST" name="verify_funder_with_same_term_and_mileage_can_not_be_added_test" data-provider="testData" finished-at="2023-10-16T19:15:42 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_default_status_required_flow_test" duration-ms="51115" status="PASS">
+        <test-method signature="verify_funder_with_same_term_and_mileage_can_not_be_added_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:56:38 IST" name="verify_funder_with_same_term_and_mileage_can_not_be_added_test" data-provider="testData" finished-at="2023-10-17T17:57:09 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_default_status_required_flow_test" duration-ms="30980" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -159,7 +210,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- verify_funder_with_same_term_and_mileage_can_not_be_added_test -->
-        <test-method signature="verify_funder_with_different_term_and_mileage_can_be_added_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:15:43 IST" name="verify_funder_with_different_term_and_mileage_can_be_added_test" data-provider="testData" finished-at="2023-10-16T19:16:06 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_funder_with_same_term_and_mileage_can_not_be_added_test" duration-ms="22743" status="PASS">
+        <test-method signature="verify_funder_with_different_term_and_mileage_can_be_added_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:57:10 IST" name="verify_funder_with_different_term_and_mileage_can_be_added_test" data-provider="testData" finished-at="2023-10-17T17:57:32 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_funder_with_same_term_and_mileage_can_not_be_added_test" duration-ms="22610" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -237,17 +288,152 @@
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Adding funder with same term and mileage which was present already</b> <br />]]>
+              <![CDATA[<b>Adding funder with different term and mileage which was present already</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Tried adding same funder with different term and mileage , got warning message : Funder quote added successfully</b> <br />]]>
+              <![CDATA[<b>Tried adding same funder with different term and mileage , got validation message : Funder quote added successfully</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Therefore funder with different term and mileage can not be added</b> <br />]]>
+              <![CDATA[<b>Therefore funder with different term and mileage can be added</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- verify_funder_with_different_term_and_mileage_can_be_added_test -->
-        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@7d0b7e3c]" started-at="2023-10-16T19:16:06 IST" name="end" finished-at="2023-10-16T19:16:06 IST" duration-ms="0" status="PASS">
+        <test-method signature="verify_holding_cost_after_selecting_newly_added_funder_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:57:33 IST" name="verify_holding_cost_after_selecting_newly_added_funder_test" data-provider="testData" finished-at="2023-10-17T17:57:43 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_funder_with_different_term_and_mileage_can_be_added_test" duration-ms="9844" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[REF001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[05/12/23]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[12]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[5000]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[12]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[50]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[6000]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[CP (Formula 3) - BCH]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<b></b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Selecting Newly added funder</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Holding Cost Shown After Selecting Newly Added Funder -- Found OK</b> <br />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_holding_cost_after_selecting_newly_added_funder_test -->
+        <test-method signature="verify_residualValue_and_maintCost_fields_are_freezed_after_selecting_a_funder_test()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:57:43 IST" name="verify_residualValue_and_maintCost_fields_are_freezed_after_selecting_a_funder_test" finished-at="2023-10-17T17:57:53 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_holding_cost_after_selecting_newly_added_funder_test" duration-ms="10830" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[<b></b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b></b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Verifying that Residual Value and Maintenance Cost Fields are freezed</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Residual Value and Maintenance Cost Fields are seen freezed</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b></b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Verifying that additional term and mileage Fields are disappeared</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Additional Term and Mileage Fields are disappeared after selecting a funder</b> <br />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_residualValue_and_maintCost_fields_are_freezed_after_selecting_a_funder_test -->
+        <test-method signature="verify_holding_cost_doesnt_change_if_funder_quote_is_selected_test()[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:57:53 IST" name="verify_holding_cost_doesnt_change_if_funder_quote_is_selected_test" finished-at="2023-10-17T17:58:06 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_holding_cost_after_selecting_newly_added_funder_test" duration-ms="12171" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[<b></b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Funder is selected , now changing % Residual Value</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b></b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>% Residual Value changed , and Holding Cost based on funder quote Found OK</b> <br />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verify_holding_cost_doesnt_change_if_funder_quote_is_selected_test -->
+        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e]" started-at="2023-10-17T17:58:06 IST" name="end" finished-at="2023-10-17T17:58:06 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->

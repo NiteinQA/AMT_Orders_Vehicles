@@ -6,10 +6,12 @@
       <class name="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test">
         <methods>
           <include name="end"/>
-          <include name="verify_funder_with_different_term_and_mileage_can_be_added_test" invocation-numbers="0"/>
+          <include name="verify_funder_with_different_term_and_mileage_can_be_added_test"/>
           <include name="verify_default_status_required_flow_test"/>
           <include name="start_info"/>
+          <include name="verify_holding_cost_after_selecting_newly_added_funder_test"/>
           <include name="open_order_created_in_acquisition_test"/>
+          <include name="verify_residualValue_and_maintCost_fields_are_freezed_after_selecting_a_funder_test"/>
           <include name="verify_funder_with_same_term_and_mileage_can_not_be_added_test"/>
           <include name="setup"/>
         </methods>

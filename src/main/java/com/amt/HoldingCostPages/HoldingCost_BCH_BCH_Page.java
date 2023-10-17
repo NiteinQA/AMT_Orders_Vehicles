@@ -30,13 +30,13 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 	@FindBy(xpath = "//span[@class='slider round sliderRed']")
 	private WebElement maintenance_toggle_button;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[1]/div/p/strong")
+	@FindBy(xpath = "//*[contains(text(),'Term')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_terms;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[2]/div/p/strong")
+	@FindBy(xpath = "//*[contains(text(),'Miles per annum')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_mileage;
 
-	@FindBy(xpath = "//*[@id='headingCustomerQuote']/div[2]/div/div[3]/div/p/strong")
+	@FindBy(xpath = "//*[contains(text(),'Total monthly holding cost')]//ancestor::div[1]//p//strong")
 	private WebElement total_monthly_holding_cost;
 
 	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
