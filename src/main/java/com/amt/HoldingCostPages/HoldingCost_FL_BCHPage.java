@@ -238,6 +238,45 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 
 	}
 
+	public void write_holding_cost_to_quote_save_sheet() throws InterruptedException, IOException {
+		
+		
+		Click.on(driver, holding_cost, 30);
+
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
+		
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+	
+		Thread.sleep(2000);
+		
+		String total_monthly_holding_cost_actual = RemoveComma.of(total_monthly_holding_cost.getText().substring(2));
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		
+		obj_read_excel_calculation_page.write_holding_cost_without_maint_value_to_quote_save_excel_sheet(total_monthly_holding_cost_actual, "Order_ID");
+		
+		Click.on(driver, maintenance_toggle_button, 200);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+	
+		Thread.sleep(2000);
+		
+		String total_monthly_holding_cost_actual1 = RemoveComma.of(total_monthly_holding_cost.getText().substring(2));
+
+		obj_read_excel_calculation_page.write_holding_cost_with_maint_value_to_quote_save_excel_sheet(total_monthly_holding_cost_actual1, "Order_ID");
+
+		
+		Click.on(driver, maintenance_toggle_button, 200);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+
+		
+		
+	}
+
+	
 	public boolean verify_holding_cost_after_adding_funder_quote_with_maintenance(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String monthlyFinanceRental, String monthlyMaintenanceRental,
 			String finalBallonPayment, String documentFee, String pencePerExcessMileFinance,
@@ -249,8 +288,9 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 
 		LO.print("***********Entered in holding cost page ***********");
 		System.out.println("***********Entered in holding cost page ***********");
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		Click.on(driver, add_funder_quote, 30);
 
@@ -314,18 +354,16 @@ public class HoldingCost_FL_BCHPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
 		Thread.sleep(5000);
-		String monthly_holding_cost = total_monthly_holding_cost.getText().substring(2);
+		
+		double total_monthly_holding_cost_actual2 = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
 
-		String total_monthly_holding_cost_from_screen = RemoveComma.of(monthly_holding_cost);
-
-		LO.print("Total_monthly_holding_cost_from_screen =" + monthly_holding_cost);
-		System.out.println("Total_monthly_holding_cost_from_screen " + monthly_holding_cost);
+		LO.print("Total_monthly_holding_cost_from_screen =" + total_monthly_holding_cost_actual2);
+		System.out.println("Total_monthly_holding_cost_from_screen " + total_monthly_holding_cost_actual2);
 
 		LO.print("Total_monthly_holding_cost_from_excel =" + monthly_holding_cost_expected);
 		System.out.println("Total_monthly_holding_cost_from_excel " + monthly_holding_cost_expected);
 
-		double total_monthly_holding_cost_actual1 = Double.parseDouble(total_monthly_holding_cost_from_screen);
-		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual1,
+		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual2,
 				monthly_holding_cost_expected);
 		boolean flag = false;
 		if (diff < 0.2) {

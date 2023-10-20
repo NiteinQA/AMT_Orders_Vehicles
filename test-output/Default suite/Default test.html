@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>7/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>6/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Oct 17 17:54:23 IST 2023</td>
+<td>Started on:</td><td>Fri Oct 20 16:00:54 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>222 seconds (222250 ms)</td>
+<tr><td>Total time:</td><td>166 seconds (166662 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,214 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test()'><b>verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1879809643" onClick='toggleBox("Output-1879809643", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1879809643" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1879809643">
+<b></b> <br /><br/>
+<b>Selecting the funder</b> <br /><br/>
+<b>Selecting the other cell from Holding cost matrix</b> <br /><br/>
+<b>Now verifying that the funder is de-selected</b> <br /><br/>
+<b>Verified that the funder is de-selected after selecting ownbook matrix other cell --Found OK</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test_20_10_2023_04_02_57.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: No node with given id found
+  (Session info: chrome=118.0.5993.72)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [52fdce7bb39c66bd87dcf9fb5799ec90, getElementAttribute {id=85D5DCB0B2E7A88C49CD2F35DE60139D_element_1003, name=class}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 118.0.5993.72, chrome: {chromedriverVersion: 118.0.5993.70 (e52f33f30b91..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63219}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63219/devtoo..., se:cdpVersion: 118.0.5993.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (52fdce7bb39c66bd87dcf9fb5799ec90)] -&gt; xpath: //*[contains(@class, &apos;rTableCell&apos;)]]
+Session ID: 52fdce7bb39c66bd87dcf9fb5799ec90
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:152)
+	at com.amt.pages.AssetFundingPage.verify_funder_is_deselected_after_selecting_the_other_matrix_cell(AssetFundingPage.java:1919)
+	at orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test(Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.java:104)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1879809643", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1879809643'><pre>org.openqa.selenium.NoSuchElementException: no such element: No node with given id found
+  (Session info: chrome=118.0.5993.72)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [52fdce7bb39c66bd87dcf9fb5799ec90, getElementAttribute {id=85D5DCB0B2E7A88C49CD2F35DE60139D_element_1003, name=class}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 118.0.5993.72, chrome: {chromedriverVersion: 118.0.5993.70 (e52f33f30b91..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63219}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63219/devtoo..., se:cdpVersion: 118.0.5993.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (52fdce7bb39c66bd87dcf9fb5799ec90)] -&gt; xpath: //*[contains(@class, &apos;rTableCell&apos;)]]
+Session ID: 52fdce7bb39c66bd87dcf9fb5799ec90
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:152)
+	at com.amt.pages.AssetFundingPage.verify_funder_is_deselected_after_selecting_the_other_matrix_cell(AssetFundingPage.java:1919)
+	at orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test(Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.java:104)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>13</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test@f78a47e</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_document_is_uploaded_in_funder_test()'><b>verify_document_is_uploaded_in_funder_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1036227673" onClick='toggleBox("Output-1036227673", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1036227673" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1036227673">
+<b></b> <br /><br/>
+<b>Trying to upload doc in funder</b> <br /><br/>
+<b>Warning : Document in funder is not uploaded</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_document_is_uploaded_in_funder_test_20_10_2023_04_03_41.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_document_is_uploaded_in_funder_test(Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1036227673", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1036227673'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_document_is_uploaded_in_funder_test(Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>43</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test@f78a47e</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,111 +283,94 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_funder_with_same_term_and_mileage_can_not_be_added_test()'><b>verify_funder_with_same_term_and_mileage_can_not_be_added_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test<br>Parameters: REF001, 05/12/23, 12, 5000, 1000, 200, 12, 500, 50, 6000, 20, 10, 10, CP (Formula 3) - BCH<br/>
-<a href="#Output-131225875" onClick='toggleBox("Output-131225875", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-465427162" onClick='toggleBox("Output-465427162", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-131225875" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-131225875">
-<b></b> <br /><br/>
-<b>Adding funder with same term and mileage which was present already</b> <br /><br/>
-<b>Tried adding same funder with same term and mileage , got warning message : Funder quote already exists for this term and mileage combination</b> <br /><br/>
-<b>Therefore funder with same term and mileage can not be added</b> <br /><br/>
+<a href="#Output-465427162" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-465427162">
+<b>Searching for Order ID OD-95584</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>30</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e</td></tr>
+<td>57</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test@f78a47e</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_holding_cost_doesnt_change_if_funder_quote_is_selected_test()'><b>verify_holding_cost_doesnt_change_if_funder_quote_is_selected_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test<br/>
-<a href="#Output-2053317346" onClick='toggleBox("Output-2053317346", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test()'><b>verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-291279979" onClick='toggleBox("Output-291279979", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-2053317346" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-2053317346">
+<a href="#Output-291279979" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-291279979">
 <b></b> <br /><br/>
-<b>Funder is selected , now changing % Residual Value</b> <br /><br/>
-<b></b> <br /><br/>
-<b>% Residual Value changed , and Holding Cost based on funder quote Found OK</b> <br /><br/>
+<b>Making Cap Maint toggle button off and verifying Holding Cost</b> <br /><br/>
+<b>Now verifying the holding cost based on ownbook</b> <br /><br/>
+<b>Actual Holding cost based on ownbook is 900.75</b> <br /><br/>
+<b>Expected Holding cost based on ownbook 900.75</b> <br /><br/>
+<b>Holding cost based on ownbook found OK</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>12</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e</td></tr>
+<td>7</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test@f78a47e</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_residualValue_and_maintCost_fields_are_freezed_after_selecting_a_funder_test()'><b>verify_residualValue_and_maintCost_fields_are_freezed_after_selecting_a_funder_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test<br/>
-<a href="#Output-426933233" onClick='toggleBox("Output-426933233", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_selected_funder_can_not_be_edited_test()'><b>verify_selected_funder_can_not_be_edited_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1268629255" onClick='toggleBox("Output-1268629255", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-426933233" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-426933233">
+<a href="#Output-1268629255" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1268629255">
 <b></b> <br /><br/>
-<b>Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Verifying that Residual Value and Maintenance Cost Fields are freezed</b> <br /><br/>
-<b>Residual Value and Maintenance Cost Fields are seen freezed</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Verifying that additional term and mileage Fields are disappeared</b> <br /><br/>
-<b>Additional Term and Mileage Fields are disappeared after selecting a funder</b> <br /><br/>
+<b>Trying to edit the selected funder</b> <br /><br/>
+<b>Double Clicked on selected funder and we got warning message : A selected funder cannot be edited. Please remove funder selection before editing</b> <br /><br/>
+<b>Selected funder can not be edited</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>10</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e</td></tr>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test@f78a47e</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_holding_cost_after_selecting_newly_added_funder_test()'><b>verify_holding_cost_after_selecting_newly_added_funder_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test<br>Parameters: REF001, 05/12/23, 12, 5000, 1000, 200, 12, 500, 50, 6000, 20, 10, 10, CP (Formula 3) - BCH<br/>
-<a href="#Output-517615773" onClick='toggleBox("Output-517615773", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_default_status_required_flow_test()'><b>verify_default_status_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1789237070" onClick='toggleBox("Output-1789237070", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-517615773" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-517615773">
-<b></b> <br /><br/>
-<b>Selecting Newly added funder</b> <br /><br/>
-<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
-<b>Reading Monthly Holding Cost value from excel</b> <br /><br/>
-<b>Holding Cost Shown After Selecting Newly Added Funder -- Found OK</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>9</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e</td></tr>
-<tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test<br/>
-<a href="#Output-37878764" onClick='toggleBox("Output-37878764", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-37878764" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-37878764">
-<b>Searching for Order ID UU-54189</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>106</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e</td></tr>
-<tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_default_status_required_flow_test()'><b>verify_default_status_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test<br/>
-<a href="#Output-1707889234" onClick='toggleBox("Output-1707889234", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1707889234" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1707889234">
+<a href="#Output-1789237070" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1789237070">
 <b></b> <br /><br/>
 <b>Started verifying Default Status for BCH required flow</b> <br /><br/>
 <b>Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>8</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e</td></tr>
+<td>11</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test@f78a47e</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test.verify_funder_with_different_term_and_mileage_can_be_added_test()'><b>verify_funder_with_different_term_and_mileage_can_be_added_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test<br>Parameters: REF001, 05/12/23, 12, 5000, 1000, 200, 12, 500, 50, 6000, 20, 10, 10, CP (Formula 3) - BCH<br/>
-<a href="#Output-1525050520" onClick='toggleBox("Output-1525050520", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_holding_cost_after_deselecting_funder_test()'><b>verify_holding_cost_after_deselecting_funder_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1446825265" onClick='toggleBox("Output-1446825265", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1525050520" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1525050520">
+<a href="#Output-1446825265" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1446825265">
 <b></b> <br /><br/>
-<b>Adding funder with different term and mileage which was present already</b> <br /><br/>
-<b>Tried adding same funder with different term and mileage , got validation message : Funder quote added successfully</b> <br /><br/>
-<b>Therefore funder with different term and mileage can be added</b> <br /><br/>
+<b>De-selecting funder</b> <br /><br/>
+<b>Now verifying the holding cost based on ownbook after de-selecting funder</b> <br /><br/>
+<b>Actual Holding cost based on ownbook after de-selecting funder is 929.36</b> <br /><br/>
+<b>Expected Holding cost based on ownbook after de-selecting funder is 929.36</b> <br /><br/>
+<b>Holding cost based on ownbook after de-selecting funder found OK</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>22</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test@2eae8e6e</td></tr>
+<td>18</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test@f78a47e</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test.verify_default_funder_is_not_deleted_test()'><b>verify_default_funder_is_not_deleted_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1992844647" onClick='toggleBox("Output-1992844647", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1992844647" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1992844647">
+<b></b> <br /><br/>
+<b>Trying to delete funder</b> <br /><br/>
+<b>Default funder can not be deleted as Delete button for selected funder is not enabled</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test@f78a47e</td></tr>
 </table><p>
 </body>
 </html>

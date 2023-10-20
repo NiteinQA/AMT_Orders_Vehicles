@@ -1399,6 +1399,34 @@ public class ReadExcelCalculation extends TestBase {
 
 	}
 
+	
+	public void write_holding_cost_with_maint_value_to_quote_save_excel_sheet(String holding_cost, String sheet_name)
+			throws IOException, InterruptedException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(7).getCell(1).setCellValue(holding_cost);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+
+		}
+	
+	
+	public void write_holding_cost_without_maint_value_to_quote_save_excel_sheet(String holding_cost, String sheet_name)
+			throws IOException, InterruptedException {
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(7).getCell(0).setCellValue(holding_cost);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+
+		}
+
+
+	
 	public double verify_holding_cost_after_adding_funder_with_maintenance_for_hpnr_bch_pch(String term,
 			String milesPerAnnum, String monthlyFinanceRental, String monthlyMaintenanceRental,
 			String finalBallonPayment, String documentFee, String pencePerExcessMileFinance,

@@ -88,6 +88,8 @@ public class Acquisition_Quotes_FL_BCH_with_funder_quote_addition_with_maintenan
 			String part_exchange_status, String target_rental, String sheet_name) throws InterruptedException, IOException, UnsupportedFlavorException {
 
 		obj_holding_cost_FL_BCH_page = new HoldingCost_FL_BCHPage();
+		
+		obj_holding_cost_FL_BCH_page.write_holding_cost_to_quote_save_sheet();
 	
 		boolean holding_cost_without_maintenance_boolean = obj_holding_cost_FL_BCH_page
 				.verify_holding_cost_after_adding_funder_quote_with_maintenance( quoteRef,  expiryDate, term ,milesPerAnnum, monthlyFinanceRental,

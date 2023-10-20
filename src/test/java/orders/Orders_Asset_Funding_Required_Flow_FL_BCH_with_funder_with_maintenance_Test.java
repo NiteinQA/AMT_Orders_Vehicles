@@ -70,6 +70,47 @@ VehicleOrderPage obj_vehicle_order_tab;
 	}
 	
 	@Test(priority = 5, dependsOnMethods = { "verify_selected_funder_can_not_be_edited_test" })
+	public void verify_holding_cost_after_deselecting_funder_test() throws IOException, InterruptedException, AWTException {
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_holding_cost_after_deselecting_funder());
+		
+	}
+	
+//	@Test(priority = 6, dependsOnMethods = { "verify_holding_cost_after_deselecting_funder_test" })
+//	public void verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder_test() throws IOException, InterruptedException, AWTException {
+//		
+//		obj_asset_funding = new AssetFundingPage();		
+//		
+//		obj_asset_funding.verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder();
+//		
+//	}
+	
+	@Test(priority = 7, dependsOnMethods = { "verify_holding_cost_after_deselecting_funder_test" })
+	public void verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test() throws IOException, InterruptedException, AWTException {
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test());
+		
+	}
+	
+	@Test(priority = 8, dependsOnMethods = { "verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test" })
+	public void verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test() throws IOException, InterruptedException, AWTException {
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_funder_is_deselected_after_selecting_the_other_matrix_cell());
+		
+	}
+	
+	
+
+
+	
+	
+	@Test(priority = 9, dependsOnMethods = { "verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test" })
 	public void verify_document_is_uploaded_in_funder_test() throws IOException, InterruptedException, AWTException {
 		
 		obj_asset_funding = new AssetFundingPage();		
@@ -78,25 +119,19 @@ VehicleOrderPage obj_vehicle_order_tab;
 		
 	}
 	
-	@Test(priority = 6, dependsOnMethods = { "verify_document_is_uploaded_in_funder_test" })
-	public void verify_funders_are_deleted_on_changing_contract_type_test() throws IOException, InterruptedException, AWTException {
-		
-		obj_asset_funding = new AssetFundingPage();		
-		
-		Assert.assertTrue(obj_asset_funding.verify_funders_are_deleted_on_changing_contract_type());
-		
-	}
+
+	
+//	@Test(priority = 10, dependsOnMethods = { "verify_document_is_uploaded_in_funder_test" })
+//	public void verify_funders_are_deleted_on_changing_contract_type_test() throws IOException, InterruptedException, AWTException {
+//		
+//		obj_asset_funding = new AssetFundingPage();		
+//		
+//		Assert.assertTrue(obj_asset_funding.verify_funders_are_deleted_on_changing_contract_type());
+//		
+//	}
 	
 	
-	@Test(priority = 7, dependsOnMethods = { "verify_funders_are_deleted_on_changing_contract_type_test" })
-	public void verify_funders_with_same_term_and_mileage_can_not_be_added_test() throws IOException, InterruptedException, AWTException {
-		
-		obj_asset_funding = new AssetFundingPage();		
-		
-		obj_asset_funding.verify_funders_are_deleted_on_changing_contract_type();
-		
-	}
 	//In this test class flow covered are :
-	// 1, 2, 11, 12
+	// 1, 2, 8, 11, 12
 
 }

@@ -34,7 +34,7 @@ public class ExplicitWait extends TestBase {
    		Thread.sleep(1000);
    		count++;
    		}
-   		Thread.sleep(1000);
+   		Thread.sleep(2000);
 	 }
 	 catch(Exception e) 
 	 {

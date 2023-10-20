@@ -75,8 +75,6 @@ public class AssetFundingPage extends TestBase {
 	// funded Element
 	@FindBy(xpath = "//*[contains(text(),' Funded ')]")
 	private WebElement status_funded;
-	
-
 
 	// funded Element
 	@FindBy(xpath = "//*[contains(text(),'Add Funder Quote')]")
@@ -96,12 +94,12 @@ public class AssetFundingPage extends TestBase {
 
 	// complete funding
 	@FindBy(xpath = "//*[contains(text(),'Complete funding')]")
-	private WebElement complete_funding;	
-	
+	private WebElement complete_funding;
+
 	// complete funding
 	@FindBy(xpath = "//*[text()='Completed']//ancestor::div[1]//div/span[2]")
 	private WebElement status_completed;
-	
+
 	// cash purchase pending
 	@FindBy(xpath = "//*[@id='complete-funding-alert']//*[contains(text(),' Confirm')]")
 	private WebElement confirm_complete;
@@ -141,361 +139,352 @@ public class AssetFundingPage extends TestBase {
 
 	@FindBy(xpath = "//*[@id='rejectionReason']")
 	private WebElement rejection_reason_input_field;
-	
+
 	@FindBy(xpath = "//*[@id='dropdownRole']")
-	private WebElement roles_dropdown;	
-	
+	private WebElement roles_dropdown;
+
 	@FindBy(xpath = "//*[contains(text(), 'Super Admin')]")
 	private WebElement super_admin;
-	
+
 	// Search box input
 	@FindBy(xpath = "//input[@placeholder='Search something here']")
 	private WebElement stocking_plan_settings_search_bar;
-	
+
 	@FindBy(xpath = "//tbody//tr")
 	private WebElement search_output;
 
 //	// Confirm complete funding
 //	@FindBy(xpath = "//*[@id='complete-funding-alert']//*[contains(text(),'Confirm')]")
 //	private WebElement confirm_complete_funding;
-	
-	
-	
+
 	@FindBy(xpath = "//input[@id='creditLimit']")
 	private WebElement setting_credit_limit;
-	
+
 	@FindBy(xpath = "//input[@id='maxVehicleAgeInMonths']")
 	private WebElement setting_max_vehicle_age_in_months;
-	
+
 	@FindBy(xpath = "//input[@id='minimalPurchasePrice']")
 	private WebElement setting_min_purchase_price;
-	
-	
+
 	@FindBy(xpath = "//input[@id='maximumPurchasePrice']")
 	private WebElement setting_max_purchase_price;
-	
+
 	@FindBy(xpath = "//input[@id='maximumVehicleMileage']")
 	private WebElement setting_max_vehicel_mileage;
-	
-	
-	//Status - Quote **********************************************************
 
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Quote']")
-		private WebElement status_quote;
+	// Status - Quote **********************************************************
 
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Quote Requested']")
-		private WebElement status_quote_requested;
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Quote']")
+	private WebElement status_quote;
 
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Quote Received']")
-		private WebElement status_quote_received;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Quote Accepted']")
-		private WebElement status_quote_accepted;
-		
-	//Status - Finance Documents **********************************************************	
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Quote Requested']")
+	private WebElement status_quote_requested;
 
-		
-		@FindBy(xpath = "//*[@title='Finance Documents']")
-		private WebElement finance_documents;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Documents']")
-		private WebElement status_finance_documents;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Docs Requested']")
-		private WebElement status_finance_documents_requested;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Docs Received']")
-		private WebElement status_finance_documents_received;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Docs Signed']")
-		private WebElement status_finance_documents_signed;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Docs Rejected']")
-		private WebElement status_finance_documents_rejected;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Upload to funder']")
-		private WebElement status_upload_to_funder;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Activated']")
-		private WebElement status_finance_document_finance_activated;
-		
-	//Status - Finance Documents **********************************************************	
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Quote Received']")
+	private WebElement status_quote_received;
 
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Quote Accepted']")
+	private WebElement status_quote_accepted;
 
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Payment']")
-		private WebElement status_payment;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='No Payments Required']")
-		private WebElement status_no_payments_required;
-		
-	   @FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Payment Required']")
-		private WebElement status_payment_required;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Payment Requested']")
-		private WebElement status_payment_requested;
-		
-		@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Payment Sent']")
-		private WebElement status_payment_sent;
-		
-		
-	//Input  - Finance Documents **********************************************************	
+	// Status - Finance Documents
+	// **********************************************************
 
+	@FindBy(xpath = "//*[@title='Finance Documents']")
+	private WebElement finance_documents;
 
-		@FindBy(xpath = "//*[@id='agreementRequested']")
-		private WebElement date_agreement_requested;
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Documents']")
+	private WebElement status_finance_documents;
 
-		@FindBy(xpath = "//span[contains(@class, 'customTodayClass')]")
-		private WebElement pick_a_date;
-		
-		@FindBy(xpath = "//*[@id='agreementSent']")
-		private WebElement date_agreement_sent;
-		
-		@FindBy(xpath = "//*[@id='agreementReceived']")
-		private WebElement date_agreement_received;
-		
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Docs Requested']")
+	private WebElement status_finance_documents_requested;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Docs Received']")
+	private WebElement status_finance_documents_received;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Docs Signed']")
+	private WebElement status_finance_documents_signed;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Docs Rejected']")
+	private WebElement status_finance_documents_rejected;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Upload to funder']")
+	private WebElement status_upload_to_funder;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Finance Activated']")
+	private WebElement status_finance_document_finance_activated;
+
+	// Status - Finance Documents
+	// **********************************************************
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Payment']")
+	private WebElement status_payment;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='No Payments Required']")
+	private WebElement status_no_payments_required;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Payment Required']")
+	private WebElement status_payment_required;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Payment Requested']")
+	private WebElement status_payment_requested;
+
+	@FindBy(xpath = "//*[@id='assetFundingContent']//*[text()='Payment Sent']")
+	private WebElement status_payment_sent;
+
+	// Input - Finance Documents
+	// **********************************************************
+
+	@FindBy(xpath = "//*[@id='agreementRequested']")
+	private WebElement date_agreement_requested;
+
+	@FindBy(xpath = "//span[contains(@class, 'customTodayClass')]")
+	private WebElement pick_a_date;
+
+	@FindBy(xpath = "//*[@id='agreementSent']")
+	private WebElement date_agreement_sent;
+
+	@FindBy(xpath = "//*[@id='agreementReceived']")
+	private WebElement date_agreement_received;
+
 //		@FindBy(xpath = "//*[normalize-space()='Signed documents']//ancestor::div[1]//button[normalize-space()='Upload']")
 //		private WebElement upload_signed_documents;
-		
-		@FindBy(xpath = "//*[text()='Signed documents']//ancestor::div[1]//div//div//input[@id='hcChpUploadBtn']")
-		private WebElement upload_signed_documents;
-		
-		
-		
-		@FindBy(xpath = "//*[@id='uploadedToFunder']")
-		private WebElement date_uploaded_to_funder;
-		
-		@FindBy(xpath = "//*[@id='acceptedByFunder']")
-		private WebElement date_accepted_by_funder;
-		
-		@FindBy(xpath = "//*[@id='financeactivated']")
-		private WebElement date_finance_activated;	
-		
-		
-	//Input  - Payments to funder  **********************************************************		
-		
-		@FindBy(xpath = "//button[normalize-space()='Generate invoice']")
-		private WebElement button_generate_invoice;
-		
-		@FindBy(xpath = "//*[@id='generate-invoice-confirm']//*[text()=' Confirm']")
-		private WebElement button_generate_invoice_cofirm;
-		
-		@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[1]")
-		private WebElement date_payment_requested_for_doc_fee;
-		
-		@FindBy(xpath = "(//label[normalize-space()='Payment sent']//ancestor::div[1]//input)[1]")
-		private WebElement date_payment_sent_for_doc_fee;
-		
-		@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[2]")
-		private WebElement date_payment_requested_for_finance_deposit;
-		
-		@FindBy(xpath = "(//label[normalize-space()='Payment sent']//ancestor::div[1]//input)[2]")
-		private WebElement date_payment_sent_for_finance_deposit;
-		
-		
-		
-	//Select a funder  **********************************************************	
-		
-		
-		@FindBy(xpath = "//button[normalize-space()='Select']")
-		private WebElement select_a_funder;
-		
-		@FindBy(xpath = "//*[text()=' Required ']")
-		private WebElement asset_funding_status_required;
-		
-		@FindBy(xpath = "//*[text()=' Funded ']")
-		private WebElement asset_funding_status_funded;
-		
-		@FindBy(xpath = "//*[@id='btnBack']")
-		private WebElement back_button;
-		
+
+	@FindBy(xpath = "//*[text()='Signed documents']//ancestor::div[1]//div//div//input[@id='hcChpUploadBtn']")
+	private WebElement upload_signed_documents;
+
+	@FindBy(xpath = "//*[@id='uploadedToFunder']")
+	private WebElement date_uploaded_to_funder;
+
+	@FindBy(xpath = "//*[@id='acceptedByFunder']")
+	private WebElement date_accepted_by_funder;
+
+	@FindBy(xpath = "//*[@id='financeactivated']")
+	private WebElement date_finance_activated;
+
+	// Input - Payments to funder
+	// **********************************************************
+
+	@FindBy(xpath = "//button[normalize-space()='Generate invoice']")
+	private WebElement button_generate_invoice;
+
+	@FindBy(xpath = "//*[@id='generate-invoice-confirm']//*[text()=' Confirm']")
+	private WebElement button_generate_invoice_cofirm;
+
+	@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[1]")
+	private WebElement date_payment_requested_for_doc_fee;
+
+	@FindBy(xpath = "(//label[normalize-space()='Payment sent']//ancestor::div[1]//input)[1]")
+	private WebElement date_payment_sent_for_doc_fee;
+
+	@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[2]")
+	private WebElement date_payment_requested_for_finance_deposit;
+
+	@FindBy(xpath = "(//label[normalize-space()='Payment sent']//ancestor::div[1]//input)[2]")
+	private WebElement date_payment_sent_for_finance_deposit;
+
+	// Select a funder **********************************************************
+
+	@FindBy(xpath = "//button[normalize-space()='Select']")
+	private WebElement select_a_funder;
+
+	@FindBy(xpath = "//*[text()=' Required ']")
+	private WebElement asset_funding_status_required;
+
+	@FindBy(xpath = "//*[text()=' Funded ']")
+	private WebElement asset_funding_status_funded;
+
+	@FindBy(xpath = "//*[@id='btnBack']")
+	private WebElement back_button;
+
 //**************************************************************************
-		// default funder delete button
-		@FindBy(xpath = "//*[text()=' Selected ']//ancestor::div[1]//button[2]")
-		private WebElement default_funder_delete_button;
-		
-		
-		// selected funder row
-		@FindBy(xpath = "//*[text()=' Selected ']//ancestor::div[1]//button[2]|//*[text()=' Select ']//ancestor::div[1]//button[2]")
-		private WebElement selected_funder;
-		
-		// selected button
-		@FindBy(xpath = "//*[text()=' Selected ']|//*[text()=' Select ']")
-		private WebElement selected_button;		
-		
-		
-		// toaster message
-		@FindBy(xpath = "//*[contains(@class,'toast-message')]")
-		private WebElement toaster;		
-		
-		
-		// upload input
-		@FindBy(xpath = "//*[text()='Upload']//ancestor::div[1]//input")
-		private WebElement funder_doc_upload_button;
-		
-		
-		// doc preview
-		@FindBy(xpath = "//*[@id='hcChpViewUploadedDoc']")
-		private WebElement funder_doc_review_button;		
-		
-		
-		@FindBy(xpath = "//*[text()='Contract types & OTR']")
-		private WebElement contract_types_and_otr_page;		
-		
-		
-		@FindBy(xpath = "//*[@id='contractType1']//div")
-		private List<WebElement> contract_types_list;
-		
+	// default funder delete button
+	@FindBy(xpath = "//*[text()=' Selected ']//ancestor::div[1]//button[2]")
+	private WebElement default_funder_delete_button;
+
+	// selected funder row
+	@FindBy(xpath = "//*[text()=' Selected ']//ancestor::div[1]//button[2]|//*[text()=' Select ']//ancestor::div[1]//button[2]")
+	private WebElement selected_funder;
 	
-		@FindBy(xpath = "//*[@id='contract_change_modal']//*[text()='Yes']")
-		private WebElement change_contract_confirm_yes;	
-		
+	//*[text()=' Selected ']
+
+	// selected button
+	@FindBy(xpath = "//*[text()=' Selected ']|//*[text()=' Select ']")
+	private WebElement selected_button;
+
+	// toaster message
+	@FindBy(xpath = "//*[contains(@class,'toast-message')]")
+	private WebElement toaster;
+
+	// upload input
+	@FindBy(xpath = "//*[text()='Upload']//ancestor::div[1]//input")
+	private WebElement funder_doc_upload_button;
+
+	// doc preview
+	@FindBy(xpath = "//*[@id='hcChpViewUploadedDoc']")
+	private WebElement funder_doc_review_button;
+
+	@FindBy(xpath = "//*[text()='Contract types & OTR']")
+	private WebElement contract_types_and_otr_page;
+
+	@FindBy(xpath = "//*[@id='contractType1']//div")
+	private List<WebElement> contract_types_list;
+
+	@FindBy(xpath = "//*[@id='contract_change_modal']//*[text()='Yes']")
+	private WebElement change_contract_confirm_yes;
+
 // Holding Cost Elements
-		
-		@FindBy(xpath = "//*[@name='Terms']")
-		private WebElement additional_terms;
 
-		@FindBy(xpath = "//*[@name='MileagePerAnnum']")
-		private WebElement additional_mileage;
+	@FindBy(xpath = "//*[@name='Terms']")
+	private WebElement additional_terms;
 
-		@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
-		private WebElement holding_cost;
+	@FindBy(xpath = "//*[@name='MileagePerAnnum']")
+	private WebElement additional_mileage;
 
-		@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
-		private WebElement holding_cost_summary;
+	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
+	private WebElement holding_cost;
 
-		@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
-		private WebElement holding_cost_summary_residual_value_used;
+	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
+	private WebElement holding_cost_summary;
 
-		@FindBy(xpath = "//*[@id='ResidualValue']")
-		private WebElement holding_cost_summary_residual_value_used_input_field;
+	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
+	private WebElement holding_cost_summary_residual_value_used;
 
-		@FindBy(xpath = "//*[contains(text(),'Term')]//ancestor::div[1]//p//strong")
-		private WebElement holding_cost_summary_terms;
+	@FindBy(xpath = "//*[@id='ResidualValue']")
+	private WebElement holding_cost_summary_residual_value_used_input_field;
 
-		@FindBy(xpath = "//*[contains(text(),'Miles per annum')]//ancestor::div[1]//p//strong")
-		private WebElement holding_cost_summary_mileage;
+	@FindBy(xpath = "//*[contains(text(),'Term')]//ancestor::div[1]//p//strong")
+	private WebElement holding_cost_summary_terms;
 
-		@FindBy(xpath = "//*[contains(text(),'Total monthly holding cost')]//ancestor::div[1]//p//strong")
-		private WebElement total_monthly_holding_cost;
+	@FindBy(xpath = "//*[contains(text(),'Miles per annum')]//ancestor::div[1]//p//strong")
+	private WebElement holding_cost_summary_mileage;
 
-		@FindBy(xpath = "//*[@class='slider round sliderRed']")
-		private WebElement holding_cost_maintenance_toggle_button;
+	@FindBy(xpath = "//*[contains(text(),'Total monthly holding cost')]//ancestor::div[1]//p//strong")
+	private WebElement total_monthly_holding_cost;
 
-		@FindBy(xpath = "//*[@id='vehicleSummery']/div/div[2]/div[2]/div[6]/div[2]/div[10]/p")
-		private WebElement holding_cost_maintenance_cost_used;
+	@FindBy(xpath = "//*[@class='slider round sliderRed']")
+	private WebElement holding_cost_maintenance_toggle_button;
 
-		@FindBy(xpath = "//*[@id='ResidualPercentage']")
-		private WebElement holding_cost_percentage_cap_residual_value_used;
+	@FindBy(xpath = "//*[@id='vehicleSummery']/div/div[2]/div[2]/div[6]/div[2]/div[10]/p")
+	private WebElement holding_cost_maintenance_cost_used;
 
-		@FindBy(xpath = "//input[@id='CapMaintenancePercentage']")
-		private WebElement percentage_maintenance_cost_used;
+	@FindBy(xpath = "//*[@id='ResidualPercentage']")
+	private WebElement holding_cost_percentage_cap_residual_value_used;
 
-		@FindBy(xpath = "//input[@id='ResidualValue']")
-		private WebElement residual_value_used;
+	@FindBy(xpath = "//input[@id='CapMaintenancePercentage']")
+	private WebElement percentage_maintenance_cost_used;
 
-		@FindBy(xpath = "//input[@id='Maintenancevalue3']")
-		private WebElement maintenance_cost_used;
+	@FindBy(xpath = "//input[@id='ResidualValue']")
+	private WebElement residual_value_used;
 
-		@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]/p")
-		private WebElement total_cap_maintenance_value;
+	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
+	private WebElement maintenance_cost_used;
 
-		@FindBy(xpath = "//*[contains(text(),'Holding cost based on funder quote')]//label//span")
-		private WebElement holding_cost_based_on_funder_quote_toggle_button;
+	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]/p")
+	private WebElement total_cap_maintenance_value;
 
-		@FindBy(xpath = "//input[@role='combobox']")
-		private WebElement funder;
+	@FindBy(xpath = "//*[contains(text(),'Holding cost based on funder quote')]//label//span")
+	private WebElement holding_cost_based_on_funder_quote_toggle_button;
 
-		@FindBy(xpath = "//input[@id='quoteReferenceNo']")
-		private WebElement quote_ref;
+	@FindBy(xpath = "//input[@role='combobox']")
+	private WebElement funder;
 
-		@FindBy(xpath = "//input[@id='quoteExpiryDate']")
-		private WebElement expiry_date;
+	@FindBy(xpath = "//input[@id='quoteReferenceNo']")
+	private WebElement quote_ref;
 
-		@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
-		private WebElement payment_profile_dropdown;
+	@FindBy(xpath = "//input[@id='quoteExpiryDate']")
+	private WebElement expiry_date;
 
-		@FindBy(xpath = "//input[@id='duration']")
-		private WebElement duration;
+	@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
+	private WebElement payment_profile_dropdown;
 
-		@FindBy(xpath = "//input[@id='initialFinanceRental']")
-		private WebElement initial_finance_rental;
+	@FindBy(xpath = "//input[@id='duration']")
+	private WebElement duration;
 
-		@FindBy(xpath = "//input[@id='totalInitialRental']")
-		private WebElement total_initial_rental;
+	@FindBy(xpath = "//input[@id='initialFinanceRental']")
+	private WebElement initial_finance_rental;
 
-		@FindBy(xpath = "//input[@id='funderItemMileage']")
-		private WebElement miles_per_annum;
+	@FindBy(xpath = "//input[@id='totalInitialRental']")
+	private WebElement total_initial_rental;
 
-		@FindBy(xpath = "//input[@id='contractMileage']")
-		private WebElement contract_mileage;
+	@FindBy(xpath = "//input[@id='funderItemMileage']")
+	private WebElement miles_per_annum;
 
-		@FindBy(xpath = "//input[@id='cashDeposit']")
-		private WebElement cash_deposit;
+	@FindBy(xpath = "//input[@id='contractMileage']")
+	private WebElement contract_mileage;
 
-		@FindBy(xpath = "//*[@id='collapseOne']/div/app-contract-and-hp/form/div/div[1]/div[2]/div/div/div[1]/div/div[7]/div/label")
-		private WebElement total_cash_price;
+	@FindBy(xpath = "//input[@id='cashDeposit']")
+	private WebElement cash_deposit;
 
-		@FindBy(xpath = "//input[@id='financeCharges']")
-		private WebElement finance_charges;
+	@FindBy(xpath = "//*[@id='collapseOne']/div/app-contract-and-hp/form/div/div[1]/div[2]/div/div/div[1]/div/div[7]/div/label")
+	private WebElement total_cash_price;
 
-		@FindBy(xpath = "//input[@id='monthlyFinanceRental']")
-		private WebElement monthly_finance_rental;
+	@FindBy(xpath = "//input[@id='financeCharges']")
+	private WebElement finance_charges;
 
-		@FindBy(xpath = "//input[@id='finalBalloonPayment']")
-		private WebElement final_balloon_payment;
+	@FindBy(xpath = "//input[@id='monthlyFinanceRental']")
+	private WebElement monthly_finance_rental;
 
-		@FindBy(xpath = "//input[@id='optionToPurchaseFee']")
-		private WebElement option_to_purchase_fee;
+	@FindBy(xpath = "//input[@id='finalBalloonPayment']")
+	private WebElement final_balloon_payment;
 
-		@FindBy(xpath = "//input[@id='financeRental']")
-		private WebElement monthly_payment;
+	@FindBy(xpath = "//input[@id='optionToPurchaseFee']")
+	private WebElement option_to_purchase_fee;
 
-		@FindBy(xpath = "//input[@id='documentFee']")
-		private WebElement document_fee;
+	@FindBy(xpath = "//input[@id='financeRental']")
+	private WebElement monthly_payment;
 
-		@FindBy(xpath = "//input[@id='pencePerExcessMileageFinance']")
-		private WebElement pense_per_excess_mile_finance;
+	@FindBy(xpath = "//input[@id='documentFee']")
+	private WebElement document_fee;
 
-		@FindBy(xpath = "//span[@class='slider round']")
-		private WebElement funder_maintenance_toggle;
+	@FindBy(xpath = "//input[@id='pencePerExcessMileageFinance']")
+	private WebElement pense_per_excess_mile_finance;
 
-		@FindBy(xpath = "//span[@class='slider round sliderRed']")
-		private WebElement common_maintenance_toggle;
+	@FindBy(xpath = "//span[@class='slider round']")
+	private WebElement funder_maintenance_toggle;
 
-		@FindBy(xpath = "//*[contains(text(),'CAP monthly maint. cost')]//ancestor::div[1]//p//strong")
-		private WebElement cap_monthly_maint_cost;
+	@FindBy(xpath = "//span[@class='slider round sliderRed']")
+	private WebElement common_maintenance_toggle;
 
-		@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']")
-		private WebElement monthly_maintenance_rental;
+	@FindBy(xpath = "//*[contains(text(),'CAP monthly maint. cost')]//ancestor::div[1]//p//strong")
+	private WebElement cap_monthly_maint_cost;
 
-		@FindBy(xpath = "//input[@id='pencePerExcessMileageMaintenance']")
-		private WebElement pense_per_excess_mile_maintenance;
+	@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']")
+	private WebElement monthly_maintenance_rental;
 
-		@FindBy(xpath = "//input[@id='percentageOfSaleProceedToCustomer']")
-		private WebElement percentage_of_sale_proceed_to_customer;
+	@FindBy(xpath = "//input[@id='pencePerExcessMileageMaintenance']")
+	private WebElement pense_per_excess_mile_maintenance;
 
-		@FindBy(xpath = "//input[@id='secondaryHirePeriodRental']")
-		private WebElement secondary_hire_period_rental;
+	@FindBy(xpath = "//input[@id='percentageOfSaleProceedToCustomer']")
+	private WebElement percentage_of_sale_proceed_to_customer;
 
-		@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
-		private WebElement add;
-		
-		@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
-		private WebElement total_cap_maintenance_cost;
-		
+	@FindBy(xpath = "//input[@id='secondaryHirePeriodRental']")
+	private WebElement secondary_hire_period_rental;
 
+	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
+	private WebElement add;
+
+	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
+	private WebElement total_cap_maintenance_cost;	
+	
+	@FindBy(xpath = "//*[text()='Update']")
+	private WebElement update_funder;	
+	
+//	@FindBy(xpath = "//*[contains(@class, 'rTableCell')]")
+//	private List<WebElement> ownbook_holding_cost_matrix;
+	
+	 
 	ReadExcelCalculation obj_read_excel_calculation_page;
 
 	Properties prop;
-	
+
 	AssetFundingPage obj_asset_funding_page;
 
 	Actions act;
 
 	AssetFundingPage obj_vehicle_order_tab;
-	
+
 	HoldingCost_HPNR_HPRPage obj_holding_cost_page;
-	
+
 	HoldingCost_CP_BCH_Page obj_holding_cost_CP_BCH_page;
 
 	public AssetFundingPage() {
@@ -511,238 +500,223 @@ public class AssetFundingPage extends TestBase {
 		}
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	public boolean verify_funder_with_same_term_and_mileage_can_not_be_added(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
-			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException {
-		
-		
-		LO.print          ("");
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException {
+
+		LO.print("");
 		System.out.println("");
-		
-		LO.print          ("Adding funder with same term and mileage which was present already");
+
+		LO.print("Adding funder with same term and mileage which was present already");
 		System.out.println("Adding funder with same term and mileage which was present already");
-		
+
 		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page();
 		boolean status = false;
-		
-		     obj_holding_cost_CP_BCH_page.add_funder_quote_with_maintenance_in_asset_funding_tab( quoteRef,  expiryDate,
-			 term,  milesPerAnnum,  cashDeposit,  financeCharges,  documentFee,
-			 monthlyPayment,  optionalFinalPayment,  optionToPurchaseFee,  monthlyMaintPayment,
-			 pencePerExcessMileFinance,  pencePerExcessMileMaintenance,  sheet_name);	
-		
-			//get warning message displayed on toaster and verify with standard
-			ExplicitWait.visibleElement(driver, toaster, 20);
-			
-			String toasterMessage = toaster.getText();
-			
-			LO.print          ("Tried adding same funder with same term and mileage , got warning message : "+toasterMessage);
-			System.out.println("Tried adding same funder with same term and mileage , got warning message : "+toasterMessage);
 
-			
-			String expectedToasterMessage = "Funder quote already exists for this term and mileage combination";
-			
-			
-			if(toasterMessage.equalsIgnoreCase(expectedToasterMessage))
-			{
-				LO.print          ("Therefore funder with same term and mileage can not be added");
-				System.out.println("Therefore funder with same term and mileage can not be added");
-				
+		obj_holding_cost_CP_BCH_page.add_funder_quote_with_maintenance_in_asset_funding_tab(quoteRef, expiryDate, term,
+				milesPerAnnum, cashDeposit, financeCharges, documentFee, monthlyPayment, optionalFinalPayment,
+				optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance,
+				sheet_name);
 
-				 status=true;
-				
-			}
-			else
-			{
-				LO.print          ("Warning : Funder with same term and mileage is added");
-				System.err.println("Warning : Funder with same term and mileage is added");
-				 status=false;
-			}			
-		
+		// get warning message displayed on toaster and verify with standard
+		ExplicitWait.visibleElement(driver, toaster, 20);
+
+		String toasterMessage = toaster.getText();
+
+		LO.print("Tried adding same funder with same term and mileage , got warning message : " + toasterMessage);
+		System.out.println(
+				"Tried adding same funder with same term and mileage , got warning message : " + toasterMessage);
+
+		String expectedToasterMessage = "Funder quote already exists for this term and mileage combination";
+
+		if (toasterMessage.equalsIgnoreCase(expectedToasterMessage)) {
+			LO.print("Therefore funder with same term and mileage can not be added");
+			System.out.println("Therefore funder with same term and mileage can not be added");
+
+			status = true;
+
+		} else {
+			LO.print("Warning : Funder with same term and mileage is added");
+			System.err.println("Warning : Funder with same term and mileage is added");
+			status = false;
+		}
+
 		return status;
-		
-		
+
 	}
 
 	public boolean verify_funder_with_different_term_and_mileage_can_added(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
-			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException {
-		
-		
-		LO.print          ("");
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException {
+
+		LO.print("");
 		System.out.println("");
-		
-		LO.print          ("Adding funder with different term and mileage which was present already");
+
+		LO.print("Adding funder with different term and mileage which was present already");
 		System.out.println("Adding funder with different term and mileage which was present already");
-		
+
 		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page();
 		boolean status = false;
-		
-		     obj_holding_cost_CP_BCH_page.add_funder_quote_with_maintenance_in_asset_funding_tab( quoteRef,  expiryDate,
-			 term,  milesPerAnnum,  cashDeposit,  financeCharges,  documentFee,
-			 monthlyPayment,  optionalFinalPayment,  optionToPurchaseFee,  monthlyMaintPayment,
-			 pencePerExcessMileFinance,  pencePerExcessMileMaintenance,  sheet_name);	
-		
-			//get warning message displayed on toaster and verify with standard
-			ExplicitWait.visibleElement(driver, toaster, 20);
-			
-			String toasterMessage = toaster.getText();
-			
-			LO.print          ("Tried adding same funder with different term and mileage , got validation message : "+toasterMessage);
-			System.out.println("Tried adding same funder with different term and mileage , got validation message : "+toasterMessage);
 
-			
-			String expectedToasterMessage = "Funder quote added successfully";
-			
-			
-			if(toasterMessage.equalsIgnoreCase(expectedToasterMessage))
-			{
-				LO.print          ("Therefore funder with different term and mileage can be added");
-				System.out.println("Therefore funder with different term and mileage can be added");
-				
+		obj_holding_cost_CP_BCH_page.add_funder_quote_with_maintenance_in_asset_funding_tab(quoteRef, expiryDate, term,
+				milesPerAnnum, cashDeposit, financeCharges, documentFee, monthlyPayment, optionalFinalPayment,
+				optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance,
+				sheet_name);
 
-				 status=true;
-				
-			}
-			else
-			{
-				LO.print          ("Warning : Funder with different term and mileage is not added");
-				System.err.println("Warning : Funder with different term and mileage is not added");
-				 status=false;
-			}			
-		
+		// get warning message displayed on toaster and verify with standard
+		ExplicitWait.visibleElement(driver, toaster, 20);
+
+		String toasterMessage = toaster.getText();
+
+		LO.print("Tried adding same funder with different term and mileage , got validation message : "
+				+ toasterMessage);
+		System.out.println("Tried adding same funder with different term and mileage , got validation message : "
+				+ toasterMessage);
+
+		String expectedToasterMessage = "Funder quote added successfully";
+
+		if (toasterMessage.equalsIgnoreCase(expectedToasterMessage)) {
+			LO.print("Therefore funder with different term and mileage can be added");
+			System.out.println("Therefore funder with different term and mileage can be added");
+
+			status = true;
+
+		} else {
+			LO.print("Warning : Funder with different term and mileage is not added");
+			System.err.println("Warning : Funder with different term and mileage is not added");
+			status = false;
+		}
+
 		return status;
-		
-		
+
 	}
 
-	
 	public boolean verify_holding_cost_after_selecting_newly_added_funder(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
-			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException {
-		
-		
-		LO.print          ("");
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException {
+
+		LO.print("");
 		System.out.println("");
-		
-		LO.print          ("Selecting Newly added funder");
+
+		LO.print("Selecting Newly added funder");
 		System.out.println("Selecting Newly added funder");
-		
+
 		Click.on(driver, select_a_funder, 20);
-		
+
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
-		
+
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
-		double totalMonthlyHoldingCostActual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
-		
-		String term1 = String.valueOf((Double.parseDouble(term)+1));	
-		
+		double totalMonthlyHoldingCostActual = Double
+				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+
+		String term1 = String.valueOf((Double.parseDouble(term) + 1));
 
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
-		
+
 		double totalMonthlyHoldingCostActualExpected = obj_read_excel_calculation_page
 				.verify_holding_cost_after_adding_funder_with_maintenance_for_cp_bch_pch(term1, milesPerAnnum,
-						cashDeposit, monthlyPayment, monthlyMaintPayment, optionalFinalPayment,
-						optionToPurchaseFee, pencePerExcessMileFinance, pencePerExcessMileMaintenance, documentFee,
-						sheet_name);
-		
+						cashDeposit, monthlyPayment, monthlyMaintPayment, optionalFinalPayment, optionToPurchaseFee,
+						pencePerExcessMileFinance, pencePerExcessMileMaintenance, documentFee, sheet_name);
+
 		double diff = Difference.of_two_Double_Values(totalMonthlyHoldingCostActual,
 				totalMonthlyHoldingCostActualExpected);
 		boolean flag = false;
 		if (diff < 0.2) {
 			flag = true;
-			LO.print          ("Holding Cost Shown After Selecting Newly Added Funder -- Found OK");
+			LO.print("Holding Cost Shown After Selecting Newly Added Funder -- Found OK");
 			System.out.println("Holding Cost Shown After Selecting Newly Added Funder -- Found OK");
-		}else
-		{
-			LO.print          ("Holding Cost Shown After Selecting Newly Added Funder -- Found Wrong");
+		} else {
+			LO.print("Holding Cost Shown After Selecting Newly Added Funder -- Found Wrong");
 			System.err.println("Holding Cost Shown After Selecting Newly Added Funder -- Found Wrong");
 
 		}
 
-		return flag;		
-		
+		return flag;
+
 	}
-	
-	
-	public boolean verify_residualValue_maintCost_fields_are_freezed_after_selecting_a_funder() throws InterruptedException, IOException, ClassNotFoundException {
-		
-		
-		LO.print          ("");
+
+	public boolean verify_residualValue_maintCost_fields_are_freezed_after_selecting_a_funder()
+			throws InterruptedException, IOException, ClassNotFoundException {
+
+		LO.print("");
 		System.out.println("");
-		
-		LO.print          ("Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared");
-		System.out.println("Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared");
-		
-		
-		
+
+		LO.print(
+				"Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared");
+		System.out.println(
+				"Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared");
+
 		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page();
-		 
-		
-		boolean residualAndMaintCost =  obj_holding_cost_CP_BCH_page.verify_residual_value_maint_cost_fields_are_freezed();	
-	
-		boolean addTermAndMileage =  obj_holding_cost_CP_BCH_page.verify_additional_term_mileage_fields_are_disappeared();	
-		
-	
+
+		boolean residualAndMaintCost = obj_holding_cost_CP_BCH_page
+				.verify_residual_value_maint_cost_fields_are_freezed();
+
+		boolean addTermAndMileage = obj_holding_cost_CP_BCH_page
+				.verify_additional_term_mileage_fields_are_disappeared();
+
 		boolean flag = false;
-		if ((residualAndMaintCost=true)&&(addTermAndMileage=true)) {
+		if ((residualAndMaintCost = true) && (addTermAndMileage = true)) {
 			flag = true;
-		}else
-		{
+		} else {
 
 		}
-		return flag;		
+		return flag;
 	}
 
-	
-	public boolean verify_holding_cost_doesnt_change_if_funder_quote_is_selected() throws InterruptedException, IOException, ClassNotFoundException {
-		
-		
-		LO.print          ("");
+	public boolean verify_holding_cost_doesnt_change_if_funder_quote_is_selected()
+			throws InterruptedException, IOException, ClassNotFoundException {
+
+		LO.print("");
 		System.out.println("");
-		
-		LO.print          ("Funder is selected , now changing % Residual Value");
+
+		LO.print("Funder is selected , now changing % Residual Value");
 		System.out.println("Funder is selected , now changing % Residual Value");
-		
-		
+
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
-		double totalMonthlyHoldingCostBeforeEditingPercentageResidualValue = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+		double totalMonthlyHoldingCostBeforeEditingPercentageResidualValue = Double
+				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
 
-		LO.print          ("Total Monthly Holding Cost Before Editing % Residual Value , Based on funder Quote is "+totalMonthlyHoldingCostBeforeEditingPercentageResidualValue);
-		System.out.println("Total Monthly Holding Cost Before Editing % Residual Value , Based on funder Quote is "+totalMonthlyHoldingCostBeforeEditingPercentageResidualValue);
-	
-		
-		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page(); 
-		
-	    obj_holding_cost_CP_BCH_page.edit_percentage_residual_value();	
-	    
+		LO.print("Total Monthly Holding Cost Before Editing % Residual Value , Based on funder Quote is "
+				+ totalMonthlyHoldingCostBeforeEditingPercentageResidualValue);
+		System.out.println("Total Monthly Holding Cost Before Editing % Residual Value , Based on funder Quote is "
+				+ totalMonthlyHoldingCostBeforeEditingPercentageResidualValue);
+
+		obj_holding_cost_CP_BCH_page = new HoldingCost_CP_BCH_Page();
+
+		obj_holding_cost_CP_BCH_page.edit_percentage_residual_value();
+
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
-		double totalMonthlyHoldingCostAfterEditingPercentageResidualValue = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+		double totalMonthlyHoldingCostAfterEditingPercentageResidualValue = Double
+				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
 
-		LO.print          ("Total Monthly Holding Cost After Editing % Residual Value , Based on funder Quote is "+totalMonthlyHoldingCostAfterEditingPercentageResidualValue);
-		System.out.println("Total Monthly Holding Cost After Editing % Residual Value , Based on funder Quote is "+totalMonthlyHoldingCostAfterEditingPercentageResidualValue);
+		LO.print("Total Monthly Holding Cost After Editing % Residual Value , Based on funder Quote is "
+				+ totalMonthlyHoldingCostAfterEditingPercentageResidualValue);
+		System.out.println("Total Monthly Holding Cost After Editing % Residual Value , Based on funder Quote is "
+				+ totalMonthlyHoldingCostAfterEditingPercentageResidualValue);
 
-		
 		boolean flag = false;
-		if ((Difference.of_two_Double_Values(totalMonthlyHoldingCostBeforeEditingPercentageResidualValue, totalMonthlyHoldingCostAfterEditingPercentageResidualValue))<0.1) {
+		if ((Difference.of_two_Double_Values(totalMonthlyHoldingCostBeforeEditingPercentageResidualValue,
+				totalMonthlyHoldingCostAfterEditingPercentageResidualValue)) < 0.1) {
 			flag = true;
-			
-			LO.print          ("Holding Cost after changing % Residual Value ( based on funder quote)- Found OK");
+
+			LO.print("Holding Cost after changing % Residual Value ( based on funder quote)- Found OK");
 			System.out.println("Holding Cost after changing % Residual Value ( based on funder quote)- Found OK");
 
-		}else
-		{
-			LO.print          ("Holding Cost after changing % Residual Value ( based on funder quote)- Found Wrong");
+		} else {
+			LO.print("Holding Cost after changing % Residual Value ( based on funder quote)- Found Wrong");
 			System.err.println("Holding Cost after changing % Residual Value ( based on funder quote)- Found Wrong");
 
 		}
-		return flag;		
+		return flag;
 	}
 
-	
 	public boolean open_asset_funding_tab_and_complete_cash_purchase() throws InterruptedException {
 
 		Click.on(driver, complete_cash_purchase, 30);
@@ -1097,29 +1071,26 @@ public class AssetFundingPage extends TestBase {
 		}
 
 	}
-	
+
 	public boolean verify_default_status_for_required_flow_for_BCH() throws InterruptedException, IOException {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		
+
 		Thread.sleep(2000);
-		
+
 		Click.on(driver, asset_funding, 30);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		
-		LO.print          ("");
+
+		LO.print("");
 		System.out.println("");
 
-		
 		LO.print("Started verifying Default Status for BCH required flow");
 		System.out.println("Started verifying Default Status for BCH required flow");
 
-
 		Click.on(driver, status_quote, 30);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		// Check default status is required
 
@@ -1131,8 +1102,10 @@ public class AssetFundingPage extends TestBase {
 
 		if (elementColor.equals("rgba(91, 158, 63, 1)")) {
 
-			LO.print("Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote");
-			System.out.println("Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote");
+			LO.print(
+					"Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote");
+			System.out.println(
+					"Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote");
 			return true;
 
 		} else {
@@ -1140,196 +1113,167 @@ public class AssetFundingPage extends TestBase {
 			System.err.println("Default Status for BCH required flow Found Wrong");
 			return false;
 		}
-		
 
-	
 	}
 
-	
 	public void verify_holding_cost_after_adding_cap_maint_for_BCH() throws InterruptedException, IOException {
 
-	
-		
-		
 		String sheet_Name = GetExcelFormulaValue.get_cell_value(1, 2, prop.getProperty("Order_ID"));
 
 		Click.on(driver, common_maintenance_toggle, 20);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
-		LO.print          ("Made Maint toggle On for adding a cap maint to holding cost");
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		LO.print("Made Maint toggle On for adding a cap maint to holding cost");
 		System.out.println("Made Maint toggle On for adding a cap maint to holding cost");
 
-		
 		Click.on(driver, holding_cost_summary, 10);
-		
+
 		Thread.sleep(3000);
-		
-    	ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
+
+		ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
 
 		String cap_monthly_maint_value_from_screen = RemoveComma
 				.of(cap_monthly_maint_cost.getText().trim().substring(2));
-		
-		LO.print          ("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
-		System.out.println("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+
+		LO.print("Monthly CAP maint cost from screen is " + cap_monthly_maint_value_from_screen);
+		System.out.println("Monthly CAP maint cost from screen is " + cap_monthly_maint_value_from_screen);
 
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 30);
 		double holding_cost_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().trim().substring(2)));
-		
-		LO.print          ("Writing Monthly CAP maint cost from screen to excel");
+
+		LO.print("Writing Monthly CAP maint cost from screen to excel");
 		System.out.println("Writing Monthly CAP maint cost from screen to excel");
 
-		
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
-		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_BCH( "YES", cap_monthly_maint_value_from_screen, 
-				sheet_Name);
+		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_BCH("YES",
+				cap_monthly_maint_value_from_screen, sheet_Name);
 
 		double holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(51, 1, sheet_Name);
 
 		double diff = Difference.of_two_Double_Values(holding_cost_from_screen, holding_cost_from_excel);
 
-	
-		LO.print          ("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+		LO.print("Holding Cost from screen after adding maint" + holding_cost_from_screen);
 		System.out.println("Holding Cost from screen after adding maint" + holding_cost_from_screen);
 
-		LO.print          ("Holding Cost from excel after adding maint" + holding_cost_from_excel);
-		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);	
+		LO.print("Holding Cost from excel after adding maint" + holding_cost_from_excel);
+		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);
 
-	
 	}
 
-	
 	public void verify_holding_cost_after_adding_cap_maint_for_HPNR() throws InterruptedException, IOException {
 
-		
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
 
-		
 		String sheet_Name = GetExcelFormulaValue.get_cell_value(1, 2, prop.getProperty("Order_ID"));
 
 		Click.on(driver, common_maintenance_toggle, 20);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
-		LO.print          ("Made Maint toggle On for adding a cap maint to holding cost");
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		LO.print("Made Maint toggle On for adding a cap maint to holding cost");
 		System.out.println("Made Maint toggle On for adding a cap maint to holding cost");
 
-		
 		Click.on(driver, holding_cost_summary, 10);
-		
+
 		Thread.sleep(3000);
-		
-    	ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
+
+		ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
 
 		String cap_monthly_maint_value_from_screen = RemoveComma
 				.of(cap_monthly_maint_cost.getText().trim().substring(2));
-		
-		LO.print          ("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
-		System.out.println("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+
+		LO.print("Monthly CAP maint cost from screen is " + cap_monthly_maint_value_from_screen);
+		System.out.println("Monthly CAP maint cost from screen is " + cap_monthly_maint_value_from_screen);
 
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 30);
 		double holding_cost_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().trim().substring(2)));
-		
-		LO.print          ("Writing Monthly CAP maint cost from screen to excel");
+
+		LO.print("Writing Monthly CAP maint cost from screen to excel");
 		System.out.println("Writing Monthly CAP maint cost from screen to excel");
 
-		
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
-		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_HPNR( "YES", cap_monthly_maint_value_from_screen, 
-				sheet_Name);
+		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_HPNR("YES",
+				cap_monthly_maint_value_from_screen, sheet_Name);
 
 		double holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(57, 1, sheet_Name);
 
 		double diff = Difference.of_two_Double_Values(holding_cost_from_screen, holding_cost_from_excel);
 
-	
-		LO.print          ("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+		LO.print("Holding Cost from screen after adding maint" + holding_cost_from_screen);
 		System.out.println("Holding Cost from screen after adding maint" + holding_cost_from_screen);
 
-		LO.print          ("Holding Cost from excel after adding maint" + holding_cost_from_excel);
-		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);	
+		LO.print("Holding Cost from excel after adding maint" + holding_cost_from_excel);
+		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);
 
-	
 	}
-	
-	
+
 	public void save_the_order_and_check_the_holding_cost_in_the_quote() throws InterruptedException, IOException {
 
-		
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
 
-		
 		String sheet_Name = GetExcelFormulaValue.get_cell_value(1, 2, prop.getProperty("Order_ID"));
 
 		Click.on(driver, common_maintenance_toggle, 20);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
-		LO.print          ("Made Maint toggle On for adding a cap maint to holding cost");
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		LO.print("Made Maint toggle On for adding a cap maint to holding cost");
 		System.out.println("Made Maint toggle On for adding a cap maint to holding cost");
 
-		
 		Click.on(driver, holding_cost_summary, 10);
-		
+
 		Thread.sleep(3000);
-		
-    	ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
+
+		ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
 
 		String cap_monthly_maint_value_from_screen = RemoveComma
 				.of(cap_monthly_maint_cost.getText().trim().substring(2));
-		
-		LO.print          ("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
-		System.out.println("Monthly CAP maint cost from screen is "+cap_monthly_maint_value_from_screen);
+
+		LO.print("Monthly CAP maint cost from screen is " + cap_monthly_maint_value_from_screen);
+		System.out.println("Monthly CAP maint cost from screen is " + cap_monthly_maint_value_from_screen);
 
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 30);
 		double holding_cost_from_screen = Double
 				.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().trim().substring(2)));
-		
-		LO.print          ("Writing Monthly CAP maint cost from screen to excel");
+
+		LO.print("Writing Monthly CAP maint cost from screen to excel");
 		System.out.println("Writing Monthly CAP maint cost from screen to excel");
 
-		
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
-		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_HPNR( "YES", cap_monthly_maint_value_from_screen, 
-				sheet_Name);
+		obj_read_excel_calculation_page.write_monthly_maint_cost_to_excel_HPNR("YES",
+				cap_monthly_maint_value_from_screen, sheet_Name);
 
 		double holding_cost_from_excel = GetExcelFormulaValue.get_formula_value(57, 1, sheet_Name);
 
 		double diff = Difference.of_two_Double_Values(holding_cost_from_screen, holding_cost_from_excel);
 
-	
-		LO.print          ("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+		LO.print("Holding Cost from screen after adding maint" + holding_cost_from_screen);
 		System.out.println("Holding Cost from screen after adding maint" + holding_cost_from_screen);
 
-		LO.print          ("Holding Cost from excel after adding maint" + holding_cost_from_excel);
-		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);	
+		LO.print("Holding Cost from excel after adding maint" + holding_cost_from_excel);
+		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);
 
-	
 	}
 
 	public boolean verify_status_after_adding_funder_required_flow() throws InterruptedException, IOException {
 
-
-		
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
 
-		
 		LO.print("Started verifying Quote Status after adding a funder in asset funding tab");
 		System.out.println("Started verifying Quote Status after adding a funder in asset funding tab");
 
-
 		Click.on(driver, status_quote, 30);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		// Check default status is required
 
@@ -1350,33 +1294,26 @@ public class AssetFundingPage extends TestBase {
 			System.err.println("Quote Status after adding funder in required flow-Found Wrong");
 			return false;
 		}
-		
 
-	
 	}
 
-	
 	public boolean verify_status_after_selecting_funder_required_flow() throws InterruptedException, IOException {
 
-
-		
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
-		
+
 		LO.print("Select a funder");
 		System.out.println("Select a funder");
-	
-        Click.on(driver, select_a_funder, 30);
-        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
+
+		Click.on(driver, select_a_funder, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
 		LO.print("Started verifying Quote Status after selecting a added funder in asset funding tab");
 		System.out.println("Started verifying Quote Status after selecting a added funder in asset funding tab");
 
-
 		Click.on(driver, status_quote, 30);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		// Check default status is required
 
@@ -1397,34 +1334,29 @@ public class AssetFundingPage extends TestBase {
 			System.err.println("Status after selecting an added funder Found Wrong");
 			return false;
 		}
-		
 
-	
 	}
 
-	
-	public boolean verify_default_status_for_required_flow_if_no_funder_is_added_in_a_quote() throws InterruptedException, IOException {
+	public boolean verify_default_status_for_required_flow_if_no_funder_is_added_in_a_quote()
+			throws InterruptedException, IOException {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		
+
 		Thread.sleep(2000);
-		
+
 		Click.on(driver, asset_funding, 30);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		
-		LO.print          ("");
+
+		LO.print("");
 		System.out.println("");
 
-		
 		LO.print("Started verifying Default Status for HPNR required flow");
 		System.out.println("Started verifying Default Status for HPNR required flow");
 
-
 		Click.on(driver, status_quote, 30);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		// Check default status is required
 
@@ -1433,13 +1365,15 @@ public class AssetFundingPage extends TestBase {
 		ExplicitWait.visibleElement(driver, status_quote_requested, 10);
 
 		elementColor = status_quote_requested.getCssValue("color");
-		
+
 		System.out.println(elementColor);
 
 		if (elementColor.equals("rgba(199, 92, 0, 1)")) {
 
-			LO.print("Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote");
-			System.out.println("Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote");
+			LO.print(
+					"Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote");
+			System.out.println(
+					"Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote");
 			return true;
 
 		} else {
@@ -1447,34 +1381,29 @@ public class AssetFundingPage extends TestBase {
 			System.err.println("Default Status for HPNR required flow Found Wrong");
 			return false;
 		}
-		
 
-	
 	}
 
-	
 	public boolean verify_holding_cost_shown() throws InterruptedException, IOException {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		
+
 		Thread.sleep(2000);
-		
+
 		Click.on(driver, asset_funding, 30);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		
-		LO.print          ("");
+
+		LO.print("");
 		System.out.println("");
 
-		
 		LO.print("Started verifying Holding Cost Shown");
 		System.out.println("Started verifying Holding Cost Shown");
 
-
 		LO.print("Reading Monthly Holding Cost value from excel has been started");
 		System.out.println("Reading Monthly Holding Cost value from excel has been started");
-		
-		String sheet_name =GetExcelFormulaValue.get_cell_value(1, 2, "Order_ID");		
+
+		String sheet_name = GetExcelFormulaValue.get_cell_value(1, 2, "Order_ID");
 
 		double monthly_holding_cost_expected = GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
 
@@ -1506,359 +1435,600 @@ public class AssetFundingPage extends TestBase {
 		}
 
 		return flag;
-		
+
 	}
 
-	
-	
-	public boolean verify_holding_cost_on_editing_percentage_cap_residual_value(String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String maintenance_status, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
-		
-		LO.print          ("");
+	public boolean verify_holding_cost_on_editing_percentage_cap_residual_value(String percentage_cap_residual_value,
+			String residual_value_used, String additional_terms, String additional_mileage, String maintenance_status,
+			String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
+
+		LO.print("");
 		System.out.println("");
-		
-    	LO.print("Reading Monthly Holding Cost value from excel has been started");
+
+		LO.print("Reading Monthly Holding Cost value from excel has been started");
 		System.out.println("Reading Monthly Holding Cost value from excel has been started");
-		
+
 		Click.on(driver, holding_cost_summary, 20);
-		
+
 		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
-		
-		return  obj_holding_cost_page.edit_percentage_residual_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value,
-						maintenance_status,  sheet_name);				
+
+		return obj_holding_cost_page.edit_percentage_residual_verify_holding_cost_without_maintenance(
+				residual_value_used, percentage_cap_residual_value, maintenance_status, sheet_name);
 	}
 
-	
-	public boolean verify_holding_cost_on_editing_residual_value(String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String maintenance_status, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
-		
-		LO.print          ("");
+	public boolean verify_holding_cost_on_editing_residual_value(String percentage_cap_residual_value,
+			String residual_value_used, String additional_terms, String additional_mileage, String maintenance_status,
+			String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
+
+		LO.print("");
 		System.out.println("");
-		
-    			
+
 		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
-		
-		return  obj_holding_cost_page.edit_residual_value_used_then_verify_holding_cost_without_maintenance(residual_value_used, percentage_cap_residual_value,
-						maintenance_status,  sheet_name);				
+
+		return obj_holding_cost_page.edit_residual_value_used_then_verify_holding_cost_without_maintenance(
+				residual_value_used, percentage_cap_residual_value, maintenance_status, sheet_name);
 	}
 
-	
+	public boolean verify_holding_cost_on_editing_additional_term_and_mileage(String percentage_cap_residual_value,
+			String residual_value_used, String additional_terms, String additional_mileage, String maintenance_status,
+			String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
 
-	public boolean verify_holding_cost_on_editing_additional_term_and_mileage(String percentage_cap_residual_value, String residual_value_used, String additional_terms,
-			String additional_mileage, String maintenance_status, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
-		
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
-		
-    			
+
 		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
-		
-		return  obj_holding_cost_page.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(additional_terms, additional_mileage,
-						maintenance_status,  sheet_name);				
+
+		return obj_holding_cost_page.edit_additional_term_and_mileage_then_verify_holding_cost_without_maintenance(
+				additional_terms, additional_mileage, maintenance_status, sheet_name);
 	}
 
-	public void add_funder(String quoteRef, String expiryDate,
-			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
-			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
-		
-		LO.print          ("");
+	public void verify_quote_summary_values_in_quote_on_editing_additional_term_and_mileage(String percentage_cap_residual_value,
+			String residual_value_used, String additional_terms, String additional_mileage, String maintenance_status,
+			String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
+
+		LO.print("");
 		System.out.println("");
-		
-    			
-		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
-		
-		  obj_holding_cost_page.verify_holding_cost_after_adding_funder_quote_without_maintenance(quoteRef, expiryDate,
-				term, milesPerAnnum, cashDeposit,  financeCharges,  documentFee,
-				 monthlyPayment,  finalBalloonPayment,  optionToPurchaseFee,  sheet_name);	
+
 		
 		
 	}
 
 	
-	public void verify_holding_cost_on_adding_funder(String quoteRef, String expiryDate,
-			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
-			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
-		
-		LO.print          ("");
+	public void add_funder(String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
+			String financeCharges, String documentFee, String monthlyPayment, String finalBalloonPayment,
+			String optionToPurchaseFee, String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
+
+		LO.print("");
 		System.out.println("");
-		
-    			
+
 		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
-		
-		  obj_holding_cost_page.verify_holding_cost_after_adding_funder_quote_without_maintenance_for_asset_funding_tab(sheet_name);	
-		
-		
+
+		obj_holding_cost_page.verify_holding_cost_after_adding_funder_quote_without_maintenance(quoteRef, expiryDate,
+				term, milesPerAnnum, cashDeposit, financeCharges, documentFee, monthlyPayment, finalBalloonPayment,
+				optionToPurchaseFee, sheet_name);
+
 	}
 
-	
-	
+	public void verify_holding_cost_on_adding_funder(String quoteRef, String expiryDate, String term,
+			String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee, String monthlyPayment,
+			String finalBalloonPayment, String optionToPurchaseFee, String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
+
+		LO.print("");
+		System.out.println("");
+
+		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
+
+		obj_holding_cost_page
+				.verify_holding_cost_after_adding_funder_quote_without_maintenance_for_asset_funding_tab(sheet_name);
+
+	}
+
 	public boolean verify_default_funder_is_not_deleted() throws InterruptedException, IOException {
 
 		Click.on(driver, asset_funding, 30);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		
-		LO.print          ("");
+
+		LO.print("");
 		System.out.println("");
 
 		// try to delete funder
-		
-		LO.print          ("Trying to delete funder");
+
+		LO.print("Trying to delete funder");
 		System.out.println("Trying to delete funder");
-		
-		
+
 		ExplicitWait.visibleElement(driver, default_funder_delete_button, 30);
-		
-		if(!default_funder_delete_button.isEnabled())
-		{
-			LO.print          ("Default funder can not be deleted as Delete button for selected funder is not enabled");
+
+		if (!default_funder_delete_button.isEnabled()) {
+			LO.print("Default funder can not be deleted as Delete button for selected funder is not enabled");
 			System.out.println("Default funder can not be deleted as Delete button for selected funder is not enabled");
 			return true;
-			
-		}
-		else
-		{
-			LO.print          ("Warning : Delete button for selected funder is enabled");
+
+		} else {
+			LO.print("Warning : Delete button for selected funder is enabled");
 			System.err.println("Warning : Delete button for selected funder is enabled");
 			return false;
 		}
-		
+
 	}
-	
-	
+
 	public boolean verify_selected_funder_can_not_be_edited() throws InterruptedException, IOException {
 
-		
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
 
 		// try to delete funder
-		
-		LO.print          ("Trying to edit the selected funder");
-		System.out.println("Trying to edit the selected funder");
-		
-		
-		ExplicitWait.visibleElement(driver, selected_funder, 30);
-		
-		Actions act = new Actions(driver);
-		
-		act.doubleClick(selected_funder).perform();
-		
-		ExplicitWait.visibleElement(driver, toaster, 20);
-		
-		String toasterMessage = toaster.getText();
-		
-		LO.print          ("Double Clicked on selected funder and we got warning message : "+toasterMessage);
-		System.out.println("Double Clicked on selected funder and we got warning message : "+toasterMessage);
 
-		
+		LO.print("Trying to edit the selected funder");
+		System.out.println("Trying to edit the selected funder");
+
+		ExplicitWait.visibleElement(driver, selected_funder, 30);
+
+		Actions act = new Actions(driver);
+
+		act.doubleClick(selected_funder).perform();
+
+		ExplicitWait.visibleElement(driver, toaster, 20);
+
+		String toasterMessage = toaster.getText();
+
+		LO.print("Double Clicked on selected funder and we got warning message : " + toasterMessage);
+		System.out.println("Double Clicked on selected funder and we got warning message : " + toasterMessage);
+
 		String expectedToasterMessage = "A selected funder cannot be edited. Please remove funder selection before editing";
-		
-		if(toasterMessage.equalsIgnoreCase(expectedToasterMessage))
-		{
-			LO.print          ("Selected funder can not be edited");
+
+		if (toasterMessage.equalsIgnoreCase(expectedToasterMessage)) {
+			LO.print("Selected funder can not be edited");
 			System.out.println("Selected funder can not be edited");
-			
 
 			return true;
-			
-		}
-		else
-		{
-			LO.print          ("Warning : Selected funder enabled for edited");
+
+		} else {
+			LO.print("Warning : Selected funder enabled for edited");
 			System.err.println("Warning : Selected funder enabled for edited");
 			return false;
 		}
-		
+
 	}
 
-	
-public boolean verify_document_is_uploaded_in_funder() throws InterruptedException, IOException {
+	public boolean verify_document_is_uploaded_in_funder() throws InterruptedException, IOException {
 
-		
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
 
 		// try to delete funder
-		
-		LO.print          ("Trying to upload doc in funder");
+
+		LO.print("Trying to upload doc in funder");
 		System.out.println("Trying to upload doc in funder");
+
+
+		Actions act = new Actions(driver);
+
+		act.doubleClick(selected_funder).perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		Thread.sleep(5000);
+
+		funder_doc_upload_button.sendKeys(prop.getProperty("test_doc_path"));
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		boolean uploadViewButtonBoolean = false;
 		
+		try {
+
+			ExplicitWait.visibleElement(driver, funder_doc_review_button, 30);
+
+			if (funder_doc_review_button.isDisplayed()) {
+				LO.print("Document in funder uploaded successfuly");
+				System.out.println("Document in funder uploaded successfuly");
+				uploadViewButtonBoolean = true;
+
+			}
+
+		} catch (Exception e) {
+
+			LO.print("Warning : Document in funder is not uploaded");
+			System.err.println("Warning : Document in funder is not uploaded");
+
+			uploadViewButtonBoolean = false;
+
+		}
 		
+//		Click.on(driver, update_funder , 20);
+//		
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		return uploadViewButtonBoolean;
+
+	}
+
+	public boolean verify_funders_are_deleted_on_changing_contract_type() throws InterruptedException, IOException {
+
+		LO.print("");
+		System.out.println("");
+
+		// try to delete funder
+
+		LO.print("Changing Contract type in Contract type tab");
+		System.out.println("Changing Contract type in Contract type tab");
+
+		ExplicitWait.visibleElement(driver, contract_types_and_otr_page, 30);
+
+		Click.on(driver, contract_types_and_otr_page, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		ExplicitWait.waitForListOfVisibleElements(driver, contract_types_list, 30);
+
+		for (WebElement e : contract_types_list) {
+			ExplicitWait.visibleElement(driver, e, 10);
+
+			if (e.isEnabled() && !e.isSelected() && !e.getText().trim().equalsIgnoreCase("Outright Purchase")) {
+				Thread.sleep(3000);
+
+				System.out.println(e.getText());
+
+				JavaScriptExecutor.click(driver, e);
+
+				// e.click();
+
+				Thread.sleep(3000);
+
+				Click.on(driver, change_contract_confirm_yes, 20);
+
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+				LO.print("Contract Type Changed Successfuly");
+				System.out.println("Contract Type Changed Successfuly");
+
+				LO.print("Changed Contract Type is : " + e.getText());
+				System.out.println("Changed Contract Type is : " + e.getText());
+
+				break;
+			}
+		}
+
+		LO.print("Now Moving back to Asset Funding tab to check all funders are deleted or not");
+		System.out.println("Now Moving back to Asset Funding tab to check all funders are deleted or not");
+
+		Click.on(driver, asset_funding, 10);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		boolean funderDeleteButton = false;
+		try {
+			ExplicitWait.visibleElement(driver, selected_button, 30);
+
+			LO.print("Funder in the Asset Funding Tab is removed after changing contract type");
+			System.out.println("Funder in the Asset Funding Tab is removed after changing contract type");
+
+		} catch (Exception e) {
+			funderDeleteButton = true;
+
+		}
+		return funderDeleteButton;
+
+	}
+
+	
+	public boolean verify_holding_cost_after_deselecting_funder() throws InterruptedException, IOException {
+
+		LO.print("");
+		System.out.println("");
+
+		// Deselect funder
+
+		LO.print("De-selecting funder");
+		System.out.println("De-selecting funder");
+
 		ExplicitWait.visibleElement(driver, selected_funder, 30);
+
+		Click.on(driver, selected_button, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		Click.on(driver, selected_button, 30);
-		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
-		Actions act = new Actions(driver);
-		
-		act.doubleClick(selected_funder).perform();
-		
+		Click.on(driver, selected_button, 30);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
-		Thread.sleep(5000);
-		
-			
-		funder_doc_upload_button.sendKeys(prop.getProperty("test_doc_path"));
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
-		
-		boolean docUploaded=false;
-		
-        try {
-        	ExplicitWait.visibleElement(driver, funder_doc_review_button, 30);
-        	docUploaded=true;
-        }catch(Exception e)
-        {
-        	docUploaded=false;     }		
-		
-		if(docUploaded=true)
-		{
-			LO.print          ("Document in funder uploaded successfuly");
-			System.out.println("Document in funder uploaded successfuly");
-			
 
-			return true;
-			
-		}
-		else
+		LO.print("Now verifying the holding cost based on ownbook after de-selecting funder");
+		System.out.println("Now verifying the holding cost based on ownbook after de-selecting funder");
+
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		
+		Thread.sleep(2000);
+		
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+		
+		double total_monthly_holding_cost_expected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(7, 1, "Order_ID"));
+	
+		LO.print          ("Actual Holding cost based on ownbook after de-selecting funder is "+total_monthly_holding_cost_actual);
+		System.out.println("Actual Holding cost based on ownbook after de-selecting funder is "+total_monthly_holding_cost_actual);
+
+
+		
+		LO.print          ("Expected Holding cost based on ownbook after de-selecting funder is "+total_monthly_holding_cost_expected);
+		System.out.println("Expected Holding cost based on ownbook after de-selecting funder is "+total_monthly_holding_cost_expected);
+
+
+		
+		
+		if((Difference.of_two_Double_Values(total_monthly_holding_cost_actual, total_monthly_holding_cost_expected))<0.2)
 		{
-			LO.print          ("Warning : Document in funder is not uploaded");
-			System.err.println("Warning : Document in funder is not uploaded");
-			
+			LO.print          ("Holding cost based on ownbook after de-selecting funder found OK");
+			System.out.println("Holding cost based on ownbook after de-selecting funder found OK");            
+			return true;
+		}
+		
+		else 
+		{
+			LO.print          ("Holding cost based on ownbook after de-selecting funder found Wrong");
+			System.out.println("Holding cost based on ownbook after de-selecting funder found Wrong");            
+
 			return false;
 		}
-		
+	
 	}
 
+	
+	
+	public boolean verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder() throws InterruptedException, IOException {
 
+		LO.print("");
+		System.out.println("");
 
-public boolean verify_funders_are_deleted_on_changing_contract_type() throws InterruptedException, IOException {
-
-	
-	LO.print          ("");
-	System.out.println("");
-
-	// try to delete funder
-	
-	LO.print          ("Changing Contract type in Contract type tab");
-	System.out.println("Changing Contract type in Contract type tab");
-	
-	
-	ExplicitWait.visibleElement(driver, contract_types_and_otr_page, 30);
-	
-	Click.on(driver, contract_types_and_otr_page, 30);
-	
-	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
-	
-	ExplicitWait.waitForListOfVisibleElements(driver, contract_types_list, 30);
-	
+		LO.print("Editing Funder and toggling the toggle button towards the calculation based on ownbook option in funder");
+		System.out.println("Editing Funder and toggling the toggle button towards the calculation based on ownbook option in funder");
 		
-	for(WebElement e: contract_types_list)
-	{
-		ExplicitWait.visibleElement(driver, e, 10);
+		Actions act = new Actions(driver);
+
+		act.doubleClick(selected_funder).perform();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
-		if(e.isEnabled() && ! e.isSelected( ) && !e.getText().trim().equalsIgnoreCase("Outright Purchase"))
+		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+	    Click.on(driver, update_funder , 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);		
+		
+
+    	LO.print          ("Now verifying the holding cost based on ownbook");
+		System.out.println("Now verifying the holding cost based on ownbook");	
+
+
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		
+		Thread.sleep(2000);
+		
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+		
+		double total_monthly_holding_cost_expected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(7, 1, "Order_ID"));
+	
+		LO.print          ("Actual Holding cost based on ownbook is "+total_monthly_holding_cost_actual);
+		System.out.println("Actual Holding cost based on ownbook is "+total_monthly_holding_cost_actual);
+
+
+		
+		LO.print          ("Expected Holding cost based on ownbook "+total_monthly_holding_cost_expected);
+		System.out.println("Expected Holding cost based on ownbook "+total_monthly_holding_cost_expected);
+
+
+		
+		
+		if((Difference.of_two_Double_Values(total_monthly_holding_cost_actual, total_monthly_holding_cost_expected))<0.2)
 		{
-			Thread.sleep(3000);
-			
-			System.out.println(e.getText());
-			
-			
-			JavaScriptExecutor.click(driver, e);
-			
-			//e.click();
-			
-			Thread.sleep(3000);
-			
-			Click.on(driver, change_contract_confirm_yes, 20);			
-			
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
-			
-			LO.print          ("Contract Type Changed Successfuly");
-			System.out.println("Contract Type Changed Successfuly");
-			
-			LO.print          ("Changed Contract Type is : "+e.getText());
-			System.out.println("Changed Contract Type is : "+e.getText());
-			
-			break;
+			LO.print          ("Holding cost based on ownbook found OK");
+			System.out.println("Holding cost based on ownbook found OK");            
+			return true;
 		}
+		
+		else 
+		{
+			LO.print          ("Holding cost based on ownbook found Wrong");
+			System.out.println("Holding cost based on ownbook found Wrong");            
+
+			return false;
+		}
+	
+	}
+
+	
+	
+	public boolean verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test() throws InterruptedException, IOException {
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print          ("Making Cap Maint toggle button off and verifying Holding Cost");
+		System.out.println("Making Cap Maint toggle button off and verifying Holding Cost");
+		
+	
+	    Click.on(driver, maintenance_toggle_button, 20);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+
+    	LO.print          ("Now verifying the holding cost based on ownbook");
+		System.out.println("Now verifying the holding cost based on ownbook");	
+
+
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		
+		Thread.sleep(2000);
+		
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+		
+		double total_monthly_holding_cost_expected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(7, 0, "Order_ID"));
+	
+		LO.print          ("Actual Holding cost based on ownbook is "+total_monthly_holding_cost_actual);
+		System.out.println("Actual Holding cost based on ownbook is "+total_monthly_holding_cost_actual);
+
+	
+		LO.print          ("Expected Holding cost based on ownbook "+total_monthly_holding_cost_expected);
+		System.out.println("Expected Holding cost based on ownbook "+total_monthly_holding_cost_expected);
+
+
+		
+		
+		if((Difference.of_two_Double_Values(total_monthly_holding_cost_actual, total_monthly_holding_cost_expected))<0.2)
+		{
+			LO.print          ("Holding cost based on ownbook found OK");
+			System.out.println("Holding cost based on ownbook found OK");            
+			return true;
+		}
+		
+		else 
+		{
+			LO.print          ("Holding cost based on ownbook found Wrong");
+			System.out.println("Holding cost based on ownbook found Wrong");            
+
+			return false;
+		}
+	
 	}
 	
 	
-	LO.print          ("Now Moving back to Asset Funding tab to check all funders are deleted or not");
-	System.out.println("Now Moving back to Asset Funding tab to check all funders are deleted or not");
+	
+	
+	
+	public boolean verify_funder_is_deselected_after_selecting_the_other_matrix_cell() throws InterruptedException, IOException {
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print          ("Selecting the funder");
+		System.out.println("Selecting the funder");
+		
+		ExplicitWait.visibleElement(driver, selected_funder, 30);
+
+		Click.on(driver, selected_button, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Selecting the other cell from Holding cost matrix");
+		System.out.println("Selecting the other cell from Holding cost matrix");
+	
+	
+			
+		boolean status = false;	
+		
+		List<WebElement> ownbook_holding_cost_matrix = driver.findElements(By.xpath("//*[contains(@class, 'rTableCell')]"));
+				
+		 for (WebElement element : ownbook_holding_cost_matrix) {
+	            // Get the class attribute value
+	           
+			 
+			 String classAttributeValue = element.getAttribute("class");
+
+	            // Check if the class attribute contains the word "selected"
+	            if (!classAttributeValue.contains("selectedprice")) {
+	                // Click on the element
+	            	
+	            	System.out.println("Selected other cell value is "+element.getText());
+	            	
+	                element.click();
+	                ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//	            	LO.print          ("Selected other cell value is "+element.getText());
+//	        		System.out.println("Selected other cell value is "+element.getText());	
+	        		
+	                try {
+	        		if(!element.isSelected())
+	        		{
+	        			continue;
+	        		}else
+	        		{
+	        			break; // If you only want to click the first matching element, break the loop
+	        		}
+	                }
+	                catch(Exception e)
+	                {
+	                	
+	                }
+	                
+	            
+	        
+		
+		 		
+		
+    	LO.print          ("Now verifying that the funder is de-selected");
+		System.out.println("Now verifying that the funder is de-selected");	
 
 	
-	Click.on(driver, asset_funding, 10);
-	
-	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);	
-	
-	boolean funderDeleteButton = false;
-    try {
-    	ExplicitWait.visibleElement(driver, selected_button, 30);
-    	
-		LO.print          ("Funder in the Asset Funding Tab is removed after changing contract type");
-		System.out.println("Funder in the Asset Funding Tab is removed after changing contract type");
-    	 
-    }catch(Exception e)
-    {
-    	funderDeleteButton =  true;
-    	
-    }
-	return funderDeleteButton;		
-	
+		
+       try
+       {
+    	   ExplicitWait.visibleElement(driver, select_a_funder, 50); 
+    	   if(select_a_funder.isDisplayed())
+    	   {
+    		   status = true; 
+    		   
+    	    	LO.print          ("Verified that the funder is de-selected after selecting ownbook matrix other cell --Found OK");
+    			System.out.println("Verified that the funder is de-selected after selecting ownbook matrix other cell --Found OK");	
 
-}
+    	   }
+    	   
+       }catch(Exception e2)
+       {
+ 		   status = false; 
+		   
+	    	LO.print          ("Verified but it is found that the funder is still remains selected after selecting ownbook matrix other cell --Found wrong");
+			System.out.println("Verified but it is found that the funder is still remains selected after selecting ownbook matrix other cell --Found wrong");	
 
-
-
-public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws InterruptedException, IOException {
-
-	
-	LO.print          ("");
-	System.out.println("");
-
-	// try to delete funder
-	
-	LO.print          ("Adding funder with same term and mileage");
-	System.out.println("Adding funder with same term and mileage");
-	
-	
-	
-	
-
-}
+       }
+       }
+	 }
+		return status;
+	}
 
 	
+	public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws InterruptedException, IOException {
+
+		LO.print("");
+		System.out.println("");
+
+		// try to delete funder
+
+		LO.print("Adding funder with same term and mileage");
+		System.out.println("Adding funder with same term and mileage");
+
+	}
+
 	public boolean verify_finance_documents_statuses() throws InterruptedException, IOException {
 
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
- 
-		LO.print          ("Sterted Verifying Finance Document Statuses for required flow");
+
+		LO.print("Sterted Verifying Finance Document Statuses for required flow");
 		System.out.println("Sterted Verifying Finance Document Statuses for required flow");
-		
-		Click.on(driver, status_finance_documents, 30);	
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
+
+		Click.on(driver, status_finance_documents, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
 		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
-		// Click on  Date agreement Received
+		// Click on Date agreement Received
 		Click.on(driver, date_agreement_requested, 20);
 		Thread.sleep(8000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		// pick date 
+		// pick date
 		CommonClass.move_courser();
-		Click.on(driver, pick_a_date, 20);	
+		Click.on(driver, pick_a_date, 20);
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
+
 		// Check default status is required
-		
-	
+
 		int statusVerificationCount = 0;
 
 		String elementBackgroundColor = "";
@@ -1866,199 +2036,182 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 		ExplicitWait.visibleElement(driver, status_finance_documents_requested, 10);
 
 		elementBackgroundColor = status_finance_documents_requested.getCssValue("background-color");
-		
-		
+
 		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
 
-			LO.print("Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested");
-			System.out.println("Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested");
+			LO.print(
+					"Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested");
+			System.out.println(
+					"Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested");
 			statusVerificationCount++;
 
 		} else {
 			LO.print("Finance Document Status after selecting agreement requested date- Found Wrong");
 			System.err.println("Finance Document Status after selecting agreement requested date- Found Wrong");
-			 
+
 		}
-		
-		
+
 		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
-		
-		
-		// Click on  Date agreement Sent
+
+		// Click on Date agreement Sent
 		Click.on(driver, date_agreement_sent, 20);
 		Thread.sleep(8000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		// pick date 
+		// pick date
 		CommonClass.move_courser();
-		Click.on(driver, pick_a_date, 20);	
+		Click.on(driver, pick_a_date, 20);
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-		
-		// Click on  Date agreement received
+
+		// Click on Date agreement received
 		Click.on(driver, date_agreement_received, 20);
 		Thread.sleep(8000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		// pick date 
+		// pick date
 		CommonClass.move_courser();
-		Click.on(driver, pick_a_date, 20);	
+		Click.on(driver, pick_a_date, 20);
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
+
 		ExplicitWait.visibleElement(driver, status_finance_documents_received, 10);
 
 		elementBackgroundColor = status_finance_documents_received.getCssValue("background-color");
-		
-		
+
 		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
 
-			LO.print("Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received");
-			System.out.println("Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received");
+			LO.print(
+					"Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received");
+			System.out.println(
+					"Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received");
 			statusVerificationCount++;
 
 		} else {
 			LO.print("Finance Document Status after selecting agreement received date- Found Wrong");
 			System.err.println("Finance Document Status after selecting agreement received date- Found Wrong");
-			 
+
 		}
 
 		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
-		//Upload signed Documents
-		
-		 upload_signed_documents.sendKeys(prop.getProperty("test_image_path"));
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);		 
-		 
-		 ExplicitWait.visibleElement(driver, status_finance_documents_signed, 100);
-		 
-			elementBackgroundColor = status_finance_documents_signed.getCssValue("background-color");
-			
-			
-			if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+		// Upload signed Documents
 
-				LO.print("Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed");
-				System.out.println("Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed");
-				statusVerificationCount++;
+		upload_signed_documents.sendKeys(prop.getProperty("test_image_path"));
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-			} else {
-				LO.print("Finance Document Status after uploading signed documents- Found Wrong");
-				System.err.println("Finance Document Status after uploading signed documents- Found Wrong");
-				 
-			}
+		ExplicitWait.visibleElement(driver, status_finance_documents_signed, 100);
 
-			JavaScriptExecutor.scroll_in_to_view(driver, back_button);
-			// Click on  uploaded to funder
-			Click.on(driver, date_uploaded_to_funder, 20);
-			Thread.sleep(8000);
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		elementBackgroundColor = status_finance_documents_signed.getCssValue("background-color");
 
-			// pick date 
-			CommonClass.move_courser();
-			Click.on(driver, pick_a_date, 20);	
-			Thread.sleep(5000);
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-			
-			
-			ExplicitWait.visibleElement(driver, status_upload_to_funder, 10);
+		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
 
-			elementBackgroundColor = status_upload_to_funder.getCssValue("background-color");
-			
-			
-			if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+			LO.print("Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed");
+			System.out.println(
+					"Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed");
+			statusVerificationCount++;
 
-				LO.print("Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder");
-				System.out.println("Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder");
-				statusVerificationCount++;
+		} else {
+			LO.print("Finance Document Status after uploading signed documents- Found Wrong");
+			System.err.println("Finance Document Status after uploading signed documents- Found Wrong");
 
-			} else {
-				LO.print("Finance Document Status after selecting uploaded to funder date- Found Wrong");
-				System.err.println("Finance Document Status after selecting uploaded to funder date- Found Wrong");
-				 
-			}
-	
-			JavaScriptExecutor.scroll_in_to_view(driver, back_button);
-			// Click on  uploaded to funder
-			Click.on(driver, date_accepted_by_funder, 20);
-			Thread.sleep(8000);
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		}
 
-			// pick date 
-			CommonClass.move_courser();
-			Click.on(driver, pick_a_date, 20);	
-			Thread.sleep(5000);
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
+		// Click on uploaded to funder
+		Click.on(driver, date_uploaded_to_funder, 20);
+		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-			
-			
-			// Click on  finance activated
-			Click.on(driver, date_finance_activated, 20);
-			Thread.sleep(8000);
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		// pick date
+		CommonClass.move_courser();
+		Click.on(driver, pick_a_date, 20);
+		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-			// pick date 
-			CommonClass.move_courser();
-			Click.on(driver, pick_a_date, 20);	
-			Thread.sleep(5000);
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		ExplicitWait.visibleElement(driver, status_upload_to_funder, 10);
 
-			
-			
-			ExplicitWait.visibleElement(driver, status_finance_document_finance_activated, 20);
+		elementBackgroundColor = status_upload_to_funder.getCssValue("background-color");
 
-			elementBackgroundColor = status_finance_document_finance_activated.getCssValue("background-color");
-			
-			
-			if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
 
-				LO.print("Finance Document Status after selecting activation date- Found OK i.e Finance Activated");
-				System.out.println("Finance Document Status after selecting activation date- Found OK i.e Finance Activated");
-				statusVerificationCount++;
+			LO.print("Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder");
+			System.out.println(
+					"Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder");
+			statusVerificationCount++;
 
-			} else {
-				LO.print("Finance Document Status after selecting activation date- Found Wrong");
-				System.err.println("Finance Document Status after selecting activation date- Found Wrong");
-				 
-			}
+		} else {
+			LO.print("Finance Document Status after selecting uploaded to funder date- Found Wrong");
+			System.err.println("Finance Document Status after selecting uploaded to funder date- Found Wrong");
 
-			
-       if(statusVerificationCount==5)
-       {
-    	   return true;
-       }else
-       {
-    	   return false;
-       }
-		
-	
+		}
+
+		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
+		// Click on uploaded to funder
+		Click.on(driver, date_accepted_by_funder, 20);
+		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		// pick date
+		CommonClass.move_courser();
+		Click.on(driver, pick_a_date, 20);
+		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		// Click on finance activated
+		Click.on(driver, date_finance_activated, 20);
+		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		// pick date
+		CommonClass.move_courser();
+		Click.on(driver, pick_a_date, 20);
+		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		ExplicitWait.visibleElement(driver, status_finance_document_finance_activated, 20);
+
+		elementBackgroundColor = status_finance_document_finance_activated.getCssValue("background-color");
+
+		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+
+			LO.print("Finance Document Status after selecting activation date- Found OK i.e Finance Activated");
+			System.out
+					.println("Finance Document Status after selecting activation date- Found OK i.e Finance Activated");
+			statusVerificationCount++;
+
+		} else {
+			LO.print("Finance Document Status after selecting activation date- Found Wrong");
+			System.err.println("Finance Document Status after selecting activation date- Found Wrong");
+
+		}
+
+		if (statusVerificationCount == 5) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
-	
-	
 	public boolean verify_payments_to_funder_statuses() throws InterruptedException, IOException {
 
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
-	
 
-		LO.print          ("Sterted Verifying Payments to Funder Statuses for required flow");
+		LO.print("Sterted Verifying Payments to Funder Statuses for required flow");
 		System.out.println("Sterted Verifying Payments to Funder Statuses for required flow");
-		
-		JavaScriptExecutor.click(driver, status_payment);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
-		
+
+		JavaScriptExecutor.click(driver, status_payment);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
 		int statusVerificationCount = 0;
-		
+
 		String elementColor = "";
 
 		ExplicitWait.visibleElement(driver, status_payment_required, 10);
 
 		elementColor = status_payment_required.getCssValue("color");
-		
-				
+
 		if (elementColor.equals("rgba(199, 92, 0, 1)")) {
 
 			LO.print("Payment to funder -- Default Status - Found OK i.e Payment Required");
@@ -2068,103 +2221,97 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 		} else {
 			LO.print("Payment to funder -- Default Status- Found Wrong");
 			System.err.println("Payment to funder -- Default Status- Found Wrong");
-			 
-		}
-			
-		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
-		//Click on generate Invoice
-		Click.on(driver, button_generate_invoice, 30);	
-		Thread.sleep(2000);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
-		//Confirm pop up 
-		Click.on(driver, button_generate_invoice_cofirm, 30);	
-		Thread.sleep(2000);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
 
-		
-		// Click on  Payment Requested
+		}
+
+		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
+		// Click on generate Invoice
+		Click.on(driver, button_generate_invoice, 30);
+		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		// Confirm pop up
+		Click.on(driver, button_generate_invoice_cofirm, 30);
+		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		// Click on Payment Requested
 		Click.on(driver, date_payment_requested_for_doc_fee, 20);
 		Thread.sleep(8000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		// pick date 
+		// pick date
 		CommonClass.move_courser();
-		Click.on(driver, pick_a_date, 20);	
+		Click.on(driver, pick_a_date, 20);
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		
-		// Click on  Payment Sent
+		// Click on Payment Sent
 		Click.on(driver, date_payment_sent_for_doc_fee, 20);
 		Thread.sleep(8000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		// pick date 
+		// pick date
 		CommonClass.move_courser();
-		Click.on(driver, pick_a_date, 20);	
+		Click.on(driver, pick_a_date, 20);
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		//Click on generate Invoice
-		Click.on(driver, button_generate_invoice, 30);	
+		// Click on generate Invoice
+		Click.on(driver, button_generate_invoice, 30);
 		Thread.sleep(2000);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
-		//Confirm pop up 
-		Click.on(driver, button_generate_invoice_cofirm, 30);	
-		Thread.sleep(2000);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
-		
-		
-		// Click on  Payment Requested
+		// Confirm pop up
+		Click.on(driver, button_generate_invoice_cofirm, 30);
+		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		// Click on Payment Requested
 		Click.on(driver, date_payment_requested_for_finance_deposit, 20);
 		Thread.sleep(8000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		// pick date 
+		// pick date
 		CommonClass.move_courser();
-		Click.on(driver, pick_a_date, 20);	
+		Click.on(driver, pick_a_date, 20);
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		//Verify Status Payment requested
-		
+		// Verify Status Payment requested
+
 		ExplicitWait.visibleElement(driver, status_payment_requested, 10);
-		
+
 		elementColor = status_payment_requested.getCssValue("color");
-		
-		
+
 		if (elementColor.equals("rgba(199, 92, 0, 1)")) {
 
 			LO.print("Status for Payment after selecting payment requested date- Found OK i.e Payment Requested");
-			System.out.println("Status for Payment after selecting payment requested date- Found OK i.e Payment Requested");
+			System.out.println(
+					"Status for Payment after selecting payment requested date- Found OK i.e Payment Requested");
 			statusVerificationCount++;
 
 		} else {
 			LO.print("Status for Payment after selecting payment requested date- Found Wrong");
 			System.err.println("Status for Payment after selecting payment requested date- Found Wrong");
-			 
-		}			
-		
-		
-		// Click on  Payment Sent
+
+		}
+
+		// Click on Payment Sent
 		Click.on(driver, date_payment_sent_for_finance_deposit, 20);
 		Thread.sleep(8000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		// pick date 
+		// pick date
 		CommonClass.move_courser();
-		Click.on(driver, pick_a_date, 20);	
+		Click.on(driver, pick_a_date, 20);
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
 		ExplicitWait.visibleElement(driver, status_payment_sent, 10);
-		
+
 		elementColor = status_payment_sent.getCssValue("color");
-		
-		
+
 		if (elementColor.equals("rgba(91, 158, 63, 1)")) {
 
 			LO.print("Status for Payment after selecting payment sent date- Found OK i.e Payment Sent");
@@ -2174,40 +2321,32 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 		} else {
 			LO.print("Status for Payment after selecting payment sent date- Found Wrong");
 			System.err.println("Status for Payment after selecting payment sent date- Found Wrong");
-			 
-		}			
 
-		
-		
-			
-       if(statusVerificationCount==3)
-       {
-    	   return true;
-       }else
-       {
-    	   return false;
-       }
-		
-	
+		}
+
+		if (statusVerificationCount == 3) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 	public boolean verify_completed_status() throws InterruptedException, IOException {
 
-
-		LO.print          ("");
+		LO.print("");
 		System.out.println("");
-		
-		LO.print          ("Click on complete funding");
+
+		LO.print("Click on complete funding");
 		System.out.println("Click on complete funding");
-		
+
 		Click.on(driver, complete_funding, 10);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
 		Click.on(driver, confirm_complete, 10);
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);	
-		
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
 		String elementbackgroundColor = "";
 
 		ExplicitWait.visibleElement(driver, status_completed, 10);
@@ -2224,11 +2363,9 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 			LO.print("Status for Asset Funding after completing funding found wrong");
 			System.err.println("Status for Asset Funding after completing funding found wrong");
 			return false;
-		}	
-		
-	
-	}
+		}
 
+	}
 
 	public boolean stocking_plan() throws InterruptedException, IOException {
 
@@ -2241,11 +2378,10 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 		Click.on(driver, status_stocking_plan, 20);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
-		
+
 		obj_asset_funding_page = new AssetFundingPage();
-		
+
 		obj_asset_funding_page.verify_stocking_plan_details_before_adding_stocking_plan();
-		
 
 		// Check default status is required
 
@@ -2447,15 +2583,14 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 
 			LO.print("");
 			System.out.println("");
-			
+
 			String nameOftheStockingPlan = stockingPlan.getText();
-			
+
 			LO.print("Name of the " + i + " Stocking plan is " + nameOftheStockingPlan);
 			System.out.println("Name of the " + i + " Stocking plan is " + nameOftheStockingPlan);
 
 			LO.print("");
 			System.out.println("");
-
 
 			LO.print("Credit Limit of the " + i + " Stocking plan from the screen is " + creditLimit);
 			System.out.println("Credit Limit of the " + i + " Stocking plan from the screen is " + creditLimit);
@@ -2470,7 +2605,8 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 			System.out.println("");
 
 			LO.print("Amount to fund shown in the " + i + " Stocking plan from the screen is " + amountToFund);
-			System.out.println("Amount to fund shown in the " + i + " Stocking plan from the screen is " + amountToFund);
+			System.out
+					.println("Amount to fund shown in the " + i + " Stocking plan from the screen is " + amountToFund);
 
 			// Store Orders Tab Window ID
 			String ordersTab = driver.getWindowHandle();
@@ -2479,8 +2615,8 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 			FileInputStream ip = new FileInputStream(
 					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\config.properties");
 			prop.load(ip);
-			
-			String targetURL = prop.getProperty("url")+"stockingplan/setting";
+
+			String targetURL = prop.getProperty("url") + "stockingplan/setting";
 
 			// Open New Window
 			((JavascriptExecutor) driver).executeScript("window.open('" + targetURL + "', '_blank');");
@@ -2489,41 +2625,38 @@ public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws 
 			for (String handle : driver.getWindowHandles()) {
 				if (!handle.equals(ordersTab)) {
 
-					// Switch to New Window Opened 
+					// Switch to New Window Opened
 					driver.switchTo().window(handle);
-					
-					 Thread.sleep(1000);
-					Click.on(driver, roles_dropdown, 60);					
-					 Thread.sleep(1000);					
-					Click.on(driver, super_admin, 60);								
+
+					Thread.sleep(1000);
+					Click.on(driver, roles_dropdown, 60);
+					Thread.sleep(1000);
+					Click.on(driver, super_admin, 60);
 					ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-					
+
 					Click.sendKeys(driver, stocking_plan_settings_search_bar, nameOftheStockingPlan, 60);
 					stocking_plan_settings_search_bar.sendKeys(Keys.ENTER);
 					ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
-			
+
 					Actions act = new Actions(driver);
 					Thread.sleep(2000);
-					act.doubleClick(search_output).perform();					
+					act.doubleClick(search_output).perform();
 					Thread.sleep(5000);
 					ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
-					
-					
-					double stockingPlanCreditLimitFromSetting =  Double.parseDouble(setting_credit_limit.getAttribute("value"));
-					
-					//this method is incomplete , we are comparing stocking plan values with setting
-					
-					
 
-					
+					double stockingPlanCreditLimitFromSetting = Double
+							.parseDouble(setting_credit_limit.getAttribute("value"));
+
+					// this method is incomplete , we are comparing stocking plan values with
+					// setting
 
 				}
 			}
 			// Close Seeting Window
-			//driver.close();
+			// driver.close();
 
 			// Switch back to the original tab
-			//driver.switchTo().window(ordersTab);
+			// driver.switchTo().window(ordersTab);
 
 		}
 

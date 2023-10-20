@@ -169,6 +169,11 @@ public class CommonClass extends TestBase {
 		System.out.println("*****Creating Order Started*****");
 
 		// Click on create order
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		Thread.sleep(2000);
+		
 		Click.on(driver, create_order, 20);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);

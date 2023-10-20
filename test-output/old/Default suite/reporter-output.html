@@ -1,30 +1,36 @@
-<h2>Reporter output</h2><table><tr><td><b>Searching for Order ID UU-54189</b> <br /></td></tr>
+<h2>Reporter output</h2><table><tr><td><b>Searching for Order ID OD-95584</b> <br /></td></tr>
 <tr><td><b></b> <br /></td></tr>
 <tr><td><b>Started verifying Default Status for BCH required flow</b> <br /></td></tr>
 <tr><td><b>Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote</b> <br /></td></tr>
 <tr><td><b></b> <br /></td></tr>
-<tr><td><b>Adding funder with same term and mileage which was present already</b> <br /></td></tr>
-<tr><td><b>Tried adding same funder with same term and mileage , got warning message : Funder quote already exists for this term and mileage combination</b> <br /></td></tr>
-<tr><td><b>Therefore funder with same term and mileage can not be added</b> <br /></td></tr>
+<tr><td><b>Trying to delete funder</b> <br /></td></tr>
+<tr><td><b>Default funder can not be deleted as Delete button for selected funder is not enabled</b> <br /></td></tr>
 <tr><td><b></b> <br /></td></tr>
-<tr><td><b>Adding funder with different term and mileage which was present already</b> <br /></td></tr>
-<tr><td><b>Tried adding same funder with different term and mileage , got validation message : Funder quote added successfully</b> <br /></td></tr>
-<tr><td><b>Therefore funder with different term and mileage can be added</b> <br /></td></tr>
+<tr><td><b>Trying to edit the selected funder</b> <br /></td></tr>
+<tr><td><b>Double Clicked on selected funder and we got warning message : A selected funder cannot be edited. Please remove funder selection before editing</b> <br /></td></tr>
+<tr><td><b>Selected funder can not be edited</b> <br /></td></tr>
 <tr><td><b></b> <br /></td></tr>
-<tr><td><b>Selecting Newly added funder</b> <br /></td></tr>
-<tr><td><b>Writing Holding Cost Summary values to excel has been completed</b> <br /></td></tr>
-<tr><td><b>Reading Monthly Holding Cost value from excel</b> <br /></td></tr>
-<tr><td><b>Holding Cost Shown After Selecting Newly Added Funder -- Found OK</b> <br /></td></tr>
+<tr><td><b>De-selecting funder</b> <br /></td></tr>
+<tr><td><b>Now verifying the holding cost based on ownbook after de-selecting funder</b> <br /></td></tr>
+<tr><td><b>Actual Holding cost based on ownbook after de-selecting funder is 929.36</b> <br /></td></tr>
+<tr><td><b>Expected Holding cost based on ownbook after de-selecting funder is 929.36</b> <br /></td></tr>
+<tr><td><b>Holding cost based on ownbook after de-selecting funder found OK</b> <br /></td></tr>
 <tr><td><b></b> <br /></td></tr>
-<tr><td><b>Verifying Residual Value_and_Maint Cost_fields_are_freezed and Additional term and mileage fields are disappeared</b> <br /></td></tr>
+<tr><td><b>Making Cap Maint toggle button off and verifying Holding Cost</b> <br /></td></tr>
+<tr><td><b>Now verifying the holding cost based on ownbook</b> <br /></td></tr>
+<tr><td><b>Actual Holding cost based on ownbook is 900.75</b> <br /></td></tr>
+<tr><td><b>Expected Holding cost based on ownbook 900.75</b> <br /></td></tr>
+<tr><td><b>Holding cost based on ownbook found OK</b> <br /></td></tr>
 <tr><td><b></b> <br /></td></tr>
-<tr><td><b>Verifying that Residual Value and Maintenance Cost Fields are freezed</b> <br /></td></tr>
-<tr><td><b>Residual Value and Maintenance Cost Fields are seen freezed</b> <br /></td></tr>
+<tr><td><b>Selecting the funder</b> <br /></td></tr>
+<tr><td><b>Selecting the other cell from Holding cost matrix</b> <br /></td></tr>
+<tr><td><b>Now verifying that the funder is de-selected</b> <br /></td></tr>
+<tr><td><b>Verified that the funder is de-selected after selecting ownbook matrix other cell --Found OK</b> <br /></td></tr>
+<tr><td><br>----------Screenshot---------<br></td></tr>
+<tr><td><img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test_20_10_2023_04_02_57.png" height="800" width="1000"></td></tr>
 <tr><td><b></b> <br /></td></tr>
-<tr><td><b>Verifying that additional term and mileage Fields are disappeared</b> <br /></td></tr>
-<tr><td><b>Additional Term and Mileage Fields are disappeared after selecting a funder</b> <br /></td></tr>
-<tr><td><b></b> <br /></td></tr>
-<tr><td><b>Funder is selected , now changing % Residual Value</b> <br /></td></tr>
-<tr><td><b></b> <br /></td></tr>
-<tr><td><b>% Residual Value changed , and Holding Cost based on funder quote Found OK</b> <br /></td></tr>
+<tr><td><b>Trying to upload doc in funder</b> <br /></td></tr>
+<tr><td><b>Warning : Document in funder is not uploaded</b> <br /></td></tr>
+<tr><td><br>----------Screenshot---------<br></td></tr>
+<tr><td><img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_document_is_uploaded_in_funder_test_20_10_2023_04_03_41.png" height="800" width="1000"></td></tr>
 </table>
