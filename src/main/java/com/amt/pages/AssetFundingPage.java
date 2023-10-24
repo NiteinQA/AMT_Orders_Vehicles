@@ -4,6 +4,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -20,6 +21,7 @@ import org.testng.Assert;
 
 import com.amt.HoldingCostPages.HoldingCost_CP_BCH_Page;
 import com.amt.HoldingCostPages.HoldingCost_HPNR_HPRPage;
+import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_HPRPage;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.CommonClass;
@@ -33,6 +35,8 @@ import com.amt.testUtil.RemoveComma;
 public class AssetFundingPage extends TestBase {
 
 	JavascriptExecutor js;
+	
+	AssetFundingPage obj_asset_funding;
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
@@ -472,6 +476,13 @@ public class AssetFundingPage extends TestBase {
 //	@FindBy(xpath = "//*[contains(@class, 'rTableCell')]")
 //	private List<WebElement> ownbook_holding_cost_matrix;
 	
+	
+	@FindBy(xpath = "//*[text()='Quote ref:']//ancestor::div[1]//p")
+	private WebElement quote_id_link;
+	
+	@FindBy(xpath = "//*[text()=' Save ']")
+	private WebElement save_button;
+	
 	 
 	ReadExcelCalculation obj_read_excel_calculation_page;
 
@@ -486,6 +497,8 @@ public class AssetFundingPage extends TestBase {
 	HoldingCost_HPNR_HPRPage obj_holding_cost_page;
 
 	HoldingCost_CP_BCH_Page obj_holding_cost_CP_BCH_page;
+	
+	QuoteSummary_HPNR_HPRPage  obj_quote_summary_page;
 
 	public AssetFundingPage() {
 		try {
@@ -1485,15 +1498,38 @@ public class AssetFundingPage extends TestBase {
 				additional_terms, additional_mileage, maintenance_status, sheet_name);
 	}
 
-	public void verify_quote_summary_values_in_quote_on_editing_additional_term_and_mileage(String percentage_cap_residual_value,
-			String residual_value_used, String additional_terms, String additional_mileage, String maintenance_status,
-			String sheet_name)
+	public void verify_quote_summary_values_in_quote_on_editing_additional_term_and_mileage(String sheet_name)
 			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
 
 		LO.print("");
 		System.out.println("");
-
 		
+		 obj_asset_funding = new AssetFundingPage();
+			
+		 obj_asset_funding.shift_selenium_focus_to_new_tab_opened();
+
+        // Now, you can interact with elements in the new tab
+
+        // Switch back to the original tab
+//        String originalTabHandle = tabHandles.get(0);
+//        driver.switchTo().window(originalTabHandle);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+        
+    	obj_quote_summary_page = new QuoteSummary_HPNR_HPRPage();
+    	
+		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page
+				.quote_summary_holding_cost_calculation_without_maintenance(sheet_name);
+	//	Assert.assertTrue(quote_summary_holding_cost_calculation1);
+
+		boolean quote_summary_customer_quote_calculation1 = obj_quote_summary_page
+				.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
+		// Assert.assertTrue(quote_summary_customer_quote_calculation1);
+
+		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page
+				.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
+		//Assert.assertTrue(quote_summary_configuration_value_check1);		
+
+
 		
 	}
 
@@ -1529,6 +1565,72 @@ public class AssetFundingPage extends TestBase {
 
 	}
 
+	
+	
+	
+	public void add_funder_in_asset_funding_and_verify_updated_values_in_quote(String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
+
+		LO.print("");
+		System.out.println("");
+		
+		 obj_asset_funding = new AssetFundingPage();
+		
+		 obj_asset_funding.shift_selenium_focus_to_new_tab_opened();
+
+        // Now, you can interact with elements in the new tab
+
+        // Switch back to the original tab
+//        String originalTabHandle = tabHandles.get(0);
+//        driver.switchTo().window(originalTabHandle);
+        ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+        
+    	obj_quote_summary_page = new QuoteSummary_HPNR_HPRPage();
+    	
+		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page
+				.quote_summary_holding_cost_calculation_for_funder_without_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation);
+
+		boolean quote_summary_customer_quote_calculation = obj_quote_summary_page
+				.quote_summary_customer_quote_summary_value_verification_for_funder_without_maintenance(sheet_name);
+		// Assert.assertTrue(quote_summary_customer_quote_calculation);
+
+		boolean quote_summary_configuration_value_check = obj_quote_summary_page
+				.quote_summary_configuration_value_verification_without_maintenance(sheet_name);
+		// Assert.assertTrue(quote_summary_configuration_value_check);	
+
+		
+	}
+
+	public void shift_selenium_focus_to_new_tab_opened() throws InterruptedException {
+		Click.on(driver, save_button, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);		
+		
+		
+		ExplicitWait.visibleElement(driver, quote_id_link, 20);
+		
+		LO.print("Quote is being opened and the quote no. is "+quote_id_link.getText());
+		System.out.println("Quote is being opened and the quote no. is "+quote_id_link.getText());
+		
+		Click.on(driver, quote_id_link, 20);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);	
+		
+		LO.print("Switching to the new tab opened for quote");
+		System.out.println("Switching to the new tab opened for quote");
+		
+		  // Get the handles of all open tabs/windows
+        ArrayList<String> tabHandles = new ArrayList<>(driver.getWindowHandles());
+
+        // Switch to the new tab
+        String newTabHandle = tabHandles.get(tabHandles.size() - 1);
+        driver.switchTo().window(newTabHandle);
+	}
+
+	
+	
 	public boolean verify_default_funder_is_not_deleted() throws InterruptedException, IOException {
 
 		Click.on(driver, asset_funding, 30);

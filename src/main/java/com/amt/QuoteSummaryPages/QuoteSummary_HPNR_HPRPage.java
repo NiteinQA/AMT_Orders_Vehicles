@@ -304,7 +304,7 @@ public class QuoteSummary_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Contingency insurance value']//ancestor::div[1]//div//label/b")
 	private WebElement quote_summary_configuration_contingency_insurance_value;
 
-	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
+	@FindBy(xpath = "//*[text()=' Save']")
 	private WebElement quote_summary_save_button;
 	
 	
@@ -587,6 +587,10 @@ public class QuoteSummary_HPNR_HPRPage extends TestBase {
 		System.out.println("*************Holding Cost Calulation on quote summary page has been started************");
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Thread.sleep(8000);
 
 		ExplicitWait.visibleElement(driver, quote_summary_holding_cost_term, 30);
 
@@ -2227,11 +2231,8 @@ public class QuoteSummary_HPNR_HPRPage extends TestBase {
 		// copying default broker margin from input field
 
 		ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
-		quote_summary_configuration_default_broker_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
+		double default_broker_margin_copied =  Double.parseDouble(quote_summary_configuration_default_broker_margin_input.getAttribute("value"));
 
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String temp_default_broker_margin_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-		double default_broker_margin_copied = Double.parseDouble(temp_default_broker_margin_copied);
 
 //		ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
 //		double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));

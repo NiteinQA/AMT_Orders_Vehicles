@@ -53,6 +53,10 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 		boolean subtotal_after_discount = obj_contract_types_and_OTR_page
 				.contractTypes_and_OTR_selection_HPNR_HPNR_Ownbook_calculation(sheet_name);
 		Assert.assertTrue(subtotal_after_discount);
+		
+		obj_contract_types_and_OTR_page
+				.contractTypes_and_OTR_selection_HPNR_HPNR_Ownbook_calculation("HPNR (Formula 3) - HPNR");
+		
 
 	}
 
@@ -73,7 +77,10 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 		boolean otr_price_check = obj_contract_types_and_OTR_page
 				.verify_after_discount_calculations_contract_types_page(sheet_name);
 		Assert.assertTrue(otr_price_check);
-
+		
+        obj_contract_types_and_OTR_page
+				.verify_after_discount_calculations_contract_types_page("HPNR (Formula 3) - HPNR");
+		
 	}
 
 	@Test(priority = 3, dataProvider = "testData", dependsOnMethods = {
@@ -112,6 +119,8 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 
 
 	}
+	
+
 
 	@Test(priority = 4, dataProvider = "testData", dependsOnMethods = {
 			"aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test" })
@@ -131,6 +140,12 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 				driver, maintenance_status, matrix_credit_type, balloon_payment_status, order_deposit, finance_deposit,
 				document_fee, sheet_name);
 		Assert.assertTrue(monthly_finance_payment_check);
+		
+//		obj_customer_quote_page
+//				.check_monthly_finance_payment_on_customer_quote_with_funder_quote_addition_without_maintenance(driver, maintenance_status,
+//						"Limited Credit", balloon_payment_status, order_deposit, finance_deposit, document_fee,
+//						"HPNR (Formula 3) - HPNR");
+
 		
 		boolean sales_discount_price_check =obj_customer_quote_page.enter_sales_price_discount_greater_than_cost_price_discount(driver , sheet_name);
 		Assert.assertTrue(sales_discount_price_check);

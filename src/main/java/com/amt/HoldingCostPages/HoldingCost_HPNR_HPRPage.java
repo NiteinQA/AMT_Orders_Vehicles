@@ -460,10 +460,13 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 
 		Actions act = new Actions(driver);
 		
+		
+		ExplicitWait.visibleElement(driver, additional_terms, 10);
 		additional_terms.clear();
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
 		
+		ExplicitWait.visibleElement(driver, additional_mileage, 10);
 		additional_mileage.clear();
 		act.sendKeys(Keys.TAB).build().perform();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
@@ -487,9 +490,26 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
 
 		// Taking updated values of residual value and maint cost from screen
-		ExplicitWait.visibleElement(driver, residual_value_used, 20);
+		
+		String residual_value_used_from_screen = "";		
+		try {
+		ExplicitWait.visibleElement(driver, residual_value_used, 7);
 
-		String residual_value_used_from_screen = residual_value_used.getAttribute("value");
+		 residual_value_used_from_screen = residual_value_used.getAttribute("value");
+		
+		}
+		catch(Exception e)
+		{
+			Click.on(driver, holding_cost_summary, 20);
+			
+			Thread.sleep(2000);
+			
+			ExplicitWait.visibleElement(driver, residual_value_used, 20);
+
+			 residual_value_used_from_screen = residual_value_used.getAttribute("value");
+			
+			
+		}
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -505,9 +525,6 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 			throws InterruptedException, IOException {
 		
 		try {Click.on(driver, holding_cost, 30);}catch(Exception e) {}
-
-		LO.print("***********Entered in holding cost page ***********");
-		System.out.println("***********Entered in holding cost page ***********");
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 

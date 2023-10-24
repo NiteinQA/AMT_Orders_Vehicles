@@ -757,13 +757,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("NO");
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
 		wb.getSheet(sheet_name).getRow(35).getCell(7).setCellValue(0);
-		// wb.getSheet(sheet_name).getRow(40).getCell(3).setCellValue(finalBallonPayment);
 		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
-
-		// wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(pencePerExcessMileFinance);
-		// wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
-		// wb.getSheet(sheet_name).getRow(46).getCell(1).setCellValue(percentageOfSaleProceedToCustomer);
-		// wb.getSheet(sheet_name).getRow(46).getCell(3).setCellValue(secondaryHirePeriodRental);
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -2290,6 +2284,32 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		}
 	}
 
+	public void write_test_data_for_funder_to_calculation_sheet(String maintenance_status,
+			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
+			String document_fee, String sheet_name) throws IOException {
+
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		wb.getSheet(sheet_name).getRow(104).getCell(4).setCellValue(maintenance_status);
+		wb.getSheet(sheet_name).getRow(107).getCell(1).setCellValue(matrix_credit_type);
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue(balloon_payment_status);
+		wb.getSheet(sheet_name).getRow(110).getCell(0).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(order_deposit));
+		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(Double.parseDouble(finance_deposit));
+		wb.getSheet(sheet_name).getRow(113).getCell(1).setCellValue(Double.parseDouble(document_fee));
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		out.close();
+
+	}
+
+	
 	public double get_monthly_finance_payment_from_excel_for_funder_addition_for_cp_pcp(String maintenance_status,
 			String matrix_credit_type, String balloon_payment_status, String order_deposit, String finance_deposit,
 			String document_fee, String sheet_name) throws IOException {
@@ -3220,6 +3240,11 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			wb.getSheet(sheet_name).getRow(30).getCell(10).setCellValue(residual_value_used);
 
 		}
+		wb.getSheet(sheet_name).getRow(34).getCell(10).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
+		wb.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
+		
+		wb.getSheet(sheet_name).getRow(63).getCell(1)
+		.setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));
 
 		wb.getSheet(sheet_name).getRow(44).getCell(0).setCellValue(100);
 		wb.getSheet(sheet_name).getRow(44).getCell(2).setCellValue(100);

@@ -3,21 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test">
         <methods>
-          <include name="verify_holding_cost_after_deselecting_funder_test"/>
           <include name="end"/>
-          <include name="verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test"/>
-          <include name="verify_default_funder_is_not_deleted_test"/>
-          <include name="verify_selected_funder_can_not_be_edited_test"/>
-          <include name="start_info"/>
-          <include name="verify_default_status_required_flow_test"/>
           <include name="open_order_created_in_acquisition_test"/>
-          <include name="verify_document_is_uploaded_in_funder_test"/>
-          <include name="verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test"/>
+          <include name="add_funder"/>
+          <include name="verify_holding_cost_shown_test"/>
+          <include name="verify_default_status_required_flow_test"/>
+          <include name="verify_holding_cost_on_adding_funder"/>
+          <include name="verify_status_after_selecting_the_added_funder_in_required_flow_test"/>
+          <include name="start_info"/>
+          <include name="verify_quote_values_updated_in_quote_after_saving_the_order"/>
+          <include name="verify_status_after_adding_funder_required_flow_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
