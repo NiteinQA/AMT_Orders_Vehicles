@@ -147,7 +147,7 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "//span[@class='slider round sliderRed']")
 	private WebElement common_maintenance_toggle;
 
-	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[4]/div/p/strong")
+	@FindBy(xpath = "//*[text()='CAP monthly maint. cost']//ancestor::div[1]//div//p//strong")
 	private WebElement cap_monthly_maint_cost;
 
 	@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']")
@@ -606,12 +606,12 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 			throws InterruptedException, IOException {	
 
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
-		String monthly_holding_cost = total_monthly_holding_cost.getText().substring(2);
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
 
-		String total_monthly_holding_cost_from_screen = RemoveComma.of(monthly_holding_cost);
+		
 
-		LO.print("Total monthly holding cost from screen =" + monthly_holding_cost);
-		System.out.println("Total monthly holding cost from screen =" + monthly_holding_cost);
+		LO.print("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
+		System.out.println("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
 		
 		
 		double monthly_holding_cost_expected = GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
@@ -619,8 +619,8 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 		LO.print("Total monthly holding cost from excel =" + monthly_holding_cost_expected);
 		System.out.println("Total monthly holding cost from excel " + monthly_holding_cost_expected);
 
-		double total_monthly_holding_cost_actual1 = Double.parseDouble(total_monthly_holding_cost_from_screen);
-		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual1,
+		
+		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual,
 				monthly_holding_cost_expected);
 		boolean flag = false;
 		if (diff < 0.2) {
@@ -631,6 +631,60 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 
 	}
 
+	public boolean verify_holding_cost_after_adding_adding_maintenance_for_asset_funding_tab(String sheet_name)
+			throws InterruptedException, IOException {	
+
+		
+		LO.print("");
+		System.out.println("");
+
+		
+		LO.print          ("Adding Cap Maintenance to funder");
+		System.out.println("Adding Cap Maintenance to funder");
+		
+		Click.on(driver, common_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.visibleElement(driver, total_cap_maintenance_cost, 10);
+
+		String cap_monthly_maint_value_from_screen = RemoveComma
+				.of(total_cap_maintenance_cost.getText().trim().substring(2));
+		
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+		
+	
+		
+		
+		double monthly_holding_cost_expected =  obj_read_excel_calculation_page.adding_cap_monthly_maintenance_to_holding_cost_with_funder_scenario_hpnr(cap_monthly_maint_value_from_screen, sheet_name);
+		
+	
+		LO.print("Total monthly holding cost from excel =" + monthly_holding_cost_expected);
+		System.out.println("Total monthly holding cost from excel " + monthly_holding_cost_expected);
+		
+		
+		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+
+		LO.print("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
+		System.out.println("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
+
+		
+
+		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual, monthly_holding_cost_expected);
+		boolean flag = false;
+		if (diff < 0.2) {
+			flag = true;
+		}
+
+		return flag;
+
+	}
+
+	
 	public boolean verify_holding_cost_after_adding_funder_quote_with_maintenance(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name)

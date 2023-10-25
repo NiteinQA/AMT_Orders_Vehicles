@@ -1550,7 +1550,7 @@ public class AssetFundingPage extends TestBase {
 
 	}
 
-	public void verify_holding_cost_on_adding_funder(String quoteRef, String expiryDate, String term,
+	public boolean verify_holding_cost_on_adding_funder(String quoteRef, String expiryDate, String term,
 			String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee, String monthlyPayment,
 			String finalBalloonPayment, String optionToPurchaseFee, String sheet_name)
 			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
@@ -1560,10 +1560,24 @@ public class AssetFundingPage extends TestBase {
 
 		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
 
-		obj_holding_cost_page
+		return obj_holding_cost_page
 				.verify_holding_cost_after_adding_funder_quote_without_maintenance_for_asset_funding_tab(sheet_name);
 
 	}
+	
+	public boolean verify_holding_cost_on_adding_maintenance( String sheet_name)
+			throws InterruptedException, IOException, ClassNotFoundException, UnsupportedFlavorException {
+
+		LO.print("");
+		System.out.println("");
+
+		obj_holding_cost_page = new HoldingCost_HPNR_HPRPage();
+
+		return obj_holding_cost_page
+				.verify_holding_cost_after_adding_adding_maintenance_for_asset_funding_tab(sheet_name);
+
+	}
+
 
 	
 	

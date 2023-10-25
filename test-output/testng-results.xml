@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[<b>Searching for Order ID XX-61024</b> <br />]]>
+      <![CDATA[<b>Searching for Order ID QP-40357</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b></b> <br />]]>
@@ -86,171 +86,39 @@
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote is being opened and the quote no. is FYZ75373</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Switching to the new tab opened for quote</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_terms_from_screen33.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_miles_per_annum_from_screen5000.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_monthly_finance_cost_from_screen500.36</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>holding_cost_total_monthly_holding_cost_from_screen =500.36</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>terms compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Miles per annum compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance cost compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Terms found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>miles found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Basic Cash Price found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>VAT found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Non VAT Items Value found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Cash Price found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Order Deposit found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Deposit found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Deposit found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Balance to Finance found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Charges - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Balance Payable - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Option To Purchase Fee - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Initial Cash Payment - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Followed By months - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Monthly Finance Payment - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Final Payment - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Vehicle Commission - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Finance Commission - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Commission - found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*************Configuration Values Verification on quote summary page has been started************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Base Interest Rate found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Margin found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Deductions found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Additional Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Margin found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Broker Margin percentage found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Customer Interest Rate found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Broker Margin  found wrong</b> <br />]]>
-    </line>
-    <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Total monthly holding cost from screen =500.36</b> <br />]]>
+      <![CDATA[<b>Adding Cap Maintenance to funder</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Total monthly holding cost from excel =500.3636363636364</b> <br />]]>
+      <![CDATA[<b>Total monthly holding cost from excel =514.1009090909091</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Total monthly holding cost from screen =514.1</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-10-24T14:30:56 IST" name="Default suite" finished-at="2023-10-24T14:35:27 IST" duration-ms="271504">
+  <suite started-at="2023-10-25T19:44:15 IST" name="Default suite" finished-at="2023-10-25T19:47:15 IST" duration-ms="179214">
     <groups>
     </groups>
-    <test started-at="2023-10-24T14:30:56 IST" name="Default test" finished-at="2023-10-24T14:35:27 IST" duration-ms="271504">
-      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:30:56 IST" name="start_info" finished-at="2023-10-24T14:30:56 IST" duration-ms="7" status="PASS">
+    <test started-at="2023-10-25T19:44:15 IST" name="Default test" finished-at="2023-10-25T19:47:15 IST" duration-ms="179214">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:44:16 IST" name="start_info" finished-at="2023-10-25T19:44:16 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:30:56 IST" name="setup" finished-at="2023-10-24T14:31:08 IST" duration-ms="11916" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:44:16 IST" name="setup" finished-at="2023-10-25T19:44:27 IST" duration-ms="11305" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:31:08 IST" name="open_order_created_in_acquisition_test" finished-at="2023-10-24T14:32:13 IST" duration-ms="65068" status="PASS">
+        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:44:27 IST" name="open_order_created_in_acquisition_test" finished-at="2023-10-25T19:45:44 IST" duration-ms="76936" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Searching for Order ID XX-61024</b> <br />]]>
+              <![CDATA[<b>Searching for Order ID QP-40357</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- open_order_created_in_acquisition_test -->
-        <test-method signature="verify_default_status_required_flow_test()[pri:3, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:32:13 IST" name="verify_default_status_required_flow_test" finished-at="2023-10-24T14:32:23 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.open_order_created_in_acquisition_test" duration-ms="10479" status="PASS">
+        <test-method signature="verify_default_status_required_flow_test()[pri:3, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:45:44 IST" name="verify_default_status_required_flow_test" finished-at="2023-10-25T19:45:54 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.open_order_created_in_acquisition_test" duration-ms="10510" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
@@ -263,7 +131,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- verify_default_status_required_flow_test -->
-        <test-method signature="verify_holding_cost_shown_test()[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:32:23 IST" name="verify_holding_cost_shown_test" finished-at="2023-10-24T14:32:32 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_default_status_required_flow_test" duration-ms="8799" status="PASS">
+        <test-method signature="verify_holding_cost_shown_test()[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:45:54 IST" name="verify_holding_cost_shown_test" finished-at="2023-10-25T19:46:03 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_default_status_required_flow_test" duration-ms="8751" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
@@ -288,7 +156,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- verify_holding_cost_shown_test -->
-        <test-method signature="add_funder(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:32:33 IST" name="add_funder" data-provider="testData1" finished-at="2023-10-24T14:33:24 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_holding_cost_shown_test" duration-ms="51516" status="PASS">
+        <test-method signature="add_funder(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:46:04 IST" name="add_funder" data-provider="testData1" finished-at="2023-10-25T19:46:55 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_shown_test" duration-ms="51226" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -367,7 +235,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- add_funder -->
-        <test-method signature="verify_status_after_adding_funder_required_flow_test()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:33:24 IST" name="verify_status_after_adding_funder_required_flow_test" finished-at="2023-10-24T14:33:26 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.add_funder" duration-ms="2135" status="PASS">
+        <test-method signature="verify_status_after_adding_funder_required_flow_test()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:46:55 IST" name="verify_status_after_adding_funder_required_flow_test" finished-at="2023-10-25T19:46:57 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.add_funder" duration-ms="2140" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
@@ -380,7 +248,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- verify_status_after_adding_funder_required_flow_test -->
-        <test-method signature="verify_status_after_selecting_the_added_funder_in_required_flow_test()[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:33:26 IST" name="verify_status_after_selecting_the_added_funder_in_required_flow_test" finished-at="2023-10-24T14:33:33 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_status_after_adding_funder_required_flow_test" duration-ms="6418" status="PASS">
+        <test-method signature="verify_status_after_selecting_the_added_funder_in_required_flow_test()[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:46:57 IST" name="verify_status_after_selecting_the_added_funder_in_required_flow_test" finished-at="2023-10-25T19:47:03 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_adding_funder_required_flow_test" duration-ms="6415" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
@@ -396,7 +264,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- verify_status_after_selecting_the_added_funder_in_required_flow_test -->
-        <test-method signature="verify_holding_cost_on_adding_funder(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:33:33 IST" name="verify_holding_cost_on_adding_funder" data-provider="testData1" finished-at="2023-10-24T14:33:35 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test" duration-ms="1657" status="PASS">
+        <test-method signature="verify_holding_cost_on_adding_funder_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:47:04 IST" name="verify_holding_cost_on_adding_funder_test" data-provider="testData1" finished-at="2023-10-25T19:47:05 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test" duration-ms="1648" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -465,8 +333,8 @@
               <![CDATA[<b>Total monthly holding cost from excel =500.3636363636364</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verify_holding_cost_on_adding_funder -->
-        <test-method signature="add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:33:35 IST" name="add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test" data-provider="testData1" finished-at="2023-10-24T14:35:26 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test" duration-ms="110430" status="PASS">
+        </test-method> <!-- verify_holding_cost_on_adding_funder_test -->
+        <test-method signature="verify_holding_cost_on_adding_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:47:06 IST" name="verify_holding_cost_on_adding_maintenance_test" data-provider="testData1" finished-at="2023-10-25T19:47:15 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_funder_test" duration-ms="9074" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -529,217 +397,24 @@
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote is being opened and the quote no. is FYZ75373</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Switching to the new tab opened for quote</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_terms_from_screen33.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_miles_per_annum_from_screen5000.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_monthly_finance_cost_from_screen500.36</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>holding_cost_total_monthly_holding_cost_from_screen =500.36</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>terms compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Miles per annum compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance cost compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Monthly Holding Cost compared</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Terms found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>miles found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Basic Cash Price found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>VAT found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Non VAT Items Value found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Cash Price found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Order Deposit found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Deposit found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Deposit found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Balance to Finance found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Charges - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Balance Payable - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Option To Purchase Fee - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Initial Cash Payment - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Followed By months - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Monthly Finance Payment - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Final Payment - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Vehicle Commission - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Finance Commission - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Commission - found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*************Configuration Values Verification on quote summary page has been started************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Base Interest Rate found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Margin found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Deductions found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Additional Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Margin found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Broker Margin percentage found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Customer Interest Rate found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Broker Margin  found wrong</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test -->
-        <test-method signature="verify_quote_values_updated_in_quote_after_saving_the_order(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:35:26 IST" name="verify_quote_values_updated_in_quote_after_saving_the_order" data-provider="testData1" finished-at="2023-10-24T14:35:27 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test" duration-ms="1554" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[REF001]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[05/12/23]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[33]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[HPNR (Formula 3) - HPNR]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Total monthly holding cost from screen =500.36</b> <br />]]>
+              <![CDATA[<b>Adding Cap Maintenance to funder</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Total monthly holding cost from excel =500.3636363636364</b> <br />]]>
+              <![CDATA[<b>Total monthly holding cost from excel =514.1009090909091</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Total monthly holding cost from screen =514.1</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verify_quote_values_updated_in_quote_after_saving_the_order -->
-        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@2cf3d63b]" started-at="2023-10-24T14:35:27 IST" name="end" finished-at="2023-10-24T14:35:27 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- verify_holding_cost_on_adding_maintenance_test -->
+        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:47:15 IST" name="end" finished-at="2023-10-25T19:47:15 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

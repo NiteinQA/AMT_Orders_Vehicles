@@ -3,21 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test">
         <methods>
+          <include name="verify_holding_cost_on_adding_funder_test"/>
           <include name="end"/>
           <include name="open_order_created_in_acquisition_test"/>
-          <include name="add_funder"/>
-          <include name="verify_holding_cost_shown_test"/>
           <include name="verify_default_status_required_flow_test"/>
-          <include name="verify_holding_cost_on_adding_funder"/>
-          <include name="verify_status_after_selecting_the_added_funder_in_required_flow_test"/>
           <include name="start_info"/>
-          <include name="verify_quote_values_updated_in_quote_after_saving_the_order"/>
+          <include name="verify_status_after_selecting_the_added_funder_in_required_flow_test"/>
+          <include name="verify_holding_cost_on_adding_maintenance_test" invocation-numbers="0"/>
+          <include name="verify_holding_cost_shown_test"/>
+          <include name="add_funder"/>
           <include name="verify_status_after_adding_funder_required_flow_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

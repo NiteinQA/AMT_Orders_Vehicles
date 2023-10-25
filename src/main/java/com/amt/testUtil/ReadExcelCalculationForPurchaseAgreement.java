@@ -30,6 +30,24 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			e.printStackTrace();
 		}
 	}
+	
+	public double adding_cap_monthly_maintenance_to_holding_cost_with_funder_scenario_hpnr(String capMonthlyMaintValue, String sheet_name) throws IOException, InterruptedException {
+
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		
+		
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(35).getCell(7).setCellValue(Double.parseDouble(capMonthlyMaintValue));
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		
+		return GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
+
+	}
+
 
 	public void write_basic_cash_price_to_excel_without_maintenance_for_used_car(double basic_cash_price,
 			double terms_from_screen, double annual_mileage, double used_residual_value,double percentage_cap_residual_value, String sheet_name)
