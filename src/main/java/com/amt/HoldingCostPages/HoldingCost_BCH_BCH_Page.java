@@ -104,11 +104,43 @@ public class HoldingCost_BCH_BCH_Page extends TestBase {
 
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
+	
+	@FindBy(xpath = "//*[text()='Update']")
+	private WebElement update;
 
 	public HoldingCost_BCH_BCH_Page() {
 		PageFactory.initElements(driver, this);
 	}
 
+
+	public double verify_holding_cost_after_adding_maintenance_in_funder(String monthlyMaintPayment , String  pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException {
+	
+
+
+		Click.on(driver, funder_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
+		
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 20);
+		
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 20);
+		
+		Thread.sleep(5000);
+		
+		Click.on(driver, update, 10);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		return  obj_read_excel_calculation_page
+				.add_maintenance_value_in_funder_for_BCH(monthlyMaintPayment, pencePerExcessMileMaintenance, sheet_name);
+
+	
+	}
+
+	
 	public boolean verify_holding_cost_without_maintenance(String quoteReference, String quoteExpiryDate, String terms,
 			String milesPerAnnum, String maintenance_required, String monthlyFinanceRental, String documentFee,
 			String penceperExcessMileFinance, String sheet_name) throws IOException, InterruptedException {

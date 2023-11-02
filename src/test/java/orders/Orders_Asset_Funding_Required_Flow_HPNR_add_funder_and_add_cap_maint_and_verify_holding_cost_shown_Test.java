@@ -26,6 +26,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 
 	@Test(priority = 1)
 	public void open_order_created_in_acquisition_test() throws IOException, InterruptedException {
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_orders_list = new OrdersListPage();
 		
@@ -49,6 +54,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 3, dependsOnMethods = { "open_order_created_in_acquisition_test" })
 	public void verify_default_status_required_flow_test() throws IOException, InterruptedException, AWTException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
 		Assert.assertTrue(obj_asset_funding.verify_default_status_for_required_flow_if_no_funder_is_added_in_a_quote());
@@ -57,6 +67,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 	@Test(priority = 4, dependsOnMethods = { "verify_default_status_required_flow_test" })
 	public void verify_holding_cost_shown_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -70,6 +85,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	public void add_funder(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name) throws IOException, InterruptedException, AWTException, ClassNotFoundException, UnsupportedFlavorException {
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -82,6 +102,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 6, dependsOnMethods = { "add_funder" })
 	public void verify_status_after_adding_funder_required_flow_test() throws IOException, InterruptedException, AWTException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
 		Assert.assertTrue(obj_asset_funding.verify_status_after_adding_funder_required_flow());
@@ -90,6 +115,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 	@Test(priority = 7, dependsOnMethods = { "verify_status_after_adding_funder_required_flow_test" })
 	public void verify_status_after_selecting_the_added_funder_in_required_flow_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -101,6 +131,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	public void verify_holding_cost_on_adding_funder_test(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name) throws IOException, InterruptedException, AWTException, ClassNotFoundException, UnsupportedFlavorException {
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -114,6 +149,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	public void verify_holding_cost_on_adding_maintenance_test(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name) throws IOException, InterruptedException, AWTException, ClassNotFoundException, UnsupportedFlavorException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		

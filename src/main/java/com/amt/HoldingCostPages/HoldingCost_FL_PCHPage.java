@@ -142,12 +142,43 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 	private WebElement secondary_hire_period_rental;
 
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
-	private WebElement add;
+	private WebElement add;	
+	
+	@FindBy(xpath = "//*[text()='Update']")
+	private WebElement update;
 
 	public HoldingCost_FL_PCHPage() {
 		PageFactory.initElements(driver, this);
 	}
 
+	public double verify_holding_cost_after_adding_maintenance_in_funder(String monthlyMaintPayment , String  pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException {
+	
+
+
+		Click.on(driver, funder_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
+		
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 20);
+		
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 20);
+		
+		Thread.sleep(3000);
+		
+		Click.on(driver, update, 10);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 100);
+		
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+		return  obj_read_excel_calculation_page
+				.add_maintenance_value_in_funder(monthlyMaintPayment, pencePerExcessMileMaintenance, sheet_name);
+
+	
+	}
+
+	
 	public boolean verify_holding_cost_after_adding_funder_quote_without_maintenance(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String monthlyFinanceRental, String monthlyMaintenanceRental,
 			String finalBallonPayment, String documentFee, String pencePerExcessMileFinance,
@@ -310,19 +341,20 @@ public class HoldingCost_FL_PCHPage extends TestBase {
 						sheet_name);
 
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
+		
 		Thread.sleep(2000);
-		String monthly_holding_cost = total_monthly_holding_cost.getText().substring(2);
+		
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
 
-		String total_monthly_holding_cost_from_screen = RemoveComma.of(monthly_holding_cost);
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
 
-		LO.print("Total_monthly_holding_cost_from_screen =" + monthly_holding_cost);
-		System.out.println("Total_monthly_holding_cost_from_screen " + monthly_holding_cost);
+		LO.print("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
+		System.out.println("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
 
-		LO.print("Total_monthly_holding_cost_from_excel =" + monthly_holding_cost_expected);
-		System.out.println("Total_monthly_holding_cost_from_excel " + monthly_holding_cost_expected);
+		LO.print("Total monthly holding cost from excel =" + monthly_holding_cost_expected);
+		System.out.println("Total monthly holding cost from excel " + monthly_holding_cost_expected);
 
-		double total_monthly_holding_cost_actual1 = Double.parseDouble(total_monthly_holding_cost_from_screen);
-		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual1,
+		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual,
 				monthly_holding_cost_expected);
 		boolean flag = false;
 		if (diff < 0.2) {

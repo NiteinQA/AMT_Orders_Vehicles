@@ -1402,6 +1402,42 @@ public class ReadExcelCalculation extends TestBase {
 	}
 
 	
+	public double add_maintenance_value_in_funder(String monthlyMaintenanceRental, String pencePerExcessMileMaintenance, String sheet_name)
+			throws IOException, InterruptedException {
+
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(monthlyMaintenanceRental);
+		wb.getSheet(sheet_name).getRow(43).getCell(3).setCellValue(pencePerExcessMileMaintenance);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+		return GetExcelFormulaValue.get_formula_value(57, 1, sheet_name);
+
+	}
+	
+	public double add_maintenance_value_in_funder_for_BCH(String monthlyMaintenanceRental, String pencePerExcessMileMaintenance, String sheet_name)
+			throws IOException, InterruptedException {
+
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(40).getCell(0).setCellValue(monthlyMaintenanceRental);
+		wb.getSheet(sheet_name).getRow(43).getCell(1).setCellValue(pencePerExcessMileMaintenance);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+		return GetExcelFormulaValue.get_formula_value(51, 1, sheet_name);
+
+	}
+
+
+	
 	public void write_holding_cost_with_maint_value_to_quote_save_excel_sheet(String holding_cost, String sheet_name)
 			throws IOException, InterruptedException {
 

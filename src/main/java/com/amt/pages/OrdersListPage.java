@@ -68,6 +68,10 @@ public class OrdersListPage extends TestBase {
 
 	public void search_order_in_list() throws IOException, InterruptedException {
 
+		System.out.println("");
+		LO.print("");
+
+		
 		// Click on orders menu and enter to orders list page
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		

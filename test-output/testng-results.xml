@@ -1,420 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[<b>Searching for Order ID QP-40357</b> <br />]]>
-    </line>
-    <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Started verifying Default Status for HPNR required flow</b> <br />]]>
+      <![CDATA[<b>Searching for Order ID EI-10858</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote</b> <br />]]>
+      <![CDATA[<b>Order -- Default Status - Found OK i.e Order Pending </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b></b> <br />]]>
+      <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Started verifying Holding Cost Shown</b> <br />]]>
+      <![CDATA[<b>Order Status after uploading order form - Found OK i.e Order Confirmed </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
+      <![CDATA[<b>Clicking on DELIVERY</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
+      <![CDATA[<b>Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =1094.53</b> <br />]]>
+      <![CDATA[<b>Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =1094.5287037922967</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_screen =1,094.53</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started verifying Quote Status after adding a funder in asset funding tab</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Quote Status after adding funder in required flow Found OK i.e Quote Received</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Select a funder</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started verifying Quote Status after selecting a added funder in asset funding tab</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status after selecting an added funder Found OK i.e Quote Accepted</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total monthly holding cost from screen =500.36</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total monthly holding cost from excel =500.3636363636364</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Adding Cap Maintenance to funder</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total monthly holding cost from excel =514.1009090909091</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total monthly holding cost from screen =514.1</b> <br />]]>
+      <![CDATA[<b>Delivery Status after uploading the delivery note - Found OK i.e Delivered</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-10-25T19:44:15 IST" name="Default suite" finished-at="2023-10-25T19:47:15 IST" duration-ms="179214">
+  <suite started-at="2023-11-01T18:02:18 IST" name="Default suite" finished-at="2023-11-01T18:05:46 IST" duration-ms="208131">
     <groups>
     </groups>
-    <test started-at="2023-10-25T19:44:15 IST" name="Default test" finished-at="2023-10-25T19:47:15 IST" duration-ms="179214">
-      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:44:16 IST" name="start_info" finished-at="2023-10-25T19:44:16 IST" duration-ms="6" status="PASS">
+    <test started-at="2023-11-01T18:02:18 IST" name="Default test" finished-at="2023-11-01T18:05:46 IST" duration-ms="208131">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:02:18 IST" name="start_info" finished-at="2023-11-01T18:02:18 IST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:44:16 IST" name="setup" finished-at="2023-10-25T19:44:27 IST" duration-ms="11305" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:02:18 IST" name="setup" finished-at="2023-11-01T18:02:27 IST" duration-ms="9500" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:44:27 IST" name="open_order_created_in_acquisition_test" finished-at="2023-10-25T19:45:44 IST" duration-ms="76936" status="PASS">
+        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:02:27 IST" name="open_order_created_in_acquisition_test" finished-at="2023-11-01T18:03:19 IST" duration-ms="51637" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Searching for Order ID QP-40357</b> <br />]]>
+              <![CDATA[<b></b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Searching for Order ID EI-10858</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- open_order_created_in_acquisition_test -->
-        <test-method signature="verify_default_status_required_flow_test()[pri:3, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:45:44 IST" name="verify_default_status_required_flow_test" finished-at="2023-10-25T19:45:54 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.open_order_created_in_acquisition_test" duration-ms="10510" status="PASS">
+        <test-method signature="verify_default_order_status_vehicle_tab_test()[pri:2, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:03:19 IST" name="verify_default_order_status_vehicle_tab_test" finished-at="2023-11-01T18:03:25 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test.open_order_created_in_acquisition_test" duration-ms="6369" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying Default Status for HPNR required flow</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote</b> <br />]]>
+              <![CDATA[<b>Order -- Default Status - Found OK i.e Order Pending </b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verify_default_status_required_flow_test -->
-        <test-method signature="verify_holding_cost_shown_test()[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:45:54 IST" name="verify_holding_cost_shown_test" finished-at="2023-10-25T19:46:03 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_default_status_required_flow_test" duration-ms="8751" status="PASS">
+        </test-method> <!-- verify_default_order_status_vehicle_tab_test -->
+        <test-method signature="verify_order_status_after_uploading_order_form_in_vehicle_tab_test()[pri:3, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:03:25 IST" name="verify_order_status_after_uploading_order_form_in_vehicle_tab_test" finished-at="2023-11-01T18:04:29 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test.verify_default_order_status_vehicle_tab_test" duration-ms="63658" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b></b> <br />]]>
+              <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Started verifying Holding Cost Shown</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been started</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =1094.53</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =1094.5287037922967</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br />]]>
+              <![CDATA[<b>Order Status after uploading order form - Found OK i.e Order Confirmed </b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verify_holding_cost_shown_test -->
-        <test-method signature="add_funder(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:46:04 IST" name="add_funder" data-provider="testData1" finished-at="2023-10-25T19:46:55 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_shown_test" duration-ms="51226" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[REF001]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[05/12/23]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[33]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[HPNR (Formula 3) - HPNR]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- verify_order_status_after_uploading_order_form_in_vehicle_tab_test -->
+        <test-method signature="verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab_test()[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:04:29 IST" name="verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab_test" finished-at="2023-11-01T18:04:57 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test.verify_order_status_after_uploading_order_form_in_vehicle_tab_test" duration-ms="28149" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b></b> <br />]]>
+              <![CDATA[<b>Clicking on DELIVERY</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>***********Holding Cost Calculations has been Started*************</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing Holding Cost Summary values to excel has been completed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Reading Monthly Holding Cost value from excel</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_screen =1,094.53</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br />]]>
+              <![CDATA[<b>Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- add_funder -->
-        <test-method signature="verify_status_after_adding_funder_required_flow_test()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:46:55 IST" name="verify_status_after_adding_funder_required_flow_test" finished-at="2023-10-25T19:46:57 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.add_funder" duration-ms="2140" status="PASS">
+        </test-method> <!-- verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab_test -->
+        <test-method signature="verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()[pri:5, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:04:57 IST" name="verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" finished-at="2023-11-01T18:05:12 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test.verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab_test" duration-ms="14808" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying Quote Status after adding a funder in asset funding tab</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Quote Status after adding funder in required flow Found OK i.e Quote Received</b> <br />]]>
+              <![CDATA[<b>Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verify_status_after_adding_funder_required_flow_test -->
-        <test-method signature="verify_status_after_selecting_the_added_funder_in_required_flow_test()[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:46:57 IST" name="verify_status_after_selecting_the_added_funder_in_required_flow_test" finished-at="2023-10-25T19:47:03 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_adding_funder_required_flow_test" duration-ms="6415" status="PASS">
+        </test-method> <!-- verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test -->
+        <test-method signature="verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:05:12 IST" name="verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab" finished-at="2023-11-01T18:05:46 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test.verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" duration-ms="33972" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Select a funder</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying Quote Status after selecting a added funder in asset funding tab</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status after selecting an added funder Found OK i.e Quote Accepted</b> <br />]]>
+              <![CDATA[<b>Delivery Status after uploading the delivery note - Found OK i.e Delivered</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verify_status_after_selecting_the_added_funder_in_required_flow_test -->
-        <test-method signature="verify_holding_cost_on_adding_funder_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:47:04 IST" name="verify_holding_cost_on_adding_funder_test" data-provider="testData1" finished-at="2023-10-25T19:47:05 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test" duration-ms="1648" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[REF001]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[05/12/23]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[33]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[HPNR (Formula 3) - HPNR]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total monthly holding cost from screen =500.36</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total monthly holding cost from excel =500.3636363636364</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_holding_cost_on_adding_funder_test -->
-        <test-method signature="verify_holding_cost_on_adding_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:47:06 IST" name="verify_holding_cost_on_adding_maintenance_test" data-provider="testData1" finished-at="2023-10-25T19:47:15 IST" depends-on-methods="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_funder_test" duration-ms="9074" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[REF001]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[05/12/23]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[33]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[5000]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[200]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[500]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[6000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[HPNR (Formula 3) - HPNR]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Adding Cap Maintenance to funder</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total monthly holding cost from excel =514.1009090909091</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total monthly holding cost from screen =514.1</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_holding_cost_on_adding_maintenance_test -->
-        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@470734c3]" started-at="2023-10-25T19:47:15 IST" name="end" finished-at="2023-10-25T19:47:15 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab -->
+        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test@740cae06]" started-at="2023-11-01T18:05:46 IST" name="end" finished-at="2023-11-01T18:05:46 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

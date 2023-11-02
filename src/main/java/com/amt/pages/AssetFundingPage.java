@@ -19,7 +19,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import com.amt.HoldingCostPages.HoldingCost_BCH_BCH_Page;
 import com.amt.HoldingCostPages.HoldingCost_CP_BCH_Page;
+import com.amt.HoldingCostPages.HoldingCost_FL_PCHPage;
 import com.amt.HoldingCostPages.HoldingCost_HPNR_HPRPage;
 import com.amt.QuoteSummaryPages.QuoteSummary_HPNR_HPRPage;
 import com.amt.testBase.TestBase;
@@ -309,6 +311,9 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//*[text()=' Selected ']//ancestor::div[1]//button[2]|//*[text()=' Select ']//ancestor::div[1]//button[2]")
 	private WebElement selected_funder;
 	
+	@FindBy(xpath = "//tbody//tr")
+	private WebElement edit_funder;
+	
 	//*[text()=' Selected ']
 
 	// selected button
@@ -499,6 +504,10 @@ public class AssetFundingPage extends TestBase {
 	HoldingCost_CP_BCH_Page obj_holding_cost_CP_BCH_page;
 	
 	QuoteSummary_HPNR_HPRPage  obj_quote_summary_page;
+	
+	HoldingCost_FL_PCHPage obj_holding_cost_FL_PCH_page ;
+	
+	HoldingCost_BCH_BCH_Page obj_holding_cost_BCH_BCH_page ; 
 
 	public AssetFundingPage() {
 		try {
@@ -514,6 +523,119 @@ public class AssetFundingPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
+	public boolean  verify_holding_cost_after_adding_maintenance_in_funder_in_asset_funding_tab(String monthlyMaintPayment , String  pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException {
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("De-Selecting Funder and adding maintenance value in funder");
+		System.out.println("De-Selecting Funder and adding maintenance value in funder");
+		
+		Click.on(driver, selected_button, 10);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		ExplicitWait.visibleElement(driver, edit_funder, 10);
+				
+		Actions act = new Actions(driver);
+
+		act.doubleClick(edit_funder).perform();
+		
+	//	Click.on(driver, funder_maintenance_toggle, 10);
+
+		obj_holding_cost_FL_PCH_page = new HoldingCost_FL_PCHPage();
+		
+		double monthly_holding_cost_expected = obj_holding_cost_FL_PCH_page.verify_holding_cost_after_adding_maintenance_in_funder(monthlyMaintPayment, pencePerExcessMileMaintenance, sheet_name);
+		
+	
+	   Click.on(driver, select_a_funder, 10);
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	   
+	   Click.on(driver, maintenance_toggle_button, 10);
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	 
+	   ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);		
+		Thread.sleep(2000);		
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		LO.print("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
+		System.out.println("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
+
+		LO.print("Total monthly holding cost from excel =" + monthly_holding_cost_expected);
+		System.out.println("Total monthly holding cost from excel " + monthly_holding_cost_expected);
+
+		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual,
+				monthly_holding_cost_expected);
+		boolean flag = false;
+		if (diff < 0.2) {
+			flag = true;
+		}
+
+		return flag;
+
+	 
+		
+	}
+	
+	public boolean  verify_holding_cost_after_adding_maintenance_in_funder_in_asset_funding_tab_for_BCH(String monthlyMaintPayment , String  pencePerExcessMileMaintenance, String sheet_name) throws InterruptedException, IOException {
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("De-Selecting Funder and adding maintenance value in funder");
+		System.out.println("De-Selecting Funder and adding maintenance value in funder");
+		
+		Click.on(driver, selected_button, 10);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		ExplicitWait.visibleElement(driver, edit_funder, 10);
+				
+		Actions act = new Actions(driver);
+
+		act.doubleClick(edit_funder).perform();
+		
+	//	Click.on(driver, funder_maintenance_toggle, 10);
+
+		obj_holding_cost_BCH_BCH_page = new HoldingCost_BCH_BCH_Page();
+		
+		double monthly_holding_cost_expected = obj_holding_cost_BCH_BCH_page.verify_holding_cost_after_adding_maintenance_in_funder(monthlyMaintPayment, pencePerExcessMileMaintenance, sheet_name);
+		
+	
+	   Click.on(driver, select_a_funder, 10);
+	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	   
+//	   Click.on(driver, maintenance_toggle_button, 10);
+//	   ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	 
+	   ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);		
+		Thread.sleep(2000);		
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		LO.print("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
+		System.out.println("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
+
+		LO.print("Total monthly holding cost from excel =" + monthly_holding_cost_expected);
+		System.out.println("Total monthly holding cost from excel =" + monthly_holding_cost_expected);
+
+		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual,
+				monthly_holding_cost_expected);
+		boolean flag = false;
+		if (diff < 0.2) {
+			flag = true;
+		}
+
+		return flag;
+
+	 
+		
+	}
+
+	
 	public boolean verify_funder_with_same_term_and_mileage_can_not_be_added(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
@@ -1087,6 +1209,10 @@ public class AssetFundingPage extends TestBase {
 
 	public boolean verify_default_status_for_required_flow_for_BCH() throws InterruptedException, IOException {
 
+		System.out.println("");
+		LO.print("");
+
+		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		Thread.sleep(2000);
@@ -1094,9 +1220,6 @@ public class AssetFundingPage extends TestBase {
 		Click.on(driver, asset_funding, 30);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-
-		LO.print("");
-		System.out.println("");
 
 		LO.print("Started verifying Default Status for BCH required flow");
 		System.out.println("Started verifying Default Status for BCH required flow");
@@ -1131,6 +1254,10 @@ public class AssetFundingPage extends TestBase {
 
 	public void verify_holding_cost_after_adding_cap_maint_for_BCH() throws InterruptedException, IOException {
 
+		System.out.println("");
+		LO.print("");
+
+		
 		String sheet_Name = GetExcelFormulaValue.get_cell_value(1, 2, prop.getProperty("Order_ID"));
 
 		Click.on(driver, common_maintenance_toggle, 20);
@@ -1168,8 +1295,8 @@ public class AssetFundingPage extends TestBase {
 
 		double diff = Difference.of_two_Double_Values(holding_cost_from_screen, holding_cost_from_excel);
 
-		LO.print("Holding Cost from screen after adding maint" + holding_cost_from_screen);
-		System.out.println("Holding Cost from screen after adding maint" + holding_cost_from_screen);
+		LO.print("Holding Cost from screen after adding maint is " + holding_cost_from_screen);
+		System.out.println("Holding Cost from screen after adding maint is " + holding_cost_from_screen);
 
 		LO.print("Holding Cost from excel after adding maint" + holding_cost_from_excel);
 		System.out.println("Holding Cost from excel after adding maint" + holding_cost_from_excel);

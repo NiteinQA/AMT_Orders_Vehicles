@@ -29,6 +29,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 1)
 	public void open_order_created_in_acquisition_test() throws IOException, InterruptedException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_orders_list = new OrdersListPage();
 		
 		obj_orders_list.search_order_in_list();
@@ -43,6 +48,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 2, dependsOnMethods = { "open_order_created_in_acquisition_test" })
 	public void verify_default_status_required_flow_test() throws IOException, InterruptedException, AWTException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
 		Assert.assertTrue(obj_asset_funding.verify_default_status_for_required_flow_for_BCH());
@@ -52,6 +62,12 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 	@Test(priority = 3, dependsOnMethods = { "verify_default_status_required_flow_test" })
 	public void verify_default_funder_is_not_deleted_test() throws IOException, InterruptedException, AWTException {
+		
+
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -63,6 +79,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 4, dependsOnMethods = { "verify_default_funder_is_not_deleted_test" })
 	public void verify_selected_funder_can_not_be_edited_test() throws IOException, InterruptedException, AWTException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
 		Assert.assertTrue(obj_asset_funding.verify_selected_funder_can_not_be_edited());
@@ -71,6 +92,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 	@Test(priority = 5, dependsOnMethods = { "verify_selected_funder_can_not_be_edited_test" })
 	public void verify_holding_cost_after_deselecting_funder_test() throws IOException, InterruptedException, AWTException {
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -90,6 +116,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 7, dependsOnMethods = { "verify_holding_cost_after_deselecting_funder_test" })
 	public void verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test() throws IOException, InterruptedException, AWTException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
 		Assert.assertTrue(obj_asset_funding.verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test());
@@ -98,6 +129,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 	@Test(priority = 8, dependsOnMethods = { "verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test" })
 	public void verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -113,6 +149,12 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 9, dependsOnMethods = { "verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test" })
 	public void verify_document_is_uploaded_in_funder_test() throws IOException, InterruptedException, AWTException {
 		
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
 		Assert.assertTrue(obj_asset_funding.verify_document_is_uploaded_in_funder());
@@ -121,14 +163,19 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 
 	
-//	@Test(priority = 10, dependsOnMethods = { "verify_document_is_uploaded_in_funder_test" })
-//	public void verify_funders_are_deleted_on_changing_contract_type_test() throws IOException, InterruptedException, AWTException {
-//		
-//		obj_asset_funding = new AssetFundingPage();		
-//		
-//		Assert.assertTrue(obj_asset_funding.verify_funders_are_deleted_on_changing_contract_type());
-//		
-//	}
+	@Test(priority = 10, dependsOnMethods = { "verify_document_is_uploaded_in_funder_test" })
+	public void verify_funders_are_deleted_on_changing_contract_type_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_funders_are_deleted_on_changing_contract_type());
+		
+	}
 	
 	
 	//In this test class flow covered are :

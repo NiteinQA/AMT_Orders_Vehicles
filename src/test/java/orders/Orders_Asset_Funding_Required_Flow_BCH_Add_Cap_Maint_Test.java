@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,7 @@ import com.amt.pages.OrdersListPage;
 import com.amt.pages.StocklistPage;
 import com.amt.pages.VehicleOrderPage;
 import com.amt.testBase.TestBase;
+import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
 public class Orders_Asset_Funding_Required_Flow_BCH_Add_Cap_Maint_Test extends TestBase {
@@ -28,6 +30,9 @@ VehicleOrderPage obj_vehicle_order_tab;
 
 	@Test(priority = 1)
 	public void open_order_created_in_acquisition_test() throws IOException, InterruptedException {
+		
+	     System.out.println("");
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
 		
 		obj_orders_list = new OrdersListPage();
 		
@@ -50,6 +55,12 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 	@Test(priority = 3, dependsOnMethods = { "open_order_created_in_acquisition_test" })
 	public void verify_default_status_required_flow_test() throws IOException, InterruptedException, AWTException {
+	
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -60,40 +71,39 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 4, dependsOnMethods = { "verify_default_status_required_flow_test" })
 	public void verify_holding_cost_after_adding_cap_maint_test() throws IOException, InterruptedException, AWTException {
 		
+		
+	     System.out.println("");
+
+		
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
         obj_asset_funding.verify_holding_cost_after_adding_cap_maint_for_BCH();
 		
 	}
 	
-	
-//	@Test(priority = 5, dependsOnMethods = { "verify_default_status_required_flow_test" })
-//	public void verify_finance_documents_statuses_for_required_flow_test() throws IOException, InterruptedException, AWTException {
-//		
-//		obj_asset_funding = new AssetFundingPage();		
-//		
-//		Assert.assertTrue(obj_asset_funding.verify_finance_documents_statuses());
-//		
-//	}
-//	
-//	@Test(priority = 6, dependsOnMethods = { "verify_finance_documents_statuses_for_required_flow_test" })
-//	public void verify_payments_to_funder_statuses_for_required_flow_test() throws IOException, InterruptedException, AWTException {
-//		
-//		obj_asset_funding = new AssetFundingPage();		
-//		
-//		Assert.assertTrue(obj_asset_funding.verify_payments_to_funder_statuses());
-//		
-//	}
-//	
-//	@Test(priority = 7, dependsOnMethods = { "verify_payments_to_funder_statuses_for_required_flow_test" })
-//	public void verify_completed_status_for_required_flow_test() throws IOException, InterruptedException, AWTException {
-//		
-//		obj_asset_funding = new AssetFundingPage();		
-//		
-//		Assert.assertTrue(obj_asset_funding.verify_completed_status());
-//		
-//	}
+	@Test(priority = 5, dataProvider="testData",dependsOnMethods = { "verify_holding_cost_after_adding_cap_maint_test" })
+	public void verify_holding_cost_after_adding_maintenance_in_funder_test(String monthlyMaintPayment , String  pencePerExcessMileMaintenance, String sheet_name) throws IOException, InterruptedException, AWTException {
+		
+		
+	     System.out.println("");
 
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_holding_cost_after_adding_maintenance_in_funder_in_asset_funding_tab_for_BCH(monthlyMaintPayment,pencePerExcessMileMaintenance,sheet_name));		
+	}
+	
+	@DataProvider(name = "testData")
+	public Object[][] getTestData() throws IOException {
+		Object[][] data = ReadExcelData.getTestData("BCH_BCH_withMaint_Orders");
+		return data;
+	}
+	
 
 
 	

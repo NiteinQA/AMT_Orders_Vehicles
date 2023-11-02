@@ -29,6 +29,12 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 1)
 	public void open_order_created_in_acquisition_test() throws IOException, InterruptedException {
 		
+
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_orders_list = new OrdersListPage();
 		
 		obj_orders_list.search_order_in_list();
@@ -50,6 +56,12 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 	@Test(priority = 3, dependsOnMethods = { "open_order_created_in_acquisition_test" })
 	public void verify_default_status_required_flow_test() throws IOException, InterruptedException, AWTException {
+	
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();		
 		
@@ -60,52 +72,17 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 4, dependsOnMethods = { "verify_default_status_required_flow_test" })
 	public void verify_holding_cost_after_adding_cap_maint_test() throws IOException, InterruptedException, AWTException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
         obj_asset_funding.verify_holding_cost_after_adding_cap_maint_for_HPNR();
 		
 	}
 	
-	@Test(priority = 5, dependsOnMethods = { "verify_holding_cost_after_adding_cap_maint_test" })
-	public void save_the_order_and_check_the_holding_cost_in_the_quote() throws IOException, InterruptedException, AWTException {
-		
-		obj_asset_funding = new AssetFundingPage();		
-		
-        obj_asset_funding.verify_holding_cost_after_adding_cap_maint_for_HPNR();
-		
-	}
 
-	
-	
-//	@Test(priority = 5, dependsOnMethods = { "verify_default_status_required_flow_test" })
-//	public void verify_finance_documents_statuses_for_required_flow_test() throws IOException, InterruptedException, AWTException {
-//		
-//		obj_asset_funding = new AssetFundingPage();		
-//		
-//		Assert.assertTrue(obj_asset_funding.verify_finance_documents_statuses());
-//		
-//	}
-//	
-//	@Test(priority = 6, dependsOnMethods = { "verify_finance_documents_statuses_for_required_flow_test" })
-//	public void verify_payments_to_funder_statuses_for_required_flow_test() throws IOException, InterruptedException, AWTException {
-//		
-//		obj_asset_funding = new AssetFundingPage();		
-//		
-//		Assert.assertTrue(obj_asset_funding.verify_payments_to_funder_statuses());
-//		
-//	}
-//	
-//	@Test(priority = 7, dependsOnMethods = { "verify_payments_to_funder_statuses_for_required_flow_test" })
-//	public void verify_completed_status_for_required_flow_test() throws IOException, InterruptedException, AWTException {
-//		
-//		obj_asset_funding = new AssetFundingPage();		
-//		
-//		Assert.assertTrue(obj_asset_funding.verify_completed_status());
-//		
-//	}
-
-
-
-	
 
 }

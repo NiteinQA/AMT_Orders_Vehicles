@@ -31,6 +31,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 1)
 	public void open_order_created_in_acquisition_test() throws IOException, InterruptedException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_orders_list = new OrdersListPage();
 		
 		obj_orders_list.search_order_in_list();
@@ -45,6 +50,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	@Test(priority = 2, dependsOnMethods = { "open_order_created_in_acquisition_test" })
 	public void verify_default_status_required_flow_test() throws IOException, InterruptedException, AWTException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();		
 		
 		Assert.assertTrue(obj_asset_funding.verify_default_status_for_required_flow_for_BCH());
@@ -56,6 +66,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
 			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
 			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();	
 		
@@ -71,6 +86,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
 			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();	
 		
 		Assert.assertTrue(obj_asset_funding.verify_funder_with_different_term_and_mileage_can_added( quoteRef,  expiryDate,
@@ -85,6 +105,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
 			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance, String sheet_name) throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
 		obj_asset_funding = new AssetFundingPage();	
 		
 		Assert.assertTrue(obj_asset_funding.verify_holding_cost_after_selecting_newly_added_funder( quoteRef,  expiryDate,
@@ -96,6 +121,11 @@ VehicleOrderPage obj_vehicle_order_tab;
 	
 	@Test(priority = 6, dependsOnMethods = { "verify_holding_cost_after_selecting_newly_added_funder_test" })
 	public void verify_residualValue_and_maintCost_fields_are_freezed_after_selecting_a_funder_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		
 		obj_asset_funding = new AssetFundingPage();	
 		

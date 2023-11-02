@@ -54,6 +54,8 @@ public class VehicleOrderPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'Name')]//ancestor::div[1]//div//ul//li")
 	private WebElement select_supplier_name;
 	
+	
+	
 
 	// register to drop down
 	@FindBy(xpath = "//*[@id='registerTo']")
@@ -178,9 +180,37 @@ public class VehicleOrderPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'Check MOT')]")
 	private WebElement check_MOT;
 	
-
+	
+	//Statuses
 	
 	
+	//Order
+	@FindBy(xpath = "//*[text()='Order']")
+	private WebElement order;
+	
+	//Order pending
+	@FindBy(xpath = "//*[text()='Pending Order']")
+	private WebElement status_order_pending;
+	
+	//Order Confirmed
+	@FindBy(xpath = "//*[text()='Order Confirmed']")
+	private WebElement status_order_confirmed;
+	
+	//Delivery
+	@FindBy(xpath = "//*[text()='Delivery']")
+	private WebElement status_delivery;
+	
+	//Awaiting Booking
+	@FindBy(xpath = "//*[text()='Awaiting Booking']")
+	private WebElement status_awaiting_booking;
+	
+	//Delivery Booked
+	@FindBy(xpath = "//*[text()='Delivery Booked']")
+	private WebElement status_delivery_Booked;
+	
+	//Delivered
+	@FindBy(xpath = "//*[text()='Delivered']")
+	private WebElement status_delivered;
 
 	Properties prop;
 
@@ -268,6 +298,183 @@ public class VehicleOrderPage extends TestBase {
 
 		return delivery_status;
 		
+	}
+	
+	
+	
+	public boolean verify_default_status_of_order_in_vehicle_order_tab() throws InterruptedException {
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();
+
+		// open vehicle order tab
+		obj_vehicle_order_tab.open_vehicle_order_tab();
+		
+		
+		Click.on(driver, order, 20);
+		
+		Thread.sleep(2000);
+		
+		
+		String elementColor = "";
+
+		ExplicitWait.visibleElement(driver, status_order_pending, 10);
+
+		elementColor = status_order_pending.getCssValue("color");
+
+		if (elementColor.equals("rgba(199, 92, 0, 1)")) {
+
+			LO.print("Order -- Default Status - Found OK i.e Order Pending ");
+			System.out.println("Order -- Default Status - Found OK i.e Order Pending ");
+			return true;
+
+		} else {
+			LO.print("Order -- Default Status- Found Wrong");
+			System.err.println("Order -- Default Status- Found Wrong");
+			return false;
+		}		
+		
+	}
+	
+	public boolean verify_order_status_in_vehicle_order_tab_after_uploading_order_form() throws InterruptedException, IOException, AWTException {
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();
+		try {			
+		ExplicitWait.visibleElement(driver, outstanding_finance, 10);
+		
+		boolean outstanding_finance_visibility =  outstanding_finance.isDisplayed();
+		
+		if(outstanding_finance_visibility==true)
+		{
+			Click.on(driver, outstanding_finance_no, 10);
+		}
+		
+		obj_vehicle_order_tab.fill_supplier_information();
+		
+		obj_vehicle_order_tab.fill_purchase_order_information_for_used_car();		
+		
+							
+		} catch(Exception e)
+		{
+			// fill purchase order info under purchase order section
+			obj_vehicle_order_tab.fill_up_purchase_order_info_on_vehicle_order_tab();
+		}
+
+		
+	
+		String elementColor = "";
+
+		ExplicitWait.visibleElement(driver, status_order_confirmed, 10);
+
+		elementColor = status_order_confirmed.getCssValue("color");
+
+		if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+
+			LO.print("Order Status after uploading order form - Found OK i.e Order Confirmed ");
+			System.out.println("Order Status after uploading order form - Found OK i.e Order Confirmed ");
+			return true;
+
+		} else {
+			LO.print("Order Status after uploading order form - Found Wrong");
+			System.err.println("Order Status after uploading order form - Found Wrong");
+			return false;
+		}		
+		
+	}
+
+	
+	
+	public boolean verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();
+		
+		obj_vehicle_order_tab.select_date_offered_in_delivery_section_on_vehicle_order_tab();
+		
+		JavaScriptExecutor.click(driver, status_delivery);
+//	    Click.on(driver, status_delivery, 10);
+	    
+	    Thread.sleep(2000);
+		
+		
+		String elementBackgroundColor = "";
+
+		ExplicitWait.visibleElement(driver, status_awaiting_booking, 10);
+
+		elementBackgroundColor = status_awaiting_booking.getCssValue("background-color");
+
+		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+
+			LO.print(
+					"Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking");
+			System.out.println(
+					"Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking");
+			 return true;
+
+		} else {
+			LO.print("Delivery Status after selecting delivery date offered - Found Wrong");
+			System.err.println("Delivery Status after selecting delivery date offered - Found Wrong");
+			return false;
+		}
+	}
+	
+	
+	
+	
+public boolean verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();
+		
+		obj_vehicle_order_tab.select_confirmed_delivery_date_in_delivery_section_on_vehicle_order_tab();
+		
+
+		
+		String elementBackgroundColor = "";
+
+		ExplicitWait.visibleElement(driver, status_delivery_Booked, 10);
+
+		elementBackgroundColor = status_delivery_Booked.getCssValue("background-color");
+
+		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+
+			LO.print(
+					"Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked");
+			System.out.println(
+					"Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked");
+			 return true;
+
+		} else {
+			LO.print("Delivery Status after selecting confirmed delivery date - Found Wrong");
+			System.err.println("Delivery Status after selecting confirmed delivery date - Found Wrong");
+			return false;
+		}
+	}
+
+	
+public boolean verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();
+		
+		obj_vehicle_order_tab.fill_up_post_delivery_info_on_vehicle_order_tab();	
+
+		
+		String elementBackgroundColor = "";
+
+		ExplicitWait.visibleElement(driver, status_delivered, 10);
+
+		elementBackgroundColor = status_delivered.getCssValue("background-color");
+
+		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+
+			LO.print(
+					"Delivery Status after uploading the delivery note - Found OK i.e Delivered");
+			System.out.println(
+					"Delivery Status after uploading the delivery note - Found OK i.e Delivered");
+			 return true;
+
+		} else {
+			LO.print("Delivery Status after uploading the delivery note - Found Wrong");
+			System.err.println("Delivery Status after uploading the delivery note - Found Wrong");
+			return false;
+		}
 	}
 	
 	public void fill_supplier_information() throws InterruptedException
@@ -436,6 +643,64 @@ public class VehicleOrderPage extends TestBase {
 
 	}
 
+	public void select_date_offered_in_delivery_section_on_vehicle_order_tab()
+			throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+
+		obj_vehicle_order_tab = new VehicleOrderPage();
+
+		
+		Click.on(driver, delivered_to_dropdown,30);	
+		Thread.sleep(500);
+		
+		Click.on(driver, delivered_to_AMT,30);		
+
+		Thread.sleep(10000);
+		// Click on  Date offered input
+		Click.on(driver, vehicle_order_date_offered_input, 20);
+		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		// pick date offered
+		CommonClass.move_courser();
+		Click.on(driver, vehicle_order_date_offered, 20);	
+		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		
+//		// Click on confirmed delivery date 
+//		Click.on(driver, vehicle_order_confirmed_delivery_date, 20);
+//		Thread.sleep(8000);
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//		// pick confirmed delivery date
+//		CommonClass.move_courser();
+//		Click.on(driver, vehicle_order_pick_confirmed_delivery_date, 20);
+//
+//		Thread.sleep(2000);
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);	
+
+	}
+
+	
+	public void select_confirmed_delivery_date_in_delivery_section_on_vehicle_order_tab()
+			throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+
+	
+		// Click on confirmed delivery date 
+		Click.on(driver, vehicle_order_confirmed_delivery_date, 20);
+		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		// pick confirmed delivery date
+		CommonClass.move_courser();
+		Click.on(driver, vehicle_order_pick_confirmed_delivery_date, 20);
+
+		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);	
+
+	}
+
+	
 
 	public void fill_up_purchase_order_info_on_vehicle_order_tab()
 			throws IOException, InterruptedException, AWTException {
