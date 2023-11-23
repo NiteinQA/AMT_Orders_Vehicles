@@ -455,11 +455,12 @@ public class Leads extends TestBase {
 		// Thread.sleep(1000);
 
 		HelperClass.highlightElement(driver, general_lead_source);
+		
 		Dropdown.selectByVisibleText(driver, general_lead_source, " Instagram ", 120);
 
-		HelperClass.highlightElement(driver, general_entry_type);
-
-		Dropdown.selectByVisibleText(driver, general_entry_type, " Lease ", 120);
+//		HelperClass.highlightElement(driver, general_entry_type);
+//
+//		Dropdown.selectByVisibleText(driver, general_entry_type, " Lease ", 120);
 
 		HelperClass.highlightElement(driver, status);
 
@@ -547,6 +548,8 @@ public class Leads extends TestBase {
 		System.out.println("Customer type - " + "Business" + " selected");
 
 		// js = (JavascriptExecutor) driver;
+		
+		ExplicitWait.visibleElement(driver, customer_name, 10);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		Thread.sleep(4000);

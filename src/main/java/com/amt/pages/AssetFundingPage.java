@@ -113,7 +113,6 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//*[@class='slider round sliderRed']")
 	private WebElement maintenance_toggle_button;
 
-	// *[contains(text(),'Status')]//ancestor::div[1]//div//div
 
 	// Status of the stocking plan
 	@FindBy(xpath = "//*[contains(text(),'Status')]//ancestor::div[1]//div//div")
@@ -127,7 +126,7 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'Status')]//ancestor::div[1]//div/div")
 	private WebElement stocking_plan_status;
 
-	// *[contains(text(),'Lombard Demo')]
+	
 
 	// Stocking plan - Lombard Demo
 	@FindBy(xpath = "//*[contains(text(),'Lombard Demo')]")
@@ -314,8 +313,7 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//tbody//tr")
 	private WebElement edit_funder;
 	
-	//*[text()=' Selected ']
-
+	
 	// selected button
 	@FindBy(xpath = "//*[text()=' Selected ']|//*[text()=' Select ']")
 	private WebElement selected_button;

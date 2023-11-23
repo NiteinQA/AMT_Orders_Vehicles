@@ -71,7 +71,8 @@ public class Click extends TestBase {
 	public static void sendKeysdouble(WebDriver driver, WebElement element ,double d, int timeout)
 	{
 		new WebDriverWait(driver , Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
-		HelperClass.highlightElement(driver, element); 	
+		HelperClass.highlightElement(driver, element);
+		element.clear();
 		element.sendKeys(String.valueOf(d));
 	}
 

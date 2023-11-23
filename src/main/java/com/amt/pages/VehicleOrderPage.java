@@ -42,9 +42,7 @@ public class VehicleOrderPage extends TestBase {
 
 	// Order summary Element
 	@FindBy(xpath = "//*[contains(text(),'Vehicle order')]")
-	private WebElement vehicle_order;
-	
-	
+	private WebElement vehicle_order;	
 	
 	// Supplier name
 	@FindBy(xpath = "//*[contains(text(),'Name')]//ancestor::div[1]//div//input")
@@ -211,6 +209,60 @@ public class VehicleOrderPage extends TestBase {
 	//Delivered
 	@FindBy(xpath = "//*[text()='Delivered']")
 	private WebElement status_delivered;
+	
+	//Payments to dealer
+	@FindBy(xpath = "//*[text()='Payments to dealer']")
+	private WebElement status_payments_to_dealer;
+	
+	
+	//Payment Required
+	@FindBy(xpath = "//*[text()='Payment Required']")
+	private WebElement status_payment_required;	
+	
+	//Payment Sent
+	@FindBy(xpath = "//*[text()='Payment Sent']")
+	private WebElement status_payment_sent;
+	
+	// Input - Payments to funder
+	// **********************************************************
+
+	@FindBy(xpath = "//button[normalize-space()='Generate invoice']")
+	private WebElement button_generate_invoice;
+
+	@FindBy(xpath = "//*[@id='confirmationModal']//*[text()=' Yes']")
+	private WebElement button_generate_invoice_cofirm;
+
+	@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[1]")
+	private WebElement date_payment_requested_order_deposit;
+
+	@FindBy(xpath = "(//label[normalize-space()='Payment sent']//ancestor::div[1]//input)[1]")
+	private WebElement date_payment_sent_order_deposit;
+
+	@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[2]")
+	private WebElement date_payment_requested_amount_due;
+
+	@FindBy(xpath = "(//label[normalize-space()='Payment sent']//ancestor::div[1]//input)[2]")
+	private WebElement date_payment_sent_amount_due;
+	
+	@FindBy(xpath = "//span[contains(@class, 'customTodayClass')]")
+	private WebElement pick_a_date;
+	
+	//***************************
+	
+	@FindBy(xpath = "//*[@id='PaymentBy']")
+	private WebElement payment_by_dropdown;	
+	
+	@FindBy(xpath = "//*[@id='PaymentBy']//option[text()='AMT']")
+	private WebElement payment_by_option_AMT;
+	
+	@FindBy(xpath = "//*[@id='vehicleinvoiceFile']")
+	private WebElement dealer_invoice_input;
+	
+	@FindBy(xpath = "//*[@id='btnBack']")
+	private WebElement back_button;
+	
+	
+	
 
 	Properties prop;
 
@@ -242,7 +294,7 @@ public class VehicleOrderPage extends TestBase {
 		obj_vehicle_order_tab.open_vehicle_order_tab();
 		
 		
-		try {			
+		try {
 		ExplicitWait.visibleElement(driver, outstanding_finance, 10);
 		
 		boolean outstanding_finance_visibility =  outstanding_finance.isDisplayed();
@@ -250,21 +302,30 @@ public class VehicleOrderPage extends TestBase {
 		if(outstanding_finance_visibility==true)
 		{
 			Click.on(driver, outstanding_finance_no, 10);
+			
+			obj_vehicle_order_tab.fill_supplier_information();
+			
+			obj_vehicle_order_tab.fill_purchase_order_information_for_used_car();	
+			
+			
 		}
+//		else
+//		{
+//			obj_vehicle_order_tab.fill_supplier_information();
+//			// fill purchase order info under purchase order section
+//			obj_vehicle_order_tab.fill_up_purchase_order_info_on_vehicle_order_tab();
+//		}
+//		
+			
+			}
+			catch(Exception e1)
+			{
+				obj_vehicle_order_tab.fill_supplier_information();
+				// fill purchase order info under purchase order section
+				obj_vehicle_order_tab.fill_up_purchase_order_info_on_vehicle_order_tab();
+			}
 		
-		obj_vehicle_order_tab.fill_supplier_information();
-		
-		obj_vehicle_order_tab.fill_purchase_order_information_for_used_car();		
-		
-							
-		} catch(Exception e)
-		{
-			// fill purchase order info under purchase order section
-			obj_vehicle_order_tab.fill_up_purchase_order_info_on_vehicle_order_tab();
-		}
-
 	
-		
 		//below lines of code for pre-purchase check
 		
 		try {			
@@ -274,7 +335,14 @@ public class VehicleOrderPage extends TestBase {
 		{
 
 		}	
-
+		String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName();
+		
+		String delivery_status="";
+		
+		if(classOrMethodName.contains("Customer_Contract"))
+		{
+		}
+		else {			
 		//fill delivery info  
 		obj_vehicle_order_tab.fill_up_delivery_info_on_vehicle_order_tab();
 		
@@ -282,12 +350,16 @@ public class VehicleOrderPage extends TestBase {
 		//fill post delivery info
 		obj_vehicle_order_tab.fill_up_post_delivery_info_on_vehicle_order_tab();
 		
+		delivery_status =  obj_vehicle_order_tab.get_status_text(vehicle_order_delivery_status);
+		
+		}
+		
 		Thread.sleep(4000);
 		
-		String delivery_status =  obj_vehicle_order_tab.get_status_text(vehicle_order_delivery_status);		
+				
 		
 		//save and Exit
-		String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName();
+		
 		
 		if(classOrMethodName.contains("Stocklist"))
 		{
@@ -302,7 +374,8 @@ public class VehicleOrderPage extends TestBase {
 	
 	
 	
-	public boolean verify_default_status_of_order_in_vehicle_order_tab() throws InterruptedException {
+	
+public boolean verify_default_status_of_order_in_vehicle_order_tab() throws InterruptedException {
 		
 		obj_vehicle_order_tab = new VehicleOrderPage();
 
@@ -335,6 +408,315 @@ public class VehicleOrderPage extends TestBase {
 		
 	}
 	
+
+
+       public boolean verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab() throws InterruptedException
+       {
+    	   
+			LO.print("");
+			System.out.println("");
+			
+			LO.print("Click on a payments by dropdown and Select option AMT");
+			System.out.println("Click on a payments by dropdown and Select option AMT");
+	
+            Click.on(driver, payment_by_dropdown, 10);
+            
+            Thread.sleep(2000);
+            
+            Click.on(driver, payment_by_option_AMT, 10);
+
+            obj_vehicle_order_tab = new VehicleOrderPage();
+            
+               	   
+	   return obj_vehicle_order_tab.verify_default_payment_status_on_vehicle_tab();
+	
+       }
+
+	public boolean verify_default_payment_status_on_vehicle_tab() throws InterruptedException {
+
+		LO.print("");
+		System.out.println("");
+
+
+			
+		JavaScriptExecutor.click(driver, status_payments_to_dealer);
+		
+		Thread.sleep(2000);
+		
+		
+		String elementColor = "";
+
+		ExplicitWait.visibleElement(driver, status_payment_required, 10);
+
+		elementColor = status_payment_required.getCssValue("color");
+
+		if (elementColor.equals("rgba(199, 92, 0, 1)")) {
+
+			LO.print("Payments to dealer -- Default Status - Found OK i.e Payment Required");
+			System.out.println("Payments to dealer -- Default Status - Found OK i.e Payment Required");
+			return true;
+
+		} else {
+			LO.print("Payments to dealer -- Default Status - Found Wrong");
+			System.err.println("Payments to dealer -- Default Status - Found Wrong");
+			return false;
+		}		
+		
+	}
+	
+	
+	
+public boolean verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab() throws InterruptedException {
+	
+	// Click on Payment Requested
+	Click.on(driver, date_payment_requested_order_deposit, 20);
+	Thread.sleep(8000);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+	// pick date
+	CommonClass.move_courser();
+	Click.on(driver, pick_a_date, 20);
+	Thread.sleep(5000);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+	// Click on Payment Sent
+	Click.on(driver, date_payment_sent_order_deposit, 20);
+	Thread.sleep(8000);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+	// pick date
+	CommonClass.move_courser();
+	Click.on(driver, pick_a_date, 20);
+	Thread.sleep(5000);
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+	
+	
+	String elementColor = "";
+
+	ExplicitWait.visibleElement(driver, status_payment_sent, 10);
+
+	elementColor = status_payment_sent.getCssValue("color");
+
+	if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+
+		LO.print("Payments to Supplier Status after selecting payment sent date - Found OK i.e Payment Sent");
+		System.out.println("Payments to Supplier Status after selecting payment sent date - Found OK i.e Payment Sent");
+		return true;
+
+	} else {
+		LO.print("Payments to Supplier Status after selecting payment sent date - Found Wrong");
+		System.err.println("Payments to Supplier Status after selecting payment sent date - Found Wrong");
+		return false;
+	}		
+	
+}
+
+
+ public boolean verify_payment_status_after_selecting_payment_sent_date_for_amount_due_if_payment_by_AMT() throws InterruptedException
+ {
+		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
+		// Click on generate Invoice
+		Click.on(driver, button_generate_invoice, 30);
+		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		// Confirm pop up
+		Click.on(driver, button_generate_invoice_cofirm, 30);
+		Thread.sleep(2000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Thread.sleep(5000);
+		
+		dealer_invoice_input.sendKeys(prop.getProperty("test_image_path"));
+			
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+		
+		// Click on Payment Requested
+		Click.on(driver, date_payment_requested_amount_due, 20);
+		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		// pick date
+		CommonClass.move_courser();
+		Click.on(driver, pick_a_date, 20);
+		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		// Click on Payment Sent
+		Click.on(driver, date_payment_sent_amount_due, 20);
+		Thread.sleep(8000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		// pick date
+		CommonClass.move_courser();
+		Click.on(driver, pick_a_date, 20);
+		Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);	
+		
+		
+		String elementColor = "";
+
+		ExplicitWait.visibleElement(driver, status_payment_sent, 10);
+
+		elementColor = status_payment_sent.getCssValue("color");
+
+		if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+
+			LO.print("Payments to Supplier Status after selecting payment sent date - Found OK i.e Payment Sent");
+			System.out.println("Payments to Supplier Status after selecting payment sent date - Found OK i.e Payment Sent");
+			return true;
+
+		} else {
+			LO.print("Payments to Supplier Status after selecting payment sent date - Found Wrong");
+			System.err.println("Payments to Supplier Status after selecting payment sent date - Found Wrong");
+			return false;
+		}		
+
+
+ }
+
+//public boolean verify_payments_to_funder_statuses() throws InterruptedException, IOException {
+//
+//	LO.print("");
+//	System.out.println("");
+//
+//	LO.print("Sterted Verifying Payments to Funder Statuses for required flow");
+//	System.out.println("Sterted Verifying Payments to Funder Statuses for required flow");
+//
+//	JavaScriptExecutor.click(driver, status_payment);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+//
+//	int statusVerificationCount = 0;
+//
+//	String elementColor = "";
+//
+//	ExplicitWait.visibleElement(driver, status_payment_required, 10);
+//
+//	elementColor = status_payment_required.getCssValue("color");
+//
+//	if (elementColor.equals("rgba(199, 92, 0, 1)")) {
+//
+//		LO.print("Payment to funder -- Default Status - Found OK i.e Payment Required");
+//		System.out.println("Payment to funder -- Default Status - Found OK i.e Payment Required");
+//		statusVerificationCount++;
+//
+//	} else {
+//		LO.print("Payment to funder -- Default Status- Found Wrong");
+//		System.err.println("Payment to funder -- Default Status- Found Wrong");
+//
+//	}
+//
+//	JavaScriptExecutor.scroll_in_to_view(driver, back_button);
+//	// Click on generate Invoice
+//	Click.on(driver, button_generate_invoice, 30);
+//	Thread.sleep(2000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+//
+//	// Confirm pop up
+//	Click.on(driver, button_generate_invoice_cofirm, 30);
+//	Thread.sleep(2000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+//
+//	// Click on Payment Requested
+//	Click.on(driver, date_payment_requested_for_doc_fee, 20);
+//	Thread.sleep(8000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//	// pick date
+//	CommonClass.move_courser();
+//	Click.on(driver, pick_a_date, 20);
+//	Thread.sleep(5000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//	// Click on Payment Sent
+//	Click.on(driver, date_payment_sent_for_doc_fee, 20);
+//	Thread.sleep(8000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//	// pick date
+//	CommonClass.move_courser();
+//	Click.on(driver, pick_a_date, 20);
+//	Thread.sleep(5000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//	// Click on generate Invoice
+//	Click.on(driver, button_generate_invoice, 30);
+//	Thread.sleep(2000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+//
+//	// Confirm pop up
+//	Click.on(driver, button_generate_invoice_cofirm, 30);
+//	Thread.sleep(2000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+//
+//	// Click on Payment Requested
+//	Click.on(driver, date_payment_requested_for_finance_deposit, 20);
+//	Thread.sleep(8000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//	// pick date
+//	CommonClass.move_courser();
+//	Click.on(driver, pick_a_date, 20);
+//	Thread.sleep(5000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//	// Verify Status Payment requested
+//
+//	ExplicitWait.visibleElement(driver, status_payment_requested, 10);
+//
+//	elementColor = status_payment_requested.getCssValue("color");
+//
+//	if (elementColor.equals("rgba(199, 92, 0, 1)")) {
+//
+//		LO.print("Status for Payment after selecting payment requested date- Found OK i.e Payment Requested");
+//		System.out.println(
+//				"Status for Payment after selecting payment requested date- Found OK i.e Payment Requested");
+//		statusVerificationCount++;
+//
+//	} else {
+//		LO.print("Status for Payment after selecting payment requested date- Found Wrong");
+//		System.err.println("Status for Payment after selecting payment requested date- Found Wrong");
+//
+//	}
+//
+//	// Click on Payment Sent
+//	Click.on(driver, date_payment_sent_for_finance_deposit, 20);
+//	Thread.sleep(8000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//	// pick date
+//	CommonClass.move_courser();
+//	Click.on(driver, pick_a_date, 20);
+//	Thread.sleep(5000);
+//	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+//
+//	ExplicitWait.visibleElement(driver, status_payment_sent, 10);
+//
+//	elementColor = status_payment_sent.getCssValue("color");
+//
+//	if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+//
+//		LO.print("Status for Payment after selecting payment sent date- Found OK i.e Payment Sent");
+//		System.out.println("Status for Payment after selecting payment sent date- Found OK i.e Payment Sent");
+//		statusVerificationCount++;
+//
+//	} else {
+//		LO.print("Status for Payment after selecting payment sent date- Found Wrong");
+//		System.err.println("Status for Payment after selecting payment sent date- Found Wrong");
+//
+//	}
+//
+//	if (statusVerificationCount == 3) {
+//		return true;
+//	} else {
+//		return false;
+//	}
+//
+//}
+
+
 	public boolean verify_order_status_in_vehicle_order_tab_after_uploading_order_form() throws InterruptedException, IOException, AWTException {
 		
 		obj_vehicle_order_tab = new VehicleOrderPage();
@@ -714,7 +1096,7 @@ public boolean verify_delivery_status_after_uploading_delivery_note_in_post_deli
 
 		obj_vehicle_order_tab.upload_file(vehicle_order_upload_order_form, prop.getProperty("test_image_path"));
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		Thread.sleep(8000);
 
