@@ -3,8 +3,10 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+		
+	  <class name="acquisition.Acquisition_Quotes_CP_BCH_with_funder_quote_addition_with_maintenance_Test"/>	
       <class name="orders.Orders_Asset_Funding_Required_Flow_CP_BCH_with_funder_with_maintenance_Test"/>
-      <class name="acquisition.Acquisition_Quotes_CP_BCH_with_funder_quote_addition_with_maintenance_Test"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

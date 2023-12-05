@@ -1,103 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Searching for Order ID BP-34573</b> <br />]]>
+      <![CDATA[<b>Searching for Order ID IW-65834</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Opening Sold Vehicle Listing in New Tab</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Searching order in the listing</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Searching for Order ID BP-34573</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Order seen in sold vehicles section, Hence Test passed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Verifying statuses displayed on searched output</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status for VEHICLE STATUS is Sold Hence Test Passed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status for CUSTOMER STATUS is Completed Hence Test Passed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status for ACQUISTION STATUS is Completed Hence Test Passed</b> <br />]]>
+      <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-11-23T17:47:04 IST" name="Default suite" finished-at="2023-11-23T17:48:33 IST" duration-ms="89216">
+  <suite started-at="2023-12-04T18:13:42 IST" name="Default suite" finished-at="2023-12-04T18:17:04 IST" duration-ms="202119">
     <groups>
     </groups>
-    <test started-at="2023-11-23T17:47:04 IST" name="Default test" finished-at="2023-11-23T17:48:33 IST" duration-ms="89216">
-      <class name="orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@2a7f1f10]" started-at="2023-11-23T17:47:04 IST" name="start_info" finished-at="2023-11-23T17:47:04 IST" duration-ms="6" status="PASS">
+    <test started-at="2023-12-04T18:13:42 IST" name="Default test" finished-at="2023-12-04T18:17:04 IST" duration-ms="202119">
+      <class name="orders.Orders_Ownbook_Hire_With_Customer_Flow_Test">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Ownbook_Hire_With_Customer_Flow_Test@298a5e20]" started-at="2023-12-04T18:13:42 IST" name="start_info" finished-at="2023-12-04T18:13:42 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@2a7f1f10]" started-at="2023-11-23T17:47:04 IST" name="setup" finished-at="2023-11-23T17:47:16 IST" duration-ms="11753" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Ownbook_Hire_With_Customer_Flow_Test@298a5e20]" started-at="2023-12-04T18:13:42 IST" name="setup" finished-at="2023-12-04T18:13:58 IST" duration-ms="15560" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@2a7f1f10]" started-at="2023-11-23T17:47:16 IST" name="open_order_created_in_acquisition_test" finished-at="2023-11-23T17:48:18 IST" duration-ms="62583" status="PASS">
+        <test-method signature="open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Ownbook_Hire_With_Customer_Flow_Test@298a5e20]" started-at="2023-12-04T18:13:58 IST" name="open_order_created_in_acquisition_test" finished-at="2023-12-04T18:15:59 IST" duration-ms="121872" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Searching for Order ID BP-34573</b> <br />]]>
+              <![CDATA[<b>Searching for Order ID IW-65834</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- open_order_created_in_acquisition_test -->
-        <test-method signature="verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test()[pri:8, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@2a7f1f10]" started-at="2023-11-23T17:48:18 IST" name="verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test" finished-at="2023-11-23T17:48:33 IST" depends-on-methods="orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.open_order_created_in_acquisition_test" duration-ms="14161" status="PASS">
+        <test-method signature="deliver_vehicle_tab_test()[pri:3, instance:orders.Orders_Ownbook_Hire_With_Customer_Flow_Test@298a5e20]" started-at="2023-12-04T18:15:59 IST" name="deliver_vehicle_tab_test" finished-at="2023-12-04T18:17:04 IST" depends-on-methods="orders.Orders_Ownbook_Hire_With_Customer_Flow_Test.open_order_created_in_acquisition_test" duration-ms="64657" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[<b>Opening Sold Vehicle Listing in New Tab</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Searching order in the listing</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Searching for Order ID BP-34573</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Order seen in sold vehicles section, Hence Test passed</b> <br />]]>
+              <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test -->
-        <test-method signature="verify_statuses_on_order_completed_test()[pri:9, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@2a7f1f10]" started-at="2023-11-23T17:48:33 IST" name="verify_statuses_on_order_completed_test" finished-at="2023-11-23T17:48:33 IST" depends-on-methods="orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test" duration-ms="687" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Verifying statuses displayed on searched output</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status for VEHICLE STATUS is Sold Hence Test Passed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status for CUSTOMER STATUS is Completed Hence Test Passed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status for ACQUISTION STATUS is Completed Hence Test Passed</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- verify_statuses_on_order_completed_test -->
-        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@2a7f1f10]" started-at="2023-11-23T17:48:33 IST" name="end" finished-at="2023-11-23T17:48:33 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- deliver_vehicle_tab_test -->
+        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Ownbook_Hire_With_Customer_Flow_Test@298a5e20]" started-at="2023-12-04T18:17:04 IST" name="end" finished-at="2023-12-04T18:17:04 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test -->
+      </class> <!-- orders.Orders_Ownbook_Hire_With_Customer_Flow_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

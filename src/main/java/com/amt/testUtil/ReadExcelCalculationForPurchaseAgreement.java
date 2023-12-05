@@ -761,9 +761,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			String finalBalloonPayment, String documentFee, String sheet_name)
 			throws IOException, InterruptedException {
 
-		LO.print("***********Holding Cost Calculations has been Started*************");
-		System.out.println("***********Holding Cost Calculations has been Started*************");
-
+		
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
@@ -785,9 +783,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 
 		// excel code for reading calculated values from excel sheet
 
-		LO.print("Reading Monthly Holding Cost value from excel");
-		System.out.println("Reading Monthly Holding Cost value from excel");
-
+		
 		return GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
 
 	}

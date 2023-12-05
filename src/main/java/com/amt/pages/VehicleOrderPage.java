@@ -339,7 +339,7 @@ public class VehicleOrderPage extends TestBase {
 		
 		String delivery_status="";
 		
-		if(classOrMethodName.contains("Customer_Contract"))
+		if(classOrMethodName.contains("With_Customer_Flow"))
 		{
 		}
 		else {			

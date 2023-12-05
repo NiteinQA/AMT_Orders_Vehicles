@@ -1,0 +1,418 @@
+<html>
+<head>
+<title>TestNG:  Verify Asset Funding Funder Related Cases For HPNR BCH</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Verify Asset Funding Funder Related Cases For HPNR BCH</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/1/2</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Nov 24 14:29:21 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>630 seconds (630839 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_finance_documents_statuses_for_required_flow_test()'><b>verify_finance_documents_statuses_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1376358925" onClick='toggleBox("Output-1376358925", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1376358925" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1376358925">
+<b></b> <br /><br/>
+<b>Sterted Verifying Finance Document Statuses for required flow</b> <br /><br/>
+<b>Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested</b> <br /><br/>
+<b>Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received</b> <br /><br/>
+<b>Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed</b> <br /><br/>
+<b>Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_finance_documents_statuses_for_required_flow_test_24_11_2023_02_39_52.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[EdgeDriver: msedge on WINDOWS (b4fd96ed2f1bbda2d871154a90da4747)] -&gt; xpath: //*[@id=&apos;financeactivated&apos;]] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: msedge, browserVersion: 119.0.2151.72, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:52114}, msedge: {msedgedriverVersion: 119.0.2151.44 (44557a29097a..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52114/devtoo..., se:cdpVersion: 119.0.2151.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b4fd96ed2f1bbda2d871154a90da4747
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.AssetFundingPage.verify_finance_documents_statuses(AssetFundingPage.java:2402)
+	at orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_finance_documents_statuses_for_required_flow_test(Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.java:105)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1376358925", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1376358925'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[EdgeDriver: msedge on WINDOWS (b4fd96ed2f1bbda2d871154a90da4747)] -&gt; xpath: //*[@id=&apos;financeactivated&apos;]] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: msedge, browserVersion: 119.0.2151.72, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:52114}, msedge: {msedgedriverVersion: 119.0.2151.44 (44557a29097a..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52114/devtoo..., se:cdpVersion: 119.0.2151.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b4fd96ed2f1bbda2d871154a90da4747
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.AssetFundingPage.verify_finance_documents_statuses(AssetFundingPage.java:2402)
+	at orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_finance_documents_statuses_for_required_flow_test(Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.java:105)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>121</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/23, 12, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 199.99, 500, 200, 200, 22, 22000, YES, 20, 200, YES, 0, HPNR (Formula 3) - BCH<br/>
+<a href="#Output-1291834365" onClick='toggleBox("Output-1291834365", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1291834365" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1291834365">
+<b>Clicking on New quote</b> <br /><br/>
+<b>Clicked on Quote button </b> <br /><br/>
+<b>Manufacture =AUDI has been selected</b> <br /><br/>
+<b>Model range =A7 has been selected</b> <br /><br/>
+<b>Vehicle has been selected</b> <br /><br/>
+<b>Paint option has been selected</b> <br /><br/>
+<b>Interior option has been selected</b> <br /><br/>
+<b> Acquisition Contract type option = HPNR has been selected</b> <br /><br/>
+<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br /><br/>
+<b>Getting Basic Price- Vehicle value is  =44854.17</b> <br /><br/>
+<b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
+<b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
+<b>Getting Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting   Discount - Paint value is   =0.00</b> <br /><br/>
+<b>Getting  Discount- Options value is   =0.00</b> <br /><br/>
+<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - paint value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - Options value is  =0.00</b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Started </b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Completed </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Subtotal After Discount from excel sheet is =45687.5</b> <br /><br/>
+<b>Subtotal after discount actual value from screen =£ 45,687.50</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>126</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@173ed316</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/23, 12, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 199.99, 500, 200, 200, 22, 22000, YES, 20, 200, YES, 0, HPNR (Formula 3) - BCH<br/>
+<a href="#Output-1823991045" onClick='toggleBox("Output-1823991045", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1823991045" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1823991045">
+<b>***********Entered in holding cost page ***********</b> <br /><br/>
+<b>***********Holding Cost Calculations has been Started*************</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =506.28</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =506.28</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>38</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@173ed316</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_quote_summary_values_verification_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_quote_summary_values_verification_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/23, 12, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 199.99, 500, 200, 200, 22, 22000, YES, 20, 200, YES, 0, HPNR (Formula 3) - BCH<br/>
+<a href="#Output-2051183505" onClick='toggleBox("Output-2051183505", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2051183505" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2051183505">
+<b>*********Customer Quote generated successfully and Quote_ref_no is=QMC26183</b> <br /><br/>
+<b> </b> <br /><br/>
+<b>*****Creating Order Started*****</b> <br /><br/>
+<b> </b> <br /><br/>
+<b>***** Order Created Successfully *****</b> <br /><br/>
+<b>Order ID ZK-24001 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br /><br/>
+<b>*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>121</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@173ed316</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_default_funder_is_not_deleted_test()'><b>verify_default_funder_is_not_deleted_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1308894359" onClick='toggleBox("Output-1308894359", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1308894359" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1308894359">
+<b></b> <br /><br/>
+<b>Trying to delete funder</b> <br /><br/>
+<b>Default funder can not be deleted as Delete button for selected funder is not enabled</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_selected_funder_can_not_be_edited_test()'><b>verify_selected_funder_can_not_be_edited_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-2060851493" onClick='toggleBox("Output-2060851493", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2060851493" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2060851493">
+<b></b> <br /><br/>
+<b>Trying to edit the selected funder</b> <br /><br/>
+<b>Double Clicked on selected funder and we got warning message : A selected funder cannot be edited. Please remove funder selection before editing</b> <br /><br/>
+<b>Selected funder can not be edited</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/23, 12, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 199.99, 500, 200, 200, 22, 22000, YES, 20, 200, YES, 0, HPNR (Formula 3) - BCH<br/>
+<a href="#Output-1065394613" onClick='toggleBox("Output-1065394613", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1065394613" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1065394613">
+<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
+<b>Started getting On screen values from after discount table </b> <br /><br/>
+<b>Manufacture_delivery_charges =550.0</b> <br /><br/>
+<b>Road_tax_first_year =585.0</b> <br /><br/>
+<b>First_registration_fee =65.0</b> <br /><br/>
+<b>Rebate =0.0</b> <br /><br/>
+<b>Writing After discount values to excel has been started</b> <br /><br/>
+<b>Writing After discount values to excel has been completed</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
+<b>Expected on the road price from excel is =56135.0</b> <br /><br/>
+<b>Actual on the road price from screen is =56135.00</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@173ed316</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1177466683" onClick='toggleBox("Output-1177466683", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1177466683" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1177466683">
+<b></b> <br /><br/>
+<b>Searching for Order ID ZK-24001</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>56</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_default_status_required_flow_test()'><b>verify_default_status_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-271782440" onClick='toggleBox("Output-271782440", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-271782440" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-271782440">
+<b></b> <br /><br/>
+<b>Started verifying Default Status for BCH required flow</b> <br /><br/>
+<b>Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/23, 12, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 199.99, 500, 200, 200, 22, 22000, YES, 20, 200, YES, 0, HPNR (Formula 3) - BCH<br/>
+<a href="#Output-687482247" onClick='toggleBox("Output-687482247", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-687482247" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-687482247">
+<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br /><br/>
+<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br /><br/>
+<b>************Calculations for Customer Quote Page has been started***********</b> <br /><br/>
+<b>Payment Profile Monthly in Advance option has been selected</b> <br /><br/>
+<b>Writing values to Excel for customer quote calculation -started</b> <br /><br/>
+<b>Writing values to Excel for customer quote calculation -completed</b> <br /><br/>
+<b>Reading  Monthly Finance and Maintenance Rental from  Excel   -started</b> <br /><br/>
+<b>Reading  Monthly Finance and Maintenance Rental from  Excel   -completed</b> <br /><br/>
+<b>Monthly Finance Rental from Excel is =890.7559611850667</b> <br /><br/>
+<b>Monthly Finance Rental from screen is 890.76</b> <br /><br/>
+<b>Monthly Maintenance Rental from Excel is =6.336</b> <br /><br/>
+<b>Monthly Maintenance Rental from screen is 6.34</b> <br /><br/>
+<b>Started verifying monthly payments with upsell values</b> <br /><br/>
+<b>Monthly Finance Rental from screen (after submitting upsell values) is 928.11</b> <br /><br/>
+<b>Monthly Mainte. Rental from screen (after submitting upsell values) is 6.34</b> <br /><br/>
+<b>Writing upsell values to excel</b> <br /><br/>
+<b>Monthly Finance Rental from Excel (after submitting upsell values) is 928.1067448045084</b> <br /><br/>
+<b>Monthly Mainte. Rental from Excel (after submitting upsell values) is 6.336</b> <br /><br/>
+<b>Monthly finance and maint. rental (after submitting upsell values) is found OK</b> <br /><br/>
+<b>***********Entered in Customer Quote page ***********</b> <br /><br/>
+<b>Clicked on Part Exchange panel</b> <br /><br/>
+<b>Expected Monthly Finance Rental From Excel is =928.1067448045084</b> <br /><br/>
+<b>Actuacl Monthly Finance Rental From screen is =928.11</b> <br /><br/>
+<b>Expected Monthly Maint. Rental From Excel is =6.336</b> <br /><br/>
+<b>Actuacl Monthly Maint. Rental From screen is =6.34</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Balance Due value started verifying</b> <br /><br/>
+<b>Balance due value Actual from screen is -2760.01</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Balance due value Expected from Excel is -2760.0119999999997</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Balance due value (with part exchange values) is verified and found ok</b> <br /><br/>
+<b>Monthly Finance Rental from screen (after updating customer quote summary upsell value) is 946.78</b> <br /><br/>
+<b>Monthly Mainte. Rental from screen (after updating customer quote summary upsell value) is 6.34</b> <br /><br/>
+<b>Writing upsell values to excel</b> <br /><br/>
+<b>Monthly Finance Rental from Excel (after updating customer quote summary upsell value) is 946.782136614225</b> <br /><br/>
+<b>Monthly Mainte. Rental from Excel (after updating customer quote summary upsell value) is 6.336</b> <br /><br/>
+<b>Monthly finance and maint. rental (after updating customer quote summary upsell value) is found OK</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>122</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@173ed316</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_completed_status_for_required_flow_test()'><b>verify_completed_status_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_completed_status_for_required_flow_test()[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace401348823", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace401348823'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_completed_status_for_required_flow_test()[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_payments_to_funder_statuses_for_required_flow_test()'><b>verify_payments_to_funder_statuses_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_payments_to_funder_statuses_for_required_flow_test()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1557010304", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1557010304'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_payments_to_funder_statuses_for_required_flow_test()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@793f29ff</td></tr>
+</table><p>
+</body>
+</html>

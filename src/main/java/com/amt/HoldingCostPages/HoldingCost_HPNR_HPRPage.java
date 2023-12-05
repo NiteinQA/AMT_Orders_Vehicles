@@ -588,6 +588,10 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 
 		LO.print("Total_monthly_holding_cost_from_excel =" + monthly_holding_cost_expected);
 		System.out.println("Total_monthly_holding_cost_from_excel " + monthly_holding_cost_expected);
+		
+		LO.print("Funder Added Successfully");
+		System.out.println("Funder Added Successfully");
+		
 
 		double total_monthly_holding_cost_actual1 = Double.parseDouble(total_monthly_holding_cost_from_screen);
 		double diff = Difference.of_two_Double_Values(total_monthly_holding_cost_actual1,

@@ -3,16 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test">
+      <class name="orders.Orders_Ownbook_Hire_With_Customer_Flow_Test">
         <methods>
-          <include name="open_order_created_in_acquisition_test"/>
           <include name="end"/>
-          <include name="verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test"/>
+          <include name="pass_the_pre_order_check_test"/>
+          <include name="open_order_created_in_acquisition_test"/>
           <include name="start_info"/>
-          <include name="verify_statuses_on_order_completed_test"/>
+          <include name="verify_finance_documents_statuses_for_required_flow_test"/>
+          <include name="deliver_vehicle_tab_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test -->
+      </class> <!-- orders.Orders_Ownbook_Hire_With_Customer_Flow_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

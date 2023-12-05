@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Create Order From Opportunity Broker Hire(failed)">
+  <test thread-count="5" name="Add Cap Maint In Asset Funding And Verify Holding Cost For HPNR(failed)">
     <classes>
-      <class name="opportunity.Create_order_from_opportunity_Test">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_Add_Cap_Maint_Test">
         <methods>
           <include name="end"/>
-          <include name="create_order_from_opportunity_test"/>
+          <include name="verify_default_status_required_flow_test"/>
+          <include name="verify_holding_cost_after_adding_cap_maint_test"/>
           <include name="start_info"/>
+          <include name="open_order_created_in_acquisition_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- opportunity.Create_order_from_opportunity_Test -->
-      <class name="opportunity.LOU_broker_business_hire_accept_flow_Test">
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_HPNR_Add_Cap_Maint_Test -->
+      <class name="acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test">
         <methods>
+          <include name="aquisition_quotes_HPNR_BCH_OTR_calculation_without_maintenance_test"/>
           <include name="end"/>
-          <include name="UW5_verify_underwriting_proposal_decision_with_accept"/>
+          <include name="aquisition_quotes_HPNR_BCH_holding_cost_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_BCH_after_discount_calculations_without_maintenance_test"/>
+          <include name="aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" invocation-numbers="0"/>
           <include name="start_info"/>
+          <include name="aquisition_quotes_HPNR_BCH_quote_summary_values_verification_without_maintenance_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- opportunity.LOU_broker_business_hire_accept_flow_Test -->
+      </class> <!-- acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_maintenance_Test -->
     </classes>
-  </test> <!-- Create Order From Opportunity Broker Hire(failed) -->
+  </test> <!-- Add Cap Maint In Asset Funding And Verify Holding Cost For HPNR(failed) -->
 </suite> <!-- Failed suite [Suite] -->

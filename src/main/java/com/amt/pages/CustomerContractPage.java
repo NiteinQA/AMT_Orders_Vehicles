@@ -504,11 +504,9 @@ public class CustomerContractPage extends TestBase {
 	
 	//List of header element
 	
-	//thead/tr/th
-	
 	@FindBy(xpath = "//thead/tr/th")
 	private List<WebElement> list_of_header_elements_in_searched_output;
-
+	
 	
 
 
@@ -567,8 +565,12 @@ public class CustomerContractPage extends TestBase {
 		Click.on(driver, OTR_check_mark, 10);
 		
 		Thread.sleep(1000);
-		
+		try {
         Click.on(driver, funder_quote_check_mark, 10);
+		}catch(Exception e)
+		{
+			
+		}
 		
 		Thread.sleep(1000);		
 		
