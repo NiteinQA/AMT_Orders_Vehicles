@@ -449,6 +449,10 @@ private WebElement proposal_save ;
  
  @FindBy(xpath = "//button[normalize-space()='Update & Exit']")
 	private WebElement  proposal_udpate_and_exit ;
+ 
+ 
+	@FindBy(xpath = "//*[normalize-space()='Proposal']")
+	private WebElement opp_proposal_button;
 	
 	
 
@@ -480,7 +484,14 @@ private WebElement proposal_save ;
 
 	{
 	
-		
+		ExplicitWait.visibleElement(driver, opp_proposal_button, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		opp_proposal_button.click();
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		LO.print("click on Proposal icon");
+		System.out.println("click on Proposal icon");
 
 		LO.print("Proposal page will display ");
 		System.out.println("Proposal page will display");
@@ -489,11 +500,19 @@ private WebElement proposal_save ;
 		
 		 Thread.sleep(4000);
 		
-    	ExplicitWait.visibleElement(driver, proposal_traddingName, 40);
+		 try
+		 {			 
+			 
+    	ExplicitWait.visibleElement(driver, proposal_traddingName, 07);
 		
 		proposal_traddingName.clear();
 		
 		proposal_traddingName.sendKeys("User2");
+		
+		 }catch(Exception e)
+		 {
+			 
+		 }
 		
 		
 	

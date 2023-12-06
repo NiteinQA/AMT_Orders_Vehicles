@@ -45,20 +45,20 @@ CustomerContractPage obj_customer_contract;
 	}
 	
 	
-//	@Test(priority =2, dependsOnMethods = { "open_order_created_in_acquisition_test" })
-//	public void pass_the_pre_order_check_test() throws IOException, InterruptedException, AWTException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//
-//	     obj_customer_contract =new CustomerContractPage();
-//		
-//		
-//		obj_customer_contract.pre_order_pass_check();
-//		
-//	}
+	@Test(priority =2, dependsOnMethods = { "open_order_created_in_acquisition_test" })
+	public void pass_the_pre_order_check_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+
+	     obj_customer_contract =new CustomerContractPage();
+		
+		
+		obj_customer_contract.pre_order_pass_check();
+		
+	}
 	
 	@Test(priority = 3, dependsOnMethods = { "open_order_created_in_acquisition_test" })
 	public void deliver_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {

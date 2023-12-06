@@ -275,7 +275,14 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 		@FindBy(xpath = "//*[contains(text(), 'Ok')]")
 		private WebElement quote_summary_ok_button_after_getting_order_id;
 		
+		@FindBy(xpath = "//*[text()='Vehicle sales price']//ancestor::div[1]//div//p//strong")
+		private WebElement vehicle_sales_price;
 		
+		@FindBy(xpath = "//*[text()='Document fee']//ancestor::div[1]//div//p//strong")
+		private WebElement doc_fee;
+		
+		@FindBy(xpath = "//*[text()='Deposit required']//ancestor::div[1]//div//p//strong")
+		private WebElement order_deposit;
 
 	
 	Properties prop;
@@ -294,6 +301,66 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 		}
 		PageFactory.initElements(driver, this);
 	}
+	
+	
+	
+public void write_vehicle_sales_price_to_excel(String sheet_name) throws InterruptedException, IOException {
+					
+		
+		
+	    LO.print          ("Writing Vehicle Sales Price to Excel");	    
+		System.out.println("Writing Vehicle Sales Price to Excel");
+
+		
+		Click.on(driver, quote_summary, 90);		
+		//First collect OTR elements		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+
+		//save the record
+		
+		Click.on(driver, quote_summary_save_button, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+		
+		// quote no.
+	    String quote_ref_no = quote_summary_ref_no.getText();
+
+		String vehicleSalesPrice = RemoveComma.of(vehicle_sales_price.getText().trim().substring(2));
+		String docFee = RemoveComma.of(doc_fee.getText().trim().substring(2));
+		String orderDeposit = RemoveComma.of(order_deposit.getText().trim().substring(2));
+		
+	    LO.print          ("Vehicle Sales Price from screen is "+vehicleSalesPrice);	    
+		System.out.println("Vehicle Sales Price from screen is "+vehicleSalesPrice);
+		
+	    LO.print          ("Document Fee from screen is "+docFee);	    
+		System.out.println("Document Fee from screen is "+docFee);
+		
+	    LO.print          ("Order Deposit from screen is "+orderDeposit);	    
+		System.out.println("Order Deposit from screen is "+orderDeposit);
+
+
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+	   //quote ref no 
+		
+		wb.getSheet(sheetname).getRow(1).getCell(0).setCellValue(quote_ref_no);
+		wb.getSheet(sheetname).getRow(1).getCell(1).setCellValue(vehicleSalesPrice); 
+		wb.getSheet(sheetname).getRow(4).getCell(1).setCellValue(docFee);
+		wb.getSheet(sheetname).getRow(7).getCell(1).setCellValue(orderDeposit);
+			
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+		
+		
+		LO.print("Writing completed for Vehicle Sales Price to quote save excel sheet in the sheet "+sheetname);
+		System.out.println("Writing completed for Vehicle Sales Price to quote save excel sheet in the sheet "+sheetname);
+
+}
+
 
 	
 	public boolean quote_summary_OTR_calculation(String sheet_name) throws InterruptedException, IOException {
@@ -307,7 +374,7 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 
 		Click.on(driver, quote_summary, 60);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
 
@@ -316,41 +383,40 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 		ExplicitWait.visibleElement(driver, quote_summary_otr_vat, 120);
 		
 		ExplicitWait.visibleElement(driver, quote_summary_otr_rfl_and_frf, 120);
+		
+		
 
 		LO.print("Reading values from OTR calculation -Quote Summary Page");
 		System.out.println("Reading values from OTR calculation -Quote Summary Page");
 
-		double cost_otr_price = Double
+		double OTR_calculation_cost_otr_price_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_cost_otr_price.getText().trim().substring(2)));
 
-		double cost_price_ex_vat_and_rfl = Double
+		double OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_cost_price_ex_vat_and_rfl.getText().trim().substring(2)));
 
-		double vat = Double
+		double OTR_calculation_otr_vat_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_otr_vat.getText().trim().substring(2)));
-
-		double rfl_and_frf = Double
+		
+		double OTR_calculation_otr_rfl_and_frf_from_screen_converted = Double
 				.parseDouble(RemoveComma.of(quote_summary_otr_rfl_and_frf.getText().trim().substring(2)));
-		
-
-		LO.print("Cost otr price from screen =" + cost_otr_price);
-		System.out.println("Cost otr price from screen =" + cost_otr_price);
-
-		LO.print("Cost price ex vat and rfl from screen ="+ cost_price_ex_vat_and_rfl);
-		System.out.println("Cost price ex vat and rfl from screen ="+ cost_price_ex_vat_and_rfl);
-
-		LO.print("OTR vat from screen =" + vat);
-		System.out.println("OTR vat from screen =" + vat);
-		
-		LO.print("Rfl and Frf from screen =" + rfl_and_frf);
-		System.out.println("Rfl and Frf from screen =" + rfl_and_frf);
 
 
-		double cost_price_ex_vat_and_rfl_expected = (cost_otr_price
-				- vat-rfl_and_frf);
+		LO.print("Cost otr price from screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
+		System.out.println("Cost otr price from screen =" + OTR_calculation_cost_otr_price_from_screen_converted);
 
-		double diff = Difference.of_two_Double_Values(cost_price_ex_vat_and_rfl,
-				cost_price_ex_vat_and_rfl_expected);
+		LO.print("Cost price ex vat and rfl from screen ="+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		System.out.println("Cost price ex vat and rfl from screen ="+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+
+		LO.print("OTR vat from screen =" + OTR_calculation_otr_vat_from_screen_converted);
+		System.out.println("OTR vat from screen =" + OTR_calculation_otr_vat_from_screen_converted);
+
+
+		double OTR_calculation_cost_price_ex_vat_and_rfl_expected = (OTR_calculation_cost_otr_price_from_screen_converted
+				- OTR_calculation_otr_vat_from_screen_converted-OTR_calculation_otr_rfl_and_frf_from_screen_converted);
+
+		double diff = Difference.of_two_Double_Values(OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted,
+				OTR_calculation_cost_price_ex_vat_and_rfl_expected);
 
 		int count = 0;
 		boolean status = false;
@@ -397,6 +463,7 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 		
 		LO.print("Quote no. "+quote_ref_no+" is saved to Excel sheet named Quote Save, in the sheet "+sheetname);
 		System.out.println("Quote no. "+quote_ref_no+" is saved to Excel sheet named Quote Save, in the sheet "+sheetname);
+
 
 		return status;
 

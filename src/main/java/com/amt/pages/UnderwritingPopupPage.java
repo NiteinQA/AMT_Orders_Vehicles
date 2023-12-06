@@ -1744,9 +1744,22 @@ public class UnderwritingPopupPage extends TestBase {
 		
 		
 		// getting values from excel
-
-		double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
-		double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheetName);
+		
+		double terms =0;
+		try {
+		 terms = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
+        }catch(Exception e)
+        {
+   		 terms = GetExcelFormulaValue.get_string_value(208, 1, sheetName);	
+        }
+		
+		double miles =0;
+		try {
+			 miles = GetExcelFormulaValue.get_formula_value(208, 4, sheetName);
+        }catch(Exception e)
+        {
+        	 miles = GetExcelFormulaValue.get_string_value(208, 4, sheetName);
+        }
 
 		double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheetName);
 		double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheetName);
@@ -2721,9 +2734,17 @@ public class UnderwritingPopupPage extends TestBase {
 		
 		// getting values from excel
 
-		double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
-		double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheetName);
-
+		double terms =0;
+		double miles =0;
+		
+		try {
+		terms = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
+		 miles = GetExcelFormulaValue.get_formula_value(208, 4, sheetName);
+		}catch(Exception e) 
+		{
+			 terms = GetExcelFormulaValue.get_string_value(208, 1, sheetName);
+			 miles = GetExcelFormulaValue.get_string_value(208, 4, sheetName);
+		}
 		double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheetName);
 		double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheetName);
 		double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheetName);
@@ -2748,7 +2769,6 @@ public class UnderwritingPopupPage extends TestBase {
 
 		double balloon = GetExcelFormulaValue.get_formula_value(232, 0, sheetName);
 		double finalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheetName);
-		
 		double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheetName);
 
 		double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheetName);

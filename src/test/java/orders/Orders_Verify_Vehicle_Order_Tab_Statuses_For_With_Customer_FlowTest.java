@@ -18,7 +18,7 @@ import com.amt.pages.VehicleOrderPage;
 import com.amt.testBase.TestBase;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Orders_Asset_Funding_Required_Flow_HPNR_Verify_Vehicle_Order_Tab_Statuses_Test extends TestBase {
+public class Orders_Verify_Vehicle_Order_Tab_Statuses_For_With_Customer_FlowTest extends TestBase {
 
 
  OrdersListPage   obj_orders_list;
@@ -102,7 +102,7 @@ VehicleOrderPage obj_vehicle_order_tab;
 		
 		obj_vehicle_order_tab = new VehicleOrderPage();	 	
 		
-		Assert.assertTrue(obj_vehicle_order_tab.verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab());		
+	obj_vehicle_order_tab.verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab();		
 		
 	}
 

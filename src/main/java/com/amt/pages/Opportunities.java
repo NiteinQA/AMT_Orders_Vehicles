@@ -807,14 +807,16 @@ public class Opportunities extends TestBase {
 		
 		
 		//Getting oppo ID from excel 		
-       // String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName();
+        String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName();
 
+        System.out.println(classOrMethodName);
+        
 		obj_acq_listing_page = new AcquisitionListingPage();
 		
-		String sheetName = prop.getProperty("Order_ID");
+		String sheetName = obj_acq_listing_page.quote_save_sheet_name_from_quote_save_excel_sheet(classOrMethodName);
 		
 
-		String opportunityId = GetExcelFormulaValue.get_cell_value(4, 0, sheetName);		
+		String opportunityId = GetExcelFormulaValue.get_cell_value(1, 2, sheetName);		
 		
 
 		ExplicitWait.visibleElement(driver, search_bar, 30);	
@@ -831,6 +833,36 @@ public class Opportunities extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 	}
 
+	
+	public void search_opportunity_to_create_order() throws Exception
+
+	{
+
+		System.out.println("**************Searching for Opportunity id in search text box*******************************");
+		System.out.println("*********************************************");
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+
+		
+		String opportunityId = GetExcelFormulaValue.get_cell_value(4, 0, "Order_ID");		
+		
+
+		ExplicitWait.visibleElement(driver, search_bar, 30);	
+		search_bar.sendKeys(opportunityId);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		
+		System.out.println("Enter the Opportunity id in Search Text box");
+		LO.print          ("Enter the Opportunity id in Search Text box");
+
+		search_bar.sendKeys(Keys.ENTER);
+
+		// Thread.sleep(5000);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+	}
+
+	
 	public boolean opp_verify_monthly_payment() throws Exception {
 
 		String GetOpportunityid = GetExcelFormulaValue.get_cell_value(1, 2, prop.getProperty("HPNR_HPNR_QuoteNo"));
@@ -1812,11 +1844,11 @@ public class Opportunities extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
-		Thread.sleep(10000);
-		
-		ExplicitWait.visibleElement(driver, opp_current_status_proposal, 50);
-		ExplicitWait.visibleElement(driver, opp_current_status_channel, 50);
-		ExplicitWait.visibleElement(driver, opp_current_status_quoteref, 50);
+		Thread.sleep(2000);
+		ExplicitWait.visibleElement(driver, opp_current_status_proposal, 40);
+
+		ExplicitWait.visibleElement(driver, opp_current_status_channel, 40);
+		ExplicitWait.visibleElement(driver, opp_current_status_quoteref, 40);
 
 		// String OppCurrentStatusOpen = opp_current_status_open.getText().trim();
 

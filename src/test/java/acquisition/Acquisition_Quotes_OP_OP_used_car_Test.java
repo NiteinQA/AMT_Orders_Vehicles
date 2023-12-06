@@ -109,12 +109,19 @@ public class Acquisition_Quotes_OP_OP_used_car_Test extends TestBase {
 
 		obj_quote_summary_page = new QuoteSummary_OP_OP_Page();
 		
-		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car("Order_ID");
-		Assert.assertTrue(quote_summary_value_check);       
-		
-		 obj_common_class = new CommonClass();
+
 		 
-		 obj_common_class.create_order("Order_ID" ,sheet_name);      
+			boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car("Order_ID");
+			Assert.assertTrue(quote_summary_value_check);       
+		
+			obj_quote_summary_page.write_vehicle_sales_price_to_excel("OP-OP");
+			
+//			boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_OTR_calculation_for_used_car("Order_ID");
+//			Assert.assertTrue(quote_summary_value_check);       
+//			
+//			 obj_common_class = new CommonClass();
+//			 
+//			 obj_common_class.create_order("Order_ID" ,sheet_name); 
 	}
 	
 	

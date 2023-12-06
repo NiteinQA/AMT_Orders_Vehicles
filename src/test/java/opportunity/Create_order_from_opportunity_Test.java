@@ -25,7 +25,7 @@ public class Create_order_from_opportunity_Test extends TestBase {
 
 			obj_Opportunities_Page.opp_menu_link();
 
-			obj_Opportunities_Page.opp_search_textbox();
+			obj_Opportunities_Page.search_opportunity_to_create_order();
 			
 			obj_common_class.create_order_from_opportunity("Order_ID");
 			

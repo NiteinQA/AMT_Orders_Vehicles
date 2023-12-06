@@ -272,6 +272,9 @@ public class AcquisitionListingPage extends TestBase {
 			sheetName = prop.getProperty("HPNRPCPFunderQuoteNo");
 		}
 		
+		if (classOrMethodName.contains("OP_OP")) {
+			sheetName = prop.getProperty("OP-OP");
+		}	
 		
 		
 		return sheetName;

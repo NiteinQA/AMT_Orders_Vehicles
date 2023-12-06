@@ -79,6 +79,9 @@ public class Underwriting extends TestBase {
 
 	@FindBy(xpath = "//p[contains(text(),'Quote')]")
 	private WebElement underwriting_tab_quote;
+	
+	@FindBy(xpath = "//p[contains(text(),'Proposal')]")
+	private WebElement underwriting_tab_proposal;
 
 	@FindBy(xpath = "//p[contains(text(),'Credit File')]")
 	private WebElement underwriting_tab_creditfile;
@@ -763,7 +766,7 @@ public class Underwriting extends TestBase {
 		js.executeScript("arguments[0].click();", underwriting_menu_link_ownbook);
 		
 	//	underwriting_menu_link_ownbook.click();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		System.out.println("Click on Underwriting - ownbook tab ");
 		LO.print("Click on Underwriting - ownbook tab ");
@@ -1521,9 +1524,18 @@ public class Underwriting extends TestBase {
 
 		// HelperClass.highlightElement(driver, underwriting_tab_quote);
 
-		Click.on(driver, underwriting_tab_quote, 60);
-		
+		Click.on(driver, underwriting_tab_quote, 60);		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		Thread.sleep(3000);
+		
+		Click.on(driver, underwriting_tab_proposal, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Thread.sleep(3000);
+		
+		Click.on(driver, underwriting_tab_quote, 60);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		System.out.println("Clicked on Underwriting quote page");
 		LO.print("Clicked on Underwriting quote page");
@@ -2513,9 +2525,18 @@ public class Underwriting extends TestBase {
 
 		// HelperClass.highlightElement(driver, underwriting_tab_quote);
 
-		Click.on(driver, underwriting_tab_quote, 60);
-		
+		Click.on(driver, underwriting_tab_quote, 60);		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		Thread.sleep(5000);
+		
+		Click.on(driver, underwriting_tab_proposal, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Thread.sleep(5000);
+		
+		Click.on(driver, underwriting_tab_quote, 60);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		System.out.println("Clicked on Underwriting quote page");
 		LO.print("Clicked on Underwriting quote page");
@@ -2549,7 +2570,7 @@ public class Underwriting extends TestBase {
 		ExplicitWait.visibleElement(driver, underwriting_quote_tab_customer_quote_total_commission, 20);
 		ExplicitWait.visibleElement(driver, underwriting_quote_tab_customer_quote_referrer_commission, 20);
 
-		Thread.sleep(10000);
+		Thread.sleep(7000);
 		
 		Click.on(driver, underwriting_quote_tab_configuration_heading_button, 30);
 		
@@ -3683,9 +3704,22 @@ public class Underwriting extends TestBase {
 		
 			
 		// getting values from excel
-
-		double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
-		double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheetName);
+		
+		double terms =0;
+		try {
+		 terms = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
+        }catch(Exception e)
+        {
+   		 terms = GetExcelFormulaValue.get_string_value(208, 1, sheetName);	
+        }
+		
+		double miles =0;
+		try {
+			 miles = GetExcelFormulaValue.get_formula_value(208, 4, sheetName);
+        }catch(Exception e)
+        {
+        	 miles = GetExcelFormulaValue.get_string_value(208, 4, sheetName);
+        }
 
 		double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheetName);
 		double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheetName);
@@ -4833,9 +4867,17 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 
 		// HelperClass.highlightElement(driver, underwriting_tab_quote);
 
-		Click.on(driver, underwriting_tab_quote, 60);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, underwriting_tab_quote, 60);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Click.on(driver, underwriting_tab_proposal, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Click.on(driver, underwriting_tab_quote, 60);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		
 
 		System.out.println("Clicked on Underwriting quote page");
 		LO.print("Clicked on Underwriting quote page");
@@ -5020,9 +5062,18 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 			
 		// getting values from excel
 
-		double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
-		double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheetName);
-
+		double terms =0;
+		double miles =0;
+		
+		try {
+		terms = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
+		 miles = GetExcelFormulaValue.get_formula_value(208, 4, sheetName);
+		}catch(Exception e) 
+		{
+			 terms = GetExcelFormulaValue.get_string_value(208, 1, sheetName);
+			 miles = GetExcelFormulaValue.get_string_value(208, 4, sheetName);
+		}
+	
 		double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheetName);
 		double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheetName);
 		double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheetName);
@@ -5046,8 +5097,7 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 		double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheetName);
 
 		double balloon = GetExcelFormulaValue.get_formula_value(232, 0, sheetName);
-		double finalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheetName);
-		
+		double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheetName);
 		double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheetName);
 
 		double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheetName);
@@ -5749,7 +5799,7 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 		}
 
 		// 27.comparing Final Payment
-		if ((Difference.of_two_Double_Values(finalPayment,
+		if ((Difference.of_two_Double_Values(optionalFinalPayment,
 				customer_quote_summary_final_payment_inc_option_to_purchase_fee)) < 0.2) {
 			
 			count++;
@@ -5757,8 +5807,8 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 			System.out.println("");
 			LO.print          ("");	
 			
-			System.out.println(customer_quote_summary_final_payment_inc_option_to_purchase_fee + " = " + finalPayment);
-			LO.print          (customer_quote_summary_final_payment_inc_option_to_purchase_fee + " = " + finalPayment);			
+			System.out.println(customer_quote_summary_final_payment_inc_option_to_purchase_fee + " = " + optionalFinalPayment);
+			LO.print          (customer_quote_summary_final_payment_inc_option_to_purchase_fee + " = " + optionalFinalPayment);			
 			
 			LO.print          ("Final Payment - found OK");
 			System.out.println("Final Payment - found OK");
@@ -5768,8 +5818,8 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 			System.out.println("");
 			LO.print          ("");	
 			
-			System.err.println(customer_quote_summary_final_payment_inc_option_to_purchase_fee + " != " + finalPayment);
-			LO.print          (customer_quote_summary_final_payment_inc_option_to_purchase_fee + " != " + finalPayment);			
+			System.err.println(customer_quote_summary_final_payment_inc_option_to_purchase_fee + " != " + optionalFinalPayment);
+			LO.print          (customer_quote_summary_final_payment_inc_option_to_purchase_fee + " != " + optionalFinalPayment);			
 					
 			LO.print          ("Final Payment - found wrong");
 			System.err.println("Final Payment - found wrong");

@@ -31,6 +31,7 @@ public class Acquisition_Quotes_OP_OP_Test extends TestBase {
 	ContractTypesAndOTR_OP_OP_Page obj_contract_types_and_OTR_page;	 
 	CustomerQuotePage_OP_OP_Page obj_customer_quote_page;
 	QuoteSummary_OP_OP_Page obj_quote_summary_page;
+	
 	CommonClass obj_common_class;
 
 
@@ -121,11 +122,17 @@ public class Acquisition_Quotes_OP_OP_Test extends TestBase {
 		
 		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_OTR_calculation("Order_ID");
 		Assert.assertTrue(quote_summary_value_check);       
+	
+		obj_quote_summary_page.write_vehicle_sales_price_to_excel("OP-OP");
 		
-		 obj_common_class = new CommonClass();
-		 
-		 obj_common_class.create_order("Order_ID" ,sheet_name);
 		
+//		boolean quote_summary_value_check =obj_quote_summary_page.quote_summary_OTR_calculation("Order_ID");
+//		Assert.assertTrue(quote_summary_value_check);       
+//		
+//		 obj_common_class = new CommonClass();
+//		 
+//		 obj_common_class.create_order("Order_ID" ,sheet_name); 
+	
 	}
 	
 	

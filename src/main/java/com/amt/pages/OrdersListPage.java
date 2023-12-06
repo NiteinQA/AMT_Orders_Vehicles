@@ -43,6 +43,13 @@ public class OrdersListPage extends TestBase {
 	// Order summary Element
 	@FindBy(xpath = "//*[contains(text(),'Order summary')]")
 	private WebElement order_summary;
+	
+	@FindBy(xpath = "//*[@id='dropdownRole']")
+	private WebElement roles_dropdown;	
+	
+	
+	@FindBy(xpath = "//*[contains(text(), 'Super Admin')]")
+	private WebElement super_admin;
 
 	Properties prop;
 
@@ -78,6 +85,17 @@ public class OrdersListPage extends TestBase {
 		Thread.sleep(15000);
 		
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
+		
+		 Thread.sleep(25000);
+		 
+		Click.on(driver, roles_dropdown, 60);
+		
+		 Thread.sleep(1000);
+		
+		Click.on(driver, super_admin, 60);
+		
+					
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		
 		Click.on(driver, orders_menu, 60);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);

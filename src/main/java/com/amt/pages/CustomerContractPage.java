@@ -38,10 +38,10 @@ import com.amt.testUtil.RemoveComma;
 public class CustomerContractPage extends TestBase {
 
 	JavascriptExecutor js;
+	
+	AcquisitionListingPage obj_acq_listing_page;
 
-	CustomerContractPage obj_asset_funding;
-	
-	
+		
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
@@ -227,20 +227,6 @@ public class CustomerContractPage extends TestBase {
 	@FindBy(xpath = "//*[text()='Payments']")
 	private WebElement status_payment;
 	
-	
-	
-//	@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[1]")
-//	private WebElement date_payment_requested_for_doc_fee;
-//
-//	@FindBy(xpath = "(//label[normalize-space()='Payment sent']//ancestor::div[1]//input)[1]")
-//	private WebElement date_payment_sent_for_doc_fee;
-//
-//	@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[2]")
-//	private WebElement date_payment_requested_for_finance_deposit;
-//
-//	@FindBy(xpath = "(//label[normalize-space()='Payment sent']//ancestor::div[1]//input)[2]")
-//	private WebElement date_payment_sent_for_finance_deposit;
-
 	// Select a funder **********************************************************
 
 	@FindBy(xpath = "//button[normalize-space()='Select']")
@@ -256,181 +242,18 @@ public class CustomerContractPage extends TestBase {
 	private WebElement back_button;
 
 //**************************************************************************
-	// default funder delete button
-	@FindBy(xpath = "//*[text()=' Selected ']//ancestor::div[1]//button[2]")
-	private WebElement default_funder_delete_button;
 
-	// selected funder row
-	@FindBy(xpath = "//*[text()=' Selected ']//ancestor::div[1]//button[2]|//*[text()=' Select ']//ancestor::div[1]//button[2]")
-	private WebElement selected_funder;
 
-	@FindBy(xpath = "//tbody//tr")
-	private WebElement edit_funder;
-
-	// selected button
-	@FindBy(xpath = "//*[text()=' Selected ']|//*[text()=' Select ']")
-	private WebElement selected_button;
 
 	// toaster message
 	@FindBy(xpath = "//*[contains(@class,'toast-message')]")
 	private WebElement toaster;
 
-	// upload input
-	@FindBy(xpath = "//*[text()='Upload']//ancestor::div[1]//input")
-	private WebElement funder_doc_upload_button;
 
-	// doc preview
-	@FindBy(xpath = "//*[@id='hcChpViewUploadedDoc']")
-	private WebElement funder_doc_review_button;
 
-	@FindBy(xpath = "//*[text()='Contract types & OTR']")
-	private WebElement contract_types_and_otr_page;
-
-	@FindBy(xpath = "//*[@id='contractType1']//div")
-	private List<WebElement> contract_types_list;
-
-	@FindBy(xpath = "//*[@id='contract_change_modal']//*[text()='Yes']")
-	private WebElement change_contract_confirm_yes;
 
 // Holding Cost Elements
 
-	@FindBy(xpath = "//*[@name='Terms']")
-	private WebElement additional_terms;
-
-	@FindBy(xpath = "//*[@name='MileagePerAnnum']")
-	private WebElement additional_mileage;
-
-	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
-	private WebElement holding_cost;
-
-	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
-	private WebElement holding_cost_summary;
-
-	@FindBy(xpath = "//*[contains(text(),'CAP residual value')]//ancestor::div[1]//p//strong")
-	private WebElement holding_cost_summary_residual_value_used;
-
-	@FindBy(xpath = "//*[@id='ResidualValue']")
-	private WebElement holding_cost_summary_residual_value_used_input_field;
-
-	@FindBy(xpath = "//*[contains(text(),'Term')]//ancestor::div[1]//p//strong")
-	private WebElement holding_cost_summary_terms;
-
-	@FindBy(xpath = "//*[contains(text(),'Miles per annum')]//ancestor::div[1]//p//strong")
-	private WebElement holding_cost_summary_mileage;
-
-	@FindBy(xpath = "//*[contains(text(),'Total monthly holding cost')]//ancestor::div[1]//p//strong")
-	private WebElement total_monthly_holding_cost;
-
-	@FindBy(xpath = "//*[@class='slider round sliderRed']")
-	private WebElement holding_cost_maintenance_toggle_button;
-
-	@FindBy(xpath = "//*[@id='vehicleSummery']/div/div[2]/div[2]/div[6]/div[2]/div[10]/p")
-	private WebElement holding_cost_maintenance_cost_used;
-
-	@FindBy(xpath = "//*[@id='ResidualPercentage']")
-	private WebElement holding_cost_percentage_cap_residual_value_used;
-
-	@FindBy(xpath = "//input[@id='CapMaintenancePercentage']")
-	private WebElement percentage_maintenance_cost_used;
-
-	@FindBy(xpath = "//input[@id='ResidualValue']")
-	private WebElement residual_value_used;
-
-	@FindBy(xpath = "//input[@id='Maintenancevalue3']")
-	private WebElement maintenance_cost_used;
-
-	@FindBy(xpath = "//*[contains(text(),'Total CAP maint. value')]//ancestor::div[1]/p")
-	private WebElement total_cap_maintenance_value;
-
-	@FindBy(xpath = "//*[contains(text(),'Holding cost based on funder quote')]//label//span")
-	private WebElement holding_cost_based_on_funder_quote_toggle_button;
-
-	@FindBy(xpath = "//input[@role='combobox']")
-	private WebElement funder;
-
-	@FindBy(xpath = "//input[@id='quoteReferenceNo']")
-	private WebElement quote_ref;
-
-	@FindBy(xpath = "//input[@id='quoteExpiryDate']")
-	private WebElement expiry_date;
-
-	@FindBy(xpath = "//select[@name='acquisitionPaymentProfileId']")
-	private WebElement payment_profile_dropdown;
-
-	@FindBy(xpath = "//input[@id='duration']")
-	private WebElement duration;
-
-	@FindBy(xpath = "//input[@id='initialFinanceRental']")
-	private WebElement initial_finance_rental;
-
-	@FindBy(xpath = "//input[@id='totalInitialRental']")
-	private WebElement total_initial_rental;
-
-	@FindBy(xpath = "//input[@id='funderItemMileage']")
-	private WebElement miles_per_annum;
-
-	@FindBy(xpath = "//input[@id='contractMileage']")
-	private WebElement contract_mileage;
-
-	@FindBy(xpath = "//input[@id='cashDeposit']")
-	private WebElement cash_deposit;
-
-	@FindBy(xpath = "//*[@id='collapseOne']/div/app-contract-and-hp/form/div/div[1]/div[2]/div/div/div[1]/div/div[7]/div/label")
-	private WebElement total_cash_price;
-
-	@FindBy(xpath = "//input[@id='financeCharges']")
-	private WebElement finance_charges;
-
-	@FindBy(xpath = "//input[@id='monthlyFinanceRental']")
-	private WebElement monthly_finance_rental;
-
-	@FindBy(xpath = "//input[@id='finalBalloonPayment']")
-	private WebElement final_balloon_payment;
-
-	@FindBy(xpath = "//input[@id='optionToPurchaseFee']")
-	private WebElement option_to_purchase_fee;
-
-	@FindBy(xpath = "//input[@id='financeRental']")
-	private WebElement monthly_payment;
-
-	@FindBy(xpath = "//input[@id='documentFee']")
-	private WebElement document_fee;
-
-	@FindBy(xpath = "//input[@id='pencePerExcessMileageFinance']")
-	private WebElement pense_per_excess_mile_finance;
-
-	@FindBy(xpath = "//span[@class='slider round']")
-	private WebElement funder_maintenance_toggle;
-
-	@FindBy(xpath = "//span[@class='slider round sliderRed']")
-	private WebElement common_maintenance_toggle;
-
-	@FindBy(xpath = "//*[contains(text(),'CAP monthly maint. cost')]//ancestor::div[1]//p//strong")
-	private WebElement cap_monthly_maint_cost;
-
-	@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']")
-	private WebElement monthly_maintenance_rental;
-
-	@FindBy(xpath = "//input[@id='pencePerExcessMileageMaintenance']")
-	private WebElement pense_per_excess_mile_maintenance;
-
-	@FindBy(xpath = "//input[@id='percentageOfSaleProceedToCustomer']")
-	private WebElement percentage_of_sale_proceed_to_customer;
-
-	@FindBy(xpath = "//input[@id='secondaryHirePeriodRental']")
-	private WebElement secondary_hire_period_rental;
-
-	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
-	private WebElement add;
-
-	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
-	private WebElement total_cap_maintenance_cost;
-
-	@FindBy(xpath = "//*[text()='Update']")
-	private WebElement update_funder;
-
-//	@FindBy(xpath = "//*[contains(@class, 'rTableCell')]")
-//	private List<WebElement> ownbook_holding_cost_matrix;
 
 	@FindBy(xpath = "//*[text()='Quote ref:']//ancestor::div[1]//p")
 	private WebElement quote_id_link;
@@ -507,15 +330,36 @@ public class CustomerContractPage extends TestBase {
 	@FindBy(xpath = "//thead/tr/th")
 	private List<WebElement> list_of_header_elements_in_searched_output;
 	
+	//****************
+	//status acceptance condition	
 	
+	@FindBy(xpath = "//*[text()='Acceptance conditions']")
+	private WebElement status_acceptance_condition;
+	
+	@FindBy(xpath = "//*[text()='Satisfied']")
+	private WebElement status_acceptance_condition_satisfied;
+	
+	//********************
+	
+	
+	//Doc Fee	
+	@FindBy(xpath = "//*[@id='adminFee']")
+	private WebElement doc_fee_value;
+	
+	//Vehicle Invoice Value	
+	@FindBy(xpath = "//*[@id='VehicleInvoicePaymnet']")
+	private WebElement vehicle_invoice_value;
+	
+	//Order Deposit	
+	@FindBy(xpath = "//*[@id='adminFee']")
+	private WebElement order_deposit_value;
 
 
 	ReadExcelCalculation obj_read_excel_calculation_page;
 
 	Properties prop;
 
-	CustomerContractPage obj_asset_funding_page;
-
+	
 	Actions act;
 
 	CustomerContractPage obj_customer_contract_tab;
@@ -548,6 +392,79 @@ public class CustomerContractPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
+	public boolean verify_default_status_for_acceptance_condition() throws InterruptedException, IOException, AWTException {
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("Started verifying acceptance conditions default status");
+		System.out.println("Started verifying acceptance conditions default status");
+
+		
+		ExplicitWait.visibleElement(driver, status_acceptance_condition_satisfied, 10);
+
+		String elementColor = "";
+		elementColor = status_acceptance_condition_satisfied.getCssValue("color");
+
+		if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+
+			LO.print("Default status for acceptance condition  - Found OK i.e Satisfied");
+			System.out.println("Default status for acceptance condition  - Found OK i.e Satisfied");
+			return true;
+
+		} else {
+			LO.print("Default status for acceptance condition - Found Wrong");
+			System.err.println("Default status for acceptance condition - Found Wrong");
+			return false;
+		}
+
+	}
+	
+	public void verify_payment_values_shown_in_payment_section() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
+		
+		LO.print("");
+		System.out.println("");
+		
+		LO.print("Started verifying payment values shown under payment section");
+		System.out.println("Started verifying payment values shown under payment section");
+		
+		//wait for elements
+        ExplicitWait.visibleElement(driver, doc_fee_value, 20);
+        ExplicitWait.visibleElement(driver, vehicle_invoice_value, 20);
+        ExplicitWait.visibleElement(driver, order_deposit_value, 20);
+        
+		//get values from screen
+        double vehicleInvoiceActual = Double.parseDouble(vehicle_invoice_value.getAttribute("value"));
+        double docFeeActual        = Double.parseDouble(doc_fee_value.getAttribute("value"));
+		double orderDepositActual   = Double.parseDouble(order_deposit_value.getAttribute("value"));
+		
+		//get values from excel
+		
+		String classOrMethodName = Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getName();
+
+		obj_acq_listing_page = new AcquisitionListingPage();
+				
+		String sheetName = obj_acq_listing_page.quote_save_sheet_name_from_quote_save_excel_sheet(classOrMethodName);
+		
+		double vehicleInvoiceExpected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(1, 1, sheetName));
+		double docFeeExpected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(4, 1, sheetName));
+		double orderDepositExpected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(7, 1, sheetName));
+		
+		
+		if(vehicleInvoiceActual==vehicleInvoiceExpected && docFeeActual==docFeeExpected && orderDepositActual==orderDepositExpected)
+			
+		{
+			
+		}
+		
+				
+		
+
+
+	}
+
+
+	
 	public void pre_order_pass_check() throws InterruptedException
 	{
 		LO.print("");
