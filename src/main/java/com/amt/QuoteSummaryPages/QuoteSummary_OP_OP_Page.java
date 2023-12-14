@@ -283,6 +283,9 @@ public class QuoteSummary_OP_OP_Page extends TestBase {
 		
 		@FindBy(xpath = "//*[text()='Deposit required']//ancestor::div[1]//div//p//strong")
 		private WebElement order_deposit;
+		
+		@FindBy(xpath = "//*[text()='Pending amount']//ancestor::div[1]//div//p//strong")
+		private WebElement pending_amount;
 
 	
 	Properties prop;
@@ -323,11 +326,20 @@ public void write_vehicle_sales_price_to_excel(String sheet_name) throws Interru
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
 		
 		// quote no.
-	    String quote_ref_no = quote_summary_ref_no.getText();
-
-		String vehicleSalesPrice = RemoveComma.of(vehicle_sales_price.getText().trim().substring(2));
-		String docFee = RemoveComma.of(doc_fee.getText().trim().substring(2));
-		String orderDeposit = RemoveComma.of(order_deposit.getText().trim().substring(2));
+		
+		
+		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 20);
+		ExplicitWait.visibleElement(driver, vehicle_sales_price, 20);
+		ExplicitWait.visibleElement(driver, doc_fee, 20);
+		ExplicitWait.visibleElement(driver, order_deposit, 20);
+		ExplicitWait.visibleElement(driver, pending_amount, 20);
+		
+	    String quote_ref_no        = quote_summary_ref_no.getText();
+		String vehicleSalesPrice   = RemoveComma.of(vehicle_sales_price.getText().trim().substring(2));
+		String docFee              = RemoveComma.of(doc_fee.getText().trim().substring(2));
+		String orderDeposit        = RemoveComma.of(order_deposit.getText().trim().substring(2));
+		String pendingAmount       = RemoveComma.of(pending_amount.getText().trim().substring(2));
+		
 		
 	    LO.print          ("Vehicle Sales Price from screen is "+vehicleSalesPrice);	    
 		System.out.println("Vehicle Sales Price from screen is "+vehicleSalesPrice);
@@ -338,6 +350,8 @@ public void write_vehicle_sales_price_to_excel(String sheet_name) throws Interru
 	    LO.print          ("Order Deposit from screen is "+orderDeposit);	    
 		System.out.println("Order Deposit from screen is "+orderDeposit);
 
+	    LO.print          ("Pending Amount from screen is "+pendingAmount);	    
+		System.out.println("Pending Amount from screen is "+pendingAmount);
 
 
 		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
@@ -350,6 +364,9 @@ public void write_vehicle_sales_price_to_excel(String sheet_name) throws Interru
 		wb.getSheet(sheetname).getRow(1).getCell(1).setCellValue(vehicleSalesPrice); 
 		wb.getSheet(sheetname).getRow(4).getCell(1).setCellValue(docFee);
 		wb.getSheet(sheetname).getRow(7).getCell(1).setCellValue(orderDeposit);
+		wb.getSheet(sheetname).getRow(10).getCell(1).setCellValue(pendingAmount);
+		
+		
 			
 		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
 		wb.write(out);

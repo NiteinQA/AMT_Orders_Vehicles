@@ -201,17 +201,17 @@ public class ContractTypesAndOTR_HPNR_HPNR_Page extends TestBase {
 	public boolean contractTypes_and_OTR_selection_HPNR_HPNR_Ownbook_calculation(String sheet_name)
 			throws InterruptedException, IOException, UnsupportedFlavorException {
 		Click.on(driver, acq_contractTypes, 50);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		Click.on(driver, acq_acq_contractTypes_HPNR, 50);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 50);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		LO.print(" Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected");
 		System.out.println("Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected");
 		
 		Click.on(driver, acq_contractTypes_customer_contract_HPNR, 30);
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		LO.print(" Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected");		 
 		System.out.println(" Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected");

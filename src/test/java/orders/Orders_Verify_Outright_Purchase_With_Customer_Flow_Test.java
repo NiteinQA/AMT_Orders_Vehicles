@@ -195,75 +195,205 @@ CustomerContractPage obj_customer_contract;
 	@Test(priority = 12, dependsOnMethods = { "verify_status_cash_purchase_completed" })
 	public void verify_default_status_acceptance_conditions_for_outright_purchase_flow() throws IOException, InterruptedException, AWTException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
 		obj_customer_contract = new CustomerContractPage();
 		
-		assertTrue(obj_customer_contract.verify_default_status_for_acceptance_condition());
+		assertTrue(obj_customer_contract.verify_default_status_for_acceptance_condition_on_customer_contract_tab());
 		
 	}
 
 	@Test(priority = 13, dependsOnMethods = { "verify_default_status_acceptance_conditions_for_outright_purchase_flow" })
 	public void verify_payment_section_values() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
 		obj_customer_contract = new CustomerContractPage();
 		
-		obj_customer_contract.verify_payment_values_shown_in_payment_section();
+		assertTrue(obj_customer_contract.verify_payment_values_shown_in_payment_section());
 		
 	}
 
+	@Test(priority = 14, dependsOnMethods = { "verify_payment_section_values" })
+	public void verify_payment_default_status() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		obj_customer_contract = new CustomerContractPage();
+		
+		assertTrue(obj_customer_contract.verify_payment_default_status_on_customer_contract_tab());
+		
+	}
+
+	@Test(priority = 15, dependsOnMethods = { "verify_payment_default_status" })
+	public void make_payment_with_new_payment() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		obj_customer_contract = new CustomerContractPage();
+		
+		obj_customer_contract.make_payment_for_outright_purchase();
+		
+	}
+	
+	@Test(priority = 16, dependsOnMethods = { "make_payment_with_new_payment" })
+	public void verify_payment_status_after_making_a_payment_on_customer_contract_tab() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		obj_customer_contract = new CustomerContractPage();
+		
+		obj_customer_contract.verify_payments_status_after_making_a_payment();
+		
+	}
+
+
+	@Test(priority = 17, dependsOnMethods = { "verify_payment_status_after_making_a_payment_on_customer_contract_tab" })
+	public void verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab());
+		
+		
+	}
+
+	@Test(priority = 18, dependsOnMethods = { "verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test" })
+	public void verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab());
+		
+		
+	}
 	
 	
+	@Test(priority = 19, dependsOnMethods = { "verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" })
+	public void verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab());
+		
+		
+	}
+	
+	@Test(priority = 20, dependsOnMethods = { "verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" })
+	public void verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on());
+		
+		
+	}
+	
+	@Test(priority = 21, dependsOnMethods = { "open_order_created_in_acquisition_test" })
+	public void verify_payout_pack_statuses_on_customer_contract_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		
+	     obj_customer_contract = new CustomerContractPage();
+	     
+	     
+	     obj_customer_contract.verify_payout_pack_statuses();
+		
+	}
 	
 	
+	@Test(priority = 22, dependsOnMethods = { "verify_payout_pack_statuses_on_customer_contract_tab_test" })
+	public void verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+        obj_vehicle_order_tab.verify_delivery_section_gets_enabled_and_delivery_status_is_reversed_to_default_when_deliver_to_customer_toggle_button_is_made_off();
+		
+		
+	}
 	
 	
-//	
-//	@Test(priority = 7, dependsOnMethods = { "verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test" })
-//	public void verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();		
-//		
-//		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab());
-//		
-//		
-//	}
-//
-//	@Test(priority = 8, dependsOnMethods = { "verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab_test" })
-//	public void verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();		
-//		
-//		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab());
-//		
-//		
-//	}
-//	
-//	
-//	@Test(priority = 9, dependsOnMethods = { "verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" })
-//	public void verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();		
-//		
-//		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab());
-//		
-//		
-//	}
-//
-//
+	@Test(priority = 23, dependsOnMethods = { "verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test" })
+	public void verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_tab());
+		
+		
+	}
+
+	@Test(priority = 24, dependsOnMethods = { "verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test" })
+	public void verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab());
+		
+		
+	}
+	
+	
+	@Test(priority = 25, dependsOnMethods = { "verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" })
+	public void verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab());
+		
+		
+	}
 	
 
 }

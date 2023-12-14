@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -26,8 +27,10 @@ public class CommonClass extends TestBase {
 	private List<WebElement> loading_icon;
 
 	// create order quote summary page button
-	@FindBy(xpath = "//button[normalize-space()='Create order']|(//*[@title='Create order'])[2]|//*[@src='../../assets/images/opportunity/shopping-cart.svg']")
-	private WebElement create_order;
+	@FindBy(xpath = "//button[normalize-space()='Create order']|//*[@title='Create order']|//*[@src='../../assets/images/opportunity/shopping-cart.svg']")
+	private List<WebElement> create_order;
+	
+	//*[@src='../../assets/images/opportunity/shopping-cart.svg']
 
 	// Channel Dropdown
 	@FindBy(xpath = "//*[normalize-space()='Channel']//ancestor::div[1]//div//div//div//span[2]")
@@ -174,10 +177,28 @@ public class CommonClass extends TestBase {
 		
 		Thread.sleep(2000);
 		
-		Click.on(driver, create_order, 20);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-
+			try {	
+		ExplicitWait.waitForListOfVisibleElements(driver, create_order, 10);
+		
+		for(WebElement webelement_create_order : create_order )
+		{
+			if(webelement_create_order.isEnabled())
+			{
+				webelement_create_order.click();
+			}
+		}
+		
+			}
+			catch(Exception e)
+			{
+				try {
+				driver.findElement(By.xpath("//button[normalize-space()='Create order']")).click();
+				}catch(Exception e1)
+				{
+					driver.findElement(By.xpath("//button[normalize-space()='Create order']")).click();
+				}
+			}
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 		// Select Channel
 		Click.on(driver, quote_summary_channel_dropdown, 20);
 		Thread.sleep(2000);
@@ -310,7 +331,21 @@ public class CommonClass extends TestBase {
 		System.out.println("*****Creating Order Started*****");
 
 		// Click on create order
-		Click.on(driver, create_order, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);	
+		
+		
+		
+		for(WebElement webelement_create_order : create_order )
+		{
+			if(webelement_create_order.isDisplayed())
+			{
+				webelement_create_order.click();
+				
+				break;
+			}
+		}
+	
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);	
 		
@@ -339,6 +374,7 @@ public class CommonClass extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
 		ExplicitWait.visibleElement(driver, quote_summary_order_id_text_opportunity, 60);
+		
 		String text = quote_summary_order_id_text_opportunity.getText();
 
 		// Find the index where the last 8 characters start

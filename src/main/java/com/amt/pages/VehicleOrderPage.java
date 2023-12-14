@@ -198,6 +198,11 @@ public class VehicleOrderPage extends TestBase {
 	@FindBy(xpath = "//*[text()='Delivery']")
 	private WebElement status_delivery;
 	
+	
+	//Delivery Default 
+	@FindBy(xpath = "//*[contains(text(),'Delivery')]//ancestor::div[1]//div/span[2]")
+	private WebElement status_delivery_default;
+	
 	//Awaiting Booking
 	@FindBy(xpath = "//*[text()='Awaiting Booking']")
 	private WebElement status_awaiting_booking;
@@ -255,11 +260,19 @@ public class VehicleOrderPage extends TestBase {
 	@FindBy(xpath = "//*[@id='PaymentBy']//option[text()='AMT']")
 	private WebElement payment_by_option_AMT;
 	
-	@FindBy(xpath = "(//*[@id='vehicleinvoiceFile'])[1]")
+//	@FindBy(xpath = "(//*[@id='vehicleinvoiceFile'])[1]")
+//	private WebElement dealer_invoice_input;
+		
+	@FindBy(xpath = "//*[text()='Dealer invoice']//ancestor::div[1]//div/div/div/div/input")
 	private WebElement dealer_invoice_input;
 	
 	@FindBy(xpath = "//*[@id='btnBack']")
 	private WebElement back_button;
+	
+	//direct to customer toggle button 
+	
+	@FindBy(xpath = "//*[text()='Direct to customer']//ancestor::div[1]//span")
+	private WebElement direct_to_customer_toggle_button ;
 	
 	
 	
@@ -269,6 +282,8 @@ public class VehicleOrderPage extends TestBase {
 	Actions act;
 
 	VehicleOrderPage obj_vehicle_order_tab;
+	
+	CustomerContractPage obj_customer_contract_tab;
 
 	public VehicleOrderPage() {
 		try {
@@ -526,11 +541,13 @@ public void verify_payment_status_after_selecting_payment_sent_date_on_vehicle_t
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon,300);
 
-		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
+		Thread.sleep(10000);
 		
-		Thread.sleep(10000);		
+		JavaScriptExecutor.scroll_in_to_view(driver, date_payment_sent_order_deposit);
 		
-			
+		Thread.sleep(5000);		
+		
+		
 		dealer_invoice_input.sendKeys(prop.getProperty("test_image_path"));
 			
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
@@ -745,6 +762,15 @@ public void verify_payment_status_after_selecting_payment_sent_date_on_vehicle_t
 			// fill purchase order info under purchase order section
 			obj_vehicle_order_tab.fill_up_purchase_order_info_on_vehicle_order_tab();
 		}
+		
+		try {			
+			obj_vehicle_order_tab.fill_pre_purchase_check_information();
+						
+		} catch(Exception e)
+		{
+
+		}	
+
 
 		
 	
@@ -774,7 +800,17 @@ public void verify_payment_status_after_selecting_payment_sent_date_on_vehicle_t
 		
 		obj_vehicle_order_tab = new VehicleOrderPage();
 		
+		Click.on(driver, delivered_to_dropdown,30);	
+	
+		Thread.sleep(500);		
+	
+		Click.on(driver, delivered_to_AMT,30);		
+	
+		Thread.sleep(10000);
+		
 		obj_vehicle_order_tab.select_date_offered_in_delivery_section_on_vehicle_order_tab();
+		
+		
 		
 		JavaScriptExecutor.click(driver, status_delivery);
 //	    Click.on(driver, status_delivery, 10);
@@ -810,8 +846,7 @@ public boolean verify_delivery_status_after_selecting_confirmed_delivery_date_in
 		
 		obj_vehicle_order_tab = new VehicleOrderPage();
 		
-		obj_vehicle_order_tab.select_confirmed_delivery_date_in_delivery_section_on_vehicle_order_tab();
-		
+		obj_vehicle_order_tab.select_confirmed_delivery_date_in_delivery_section_on_vehicle_order_tab();		
 
 		
 		String elementBackgroundColor = "";
@@ -835,35 +870,146 @@ public boolean verify_delivery_status_after_selecting_confirmed_delivery_date_in
 		}
 	}
 
-	
-public boolean verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
-		
-		obj_vehicle_order_tab = new VehicleOrderPage();
-		
-		obj_vehicle_order_tab.fill_up_post_delivery_info_on_vehicle_order_tab();	
 
+
+public boolean verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
+	
+	obj_vehicle_order_tab = new VehicleOrderPage();
+	
+	obj_vehicle_order_tab.fill_up_post_delivery_info_on_vehicle_order_tab();	
+
+	
+	String elementBackgroundColor = "";
+
+	ExplicitWait.visibleElement(driver, status_delivered, 10);
+
+	elementBackgroundColor = status_delivered.getCssValue("background-color");
+
+	if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+
+		LO.print(
+				"Delivery Status after uploading the delivery note - Found OK i.e Delivered");
+		System.out.println(
+				"Delivery Status after uploading the delivery note - Found OK i.e Delivered");
+		 return true;
+
+	} else {
+		LO.print("Delivery Status after uploading the delivery note - Found Wrong");
+		System.err.println("Delivery Status after uploading the delivery note - Found Wrong");
+		return false;
+	}
+}
+
+public boolean verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
 		
-		String elementBackgroundColor = "";
+		
 
 		ExplicitWait.visibleElement(driver, status_delivered, 10);
 
-		elementBackgroundColor = status_delivered.getCssValue("background-color");
+		String elementBackgroundColorOnCustomerContratctTab = status_delivered.getCssValue("background-color");
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();
+		
+		Thread.sleep(2000);
+		
+		Click.on(driver, vehicle_order, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		
+		ExplicitWait.visibleElement(driver, status_delivered, 10);
 
-		if (elementBackgroundColor.equals("rgba(51, 65, 78, 1)")) {
+		String elementBackgroundColorOnVehicleOrderTab = status_delivered.getCssValue("background-color");
+		
+				
+		if (elementBackgroundColorOnCustomerContratctTab.equals(elementBackgroundColorOnVehicleOrderTab)) {
 
-			LO.print(
-					"Delivery Status after uploading the delivery note - Found OK i.e Delivered");
-			System.out.println(
-					"Delivery Status after uploading the delivery note - Found OK i.e Delivered");
+			LO.print("Delivery Status are running in parallel for Customer Contract Tab and Vehicle Order Tab , Found OK");
+			System.out.println("Delivery Status are running in parallel for Customer Contract Tab and Vehicle Order Tab , Found Wrong");
 			 return true;
 
 		} else {
-			LO.print("Delivery Status after uploading the delivery note - Found Wrong");
-			System.err.println("Delivery Status after uploading the delivery note - Found Wrong");
+			LO.print("Delivery Status are not running in parallel for Customer Contract Tab and Vehicle Order Tab , Found OK");
+			System.err.println("Delivery Status are not running in parallel for Customer Contract Tab and Vehicle Order Tab , Found Wrong");
 			return false;
 		}
 	}
+
+
+
+public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_reversed_to_default_when_deliver_to_customer_toggle_button_is_made_off() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
 	
+	
+	LO.print("");
+	System.out.println("");
+	
+	LO.print("Verifying delivery section gets enabled and delivery status is reversed to default when deliver to customer toggle button is made off");
+	System.out.println("Verifying delivery section gets enabled and delivery status is reversed to default when deliver to customer toggle button is made off");	
+
+	
+	Click.on(driver, vehicle_order, 20);
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	
+		
+	JavaScriptExecutor.click(driver, direct_to_customer_toggle_button);
+	
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	
+	boolean deliverySection = false;
+	
+	try {ExplicitWait.visibleElement(driver, delivered_to_dropdown, 20);
+	
+	if(delivered_to_dropdown.isDisplayed())
+	{
+		deliverySection = true;
+		
+		LO.print("Delivery section is visible when direct to customer toggle button is made off");
+		System.out.println("Delivery section is visible when direct to customer toggle button is made off");
+
+	}	
+	}
+	catch(Exception e){
+		
+		LO.print("Delivery section is not visible when direct to customer toggle button is made off");
+		System.err.println("Delivery section is not visible when direct to customer toggle button is made off");
+
+	}
+	
+	ExplicitWait.visibleElement(driver, status_delivery_default, 20);
+	
+	String elementColor = status_delivery_default.getCssValue("background-color");
+	
+	boolean defaultDeliveryStatus = false ; 
+	
+
+	if (elementColor.equals("rgba(230, 171, 43, 1)")) {
+
+		LO.print(
+				"Delivery Status (after making direct to customer toggle off) gets reversed to default");
+		System.out.println(
+				"Delivery Status (after making direct to customer toggle off) gets reversed to default");
+		defaultDeliveryStatus = true;
+
+	} else {
+		LO.print("Delivery Status (after making direct to customer toggle off) not reversed to default");
+		System.err.println("Delivery Status (after making direct to customer toggle off) not reversed to default");
+		defaultDeliveryStatus =  false;
+	}
+
+	if(deliverySection==true&&defaultDeliveryStatus==true)
+		
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
+}
+
+
 	public void fill_supplier_information() throws InterruptedException
 	{
 		Click.sendKeys(driver, supplier_name, "a", 30);
@@ -978,7 +1124,7 @@ public boolean verify_delivery_status_after_uploading_delivery_note_in_post_deli
 		
 		//obj_vehicle_order_tab.upload_file(vehicle_order_upload_delivery_note, prop.getProperty("test_image_path"));
 		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
 		
 
 	}
@@ -1052,19 +1198,6 @@ public boolean verify_delivery_status_after_uploading_delivery_note_in_post_deli
 		Click.on(driver, vehicle_order_date_offered, 20);	
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-//		// Click on confirmed delivery date 
-//		Click.on(driver, vehicle_order_confirmed_delivery_date, 20);
-//		Thread.sleep(8000);
-//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-//
-//		// pick confirmed delivery date
-//		CommonClass.move_courser();
-//		Click.on(driver, vehicle_order_pick_confirmed_delivery_date, 20);
-//
-//		Thread.sleep(2000);
-//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);	
 
 	}
 

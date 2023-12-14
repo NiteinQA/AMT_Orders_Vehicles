@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Verify Updated Values In Quote After Adding Funder In Asset Funding Tab For HPNR">
     <classes>
-		<class name="acquisition.Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test"/>
+		<class name="acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test"/>
       <class name="orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test"/>
       
     </classes>

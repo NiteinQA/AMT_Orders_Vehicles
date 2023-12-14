@@ -276,6 +276,11 @@ public class AcquisitionListingPage extends TestBase {
 			sheetName = prop.getProperty("OP-OP");
 		}	
 		
+		if (classOrMethodName.contains("Outright_Purchase")) {
+			sheetName = prop.getProperty("OP-OP");
+		}	
+
+		
 		
 		return sheetName;
 	}

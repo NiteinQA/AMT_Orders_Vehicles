@@ -273,10 +273,7 @@ public class Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test extends TestB
 		
 		obj_quote_summary_page.save_quote();
 		
-		 obj_common_class = new CommonClass();
-		 
-		 obj_common_class.create_order("Order_ID" ,sheet_name);
-		
+	
 		
 
 	}

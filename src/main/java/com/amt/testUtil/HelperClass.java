@@ -11,6 +11,9 @@ public class HelperClass extends TestBase {
 		public static void highlightElement(WebDriver driver,WebElement element)
 		{
 			
+			
+			ExplicitWait.visibleElement(driver, element, 20);
+			
 			JavascriptExecutor js= (JavascriptExecutor)driver;
 			js.executeScript("arguments[0].setAttribute('style', 'background : yellow; border: 1px solid red;');",element);
 			try {

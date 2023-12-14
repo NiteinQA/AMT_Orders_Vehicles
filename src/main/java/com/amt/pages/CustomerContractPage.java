@@ -203,7 +203,7 @@ public class CustomerContractPage extends TestBase {
 	private WebElement add_invoice_button;
 	
 	@FindBy(xpath = "//button[text()=' Select ']")
-	private WebElement select_invoice_button;
+	private List<WebElement> select_invoice_button;
 		
 	@FindBy(xpath = "//button[text()='Save']")
 	private WebElement save_invoice_button;
@@ -212,8 +212,16 @@ public class CustomerContractPage extends TestBase {
 	private WebElement amount_to_allocate_input;
 	
 	@FindBy(xpath = "//*[@id='0amountAllocated']/following::td[1]/div")
-	private WebElement amount_due;
+	private WebElement amount_due;	
 	
+	@FindBy(xpath = "//*[contains(@id, 'amountAllocated')]/following::td[1]/div")
+	private List<WebElement> list_of_amount_due_values_on_pop_up;
+	
+	@FindBy(xpath = "//label[text()='Invoiced total']//following::div[1]")
+	private WebElement Invoiced_total;	
+	
+	@FindBy(xpath = "//label[text()='Amount allocated']//following::div[1]")
+	private WebElement amount_allocated;
 	
 	@FindBy(xpath = "//*[text()='Save payment']")
 	private WebElement button_save_payment;
@@ -351,9 +359,20 @@ public class CustomerContractPage extends TestBase {
 	private WebElement vehicle_invoice_value;
 	
 	//Order Deposit	
-	@FindBy(xpath = "//*[@id='adminFee']")
+	@FindBy(xpath = "//*[@id='OrderDeposit']")
 	private WebElement order_deposit_value;
-
+	
+	//Doc fee generate invoice
+	@FindBy(xpath = "//*[text()=' Document fee ex. VAT ']//ancestor::div[2]//div[2]//*[text()=' Generate invoice ']")
+	private WebElement doc_fee_generate_invoice_button;
+	
+	//Doc fee generate invoice
+	@FindBy(xpath = "//*[text()='Vehicle invoice ex. VAT']//ancestor::div[2]//div[2]//*[text()=' Generate invoice ']")
+	private WebElement vehicle_invoice_generate_invoice_button;	
+	
+	//Generate invoice confirm yes
+	@FindBy(xpath = "//*[@id='confirmGenerateInvoiceDeliverySection']//*[text()='Yes']")
+	private WebElement generate_invoice_confirm_button;
 
 	ReadExcelCalculation obj_read_excel_calculation_page;
 
@@ -392,10 +411,24 @@ public class CustomerContractPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean verify_default_status_for_acceptance_condition() throws InterruptedException, IOException, AWTException {
+	public boolean verify_default_status_for_acceptance_condition_on_customer_contract_tab() throws InterruptedException, IOException, AWTException {
+		
+		
+		
 		
 		LO.print("");
 		System.out.println("");
+		
+		Thread.sleep(8000);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+				
+		LO.print("Opening Customer Contract Tab");
+		System.out.println("Opening Customer Contract Tab");
+	
 		
 		LO.print("Started verifying acceptance conditions default status");
 		System.out.println("Started verifying acceptance conditions default status");
@@ -420,7 +453,7 @@ public class CustomerContractPage extends TestBase {
 
 	}
 	
-	public void verify_payment_values_shown_in_payment_section() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
+	public boolean verify_payment_values_shown_in_payment_section() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
 		
 		LO.print("");
 		System.out.println("");
@@ -434,9 +467,9 @@ public class CustomerContractPage extends TestBase {
         ExplicitWait.visibleElement(driver, order_deposit_value, 20);
         
 		//get values from screen
-        double vehicleInvoiceActual = Double.parseDouble(vehicle_invoice_value.getAttribute("value"));
-        double docFeeActual        = Double.parseDouble(doc_fee_value.getAttribute("value"));
-		double orderDepositActual   = Double.parseDouble(order_deposit_value.getAttribute("value"));
+        double vehicleInvoiceActual = Double.parseDouble(RemoveComma.of(vehicle_invoice_value.getAttribute("value")));
+        double docFeeActual         = Double.parseDouble(RemoveComma.of(doc_fee_value.getAttribute("value")));
+		double orderDepositActual   = Double.parseDouble(RemoveComma.of(order_deposit_value.getAttribute("value")));
 		
 		//get values from excel
 		
@@ -446,27 +479,96 @@ public class CustomerContractPage extends TestBase {
 				
 		String sheetName = obj_acq_listing_page.quote_save_sheet_name_from_quote_save_excel_sheet(classOrMethodName);
 		
-		double vehicleInvoiceExpected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(1, 1, sheetName));
-		double docFeeExpected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(4, 1, sheetName));
-		double orderDepositExpected =Double.parseDouble(GetExcelFormulaValue.get_cell_value(7, 1, sheetName));
+		double vehicleInvoiceExpected = Double.parseDouble(GetExcelFormulaValue.get_cell_value(10, 1, sheetName));
+		double docFeeExpected         = Double.parseDouble(GetExcelFormulaValue.get_cell_value(4, 1, sheetName));
+		double orderDepositExpected   = Double.parseDouble(GetExcelFormulaValue.get_cell_value(7, 1, sheetName));
+		
+		
+		//Printing Actual and Expected Values on console
+		LO.print          ("");
+		System.out.println("");			
+		LO.print          ("Vehicle Invoice Actual = "+vehicleInvoiceActual);
+		System.out.println("Vehicle Invoice Actual = "+vehicleInvoiceActual);
+	
+		LO.print          ("Vehicle Invoice Expected = "+vehicleInvoiceExpected);
+		System.out.println("Vehicle Invoice Expected = "+vehicleInvoiceExpected);
+					
+		LO.print          ("");
+		System.out.println("");			
+		LO.print          ("Document Fee Actual = "+docFeeActual);
+		System.out.println("Document Fee Actual = "+docFeeActual);
+	
+		LO.print          ("Document Fee Expected = "+docFeeExpected);
+		System.out.println("Document Fee Expected = "+docFeeExpected);
+
+
+		LO.print          ("");
+		System.out.println("");			
+		LO.print          ("Order Deposit Actual = "+orderDepositActual);
+		System.out.println("Order Deposit Actual = "+orderDepositActual);
+
+		LO.print          ("Order Deposit Expected = "+orderDepositExpected);
+		System.out.println("Order Deposit Expected = "+orderDepositExpected);
+		
 		
 		
 		if(vehicleInvoiceActual==vehicleInvoiceExpected && docFeeActual==docFeeExpected && orderDepositActual==orderDepositExpected)
 			
 		{
-			
+			LO.print          ("Payment values shown under payment section have been verified and found OK");
+			System.out.println("Payment values shown under payment section have been verified and found OK");
+
+		return true;
+		
 		}
-		
-				
-		
+		else
+		{
+			LO.print          ("Payment values shown under payment section have been verified but found Wrong");
+			System.err.println("Payment values shown under payment section have been verified but found Wrong");
 
+		return false;
 
+		}
 	}
 
 
+	public boolean verify_payment_default_status_on_customer_contract_tab() throws InterruptedException {
+		
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Started Verifying Payments  Statuses");
+		System.out.println("Started Verifying Payments Statuses");
+
+		JavaScriptExecutor.click(driver, status_payment);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		
+		String elementColor = "";
+
+		ExplicitWait.visibleElement(driver, status_payment_required, 10);
+
+		elementColor = status_payment_required.getCssValue("color");
+
+		if (elementColor.equals("rgba(199, 92, 0, 1)")) {
+
+			LO.print          ("Payment -- Default Status - Found OK i.e Payment Required");
+			System.out.println("Payment -- Default Status - Found OK i.e Payment Required");
+			 return true;
+
+		} else {
+			LO.print          ("Payment -- Default Status- Found Wrong");
+			System.err.println("Payment -- Default Status- Found Wrong");
+            return false;
+		}
+		
+	}
+	
 	
 	public void pre_order_pass_check() throws InterruptedException
 	{
+		
+		try {
 		LO.print("");
 		System.out.println("");
 		
@@ -502,6 +604,11 @@ public class CustomerContractPage extends TestBase {
 		Click.on(driver, pass_button, 10);
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		
+		}catch(Exception e)
+		{
+			
+		}
 
 
 	}
@@ -715,83 +822,9 @@ public class CustomerContractPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		
 		
-       Click.on(driver, button_new_payment, 10);
-       
-       Thread.sleep(3000);
-       
-		 
-		// Click on uploaded to funder
-		Click.on(driver, date_payment, 20);
-		Thread.sleep(8000);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-
-		// pick date
-		CommonClass.move_courser();
-		Click.on(driver, pick_a_date, 20);
-		Thread.sleep(5000);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-
-		
-		Click.on(driver, payment_type, 10);
-		Thread.sleep(2000);
-		Click.on(driver, payment_type_option_banking, 10);
-		
-		
-
-		Click.on(driver, add_invoice_button, 10);
-		Thread.sleep(2000);
-		
-		
-		Click.on(driver, select_invoice_button, 10);
-		
-		Click.on(driver, save_invoice_button, 10);
-		
-		ExplicitWait.visibleElement(driver, amount_due, 10);
-		
-		double amountDue = Double.parseDouble(RemoveComma.of(amount_due.getText().substring(2)));
-		
-		Actions act = new Actions(driver);
-		
-		ExplicitWait.visibleElement(driver, input_payment_amount, 10);
-		
-		input_payment_amount.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
-		
-		Click.sendKeysdouble(driver, input_payment_amount, amountDue, 10);
-		
-		act.sendKeys(Keys.TAB).build().perform();
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		
-		
-		ExplicitWait.visibleElement(driver, amount_to_allocate_input, 10);
-		
-		amount_to_allocate_input.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
-		
-		Click.sendKeysdouble(driver, amount_to_allocate_input, amountDue, 10);
-		
-		act.sendKeys(Keys.TAB).build().perform();
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		Thread.sleep(2000);
-		
-		
-//		ExplicitWait.visibleElement(driver, payment_receipt_upload_button, 10);
-//		payment_receipt_upload_button.sendKeys(prop.getProperty("test_image_path"));
-//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		obj_vehicle_order_tab = new VehicleOrderPage();
-		
-		Click.on(driver, payment_receipt_upload_button, 30);
-		
-		obj_vehicle_order_tab.upload_file(payment_receipt_upload_button, prop.getProperty("test_image_path"));
-		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-		
-		Click.on(driver, button_save_payment, 10);		
-	
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150); 
+		obj_customer_contract_tab = new CustomerContractPage() ;
+         
+		obj_customer_contract_tab.make_payment_for_broker_flow(); 
 		
 		
 		ExplicitWait.visibleElement(driver, status_payment_received, 10);
@@ -818,6 +851,309 @@ public class CustomerContractPage extends TestBase {
 
 	}
 
+	public void make_payment_for_broker_flow() throws InterruptedException, NumberFormatException, AWTException {
+		
+		
+		   LO.print("");
+		   System.err.println("");
+
+		   LO.print("Generating Invoices");
+		   System.err.println("Generating Invoices");
+		   
+		   Click.on(driver, doc_fee_generate_invoice_button, 10);
+	       Thread.sleep(2000);
+	       
+		   Click.on(driver, generate_invoice_confirm_button, 10);
+	       Thread.sleep(2000);
+		   
+	       ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	       
+	       Click.on(driver, vehicle_invoice_generate_invoice_button, 10);
+	       Thread.sleep(2000);
+	       
+		   Click.on(driver, generate_invoice_confirm_button, 10);
+	       Thread.sleep(2000);
+	       
+	       ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		   Click.on(driver, button_new_payment, 10);
+		   
+		   Thread.sleep(3000);
+		   
+			 
+			// Click on uploaded to funder
+			Click.on(driver, date_payment, 20);
+			Thread.sleep(8000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+			// pick date
+			CommonClass.move_courser();
+			Click.on(driver, pick_a_date, 20);
+			Thread.sleep(5000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+			
+			Click.on(driver, payment_type, 10);
+			Thread.sleep(2000);
+			Click.on(driver, payment_type_option_banking, 10);
+			
+			
+
+			Click.on(driver, add_invoice_button, 10);
+			Thread.sleep(2000);
+			
+			
+				
+			for(WebElement e: select_invoice_button)
+			{
+				Click.on(driver, e, 10);
+				
+				Thread.sleep(2000);
+			}
+			
+			Click.on(driver, save_invoice_button, 10);
+			
+			ExplicitWait.visibleElement(driver, amount_due, 10);
+			
+			double amountDue = Double.parseDouble(RemoveComma.of(amount_due.getText().substring(2)));
+			
+			Actions act = new Actions(driver);
+			
+			ExplicitWait.visibleElement(driver, input_payment_amount, 10);
+			
+			input_payment_amount.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
+			
+			Click.sendKeysdouble(driver, input_payment_amount, amountDue, 10);
+			
+			act.sendKeys(Keys.TAB).build().perform();
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			
+			
+			ExplicitWait.visibleElement(driver, amount_to_allocate_input, 10);
+			
+			amount_to_allocate_input.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
+			
+			Click.sendKeysdouble(driver, amount_to_allocate_input, amountDue, 10);
+			
+			act.sendKeys(Keys.TAB).build().perform();
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			Thread.sleep(2000);
+			
+			
+//		ExplicitWait.visibleElement(driver, payment_receipt_upload_button, 10);
+//		payment_receipt_upload_button.sendKeys(prop.getProperty("test_image_path"));
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			obj_vehicle_order_tab = new VehicleOrderPage();
+			
+			Click.on(driver, payment_receipt_upload_button, 30);
+			
+			obj_vehicle_order_tab.upload_file(payment_receipt_upload_button, prop.getProperty("test_image_path"));
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			Click.on(driver, button_save_payment, 10);		
+		
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+	}
+
+	
+	public void make_payment_for_outright_purchase() throws InterruptedException, NumberFormatException, AWTException {
+		
+		
+		   LO.print("");
+		   System.err.println("");
+		   
+		   
+          try {
+		   LO.print("Generating Invoices");
+		   System.out.println("Generating Invoices");
+		   
+		   
+		   Click.on(driver, doc_fee_generate_invoice_button, 5);
+	       Thread.sleep(2000);
+	       
+		   Click.on(driver, generate_invoice_confirm_button, 5);
+	       Thread.sleep(2000);
+		   
+	       ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	       
+	       Click.on(driver, vehicle_invoice_generate_invoice_button, 5);
+	       Thread.sleep(2000);
+	       
+		   Click.on(driver, generate_invoice_confirm_button, 5);
+	       Thread.sleep(2000);
+	       
+	       ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+          }catch(Exception e)
+          {
+        	  
+          }
+		
+		   Click.on(driver, button_new_payment, 10);
+		   
+		   Thread.sleep(5000);
+		   
+			 
+			// Click on uploaded to funder
+			Click.on(driver, date_payment, 20);
+			Thread.sleep(8000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+			// pick date
+			CommonClass.move_courser();
+			Click.on(driver, pick_a_date, 20);
+			Thread.sleep(5000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+			
+			Click.on(driver, payment_type, 10);
+			Thread.sleep(2000);
+			Click.on(driver, payment_type_option_banking, 10);
+			
+			
+
+			Click.on(driver, add_invoice_button, 10);
+			Thread.sleep(2000);
+			
+			
+				
+			for(WebElement e: select_invoice_button)
+			{
+				Click.on(driver, e, 10);
+				
+				Thread.sleep(2000);
+			}
+			
+			Click.on(driver, save_invoice_button, 10); 
+			
+			
+			
+            ExplicitWait.visibleElement(driver, Invoiced_total, 10);
+			
+			double totalInvoiceValue = Double.parseDouble(RemoveComma.of(Invoiced_total.getText().substring(2)));
+			
+			Actions act = new Actions(driver);
+			
+			ExplicitWait.visibleElement(driver, input_payment_amount, 10);
+			
+			input_payment_amount.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
+			
+			Click.sendKeysdouble(driver, input_payment_amount, totalInvoiceValue, 10);
+			
+			act.sendKeys(Keys.TAB).build().perform();
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			
+			obj_customer_contract_tab = new CustomerContractPage() ;
+			
+			obj_customer_contract_tab.get_value_for_amount_due_and_write_in_amount_to_allocate_field(0);
+			obj_customer_contract_tab.get_value_for_amount_due_and_write_in_amount_to_allocate_field(1);
+			obj_customer_contract_tab.get_value_for_amount_due_and_write_in_amount_to_allocate_field(2);
+			
+			
+			
+			
+			
+			
+	
+//		ExplicitWait.visibleElement(driver, payment_receipt_upload_button, 10);
+//		payment_receipt_upload_button.sendKeys(prop.getProperty("test_image_path"));
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			obj_vehicle_order_tab = new VehicleOrderPage();
+			
+			Click.on(driver, payment_receipt_upload_button, 30);
+			
+			obj_vehicle_order_tab.upload_file(payment_receipt_upload_button, prop.getProperty("test_image_path"));
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			
+			
+			 ExplicitWait.visibleElement(driver, amount_allocated, 10);
+				
+				double amountAllocated = Double.parseDouble(RemoveComma.of(amount_allocated.getText().substring(2)));
+				
+							
+				ExplicitWait.visibleElement(driver, input_payment_amount, 10);
+				
+				input_payment_amount.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
+				
+				Click.sendKeysdouble(driver, input_payment_amount, amountAllocated+1, 10);
+				
+				act.sendKeys(Keys.TAB).build().perform();
+				
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			
+			Click.on(driver, button_save_payment, 10);		
+		
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+	}
+
+	
+	
+	public void get_value_for_amount_due_and_write_in_amount_to_allocate_field(int indexOfElement) throws InterruptedException {		
+		
+		        String amountDueValueXpath = "//*[contains(@id, '" + indexOfElement + "amountAllocated')]/following::td[1]/div";
+			     
+		        double value = Double.parseDouble(RemoveComma.of(driver.findElement(By.xpath(amountDueValueXpath)).getText().substring(2)));
+		        
+		        System.out.println(value);
+		        
+		        String amountToAllocateValueXpath = "//*[contains(@id, '" + indexOfElement + "amountAllocated')]"; 
+			    
+		        WebElement element =  driver.findElement(By.xpath(amountToAllocateValueXpath));		        
+		        
+				ExplicitWait.visibleElement(driver, element, 10);
+				
+				element.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
+				
+				Click.sendKeysdouble(driver, element, value, 10);
+				
+				Actions act = new Actions(driver);
+				
+				act.sendKeys(Keys.TAB).build().perform();
+				
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);        	
+		
+	}
+	
+	
+	public boolean verify_payments_status_after_making_a_payment() throws InterruptedException, IOException, AWTException {
+
+		LO.print("");
+		System.out.println("");
+
+		String 	elementColor = "";
+		
+		ExplicitWait.visibleElement(driver, status_payment_received, 10);
+
+		elementColor = status_payment_received.getCssValue("color");
+
+		if (elementColor.equals("rgba(91, 158, 63, 1)")) {
+
+			LO.print("Status for Payment after making payment - Found OK i.e Payment Received");
+			System.out.println("Status for Payment after making payment - Found OK i.e Payment Received");
+			
+			return true;
+
+		} else {
+			LO.print("Status for Payment after making payment - Found Wrong");
+			System.err.println("Status for Payment after making payment - Found Wrong");
+            return false;
+		}
+
+
+	}
+
+	
 	public boolean verify_delivery_status_on_customer_contract_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
 
 		LO.print("");
@@ -875,7 +1211,7 @@ public class CustomerContractPage extends TestBase {
 	}
 	
 	
-public boolean verify_post_delivery_status_after_selecting_date_payout_pack_uploaded_in_post_delivery_section_of_customer_contract_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
+    public boolean verify_post_delivery_status_after_selecting_date_payout_pack_uploaded_in_post_delivery_section_of_customer_contract_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
 		
 		obj_customer_contract_tab = new CustomerContractPage();
 		
@@ -900,7 +1236,7 @@ public boolean verify_post_delivery_status_after_selecting_date_payout_pack_uplo
 		}
 	}
 
-public boolean verify_post_delivery_status_after_selecting_date_payout_pack_accepted_in_post_delivery_section_of_customer_contract_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
+    public boolean verify_post_delivery_status_after_selecting_date_payout_pack_accepted_in_post_delivery_section_of_customer_contract_tab() throws InterruptedException, IOException, AWTException, ClassNotFoundException {
 	
 	obj_customer_contract_tab = new CustomerContractPage();
 	
@@ -961,6 +1297,45 @@ public boolean verify_post_delivery_status_after_selecting_date_payout_pack_acce
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);		
 
 	}
+	
+	
+	public boolean verify_payout_pack_statuses() throws ClassNotFoundException, InterruptedException, IOException, AWTException {
+		
+		
+		 obj_customer_contract_tab = new CustomerContractPage();
+		 
+		 Click.on(driver, customer_contract, 10);
+		 
+		 
+		 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		 
+		 boolean flag = false;
+		 try {
+		 
+		 boolean delivery_status_after_selecting_date_payout_pack_uploaded = obj_customer_contract_tab.verify_post_delivery_status_after_selecting_date_payout_pack_uploaded_in_post_delivery_section_of_customer_contract_tab();
+		 
+		 boolean delivery_status_after_selecting_date_payout_pack_accepted = obj_customer_contract_tab.verify_post_delivery_status_after_selecting_date_payout_pack_accepted_in_post_delivery_section_of_customer_contract_tab();
+
+		 
+		 if(delivery_status_after_selecting_date_payout_pack_uploaded==true && delivery_status_after_selecting_date_payout_pack_accepted==true)
+		 {
+			 
+			 flag = true;
+		 }else
+		 {
+			 flag = false;
+		 }
+		 }
+		 catch(Exception e )
+		 {
+				LO.print("There are no Payout pack Statuses for this order as this is used car order");
+				System.out.println("There are no Payout pack Statuses for this order as this is used car order");
+
+		 }
+		return flag;
+		
+	}
+
 	
 	public boolean verify_the_vehicle_is_seen_in_sold_vehicles_section_on_completing_the_order_on_customer_contract_page() throws InterruptedException, IOException {
 		

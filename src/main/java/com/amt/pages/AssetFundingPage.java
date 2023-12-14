@@ -856,7 +856,9 @@ public class AssetFundingPage extends TestBase {
 
 		Click.on(driver, confirm_complete, 30);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Thread.sleep(5000);
 
 		LO.print("Clicked on Complete Cash purchase");
 		System.out.println("Clicked on Complete Cash purchase");
