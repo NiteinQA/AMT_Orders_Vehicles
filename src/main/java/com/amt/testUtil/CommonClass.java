@@ -335,15 +335,33 @@ public class CommonClass extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);	
 		
 		
+
+		Thread.sleep(2000);
+		
 		
 		for(WebElement webelement_create_order : create_order )
 		{
-			if(webelement_create_order.isDisplayed())
-			{
-				webelement_create_order.click();
+			try {
 				
-				break;
+				
+				String styleAttributeValue = webelement_create_order.getAttribute("style");
+				
+				if(styleAttributeValue.contains("cursor: not-allowed;"))
+				{
+					
+				}
+				else
+				{
+					webelement_create_order.click();
+				}
+				
+				
 			}
+			catch(Exception e)
+			{
+				
+			}
+			
 		}
 	
 
