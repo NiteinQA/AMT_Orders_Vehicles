@@ -3,14 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="opportunity.Create_order_from_opportunity_Test">
+      <class name="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test">
         <methods>
+          <include name="T1_open_order_created_in_acquisition_test"/>
           <include name="end"/>
-          <include name="create_order_from_opportunity_test"/>
           <include name="start_info"/>
+          <include name="T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow"/>
+          <include name="T10_verify_summary_section_values"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- opportunity.Create_order_from_opportunity_Test -->
+      </class> <!-- orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

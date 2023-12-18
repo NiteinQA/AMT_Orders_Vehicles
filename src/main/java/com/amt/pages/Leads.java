@@ -704,7 +704,8 @@ public class Leads extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		// Thread.sleep(4000);
 
-		HelperClass.highlightElement(driver, channel);
+		
+		 
 
 		Click.on(driver, channel, 120);
 

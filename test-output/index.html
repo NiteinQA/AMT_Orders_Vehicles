@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\nitein.kurane\AppData\Local\Temp\testng-eclipse--442821858\testng-customsuite.xml</span>
+                    <span>C:\Users\nitein.kurane\AppData\Local\Temp\testng-eclipse--1312937550\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test" class="method navigator-link" hash-for-method="T10_verify_summary_section_values">T10_verify_summary_section_values</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,7 +118,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="opportunity.Create_order_from_opportunity_Test" class="method navigator-link" hash-for-method="create_order_from_opportunity_test">create_order_from_opportunity_test</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test" class="method navigator-link" hash-for-method="T1_open_order_created_in_acquisition_test">T1_open_order_created_in_acquisition_test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test" class="method navigator-link" hash-for-method="T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow">T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -119,17 +138,73 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">opportunity.Create_order_from_opportunity_Test</span>
+              <img src="failed.png"/>
+              <span class="class-name">orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="create_order_from_opportunity_test">
-                  </a> <!-- create_order_from_opportunity_test -->
-                  <span class="method-name">create_order_from_opportunity_test</span>
+                  <a name="T10_verify_summary_section_values">
+                  </a> <!-- T10_verify_summary_section_values -->
+                  <span class="method-name">T10_verify_summary_section_values</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test.T10_verify_summary_section_values(Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test.java:180)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="T1_open_order_created_in_acquisition_test">
+                  </a> <!-- T1_open_order_created_in_acquisition_test -->
+                  <span class="method-name">T1_open_order_created_in_acquisition_test</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow">
+                  </a> <!-- T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow -->
+                  <span class="method-name">T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -137,7 +212,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\nitein.kurane\AppData\Local\Temp\testng-eclipse--442821858\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\nitein.kurane\AppData\Local\Temp\testng-eclipse--1312937550\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,7 +221,13 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;opportunity.Create_order_from_opportunity_Test&quot;/&gt;
+      &lt;class name=&quot;orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;T10_verify_summary_section_values&quot;/&gt;
+          &lt;include name=&quot;T1_open_order_created_in_acquisition_test&quot;/&gt;
+          &lt;include name=&quot;T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -186,16 +267,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'create_order_from_opportunity_test')
-data.setCell(0, 2, 'opportunity.Create_order_from_opportunity_Test')
-data.setCell(0, 3, 70678);
+data.setCell(0, 1, 'T1_open_order_created_in_acquisition_test')
+data.setCell(0, 2, 'orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test')
+data.setCell(0, 3, 81482);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'T10_verify_summary_section_values')
+data.setCell(1, 2, 'orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test')
+data.setCell(1, 3, 52591);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow')
+data.setCell(2, 2, 'orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test')
+data.setCell(2, 3, 12416);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -207,25 +296,142 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">create_order_from_opportunity_test</span>
+              <span class="reporter-method-name">T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><b>Clicked on Opportunity link from Menu </b> <br /></span>
-                <span class="reporter-method-output"><b>Enter the Opportunity id in Search Text box</b> <br /></span>
-                <span class="reporter-method-output"><b> </b> <br /></span>
-                <span class="reporter-method-output"><b>*****Creating Order Started*****</b> <br /></span>
-                <span class="reporter-method-output"><b> </b> <br /></span>
-                <span class="reporter-method-output"><b>***** Order Created Successfully *****</b> <br /></span>
-                <span class="reporter-method-output"><b>Order ID BG-09266 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br /></span>
-                <span class="reporter-method-output"><b>*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Opening Customer Contract Tab</b> <br /></span>
+                <span class="reporter-method-output"><b>Started verifying acceptance conditions default status</b> <br /></span>
+                <span class="reporter-method-output"><b>Default status for acceptance condition for ownbook - Found OK i.e Not Required</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">T1_open_order_created_in_acquisition_test</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Searching for Order ID ZU-54179</b> <br /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">T10_verify_summary_section_values</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>CCT86603 != TOI31237</b> <br /></span>
+                <span class="reporter-method-output"><b>Quote no. compared but found not ok</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic = AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic</b> <br /></span>
+                <span class="reporter-method-output"><b>Vehicle name compared and found ok</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>Business Contract Hire = Business Contract Hire</b> <br /></span>
+                <span class="reporter-method-output"><b>Contract type compared and found ok</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>35.0 = 35.0</b> <br /></span>
+                <span class="reporter-method-output"><b>Terms compared and found ok</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>35000.0 = 35000.0</b> <br /></span>
+                <span class="reporter-method-output"><b>Mileage compared and found ok</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>1518.04 = 1518.0397957301293</b> <br /></span>
+                <span class="reporter-method-output"><b>Monthly Finance Rental compared and found ok</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>334.5 != 1518.03979573013</b> <br /></span>
+                <span class="reporter-method-output"><b>Initial Finance Rental found wrong</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>34.0 = 34.0</b> <br /></span>
+                <span class="reporter-method-output"><b>Followed By months - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>41.6 = 41.6772</b> <br /></span>
+                <span class="reporter-method-output"><b>Pence per excess mile finance - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>199.99 = 199.99</b> <br /></span>
+                <span class="reporter-method-output"><b>Document Fee - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>400.0 = 400.0</b> <br /></span>
+                <span class="reporter-method-output"><b>Upsell - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>1133.58 = 1133.5812499999981</b> <br /></span>
+                <span class="reporter-method-output"><b>Default Finance Commission - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>400.0 = 400.0</b> <br /></span>
+                <span class="reporter-method-output"><b>Upsell Commission - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>99.99 = 99.99000000000001</b> <br /></span>
+                <span class="reporter-method-output"><b>Document Fee Commission - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>1727.36 = 1727.3546499999984</b> <br /></span>
+                <span class="reporter-method-output"><b>Total Commission - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>200.0 = 200.0</b> <br /></span>
+                <span class="reporter-method-output"><b>Referrer Commission - found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>6.5 = 6.5</b> <br /></span>
+                <span class="reporter-method-output"><b>Base Interest Rate found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>10000.0 = 10000.0</b> <br /></span>
+                <span class="reporter-method-output"><b>Finance Margin found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>1133.58 = 1133.5812499999981</b> <br /></span>
+                <span class="reporter-method-output"><b>Deductions found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>1277.85 = 1277.824000000002</b> <br /></span>
+                <span class="reporter-method-output"><b>Additional Margin found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>10144.27 = 10144.242750000005</b> <br /></span>
+                <span class="reporter-method-output"><b>Total Margin found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>1.96 = 1.9583333333333348</b> <br /></span>
+                <span class="reporter-method-output"><b>Default Broker Margin percentage found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>0.1 = 0.1</b> <br /></span>
+                <span class="reporter-method-output"><b>Broker Upsell Margin percentage found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>400.0 != 40.0</b> <br /></span>
+                <span class="reporter-method-output"><b>Broker Upsell Margin  found wrong</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>99.99 = 99.99000000000001</b> <br /></span>
+                <span class="reporter-method-output"><b>Document Fee Margin  found OK</b> <br /></span>
+                <span class="reporter-method-output"><b></b> <br /></span>
+                <span class="reporter-method-output"><b>200.0 = 200.00000000000003</b> <br /></span>
+                <span class="reporter-method-output"><b>Refferer Margin  found OK</b> <br /></span>
+                <span class="reporter-method-output"><br>----------Screenshot---------<br></span>
+                <span class="reporter-method-output"><img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\T10_verify_summary_section_values_18_12_2023_04_25_26.png" height="800" width="1000"></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">12 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">T12_make_payment_with_new_payment</span>
+                <br/>
+                <span class="ignored-method-name">T11_verify_payment_default_status</span>
+                <br/>
+                <span class="ignored-method-name">T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test</span>
+                <br/>
+                <span class="ignored-method-name">T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test</span>
+                <br/>
+                <span class="ignored-method-name">T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test</span>
+                <br/>
+                <span class="ignored-method-name">T18_verify_payout_pack_statuses_on_customer_contract_tab_test</span>
+                <br/>
+                <span class="ignored-method-name">T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test</span>
+                <br/>
+                <span class="ignored-method-name">T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab</span>
+                <br/>
+                <span class="ignored-method-name">T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test</span>
+                <br/>
+                <span class="ignored-method-name">T22_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test</span>
+                <br/>
+                <span class="ignored-method-name">T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test</span>
+                <br/>
+                <span class="ignored-method-name">T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -234,22 +440,32 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">opportunity.Create_order_from_opportunity_Test</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">start_info</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">14 ms</span>
+                <span class="method-start">18 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">create_order_from_opportunity_test</span>
-                <span class="method-start">10006 ms</span>
+                <span class="method-name">T1_open_order_created_in_acquisition_test</span>
+                <span class="method-start">10512 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow</span>
+                <span class="method-start">91997 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">T10_verify_summary_section_values</span>
+                <span class="method-start">104414 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">end</span>
-                <span class="method-start">80711 ms</span>
+                <span class="method-start">157202 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

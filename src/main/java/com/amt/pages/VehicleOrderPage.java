@@ -439,6 +439,8 @@ public boolean verify_default_status_of_order_in_vehicle_order_tab() throws Inte
             Thread.sleep(2000);
             
             Click.on(driver, payment_by_option_AMT, 10);
+            
+            Thread.sleep(2000);
 
             obj_vehicle_order_tab = new VehicleOrderPage();
             
@@ -451,8 +453,14 @@ public boolean verify_default_status_of_order_in_vehicle_order_tab() throws Inte
 
 		LO.print("");
 		System.out.println("");
-
-
+		
+        Click.on(driver, payment_by_dropdown, 10);
+        
+        Thread.sleep(2000);
+        
+        Click.on(driver, payment_by_option_AMT, 10);
+        
+        Thread.sleep(2000);
 			
 		JavaScriptExecutor.click(driver, status_payments_to_dealer);
 		

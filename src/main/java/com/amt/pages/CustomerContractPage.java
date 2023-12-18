@@ -454,10 +454,7 @@ public class CustomerContractPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='RFL & FRF']//ancestor::div[1]//div//strong")
 	private WebElement customer_contract_tab_otr_rfl_and_frf;
 
-	@FindBy(xpath = "//*[normalize-space()='Quote reference no.:']//ancestor::div[1]//span[2]")
-	private WebElement customer_contract_tab_quote_ref_no;
-
-	@FindBy(xpath = "//*[normalize-space()='Quote reference no.:']//ancestor::div[1]//span[2]")
+	@FindBy(xpath = "//*[normalize-space()='Quote ref:']//ancestor::div[1]//p")
 	private WebElement customer_contract_tab_ref_no;
 
 	// Total cash price
@@ -533,8 +530,8 @@ public class CustomerContractPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Payment profile']//ancestor::div[1]//div/p")
 	private WebElement customer_contract_tab_customer_quote_payment_profile;
 
-	@FindBy(xpath = "//*[normalize-space()='Initial finance rental']//ancestor::div[1]//div/p/strong")
-	private WebElement customer_contract_tab_customer_quote_initial_finance_rental;
+	@FindBy(xpath = "//*[normalize-space()='Initial finance rental']//ancestor::div[1]//div/p/strong|//*[normalize-space()='Initial cash payment']//ancestor::div[1]//div/p/strong")
+	private WebElement customer_contract_tab_customer_quote_initial_finance_rental;  
 
 	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div/p/strong|//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div/p/strong")
 	private WebElement customer_contract_tab_customer_quote_monthly_finance_rental;
@@ -563,7 +560,10 @@ public class CustomerContractPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Document fee']//ancestor::div[1]//div/p/strong")
 	private WebElement customer_contract_tab_customer_quote_doc_fee;
 
-	@FindBy(xpath = "//*[normalize-space()='Upsell']//ancestor::div[1]//p/strong")
+//	@FindBy(xpath = "//*[normalize-space()='Upsell']//ancestor::div[1]//p/strong")
+//	private WebElement customer_contract_tab_customer_quote_upsell;
+	
+	@FindBy(xpath = "//*[@id='Upsell']")
 	private WebElement customer_contract_tab_customer_quote_upsell;
 
 	@FindBy(xpath = "//*[normalize-space()='Default finance comm.']//ancestor::div[1]//p/strong")
@@ -1100,7 +1100,7 @@ public class CustomerContractPage extends TestBase {
 				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_doc_fee.getText().trim().substring(2)));
 
 		double customer_quote_summary_upsell = Double
-				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_upsell.getText().trim().substring(2)));
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_upsell.getAttribute("value")));
 
 		double customer_quote_summary_default_finance_commission = Double.parseDouble(
 				RemoveComma.of(customer_contract_tab_customer_quote_default_finance_commission.getText().trim().substring(2)));
@@ -1144,7 +1144,7 @@ public class CustomerContractPage extends TestBase {
 		// Vehicle details
 		String vehicleNameActual = customer_contract_tab_vehicle_heading.getText().trim();
 
-		ExplicitWait.visibleElement(driver, customer_contract_tab_quote_ref_no, 30);
+		ExplicitWait.visibleElement(driver, customer_contract_tab_ref_no, 30);
 
 		String quotRefNoActual = customer_contract_tab_ref_no.getText();
 		
@@ -1221,7 +1221,7 @@ public class CustomerContractPage extends TestBase {
 
 		int count = 0;
 
-		// 5.comparing quote no.
+		// 1.comparing quote no.
 		if (quotRefNoActual.equals(quotRefNoExpected)) {
 			count++;
 
@@ -1240,7 +1240,7 @@ public class CustomerContractPage extends TestBase {
 			LO.print          ("Quote no. compared but found not ok");
 		}
 
-		// 6.comparing vehicle name
+		// 2.comparing vehicle name
 		if (vehicleNameActual.equals(vehicleNameExpected)) {
 			count++;
 
@@ -1261,7 +1261,7 @@ public class CustomerContractPage extends TestBase {
 
 		}
 
-		// 7.comparing contract type
+		// 3.comparing contract type
 		if (contractTypeActual.equals(contractTypeExpected)) {
 			count++;
 			System.out.println("");
@@ -1281,7 +1281,7 @@ public class CustomerContractPage extends TestBase {
 		}
 
 		
-		// 8.comparing term
+		// 4.comparing term
 		if (customer_quote_summary_terms == terms) {
 			count++;
 
@@ -1303,7 +1303,7 @@ public class CustomerContractPage extends TestBase {
 		}
 
 		
-		// 9.comparing mileage
+		// 5.comparing mileage
 		if (customer_quote_summary_miles == miles) {
 			count++;
 
@@ -1324,7 +1324,7 @@ public class CustomerContractPage extends TestBase {
 
 		}	
 		
-		// 10.comparing monthly finance rental
+		// 6.comparing monthly finance rental
 		
 		if ((Difference.of_two_Double_Values(monthlyFinanceRental,
 				customer_quote_summary_monthly_finance_rental)) < 0.2) {
@@ -1348,7 +1348,7 @@ public class CustomerContractPage extends TestBase {
 		}
 
 		
-		//11.Comparing Initial Finance rental
+		//7.Comparing Initial Finance rental
 		
 		if ((Difference.of_two_Double_Values(initialFinanceRental, customer_quote_initial_finance_rental)) < 0.2) {
 			
@@ -1373,7 +1373,7 @@ public class CustomerContractPage extends TestBase {
 		}
 		
 		
-		//12.Comparing followed By
+		//8.Comparing followed By
 		
 		if (followedBy == customer_payment_followed_by) {
 			
@@ -1399,7 +1399,7 @@ public class CustomerContractPage extends TestBase {
 		}
 
 		
-		//13.Comparing Pence per excess mile finance
+		//9.Comparing Pence per excess mile finance
 		
 		
 		if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
@@ -1427,7 +1427,7 @@ public class CustomerContractPage extends TestBase {
 		}
 		
 		
-		// 14.Comparing Document Fee
+		// 10.Comparing Document Fee
 
 		if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_doc_fee)) < 0.2) {
 			count++;
@@ -1453,7 +1453,7 @@ public class CustomerContractPage extends TestBase {
 			System.err.println("Document Fee - found wrong");
 		}
 		
-		//15.Comparing Upsell
+		//11.Comparing Upsell
 
 		if (Difference.of_two_Double_Values(upsell, customer_quote_summary_upsell) < 0.2) {
 			
@@ -1480,7 +1480,7 @@ public class CustomerContractPage extends TestBase {
 		}
 
 		
-		//16.Comparing Default Finance Commission
+		//12.Comparing Default Finance Commission
 		
 		if ((Difference.of_two_Double_Values(defaultFinanceCommission,
 				customer_quote_summary_default_finance_commission)) < 0.2) {
@@ -1508,7 +1508,7 @@ public class CustomerContractPage extends TestBase {
 		}
 		
 		
-		//17.Comparing Upsell Commission
+		//13.Comparing Upsell Commission
 
 		if (Difference.of_two_Double_Values(upsellCommission, customer_quote_summary_upsell_commission) < 0.2) {
 			
@@ -1535,7 +1535,7 @@ public class CustomerContractPage extends TestBase {
 		}
 		
 		
-		//18.Comparing Document Fee Commission
+		//14.Comparing Document Fee Commission
 		
 		
 		if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_doc_fee_commission)) < 0.2) {
@@ -1563,7 +1563,7 @@ public class CustomerContractPage extends TestBase {
 		}
 		
 		
-		//19.Comparing Total Commission	
+		//15.Comparing Total Commission	
 
 		if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commision)) < 0.2) {
 			
@@ -1590,7 +1590,7 @@ public class CustomerContractPage extends TestBase {
 			System.err.println("Total Commission - found wrong");
 		}
 		
-		//20.Comparing Referrer Commission	
+		//16.Comparing Referrer Commission	
 
 		if ((Difference.of_two_Double_Values(referrerCommission, customer_quote_summary_referrer_commision)) < 0.2) {
 			
@@ -1617,7 +1617,7 @@ public class CustomerContractPage extends TestBase {
 			System.err.println("Referrer Commission - found wrong");
 		}
 		
-		//21. Comparing Base Int Rate
+		//17. Comparing Base Int Rate
 		if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
 			count++;
 			
@@ -1640,7 +1640,7 @@ public class CustomerContractPage extends TestBase {
 			System.err.println("Base Interest Rate found wrong");
 		}
 
-		//22. Comparing Finance Margin
+		//18. Comparing Finance Margin
 		
 		if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
 			count++;
@@ -1666,7 +1666,7 @@ public class CustomerContractPage extends TestBase {
 		}
 
 		
-		//23. Comparing Deductions
+		//19. Comparing Deductions
 		if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
 			count++;
 			
@@ -1690,7 +1690,7 @@ public class CustomerContractPage extends TestBase {
 			System.err.println("Deductions found wrong");
 		}
 
-		//24. Comparing Additional Margin
+		//20. Comparing Additional Margin
 		
 		if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
 			count++;
@@ -1715,7 +1715,7 @@ public class CustomerContractPage extends TestBase {
 		}
 
 		
-		//25. Comparing Total Margin
+		//21. Comparing Total Margin
 		
 		if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
 			count++;
@@ -1740,7 +1740,7 @@ public class CustomerContractPage extends TestBase {
 			System.err.println("Total Margin found wrong");
 		}
 
-		//26. Comparing Default Broker Margin percentage
+		//22. Comparing Default Broker Margin percentage
 		
 		if (Difference.of_two_Double_Values(defaultBrokerMarginPercentageFromExcel,
 				defaultBrokerMarginPercentageFromScreen) < 0.01) {
@@ -1769,7 +1769,7 @@ public class CustomerContractPage extends TestBase {
 		}
 		
 		
-		//27. Comparing Broker Upsell Margin percentage
+		//23. Comparing Broker Upsell Margin percentage
 
 		if (Difference.of_two_Double_Values(brokerUpsellMarginPercentageFromScreen,
 				brokerUpsellMarginPercentageFromExcel) < 0.2) {
@@ -1796,7 +1796,7 @@ public class CustomerContractPage extends TestBase {
 			System.err.println("Broker Upsell Margin percentage found wrong");
 		}
 		
-		//28. Comparing Broker Upsell Margin 
+		//24. Comparing Broker Upsell Margin 
 
 		if (Difference.of_two_Double_Values(brokerUpsellMarginFromScreen, BrokerUpsellMarginFromExcel) < 0.2) {
 			count++;
@@ -1822,7 +1822,7 @@ public class CustomerContractPage extends TestBase {
 		}
 		
 		
-		//29. Comparing Document Fee Margin
+		//25. Comparing Document Fee Margin
 
 		if (Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2) {
 			
@@ -1848,7 +1848,7 @@ public class CustomerContractPage extends TestBase {
 			System.err.println("Document Fee Margin  found wrong");
 		}
 
-		//30. Comparing Broker Upsell Margin
+		//26. Comparing Broker Upsell Margin
 		
 		if (Difference.of_two_Double_Values(reffererMarginFromScreen, reffererMarginFromExcel) < 0.2) {
 			
@@ -1880,7 +1880,7 @@ public class CustomerContractPage extends TestBase {
 		
 
 		boolean status = false;
-		if (count == 30)
+		if (count == 26)
 
 		{
 			status = true;
