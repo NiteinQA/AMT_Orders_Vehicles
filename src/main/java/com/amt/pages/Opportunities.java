@@ -848,7 +848,7 @@ public class Opportunities extends TestBase {
 		String opportunityId = GetExcelFormulaValue.get_cell_value(4, 0, "Order_ID");		
 		
 
-		ExplicitWait.visibleElement(driver, search_bar, 30);	
+		ExplicitWait.visibleElement(driver, search_bar, 50);	
 		search_bar.sendKeys(opportunityId);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 		
@@ -1370,6 +1370,7 @@ public class Opportunities extends TestBase {
 		}catch(Exception e) 
 		{
 			driver.navigate().refresh();
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
 			ExplicitWait.visibleElement(driver, opp_current_status_quoteref, 50);
 		}
 		

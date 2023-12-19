@@ -95,7 +95,7 @@ public class OrdersListPage extends TestBase {
 		Click.on(driver, super_admin, 60);
 		
 					
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		Click.on(driver, orders_menu, 60);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
@@ -115,6 +115,8 @@ public class OrdersListPage extends TestBase {
 		LO.print("Searching for Order ID "+orderNumber);
 
 		// Enter this order no. to search bar and press enter
+		Thread.sleep(2000);
+		
 		Click.sendKeys(driver, orders_search_bar, orderNumber, 60);
 		orders_search_bar.sendKeys(Keys.ENTER);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);

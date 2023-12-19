@@ -167,6 +167,9 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 	
 	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
 	private WebElement total_cap_maintenance_cost;
+	
+	@FindBy(xpath = "//*[normalize-space()='CAP monthly maint. cost']//ancestor::div[1]//p/strong")
+	private WebElement cap_monthly_maintenance_cost;
 
 	
 	Properties prop;
@@ -187,6 +190,49 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 		
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void save_maint_value_to_excel_for_with_funder_scenario(String terms , String expiryDate , String sheet_name) throws InterruptedException, IOException {
+		
+		
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, common_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.visibleElement(driver, cap_monthly_maintenance_cost, 10);
+		
+		HelperClass.highlightElement(driver,cap_monthly_maintenance_cost);
+
+		Double maint = Double.parseDouble(RemoveComma.of(cap_monthly_maintenance_cost.getText().trim().substring(2)));
+		
+		Double months  = Double.parseDouble(terms);
+		
+		Double capMaintValueDouble  = maint*months;
+		
+		String capMaintValue = String.valueOf(capMaintValueDouble);		
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+
+		wb.getSheet(sheetname).getRow(1).getCell(5).setCellValue(expiryDate);
+		wb.getSheet(sheetname).getRow(4).getCell(9).setCellValue(capMaintValue);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+
+		Click.on(driver, maintenance_toggle_button, 120);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+	}
+
 
 	public boolean verify_holding_cost_before_editing_cap_values_without_maintenance(
 			String residual_value_used_from_excel, String percentage_cap_residual_value_used,

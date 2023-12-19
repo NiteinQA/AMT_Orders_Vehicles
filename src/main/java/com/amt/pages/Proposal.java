@@ -241,7 +241,7 @@ private List<WebElement> loading_icon;
 		//////////////////////////////// Proposal listing ////////////////////////
 	
 	
-	@FindBy(xpath = "//*[@id='cWraper']/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[10]/div/div/div/div")
+	@FindBy(xpath = "//*[@class='status']")
 	private WebElement 	opp_proposal_status ;
 	
 	
@@ -1288,6 +1288,9 @@ private WebElement proposal_save ;
 		
 		System.out.println("*****************Proposal Lisiting page will display ****************************");
 		System.out.println("*********************************************");
+		
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		ExplicitWait.visibleElement(driver, Opp_send_proposal_to_customer_icon, 50);
 		

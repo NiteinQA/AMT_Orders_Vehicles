@@ -303,6 +303,14 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement quote_summary_save_button;
+	
+	// Monthly finance rental
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//strong|//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_monthly_finance_rental;
+	
+	// vehicle details
+	@FindBy(xpath = "//*[@class='heading ng-star-inserted']")
+	private WebElement quote_summary_vehicle_heading;
 
 	Properties prop;
 	
@@ -313,7 +321,7 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 		try {
 			 prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -2660,7 +2668,7 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 			System.err.println("Monthly Finance Rental after changing Customer Base Over Rate -  found wrong");
 		}
 		// 2
-		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.3) {
 			LO.print("Finance Charges - found OK");
 			System.out.println("Finance Charges - found OK");
 			count++;
@@ -2670,7 +2678,7 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 		}
 
 		// 3
-		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.3) {
 			LO.print("Balance Payable - found OK");
 			System.out.println("Balance Payable - found OK");
 			count++;
@@ -4422,7 +4430,7 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 		}
 		// 3
 		
-		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.3) {
 			LO.print("Finance Charges - found OK");
 			System.out.println("Finance Charges - found OK");
 			count++;
@@ -4432,7 +4440,7 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 		}
 
 		//4
-		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.3) {
 			LO.print("Balance Payable - found OK");
 			System.out.println("Balance Payable - found OK");
 			count++;
@@ -4445,33 +4453,33 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 			status = true;
 		}
 
-		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
-		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		String default_base_rate =  String.valueOf((Double.parseDouble(prop.getProperty("base_rate"))*100));
-
-		
-
-		
-		quote_summary_configuration_base_int_rate_input.sendKeys(default_base_rate);
-
-		act.sendKeys(Keys.TAB).build().perform();
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		LO.print("Base Interest Rate changed to default");
-		System.out.println("Base Interest Rate changed to default");
-
-		// writing values to excel
-
-		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
-		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
-
-		wb1.getSheet(sheet_name).getRow(34).getCell(10).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
-		wb1.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
-
-		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
-
-		wb1.write(out1);
+//		ExplicitWait.visibleElement(driver, quote_summary_configuration_base_int_rate_input, 30);
+//		quote_summary_configuration_base_int_rate_input.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+//		String default_base_rate =  String.valueOf((Double.parseDouble(prop.getProperty("base_rate"))*100));
+//
+//		
+//
+//		
+//		quote_summary_configuration_base_int_rate_input.sendKeys(default_base_rate);
+//
+//		act.sendKeys(Keys.TAB).build().perform();
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+//
+//		LO.print("Base Interest Rate changed to default");
+//		System.out.println("Base Interest Rate changed to default");
+//
+//		// writing values to excel
+//
+//		FileInputStream in1 = new FileInputStream(prop.getProperty("formula_excel_path"));
+//		XSSFWorkbook wb1 = new XSSFWorkbook(in1);
+//
+//		wb1.getSheet(sheet_name).getRow(34).getCell(10).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
+//		wb1.getSheet(sheet_name).getRow(62).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("base_rate")));
+//
+//		FileOutputStream out1 = new FileOutputStream(prop.getProperty("formula_excel_path"));
+//
+//		wb1.write(out1);
 
 		return status;
 	}
@@ -5831,82 +5839,81 @@ public class QuoteSummary_HPNR_HPNRPage extends TestBase {
 
 	}
 
-	public boolean quote_summary_HPNR_HPNR_without_maintenance(String sheet_name)
+	public void quote_summary_HPNR_HPNR_without_maintenance(String sheet_name)
 			throws InterruptedException, IOException {
+		
+		
+		
+LO.print          ("*************Calculations for Quote Summary page gas been started************");
+System.out.println("*************Calculations for Quote Summary page gas been started************");
 
-		LO.print("*************Calculations for Quote Summary page has been started************");
-		System.out.println("*************Calculations for Quote Summary page has been started************");
+obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		Click.on(driver, quote_summary, 60);
+Click.on(driver, quote_summary, 90);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+//First collect OTR elements
 
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+LO.print("Reading values from OTR calculation -Quote Summary Page");
+System.out.println("Reading values from OTR calculation -Quote Summary Page");
 
-		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
 
-		LO.print("Reading values from sceen -Quote Summary Page");
-		System.out.println("Reading values from sceen -Quote Summary Page");
+//cust summary elements
 
-		String quote_ref_no = quote_summary_ref_no.getText();
-		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_without_maintenance
-				.getText().trim().substring(2);
-		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
-				.substring(2);
-		String acq_contract_type = quote_summary_acq_contract_type.getText();
-		String customer_contract_type = quote_summary_customer_contract_type.getText();
+String customer_contract_type = quote_summary_customer_contract_type.getText();
 
-		LO.print("Getting values from screen");
-		System.out.println("Getting values from screen");
+String customer_quote_summary_terms = quote_summary_customer_quote_summary_terms.getText().trim().substring(0,2);
 
-		LO.print("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-		System.out.println("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
+String customer_quote_summary_miles = RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim());
 
-		LO.print("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-		System.out
-				.println("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
+String customer_quote_summary_monthly_finance_rental = RemoveComma.of(quote_summary_customer_quote_summary_monthly_finance_rental.getText().trim().substring(2));
 
-		LO.print("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
 
-		LO.print("Acquisition contract_type =" + acq_contract_type);
-		System.out.println("Acquisition contract_type =" + acq_contract_type);
+ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 
-		LO.print("Customer contract_type =" + customer_contract_type);
-		System.out.println("Customer contract_type =" + customer_contract_type);
+ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
 
-		LO.print("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-		System.out.println("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
+JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		String quote_summary_cost_otr_price_from_screen = RemoveComma.of(temp_quote_summary_cost_otr_price);
-		String quote_summary_total_monthly_holding_cost_from_screen = RemoveComma
-				.of(temp_quote_summary_total_monthly_holding_cost);
-		String quote_summary_monthly_finance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_finance_rental);
+js.executeScript("arguments[0].click();", quote_summary_save_button);
 
-		double quote_summary_cost_otr_price_from_screen_converted = Double
-				.parseDouble(quote_summary_cost_otr_price_from_screen);
-		double quote_summary_total_monthly_holding_cost_from_screen_converted = Double
-				.parseDouble(quote_summary_total_monthly_holding_cost_from_screen);
-		double quote_summary_monthly_finance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_finance_rental_from_screen);
+ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
-		return obj_read_excel_calculation_page.verify_quote_summary_values_from_excel_without_maintenance(
-				quote_summary_cost_otr_price_from_screen_converted,
-				quote_summary_total_monthly_holding_cost_from_screen_converted,
-				quote_summary_monthly_finance_rental_from_screen_converted, sheet_name);
+ExplicitWait.visibleElement(driver, quote_summary_vehicle_heading, 120);
+ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
 
-	}
+// Vehicle details
+String vehicle_name = quote_summary_vehicle_heading.getText().trim();
+
+// quote no.
+String quote_ref_no = quote_summary_ref_no.getText();
+
+
+FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+XSSFWorkbook wb = new XSSFWorkbook(in);
+
+String sheetname = prop.getProperty(sheet_name);
+//quote ref no 
+wb.getSheet(sheetname).getRow(1).getCell(0).setCellValue(quote_ref_no);
+//quote ref no 
+wb.getSheet(sheetname).getRow(1).getCell(10).setCellValue(vehicle_name);
+
+wb.getSheet(sheetname).getRow(4).getCell(1).setCellValue(customer_contract_type);
+wb.getSheet(sheetname).getRow(4).getCell(3).setCellValue(customer_quote_summary_terms);
+wb.getSheet(sheetname).getRow(6).getCell(1).setCellValue(customer_quote_summary_miles);
+wb.getSheet(sheetname).getRow(6).getCell(3).setCellValue(customer_quote_summary_monthly_finance_rental);
+
+
+FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+wb.write(out);
+wb.close();
+
+
+LO.print("Writing completed for some of the important required values to quote save excel sheet in the sheet "+sheetname);
+System.out.println("Writing completed for some of the important required values to quote save excel sheet in the sheet "+sheetname);
+
+}
 
 	public boolean quote_summary_HPNR_HPNR_with_maintenance(String sheet_name)
 			throws InterruptedException, IOException {

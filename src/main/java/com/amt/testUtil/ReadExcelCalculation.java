@@ -1760,6 +1760,12 @@ public class ReadExcelCalculation extends TestBase {
 			wb.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B66*B69");
 		}
 		
+		if (sheet_name.contains("Used")) {
+		wb.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B66*B69");
+	    } else {
+		wb.getSheet(sheet_name).getRow(69).getCell(1).setCellFormula("B67*B69");
+	     }
+		
 		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
 
 			wb.getSheet(sheet_name).getRow(72).getCell(1).setCellFormula("B67*B72");

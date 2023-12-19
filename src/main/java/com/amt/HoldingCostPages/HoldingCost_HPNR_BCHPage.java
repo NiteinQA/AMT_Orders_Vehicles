@@ -54,6 +54,9 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
 	private WebElement total_cap_maintenance_cost;
+	
+	@FindBy(xpath = "//*[normalize-space()='CAP monthly maint. cost']//ancestor::div[1]//p/strong")
+	private WebElement cap_monthly_maintenance_cost;
 
 	@FindBy(xpath = "//*[@id='ResidualValue']")
 	private WebElement holding_cost_summary_residual_value_used_input_field;
@@ -168,6 +171,8 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
+	
+	
 
 	public HoldingCost_HPNR_BCHPage() {
 		try {
@@ -183,6 +188,43 @@ public class HoldingCost_HPNR_BCHPage extends TestBase {
 
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void save_maint_value_to_excel_for_with_funder_scenario(String expiryDate , String sheet_name) throws InterruptedException, IOException {
+		
+		
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, common_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.visibleElement(driver, cap_monthly_maintenance_cost, 10);
+		
+		HelperClass.highlightElement(driver,cap_monthly_maintenance_cost);
+
+		String capMaintValue = RemoveComma.of(cap_monthly_maintenance_cost.getText().trim().substring(2));
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+
+		wb.getSheet(sheetname).getRow(1).getCell(5).setCellValue(expiryDate);
+		wb.getSheet(sheetname).getRow(4).getCell(10).setCellValue(capMaintValue);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+
+		Click.on(driver, maintenance_toggle_button, 120);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+	}
+
 	
 	public void save_maint_value_to_excel_for_without_funder_scenario(String sheet_name) throws InterruptedException, IOException {
 		

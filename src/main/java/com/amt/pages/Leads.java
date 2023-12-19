@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Properties;
 
@@ -1271,9 +1272,18 @@ public class Leads extends TestBase {
 		
 		if (className.contains("ownbook")) 
 		{
-			LocalDate futureDate = LocalDate.now().plusMonths(1);			
-			String str1[] = String.valueOf(futureDate).split("-");			
+			LocalDate futureDate = LocalDate.now().plusMonths(1).minusDays(1);			
+			String str1[] = String.valueOf(futureDate).split("-");				 
+			
+//			System.out.println(str1[0]);
+//			String year = String.valueOf((Double.parseDouble(str1[0])+2000));
+//			
+//			System.out.println(year);
+			
 			expiryDateExpected = str1[2].concat("/").concat(str1[1]).concat("/").concat(str1[0]);
+			
+
+			
 		}
 	
 		

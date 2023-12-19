@@ -12,6 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
@@ -2714,7 +2715,9 @@ public class Underwriting extends TestBase {
 		
 		double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(208, 1, sheetName);
 
-		double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
+	    DecimalFormat decimalFormat = new DecimalFormat("#.##");
+	    
+	    double baseInterestRateFromExcel = Double.parseDouble(decimalFormat.format(tempbaseInterestRateFromExcel * 100));
 
 		double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(208, 3, sheetName);
 
@@ -3757,7 +3760,9 @@ public class Underwriting extends TestBase {
 		//getting expected values for config section elements
 		
 		double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 01, sheetName);
-		double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
+				
+	    DecimalFormat decimalFormat = new DecimalFormat("#.##");	    
+	    double baseInterestRateFromExcel = Double.parseDouble(decimalFormat.format(tempbaseInterestRateFromExcel * 100));
 
 		double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(259, 5, sheetName);
 
@@ -5109,7 +5114,9 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 		//getting expected values for config section elements
 		
 		double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 01, sheetName);
-		double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
+	   
+		DecimalFormat decimalFormat = new DecimalFormat("#.##");	    
+	    double baseInterestRateFromExcel = Double.parseDouble(decimalFormat.format(tempbaseInterestRateFromExcel * 100));
 
 		double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(259, 5, sheetName);
 
