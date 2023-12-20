@@ -459,7 +459,7 @@ public class Leads extends TestBase {
 		System.out.println("*********************************************");
 		System.out.println("*********************************************");
 
-		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		Click.on(driver, leads, 20);
 		HelperClass.highlightElement(driver, leads); // Click on Leads Menu Link
 		//Click.on(driver, leads, 120);
@@ -1036,7 +1036,7 @@ public class Leads extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		
 		Click.on(driver, acquisition_contract_type, 120);
 
@@ -1158,7 +1158,7 @@ public class Leads extends TestBase {
 
 		Click.on(driver, select_new_quoted_save, 120);
 
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 
 		try
 
@@ -1275,12 +1275,7 @@ public class Leads extends TestBase {
 			LocalDate futureDate = LocalDate.now().plusMonths(1).minusDays(1);			
 			String str1[] = String.valueOf(futureDate).split("-");				 
 			
-//			System.out.println(str1[0]);
-//			String year = String.valueOf((Double.parseDouble(str1[0])+2000));
-//			
-//			System.out.println(year);
-			
-			expiryDateExpected = str1[2].concat("/").concat(str1[1]).concat("/").concat(str1[0]);
+    		expiryDateExpected = str1[2].concat("/").concat(str1[1]).concat("/").concat(str1[0]);
 			
 
 			

@@ -3570,7 +3570,7 @@ public class Underwriting extends TestBase {
 		ExplicitWait.visibleElement(driver, underwriting_quote_tab_customer_quote_summary_document_fee_comm, 20);
 		ExplicitWait.visibleElement(driver, underwriting_quote_tab_customer_quote_summary_total_comm, 20);
 
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		
 		Click.on(driver, underwriting_quote_tab_configuration_heading_button, 30);
 		

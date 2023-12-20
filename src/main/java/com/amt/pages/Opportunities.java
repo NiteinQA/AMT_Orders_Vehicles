@@ -789,7 +789,8 @@ public class Opportunities extends TestBase {
 
 		LO.print("Clicked on Opportunity link from Menu ");
 		System.out.println("Clicked on Opportunity link from Menu");
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		// Click.sendKeys(driver, Lead_OpportunityId, null, 10);
 

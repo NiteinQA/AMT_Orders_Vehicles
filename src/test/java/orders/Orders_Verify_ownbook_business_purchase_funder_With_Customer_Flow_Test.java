@@ -48,114 +48,114 @@ CustomerContractPage obj_customer_contract;
 	}
 	
 	
-//	@Test(priority =2, dependsOnMethods = { "T1_open_order_created_in_acquisition_test" })
-//	public void T2_pre_order_pass_check_in_customer_contract_tab_test() throws IOException, InterruptedException, AWTException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//
-//	     obj_customer_contract =new CustomerContractPage();
-//		
-//		
-//		obj_customer_contract.pre_order_pass_check();
-//		
-//	}
-//	
-//	@Test(priority = 3, dependsOnMethods = { "T2_pre_order_pass_check_in_customer_contract_tab_test" })
-//	public void T3_verify_default_order_status_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();		
-//		
-//		Assert.assertTrue(obj_vehicle_order_tab.verify_default_status_of_order_in_vehicle_order_tab());
-//		
-//		
-//	}
-//
-//	
-//	@Test(priority = 4, dependsOnMethods = { "T3_verify_default_order_status_vehicle_tab_test" })
-//	public void T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();		
-//		
-//		Assert.assertTrue(obj_vehicle_order_tab.verify_order_status_in_vehicle_order_tab_after_uploading_order_form());
-//		
-//		
-//	}
-//	
-//	
-//	@Test(priority = 5, dependsOnMethods = { "T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test" })
-//	public void T5_verify_default_payment_status_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();	 	
-//		
-//		Assert.assertTrue(obj_vehicle_order_tab.verify_default_payment_status_on_vehicle_tab());
-//		
-//		
-//	}
-//	
-//	@Test(priority = 6, dependsOnMethods = { "T5_verify_default_payment_status_on_vehicle_tab_test" })
-//	public void T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();	 	
-//		
-//        obj_vehicle_order_tab.verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab();		
-//		
-//	}
-//
-//	
-//	@Test(priority = 7, dependsOnMethods = { "T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test" })
-//	public void T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();	 	
-//		
-//		Assert.assertTrue(obj_vehicle_order_tab.verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab());		
-//		
-//	}
-//	
-//	@Test(priority = 8, dependsOnMethods = { "T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test" })
-//	public void T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//	     System.out.println("");
-//
-//	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-//
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();	 //verify_payment_status_after_selecting_payment_sent_date_for_amount_due_if_payment_by_AMT	
-//		
-//		obj_vehicle_order_tab.verify_payment_status_after_selecting_payment_sent_date_for_amount_due_if_payment_by_AMT();
-//		
-//	}
+	@Test(priority =2, dependsOnMethods = { "T1_open_order_created_in_acquisition_test" })
+	public void T2_pre_order_pass_check_in_customer_contract_tab_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+
+	     obj_customer_contract =new CustomerContractPage();
+		
+		
+		obj_customer_contract.pre_order_pass_check();
+		
+	}
+	
+	@Test(priority = 3, dependsOnMethods = { "T2_pre_order_pass_check_in_customer_contract_tab_test" })
+	public void T3_verify_default_order_status_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_default_status_of_order_in_vehicle_order_tab());
+		
+		
+	}
+
+	
+	@Test(priority = 4, dependsOnMethods = { "T3_verify_default_order_status_vehicle_tab_test" })
+	public void T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_order_status_in_vehicle_order_tab_after_uploading_order_form());
+		
+		
+	}
+	
+	
+	@Test(priority = 5, dependsOnMethods = { "T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test" })
+	public void T5_verify_default_payment_status_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();	 	
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_default_payment_status_on_vehicle_tab());
+		
+		
+	}
+	
+	@Test(priority = 6, dependsOnMethods = { "T5_verify_default_payment_status_on_vehicle_tab_test" })
+	public void T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();	 	
+		
+        obj_vehicle_order_tab.verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab();		
+		
+	}
+
+	
+	@Test(priority = 7, dependsOnMethods = { "T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test" })
+	public void T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();	 	
+		
+		Assert.assertTrue(obj_vehicle_order_tab.verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab());		
+		
+	}
+	
+	@Test(priority = 8, dependsOnMethods = { "T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test" })
+	public void T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();	 //verify_payment_status_after_selecting_payment_sent_date_for_amount_due_if_payment_by_AMT	
+		
+		obj_vehicle_order_tab.verify_payment_status_after_selecting_payment_sent_date_for_amount_due_if_payment_by_AMT();
+		
+	}
 
 
 	
-	@Test(priority = 9, dependsOnMethods = { "T1_open_order_created_in_acquisition_test" })
+	@Test(priority = 9, dependsOnMethods = { "T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test" })
 	public void T9_verify_default_status_acceptance_conditions_for_ownbook_purchase_flow() throws IOException, InterruptedException, AWTException {
 		
 	     System.out.println("");
@@ -205,7 +205,7 @@ CustomerContractPage obj_customer_contract;
 		
 		obj_customer_contract = new CustomerContractPage();
 		
-		obj_customer_contract.make_payment_for_ownbook_hire();
+		obj_customer_contract.make_payment();
 		
 	}
 	

@@ -1259,6 +1259,8 @@ private WebElement proposal_save ;
 
 	{
 	
+		Thread.sleep(3000);
+		
 		ExplicitWait.visibleElement(driver, opp_proposal_status, 60);
 		
 		

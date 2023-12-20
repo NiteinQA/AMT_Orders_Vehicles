@@ -3,33 +3,28 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="opportunity.LOU_ownbook_business_hire_funder_accept_with_changes_Test">
+      <class name="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test">
         <methods>
-          <include name="UW4_verify_values_on_underwriting_quote_tab_for_ownbook_business_flow"/>
-          <include name="L3_verify_table_values_on_opportunity_page_before_sending_proposal"/>
-          <include name="L5_ownbook_create_opportunity_business_current_status_after_sending_to_proposal"/>
-          <include name="UW1_verify_status_after_contract_signed"/>
-          <include name="L7_verify_current_status_on_opportunity_page_after_sending_contract_for_ownbook_business_flow"/>
-          <include name="UW2_verify_underwriting_pop_up_summary_values_for_ownbook_business_flow"/>
-          <include name="L4_fill_up_the_required_fields_for_sending_a_proposal"/>
-          <include name="UW5_ownbook_underwriting_decision_accept_with_changes"/>
-          <include name="L8_ownbook_signed_contract_status_with_api_call"/>
-          <include name="UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification"/>
+          <include name="T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test"/>
+          <include name="T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test"/>
+          <include name="T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test"/>
+          <include name="T10_verify_summary_section_values"/>
+          <include name="T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test"/>
+          <include name="T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test"/>
+          <include name="T11_verify_payment_default_status"/>
+          <include name="T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab"/>
+          <include name="T1_open_order_created_in_acquisition_test"/>
           <include name="setup"/>
+          <include name="T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test"/>
           <include name="end"/>
-          <include name="UW7_verify_ownbook_opportunity_accept_with_changes_underwriting_pop_up"/>
-          <include name="L6_ownbook_sending_contract"/>
-          <include name="L1_create_lead_convert_to_lead_for_ownbook_business_flow"/>
-          <include name="L2_ownbook_business_current_status_before_sending_to_proposal"/>
-          <include name="OP1_ownbook_after_Underwriting_accepted_mothlty_payment_price"/>
+          <include name="T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test"/>
+          <include name="T18_verify_payout_pack_statuses_on_customer_contract_tab_test"/>
+          <include name="T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow"/>
+          <include name="T22_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test"/>
           <include name="start_info"/>
-          <include name="UW2_verify_status_after_sending_to_underwriting"/>
-          <include name="UW3_verify_underwriting_lisitig_page"/>
-          <include name="UW9_verify_ownbook_opportunity_underwriting_accept_with_changes_underwriting_pop_up"/>
-          <include name="UW10_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call"/>
-          <include name="UW6_verify_ownbook_opportunity_search_text_box_accept_with_changes"/>
+          <include name="T12_make_payment_with_new_payment"/>
         </methods>
-      </class> <!-- opportunity.LOU_ownbook_business_hire_funder_accept_with_changes_Test -->
+      </class> <!-- orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
