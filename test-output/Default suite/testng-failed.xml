@@ -3,28 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test">
+      <class name="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test">
         <methods>
-          <include name="T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test"/>
-          <include name="T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test"/>
-          <include name="T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test"/>
-          <include name="T10_verify_summary_section_values"/>
-          <include name="T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test"/>
-          <include name="T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test"/>
-          <include name="T11_verify_payment_default_status"/>
-          <include name="T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab"/>
           <include name="T1_open_order_created_in_acquisition_test"/>
-          <include name="setup"/>
-          <include name="T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test"/>
           <include name="end"/>
-          <include name="T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test"/>
-          <include name="T18_verify_payout_pack_statuses_on_customer_contract_tab_test"/>
-          <include name="T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow"/>
-          <include name="T22_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test"/>
+          <include name="T3_verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow_test"/>
+          <include name="T2_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test"/>
           <include name="start_info"/>
-          <include name="T12_make_payment_with_new_payment"/>
+          <include name="T4_verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow_test" invocation-numbers="0"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test -->
+      </class> <!-- orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -111,7 +111,7 @@ public class VehicleSelectionPage extends TestBase {
 //		act.sendKeys(Keys.ARROW_DOWN).build().perform();
 //		act.sendKeys(Keys.ENTER).perform();
 //		
-//	
+		Thread.sleep(3000);
 		act.doubleClick(vehile_table_option).build().perform();
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);

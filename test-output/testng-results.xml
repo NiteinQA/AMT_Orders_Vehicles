@@ -1,983 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="15" passed="2" failed="1" skipped="12">
+<testng-results ignored="14" total="18" passed="4" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Searching for Order ID UO-32501</b> <br />]]>
+      <![CDATA[<b>Searching for Order ID HG-04420</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Started verifying monthly payment does not change after editing the basic cash price</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Monthly payment Before Editing the Cash Price is 1518.04</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Vehicle's Basic Cash Price Changed to 60,000</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Now Getting the Monthly payment from customer contract tab</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Monthly payment After Editing the Cash Price is 1518.04</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>Verified that monthly payment does not change after editing the basic cash price</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Opening Customer Contract Tab</b> <br />]]>
+      <![CDATA[<b>Tried funder with different term and mileage other than signed term and mileage , got warning message : Term and milege combination should be same as selected cell</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Started verifying acceptance conditions default status</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default status for acceptance condition for ownbook - Found OK i.e Not Required</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started Verifying Quote Summary and Configuration Values</b> <br />]]>
+      <![CDATA[<b>Therefore funder with different term and mileage can not be added</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b></b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>CZA71890 != BFL93880</b> <br />]]>
+      <![CDATA[<b>Monthly payment Before selecting a funder1518.04</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote no. compared but found not ok</b> <br />]]>
+      <![CDATA[<b>Monthly payment After selecting a funder1518.04</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic = AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Vehicle name compared and found ok</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Business Contract Hire = Business Contract Hire</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Contract type compared and found ok</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>12.0 = 12.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Terms compared and found ok</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>5000.0 = 5000.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Mileage compared and found ok</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>1553.57 = 1553.5677875976364</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Monthly Finance Rental compared and found ok</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>433.09 != 1553.56778759764</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Initial Finance Rental found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>11.0 = 11.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Followed By months - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>41.6 = 41.6772</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Pence per excess mile finance - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>199.99 = 199.99</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>400.0 = 400.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Upsell - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>578.85 = 578.85</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Finance Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>400.0 = 400.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Upsell Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>99.99 = 99.99000000000001</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>1080.11 = 1080.1072</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>200.0 = 200.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Referrer Commission - found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>10000.0 = 10000.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Finance Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>578.85 = 578.85</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Deductions found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>352.66 = 352.66200000000003</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Additional Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>9773.81 = 9773.812</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Total Margin found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>1.0 = 1.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Broker Margin percentage found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>578.85 = 578.85</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Broker Margin Value found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>0.1 = 0.1</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Broker Upsell Margin percentage found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>400.0 != 40.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Broker Upsell Margin  found wrong</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>99.99 = 99.99000000000001</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Margin  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>200.0 = 200.00000000000003</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Refferer Margin  found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<br>----------Screenshot---------<br>]]>
-    </line>
-    <line>
-      <![CDATA[<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\T10_verify_summary_section_values_20_12_2023_05_23_55.png" height="800" width="1000">]]>
+      <![CDATA[<b>Verified that monthly payment does not change after selecting a funder</b> <br />]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-12-20T17:21:22 IST" name="Default suite" finished-at="2023-12-20T17:23:55 IST" duration-ms="153174">
+  <suite started-at="2023-12-21T18:08:46 IST" name="Default suite" finished-at="2023-12-21T18:12:19 IST" duration-ms="213064">
     <groups>
     </groups>
-    <test started-at="2023-12-20T17:21:22 IST" name="Default test" finished-at="2023-12-20T17:23:55 IST" duration-ms="153174">
-      <class name="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:21:22 IST" name="start_info" finished-at="2023-12-20T17:21:22 IST" duration-ms="5" status="PASS">
+    <test started-at="2023-12-21T18:08:46 IST" name="Default test" finished-at="2023-12-21T18:12:19 IST" duration-ms="213064">
+      <class name="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test@543295b0]" started-at="2023-12-21T18:08:46 IST" name="start_info" finished-at="2023-12-21T18:08:46 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:21:22 IST" name="setup" finished-at="2023-12-20T17:21:38 IST" duration-ms="15967" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test@543295b0]" started-at="2023-12-21T18:08:46 IST" name="setup" finished-at="2023-12-21T18:08:59 IST" duration-ms="13047" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="T1_open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:21:38 IST" name="T1_open_order_created_in_acquisition_test" finished-at="2023-12-20T17:22:48 IST" duration-ms="70301" status="PASS">
+        <test-method signature="T1_open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test@543295b0]" started-at="2023-12-21T18:08:59 IST" name="T1_open_order_created_in_acquisition_test" finished-at="2023-12-21T18:10:08 IST" duration-ms="69026" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Searching for Order ID UO-32501</b> <br />]]>
+              <![CDATA[<b>Searching for Order ID HG-04420</b> <br />]]>
             </line>
           </reporter-output>
         </test-method> <!-- T1_open_order_created_in_acquisition_test -->
-        <test-method signature="T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow()[pri:9, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:22:48 IST" name="T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow" finished-at="2023-12-20T17:23:01 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T1_open_order_created_in_acquisition_test" duration-ms="12416" status="PASS">
+        <test-method signature="T2_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test()[pri:2, instance:orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test@543295b0]" started-at="2023-12-21T18:10:08 IST" name="T2_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test" finished-at="2023-12-21T18:11:05 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test.T1_open_order_created_in_acquisition_test" duration-ms="57710" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[<b>Started verifying monthly payment does not change after editing the basic cash price</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Monthly payment Before Editing the Cash Price is 1518.04</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Vehicle's Basic Cash Price Changed to 60,000</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Now Getting the Monthly payment from customer contract tab</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Monthly payment After Editing the Cash Price is 1518.04</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Verified that monthly payment does not change after editing the basic cash price</b> <br />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- T2_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test -->
+        <test-method signature="T3_verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test@543295b0]" started-at="2023-12-21T18:11:06 IST" name="T3_verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow_test" data-provider="testData1" finished-at="2023-12-21T18:11:31 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test.T2_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test" duration-ms="24839" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[REF001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[05/12/26]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[33]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[5000]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[12]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[6000]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[HPNR (Formula 3) - HPNR]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
             <line>
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Opening Customer Contract Tab</b> <br />]]>
+              <![CDATA[<b>Tried funder with different term and mileage other than signed term and mileage , got warning message : Term and milege combination should be same as selected cell</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Started verifying acceptance conditions default status</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default status for acceptance condition for ownbook - Found OK i.e Not Required</b> <br />]]>
+              <![CDATA[<b>Therefore funder with different term and mileage can not be added</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow -->
-        <test-method signature="T10_verify_summary_section_values()[pri:10, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:01 IST" name="T10_verify_summary_section_values" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T9_verify_default_status_acceptance_conditions_for_ownbook_hire_flow" duration-ms="54274" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertTrue(Assert.java:45)
-at org.testng.Assert.assertTrue(Assert.java:55)
-at orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T10_verify_summary_section_values(Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.java:180)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        </test-method> <!-- T3_verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow_test -->
+        <test-method signature="T4_verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test@543295b0]" started-at="2023-12-21T18:11:31 IST" name="T4_verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow_test" data-provider="testData1" finished-at="2023-12-21T18:12:19 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test.T3_verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow_test" duration-ms="47277" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[REF001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[05/12/26]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[33]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[5000]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[12]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[6000]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[HPNR (Formula 3) - HPNR]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
             <line>
-              <![CDATA[<b>Started Verifying Quote Summary and Configuration Values</b> <br />]]>
-            </line>
-            <line>
               <![CDATA[<b></b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>CZA71890 != BFL93880</b> <br />]]>
+              <![CDATA[<b>Monthly payment Before selecting a funder1518.04</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote no. compared but found not ok</b> <br />]]>
+              <![CDATA[<b>Monthly payment After selecting a funder1518.04</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic = AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Vehicle name compared and found ok</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Business Contract Hire = Business Contract Hire</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Contract type compared and found ok</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>12.0 = 12.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Terms compared and found ok</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>5000.0 = 5000.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Mileage compared and found ok</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>1553.57 = 1553.5677875976364</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Monthly Finance Rental compared and found ok</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>433.09 != 1553.56778759764</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Initial Finance Rental found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>11.0 = 11.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Followed By months - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>41.6 = 41.6772</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Pence per excess mile finance - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>199.99 = 199.99</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>400.0 = 400.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Upsell - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>578.85 = 578.85</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Finance Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>400.0 = 400.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Upsell Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>99.99 = 99.99000000000001</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>1080.11 = 1080.1072</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>200.0 = 200.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Referrer Commission - found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>10000.0 = 10000.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Finance Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>578.85 = 578.85</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Deductions found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>352.66 = 352.66200000000003</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Additional Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>9773.81 = 9773.812</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Total Margin found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>1.0 = 1.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Broker Margin percentage found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>578.85 = 578.85</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Broker Margin Value found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>0.1 = 0.1</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Broker Upsell Margin percentage found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>400.0 != 40.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Broker Upsell Margin  found wrong</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>99.99 = 99.99000000000001</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Margin  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>200.0 = 200.00000000000003</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Refferer Margin  found OK</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<br>----------Screenshot---------<br>]]>
-            </line>
-            <line>
-              <![CDATA[<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\T10_verify_summary_section_values_20_12_2023_05_23_55.png" height="800" width="1000">]]>
+              <![CDATA[<b>Verified that monthly payment does not change after selecting a funder</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- T10_verify_summary_section_values -->
-        <test-method signature="T11_verify_payment_default_status()[pri:11, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T11_verify_payment_default_status" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T10_verify_summary_section_values" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T11_verify_payment_default_status()[pri:11, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T11_verify_payment_default_status()[pri:11, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T11_verify_payment_default_status -->
-        <test-method signature="T12_make_payment_with_new_payment()[pri:12, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T12_make_payment_with_new_payment" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T11_verify_payment_default_status" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T12_make_payment_with_new_payment()[pri:12, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T12_make_payment_with_new_payment()[pri:12, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T12_make_payment_with_new_payment -->
-        <test-method signature="T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab()[pri:13, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T12_make_payment_with_new_payment" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab()[pri:13, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab()[pri:13, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab -->
-        <test-method signature="T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test()[pri:14, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T13_verify_payment_status_after_making_a_payment_on_customer_contract_tab" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test()[pri:14, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test()[pri:14, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test -->
-        <test-method signature="T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test()[pri:15, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T14_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test()[pri:15, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test()[pri:15, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test -->
-        <test-method signature="T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test()[pri:16, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T15_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test()[pri:16, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test()[pri:16, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test -->
-        <test-method signature="T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test()[pri:17, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T16_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test()[pri:17, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test()[pri:17, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test -->
-        <test-method signature="T18_verify_payout_pack_statuses_on_customer_contract_tab_test()[pri:18, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T18_verify_payout_pack_statuses_on_customer_contract_tab_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T17_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T18_verify_payout_pack_statuses_on_customer_contract_tab_test()[pri:18, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T18_verify_payout_pack_statuses_on_customer_contract_tab_test()[pri:18, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T18_verify_payout_pack_statuses_on_customer_contract_tab_test -->
-        <test-method signature="T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test()[pri:19, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T18_verify_payout_pack_statuses_on_customer_contract_tab_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test()[pri:19, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test()[pri:19, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test -->
-        <test-method signature="T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test()[pri:20, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T19_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test()[pri:20, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test()[pri:20, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test -->
-        <test-method signature="T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()[pri:21, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T20_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()[pri:21, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()[pri:21, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test -->
-        <test-method signature="T22_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test()[pri:22, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="T22_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test" finished-at="2023-12-20T17:23:55 IST" depends-on-methods="orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T21_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T22_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test()[pri:22, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test.T22_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test()[pri:22, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T22_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test -->
-        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test@11392934]" started-at="2023-12-20T17:23:55 IST" name="end" finished-at="2023-12-20T17:23:55 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- T4_verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow_test -->
+        <test-method is-config="true" signature="end()[pri:0, instance:orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test@543295b0]" started-at="2023-12-21T18:12:19 IST" name="end" finished-at="2023-12-21T18:12:19 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- orders.Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test -->
+      </class> <!-- orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

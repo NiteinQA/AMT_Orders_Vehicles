@@ -164,13 +164,13 @@ public class Opportunities extends TestBase {
 	@FindBy(xpath = "//tr[@class='ng-star-inserted']//td[9]")
 	private WebElement opp_current_status_open;
 
-	@FindBy(xpath = "//tr[@class='ng-star-inserted']//td[10]")
+	@FindBy(xpath = "//*[@class='status']")
 	private WebElement opp_current_status_proposal;
 
-	@FindBy(xpath = "//tr[@class='border ng-star-inserted']//td[8]")
+	@FindBy(xpath = "(//div[@class='ng-star-inserted']//span[contains(@class, 'btn')])[2]")
 	private WebElement opp_current_status_channel;
 
-	@FindBy(xpath = "//table[@class='table mb-0 levelthreetr']//td[7]")
+	@FindBy(xpath = "(//div[@class='ng-star-inserted']//span[contains(@class, 'btn')])[2]")
 	private WebElement opp_current_status_quoteref;
 
 	// Add Appointment button

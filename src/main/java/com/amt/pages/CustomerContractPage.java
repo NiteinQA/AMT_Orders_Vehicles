@@ -36,6 +36,7 @@ import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.JavaScriptExecutor;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
+import com.google.inject.Key;
 
 public class CustomerContractPage extends TestBase {
 
@@ -51,7 +52,7 @@ public class CustomerContractPage extends TestBase {
 	@FindBy(xpath = "//*[@id='accStockingPlanSection']//div//div//app-om-stocking-plan-details")
 	private List<WebElement> stocking_plan_list;
 
-	// Asset funding Element
+	// Customer Contract
 	@FindBy(xpath = "//*[contains(text(),'Customer contract')]")
 	private WebElement customer_contract;
 
@@ -823,6 +824,18 @@ public class CustomerContractPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Contingency insurance value']//ancestor::div[1]//div//label/b")
 	private WebElement customer_contract_tab_configuration_configuration_contingency_insurance_value;
 
+	
+	//*************Customer Contract Page *****************
+	
+	@FindBy(xpath = "//*[text()='Contract types & OTR']")
+	private WebElement contract_types_and_otr;
+	
+	@FindBy(xpath = "//*[normalize-space()='Basic price']//ancestor::div[1]//div//div//input")
+	private WebElement input_basic_cash_price;	
+	
+	@FindBy(xpath = "//*[@title='Reset CAP Value']")
+	private WebElement reset_button_basic_cash_price;
+	
 
 	ReadExcelCalculation obj_read_excel_calculation_page;
 
@@ -859,6 +872,105 @@ public class CustomerContractPage extends TestBase {
 			e.printStackTrace();
 		}
 		PageFactory.initElements(driver, this);
+	}
+	
+	public boolean verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab() throws InterruptedException {
+		
+	
+		
+		LO.print("Started verifying monthly payment does not change after editing the basic cash price");
+		System.out.println("Started verifying monthly payment does not change after editing the basic cash price");
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		
+		//get the monthly payment value from customer contract page
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		
+		double monthlyRentalExpected = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		
+		LO.print("Monthly payment Before Editing the Cash Price is "+monthlyRentalExpected);
+		System.out.println("Monthly payment Before Editing the Cash Price is "+monthlyRentalExpected);
+
+		
+		
+		//go on OTR tab and change basic cash price
+		
+		Click.on(driver, contract_types_and_otr, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+        Thread.sleep(5000);
+		
+		input_basic_cash_price.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		
+		Thread.sleep(2000);
+		
+		input_basic_cash_price.sendKeys("60000");
+		
+		Actions act = new Actions(driver);
+		
+		act.sendKeys(Keys.TAB).build().perform();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		
+		LO.print("Vehicle's Basic Cash Price Changed to 60,000");
+		System.out.println("Vehicle's Basic Cash Price Changed to 60,000");
+
+		LO.print("Now Getting the Monthly payment from customer contract tab");
+		System.out.println("Now Getting the Monthly payment from customer contract tab");
+		
+		
+		//Go on to the Customer contract tab and get the monthly payment value
+		
+        Click.on(driver, customer_contract, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		}catch(Exception e)
+		{
+			 Click.on(driver, customer_contract, 30);
+			 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		double monthlyRentalActual = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		
+		LO.print("Monthly payment After Editing the Cash Price is "+monthlyRentalActual);
+		System.out.println("Monthly payment After Editing the Cash Price is "+monthlyRentalActual);
+
+		
+		//Resetting the basic cash price
+		
+		Click.on(driver, contract_types_and_otr, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Click.on(driver, reset_button_basic_cash_price, 20);
+		
+		
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+		{
+			LO.print("Verified that monthly payment does not change after editing the basic cash price");
+			System.out.println("Verified that monthly payment does not change after editing the basic cash price");
+            return true;
+		}
+
+		else
+		{
+			LO.print("Monthly payment changed after editing the basic cash price, Found wrong");
+			System.err.println("Monthly payment changed after editing the basic cash price, Found wrong");
+			return false;
+		}
+		
 	}
 
 	public boolean verify_default_status_for_acceptance_condition_on_customer_contract_tab() throws InterruptedException, IOException, AWTException {
@@ -2024,12 +2136,7 @@ public class CustomerContractPage extends TestBase {
 		String sheetName = obj_acq_listing_page.calculation_sheet_name_from_quote_save_excel_sheet(classOrMethodName);
 		
 		//Getting expected values from calculation sheet
-		//OTR section elements		
-		double costOtrPriceExpected = GetExcelFormulaValue.get_formula_value(14, 4, sheetName);
-		double costPriceExVatAndRflExpected = GetExcelFormulaValue.get_formula_value(9, 9,
-				sheetName);
-		double otrVatExpected = GetExcelFormulaValue.get_formula_value(10, 4, sheetName);
-		double otrRflAndFrfExpected = GetExcelFormulaValue.get_formula_value(7, 9, sheetName);		
+	
 		
 		//getting expected values for cust quote summary section elements
 		

@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -17,6 +18,7 @@ import com.amt.pages.OrdersListPage;
 import com.amt.pages.StocklistPage;
 import com.amt.pages.VehicleOrderPage;
 import com.amt.testBase.TestBase;
+import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
 public class Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test extends TestBase {
@@ -47,9 +49,8 @@ CustomerContractPage obj_customer_contract;
 
 	}
 	
-	
 //	@Test(priority =2, dependsOnMethods = { "T1_open_order_created_in_acquisition_test" })
-//	public void T2_pre_order_pass_check_in_customer_contract_tab_test() throws IOException, InterruptedException, AWTException {
+//	public void pre_order_pass_check_in_customer_contract_tab_test() throws IOException, InterruptedException, AWTException {
 //		
 //	     System.out.println("");
 //
@@ -62,6 +63,60 @@ CustomerContractPage obj_customer_contract;
 //		obj_customer_contract.pre_order_pass_check();
 //		
 //	}
+	
+	@Test(priority = 2, dependsOnMethods = { "T1_open_order_created_in_acquisition_test" })
+	public void T2_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		obj_customer_contract = new CustomerContractPage();
+		
+		assertTrue(obj_customer_contract.verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab());
+		
+	}
+	
+	@Test(priority = 3,dataProvider="testData1", dependsOnMethods = { "T2_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test" })
+	public void T3_verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow_test(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
+			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name) throws IOException, InterruptedException, AWTException, ClassNotFoundException, UnsupportedFlavorException {
+		
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow(quoteRef, expiryDate,
+				term, milesPerAnnum, cashDeposit,  financeCharges,  documentFee,
+				 monthlyPayment,  finalBalloonPayment,  optionToPurchaseFee,  sheet_name));		
+		
+	}
+	
+	
+	@Test(priority = 4,dataProvider="testData1", dependsOnMethods = { "T3_verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow_test" })
+	public void T4_verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow_test(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
+			String monthlyPayment, String finalBalloonPayment, String optionToPurchaseFee, String sheet_name) throws IOException, InterruptedException, AWTException, ClassNotFoundException, UnsupportedFlavorException {
+		
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow(quoteRef, expiryDate,
+				term, milesPerAnnum, cashDeposit,  financeCharges,  documentFee,
+				 monthlyPayment,  finalBalloonPayment,  optionToPurchaseFee,  sheet_name));		
+		
+	}
+	
+	
+	
+
 //	
 //	@Test(priority = 3, dependsOnMethods = { "T2_pre_order_pass_check_in_customer_contract_tab_test" })
 //	public void T3_verify_default_order_status_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
@@ -359,4 +414,12 @@ CustomerContractPage obj_customer_contract;
 	}
 	
 
+
+
+
+@DataProvider(name = "testData1")
+public Object[][] getTestData1() throws IOException {
+	Object[][] data = ReadExcelData.getTestData("HPNR_HPNR_funder_woMaint_Orders");
+	return data;
+}
 }
