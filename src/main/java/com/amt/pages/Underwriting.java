@@ -2525,14 +2525,14 @@ public class Underwriting extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
 
 		// HelperClass.highlightElement(driver, underwriting_tab_quote);
-
-		Click.on(driver, underwriting_tab_quote, 60);		
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		
-		Thread.sleep(5000);
-		
-		Click.on(driver, underwriting_tab_proposal, 60);
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Click.on(driver, underwriting_tab_quote, 60);		
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+//		
+//		Thread.sleep(5000);
+//		
+//		Click.on(driver, underwriting_tab_proposal, 60);
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		Thread.sleep(5000);
 		

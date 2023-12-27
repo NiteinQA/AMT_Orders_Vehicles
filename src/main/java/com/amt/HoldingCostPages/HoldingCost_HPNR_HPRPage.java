@@ -618,8 +618,7 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+		
 		double monthly_holding_cost_expected = obj_read_excel_calculation_page
 				.verify_holding_cost_after_adding_funder_without_maintenance_for_hpnr_hire_purchase(totalCashPrice,
 						cashDeposit, term, milesPerAnnum, monthlyPayment, finalBalloonPayment, documentFee, sheet_name);
@@ -656,9 +655,8 @@ public class HoldingCost_HPNR_HPRPage extends TestBase {
 			throws InterruptedException, IOException {	
 
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
-		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
-
 		
+		double total_monthly_holding_cost_actual = Double.parseDouble(RemoveComma.of(total_monthly_holding_cost.getText().substring(2)));
 
 		LO.print("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);
 		System.out.println("Total monthly holding cost from screen =" + total_monthly_holding_cost_actual);

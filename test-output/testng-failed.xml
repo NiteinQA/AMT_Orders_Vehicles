@@ -3,17 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test">
+      <class name="orders.Orders_Verify_ownbook_business_purchase_funder_With_Customer_Flow_Test">
         <methods>
-          <include name="T1_open_order_created_in_acquisition_test"/>
           <include name="end"/>
-          <include name="T3_verify_that_funder_with_different_term_and_mileage_can_not_be_added_for_with_customer_flow_test"/>
-          <include name="T2_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test"/>
+          <include name="T2_pre_order_pass_check_in_customer_contract_tab_test"/>
+          <include name="T1_open_order_created_in_acquisition_test"/>
+          <include name="T3_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test"/>
           <include name="start_info"/>
-          <include name="T4_verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow_test" invocation-numbers="0"/>
+          <include name="T4_verify_that_same_funder_with_same_term_and_mileage_can_not_be_added_for_with_customer_flow_test" invocation-numbers="0"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test -->
+      </class> <!-- orders.Orders_Verify_ownbook_business_purchase_funder_With_Customer_Flow_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -31,6 +31,9 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		}
 	}
 	
+	
+	
+	
 	public double adding_cap_monthly_maintenance_to_holding_cost_with_funder_scenario_hpnr(String capMonthlyMaintValue, String sheet_name) throws IOException, InterruptedException {
 
 
@@ -774,6 +777,8 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
 		wb.getSheet(sheet_name).getRow(35).getCell(7).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
+		
+		
 
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
@@ -788,6 +793,42 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 
 	}
 
+	
+	public double verify_holding_cost_after_adding_funder_with_maintenance_for_with_customer_flow(
+			String totalCashPrice, String cashDeposit, String term, String milesPerAnnum, String monthlyPayment,String capMaintCost,
+			String finalBalloonPayment, String documentFee, String sheet_name)
+			throws IOException, InterruptedException {
+
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(31).getCell(0).setCellValue(" Monthly in advance ");
+		wb.getSheet(sheet_name).getRow(31).getCell(10).setCellValue(totalCashPrice);
+		wb.getSheet(sheet_name).getRow(33).getCell(10).setCellValue(cashDeposit);
+
+		wb.getSheet(sheet_name).getRow(34).getCell(1).setCellValue(term);
+		wb.getSheet(sheet_name).getRow(34).getCell(3).setCellValue(milesPerAnnum);
+		wb.getSheet(sheet_name).getRow(37).getCell(1).setCellValue("YES");
+		wb.getSheet(sheet_name).getRow(37).getCell(3).setCellValue(monthlyPayment);
+		wb.getSheet(sheet_name).getRow(35).getCell(7).setCellValue(capMaintCost);
+		wb.getSheet(sheet_name).getRow(43).getCell(0).setCellValue(documentFee);
+		
+		
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+		LO.print("Writing Holding Cost Summary values to excel has been completed");
+		System.out.println("Writing Holding Cost Summary values to excel has been completed");
+
+		// excel code for reading calculated values from excel sheet
+
+		
+		return GetExcelFormulaValue.get_formula_value(52, 1, sheet_name);
+
+	}
+
+	
 	public double verify_holding_cost_after_adding_funder_without_maintenance_for_cp_purchase(String cashDeposit,
 			String term, String milesPerAnnum, String monthlyPayment, String optionalFinalPayment,
 			String optionToPurchaseFee, String documentFee, String sheet_name)

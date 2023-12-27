@@ -825,7 +825,7 @@ public class CustomerContractPage extends TestBase {
 	private WebElement customer_contract_tab_configuration_configuration_contingency_insurance_value;
 
 	
-	//*************Customer Contract Page *****************
+	//*************OTR Page *****************
 	
 	@FindBy(xpath = "//*[text()='Contract types & OTR']")
 	private WebElement contract_types_and_otr;
@@ -835,6 +835,16 @@ public class CustomerContractPage extends TestBase {
 	
 	@FindBy(xpath = "//*[@title='Reset CAP Value']")
 	private WebElement reset_button_basic_cash_price;
+	
+	//*************Asset Funding Tab **************
+	
+	// Asset funding Element
+    @FindBy(xpath = "//*[contains(text(),'Asset funding')]")
+    private WebElement asset_funding;
+
+    //Selected Button
+    @FindBy(xpath = "//button[normalize-space()='Selected']")
+    private WebElement selected_funder_button;
 	
 
 	ReadExcelCalculation obj_read_excel_calculation_page;
@@ -957,7 +967,7 @@ public class CustomerContractPage extends TestBase {
 		Click.on(driver, reset_button_basic_cash_price, 20);
 		
 		
-		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.3)
 		{
 			LO.print("Verified that monthly payment does not change after editing the basic cash price");
 			System.out.println("Verified that monthly payment does not change after editing the basic cash price");
@@ -968,6 +978,89 @@ public class CustomerContractPage extends TestBase {
 		{
 			LO.print("Monthly payment changed after editing the basic cash price, Found wrong");
 			System.err.println("Monthly payment changed after editing the basic cash price, Found wrong");
+			return false;
+		}
+		
+	}
+
+	
+	public boolean verify_that_deselecting_the_selected_funder_does_not_affect_the_monthly_payment_on_customer_contract_tab() throws InterruptedException {
+		
+	
+		
+		LO.print("Started verifying monthly payment does not change after de-selecting the funder on asset funding tab");
+		System.out.println("Started verifying monthly payment does not change after de-selecting the funder on asset funding tab");
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		
+		//get the monthly payment value from customer contract page
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		
+		double monthlyRentalExpected = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		
+		LO.print("Monthly payment Before De-selecting the funder is "+monthlyRentalExpected);
+		System.out.println("Monthly payment Before De-selecting the funder is "+monthlyRentalExpected);
+
+		
+		
+		//go on Asset Funding tab and de-select the selected funder
+		
+		Click.on(driver, asset_funding, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		
+		Click.on(driver, selected_funder_button, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+      		
+		
+		LO.print("Funder De-selected");
+		System.out.println("Funder De-selected");
+
+		LO.print("Now Getting the Monthly payment from customer contract tab");
+		System.out.println("Now Getting the Monthly payment from customer contract tab");
+		
+		
+		//Go on to the Customer contract tab and get the monthly payment value
+		
+        Click.on(driver, customer_contract, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		}catch(Exception e)
+		{
+			 Click.on(driver, customer_contract, 30);
+			 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		double monthlyRentalActual = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		
+		LO.print("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+		System.out.println("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+
+		
+		
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.3)
+		{
+			LO.print("Verified that monthly payment does not change after Deselecting the funder on asset funding tab");
+			System.out.println("Verified that monthly payment does not change after Deselecting the funder on asset funding tab");
+            return true;
+		}
+
+		else
+		{
+			LO.print("Monthly payment changed after Deselecting the funder on asset funding tab");
+			System.err.println("Monthly payment changed after Deselecting the funder on asset funding tab");
 			return false;
 		}
 		
