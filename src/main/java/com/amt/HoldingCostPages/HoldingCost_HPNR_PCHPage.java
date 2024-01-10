@@ -4,9 +4,12 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +20,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
+import com.amt.testUtil.HelperClass;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
 
@@ -155,12 +159,53 @@ public class HoldingCost_HPNR_PCHPage extends TestBase {
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
 
-	@FindBy(xpath = "//*[@id='collapseCustomerQuote']/div/div/div/div/div/form/div/div/div[4]/div/p/strong")
-	private WebElement cap_monthly_maint_cost;
+
+	
+	
+	@FindBy(xpath = "//*[normalize-space()='CAP monthly maint. cost']//ancestor::div[1]//p/strong")
+	private WebElement cap_monthly_maintenance_cost;
+
 
 	public HoldingCost_HPNR_PCHPage() {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void save_maint_value_to_excel(String expiryDate , String sheet_name) throws InterruptedException, IOException {
+		
+		
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, common_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.visibleElement(driver, cap_monthly_maintenance_cost, 10);
+		
+		HelperClass.highlightElement(driver,cap_monthly_maintenance_cost);
+
+		String capMaintValue = RemoveComma.of(cap_monthly_maintenance_cost.getText().trim().substring(2));
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+
+		wb.getSheet(sheetname).getRow(1).getCell(5).setCellValue(expiryDate);
+		wb.getSheet(sheetname).getRow(4).getCell(10).setCellValue(capMaintValue);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+
+		Click.on(driver, maintenance_toggle_button, 120);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+	}
+
 
 	public boolean verify_holding_cost_after_adding_funder_quote_without_maintenance(String quoteRef, String expiryDate,
 			String term, String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee,
@@ -299,10 +344,10 @@ public class HoldingCost_HPNR_PCHPage extends TestBase {
 
 		Click.on(driver, holding_cost_summary, 30);
 
-		ExplicitWait.visibleElement(driver, cap_monthly_maint_cost, 10);
+		ExplicitWait.visibleElement(driver, cap_monthly_maintenance_cost, 10);
 
 		String cap_monthly_maint_value_from_screen = RemoveComma
-				.of(cap_monthly_maint_cost.getText().trim().substring(2));
+				.of(cap_monthly_maintenance_cost.getText().trim().substring(2));
 
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 

@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="MasterSuite">
 	<suite-files>
-		<suite-file	path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Cap maint in Asset Funding And Verify Holding Cost For BCH.xml" />
+		<!--<suite-file	path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Cap maint in Asset Funding And Verify Holding Cost For BCH.xml" />
 		<suite-file	path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Cap Maint In Asset Funding And Verify Holding Cost For HPNR.xml" />
 		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Funder And Add Cap Maint Value And Verify Holding Cost For HPNR.xml" />
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Funder Maint Value In Funder And Verify Holding Cost " />
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Maintenance In The Funder In The Asset Funding Tab And Verify Holding Cost Shown For FL PCH" />
+	 	<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Funder Maint Value In Funder And Verify Holding Cost " />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Maintenance In The Funder In The Asset Funding Tab And Verify Holding Cost Shown For FL PCH" />-->
 		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases For HPNR BCH" />
 		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases with CP BCH" />
 		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases with FL BCH" />

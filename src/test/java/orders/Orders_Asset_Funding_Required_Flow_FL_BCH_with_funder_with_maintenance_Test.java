@@ -104,16 +104,16 @@ VehicleOrderPage obj_vehicle_order_tab;
 		
 	}
 	
-//	@Test(priority = 6, dependsOnMethods = { "verify_holding_cost_after_deselecting_funder_test" })
-//	public void verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder_test() throws IOException, InterruptedException, AWTException {
-//		
-//		obj_asset_funding = new AssetFundingPage();		
-//		
-//		obj_asset_funding.verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder();
-//		
-//	}
+	@Test(priority = 6, dependsOnMethods = { "verify_holding_cost_after_deselecting_funder_test" })
+	public void verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder_test() throws IOException, InterruptedException, AWTException {
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		obj_asset_funding.verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder();
+		
+	}
 	
-	@Test(priority = 7, dependsOnMethods = { "verify_holding_cost_after_deselecting_funder_test" })
+	@Test(priority = 7, dependsOnMethods = { "verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder_test" })
 	public void verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test() throws IOException, InterruptedException, AWTException {
 		
 	     System.out.println("");
@@ -140,10 +140,6 @@ VehicleOrderPage obj_vehicle_order_tab;
 		Assert.assertTrue(obj_asset_funding.verify_funder_is_deselected_after_selecting_the_other_matrix_cell());
 		
 	}
-	
-	
-
-
 	
 	
 	@Test(priority = 9, dependsOnMethods = { "verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test" })

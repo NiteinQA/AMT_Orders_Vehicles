@@ -21,6 +21,7 @@ import com.amt.testUtil.Click;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
+import com.amt.testUtil.HelperClass;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
 
@@ -195,6 +196,22 @@ public class QuoteSummary_HPNR_PCHPage extends TestBase {
 
 	@FindBy(xpath = "//*[normalize-space()='Balance due']//ancestor::div[1]//p//strong")
 	private WebElement balance_due_value;
+	
+	
+	@FindBy(xpath = "//p[contains(text(),'Holding cost')]")
+	private WebElement holding_cost;
+
+	@FindBy(xpath = "//span[@class='slider round sliderRed']")
+	private WebElement common_maintenance_toggle;
+	
+	@FindBy(xpath = "//*[contains(text(),' Holding cost summary ')]")
+	private WebElement holding_cost_summary;
+	
+	@FindBy(xpath = "//*[normalize-space()='CAP monthly maint. cost']//ancestor::div[1]//p/strong")
+	private WebElement cap_monthly_maintenance_cost;
+	
+	@FindBy(xpath = "//span[@class='slider round sliderRed']")
+	private WebElement maintenance_toggle_button;
 
 	Properties prop;
 	
@@ -212,6 +229,157 @@ public class QuoteSummary_HPNR_PCHPage extends TestBase {
 		}
 		PageFactory.initElements(driver, this);
 	}
+	
+	
+	public void save_maint_value_to_excel(String expiryDate , String sheet_name) throws InterruptedException, IOException {
+		
+		
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, common_maintenance_toggle, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		Click.on(driver, holding_cost_summary, 30);
+
+		ExplicitWait.visibleElement(driver, cap_monthly_maintenance_cost, 10);
+		
+		HelperClass.highlightElement(driver,cap_monthly_maintenance_cost);
+
+		String capMaintValue = RemoveComma.of(cap_monthly_maintenance_cost.getText().trim().substring(2));
+
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+
+		wb.getSheet(sheetname).getRow(1).getCell(5).setCellValue(expiryDate);
+		wb.getSheet(sheetname).getRow(4).getCell(10).setCellValue(capMaintValue);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+
+		Click.on(driver, maintenance_toggle_button, 120);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+	}
+
+	
+	public boolean quote_summary_OTR_calculation_for_used_vehicle(String sheet_name)
+			throws InterruptedException, IOException {
+
+		LO.print("*************OTR Calulation on quote summary page has been started************");
+		System.out.println("*************OTR Calulation on quote summary page has been started************");
+
+		obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+		Thread.sleep(2000);
+
+		Click.on(driver, quote_summary, 60);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
+
+		ExplicitWait.visibleElement(driver, quote_summary_cost_price_ex_vat_and_rfl, 120);
+
+		ExplicitWait.visibleElement(driver, quote_summary_otr_vat, 120);
+
+		LO.print("Reading values from OTR calculation -Quote Summary Page");
+		System.out.println("Reading values from OTR calculation -Quote Summary Page");
+
+		double OTR_calculation_cost_otr_price_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_cost_otr_price.getText().trim().substring(2)));
+
+		double OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_cost_price_ex_vat_and_rfl.getText().trim().substring(2)));
+
+		double OTR_calculation_otr_vat_from_screen_converted = Double
+				.parseDouble(RemoveComma.of(quote_summary_otr_vat.getText().trim().substring(2)));
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+		System.out.println("Cost otr price from screen is " + OTR_calculation_cost_otr_price_from_screen_converted);
+
+		LO.print("Cost price ex vat and rfl from screen is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		System.out.println("Cost price ex vat and rfl from screen is "
+				+ OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+
+		LO.print("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+		System.out.println("Otr Vat from screen is " + OTR_calculation_otr_vat_from_screen_converted);
+
+		double OTR_calculation_cost_otr_price_from_excel = GetExcelFormulaValue.get_formula_value(3, 1, sheet_name);
+		double OTR_calculation_cost_price_ex_vat_and_rfl_from_excel = GetExcelFormulaValue.get_formula_value(1, 1,
+				sheet_name);
+		double OTR_calculation_otr_vat_from_excel = GetExcelFormulaValue.get_formula_value(1, 3, sheet_name);
+		double OTR_calculation_otr_rfl_and_frf_excel = GetExcelFormulaValue.get_formula_value(1, 5, sheet_name);
+
+		LO.print("");
+		System.out.println("");
+
+		LO.print("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+		System.out.println("Cost otr price from excel is " + OTR_calculation_cost_otr_price_from_excel);
+
+		LO.print("Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+		System.out.println(
+				"Cost price ex vat and rfl from excel is " + OTR_calculation_cost_price_ex_vat_and_rfl_from_excel);
+
+		LO.print("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+		System.out.println("Otr Vat from excel is " + OTR_calculation_otr_vat_from_excel);
+
+		double diff_otr = Difference.of_two_Double_Values(OTR_calculation_cost_otr_price_from_excel,
+				OTR_calculation_cost_otr_price_from_screen_converted);
+		double diff_cost_price = Difference.of_two_Double_Values(OTR_calculation_cost_price_ex_vat_and_rfl_from_excel,
+				OTR_calculation_cost_price_ex_vat_and_rfl_from_screen_converted);
+		double diff_otr_vat = Difference.of_two_Double_Values(OTR_calculation_otr_vat_from_excel,
+				OTR_calculation_otr_vat_from_screen_converted);
+
+		int count = 0;
+		boolean status = false;
+		if (diff_otr < 0.2) {
+			LO.print("OTR price compared");
+			System.out.println("OTR price compared");
+			count++;
+		} else {
+			LO.print("Found difference between OTR actual price and OTR expected price on Quote Summary Page");
+			System.err
+					.println("Found difference between OTR actual price and OTR expected price on Quote Summary Page");
+		}
+
+		if (diff_cost_price < 0.2) {
+			LO.print("Cost price ex vat and rfl compared");
+			System.out.println("Cost price ex vat and rfl compared");
+			count++;
+		} else {
+			LO.print(
+					"Found difference between (Cost price ex vat and rfl) actual and (Cost price ex vat and rfl) expected on Quote Summary Page");
+			System.err.println(
+					"Found difference between (Cost price ex vat and rfl) actual and (Cost price ex vat and rfl) expected on Quote Summary Page");
+		}
+
+		if (diff_otr_vat < 0.2) {
+			LO.print("VAT compared");
+			System.out.println("VAT compared");
+			count++;
+		} else {
+			LO.print("Found difference between VAT actual and VAT expected on Quote Summary Page");
+			System.err.println("Found difference between VAT actual and VAT expected on Quote Summary Page");
+		}
+
+		if (count == 3) {
+			status = true;
+		}
+
+		return status;
+
+	}
+
 
 	public boolean verify_balance_due_value(String sheet_name)
 			throws UnsupportedFlavorException, IOException, InterruptedException, ClassNotFoundException {

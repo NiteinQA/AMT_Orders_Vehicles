@@ -336,9 +336,14 @@ public class AssetFundingPage extends TestBase {
 	// upload input
 	@FindBy(xpath = "//*[text()='Upload']//ancestor::div[1]//input")
 	private WebElement funder_doc_upload_button;
+	
+	
+	
+	@FindBy(xpath = "//*[text()='Update']")
+	private WebElement funder_update_button;
 
 	// doc preview
-	@FindBy(xpath = "//*[@id='hcChpViewUploadedDoc']")
+	@FindBy(xpath = "//button[contains(@id, 'uploadfile')]")
 	private WebElement funder_doc_review_button;
 
 	@FindBy(xpath = "//*[text()='Contract types & OTR']")
@@ -2144,6 +2149,11 @@ public class AssetFundingPage extends TestBase {
 		funder_doc_upload_button.sendKeys(prop.getProperty("test_doc_path"));
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		Click.on(driver, funder_update_button, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	
+		Thread.sleep(2000);
 
 		boolean uploadViewButtonBoolean = false;
 		
@@ -2195,8 +2205,14 @@ public class AssetFundingPage extends TestBase {
 
 		for (WebElement e : contract_types_list) {
 			ExplicitWait.visibleElement(driver, e, 10);
+			
+			 String classAttributeValue = e.getAttribute("class");
 
-			if (e.isEnabled() && !e.isSelected() && !e.getText().trim().equalsIgnoreCase("Outright Purchase")) {
+			if (        e.isEnabled()
+					&& !classAttributeValue.contains("selected") 
+					&& !e.getText().trim().equalsIgnoreCase("Outright Purchase") 
+					&& !e.getText().trim().equalsIgnoreCase("Broker")
+					&& !e.getText().trim().equalsIgnoreCase("Business Contract Hire")) {
 				Thread.sleep(3000);
 
 				System.out.println(e.getText());
@@ -2229,16 +2245,22 @@ public class AssetFundingPage extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		boolean funderDeleteButton = false;
+	
+		Thread.sleep(3000);
+		
 		try {
-			ExplicitWait.visibleElement(driver, selected_button, 30);
-
+			
+		     ExplicitWait.visibleElement(driver, selected_button, 10);			
+			
+			
+		}catch(Exception e)
+		{
+			funderDeleteButton = true;
+			
 			LO.print("Funder in the Asset Funding Tab is removed after changing contract type");
 			System.out.println("Funder in the Asset Funding Tab is removed after changing contract type");
-
-		} catch (Exception e) {
-			funderDeleteButton = true;
-
 		}
+
 		return funderDeleteButton;
 
 	}
@@ -2436,9 +2458,9 @@ public class AssetFundingPage extends TestBase {
 		LO.print          ("Selecting the funder");
 		System.out.println("Selecting the funder");
 		
-		ExplicitWait.visibleElement(driver, selected_funder, 30);
+		ExplicitWait.visibleElement(driver, select_a_funder, 30);
 
-		Click.on(driver, selected_button, 30);
+		Click.on(driver, select_a_funder, 30);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		LO.print          ("Selecting the other cell from Holding cost matrix");
@@ -2449,10 +2471,14 @@ public class AssetFundingPage extends TestBase {
 		boolean status = false;	
 		
 		List<WebElement> ownbook_holding_cost_matrix = driver.findElements(By.xpath("//*[contains(@class, 'rTableCell')]"));
+		
+		for(int i=1; i<=ownbook_holding_cost_matrix.size();i++)
+		{
 				
-		 for (WebElement element : ownbook_holding_cost_matrix) {
+		 //for (WebElement element : ownbook_holding_cost_matrix) {
 	            // Get the class attribute value
-	           
+			
+			WebElement element = driver.findElement(By.xpath("(//*[contains(@class, 'rTableCell')])["+i+"]"));
 			 
 			 String classAttributeValue = element.getAttribute("class");
 
@@ -2467,13 +2493,14 @@ public class AssetFundingPage extends TestBase {
 //	            	LO.print          ("Selected other cell value is "+element.getText());
 //	        		System.out.println("Selected other cell value is "+element.getText());	
 	        		
+	                String newAttributeValue = element.getAttribute("class");
 	                try {
-	        		if(!element.isSelected())
+	        		if(newAttributeValue.contains("selectedprice"))
 	        		{
-	        			continue;
+	        			break;
 	        		}else
 	        		{
-	        			break; // If you only want to click the first matching element, break the loop
+	        			continue; // If you only want to click the first matching element, break the loop
 	        		}
 	                }
 	                catch(Exception e)
@@ -2481,9 +2508,9 @@ public class AssetFundingPage extends TestBase {
 	                	
 	                }
 	                
-	            
+	            }     
 	        
-		
+		}
 		 		
 		
     	LO.print          ("Now verifying that the funder is de-selected");
@@ -2493,7 +2520,8 @@ public class AssetFundingPage extends TestBase {
 		
        try
        {
-    	   ExplicitWait.visibleElement(driver, select_a_funder, 50); 
+    	   ExplicitWait.visibleElement(driver, select_a_funder, 20); 
+    	   
     	   if(select_a_funder.isDisplayed())
     	   {
     		   status = true; 
@@ -2511,8 +2539,8 @@ public class AssetFundingPage extends TestBase {
 			System.out.println("Verified but it is found that the funder is still remains selected after selecting ownbook matrix other cell --Found wrong");	
 
        }
-       }
-	 }
+       
+	
 		return status;
 	}
 
@@ -2870,6 +2898,8 @@ public class AssetFundingPage extends TestBase {
 
 		Click.on(driver, confirm_complete, 10);
 
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		String elementbackgroundColor = "";

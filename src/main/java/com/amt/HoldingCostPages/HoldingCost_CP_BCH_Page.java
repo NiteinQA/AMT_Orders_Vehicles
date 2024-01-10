@@ -170,6 +170,12 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 	
 	@FindBy(xpath = "//*[text()=' Reset ']")
 	private WebElement funder_reset_button;
+	
+	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
+	private WebElement customer_quote;
+	
+	@FindBy(xpath = "//*[@id ='acqOTRHeader']")
+	private WebElement acq_contractTypes;
 
 	public HoldingCost_CP_BCH_Page() {
 		PageFactory.initElements(driver, this);
@@ -332,6 +338,15 @@ public class HoldingCost_CP_BCH_Page extends TestBase {
 						optionToPurchaseFee, pencePerExcessMileFinance, pencePerExcessMileMaintenance, documentFee,
 						sheet_name);
 
+		Click.on(driver, acq_contractTypes, 50);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	
+		Click.on(driver, holding_cost, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		
 		ExplicitWait.visibleElement(driver, total_monthly_holding_cost, 50);
 		String monthly_holding_cost = total_monthly_holding_cost.getText().substring(2);
 

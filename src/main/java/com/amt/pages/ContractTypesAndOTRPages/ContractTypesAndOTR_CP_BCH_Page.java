@@ -269,7 +269,7 @@ public class ContractTypesAndOTR_CP_BCH_Page extends TestBase {
 
 		Click.on(driver, acq_acq_contractTypes_CP, 50);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		LO.print(" Acquisition Contract type option = Contract Purchase has been selected");
 		System.out.println("Acquisition Contract type option = Contract Purchase has been selected");

@@ -44,16 +44,16 @@ VehicleOrderPage obj_vehicle_order_tab;
 
 	}
 	
-//	@Test(priority = 2, dependsOnMethods = { "open_order_created_in_acquisition_test" })
-//	public void deliver_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-//		
-//		obj_vehicle_order_tab = new VehicleOrderPage();		
-//		
-//		Assert.assertEquals(obj_vehicle_order_tab.deliver_vehicle(), "Delivered");
-//	}
+	@Test(priority = 2, dependsOnMethods = { "open_order_created_in_acquisition_test" })
+	public void deliver_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+		
+		obj_vehicle_order_tab = new VehicleOrderPage();		
+		
+		Assert.assertEquals(obj_vehicle_order_tab.deliver_vehicle(), "Delivered");
+	}
 
 	
-	@Test(priority = 3, dependsOnMethods = { "open_order_created_in_acquisition_test" })
+	@Test(priority = 3, dependsOnMethods = { "deliver_vehicle_tab_test" })
 	public void verify_default_status_required_flow_test() throws IOException, InterruptedException, AWTException {
 	
 	     System.out.println("");

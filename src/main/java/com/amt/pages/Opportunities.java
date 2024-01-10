@@ -2337,7 +2337,7 @@ public class Opportunities extends TestBase {
 	{
 		
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
 		
 		Thread.sleep(5000);
 

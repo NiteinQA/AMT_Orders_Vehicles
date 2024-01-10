@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Verify Order Flow For Outright Purchase With Customer Flow For New Car</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>34/1/4</td>
+<td>Tests passed/Failed/Skipped:</td><td>12/1/12</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Dec 12 15:51:43 IST 2023</td>
+<td>Started on:</td><td>Thu Jan 04 13:29:43 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>1242 seconds (1242207 ms)</td>
+<tr><td>Total time:</td><td>348 seconds (348285 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,29 +75,37 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='opportunity.LOU_OP_OP_Business_Flow_Test.L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal()'><b>L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal</b><br>Test class: opportunity.LOU_OP_OP_Business_Flow_Test<br/>
-<a href="#Output-256480925" onClick='toggleBox("Output-256480925", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T13_verify_payment_section_values()'><b>T13_verify_payment_section_values</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1351568309" onClick='toggleBox("Output-1351568309", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-256480925" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-256480925">
-<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
-<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
-<b>Current Status of Channel value is =  Contract signed</b> <br /><br/>
-<b>Current Status of  Quote ref is = Contract signed</b> <br /><br/>
+<a href="#Output-1351568309" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1351568309">
+<b></b> <br /><br/>
+<b>Started verifying payment values shown under payment section</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Vehicle Invoice Actual = 59735.0</b> <br /><br/>
+<b>Vehicle Invoice Expected = 58474.99</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Document Fee Actual = 199.99</b> <br /><br/>
+<b>Document Fee Expected = 199.99</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Order Deposit Actual = 1000.0</b> <br /><br/>
+<b>Order Deposit Expected = 1000.0</b> <br /><br/>
+<b>Payment values shown under payment section have been verified but found Wrong</b> <br /><br/>
 <br>----------Screenshot---------<br><br/>
-<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal_12_12_2023_04_00_53.png" height="800" width="1000"><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\T13_verify_payment_section_values_04_01_2024_01_35_31.png" height="800" width="1000"><br/>
 </div>
 </td>
 <td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at opportunity.LOU_OP_OP_Business_Flow_Test.L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal(LOU_OP_OP_Business_Flow_Test.java:122)
+	at orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T13_verify_payment_section_values(Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.java:217)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace256480925", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace256480925'><pre>java.lang.AssertionError: expected [true] but found [false]
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1351568309", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1351568309'><pre>java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:99)
 	at org.testng.Assert.failNotEquals(Assert.java:1037)
 	at org.testng.Assert.assertTrue(Assert.java:45)
 	at org.testng.Assert.assertTrue(Assert.java:55)
-	at opportunity.LOU_OP_OP_Business_Flow_Test.L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal(LOU_OP_OP_Business_Flow_Test.java:122)
+	at orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T13_verify_payment_section_values(Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.java:217)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -126,7 +134,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab</td></tr>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -136,182 +144,121 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.make_payment_with_new_payment()'><b>make_payment_with_new_payment</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1215055212" onClick='toggleBox("Output-1215055212", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1215055212" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1215055212">
-<b></b> <br /><br/>
-<b>Generating Invoices</b> <br /><br/>
-<b>File is Uploaded Successfully</b> <br /><br/>
-</div>
-</td>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test()'><b>T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
 <td></td>
-<td>85</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
+<td>35</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test()'><b>verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-990182021" onClick='toggleBox("Output-990182021", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T9_open_asset_funding_tab_and_verify_default_status_cash_purchase_pending()'><b>T9_open_asset_funding_tab_and_verify_default_status_cash_purchase_pending</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1778700964" onClick='toggleBox("Output-1778700964", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-990182021" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-990182021">
-<b>Delivery Status after uploading the delivery note - Found OK i.e Delivered</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>23</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_payment_status_after_making_a_payment_on_customer_contract_tab()'><b>verify_payment_status_after_making_a_payment_on_customer_contract_tab</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1706019882" onClick='toggleBox("Output-1706019882", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1706019882" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1706019882">
-<b></b> <br /><br/>
-<b>Status for Payment after making payment - Found OK i.e Payment Received</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>0</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_payout_pack_statuses_on_customer_contract_tab_test()'><b>verify_payout_pack_statuses_on_customer_contract_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-125148400" onClick='toggleBox("Output-125148400", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-125148400" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-125148400">
-<b>There are no Payout pack Statuses for this order as this is used car order</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>27</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='opportunity.LOU_OP_OP_Business_Flow_Test.L2_current_status_before_sending_to_proposal()'><b>L2_current_status_before_sending_to_proposal</b><br>Test class: opportunity.LOU_OP_OP_Business_Flow_Test<br/>
-<a href="#Output-791357996" onClick='toggleBox("Output-791357996", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-791357996" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-791357996">
-<b>Clicked on Opportunity link from Menu </b> <br /><br/>
-<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
-<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
-<b>Current Status of Proposal value is = Proposal Required</b> <br /><br/>
-<b>Current Status of Channel value is =  Draft</b> <br /><br/>
-<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
-<b>Status Verified : Before sending the proposal</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>16</td>
-<td>opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test()'><b>verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1716735835" onClick='toggleBox("Output-1716735835", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1716735835" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1716735835">
-<b></b> <br /><br/>
-<b>Verifying delivery section gets enabled and delivery status is reversed to default when deliver to customer toggle button is made off</b> <br /><br/>
-<b>Delivery section is visible when direct to customer toggle button is made off</b> <br /><br/>
-<b>Delivery Status (after making direct to customer toggle off) gets reversed to default</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>5</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test()'><b>verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-484816303" onClick='toggleBox("Output-484816303", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-484816303" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-484816303">
-<b>Payments to Supplier Status after selecting payment sent date - Found OK i.e Payment Sent</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>80</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.complete_cash_purchase()'><b>complete_cash_purchase</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-658825609" onClick='toggleBox("Output-658825609", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-658825609" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-658825609">
-<b>Clicked on Complete Cash purchase</b> <br /><br/>
-<b>Cash Purchase Completed</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>7</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_default_order_status_vehicle_tab_test()'><b>verify_default_order_status_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-483560476" onClick='toggleBox("Output-483560476", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-483560476" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-483560476">
-<b>Order -- Default Status - Found OK i.e Order Pending </b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>6</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_status_cash_purchase_completed()'><b>verify_status_cash_purchase_completed</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-18196164" onClick='toggleBox("Output-18196164", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-18196164" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-18196164">
-<b>Status for Cash Purchase After Completing Cash Purchase Verified and found OK i.e.Cash Purchase Completed</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>0</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.open_asset_funding_tab_and_verify_default_status_cash_purchase_pending()'><b>open_asset_funding_tab_and_verify_default_status_cash_purchase_pending</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-659766852" onClick='toggleBox("Output-659766852", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-659766852" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-659766852">
+<a href="#Output-1778700964" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1778700964">
 <b>Asset Funding Tab Opened</b> <br /><br/>
 <b>Default Status for Cash Purchase Verified and found OK i.e.Cash Purchase Pending</b> <br /><br/>
 </div>
 </td>
 <td></td>
 <td>4</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_order_status_after_uploading_order_form_in_vehicle_tab_test()'><b>verify_order_status_after_uploading_order_form_in_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1794813154" onClick='toggleBox("Output-1794813154", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T12_verify_default_status_acceptance_conditions_for_outright_purchase_flow()'><b>T12_verify_default_status_acceptance_conditions_for_outright_purchase_flow</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1166317060" onClick='toggleBox("Output-1166317060", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1794813154" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1794813154">
+<a href="#Output-1166317060" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1166317060">
+<b></b> <br /><br/>
+<b>Opening Customer Contract Tab</b> <br /><br/>
+<b>Started verifying acceptance conditions default status</b> <br /><br/>
+<b>Default status for acceptance condition  - Found OK i.e Satisfied</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>32</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T1_open_order_created_in_acquisition_test()'><b>T1_open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1058994646" onClick='toggleBox("Output-1058994646", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1058994646" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1058994646">
+<b></b> <br /><br/>
+<b>Searching for Order ID YP-37375</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>65</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test()'><b>T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1876971306" onClick='toggleBox("Output-1876971306", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1876971306" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1876971306">
 <b>File is Uploaded Successfully</b> <br /><br/>
 <b>Order Status after uploading order form - Found OK i.e Order Confirmed </b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>74</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
+<td>75</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test()'><b>verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-662101295" onClick='toggleBox("Output-662101295", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test()'><b>T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1214850053" onClick='toggleBox("Output-1214850053", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-662101295" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-662101295">
-<b>Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked</b> <br /><br/>
+<a href="#Output-1214850053" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1214850053">
+<b>Payments to Supplier Status after selecting payment sent date - Found OK i.e Payment Sent</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>14</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
+<td>73</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test()'><b>verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1410142294" onClick='toggleBox("Output-1410142294", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T2_pass_the_pre_order_check_test()'><b>T2_pass_the_pre_order_check_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1617983326" onClick='toggleBox("Output-1617983326", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1410142294" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1410142294">
+<a href="#Output-1617983326" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1617983326">
+<b></b> <br /><br/>
+<b>Checking pre-order checks</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T5_verify_default_payment_status_on_vehicle_tab_test()'><b>T5_verify_default_payment_status_on_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1549565124" onClick='toggleBox("Output-1549565124", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1549565124" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1549565124">
+<b></b> <br /><br/>
+<b>Clicking on PAYMENTS TO DEALER</b> <br /><br/>
+<b>Payments to dealer -- Default Status - Found OK i.e Payment Required</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T11_verify_status_cash_purchase_completed()'><b>T11_verify_status_cash_purchase_completed</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1219102739" onClick='toggleBox("Output-1219102739", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1219102739" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1219102739">
+<b>Status for Cash Purchase After Completing Cash Purchase Verified and found OK i.e.Cash Purchase Completed</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test()'><b>T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-1411865437" onClick='toggleBox("Output-1411865437", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1411865437" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1411865437">
 <b></b> <br /><br/>
 <b>Click on a payments by dropdown and Select option AMT</b> <br /><br/>
 <b></b> <br /><br/>
@@ -320,347 +267,33 @@ function toggleAllBoxes() {
 </div>
 </td>
 <td></td>
-<td>4</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_OTR_calculation_test()'><b>aquisition_quotes_OP_OP_OTR_calculation_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
-<a href="#Output-705602706" onClick='toggleBox("Output-705602706", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-705602706" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-705602706">
-<b>Clicking on New quote</b> <br /><br/>
-<b>Clicked on Quote button </b> <br /><br/>
-<b>Manufacture =AUDI has been selected</b> <br /><br/>
-<b>Model range =A7 has been selected</b> <br /><br/>
-<b>Vehicle has been selected</b> <br /><br/>
-<b>Paint option has been selected</b> <br /><br/>
-<b>Interior option has been selected</b> <br /><br/>
-<b> Acquisition Contract type option = Outright Purchase has been selected</b> <br /><br/>
-<b> Customer Contract type option = Outright Purchase has been selected</b> <br /><br/>
-<b>Getting Basic Price- Vehicle value is  =44854.17</b> <br /><br/>
-<b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
-<b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
-<b>Getting Discount- Vehicle value is  =0.00</b> <br /><br/>
-<b>Getting   Discount - Paint value is   =0.00</b> <br /><br/>
-<b>Getting  Discount- Options value is   =0.00</b> <br /><br/>
-<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br /><br/>
-<b>Getting  Additional Discount - paint value is  =0.00</b> <br /><br/>
-<b>Getting  Additional Discount - Options value is  =0.00</b> <br /><br/>
-<b>Writing OTR table values to excel sheet -Started </b> <br /><br/>
-<b>Writing OTR table values to excel sheet -Completed </b> <br /><br/>
-<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
-<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
-<b>Subtotal After Discount from excel sheet is =45687.5</b> <br /><br/>
-<b>Subtotal after discount actual value from screen =£ 45,687.50</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>125</td>
-<td>acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c</td></tr>
-<tr>
-<td title='opportunity.Create_order_from_opportunity_Test.create_order_from_opportunity_test()'><b>create_order_from_opportunity_test</b><br>Test class: opportunity.Create_order_from_opportunity_Test<br/>
-<a href="#Output-342901039" onClick='toggleBox("Output-342901039", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-342901039" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-342901039">
-<b>Clicked on Opportunity link from Menu </b> <br /><br/>
-<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
-<b> </b> <br /><br/>
-<b>*****Creating Order Started*****</b> <br /><br/>
-<b> </b> <br /><br/>
-<b>***** Order Created Successfully *****</b> <br /><br/>
-<b>Order ID EO-39822 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br /><br/>
-<b>*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>45</td>
-<td>opportunity.Create_order_from_opportunity_Test@cb0755b</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_default_status_acceptance_conditions_for_outright_purchase_flow()'><b>verify_default_status_acceptance_conditions_for_outright_purchase_flow</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-674098764" onClick='toggleBox("Output-674098764", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-674098764" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-674098764">
-<b></b> <br /><br/>
-<b>Opening Customer Contract Tab</b> <br /><br/>
-<b>Started verifying acceptance conditions default status</b> <br /><br/>
-<b>Default status for acceptance condition  - Found OK i.e Satisfied</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>16</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test()'><b>verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-252611055" onClick='toggleBox("Output-252611055", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-252611055" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-252611055">
-<b>Delivery Status after uploading the delivery note - Found OK i.e Delivered</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>24</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_default_payment_status_on_vehicle_tab_test()'><b>verify_default_payment_status_on_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1286212168" onClick='toggleBox("Output-1286212168", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1286212168" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1286212168">
-<b></b> <br /><br/>
-<b>Clicking on PAYMENTS TO DEALER</b> <br /><br/>
-<b>Payments to dealer -- Default Status - Found OK i.e Payment Required</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>2</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test()'><b>verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1166937834" onClick='toggleBox("Output-1166937834", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1166937834" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1166937834">
-<b>Clicking on DELIVERY</b> <br /><br/>
-<b>Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>38</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_after_discount_calculations_test()'><b>aquisition_quotes_OP_OP_after_discount_calculations_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
-<a href="#Output-1511495858" onClick='toggleBox("Output-1511495858", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1511495858" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1511495858">
-<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
-<b>Started getting On screen values from after discount table </b> <br /><br/>
-<b>Manufacture_delivery_charges =550.00</b> <br /><br/>
-<b>Road_tax_first_year =585.00</b> <br /><br/>
-<b>First_registration_fee =65.00</b> <br /><br/>
-<b>Rebate =0.00</b> <br /><br/>
-<b>Writing After discount values to excel has been started</b> <br /><br/>
-<b>Writing After discount values to excel has been completed</b> <br /><br/>
-<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
-<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
-<b>Expected on the road price from excel is =56135.0</b> <br /><br/>
-<b>Actual on the road price from screen is =56135.00</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>4</td>
-<td>acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1689784209" onClick='toggleBox("Output-1689784209", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1689784209" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1689784209">
-<b></b> <br /><br/>
-<b>Searching for Order ID EO-39822</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>87</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.pass_the_pre_order_check_test()'><b>pass_the_pre_order_check_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-2002836171" onClick='toggleBox("Output-2002836171", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-2002836171" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-2002836171">
-<b></b> <br /><br/>
-<b>Checking pre-order checks</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>26</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test()'><b>verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-368060444" onClick='toggleBox("Output-368060444", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-368060444" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-368060444">
-<b>Clicking on DELIVERY</b> <br /><br/>
-<b>Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>38</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test()'><b>aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
-<a href="#Output-1941313112" onClick='toggleBox("Output-1941313112", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1941313112" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1941313112">
-<b>Pending Amount from screen 56074.99 Verified Successfully with applied formula 56074.988 i.e. true</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>29</td>
-<td>acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()'><b>verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-261782133" onClick='toggleBox("Output-261782133", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-261782133" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-261782133">
-<b>Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>14</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='opportunity.LOU_OP_OP_Business_Flow_Test.L3_fill_up_the_required_fields_for_sending_a_proposal()'><b>L3_fill_up_the_required_fields_for_sending_a_proposal</b><br>Test class: opportunity.LOU_OP_OP_Business_Flow_Test<br/>
-<a href="#Output-1569098998" onClick='toggleBox("Output-1569098998", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1569098998" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1569098998">
-<b>click on Proposal icon</b> <br /><br/>
-<b>Proposal page will display </b> <br /><br/>
-<b>Send proposal to customer pop up  will open</b> <br /><br/>
-<b>Click on Manual fill radio button - Yes</b> <br /><br/>
-<b>Click on manually submit behalf of customer link</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>126</td>
-<td>opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_payment_section_values()'><b>verify_payment_section_values</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1823807749" onClick='toggleBox("Output-1823807749", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1823807749" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1823807749">
-<b></b> <br /><br/>
-<b>Started verifying payment values shown under payment section</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Vehicle Invoice Actual = 56074.99</b> <br /><br/>
-<b>Vehicle Invoice Expected = 56074.99</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Document Fee Actual = 199.99</b> <br /><br/>
-<b>Document Fee Expected = 199.99</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Order Deposit Actual = 1000.0</b> <br /><br/>
-<b>Order Deposit Expected = 1000.0</b> <br /><br/>
-<b>Payment values shown under payment section have been verified and found OK</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>0</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test()'><b>aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
-<a href="#Output-721118345" onClick='toggleBox("Output-721118345", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-721118345" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-721118345">
-<b>*************OTR Calulation on quote summary page has been started************</b> <br /><br/>
-<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
-<b>Cost otr price from screen =56135.0</b> <br /><br/>
-<b>Cost price ex vat and rfl from screen =46237.5</b> <br /><br/>
-<b>OTR vat from screen =9247.5</b> <br /><br/>
-<b>Cost price compared</b> <br /><br/>
-<b>Quote no. POH31302 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br /><br/>
-<b>Writing Vehicle Sales Price to Excel</b> <br /><br/>
-<b>Vehicle Sales Price from screen is 57335.00</b> <br /><br/>
-<b>Document Fee from screen is 199.99</b> <br /><br/>
-<b>Order Deposit from screen is 1000.00</b> <br /><br/>
-<b>Pending Amount from screen is 56074.99</b> <br /><br/>
-<b>Writing completed for Vehicle Sales Price to quote save excel sheet in the sheet OP-OP</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>39</td>
-<td>acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c</td></tr>
-<tr>
-<td title='opportunity.LOU_OP_OP_Business_Flow_Test.L1_create_lead_for_Outright_Purchase_business()'><b>L1_create_lead_for_Outright_Purchase_business</b><br>Test class: opportunity.LOU_OP_OP_Business_Flow_Test<br/>
-<a href="#Output-405371102" onClick='toggleBox("Output-405371102", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-405371102" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-405371102">
-<b>Clicked on Leads on Side Menu</b> <br /><br/>
-<b>Clicked on add lead</b> <br /><br/>
-<b>Lead is assigned</b> <br /><br/>
-<b>Added data in General Notes</b> <br /><br/>
-<b>Customer type - Business selected</b> <br /><br/>
-<b>Clicked on Add new vehicle request</b> <br /><br/>
-<b>Channel- Retail Sales Selected</b> <br /><br/>
-<b>Vehicle request for broker has been saved</b> <br /><br/>
-<b>Click on Map New Quote icon</b> <br /><br/>
-<b>Click on acquisition contract type icon</b> <br /><br/>
-<b>Click on customer contract type icon</b> <br /><br/>
-<b>Click on search button</b> <br /><br/>
-<b>Click on created date button 1st </b> <br /><br/>
-<b>Click on created date button 2nd</b> <br /><br/>
-<b>New Quote has been mapped with lead</b> <br /><br/>
-<b>click ok button on Map  new quote </b> <br /><br/>
-<b>Verifying Quote no. and Sales Price Displayed in the Table</b> <br /><br/>
-<b>Expected POH31302 and Actual POH31302 are equal , Hence Passed</b> <br /><br/>
-<b>Expected 57335.00 and Actual £ 57,335.00 are equal , Hence Passed</b> <br /><br/>
-<b>Click on Lead save and Convert button</b> <br /><br/>
-<b>Verifying Quote no. and Sales Price Displayed in the Table</b> <br /><br/>
-<b>Expected POH31302 and Actual POH31302 are equal , Hence Passed</b> <br /><br/>
-<b>Expected 57335.00 and Actual £ 57,335.00 are equal , Hence Passed</b> <br /><br/>
-<b></b> <br /><br/>
-<b>In Lead created Opportunity Id is =BK-1417</b> <br /><br/>
-<b></b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>119</td>
-<td>opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab</td></tr>
-<tr>
-<td title='acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test()'><b>aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
-<a href="#Output-972127241" onClick='toggleBox("Output-972127241", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-972127241" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-972127241">
-<b>***********Entered in Customer Quote page ***********</b> <br /><br/>
-<b>Vehicle profit 1000.0 added to OTR price 56135.0and sales price updated is 57335.0 i.e. true</b> <br /><br/>
-</div>
-</td>
-<td></td>
 <td>11</td>
-<td>acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c</td></tr>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test()'><b>verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-972988226" onClick='toggleBox("Output-972988226", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T10_complete_cash_purchase()'><b>T10_complete_cash_purchase</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-992309406" onClick='toggleBox("Output-992309406", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-972988226" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-972988226">
-<b>Delivery Status are running in parallel for Customer Contract Tab and Vehicle Order Tab , Found OK</b> <br /><br/>
+<a href="#Output-992309406" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-992309406">
+<b>Clicked on Complete Cash purchase</b> <br /><br/>
+<b>Cash Purchase Completed</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>4</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
+<td>7</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test()'><b>verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
-<td></td>
-<td>35</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
-<tr>
-<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.verify_payment_default_status()'><b>verify_payment_default_status</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
-<a href="#Output-1201900764" onClick='toggleBox("Output-1201900764", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T3_verify_default_order_status_vehicle_tab_test()'><b>T3_verify_default_order_status_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test<br/>
+<a href="#Output-431300939" onClick='toggleBox("Output-431300939", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1201900764" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1201900764">
-<b></b> <br /><br/>
-<b>Started Verifying Payments  Statuses</b> <br /><br/>
-<b>Clicking on PAYMENTS</b> <br /><br/>
-<b>Payment -- Default Status - Found OK i.e Payment Required</b> <br /><br/>
+<a href="#Output-431300939" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-431300939">
+<b>Order -- Default Status - Found OK i.e Order Pending </b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>2</td>
-<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67</td></tr>
+<td>6</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -670,11 +303,11 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='opportunity.LOU_OP_OP_Business_Flow_Test.L7_verify_signed_contract_status_with_api_call()'><b>L7_verify_signed_contract_status_with_api_call</b><br>Test class: opportunity.LOU_OP_OP_Business_Flow_Test</td>
-<td><div><pre>java.lang.Throwable: Method LOU_OP_OP_Business_Flow_Test.L7_verify_signed_contract_status_with_api_call()[pri:7, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab] depends on not successfully finished methods
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test()'><b>T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test()[pri:23, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1704210725", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1704210725'><pre>java.lang.Throwable: Method LOU_OP_OP_Business_Flow_Test.L7_verify_signed_contract_status_with_api_call()[pri:7, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1860096282", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1860096282'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test()[pri:23, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -696,13 +329,13 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab</td></tr>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='opportunity.LOU_OP_OP_Business_Flow_Test.L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow()'><b>L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow</b><br>Test class: opportunity.LOU_OP_OP_Business_Flow_Test</td>
-<td><div><pre>java.lang.Throwable: Method LOU_OP_OP_Business_Flow_Test.L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow()[pri:6, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab] depends on not successfully finished methods
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test()'><b>T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test()[pri:17, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace988374464", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace988374464'><pre>java.lang.Throwable: Method LOU_OP_OP_Business_Flow_Test.L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow()[pri:6, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1504966484", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1504966484'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test()[pri:17, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -724,13 +357,13 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab</td></tr>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='opportunity.LOU_OP_OP_Business_Flow_Test.L5_sending_contract()'><b>L5_sending_contract</b><br>Test class: opportunity.LOU_OP_OP_Business_Flow_Test</td>
-<td><div><pre>java.lang.Throwable: Method LOU_OP_OP_Business_Flow_Test.L5_sending_contract()[pri:5, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab] depends on not successfully finished methods
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T21_verify_payout_pack_statuses_on_customer_contract_tab_test()'><b>T21_verify_payout_pack_statuses_on_customer_contract_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T21_verify_payout_pack_statuses_on_customer_contract_tab_test()[pri:21, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1606582782", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1606582782'><pre>java.lang.Throwable: Method LOU_OP_OP_Business_Flow_Test.L5_sending_contract()[pri:5, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1022823162", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1022823162'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T21_verify_payout_pack_statuses_on_customer_contract_tab_test()[pri:21, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -752,13 +385,13 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab</td></tr>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 <tr>
-<td title='opportunity.LOU_OP_OP_Business_Flow_Test.L8_verify_status_after_contract_signed()'><b>L8_verify_status_after_contract_signed</b><br>Test class: opportunity.LOU_OP_OP_Business_Flow_Test</td>
-<td><div><pre>java.lang.Throwable: Method LOU_OP_OP_Business_Flow_Test.L8_verify_status_after_contract_signed()[pri:8, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab] depends on not successfully finished methods
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()'><b>T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()[pri:24, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1779894202", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1779894202'><pre>java.lang.Throwable: Method LOU_OP_OP_Business_Flow_Test.L8_verify_status_after_contract_signed()[pri:8, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1263607393", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1263607393'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()[pri:24, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -780,7 +413,231 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab</td></tr>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test()'><b>T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test()[pri:19, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1325269327", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1325269327'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test()[pri:19, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test()'><b>T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test()[pri:22, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace76933283", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace76933283'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test()[pri:22, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test()'><b>T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test()[pri:25, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1818827263", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1818827263'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test()[pri:25, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T14_verify_payment_default_status()'><b>T14_verify_payment_default_status</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T14_verify_payment_default_status()[pri:14, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace493177695", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace493177695'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T14_verify_payment_default_status()[pri:14, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test()'><b>T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test()[pri:20, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace8149696", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace8149696'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test()[pri:20, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab()'><b>T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab()[pri:16, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1234980193", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1234980193'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab()[pri:16, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T15_make_payment_with_new_payment()'><b>T15_make_payment_with_new_payment</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T15_make_payment_with_new_payment()[pri:15, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace456577608", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace456577608'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T15_make_payment_with_new_payment()[pri:15, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
+<tr>
+<td title='orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test()'><b>T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test</b><br>Test class: orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test()[pri:18, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace709955086", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace709955086'><pre>java.lang.Throwable: Method Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test()[pri:18, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@6e9175d8</td></tr>
 </table><p>
 </body>
 </html>

@@ -168,6 +168,167 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 		
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void quote_summary_broker_HPNR_used_car(String sheet_name) throws InterruptedException, IOException {		LO.print("*************Calculations for Quote Summary page gas been started************");
+	System.out.println("*************Calculations for Quote Summary page gas been started************");
+
+	obj_read_excel_calculation_page = new ReadExcelCalculation();
+
+	Click.on(driver, quote_summary, 90);
+
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+
+	ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	js.executeScript("arguments[0].click();", quote_summary_save_button);
+
+	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+	ExplicitWait.visibleElement(driver, quote_summary_vehicle_heading, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
+	ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_cost_price_ex_vat_and_rfl, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_otr_vat, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_button, 120);
+
+	// Cliking on cust quote summary section
+	Click.on(driver, quote_summary_customer_quote_summary_button, 30);
+
+	// waiting for summary section elements
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 120);		
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_funder_name, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_quote_ref_number, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_quote_exp_date, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_contract_mileage, 120);
+	
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_cash_deposit, 120);	
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment_inc_document_fee, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_no_of_monthly_payments, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_final_balloon_payment, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_RFL_included, 120);
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_APR, 120);
+	
+	
+//	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_finance_rental, 120);
+//	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 120);
+	
+	ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_commission, 120);
+
+	// Vehicle details
+	String vehicle_name = quote_summary_vehicle_heading.getText().trim();
+
+	// quote no.
+	String quote_ref_no = quote_summary_ref_no.getText();
+
+	// otr section
+	String cost_otr_price_from_screen =RemoveComma.of(quote_summary_cost_otr_price.getText().trim().substring(2));
+
+	String cost_price_ex_vat_and_rfl_from_screen = RemoveComma.of(quote_summary_cost_price_ex_vat_and_rfl.getText().trim().substring(2));
+
+	String otr_vat_from_screen = RemoveComma.of(quote_summary_otr_vat.getText().trim().substring(2));
+
+
+	// customer quote section
+	// getting text from elements
+
+	String customer_contract_type = quote_summary_customer_contract_type.getText();
+	
+	String customer_quote_summary_terms = quote_summary_customer_quote_summary_terms.getText().trim().substring(0,2);
+
+	String customer_quote_summary_miles = RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim());
+
+	String customer_quote_summary_monthly_finance_payment = RemoveComma.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2));
+
+	String customer_quote_funder_name = quote_summary_customer_quote_summary_funder_name.getText().trim();
+
+	String customer_quote_summary_quote_ref_number = quote_summary_customer_quote_summary_quote_ref_number.getText().trim();
+
+	String customer_quote_summary_quote_exp_date = quote_summary_customer_quote_summary_quote_exp_date.getText().trim();
+
+	String customer_quote_summary_contract_mileage = RemoveComma.of(quote_summary_customer_quote_summary_contract_mileage.getText().trim());
+
+	String customer_quote_summary_total_cash_price = RemoveComma.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2));
+
+	String customer_quote_summary_cash_deposit = RemoveComma.of(quote_summary_customer_quote_summary_cash_deposit.getText().trim().substring(2));
+	
+	String customer_quote_summary_balance_to_finance = RemoveComma.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2));
+	
+	String customer_quote_summary_finance_charges = RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2));
+	
+	String customer_quote_summary_balance_payable = RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2));
+	
+	String customer_quote_summary_initial_cash_payment_inc_document_fee = RemoveComma.of(quote_summary_customer_quote_summary_initial_cash_payment_inc_document_fee.getText().trim().substring(2));
+	
+	String customer_quote_summary_no_of_monthly_payments = quote_summary_customer_quote_summary_no_of_monthly_payments.getText().trim();
+	
+	String customer_quote_summary_final_balloon_payment = RemoveComma.of(quote_summary_customer_quote_summary_final_balloon_payment.getText().trim().substring(2));
+	
+	String customer_quote_summary_option_to_purchase_fee = RemoveComma.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2));
+	
+	String customer_quote_summary_RFL_included = quote_summary_customer_quote_summary_RFL_included.getText().trim();
+	
+	String [] APR = quote_summary_customer_quote_summary_APR.getText().trim().split(" ");
+	
+	String customer_quote_summary_APR = APR[0];
+
+	String customer_quote_summary_commission = RemoveComma.of(quote_summary_customer_quote_summary_commission.getText().trim().substring(2));
+
+	FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+	XSSFWorkbook wb = new XSSFWorkbook(in);
+
+	String sheetname = prop.getProperty("BrokerHPNRQuoteNo");
+   //quote ref no 
+	wb.getSheet(sheetname).getRow(1).getCell(0).setCellValue(quote_ref_no);
+    //quote ref no 
+	wb.getSheet(sheetname).getRow(1).getCell(10).setCellValue(vehicle_name);
+	//customer quote values
+	wb.getSheet(sheetname).getRow(4).getCell(1).setCellValue(customer_contract_type);
+	wb.getSheet(sheetname).getRow(4).getCell(3).setCellValue(customer_quote_summary_terms);
+	wb.getSheet(sheetname).getRow(6).getCell(1).setCellValue(customer_quote_summary_miles);
+	wb.getSheet(sheetname).getRow(6).getCell(3).setCellValue(customer_quote_summary_monthly_finance_payment);
+	wb.getSheet(sheetname).getRow(8).getCell(1).setCellValue(customer_quote_funder_name);
+	wb.getSheet(sheetname).getRow(8).getCell(3).setCellValue(customer_quote_summary_quote_ref_number);
+	wb.getSheet(sheetname).getRow(10).getCell(1).setCellValue(customer_quote_summary_quote_exp_date);
+	wb.getSheet(sheetname).getRow(10).getCell(3).setCellValue(customer_quote_summary_contract_mileage);
+	wb.getSheet(sheetname).getRow(12).getCell(1).setCellValue(customer_quote_summary_total_cash_price);
+	wb.getSheet(sheetname).getRow(12).getCell(3).setCellValue(customer_quote_summary_cash_deposit);
+	wb.getSheet(sheetname).getRow(14).getCell(1).setCellValue(customer_quote_summary_balance_to_finance);
+	wb.getSheet(sheetname).getRow(14).getCell(3).setCellValue(customer_quote_summary_finance_charges);
+	wb.getSheet(sheetname).getRow(16).getCell(1).setCellValue(customer_quote_summary_balance_payable);
+	wb.getSheet(sheetname).getRow(16).getCell(3).setCellValue(customer_quote_summary_initial_cash_payment_inc_document_fee);
+	wb.getSheet(sheetname).getRow(18).getCell(1).setCellValue(customer_quote_summary_no_of_monthly_payments);
+	wb.getSheet(sheetname).getRow(18).getCell(3).setCellValue(customer_quote_summary_final_balloon_payment);
+	wb.getSheet(sheetname).getRow(20).getCell(1).setCellValue(customer_quote_summary_option_to_purchase_fee);
+	wb.getSheet(sheetname).getRow(20).getCell(3).setCellValue(customer_quote_summary_RFL_included);
+	wb.getSheet(sheetname).getRow(22).getCell(1).setCellValue(customer_quote_summary_APR);
+	wb.getSheet(sheetname).getRow(22).getCell(3).setCellValue(customer_quote_summary_commission);
+
+	//OTR values
+	wb.getSheet(sheetname).getRow(1).getCell(6).setCellValue(cost_price_ex_vat_and_rfl_from_screen);
+	wb.getSheet(sheetname).getRow(1).getCell(8).setCellValue(otr_vat_from_screen);
+	wb.getSheet(sheetname).getRow(3).getCell(8).setCellValue(cost_otr_price_from_screen);
+	
+
+	FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+	wb.write(out);
+	wb.close();
+	 
+	LO.print("Quote Summary Data collected and sent to Quote save Excel");
+	System.out.println("Quote Summary Data collected and sent to Quote save Excel");
+
+	}
+
 
 	public void quote_summary_broker_HPNR(String sheet_name) throws InterruptedException, IOException {		LO.print("*************Calculations for Quote Summary page gas been started************");
 	System.out.println("*************Calculations for Quote Summary page gas been started************");

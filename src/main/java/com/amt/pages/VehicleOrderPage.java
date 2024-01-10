@@ -538,7 +538,7 @@ public void verify_payment_status_after_selecting_payment_sent_date_on_vehicle_t
 
  public boolean verify_payment_status_after_selecting_payment_sent_date_for_amount_due_if_payment_by_AMT() throws InterruptedException
  {
-		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
+		JavaScriptExecutor.scroll_in_to_view(driver, date_payment_requested_order_deposit);
 		// Click on generate Invoice
 		Click.on(driver, button_generate_invoice, 30);
 		Thread.sleep(2000);
@@ -889,7 +889,7 @@ public boolean verify_delivery_status_after_uploading_delivery_note_in_post_deli
 	
 	String elementBackgroundColor = "";
 
-	ExplicitWait.visibleElement(driver, status_delivered, 10);
+	ExplicitWait.visibleElement(driver, status_delivered, 20);
 
 	elementBackgroundColor = status_delivered.getCssValue("background-color");
 
@@ -933,11 +933,11 @@ public boolean verify_delivery_status_on_customer_contract_tab_and_vehicle_order
 		if (elementBackgroundColorOnCustomerContratctTab.equals(elementBackgroundColorOnVehicleOrderTab)) {
 
 			LO.print("Delivery Status are running in parallel for Customer Contract Tab and Vehicle Order Tab , Found OK");
-			System.out.println("Delivery Status are running in parallel for Customer Contract Tab and Vehicle Order Tab , Found Wrong");
+			System.out.println("Delivery Status are running in parallel for Customer Contract Tab and Vehicle Order Tab , Found OK");
 			 return true;
 
 		} else {
-			LO.print("Delivery Status are not running in parallel for Customer Contract Tab and Vehicle Order Tab , Found OK");
+			LO.print("Delivery Status are not running in parallel for Customer Contract Tab and Vehicle Order Tab , Found Wrong");
 			System.err.println("Delivery Status are not running in parallel for Customer Contract Tab and Vehicle Order Tab , Found Wrong");
 			return false;
 		}
@@ -1020,17 +1020,17 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 
 	public void fill_supplier_information() throws InterruptedException
 	{
-		Click.sendKeys(driver, supplier_name, "a", 30);
+		Click.sendKeys(driver, supplier_name, "d", 30);
 		Thread.sleep(500);
-		supplier_name.sendKeys("r");
+		supplier_name.sendKeys("u");
 		Thread.sleep(500);
-		supplier_name.sendKeys("p");
+		supplier_name.sendKeys("m");
 		Thread.sleep(500);
-		supplier_name.sendKeys("i");
+		supplier_name.sendKeys("m");
 		Thread.sleep(500);
-		supplier_name.sendKeys("t");
+		supplier_name.sendKeys("y");
 		Thread.sleep(500);
-		supplier_name.sendKeys("a");
+		supplier_name.sendKeys(" ");
 		
 		Click.on(driver, select_supplier_name,30);		
 		
@@ -1198,10 +1198,13 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 		Thread.sleep(10000);
 		// Click on  Date offered input
 		Click.on(driver, vehicle_order_date_offered_input, 20);
-		Thread.sleep(8000);
+		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
 		// pick date offered
+		Thread.sleep(8000);
+		CommonClass.move_courser();
+		Thread.sleep(2000);
 		CommonClass.move_courser();
 		Click.on(driver, vehicle_order_date_offered, 20);	
 		Thread.sleep(2000);

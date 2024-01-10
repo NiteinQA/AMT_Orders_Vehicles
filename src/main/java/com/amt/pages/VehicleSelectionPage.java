@@ -2,6 +2,7 @@ package com.amt.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -65,6 +66,9 @@ public class VehicleSelectionPage extends TestBase {
 	
 	@FindBy(xpath = "//*[@name='assetTypeId']")
 	private WebElement dropdown_asset_type;
+	
+	@FindBy(xpath = "//*[text()=' VAT qualifying ']//ancestor::div[1]//input")
+	private WebElement vat_qualifying_checkbox;
 	
 	
 	
@@ -240,6 +244,14 @@ public void select_vehicle_for_used_car_flow(String regitrationNumber , String m
     Click.on(driver, search_button, 120);
     
     ExplicitWait.visibleElement(driver, vehicle_option_used_car, 120);
+    
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+
+  	js.executeScript("arguments[0].click();", vat_qualifying_checkbox);
+      
+      ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+      
+      Thread.sleep(3000);
     
     
     Actions act = new Actions(driver);

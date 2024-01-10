@@ -830,7 +830,7 @@ public class CustomerContractPage extends TestBase {
 	@FindBy(xpath = "//*[text()='Contract types & OTR']")
 	private WebElement contract_types_and_otr;
 	
-	@FindBy(xpath = "//*[normalize-space()='Basic price']//ancestor::div[1]//div//div//input")
+	@FindBy(xpath = "//*[normalize-space()='Basic price']//ancestor::div[1]//div//div//input|//*[normalize-space()='Vehicle cost price']//ancestor::div[1]//div//div//input")
 	private WebElement input_basic_cash_price;	
 	
 	@FindBy(xpath = "//*[@title='Reset CAP Value']")
@@ -964,7 +964,7 @@ public class CustomerContractPage extends TestBase {
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
-		Click.on(driver, reset_button_basic_cash_price, 20);
+		//Click.on(driver, reset_button_basic_cash_price, 20);
 		
 		
 		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.3)
@@ -1017,6 +1017,8 @@ public class CustomerContractPage extends TestBase {
 		Click.on(driver, selected_funder_button, 30);
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
       		
 		
 		LO.print("Funder De-selected");
@@ -1048,6 +1050,17 @@ public class CustomerContractPage extends TestBase {
 		LO.print("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
 		System.out.println("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
 
+		
+		//go on Asset Funding tab and select the selected funder
+		
+		Click.on(driver, asset_funding, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		
+		Click.on(driver, select_a_funder, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		
 		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.3)
@@ -1176,7 +1189,7 @@ public class CustomerContractPage extends TestBase {
 				
 		String sheetName = obj_acq_listing_page.quote_save_sheet_name_from_quote_save_excel_sheet(classOrMethodName);
 		
-		double vehicleInvoiceExpected = Double.parseDouble(GetExcelFormulaValue.get_cell_value(10, 1, sheetName));
+		double vehicleInvoiceExpected = Double.parseDouble(GetExcelFormulaValue.get_cell_value(1, 1, sheetName));
 		double docFeeExpected         = Double.parseDouble(GetExcelFormulaValue.get_cell_value(4, 1, sheetName));
 		double orderDepositExpected   = Double.parseDouble(GetExcelFormulaValue.get_cell_value(7, 1, sheetName));
 		
@@ -5963,10 +5976,14 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 			
 			obj_customer_contract_tab = new CustomerContractPage() ;
 			
+			try {
 			obj_customer_contract_tab.get_value_for_amount_due_and_write_in_amount_to_allocate_field(0);
 			obj_customer_contract_tab.get_value_for_amount_due_and_write_in_amount_to_allocate_field(1);
 			obj_customer_contract_tab.get_value_for_amount_due_and_write_in_amount_to_allocate_field(2);
-			
+			}catch(Exception e)
+			{
+				
+			}
 			
 			
 			

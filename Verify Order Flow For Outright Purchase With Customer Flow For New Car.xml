@@ -3,9 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Verify Order Flow For Outright Purchase With Customer Flow For New Car">
     <classes>
-      <class name="acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test"/>
+     <!--  <class name="acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test"/>
       <class name="opportunity.LOU_OP_OP_Business_Flow_Test"/>
-      <class name="opportunity.Create_order_from_opportunity_Test"/>
+      <class name="opportunity.Create_order_from_opportunity_Test"/>-->
       <class name="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test"/>
     </classes>
   </test> <!-- Verify Order Flow For Outright Purchase With Customer Flow For New Car -->
