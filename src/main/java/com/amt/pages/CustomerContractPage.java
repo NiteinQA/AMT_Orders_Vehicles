@@ -936,6 +936,7 @@ public class CustomerContractPage extends TestBase {
 		
 		
 		//Go on to the Customer contract tab and get the monthly payment value
+		Thread.sleep(2000);
 		
         Click.on(driver, customer_contract, 30);
 		
@@ -6167,7 +6168,9 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 			
 		    for(int i=0; i<=generateInvoiceButtonListSize-1; i++)
 			   {
-			      	    	 
+			      	
+		    	  System.out.println(i);
+		    	 
 		    	   ExplicitWait.visibleElement(driver, payment_generate_invoice_button_list.get(i), 20);
 		    	      	    	   
 		    	   payment_generate_invoice_button_list.get(i).click();
@@ -6232,6 +6235,158 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 			System.out.println("Invoices/Deposits Selected");
 			
             ExplicitWait.visibleElement(driver, Invoiced_total, 10);
+			
+			double totalInvoiceValue = Double.parseDouble(RemoveComma.of(Invoiced_total.getText().substring(2)));
+			
+			Actions act = new Actions(driver);
+			
+			ExplicitWait.visibleElement(driver, input_payment_amount, 10);
+			
+			input_payment_amount.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
+			
+			Click.sendKeysdouble(driver, input_payment_amount, totalInvoiceValue, 10);
+			
+			act.sendKeys(Keys.TAB).build().perform();
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			
+			obj_customer_contract_tab = new CustomerContractPage() ;
+			
+	        String amountToAllocateValueXpath = "//*[contains(@id, 'amountAllocated')]"; 
+		    
+	        List<WebElement> element =  driver.findElements(By.xpath(amountToAllocateValueXpath));
+	        
+			
+			for(int j=0; j<=element.size()-1;j++)
+			{
+			
+			obj_customer_contract_tab.get_value_for_amount_due_and_write_in_amount_to_allocate_field(j);
+					
+			}		
+			
+	
+			obj_vehicle_order_tab = new VehicleOrderPage();
+			
+			Click.on(driver, payment_receipt_upload_button, 30);
+			
+			obj_vehicle_order_tab.upload_file(payment_receipt_upload_button, prop.getProperty("test_image_path"));
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			
+			
+			 ExplicitWait.visibleElement(driver, amount_allocated, 10);
+				
+				double amountAllocated = Double.parseDouble(RemoveComma.of(amount_allocated.getText().substring(2)));
+				
+							
+				ExplicitWait.visibleElement(driver, input_payment_amount, 10);
+				
+				input_payment_amount.sendKeys(Keys.chord(Keys.CONTROL, "a" , Keys.DELETE));
+				
+				Click.sendKeysdouble(driver, input_payment_amount, amountAllocated+1, 10);
+				
+				act.sendKeys(Keys.TAB).build().perform();
+				
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			
+			Click.on(driver, button_save_payment, 10);		
+		
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+			
+			LO.print("All Payments Done");
+			System.out.println("All Payments Done");
+
+	}
+
+	
+	public void make_payment1() throws InterruptedException, NumberFormatException, AWTException {
+		
+		
+		   LO.print("");
+		   System.err.println("");
+		   
+		   
+ try {
+		   LO.print("Generating Invoices");
+		   System.out.println("Generating Invoices");
+		   
+		   
+		   ExplicitWait.waitForListOfVisibleElements(driver, payment_generate_invoice_button_list, 20);
+		   
+		    int generateInvoiceButtonListSize =  payment_generate_invoice_button_list.size();
+		   	
+		    System.out.println(generateInvoiceButtonListSize);
+			
+		  while(!payment_generate_invoice_button_list.isEmpty())
+			   {
+			      	
+		    	   ExplicitWait.visibleElement(driver, payment_generate_invoice_button_list.get(0), 20);
+		    	      	    	   
+		    	   payment_generate_invoice_button_list.get(0).click();
+		    	   
+				   Thread.sleep(2000);
+			       
+				   Click.on(driver, generate_invoice_confirm_button, 5);
+			       Thread.sleep(2000);
+			       
+			       ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			       
+				   LO.print("Invoices Generated");
+				   System.out.println("Invoices Generated");  
+			   }			   
+	       
+           }catch(Exception e)
+           {e.printStackTrace(); }
+		
+		   Click.on(driver, button_new_payment, 10);
+		   
+		   LO.print("Clicked On New Payment");
+		   System.out.println("Clicked On New Payment");
+
+		   
+		   Thread.sleep(5000);		   
+			 
+			// Click on uploaded to funder
+			Click.on(driver, date_payment, 20);
+			Thread.sleep(8000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+			// pick date
+			CommonClass.move_courser();
+			Click.on(driver, pick_a_date, 20);
+			Thread.sleep(5000);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+			
+			Click.on(driver, payment_type, 10);
+			Thread.sleep(2000);
+			Click.on(driver, payment_type_option_banking, 10);
+			
+			
+
+			Click.on(driver, add_invoice_button, 10);
+			Thread.sleep(2000);
+			
+			   LO.print("Selecting Invoices/Deposits");
+			   System.out.println("Selecting Invoices/Deposits");
+
+				
+			for(WebElement e: select_invoice_button)
+			{
+				Click.on(driver, e, 10);
+				
+				Thread.sleep(2000);
+			}
+			
+			Click.on(driver, save_invoice_button, 10);
+			
+			LO.print("Invoices/Deposits Selected");
+			System.out.println("Invoices/Deposits Selected");
+			
+         ExplicitWait.visibleElement(driver, Invoiced_total, 10);
 			
 			double totalInvoiceValue = Double.parseDouble(RemoveComma.of(Invoiced_total.getText().substring(2)));
 			

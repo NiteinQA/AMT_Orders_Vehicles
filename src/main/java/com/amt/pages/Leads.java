@@ -83,7 +83,7 @@ public class Leads extends TestBase {
 	@FindBy(xpath = "//button[contains(text(), 'Add new vehicle request')]")
 	private WebElement add_new_vehicle_request;
 
-	@FindBy(xpath = "//*[@id='vehiclinfo2']/div/div/div/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[2]")
+	@FindBy(xpath = "//ng-multiselect-dropdown//*[text()='Channel']")
 	private WebElement channel;
 
 	@FindBy(xpath = "//*[@class='item2']")
@@ -703,9 +703,9 @@ public class Leads extends TestBase {
 		System.out.println("Clicked on Add new vehicle request");
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		// Thread.sleep(4000);
-
 		
+		
+		Thread.sleep(4000);
 		 
 
 		Click.on(driver, channel, 120);

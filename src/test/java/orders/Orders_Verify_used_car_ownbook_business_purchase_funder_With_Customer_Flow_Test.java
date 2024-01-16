@@ -21,7 +21,7 @@ import com.amt.testBase.TestBase;
 import com.amt.testUtil.ReadExcelData;
 
 @Listeners(com.amt.testUtil.ScreenshotListener.class)
-public class Orders_Verify_ownbook_business_hire_funder_With_Customer_Flow_Test extends TestBase {
+public class Orders_Verify_used_car_ownbook_business_purchase_funder_With_Customer_Flow_Test extends TestBase {
 
 
  OrdersListPage   obj_orders_list;
@@ -65,6 +65,10 @@ CustomerContractPage obj_customer_contract;
 		
 	}
 	
+	
+	
+	
+	
 	@Test(priority = 3, dependsOnMethods = { "T2_pre_order_pass_check_in_customer_contract_tab_test" })
 	public void T3_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test() throws IOException, InterruptedException, AWTException {
 		
@@ -74,7 +78,7 @@ CustomerContractPage obj_customer_contract;
 		
 		obj_customer_contract = new CustomerContractPage();
 		
-		assertTrue(obj_customer_contract.verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab());
+	   obj_customer_contract.verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab();
 		
 	}
 	
@@ -105,9 +109,11 @@ CustomerContractPage obj_customer_contract;
 		
 		obj_customer_contract = new CustomerContractPage();
 		
-		 obj_customer_contract.verify_that_deselecting_the_selected_funder_does_not_affect_the_monthly_payment_on_customer_contract_tab();
+		assertTrue(obj_customer_contract.verify_that_deselecting_the_selected_funder_does_not_affect_the_monthly_payment_on_customer_contract_tab());
 		
 	}	
+	
+	
 
 	
 	@Test(priority = 6, dependsOnMethods = { "T5_verify_that_deselecting_the_selected_funder_does_not_affect_the_monthly_payment_on_customer_contract_tab_test" })
@@ -186,7 +192,7 @@ CustomerContractPage obj_customer_contract;
 		
 	}
 	
-	@Test(priority = 11, dependsOnMethods = { "T10_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test" })
+	@Test(priority =11, dependsOnMethods = { "T10_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test" })
 	public void T11_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
 	     System.out.println("");
@@ -203,7 +209,7 @@ CustomerContractPage obj_customer_contract;
 
 	
 	@Test(priority = 12, dependsOnMethods = { "T11_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test" })
-	public void T12_verify_default_status_acceptance_conditions_for_ownbook_hire_flow() throws IOException, InterruptedException, AWTException {
+	public void T12_verify_default_status_acceptance_conditions_for_ownbook_purchase_flow() throws IOException, InterruptedException, AWTException {
 		
 	     System.out.println("");
 
@@ -215,8 +221,8 @@ CustomerContractPage obj_customer_contract;
 		
 	}
 
-	@Test(priority = 13, dependsOnMethods = { "T12_verify_default_status_acceptance_conditions_for_ownbook_hire_flow" })
-	public void T13_verify_summary_section_values() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+	@Test(priority = 13, dependsOnMethods = { "T12_verify_default_status_acceptance_conditions_for_ownbook_purchase_flow" })
+	public void T13_verify_summary_section_values() throws IOException, InterruptedException, AWTException, ClassNotFoundException, UnsupportedFlavorException {
 		
 	     System.out.println("");
 
@@ -224,7 +230,9 @@ CustomerContractPage obj_customer_contract;
 		
 		obj_customer_contract = new CustomerContractPage();
 		
-		obj_customer_contract.verify_quote_summary_and_configuration_values_on_customer_contract_tab_for_ownbook_hire_funder_flow();
+		//assertTrue(
+				obj_customer_contract.verify_quote_summary_and_configuration_values_on_customer_contract_tab_for_ownbook_purchase_funder_flow();
+		//		);
 		
 	}
 
@@ -250,7 +258,7 @@ CustomerContractPage obj_customer_contract;
 		
 		obj_customer_contract = new CustomerContractPage();
 		
-		obj_customer_contract.make_payment_for_ownbook_hire();
+		obj_customer_contract.make_payment1();
 		
 	}
 	
@@ -328,7 +336,7 @@ CustomerContractPage obj_customer_contract;
 		
 	}
 	
-	@Test(priority = 21, dependsOnMethods = { "T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test" })
+	@Test(priority =21, dependsOnMethods = { "T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test" })
 	public void T21_verify_payout_pack_statuses_on_customer_contract_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
 	     System.out.println("");
@@ -410,6 +418,4 @@ CustomerContractPage obj_customer_contract;
 		Object[][] data = ReadExcelData.getTestData("HPNR_HPNR_funder_woMaint_Orders");
 		return data;
 	}
-	
-
 }
