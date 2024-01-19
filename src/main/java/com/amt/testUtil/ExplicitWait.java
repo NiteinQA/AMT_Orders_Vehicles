@@ -35,11 +35,29 @@ public class ExplicitWait extends TestBase {
    		count++;
    		}
    		Thread.sleep(2000);
+ 
+   		
+   		int count1 = 0;
+   		while(elementList.size()!=0 && count1 <timeout)
+   		{
+   		Thread.sleep(1000);
+   		count1++;
+   		}
+   		Thread.sleep(2000);
+
+   		
+   		
+   		
+   		
 	 }
 	 catch(Exception e) 
 	 {
 		
 	 }
+	
+	
+	
+	
 	}
 	
 	public static void waitForListOfVisibleElements(WebDriver driver, List<WebElement> element , int timeout )

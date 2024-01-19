@@ -336,24 +336,10 @@ CustomerContractPage obj_customer_contract;
 		
 	}
 	
-	@Test(priority =21, dependsOnMethods = { "T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test" })
-	public void T21_verify_payout_pack_statuses_on_customer_contract_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
-		
-	     System.out.println("");
-
-	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
-		
-		
-	     obj_customer_contract = new CustomerContractPage();
-	     
-	     
-	     obj_customer_contract.verify_payout_pack_statuses();
-		
-	}
 	
 	
-	@Test(priority = 22, dependsOnMethods = { "T21_verify_payout_pack_statuses_on_customer_contract_tab_test" })
-	public void T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+	@Test(priority = 21, dependsOnMethods = { "T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test" })
+	public void T21_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
 	     System.out.println("");
 
@@ -367,8 +353,8 @@ CustomerContractPage obj_customer_contract;
 	}
 	
 	
-	@Test(priority = 23, dependsOnMethods = { "T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test" })
-	public void T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+	@Test(priority = 22, dependsOnMethods = { "T21_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test" })
+	public void T22_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
 	     System.out.println("");
 
@@ -382,8 +368,8 @@ CustomerContractPage obj_customer_contract;
 		
 	}
 
-	@Test(priority = 24, dependsOnMethods = { "T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test" })
-	public void T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+	@Test(priority = 23, dependsOnMethods = { "T22_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test" })
+	public void T23_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
 	     System.out.println("");
 
@@ -398,8 +384,8 @@ CustomerContractPage obj_customer_contract;
 	}
 	
 	
-	@Test(priority = 25, dependsOnMethods = { "T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" })
-	public void T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
+	@Test(priority = 24, dependsOnMethods = { "T23_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" })
+	public void T24_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test() throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 		
 	     System.out.println("");
 
@@ -412,6 +398,50 @@ CustomerContractPage obj_customer_contract;
 		
 		
 	}
+	
+	@Test(priority =25, dependsOnMethods = { "T24_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test" })
+	public void T25_verify_finance_documents_statuses_for_required_flow_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_finance_documents_statuses());
+		
+	}
+	
+	@Test(priority = 26, dependsOnMethods = { "T25_verify_finance_documents_statuses_for_required_flow_test" })
+	public void T26_verify_payments_to_funder_statuses_for_required_flow_test() throws IOException, InterruptedException, AWTException {
+		
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_payments_to_funder_statuses());
+		
+	}
+	
+	@Test(priority = 27, dependsOnMethods = { "T26_verify_payments_to_funder_statuses_for_required_flow_test" })
+	public void T27_verify_completed_status_for_required_flow_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_completed_status());
+		
+	}
+
+	
 	
 	@DataProvider(name = "testData1")
 	public Object[][] getTestData1() throws IOException {

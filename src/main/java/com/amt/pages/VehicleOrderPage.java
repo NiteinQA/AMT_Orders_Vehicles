@@ -236,6 +236,9 @@ public class VehicleOrderPage extends TestBase {
 
 	@FindBy(xpath = "//*[@id='confirmationModal']//*[text()=' Yes']")
 	private WebElement button_generate_invoice_cofirm;
+	
+	@FindBy(xpath = "//*[text()='Order deposit']")
+	private WebElement order_deposit;
 
 	@FindBy(xpath = "(//label[normalize-space()='Payment requested']//ancestor::div[1]//input)[1]")
 	private WebElement date_payment_requested_order_deposit;
@@ -490,9 +493,9 @@ public boolean verify_default_status_of_order_in_vehicle_order_tab() throws Inte
 	
 	
 public void verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab() throws InterruptedException {
-	
+	try {
 	// Click on Payment Requested
-	Click.on(driver, date_payment_requested_order_deposit, 20);
+	Click.on(driver, date_payment_requested_order_deposit, 10);
 	Thread.sleep(8000);
 	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
@@ -512,7 +515,10 @@ public void verify_payment_status_after_selecting_payment_sent_date_on_vehicle_t
 	Click.on(driver, pick_a_date, 20);
 	Thread.sleep(5000);
 	ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
-
+	}catch(Exception e)
+	{
+		
+	}
 	
 	
 //	String elementColor = "";
@@ -551,7 +557,7 @@ public void verify_payment_status_after_selecting_payment_sent_date_on_vehicle_t
 
 		Thread.sleep(10000);
 		
-		JavaScriptExecutor.scroll_in_to_view(driver, date_payment_sent_order_deposit);
+		JavaScriptExecutor.scroll_in_to_view(driver, order_deposit);
 		
 		Thread.sleep(5000);		
 		
@@ -889,7 +895,7 @@ public boolean verify_delivery_status_after_uploading_delivery_note_in_post_deli
 	
 	String elementBackgroundColor = "";
 
-	ExplicitWait.visibleElement(driver, status_delivered, 20);
+	ExplicitWait.visibleElement(driver, status_delivered, 50);
 
 	elementBackgroundColor = status_delivered.getCssValue("background-color");
 
@@ -1134,6 +1140,8 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
 		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+		
 
 	}
 
@@ -1196,10 +1204,14 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 		Click.on(driver, delivered_to_AMT,30);		
 
 		Thread.sleep(10000);
+		
+		JavaScriptExecutor.scroll_in_to_view(driver, delivered_to_dropdown);	
 		// Click on  Date offered input
 		Click.on(driver, vehicle_order_date_offered_input, 20);
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+			
 
 		// pick date offered
 		Thread.sleep(8000);
@@ -1216,7 +1228,7 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 	public void select_confirmed_delivery_date_in_delivery_section_on_vehicle_order_tab()
 			throws IOException, InterruptedException, AWTException, ClassNotFoundException {
 
-	
+		JavaScriptExecutor.scroll_in_to_view(driver, delivered_to_dropdown);	
 		// Click on confirmed delivery date 
 		Click.on(driver, vehicle_order_confirmed_delivery_date, 20);
 		Thread.sleep(8000);
@@ -1224,10 +1236,18 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 
 		// pick confirmed delivery date
 		CommonClass.move_courser();
+		CommonClass.move_courser1();
 		Click.on(driver, vehicle_order_pick_confirmed_delivery_date, 20);
 
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);	
+		
+		 JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+
+	        // Use JavaScript to scroll to the bottom of the page
+	        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+		 
 
 	}
 

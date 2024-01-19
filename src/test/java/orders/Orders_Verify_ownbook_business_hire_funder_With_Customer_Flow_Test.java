@@ -250,7 +250,7 @@ CustomerContractPage obj_customer_contract;
 		
 		obj_customer_contract = new CustomerContractPage();
 		
-		obj_customer_contract.make_payment_for_ownbook_hire();
+		obj_customer_contract.make_payment1();
 		
 	}
 	
@@ -402,6 +402,48 @@ CustomerContractPage obj_customer_contract;
 		
 		Assert.assertTrue(obj_vehicle_order_tab.verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab());
 		
+		
+	}
+	
+	@Test(priority =26, dependsOnMethods = { "T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test" })
+	public void T26_verify_finance_documents_statuses_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_finance_documents_statuses());
+		
+	}
+	
+	@Test(priority = 27, dependsOnMethods = { "T26_verify_finance_documents_statuses_test" })
+	public void T27_verify_payments_to_funder_statuses_test() throws IOException, InterruptedException, AWTException {
+		
+	
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_payments_to_funder_statuses());
+		
+	}
+	
+	@Test(priority = 28, dependsOnMethods = { "T27_verify_payments_to_funder_statuses_test" })
+	public void T28_verify_completed_status_for_test() throws IOException, InterruptedException, AWTException {
+		
+	     System.out.println("");
+
+	     System.out.println("Running the Test : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		
+		obj_asset_funding = new AssetFundingPage();		
+		
+		Assert.assertTrue(obj_asset_funding.verify_completed_status());
 		
 	}
 	

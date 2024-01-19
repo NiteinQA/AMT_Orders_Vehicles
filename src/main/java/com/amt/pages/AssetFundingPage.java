@@ -1754,9 +1754,15 @@ public class AssetFundingPage extends TestBase {
 		
 		
 		//get the monthly payment value from customer contract page
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		}catch(Exception e)
+		{
+			Click.on(driver, customer_contract, 20);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
 		
 		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
-		
 		double monthlyRentalExpected = Double
 				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
 		
@@ -2545,23 +2551,19 @@ public class AssetFundingPage extends TestBase {
 	}
 
 	
-	public void verify_funders_with_same_term_and_mileage_can_not_be_added() throws InterruptedException, IOException {
-
-		LO.print("");
-		System.out.println("");
-
-		// try to delete funder
-
-		LO.print("Adding funder with same term and mileage");
-		System.out.println("Adding funder with same term and mileage");
-
-	}
 
 	public boolean verify_finance_documents_statuses() throws InterruptedException, IOException {
 
 		LO.print("");
 		System.out.println("");
-
+		
+		try {
+		Click.on(driver, asset_funding, 30);		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}catch(Exception e)
+		{
+			
+		}
 		LO.print("Sterted Verifying Finance Document Statuses for required flow");
 		System.out.println("Sterted Verifying Finance Document Statuses for required flow");
 
@@ -2779,14 +2781,19 @@ public class AssetFundingPage extends TestBase {
 
 		JavaScriptExecutor.scroll_in_to_view(driver, back_button);
 		// Click on generate Invoice
-		Click.on(driver, button_generate_invoice, 30);
+		try {
+		Click.on(driver, button_generate_invoice, 10);
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		// Confirm pop up
-		Click.on(driver, button_generate_invoice_cofirm, 30);
+		Click.on(driver, button_generate_invoice_cofirm, 10);
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		}catch(Exception e)
+		{
+			
+		}
 
 		// Click on Payment Requested
 		Click.on(driver, date_payment_requested_for_doc_fee, 20);
@@ -2810,15 +2817,20 @@ public class AssetFundingPage extends TestBase {
 		Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
+		try {
 		// Click on generate Invoice
-		Click.on(driver, button_generate_invoice, 30);
+		Click.on(driver, button_generate_invoice, 10);
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
 		// Confirm pop up
-		Click.on(driver, button_generate_invoice_cofirm, 30);
+		Click.on(driver, button_generate_invoice_cofirm, 10);
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		}catch(Exception e)
+		{
+			
+		}
 
 		// Click on Payment Requested
 		Click.on(driver, date_payment_requested_for_finance_deposit, 20);

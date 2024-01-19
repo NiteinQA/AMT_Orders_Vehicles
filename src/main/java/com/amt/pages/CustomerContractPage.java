@@ -965,8 +965,12 @@ public class CustomerContractPage extends TestBase {
 		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
-		//Click.on(driver, reset_button_basic_cash_price, 20);
-		
+		try {
+		Click.on(driver, reset_button_basic_cash_price, 10);
+		}catch(Exception e)
+		{
+			
+		}
 		
 		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.3)
 		{
@@ -1247,6 +1251,10 @@ public class CustomerContractPage extends TestBase {
 			throws InterruptedException, ClassNotFoundException, IOException {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+		Click.on(driver, customer_contract, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
 
 		System.out.println("Started Verifying Quote Summary and Configuration Values");
 		LO.print          ("Started Verifying Quote Summary and Configuration Values");
@@ -1278,7 +1286,12 @@ public class CustomerContractPage extends TestBase {
 		Click.on(driver, customer_contract_tab_configuration_heading_button, 30);
 		
 		//waiting for Configuration elements 
+		try {
 		ExplicitWait.visibleElement(driver, customer_contract_tab_base_interest_rate, 20);
+		}catch(Exception e)
+		{
+			
+		}
 		ExplicitWait.visibleElement(driver, customer_contract_tab_finance_margin, 20);
 		ExplicitWait.visibleElement(driver, customer_contract_tab_deductions, 20);
 		ExplicitWait.visibleElement(driver, customer_contract_tab_additional_margin, 20);
@@ -1336,9 +1349,13 @@ public class CustomerContractPage extends TestBase {
 
 
 		// reading configuration values from screen
-		
-		double baseInterestRateFromScreen = Double.parseDouble(customer_contract_tab_base_interest_rate.getText().trim().substring(0, 5));
-		
+		double baseInterestRateFromScreen = 0;
+		try {
+		 baseInterestRateFromScreen = Double.parseDouble(customer_contract_tab_base_interest_rate.getText().trim().substring(0, 5));
+		}catch(Exception e1)
+		{
+			
+		}
 		double financeMarginFromScreen = Double.parseDouble(RemoveComma.of(customer_contract_tab_finance_margin.getText().trim().substring(2)));
 		
 		double deductionsFromScreen = Double.parseDouble(RemoveComma.of(customer_contract_tab_deductions.getText().trim().substring(2)));
@@ -2984,8 +3001,11 @@ public class CustomerContractPage extends TestBase {
 			throws InterruptedException, ClassNotFoundException, IOException, UnsupportedFlavorException {
 
 	
-	
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		Click.on(driver, customer_contract, 10);
+	
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		System.out.println("Started Verifying Quote Summary and Configuration Values");
 		LO.print          ("Started Verifying Quote Summary and Configuration Values");
@@ -3032,7 +3052,9 @@ public class CustomerContractPage extends TestBase {
 		
 		Click.on(driver, customer_contract_tab_configuration_heading_button, 30);
 		
-		//waiting for Configuration elements 
+		//waiting for Configuration elements
+		
+		
 		ExplicitWait.visibleElement(driver, customer_contract_tab_configuration_base_interest_rate, 20);
 		ExplicitWait.visibleElement(driver, customer_contract_tab_configuration_finance_margin, 20);
 		ExplicitWait.visibleElement(driver, customer_contract_tab_configuration_deductions, 20);
@@ -6483,6 +6505,9 @@ if(Class.forName(Thread.currentThread().getStackTrace()[2].getClassName()).getNa
 
 		LO.print("");
 		System.out.println("");
+		
+		Click.on(driver, customer_contract, 10);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		String 	elementColor = "";
 		

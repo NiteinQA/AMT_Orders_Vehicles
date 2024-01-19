@@ -155,6 +155,26 @@ public class CommonClass extends TestBase {
 			
 		}
 	}
+	
+	public static void move_courser1() {
+		
+		try {
+		actions = new Actions(driver);
+
+		// Define the coordinates
+		int x1 = 150; // Starting X-coordinate
+		int y1 = 150; // Starting Y-coordinate
+		int x2 = 250; // Ending X-coordinate
+		int y2 = 250; // Ending Y-coordinate
+
+		// Move the mouse cursor from (x1, y1) to (x2, y2)
+		actions.moveByOffset(x1, y1).moveByOffset(x2 - x1, y2 - y1).perform();
+		}catch(Exception e)
+		{
+			
+		}
+	}
+
 
 	public void mouse_hover_to_element(WebElement element) {
 

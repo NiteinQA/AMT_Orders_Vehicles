@@ -3,10 +3,10 @@
 <suite name="Suite">
   <test thread-count="5" name="Verify With Customer Flow For Ownbook Hire Without Funder">
     <classes>
-      <class name="acquisition.Acquisition_Quotes_HPNR_BCH_without_maintenance_Test"/>
+      <!-- <class name="acquisition.Acquisition_Quotes_HPNR_BCH_without_maintenance_Test"/>-->
       <class name="opportunity.LOU_ownbook_business_hire_accept_with_changes_Test"/>
       <class name="opportunity.Create_order_from_opportunity_Test"/>
-      <!-- <class name="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test"/>-->
+      <class name="orders.Orders_Verify_ownbook_business_hire_With_Customer_Flow_Test"/>
     </classes>
   </test> <!-- Verify With Customer Flow For Ownbook Hire Without Funder -->
 </suite> <!-- Suite -->
