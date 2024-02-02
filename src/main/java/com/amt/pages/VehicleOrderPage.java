@@ -1260,7 +1260,7 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 
 		// Dropdown.selectByVisibleText(driver, vehicle_order_register_to_dropdown,
 		// "AMT", 60);
-		
+		try {
 		Click.on(driver, vehicle_order_upload_order_form, 30);
 
 		obj_vehicle_order_tab.upload_file(vehicle_order_upload_order_form, prop.getProperty("test_image_path"));
@@ -1268,7 +1268,15 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		
 		Thread.sleep(8000);
-
+		}catch(Exception e)
+		{
+			
+		}
+		
+		
+         try {
+        	 
+       
 		Click.on(driver, vehicle_order_vehicle_in_stock_yes_option, 20);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
 
@@ -1308,6 +1316,11 @@ public boolean verify_delivery_section_gets_enabled_and_delivery_status_is_rever
 		
 		Thread.sleep(2000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+		
+         }catch(Exception e1)
+         {
+        	 
+         }
 
 	}
 

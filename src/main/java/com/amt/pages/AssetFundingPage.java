@@ -498,8 +498,8 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//*[text()=' Save ']")
 	private WebElement save_button;
 	
-	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div/p/strong|//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div/p/strong")
-	private WebElement customer_contract_tab_customer_quote_monthly_finance_rental;
+	@FindBy(xpath = "//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div/p/strong|//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div/p/strong")
+	private WebElement customer_contract_tab_customer_quote_monthly_total_rental;
 	
 	// Customer Contract
 	@FindBy(xpath = "//*[contains(text(),'Customer contract')]")
@@ -886,6 +886,10 @@ public class AssetFundingPage extends TestBase {
 		LO.print("Clicked on Complete Cash purchase");
 		System.out.println("Clicked on Complete Cash purchase");
 
+		
+	    ExplicitWait.visibleElement(driver, complete_cash_purchase, 20);
+		
+		
 		if (!complete_cash_purchase.isEnabled()) {
 			LO.print("Cash Purchase Completed");
 			System.out.println("Cash Purchase Completed");
@@ -897,6 +901,7 @@ public class AssetFundingPage extends TestBase {
 
 			return false;
 		}
+		
 
 	}
 
@@ -1755,16 +1760,16 @@ public class AssetFundingPage extends TestBase {
 		
 		//get the monthly payment value from customer contract page
 		try {
-		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_total_rental, 20);
 		}catch(Exception e)
 		{
 			Click.on(driver, customer_contract, 20);
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		}
 		
-		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_total_rental, 20);
 		double monthlyRentalExpected = Double
-				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_total_rental.getText().trim().substring(2)));
 		
 		LO.print("Monthly payment Before selecting a funder"+monthlyRentalExpected);
 		System.out.println("Monthly payment Before selecting a funder"+monthlyRentalExpected);
@@ -1802,16 +1807,16 @@ public class AssetFundingPage extends TestBase {
 				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 				
 				try {
-				ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+				ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_total_rental, 10);
 				}catch(Exception e)
 				{
 					 Click.on(driver, customer_contract, 30);
 					 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 				}
 				
-				ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+				ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_total_rental, 10);
 				double monthlyRentalActual = Double
-						.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+						.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_total_rental.getText().trim().substring(2)));
 
 				
 				LO.print("Monthly payment After selecting a funder "+monthlyRentalActual);

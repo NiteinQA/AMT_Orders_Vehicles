@@ -1,16 +1,34 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="MasterSuite">
 	<suite-files>
-		<!--<suite-file	path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Cap maint in Asset Funding And Verify Holding Cost For BCH.xml" />
+		<suite-file	path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Cap maint in Asset Funding And Verify Holding Cost For BCH.xml" />
 		<suite-file	path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Cap Maint In Asset Funding And Verify Holding Cost For HPNR.xml" />
 		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Funder And Add Cap Maint Value And Verify Holding Cost For HPNR.xml" />
-	 	<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Funder Maint Value In Funder And Verify Holding Cost " />
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Maintenance In The Funder In The Asset Funding Tab And Verify Holding Cost Shown For FL PCH" />-->
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases For HPNR BCH" />
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases with CP BCH" />
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases with FL BCH" />
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Required to Funded Flow For BCH" />
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Tab Selected Funder Can Not Be Deleted And Edited" />
-		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Updated Values In Quote After Adding Funder In Asset Funding Tab For HPNR" />
+	 	<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Funder Maint Value In Funder And Verify Holding Cost.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Add Maintenance In The Funder In The Asset Funding Tab And Verify Holding Cost Shown For FL PCH.xml" />
+		
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases For HPNR BCH.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases with CP BCH.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Funder Related Cases with FL BCH.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Required to Funded Flow For BCH.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Asset Funding Tab Selected Funder Can Not Be Deleted And Edited.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Updated Values In Quote After Adding Funder In Asset Funding Tab For HPNR.xml" />
+		
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Order Flow For Outright Purchase With Customer Flow For New Car.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Order Flow For Outright Purchase With Customer Flow For Used Car.xml" />
+		
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify Order Is Seen In Sold Vehicles After Completing Orders In Customer Contract Tab For Broker With Customer Flow.xml" />
+
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify With Customer Flow For Ownbook Hire With Funder.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify With Customer Flow For Ownbook Hire Without Funder.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify With Customer Flow For Ownbook Purchase With Funder.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify With Customer Flow For Ownbook Purchase Without Funder.xml" />
+		
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify With Customer Flow For Used Car Ownbook Hire With Funder.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify With Customer Flow For Used Car Ownbook Hire Without Funder.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify With Customer Flow For Used Car Ownbook Purchase With Funder.xml" />
+		<suite-file path="D:\Orders_Vehicles\AMT_Orders_Vehicles\Verify With Customer Flow For Used Car Ownbook Purchase Without Funder.xml" />
+
+	
 	</suite-files>
 </suite>

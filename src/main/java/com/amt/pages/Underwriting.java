@@ -2820,21 +2820,19 @@ public class Underwriting extends TestBase {
 
 	public void verify_underwriting_menulink_ownbook() throws InterruptedException {
 
-		ExplicitWait.visibleElement(driver, underwriting_menu_link_ownbook, 60);
+//		ExplicitWait.visibleElement(driver, underwriting_menu_link_ownbook, 60);
+//
+//	
+//		Thread.sleep(2000);
+//		
+//		JavascriptExecutor js = (JavascriptExecutor)driver;
+//		
+//		js.executeScript("arguments[0].click();", underwriting_menu_link_ownbook);
+		
+		
+		driver.get("https://stagingamt.azurewebsites.net/underwriting/underwritingmanagement/ownbook");		
 
-		// HelperClass.highlightElement(driver, underwriting_menu_link_ownbook);
-
-		// underwriting_menu_link_ownbookclick();
-		
-		
-		Thread.sleep(2000);
-		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		
-		js.executeScript("arguments[0].click();", underwriting_menu_link_ownbook);
-		
-	//	underwriting_menu_link_ownbook.click();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
 
 		System.out.println("Click on Underwriting - ownbook tab ");
 		LO.print("Click on Underwriting - ownbook tab ");

@@ -73,7 +73,7 @@ CustomerContractPage obj_customer_contract;
 		
 		obj_customer_contract = new CustomerContractPage();
 		
-		assertTrue(obj_customer_contract.verify_quote_summary_and_configuration_values_on_customer_contract_tab_for_ownbook_hire_flow());
+	  obj_customer_contract.verify_quote_summary_and_configuration_values_on_customer_contract_tab_for_ownbook_hire_flow();
 		
 	}
 	

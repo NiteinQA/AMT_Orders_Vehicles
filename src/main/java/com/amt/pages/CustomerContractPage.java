@@ -845,6 +845,72 @@ public class CustomerContractPage extends TestBase {
     //Selected Button
     @FindBy(xpath = "//button[normalize-space()='Selected']")
     private WebElement selected_funder_button;
+    
+    
+    //**************Payment Section***************
+
+    //New invoice
+    @FindBy(xpath = "//button[normalize-space()='New invoice']")
+    private WebElement new_invoice_button;
+    
+  
+  //Invoice item description
+    @FindBy(xpath = "//input[@id='invoiceItemDescription']")
+    private WebElement invoice_item_description_input;
+    
+  
+  //Invoice net amount
+    @FindBy(xpath = "//input[@id='invoiceItemNetAmount']")
+    private WebElement invoice_net_amount_input;
+    
+  
+  //Finalize invoice button
+    @FindBy(xpath = "//*[text()='Finalise invoice']")
+    private WebElement finalise_invoice_button;
+    
+    //Save invoice button
+    @FindBy(xpath = "//*[text()='Save invoice']")
+    private WebElement Save_invoice_button;
+    
+      
+    //credit note 
+    @FindBy(xpath = "//*[text()='Credit note']")
+    private WebElement credit_note_button;
+    
+   
+    //credit note 
+    @FindBy(xpath = "//*[text()=' Credit ']")
+    private WebElement credit_button;
+    
+    //header elements in the payments
+	@FindBy(xpath = "//label[contains(text(), 'Payments')]//following-sibling::div[1]//thead/tr/th")
+	private List<WebElement> list_of_header_elements_in_payments;
+	
+    //header elements in the invoices
+	@FindBy(xpath = "//label[contains(text(), 'Invoices')]//following-sibling::div[1]//thead/tr/th")
+	private List<WebElement> list_of_header_elements_in_invoices;
+	
+    //header elements in the Credits
+	@FindBy(xpath = "//label[contains(text(), 'Credits')]//following-sibling::div[1]//thead/tr/th")
+	private List<WebElement> list_of_header_elements_in_credits;
+	
+    //header elements in the Refunds
+	@FindBy(xpath = "//label[contains(text(), 'Refunds')]//following-sibling::div[1]//thead/tr/th")
+	private List<WebElement> list_of_header_elements_in_refunds;
+	
+	//no of finalized rows
+	@FindBy(xpath = "//label[contains(text(), 'Invoices')]/ancestor::div[1]//following-sibling::div[1]//tbody/tr//*[text()='Finalised']")
+	private List<WebElement> list_of_finalized_rows;
+	
+	//no of disabled delete finalized rows
+	@FindBy(xpath = "//label[contains(text(), 'Invoices')]/ancestor::div[1]//*[text()='Finalised']/ancestor::td/following-sibling::td//a[contains(@class, 'pointer-none')]")
+	private List<WebElement> list_of_delete_disabled_elements;
+	
+    
+    
+    
+    
+    
 	
 
 	ReadExcelCalculation obj_read_excel_calculation_page;
@@ -883,6 +949,126 @@ public class CustomerContractPage extends TestBase {
 		}
 		PageFactory.initElements(driver, this);
 	}
+	
+	
+	public void verify_delete_button_for_finalised_invoice_and_credits_is_disabled() throws InterruptedException {
+
+		LO.print          ("");		
+		System.out.println("");
+
+		
+		LO.print          ("Started verifying that delete buttons for finalized invoices and finalized credits are disabled");		
+		System.out.println("Started verifying that delete buttons for finalized invoices and finalized credits are disabled");
+		
+		ExplicitWait.waitForListOfVisibleElements(driver, list_of_finalized_rows, 10);
+		
+		int noOfFinalizedRows =  list_of_finalized_rows.size();
+		
+		
+		LO.print          ("No. of finalized invoices and finalized credits are "+noOfFinalizedRows);		
+		System.out.println("No. of finalized invoices and finalized credits are "+noOfFinalizedRows);
+		
+		int noOfDeleteButtonsAgainstFinalizedRows =  list_of_delete_disabled_elements.size();
+		
+		
+		LO.print          ("No. of finalized invoices and finalized credits are "+noOfFinalizedRows);		
+		System.out.println("No. of finalized invoices and finalized credits are "+noOfFinalizedRows);
+
+
+		
+		
+		
+
+		
+		
+		
+	}
+	
+	
+	//1
+	public boolean verify_new_invoice_is_generated_with_new_invoice_button() throws InterruptedException {
+		
+		LO.print          ("");		
+		System.out.println("");
+		
+		LO.print          ("Started creating new invoice in payment section");		
+		System.out.println("Started creating new invoice in payment section");
+
+
+		Click.on(driver, new_invoice_button, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		
+		Click.sendKeys(driver, invoice_item_description_input, "Automation Test Description", 20);
+		
+		int netAmount =100;
+		
+		Click.sendKeysint(driver, invoice_net_amount_input, netAmount, 10);
+		
+		Click.on(driver, finalise_invoice_button, 10);
+		
+		obj_customer_contract_tab = new CustomerContractPage();
+		
+		int noOfHeaderElements = list_of_header_elements_in_invoices.size();
+		
+		double invoiceNetAmount = obj_customer_contract_tab.get_value_of_given_lable(noOfHeaderElements, "Invoices", "INVOICE NET");
+		
+	
+		LO.print("Net Amount given in the new invoice pop up "+netAmount);
+		System.out.println("Net Amount given in the new invoice pop up "+netAmount);	
+
+		
+		LO.print("Net Amount seen in the invoices history row "+invoiceNetAmount);
+		System.out.println("Net Amount seen in the invoices history row "+invoiceNetAmount);	
+
+		boolean flag=false;
+		
+		if(invoiceNetAmount==netAmount)
+			
+    	{			
+			LO.print          ("New Invoice Generated Successfully and Net Invoice Amount Matched, Hence Test Passed");
+			System.out.println("New Invoice Generated Successfully and Net Invoice Amount Matched, Hence Test Passed");	
+			
+			flag = true ;
+    	}else
+    	{
+			LO.print          ("New Invoice Generated Successfully but Net Invoice Amount Not Matched With the Net Amont given , Hence Test Failed");
+			System.out.println("New Invoice Generated Successfully but Net Invoice Amount Not Matched With the Net Amont given , Hence Test Failed");	
+
+    	}
+		return flag;
+		
+	}
+	
+	
+    public double get_value_of_given_lable(int noOfHeaderElements, String xpathFor, String headerElementText) {
+		
+     	String value="";
+        	
+    	//for loop to find given label
+    	
+    	
+		for(int i=1; i<=noOfHeaderElements; i++)
+		{
+		
+		 	//getting header text	
+			String webElementText = driver.findElement(By.xpath("//label[contains(text(), '" + xpathFor + "')]//following-sibling::div[1]//thead/tr/th["+i+"]")).getText();
+			
+			
+		   //matching header text with expected label
+			if(webElementText.equalsIgnoreCase(headerElementText))
+        	 {				
+				//getting value
+				 value = driver.findElement(By.xpath("//label[contains(text(), '" + xpathFor + "')]//following-sibling::div[1]//tbody/tr/td"+i+"]")).getText();
+	         
+        	 }	
+			
+        	}
+		return Double.parseDouble(value) ;
+	}
+
+	
 	
 	public boolean verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab() throws InterruptedException {
 		

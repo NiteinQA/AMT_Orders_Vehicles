@@ -1,0 +1,1082 @@
+<html>
+<head>
+<title>TestNG:  Create Order From Opportunity Broker Hire</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Create Order From Opportunity Broker Hire</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>20/4/5</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jan 31 00:46:07 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>1095 seconds (1095786 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test()'><b>verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test<br/>
+<a href="#Output-41905791" onClick='toggleBox("Output-41905791", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-41905791" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-41905791">
+<b>Opening Sold Vehicle Listing in New Tab</b> <br /><br/>
+<b>Searching order in the listing</b> <br /><br/>
+<b>Searching for Order ID FD-94744</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test_31_01_2024_01_04_23.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test(Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.java:153)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace41905791", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace41905791'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test(Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.java:153)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>16</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.UW5_verify_underwriting_proposal_decision_with_accept()'><b>UW5_verify_underwriting_proposal_decision_with_accept</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-1439271341" onClick='toggleBox("Output-1439271341", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1439271341" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1439271341">
+<b>Click on decision Accept button</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\UW5_verify_underwriting_proposal_decision_with_accept_31_01_2024_01_00_50.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (7f40400b3a64f21054ae7e68aa301342)] -&gt; xpath: //button[normalize-space()=&apos;Save &amp; Exit&apos;]] (tried for 60 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60576}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60576/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7f40400b3a64f21054ae7e68aa301342
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.Underwriting.verification_underwriting_tab_decision_page_save_and_exit_button(Underwriting.java:10436)
+	at opportunity.LOU_broker_business_hire_accept_flow_Test.UW5_verify_underwriting_proposal_decision_with_accept(LOU_broker_business_hire_accept_flow_Test.java:371)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1439271341", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1439271341'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (7f40400b3a64f21054ae7e68aa301342)] -&gt; xpath: //button[normalize-space()=&apos;Save &amp; Exit&apos;]] (tried for 60 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60576}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60576/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7f40400b3a64f21054ae7e68aa301342
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.Underwriting.verification_underwriting_tab_decision_page_save_and_exit_button(Underwriting.java:10436)
+	at opportunity.LOU_broker_business_hire_accept_flow_Test.UW5_verify_underwriting_proposal_decision_with_accept(LOU_broker_business_hire_accept_flow_Test.java:371)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>78</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.Create_order_from_opportunity_Test.create_order_from_opportunity_test()'><b>create_order_from_opportunity_test</b><br>Test class: opportunity.Create_order_from_opportunity_Test<br/>
+<a href="#Output-679222691" onClick='toggleBox("Output-679222691", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-679222691" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-679222691">
+<b>Clicked on Opportunity link from Menu </b> <br /><br/>
+<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
+<b> </b> <br /><br/>
+<b>*****Creating Order Started*****</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\create_order_from_opportunity_test_31_01_2024_01_02_11.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id=&apos;requestedDelivery&apos;]&apos; (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.testUtil.CommonClass.create_order_from_opportunity(CommonClass.java:391)
+	at opportunity.Create_order_from_opportunity_Test.create_order_from_opportunity_test(Create_order_from_opportunity_Test.java:30)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;requestedDelivery&apos;]&quot;}
+  (Session info: chrome=120.0.6099.225)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2be0f0e55ecdf9a5699e804ceefefd3b, findElement {using=xpath, value=//*[@id=&apos;requestedDelivery&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61220}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61220/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2be0f0e55ecdf9a5699e804ceefefd3b
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:660)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	... 30 more
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace679222691", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace679222691'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id=&apos;requestedDelivery&apos;]&apos; (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.testUtil.CommonClass.create_order_from_opportunity(CommonClass.java:391)
+	at opportunity.Create_order_from_opportunity_Test.create_order_from_opportunity_test(Create_order_from_opportunity_Test.java:30)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;requestedDelivery&apos;]&quot;}
+  (Session info: chrome=120.0.6099.225)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2be0f0e55ecdf9a5699e804ceefefd3b, findElement {using=xpath, value=//*[@id=&apos;requestedDelivery&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61220}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61220/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2be0f0e55ecdf9a5699e804ceefefd3b
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:660)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	... 30 more
+</pre></div></td>
+<td>70</td>
+<td>opportunity.Create_order_from_opportunity_Test@376a0d86</td></tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.deliver_vehicle_tab_test()'><b>deliver_vehicle_tab_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test<br/>
+<a href="#Output-1519148819" onClick='toggleBox("Output-1519148819", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1519148819" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1519148819">
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\deliver_vehicle_tab_test_31_01_2024_01_04_06.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=120.0.6099.225)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [34b702e9d3e2b922082494a97ae3e57e, clearElement {id=7FC9A5628B7C17296A013F07134354E8_element_223}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61349}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61349/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (34b702e9d3e2b922082494a97ae3e57e)] -&gt; xpath: //*[contains(text(),&apos;Name&apos;)]//ancestor::div[1]//div//input]
+Session ID: 34b702e9d3e2b922082494a97ae3e57e
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.clear(Unknown Source)
+	at com.amt.testUtil.Click.sendKeys(Click.java:59)
+	at com.amt.pages.VehicleOrderPage.fill_supplier_information(VehicleOrderPage.java:1029)
+	at com.amt.pages.VehicleOrderPage.deliver_vehicle(VehicleOrderPage.java:341)
+	at orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.deliver_vehicle_tab_test(Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.java:73)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1519148819", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1519148819'><pre>org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=120.0.6099.225)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [34b702e9d3e2b922082494a97ae3e57e, clearElement {id=7FC9A5628B7C17296A013F07134354E8_element_223}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61349}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61349/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (34b702e9d3e2b922082494a97ae3e57e)] -&gt; xpath: //*[contains(text(),&apos;Name&apos;)]//ancestor::div[1]//div//input]
+Session ID: 34b702e9d3e2b922082494a97ae3e57e
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.clear(Unknown Source)
+	at com.amt.testUtil.Click.sendKeys(Click.java:59)
+	at com.amt.pages.VehicleOrderPage.fill_supplier_information(VehicleOrderPage.java:1029)
+	at com.amt.pages.VehicleOrderPage.deliver_vehicle(VehicleOrderPage.java:341)
+	at orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.deliver_vehicle_tab_test(Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.java:73)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>9</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L4_verify_current_status_on_opportunity_page_before_sending_to_proposal_for_broker_business_flow()'><b>L4_verify_current_status_on_opportunity_page_before_sending_to_proposal_for_broker_business_flow</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-32527088" onClick='toggleBox("Output-32527088", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-32527088" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-32527088">
+<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
+<b>Current Status of Proposal value is = Proposal Required</b> <br /><br/>
+<b>Current Status of Channel value is =  Draft</b> <br /><br/>
+<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
+<b>Status Verified : Before sending the proposal</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L9_verify_signed_contract_status_with_api_call()'><b>L9_verify_signed_contract_status_with_api_call</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-370046990" onClick='toggleBox("Output-370046990", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-370046990" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-370046990">
+<b>Status code 200 received </b> <br /><br/>
+<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>40</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.broker_business_sending_contract()'><b>broker_business_sending_contract</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-444120158" onClick='toggleBox("Output-444120158", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-444120158" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-444120158">
+<b>click on Send_Contract icon</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>28</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_bch_OTR_calculation_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_bch_OTR_calculation_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/26, 12, 5000, 1000, 2000, 2, 5, 1000, 600, 200, 500, Formula1-BCH<br/>
+<a href="#Output-350594381" onClick='toggleBox("Output-350594381", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-350594381" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-350594381">
+<b>Clicking on New quote</b> <br /><br/>
+<b>Clicked on Quote button </b> <br /><br/>
+<b>Manufacture =AUDI has been selected</b> <br /><br/>
+<b>Model range =A7 has been selected</b> <br /><br/>
+<b>Vehicle has been selected</b> <br /><br/>
+<b>Paint option has been selected</b> <br /><br/>
+<b>Interior option has been selected</b> <br /><br/>
+<b>Acquisition Contract type option selected = Broker </b> <br /><br/>
+<b>Customer Contract type option selected = Business Contract Hire(BCH)</b> <br /><br/>
+<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br /><br/>
+<b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
+<b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
+<b>Getting Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting   Discount - Paint value is   =0.00</b> <br /><br/>
+<b>Getting  Discount- Options value is   =0.00</b> <br /><br/>
+<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - paint value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - Options value is  =0.00</b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Started </b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Completed </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Subtotal After Discount from excel sheet is =47687.5</b> <br /><br/>
+<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>140</td>
+<td>acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test@76b07f29</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L3_verify_table_values_on_opportunity_page_before_sending_proposal()'><b>L3_verify_table_values_on_opportunity_page_before_sending_proposal</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-1343038853" onClick='toggleBox("Output-1343038853", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1343038853" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1343038853">
+<b></b> <br /><br/>
+<b>Started Verifying Table values</b> <br /><br/>
+<b></b> <br /><br/>
+<b>VPL33021 = VPL33021</b> <br /><br/>
+<b>Quote no. compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic = AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic</b> <br /><br/>
+<b>Vehicle name compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Business Contract Hire = Business Contract Hire</b> <br /><br/>
+<b>Contract type compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2000.0 = 2000.0</b> <br /><br/>
+<b>Monthly finance rental compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5000.0 = 5000.0</b> <br /><br/>
+<b>Mileage compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>13.0 = 13.0</b> <br /><br/>
+<b>Terms compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>05/12/2026 != 04/12/2026</b> <br /><br/>
+<b>Expiry date compared but found not ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Table values verified Successfully</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L6_verify_current_status_on_opportunity_page_after_sending_to_proposal_for_broker_business_flow()'><b>L6_verify_current_status_on_opportunity_page_after_sending_to_proposal_for_broker_business_flow</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-1060623133" onClick='toggleBox("Output-1060623133", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1060623133" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1060623133">
+<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
+<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
+<b>Current Status of Channel value is =  Draft</b> <br /><br/>
+<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
+<b>Status Verified : After sending the proposal</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.UW1_verify_underwriting_flow_ownbook_with_status()'><b>UW1_verify_underwriting_flow_ownbook_with_status</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-316572500" onClick='toggleBox("Output-316572500", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-316572500" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-316572500">
+<b> Underwriting icon is available </b> <br /><br/>
+<b>Underwriting pop up -quote ref no => Quote reference no.:
+VPL33021</b> <br /><br/>
+<b>Underwriting Popup Proposal Id is =FCW8205</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Started Verifying Summary values</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Quote reference no.:
+VPL33021 != VPL33021</b> <br /><br/>
+<b>Quote no. compared but found not ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic = AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic</b> <br /><br/>
+<b>Vehicle name compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Business Contract Hire = Business Contract Hire</b> <br /><br/>
+<b>Contract type compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2000.0 = 2000.0</b> <br /><br/>
+<b>Monthly finance rental compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5000.0 = 5000.0</b> <br /><br/>
+<b>Mileage compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>13.0 = 13.0</b> <br /><br/>
+<b>Terms compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>04/12/2026 = 04/12/2026</b> <br /><br/>
+<b>Expiry date compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>QACompany2201 = QACompany2201</b> <br /><br/>
+<b>Funder name compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>REF001 = REF001</b> <br /><br/>
+<b>Funder quote ref no. compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly in advance = Monthly in advance</b> <br /><br/>
+<b>Payment profile compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5417.0 = 5417.0</b> <br /><br/>
+<b>Contract mileage compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2000.0 = 2000.0</b> <br /><br/>
+<b>Initial finance rental compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2.00 p = 2.00 p</b> <br /><br/>
+<b>Pense per excess mile finance compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5.0 = 5.0</b> <br /><br/>
+<b>commission compared and found ok</b> <br /><br/>
+<b>click on underwriting_send_for_underwriting  button </b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>32</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.pass_the_pre_order_check_test()'><b>pass_the_pre_order_check_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test<br/>
+<a href="#Output-2097570573" onClick='toggleBox("Output-2097570573", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2097570573" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2097570573">
+<b></b> <br /><br/>
+<b>Checking pre-order checks</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.UW4_verify_underwriting_proposal_page_flow()'><b>UW4_verify_underwriting_proposal_page_flow</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-51744985" onClick='toggleBox("Output-51744985", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-51744985" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-51744985">
+<b>Click on Underwriting detail page for proposal</b> <br /><br/>
+<b>Clicked on Underwriting quote page</b> <br /><br/>
+<b></b> <br /><br/>
+<b>58535.0 = 58535.0</b> <br /><br/>
+<b>Cost Otr Price compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>48237.5 = 48237.5</b> <br /><br/>
+<b>Cost Otr Price compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>9647.5 = 9647.5</b> <br /><br/>
+<b>Otr Vat compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>650.0 = 650.0</b> <br /><br/>
+<b>Otr Rfl And Frf compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>VPL33021 = VPL33021</b> <br /><br/>
+<b>Quote no. compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic = AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic</b> <br /><br/>
+<b>Vehicle name compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Business Contract Hire = Business Contract Hire</b> <br /><br/>
+<b>Contract type compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2000.0 = 2000.0</b> <br /><br/>
+<b>Monthly finance rental compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5000.0 = 5000.0</b> <br /><br/>
+<b>Mileage compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>13.0 = 13.0</b> <br /><br/>
+<b>Terms compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>04/12/2026 = 04/12/2026</b> <br /><br/>
+<b>Expiry date compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>QACompany2201 = QACompany2201</b> <br /><br/>
+<b>Funder name compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>REF001 = REF001</b> <br /><br/>
+<b>Funder quote ref no. compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly in advance = Monthly in advance</b> <br /><br/>
+<b>Payment profile compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5417.0 = 5417.0</b> <br /><br/>
+<b>Contract mileage compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2000.0 = 2000.0</b> <br /><br/>
+<b>Initial finance rental compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2.00 p = 2.00 p</b> <br /><br/>
+<b>Pense per excess mile finance compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5.0 = 5.0</b> <br /><br/>
+<b>commission compared and found ok</b> <br /><br/>
+<b>Click on decision tab page</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>41</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L1_create_lead_for_broker_business()'><b>L1_create_lead_for_broker_business</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-188022971" onClick='toggleBox("Output-188022971", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-188022971" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-188022971">
+<b>Clicked on Leads on Side Menu</b> <br /><br/>
+<b>Clicked on add lead</b> <br /><br/>
+<b>Lead is assigned</b> <br /><br/>
+<b>Added data in General Notes</b> <br /><br/>
+<b>Customer type - Business selected</b> <br /><br/>
+<b>Clicked on Add new vehicle request</b> <br /><br/>
+<b>Clicked on broker channel</b> <br /><br/>
+<b>Vehicle request for broker has been saved</b> <br /><br/>
+<b>Click on Map New Quote icon</b> <br /><br/>
+<b>Click on acquisition contract type icon</b> <br /><br/>
+<b>Click on customer contract type icon</b> <br /><br/>
+<b>Click on search button</b> <br /><br/>
+<b>Click on created date button 1st </b> <br /><br/>
+<b>Click on created date button 2nd</b> <br /><br/>
+<b>New Quote has been mapped with lead</b> <br /><br/>
+<b>click ok button on Map  new quote </b> <br /><br/>
+<b></b> <br /><br/>
+<b>Started Verifying Table values</b> <br /><br/>
+<b></b> <br /><br/>
+<b>VPL33021 = VPL33021</b> <br /><br/>
+<b>Quote no. compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic = AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic</b> <br /><br/>
+<b>Vehicle name compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Business Contract Hire = Business Contract Hire</b> <br /><br/>
+<b>Contract type compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2000.0 = 2000.0</b> <br /><br/>
+<b>Monthly finance rental compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5000.0 = 5000.0</b> <br /><br/>
+<b>Mileage compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>13.0 = 13.0</b> <br /><br/>
+<b>Terms compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>05/12/2026 != 04/12/2026</b> <br /><br/>
+<b>Expiry date compared but found not ok</b> <br /><br/>
+<b>Click on Lead save and Convert button</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Started Verifying Table values</b> <br /><br/>
+<b></b> <br /><br/>
+<b>VPL33021 = VPL33021</b> <br /><br/>
+<b>Quote no. compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic = AUDI A7 DIESEL SPORTBACK (2018 - Current) 40 TDI Quattro Black Edition 5dr S Tronic</b> <br /><br/>
+<b>Vehicle name compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Business Contract Hire = Business Contract Hire</b> <br /><br/>
+<b>Contract type compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>2000.0 = 2000.0</b> <br /><br/>
+<b>Monthly finance rental compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>5000.0 = 5000.0</b> <br /><br/>
+<b>Mileage compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>13.0 = 13.0</b> <br /><br/>
+<b>Terms compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>05/12/2026 != 04/12/2026</b> <br /><br/>
+<b>Expiry date compared but found not ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>In Lead created Opportunity Id is =TS-5486</b> <br /><br/>
+<b></b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>211</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L2_broker_business_current_status_before_sending_to_proposal()'><b>L2_broker_business_current_status_before_sending_to_proposal</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-635335724" onClick='toggleBox("Output-635335724", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-635335724" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-635335724">
+<b>Clicked on Opportunity link from Menu </b> <br /><br/>
+<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
+<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
+<b>Current Status of Proposal value is = Proposal Required</b> <br /><br/>
+<b>Current Status of Channel value is =  Draft</b> <br /><br/>
+<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
+<b>Status Verified : Before sending the proposal</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>26</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.UW3_verify_underwriting_lisitig_page()'><b>UW3_verify_underwriting_lisitig_page</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-651528263" onClick='toggleBox("Output-651528263", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-651528263" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-651528263">
+<b>Click on Underwriting menu_link </b> <br /><br/>
+<b>Click on Underwriting - broker tab </b> <br /><br/>
+<b>Click on Search text box - broker tab</b> <br /><br/>
+<b>Getting the  proposal id from excel sheet =FCW8205</b> <br /><br/>
+<b>Enter the proposal in search text box =FCW8205</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L8_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow()'><b>L8_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-1913466846" onClick='toggleBox("Output-1913466846", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1913466846" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1913466846">
+<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
+<b>Current Status of Channel value is =  Sent to customer</b> <br /><br/>
+<b>Current Status of  Quote ref is = Sent to customer</b> <br /><br/>
+<b>Status Verified : Status Verified : Sent to customer</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>7</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_bch_funder_quote_addition_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_bch_funder_quote_addition_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/26, 12, 5000, 1000, 2000, 2, 5, 1000, 600, 200, 500, Formula1-BCH<br/>
+<a href="#Output-728640762" onClick='toggleBox("Output-728640762", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-728640762" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-728640762">
+<b>Funder quote added successfully</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>29</td>
+<td>acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test@76b07f29</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_bch_after_discount_calculation_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_bch_after_discount_calculation_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/26, 12, 5000, 1000, 2000, 2, 5, 1000, 600, 200, 500, Formula1-BCH<br/>
+<a href="#Output-1731957517" onClick='toggleBox("Output-1731957517", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1731957517" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1731957517">
+<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
+<b>Started getting On screen values from after discount table </b> <br /><br/>
+<b>Manufacture_delivery_charges =550.0</b> <br /><br/>
+<b>Road_tax_first_year =585.0</b> <br /><br/>
+<b>First_registration_fee =65.0</b> <br /><br/>
+<b>Rebate =0.0</b> <br /><br/>
+<b>Writing After discount values to excel has been started</b> <br /><br/>
+<b>Writing After discount values to excel has been completed</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
+<b>Expected on the road price from excel is =58535.0</b> <br /><br/>
+<b>Actual on the road price from screen is =58535.00</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test@76b07f29</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test.aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_user_flow_broker_bch_quote_summary_values_verification_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/26, 12, 5000, 1000, 2000, 2, 5, 1000, 600, 200, 500, Formula1-BCH<br/>
+<a href="#Output-248871746" onClick='toggleBox("Output-248871746", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-248871746" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-248871746">
+<b>*************Calculations for Quote Summary page gas been started************</b> <br /><br/>
+<b>Quote Summary Data collected and sent to Quote save Excel</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>34</td>
+<td>acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test@76b07f29</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.UW2_verify_status_after_sending_to_underwriting()'><b>UW2_verify_status_after_sending_to_underwriting</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-1657540020" onClick='toggleBox("Output-1657540020", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1657540020" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1657540020">
+<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
+<b>Current Status of Channel value is =  Awaiting underwriting</b> <br /><br/>
+<b>Current Status of  Quote ref is = Awaiting underwriting</b> <br /><br/>
+<b>Status Verified : Awaiting Underwriting </b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test<br/>
+<a href="#Output-218252441" onClick='toggleBox("Output-218252441", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-218252441" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-218252441">
+<b></b> <br /><br/>
+<b>Searching for Order ID FD-94744</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>78</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L5_adding_proposal_on_opportunity_page_broker_business_flow()'><b>L5_adding_proposal_on_opportunity_page_broker_business_flow</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-184330848" onClick='toggleBox("Output-184330848", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-184330848" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-184330848">
+<b>click on Proposal icon</b> <br /><br/>
+<b>click on Proposal icon</b> <br /><br/>
+<b>Proposal page will display </b> <br /><br/>
+<b>Send proposal to customer pop up  will open</b> <br /><br/>
+<b>Click on Manual fill radio button - Yes</b> <br /><br/>
+<b>Click on manually submit behalf of customer link</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Proposal Received Successfully</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>142</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+<tr>
+<td title='opportunity.LOU_broker_business_hire_accept_flow_Test.L10_verify_status_after_contract_signed()'><b>L10_verify_status_after_contract_signed</b><br>Test class: opportunity.LOU_broker_business_hire_accept_flow_Test<br/>
+<a href="#Output-974018962" onClick='toggleBox("Output-974018962", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-974018962" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-974018962">
+<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
+<b>Current Status of Channel value is =  Contract signed</b> <br /><br/>
+<b>Current Status of  Quote ref is = Contract signed</b> <br /><br/>
+<b>Status Verified : Contract Signed </b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>opportunity.LOU_broker_business_hire_accept_flow_Test@38af9828</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_finance_documents_statuses_for_required_flow_test()'><b>verify_finance_documents_statuses_for_required_flow_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_finance_documents_statuses_for_required_flow_test()[pri:4, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1802039753", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1802039753'><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_finance_documents_statuses_for_required_flow_test()[pri:4, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_post_delivery_status_on_customer_contract_tab_test()'><b>verify_post_delivery_status_on_customer_contract_tab_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_post_delivery_status_on_customer_contract_tab_test()[pri:7, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace424650301", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace424650301'><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_post_delivery_status_on_customer_contract_tab_test()[pri:7, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_payment_statuses_for_required_flow_test()'><b>verify_payment_statuses_for_required_flow_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_payment_statuses_for_required_flow_test()[pri:5, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace739914076", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace739914076'><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_payment_statuses_for_required_flow_test()[pri:5, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_delivery_status_on_customer_contract_tab_test()'><b>verify_delivery_status_on_customer_contract_tab_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_delivery_status_on_customer_contract_tab_test()[pri:6, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace361560378", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace361560378'><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_delivery_status_on_customer_contract_tab_test()[pri:6, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+<tr>
+<td title='orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_statuses_on_order_completed_test()'><b>verify_statuses_on_order_completed_test</b><br>Test class: orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_statuses_on_order_completed_test()[pri:9, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace36551226", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace36551226'><pre>java.lang.Throwable: Method Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test.verify_statuses_on_order_completed_test()[pri:9, instance:orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test@62656be4</td></tr>
+</table><p>
+</body>
+</html>

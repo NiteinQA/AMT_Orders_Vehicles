@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Verify With Customer Flow For Ownbook Purchase Without Funder">
+  <test thread-count="5" name="Used Car-Verify With Customer Flow For Ownbook Purchase Without Funder">
     <classes>
-	  <class name="acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test"/>
+	 <class name="acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test"/>
 	 <class name="opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test"/>
-      <class name="opportunity.Create_order_from_opportunity_Test"/>      
+    <class name="opportunity.Create_order_from_opportunity_Test"/>      
      <class name="orders.Orders_Verify_used_car_ownbook_business_purchase_With_Customer_Flow_Test"/>
       
     </classes>

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Verify With Customer Flow For Ownbook Purchase Without Funder</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>22/2/2</td>
+<td>Tests passed/Failed/Skipped:</td><td>18/1/6</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jan 19 15:21:24 IST 2024</td>
+<td>Started on:</td><td>Thu Jan 25 14:43:00 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>1623 seconds (1623947 ms)</td>
+<tr><td>Total time:</td><td>1634 seconds (1634359 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,153 +75,41 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='opportunity.Create_order_from_opportunity_Test.create_order_from_opportunity_test()'><b>create_order_from_opportunity_test</b><br>Test class: opportunity.Create_order_from_opportunity_Test<br/>
-<a href="#Output-1701282435" onClick='toggleBox("Output-1701282435", this, "Show output", "Hide output");'>Show output</a>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW4_verify_ownbook_underwriting_proposal_page_flow()'><b>UW4_verify_ownbook_underwriting_proposal_page_flow</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-47946225" onClick='toggleBox("Output-47946225", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1701282435" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1701282435">
-<b>Clicked on Opportunity link from Menu </b> <br /><br/>
-<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
-<b> </b> <br /><br/>
-<b>*****Creating Order Started*****</b> <br /><br/>
+<a href="#Output-47946225" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-47946225">
+<b>Click on Underwriting detail page for proposal</b> <br /><br/>
+<b>Clicked on Underwriting quote page</b> <br /><br/>
 <br>----------Screenshot---------<br><br/>
-<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\create_order_from_opportunity_test_19_01_2024_03_46_45.png" height="800" width="1000"><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\UW4_verify_ownbook_underwriting_proposal_page_flow_25_01_2024_03_10_14.png" height="800" width="1000"><br/>
 </div>
 </td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id=&apos;requestedDelivery&apos;]&apos; (tried for 20 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.amt.testUtil.Click.on(Click.java:17)
-	at com.amt.testUtil.CommonClass.create_order_from_opportunity(CommonClass.java:391)
-	at opportunity.Create_order_from_opportunity_Test.create_order_from_opportunity_test(Create_order_from_opportunity_Test.java:30)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;requestedDelivery&apos;]&quot;}
-  (Session info: chrome=120.0.6099.218)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (ba5a8126b530e0460ab99e66905aef8d)] -&gt; xpath: //app-acquisition-summary-configuration//*[normalize-space()=&apos;Default broker margin&apos;]//ancestor::div[1]//div/div/label] (tried for 20 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
 System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0f2d30e0c526c7b47426b485e933f70b, findElement {using=xpath, value=//*[@id=&apos;requestedDelivery&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.218, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57883}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57883/devtoo..., se:cdpVersion: 120.0.6099.218, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 0f2d30e0c526c7b47426b485e933f70b
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
-	at jdk.proxy2/jdk.proxy2.$Proxy22.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:660)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-	... 29 more
-... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1701282435", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1701282435'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id=&apos;requestedDelivery&apos;]&apos; (tried for 20 second(s) with 500 milliseconds interval)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58568}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58568/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ba5a8126b530e0460ab99e66905aef8d
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.amt.testUtil.Click.on(Click.java:17)
-	at com.amt.testUtil.CommonClass.create_order_from_opportunity(CommonClass.java:391)
-	at opportunity.Create_order_from_opportunity_Test.create_order_from_opportunity_test(Create_order_from_opportunity_Test.java:30)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at com.amt.testUtil.ExplicitWait.visibleElement(ExplicitWait.java:23)
+	at com.amt.pages.Underwriting.verify_quote_tab_on_underwriting_page_for_used_car_ownbook_business_purchase_flow(Underwriting.java:798)
+	at opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW4_verify_ownbook_underwriting_proposal_page_flow(LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.java:316)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;requestedDelivery&apos;]&quot;}
-  (Session info: chrome=120.0.6099.218)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace47946225", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace47946225'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (ba5a8126b530e0460ab99e66905aef8d)] -&gt; xpath: //app-acquisition-summary-configuration//*[normalize-space()=&apos;Default broker margin&apos;]//ancestor::div[1]//div/div/label] (tried for 20 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
 System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0f2d30e0c526c7b47426b485e933f70b, findElement {using=xpath, value=//*[@id=&apos;requestedDelivery&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.218, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57883}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57883/devtoo..., se:cdpVersion: 120.0.6099.218, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 0f2d30e0c526c7b47426b485e933f70b
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
-	at jdk.proxy2/jdk.proxy2.$Proxy22.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:660)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-	... 29 more
-</pre></div></td>
-<td>68</td>
-<td>opportunity.Create_order_from_opportunity_Test@7f485fda</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification()'><b>UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-801761536" onClick='toggleBox("Output-801761536", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-801761536" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-801761536">
-<b>Click on Search text box on Opportunity page</b> <br /><br/>
-<b>Enter the opportunity ID in search text box =TB-8141</b> <br /><br/>
-<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
-<b>Current Status of Channel value is =  Draft</b> <br /><br/>
-<b>Current Status of  Quote ref is = Cancelled</b> <br /><br/>
-<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
-<br>----------Screenshot---------<br><br/>
-<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification_19_01_2024_03_45_24.png" height="800" width="1000"><br/>
-</div>
-</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification(LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.java:403)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace801761536", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace801761536'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification(LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.java:403)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.225, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58568}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58568/devtoo..., se:cdpVersion: 120.0.6099.225, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ba5a8126b530e0460ab99e66905aef8d
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.ExplicitWait.visibleElement(ExplicitWait.java:23)
+	at com.amt.pages.Underwriting.verify_quote_tab_on_underwriting_page_for_used_car_ownbook_business_purchase_flow(Underwriting.java:798)
+	at opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW4_verify_ownbook_underwriting_proposal_page_flow(LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.java:316)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -249,8 +137,8 @@ Session ID: 0f2d30e0c526c7b47426b485e933f70b
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>23</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>102</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -260,33 +148,175 @@ Session ID: 0f2d30e0c526c7b47426b485e933f70b
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L8_ownbook_signed_contract_status_with_api_call()'><b>L8_ownbook_signed_contract_status_with_api_call</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-807408064" onClick='toggleBox("Output-807408064", this, "Show output", "Hide output");'>Show output</a>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L6_ownbook_sending_contract()'><b>L6_ownbook_sending_contract</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-891447040" onClick='toggleBox("Output-891447040", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-807408064" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-807408064">
-<b>Status code 200 received </b> <br /><br/>
-<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
+<a href="#Output-891447040" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-891447040">
+<b>click on Send_Contract icon</b> <br /><br/>
+<b>Contract Sent Successfully</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>41</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>33</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW2_verify_status_after_sending_to_underwriting()'><b>UW2_verify_status_after_sending_to_underwriting</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-2003927122" onClick='toggleBox("Output-2003927122", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2003927122" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2003927122">
+<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
+<b>Current Status of Channel value is =  Awaiting underwriting</b> <br /><br/>
+<b>Current Status of  Quote ref is = Awaiting underwriting</b> <br /><br/>
+<b>Status Verified : Awaiting Underwriting </b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_customer_quote_part_exchange_value_edit_check_without_maintenance_test()'><b>aquisition_quotes_customer_quote_part_exchange_value_edit_check_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
+<a href="#Output-2063408378" onClick='toggleBox("Output-2063408378", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2063408378" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2063408378">
+<b>Clicked on Part Exchange panel</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Balance To Finance Expected is 21749.996000000003</b> <br /><br/>
+<b>Balance To Finance Actual is 21750.0</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment Expected is 331.21092795139714</b> <br /><br/>
+<b>Monthly Finance Payment Actual is 331.21</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment verified after editing part exchange values and deposit values</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>114</td>
+<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@54422e18</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L2_ownbook_business_current_status_before_sending_to_proposal()'><b>L2_ownbook_business_current_status_before_sending_to_proposal</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-805580643" onClick='toggleBox("Output-805580643", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-805580643" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-805580643">
+<b>Clicked on Opportunity link from Menu </b> <br /><br/>
+<b>listing_proposal_status is = Proposal Required</b> <br /><br/>
+<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
+<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
+<b>Current Status of Proposal value is = Proposal Required</b> <br /><br/>
+<b>Current Status of Channel value is =  Draft</b> <br /><br/>
+<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
+<b>Status Verified : Before sending the proposal</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>32</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_quote_summary_values_verification_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
+<a href="#Output-1607627227" onClick='toggleBox("Output-1607627227", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1607627227" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1607627227">
+<b>*********Customer Quote generated successfully and Quote_ref_no is=QIA15941</b> <br /><br/>
+<b>*************OTR Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
+<b>Cost otr price from screen is 22050.0</b> <br /><br/>
+<b>Cost price ex vat and rfl from screen is 18375.0</b> <br /><br/>
+<b>Otr Vat from screen is 3675.0</b> <br /><br/>
+<b>Cost otr price from excel is 22050.0</b> <br /><br/>
+<b>Cost price ex vat and rfl from excel is 18375.0</b> <br /><br/>
+<b>Otr Vat from excel is 3675.0</b> <br /><br/>
+<b>OTR price compared</b> <br /><br/>
+<b>Cost price ex vat and rfl compared</b> <br /><br/>
+<b>VAT compared</b> <br /><br/>
+<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Holding cost Terms from screen36.0</b> <br /><br/>
+<b>Holding cost miles per annum from screen is 10000.0</b> <br /><br/>
+<b>Holding cost monthly finance cost from screen is 247.38</b> <br /><br/>
+<b>Holding cost total monthly holding cost from screen is 247.38</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Holding cost Terms from excel is 36.0</b> <br /><br/>
+<b>Holding cost miles per annum from excel is 10000.0</b> <br /><br/>
+<b>Holding cost monthly finance cost from excel is 247.37909402360353</b> <br /><br/>
+<b>Holding cost total monthly holding cost from excel is 247.37909402360353</b> <br /><br/>
+<b>terms compared</b> <br /><br/>
+<b>Miles per annum compared</b> <br /><br/>
+<b>Finance cost compared</b> <br /><br/>
+<b>Total Monthly Holding Cost compared</b> <br /><br/>
+<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Terms found OK</b> <br /><br/>
+<b>miles found OK</b> <br /><br/>
+<b>Basic Cash Price found OK</b> <br /><br/>
+<b>VAT found OK</b> <br /><br/>
+<b>Non VAT Items Value found OK</b> <br /><br/>
+<b>Total Cash Price found OK</b> <br /><br/>
+<b>Order Deposit found OK</b> <br /><br/>
+<b>Finance Deposit found OK</b> <br /><br/>
+<b>Total Deposit found OK</b> <br /><br/>
+<b>Part Exchange Value - found OK</b> <br /><br/>
+<b>Balance to Finance found OK</b> <br /><br/>
+<b>Finance Charges - found OK</b> <br /><br/>
+<b>Document Fee - found OK</b> <br /><br/>
+<b>Balance Payable - found OK</b> <br /><br/>
+<b>Option To Purchase Fee - found OK</b> <br /><br/>
+<b>Initial Cash Payment - found OK</b> <br /><br/>
+<b>Followed By months - found OK</b> <br /><br/>
+<b>Monthly Finance Payment - found OK</b> <br /><br/>
+<b>Balloon Value - found OK</b> <br /><br/>
+<b>Final Payment - found OK</b> <br /><br/>
+<b>Vehicle Commission - found OK</b> <br /><br/>
+<b>Default Finance Commission - found OK</b> <br /><br/>
+<b>Document Fee Commission - found OK</b> <br /><br/>
+<b>Total Commission - found OK</b> <br /><br/>
+<b>*************Configuration Values Verification on quote summary page has been started************</b> <br /><br/>
+<b>Base Interest Rate found OK</b> <br /><br/>
+<b>Finance Margin found OK</b> <br /><br/>
+<b>Deductions found OK</b> <br /><br/>
+<b>Additional Margin found OK</b> <br /><br/>
+<b>Total Margin found OK</b> <br /><br/>
+<b>Default Broker Margin percentage found OK</b> <br /><br/>
+<b>Customer Interest Rate found OK</b> <br /><br/>
+<b>Document Fee Margin found OK</b> <br /><br/>
+<b>Default Broker Margin found OK</b> <br /><br/>
+<b>*************Editing and Verifying Configuration Values on quote summary page has been started************</b> <br /><br/>
+<b>Base Interest Rate changed to 7.0 %</b> <br /><br/>
+<b>Holding Cost after changing Base Int. Rate -  found OK</b> <br /><br/>
+<b>Monthly Finance Rental after changing Base Int. Rate -  found OK</b> <br /><br/>
+<b>Finance Charges - found OK</b> <br /><br/>
+<b>Balance Payable - found OK</b> <br /><br/>
+<b>*************Editing Customer Rate Over Base and Verifying Values on quote summary page has been started************</b> <br /><br/>
+<b>Customer Base Over Rate changed to 5.0 %</b> <br /><br/>
+<b>Monthly Finance Rental after changing Customer Base Over Rate -  found OK</b> <br /><br/>
+<b>Finance Charges - found OK</b> <br /><br/>
+<b>Balance Payable - found OK</b> <br /><br/>
+<b>*************Calculations for Quote Summary page gas been started************</b> <br /><br/>
+<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
+<b>Writing completed for some of the important required values to quote save excel sheet in the sheet HPNRHPNRQuoteNo</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>276</td>
+<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@54422e18</td></tr>
 <tr>
 <td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW1_verify_underwriting_flow_ownbook_with_status()'><b>UW1_verify_underwriting_flow_ownbook_with_status</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1297878461" onClick='toggleBox("Output-1297878461", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1801128658" onClick='toggleBox("Output-1801128658", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1297878461" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1297878461">
+<a href="#Output-1801128658" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1801128658">
 <b> Underwriting icon is available </b> <br /><br/>
 <b>Underwriting pop up -quote ref no => Quote reference no.:
-VSH42938</b> <br /><br/>
-<b>Underwriting Popup Proposal Id is =SGC0787</b> <br /><br/>
+QIA15941</b> <br /><br/>
+<b>Underwriting Popup Proposal Id is =MWT6917</b> <br /><br/>
 <b></b> <br /><br/>
 <b>Started Verifying Summary values</b> <br /><br/>
 <b></b> <br /><br/>
 <b>Quote reference no.:
-VSH42938 != VSH42938</b> <br /><br/>
+QIA15941 != QIA15941</b> <br /><br/>
 <b>Quote no. compared but found not ok</b> <br /><br/>
 <b></b> <br /><br/>
 <b>MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto = MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto</b> <br /><br/>
@@ -374,59 +404,14 @@ VSH42938 != VSH42938</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>76</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW3_verify_underwriting_lisitig_page()'><b>UW3_verify_underwriting_lisitig_page</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-2005376612" onClick='toggleBox("Output-2005376612", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-2005376612" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-2005376612">
-<b>Click on Underwriting menu_link </b> <br /><br/>
-<b>Click on Underwriting - ownbook tab </b> <br /><br/>
-<b>Click on Search text box - broker tab</b> <br /><br/>
-<b>Getting the  proposal id from excel sheet =SGC0787</b> <br /><br/>
-<b>Enter the proposal in search text box =SGC0787</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>19</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW6_verify_ownbook_opportunity_search_text_box_accept_with_changes()'><b>UW6_verify_ownbook_opportunity_search_text_box_accept_with_changes</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1665629092" onClick='toggleBox("Output-1665629092", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1665629092" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1665629092">
-<b>Clicked on Opportunity link from Menu </b> <br /><br/>
-<b>Click on Search text box on Opportunity page</b> <br /><br/>
-<b>Enter the opportunity ID in search text box =TB-8141</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>27</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L9_ownbook_status_after_contract_signed()'><b>L9_ownbook_status_after_contract_signed</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1134965635" onClick='toggleBox("Output-1134965635", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1134965635" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1134965635">
-<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
-<b>Current Status of Channel value is =  Contract signed</b> <br /><br/>
-<b>Current Status of  Quote ref is = Contract signed</b> <br /><br/>
-<b>Status Verified : Contract Signed </b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>11</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>89</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
 <tr>
 <td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L1_create_lead_convert_to_lead_for_ownbook_business_flow()'><b>L1_create_lead_convert_to_lead_for_ownbook_business_flow</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-990972823" onClick='toggleBox("Output-990972823", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-643062590" onClick='toggleBox("Output-643062590", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-990972823" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-990972823">
+<a href="#Output-643062590" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-643062590">
 <b>Clicked on Leads on Side Menu</b> <br /><br/>
 <b>Clicked on add lead</b> <br /><br/>
 <b>Lead is assigned</b> <br /><br/>
@@ -446,7 +431,7 @@ VSH42938 != VSH42938</b> <br /><br/>
 <b></b> <br /><br/>
 <b>Started Verifying Table values</b> <br /><br/>
 <b></b> <br /><br/>
-<b>VSH42938 = VSH42938</b> <br /><br/>
+<b>QIA15941 = QIA15941</b> <br /><br/>
 <b>Quote no. compared and found ok</b> <br /><br/>
 <b></b> <br /><br/>
 <b>MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto = MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto</b> <br /><br/>
@@ -464,13 +449,13 @@ VSH42938 != VSH42938</b> <br /><br/>
 <b>36.0 = 36.0</b> <br /><br/>
 <b>Terms compared and found ok</b> <br /><br/>
 <b></b> <br /><br/>
-<b>18/02/2024 = 18/02/2024</b> <br /><br/>
+<b>24/02/2024 = 24/02/2024</b> <br /><br/>
 <b>Expiry date compared and found ok</b> <br /><br/>
 <b>Click on Lead save and Convert button</b> <br /><br/>
 <b></b> <br /><br/>
 <b>Started Verifying Table values</b> <br /><br/>
 <b></b> <br /><br/>
-<b>VSH42938 = VSH42938</b> <br /><br/>
+<b>QIA15941 = QIA15941</b> <br /><br/>
 <b>Quote no. compared and found ok</b> <br /><br/>
 <b></b> <br /><br/>
 <b>MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto = MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto</b> <br /><br/>
@@ -488,56 +473,74 @@ VSH42938 != VSH42938</b> <br /><br/>
 <b>36.0 = 36.0</b> <br /><br/>
 <b>Terms compared and found ok</b> <br /><br/>
 <b></b> <br /><br/>
-<b>18/02/2024 = 18/02/2024</b> <br /><br/>
+<b>24/02/2024 = 24/02/2024</b> <br /><br/>
 <b>Expiry date compared and found ok</b> <br /><br/>
 <b></b> <br /><br/>
-<b>In Lead created Opportunity Id is =TB-8141</b> <br /><br/>
+<b>In Lead created Opportunity Id is =IN-3972</b> <br /><br/>
 <b></b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>225</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>258</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
 <tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L2_ownbook_business_current_status_before_sending_to_proposal()'><b>L2_ownbook_business_current_status_before_sending_to_proposal</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-611115968" onClick='toggleBox("Output-611115968", this, "Show output", "Hide output");'>Show output</a>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L3_verify_table_values_on_opportunity_page_before_sending_proposal()'><b>L3_verify_table_values_on_opportunity_page_before_sending_proposal</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-953426744" onClick='toggleBox("Output-953426744", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-611115968" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-611115968">
-<b>Clicked on Opportunity link from Menu </b> <br /><br/>
-<b>listing_proposal_status is = Proposal Required</b> <br /><br/>
-<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
-<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
-<b>Current Status of Proposal value is = Proposal Required</b> <br /><br/>
-<b>Current Status of Channel value is =  Draft</b> <br /><br/>
-<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
-<b>Status Verified : Before sending the proposal</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>44</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW2_verify_status_after_sending_to_underwriting()'><b>UW2_verify_status_after_sending_to_underwriting</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1298418248" onClick='toggleBox("Output-1298418248", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1298418248" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1298418248">
-<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
-<b>Current Status of Channel value is =  Awaiting underwriting</b> <br /><br/>
-<b>Current Status of  Quote ref is = Awaiting underwriting</b> <br /><br/>
-<b>Status Verified : Awaiting Underwriting </b> <br /><br/>
+<a href="#Output-953426744" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-953426744">
+<b></b> <br /><br/>
+<b>Started Verifying Table values</b> <br /><br/>
+<b></b> <br /><br/>
+<b>QIA15941 = QIA15941</b> <br /><br/>
+<b>Quote no. compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto = MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto</b> <br /><br/>
+<b>Vehicle name compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Hire Purchase Non-Regulated = Hire Purchase Non-Regulated</b> <br /><br/>
+<b>Contract type compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>380.71 = 380.71</b> <br /><br/>
+<b>Monthly finance rental compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>10000.0 = 10000.0</b> <br /><br/>
+<b>Mileage compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>36.0 = 36.0</b> <br /><br/>
+<b>Terms compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>24/02/2024 = 24/02/2024</b> <br /><br/>
+<b>Expiry date compared and found ok</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Table values verified Successfully</b> <br /><br/>
 </div>
 </td>
 <td></td>
 <td>4</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW3_verify_underwriting_lisitig_page()'><b>UW3_verify_underwriting_lisitig_page</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-1133234182" onClick='toggleBox("Output-1133234182", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1133234182" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1133234182">
+<b>Click on Underwriting menu_link </b> <br /><br/>
+<b>Click on Underwriting - ownbook tab </b> <br /><br/>
+<b>Click on Search text box - broker tab</b> <br /><br/>
+<b>Getting the  proposal id from excel sheet =MWT6917</b> <br /><br/>
+<b>Enter the proposal in search text box =MWT6917</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>103</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
 <tr>
 <td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test()'><b>aquisition_quotes_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
-<a href="#Output-2147359283" onClick='toggleBox("Output-2147359283", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-878043514" onClick='toggleBox("Output-878043514", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-2147359283" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-2147359283">
+<a href="#Output-878043514" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-878043514">
 <b>***********Entered in Customer Quote page ***********</b> <br /><br/>
 <b>Matrix credit type A1 Credit has been selected</b> <br /><br/>
 <b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br /><br/>
@@ -547,28 +550,43 @@ VSH42938 != VSH42938</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>75</td>
-<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@350aac89</td></tr>
+<td>85</td>
+<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@54422e18</td></tr>
 <tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW5_verify_ownbook_underwriting_proposal_decision_with_accept()'><b>UW5_verify_ownbook_underwriting_proposal_decision_with_accept</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1816979491" onClick='toggleBox("Output-1816979491", this, "Show output", "Hide output");'>Show output</a>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L8_ownbook_signed_contract_status_with_api_call()'><b>L8_ownbook_signed_contract_status_with_api_call</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-1470282893" onClick='toggleBox("Output-1470282893", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1816979491" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1816979491">
-<b>Click on decision Accept button</b> <br /><br/>
-<b>Entering values to input field</b> <br /><br/>
-<b>Current Status of accept value is = Conditional acceptance</b> <br /><br/>
+<a href="#Output-1470282893" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1470282893">
+<b>Status code 200 received </b> <br /><br/>
+<b>Enter the Opportunity id in Search Text box</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>48</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>100</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L5_ownbook_create_opportunity_business_currentstatus_after_sending_to_proposal()'><b>L5_ownbook_create_opportunity_business_currentstatus_after_sending_to_proposal</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-1166895967" onClick='toggleBox("Output-1166895967", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1166895967" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1166895967">
+<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
+<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
+<b>Current Status of Channel value is =  Draft</b> <br /><br/>
+<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
+<b>Status Verified : After sending the proposal</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
 <tr>
 <td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L7_verify_current_status_on_opportunity_page_after_sending_contract_for_ownbook_business_flow()'><b>L7_verify_current_status_on_opportunity_page_after_sending_contract_for_ownbook_business_flow</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-710025411" onClick='toggleBox("Output-710025411", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1060770441" onClick='toggleBox("Output-1060770441", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-710025411" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-710025411">
+<a href="#Output-1060770441" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1060770441">
 <b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
 <b>Current Status of Channel value is =  Sent to customer</b> <br /><br/>
 <b>Current Status of  Quote ref is = Sent to customer</b> <br /><br/>
@@ -577,13 +595,44 @@ VSH42938 != VSH42938</b> <br /><br/>
 </td>
 <td></td>
 <td>7</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L9_ownbook_status_after_contract_signed()'><b>L9_ownbook_status_after_contract_signed</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-1835844952" onClick='toggleBox("Output-1835844952", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1835844952" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1835844952">
+<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
+<b>Current Status of Channel value is =  Contract signed</b> <br /><br/>
+<b>Current Status of  Quote ref is = Contract signed</b> <br /><br/>
+<b>Status Verified : Contract Signed </b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test()'><b>aquisition_quotes_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
+<a href="#Output-32523877" onClick='toggleBox("Output-32523877", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-32523877" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-32523877">
+<b></b> <br /><br/>
+<b>Monthly Finance Payment Expected (with balloon payment toggle button off) is 690.6322300447639</b> <br /><br/>
+<b>Monthly Finance Payment Actual (with balloon payment toggle button off) is 690.63</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment verified after making balloon payment toggle button off</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>50</td>
+<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@54422e18</td></tr>
 <tr>
 <td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_OTR_calculation_without_maintenance_test()'><b>aquisition_quotes_OTR_calculation_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
-<a href="#Output-901614537" onClick='toggleBox("Output-901614537", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1035825415" onClick='toggleBox("Output-1035825415", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-901614537" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-901614537">
+<a href="#Output-1035825415" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1035825415">
 <b>Clicking on New quote</b> <br /><br/>
 <b>Clicked on Quote button </b> <br /><br/>
 <b>Selecting used vehicle with registration no. = GY19XAG and mileage = 15000</b> <br /><br/>
@@ -599,295 +648,14 @@ VSH42938 != VSH42938</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>102</td>
-<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@350aac89</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW7_verify_ownbook_opportunity_accept_with_changes_underwriting_pop_up()'><b>UW7_verify_ownbook_opportunity_accept_with_changes_underwriting_pop_up</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1883469047" onClick='toggleBox("Output-1883469047", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1883469047" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1883469047">
-<b> Underwriting icon is available </b> <br /><br/>
-<b>click on underwriting_send_for_underwriting  button </b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>61</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L4_fill_up_the_required_fields_for_sending_a_proposal()'><b>L4_fill_up_the_required_fields_for_sending_a_proposal</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-708637449" onClick='toggleBox("Output-708637449", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-708637449" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-708637449">
-<b>click on Proposal icon</b> <br /><br/>
-<b>click on Proposal icon</b> <br /><br/>
-<b>Proposal page will display </b> <br /><br/>
-<b>Send proposal to customer pop up  will open</b> <br /><br/>
-<b>Click on Manual fill radio button - Yes</b> <br /><br/>
-<b>Click on manually submit behalf of customer link</b> <br /><br/>
-</div>
-</td>
-<td></td>
 <td>105</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW4_verify_ownbook_underwriting_proposal_page_flow()'><b>UW4_verify_ownbook_underwriting_proposal_page_flow</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-682627013" onClick='toggleBox("Output-682627013", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-682627013" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-682627013">
-<b>Click on Underwriting detail page for proposal</b> <br /><br/>
-<b>Clicked on Underwriting quote page</b> <br /><br/>
-<b></b> <br /><br/>
-<b>22050.0 = 22050.0</b> <br /><br/>
-<b>Cost Otr Price compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>18375.0 = 18375.0</b> <br /><br/>
-<b>Cost Otr Price compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>3675.0 = 3675.0</b> <br /><br/>
-<b>Otr Vat compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>VSH42938 = VSH42938</b> <br /><br/>
-<b>Quote no. compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto = MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto</b> <br /><br/>
-<b>Vehicle name compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Hire Purchase Non-Regulated = Hire Purchase Non-Regulated</b> <br /><br/>
-<b>Contract type compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>36.0 = 36.0</b> <br /><br/>
-<b>Terms compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>10000.0 = 10000.0</b> <br /><br/>
-<b>Mileage compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>20208.33 = 20208.33</b> <br /><br/>
-<b>Basic Cash Price found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>4041.67 = 4041.666</b> <br /><br/>
-<b>VAT found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>0.0 = 0.0</b> <br /><br/>
-<b>Non VAT Items Value found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>24250.0 = 24249.996000000003</b> <br /><br/>
-<b>Total Cash Price found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>1000.0 = 1000.0</b> <br /><br/>
-<b>Order Deposit found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>1000.0 = 1000.0</b> <br /><br/>
-<b>Finance Deposit found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>2000.0 = 2000.0</b> <br /><br/>
-<b>Total Deposit found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>500.0 = 500.0</b> <br /><br/>
-<b>Part Exchange Value - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>21750.0 = 21749.996000000003</b> <br /><br/>
-<b>Balance to Finance found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>6674.85 = 6674.959606632492</b> <br /><br/>
-<b>Finance Charges - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>199.99 = 199.99</b> <br /><br/>
-<b>Document Fee - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>28674.84 = 28674.943606632496</b> <br /><br/>
-<b>Balance Payable - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>10.0 = 10.0</b> <br /><br/>
-<b>Option To Purchase Fee - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>2239.99 = 2239.988</b> <br /><br/>
-<b>Initial Cash Payment - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>35.0 = 35.0</b> <br /><br/>
-<b>Followed By months - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>380.71 = 380.71301733235714</b> <br /><br/>
-<b>Monthly Finance Payment - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>15100.0 = 15100.0</b> <br /><br/>
-<b>Balloon Value - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>15110.0 = 15110.0</b> <br /><br/>
-<b>Final Payment - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>1833.33 = 1833.3300000000027</b> <br /><br/>
-<b>Vehicle Commission - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>181.25 = 181.24996666666667</b> <br /><br/>
-<b>Default Finance Commission - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>99.99 = 99.99000000000001</b> <br /><br/>
-<b>Document Fee Commission - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>2114.57 = 2114.569966666669</b> <br /><br/>
-<b>Total Commission - found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>7.0 = 7.0</b> <br /><br/>
-<b>Base Interest Rate found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>2801.6 = 2801.705606632495</b> <br /><br/>
-<b>Finance Margin found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>217.5 = 217.4999600000004</b> <br /><br/>
-<b>Deductions found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>99.99 = 99.99000000000001</b> <br /><br/>
-<b>Additional Margin found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>2684.09 = 2684.1956466324946</b> <br /><br/>
-<b>Total Margin found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>1.0 = 1.0</b> <br /><br/>
-<b>Default Broker Margin percentage found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>12.0 = 12.000000000000002</b> <br /><br/>
-<b>Customer Interest Rate found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>99.99 = 99.99000000000001</b> <br /><br/>
-<b>Document Fee Margin found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>217.5 = 217.4999600000004</b> <br /><br/>
-<b>Default Broker Margin found OK</b> <br /><br/>
-<b></b> <br /><br/>
-<b>[32mAll values on underwriting quote tab verified successfully[0m</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Click on decision tab page</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>115</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_quote_summary_values_verification_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
-<a href="#Output-2060577895" onClick='toggleBox("Output-2060577895", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-2060577895" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-2060577895">
-<b>*********Customer Quote generated successfully and Quote_ref_no is=VSH42938</b> <br /><br/>
-<b>*************OTR Calulation on quote summary page has been started************</b> <br /><br/>
-<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
-<b>Cost otr price from screen is 22050.0</b> <br /><br/>
-<b>Cost price ex vat and rfl from screen is 18375.0</b> <br /><br/>
-<b>Otr Vat from screen is 3675.0</b> <br /><br/>
-<b>Cost otr price from excel is 22050.0</b> <br /><br/>
-<b>Cost price ex vat and rfl from excel is 18375.0</b> <br /><br/>
-<b>Otr Vat from excel is 3675.0</b> <br /><br/>
-<b>OTR price compared</b> <br /><br/>
-<b>Cost price ex vat and rfl compared</b> <br /><br/>
-<b>VAT compared</b> <br /><br/>
-<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br /><br/>
-<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Holding cost Terms from screen36.0</b> <br /><br/>
-<b>Holding cost miles per annum from screen is 10000.0</b> <br /><br/>
-<b>Holding cost monthly finance cost from screen is 247.38</b> <br /><br/>
-<b>Holding cost total monthly holding cost from screen is 247.38</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Holding cost Terms from excel is 36.0</b> <br /><br/>
-<b>Holding cost miles per annum from excel is 10000.0</b> <br /><br/>
-<b>Holding cost monthly finance cost from excel is 247.37909402360353</b> <br /><br/>
-<b>Holding cost total monthly holding cost from excel is 247.37909402360353</b> <br /><br/>
-<b>terms compared</b> <br /><br/>
-<b>Miles per annum compared</b> <br /><br/>
-<b>Finance cost compared</b> <br /><br/>
-<b>Total Monthly Holding Cost compared</b> <br /><br/>
-<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br /><br/>
-<b>Terms found OK</b> <br /><br/>
-<b>miles found OK</b> <br /><br/>
-<b>Basic Cash Price found OK</b> <br /><br/>
-<b>VAT found OK</b> <br /><br/>
-<b>Non VAT Items Value found OK</b> <br /><br/>
-<b>Total Cash Price found OK</b> <br /><br/>
-<b>Order Deposit found OK</b> <br /><br/>
-<b>Finance Deposit found OK</b> <br /><br/>
-<b>Total Deposit found OK</b> <br /><br/>
-<b>Part Exchange Value - found OK</b> <br /><br/>
-<b>Balance to Finance found OK</b> <br /><br/>
-<b>Finance Charges - found OK</b> <br /><br/>
-<b>Document Fee - found OK</b> <br /><br/>
-<b>Balance Payable - found OK</b> <br /><br/>
-<b>Option To Purchase Fee - found OK</b> <br /><br/>
-<b>Initial Cash Payment - found OK</b> <br /><br/>
-<b>Followed By months - found OK</b> <br /><br/>
-<b>Monthly Finance Payment - found OK</b> <br /><br/>
-<b>Balloon Value - found OK</b> <br /><br/>
-<b>Final Payment - found OK</b> <br /><br/>
-<b>Vehicle Commission - found OK</b> <br /><br/>
-<b>Default Finance Commission - found OK</b> <br /><br/>
-<b>Document Fee Commission - found OK</b> <br /><br/>
-<b>Total Commission - found OK</b> <br /><br/>
-<b>*************Configuration Values Verification on quote summary page has been started************</b> <br /><br/>
-<b>Base Interest Rate found OK</b> <br /><br/>
-<b>Finance Margin found OK</b> <br /><br/>
-<b>Deductions found OK</b> <br /><br/>
-<b>Additional Margin found OK</b> <br /><br/>
-<b>Total Margin found OK</b> <br /><br/>
-<b>Default Broker Margin percentage found OK</b> <br /><br/>
-<b>Customer Interest Rate found OK</b> <br /><br/>
-<b>Document Fee Margin found OK</b> <br /><br/>
-<b>Default Broker Margin found OK</b> <br /><br/>
-<b>*************Editing and Verifying Configuration Values on quote summary page has been started************</b> <br /><br/>
-<b>Base Interest Rate changed to 7.0 %</b> <br /><br/>
-<b>Holding Cost after changing Base Int. Rate -  found OK</b> <br /><br/>
-<b>Monthly Finance Rental after changing Base Int. Rate -  found OK</b> <br /><br/>
-<b>Finance Charges - found OK</b> <br /><br/>
-<b>Balance Payable - found OK</b> <br /><br/>
-<b>*************Editing Customer Rate Over Base and Verifying Values on quote summary page has been started************</b> <br /><br/>
-<b>Customer Base Over Rate changed to 5.0 %</b> <br /><br/>
-<b>Monthly Finance Rental after changing Customer Base Over Rate -  found OK</b> <br /><br/>
-<b>Finance Charges - found OK</b> <br /><br/>
-<b>Balance Payable - found OK</b> <br /><br/>
-<b>*************Calculations for Quote Summary page gas been started************</b> <br /><br/>
-<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
-<b>Writing completed for some of the important required values to quote save excel sheet in the sheet HPNRHPNRQuoteNo</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>221</td>
-<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@350aac89</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L5_ownbook_create_opportunity_business_currentstatus_after_sending_to_proposal()'><b>L5_ownbook_create_opportunity_business_currentstatus_after_sending_to_proposal</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1955183422" onClick='toggleBox("Output-1955183422", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1955183422" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1955183422">
-<b>Current Status of Opportunity Status value is = Open</b> <br /><br/>
-<b>Current Status of Proposal value is = Proposal Received</b> <br /><br/>
-<b>Current Status of Channel value is =  Draft</b> <br /><br/>
-<b>Current Status of  Quote ref is = Draft</b> <br /><br/>
-<b>Status Verified : After sending the proposal</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>0</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L6_ownbook_sending_contract()'><b>L6_ownbook_sending_contract</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1388431000" onClick='toggleBox("Output-1388431000", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1388431000" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1388431000">
-<b>click on Send_Contract icon</b> <br /><br/>
-<b>Contract Sent Successfully</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>38</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@54422e18</td></tr>
 <tr>
 <td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_holding_cost_calculations_without_maintenance_test()'><b>aquisition_quotes_holding_cost_calculations_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
-<a href="#Output-1733618702" onClick='toggleBox("Output-1733618702", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-507949883" onClick='toggleBox("Output-507949883", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1733618702" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1733618702">
+<a href="#Output-507949883" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-507949883">
 <b>***********Entered in holding cost page ***********</b> <br /><br/>
 <b>Clicked on holding cost summary</b> <br /><br/>
 <b></b> <br /><br/>
@@ -906,80 +674,25 @@ VSH42938 != VSH42938</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>15</td>
-<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@350aac89</td></tr>
+<td>35</td>
+<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@54422e18</td></tr>
 <tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L3_verify_table_values_on_opportunity_page_before_sending_proposal()'><b>L3_verify_table_values_on_opportunity_page_before_sending_proposal</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
-<a href="#Output-1365314621" onClick='toggleBox("Output-1365314621", this, "Show output", "Hide output");'>Show output</a>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.L4_fill_up_the_required_fields_for_sending_a_proposal()'><b>L4_fill_up_the_required_fields_for_sending_a_proposal</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test<br/>
+<a href="#Output-543021248" onClick='toggleBox("Output-543021248", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1365314621" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1365314621">
-<b></b> <br /><br/>
-<b>Started Verifying Table values</b> <br /><br/>
-<b></b> <br /><br/>
-<b>VSH42938 = VSH42938</b> <br /><br/>
-<b>Quote no. compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto = MERCEDES-BENZ A CLASS AMG HATCHBACK (2019 - Current) A35 4Matic Premium 5dr Auto</b> <br /><br/>
-<b>Vehicle name compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Hire Purchase Non-Regulated = Hire Purchase Non-Regulated</b> <br /><br/>
-<b>Contract type compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>380.71 = 380.71</b> <br /><br/>
-<b>Monthly finance rental compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>10000.0 = 10000.0</b> <br /><br/>
-<b>Mileage compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>36.0 = 36.0</b> <br /><br/>
-<b>Terms compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>18/02/2024 = 18/02/2024</b> <br /><br/>
-<b>Expiry date compared and found ok</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Table values verified Successfully</b> <br /><br/>
+<a href="#Output-543021248" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-543021248">
+<b>click on Proposal icon</b> <br /><br/>
+<b>click on Proposal icon</b> <br /><br/>
+<b>Proposal page will display </b> <br /><br/>
+<b>Send proposal to customer pop up  will open</b> <br /><br/>
+<b>Click on Manual fill radio button - Yes</b> <br /><br/>
+<b>Click on manually submit behalf of customer link</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>4</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
-<tr>
-<td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test()'><b>aquisition_quotes_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
-<a href="#Output-416663400" onClick='toggleBox("Output-416663400", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-416663400" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-416663400">
-<b></b> <br /><br/>
-<b>Monthly Finance Payment Expected (with balloon payment toggle button off) is 690.6322300447639</b> <br /><br/>
-<b>Monthly Finance Payment Actual (with balloon payment toggle button off) is 690.63</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Monthly Finance Payment verified after making balloon payment toggle button off</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>23</td>
-<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@350aac89</td></tr>
-<tr>
-<td title='acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test.aquisition_quotes_customer_quote_part_exchange_value_edit_check_without_maintenance_test()'><b>aquisition_quotes_customer_quote_part_exchange_value_edit_check_without_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test<br>Parameters: GY19XAG, 15000, 60000, 1000, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HPNR_used_car<br/>
-<a href="#Output-1331237638" onClick='toggleBox("Output-1331237638", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1331237638" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1331237638">
-<b>Clicked on Part Exchange panel</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Balance To Finance Expected is 21749.996000000003</b> <br /><br/>
-<b>Balance To Finance Actual is 21750.0</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Monthly Finance Payment Expected is 331.21092795139714</b> <br /><br/>
-<b>Monthly Finance Payment Actual is 331.21</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Monthly Finance Payment verified after editing part exchange values and deposit values</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>109</td>
-<td>acquisition.Acquisition_Quotes_HPNR_HPNR_used_car_without_maintenance_Test@350aac89</td></tr>
+<td>188</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -989,11 +702,11 @@ VSH42938 != VSH42938</b> <br /><br/>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW9_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call()'><b>UW9_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test</td>
-<td><div><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW9_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call()[pri:18, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2] depends on not successfully finished methods
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW7_verify_ownbook_opportunity_accept_with_changes_underwriting_pop_up()'><b>UW7_verify_ownbook_opportunity_accept_with_changes_underwriting_pop_up</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test</td>
+<td><div><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW7_verify_ownbook_opportunity_accept_with_changes_underwriting_pop_up()[pri:16, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace149630030", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace149630030'><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW9_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call()[pri:18, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace528854819", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace528854819'><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW7_verify_ownbook_opportunity_accept_with_changes_underwriting_pop_up()[pri:16, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -1015,13 +728,41 @@ VSH42938 != VSH42938</b> <br /><br/>
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification()'><b>UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test</td>
+<td><div><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification()[pri:17, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2106492630", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2106492630'><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW8_verify_ownbook_opportunity_underwriting_accept_with_changes_cancel_flow_verification()[pri:17, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
 <tr>
 <td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.OP1_ownbook_after_Underwriting_accepted_mothlty_payment_price()'><b>OP1_ownbook_after_Underwriting_accepted_mothlty_payment_price</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test</td>
-<td><div><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.OP1_ownbook_after_Underwriting_accepted_mothlty_payment_price()[pri:19, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2] depends on not successfully finished methods
+<td><div><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.OP1_ownbook_after_Underwriting_accepted_mothlty_payment_price()[pri:19, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1539121171", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1539121171'><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.OP1_ownbook_after_Underwriting_accepted_mothlty_payment_price()[pri:19, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace935928480", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace935928480'><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.OP1_ownbook_after_Underwriting_accepted_mothlty_payment_price()[pri:19, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
 	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -1043,7 +784,91 @@ VSH42938 != VSH42938</b> <br /><br/>
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@4b29d1d2</td></tr>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW5_verify_ownbook_underwriting_proposal_decision_with_accept()'><b>UW5_verify_ownbook_underwriting_proposal_decision_with_accept</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test</td>
+<td><div><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW5_verify_ownbook_underwriting_proposal_decision_with_accept()[pri:14, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1017927014", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1017927014'><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW5_verify_ownbook_underwriting_proposal_decision_with_accept()[pri:14, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW9_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call()'><b>UW9_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test</td>
+<td><div><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW9_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call()[pri:18, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1754509502", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1754509502'><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW9_ownbook_after_opportunity_underwriting_accept_with_changes_signed_contract_status_with_api_call()[pri:18, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
+<tr>
+<td title='opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW6_verify_ownbook_opportunity_search_text_box_accept_with_changes()'><b>UW6_verify_ownbook_opportunity_search_text_box_accept_with_changes</b><br>Test class: opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test</td>
+<td><div><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW6_verify_ownbook_opportunity_search_text_box_accept_with_changes()[pri:15, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace130053615", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace130053615'><pre>java.lang.Throwable: Method LOU_used_car_ownbook_business_purchase_accept_with_changes_Test.UW6_verify_ownbook_opportunity_search_text_box_accept_with_changes()[pri:15, instance:opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>opportunity.LOU_used_car_ownbook_business_purchase_accept_with_changes_Test@2034b64c</td></tr>
 </table><p>
 </body>
 </html>

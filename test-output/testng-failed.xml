@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Verify With Customer Flow For Ownbook Purchase Funder(failed)">
+  <test thread-count="5" name="Verify Order Flow For Outright Purchase With Customer Flow For New Car(failed)">
     <classes>
-      <class name="orders.Orders_Verify_used_car_ownbook_business_purchase_funder_With_Customer_Flow_Test">
+      <class name="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test">
         <methods>
-          <include name="T2_pre_order_pass_check_in_customer_contract_tab_test"/>
-          <include name="T10_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test"/>
-          <include name="T25_verify_finance_documents_statuses_for_required_flow_test"/>
-          <include name="T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab"/>
-          <include name="T26_verify_payments_to_funder_statuses_for_required_flow_test"/>
-          <include name="T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test"/>
-          <include name="T4_verify_that_same_funder_with_same_term_and_mileage_can_not_be_added_for_with_customer_flow_test"/>
-          <include name="T5_verify_that_deselecting_the_selected_funder_does_not_affect_the_monthly_payment_on_customer_contract_tab_test"/>
-          <include name="T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test"/>
-          <include name="T21_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test"/>
-          <include name="start_info"/>
-          <include name="T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test"/>
-          <include name="T23_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test"/>
+          <include name="T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test"/>
           <include name="T1_open_order_created_in_acquisition_test"/>
-          <include name="T22_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test"/>
+          <include name="T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test"/>
           <include name="T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test"/>
-          <include name="T7_verify_order_status_after_uploading_order_form_in_vehicle_tab_test"/>
-          <include name="T9_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test"/>
-          <include name="T13_verify_summary_section_values"/>
-          <include name="T11_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test"/>
-          <include name="T3_verify_that_editing_the_basic_cash_price_does_not_affect_the_monthly_payment_on_customer_contract_tab_test"/>
-          <include name="T27_verify_completed_status_for_required_flow_test"/>
           <include name="T14_verify_payment_default_status"/>
-          <include name="T24_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test"/>
+          <include name="T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test"/>
+          <include name="T21_verify_payout_pack_statuses_on_customer_contract_tab_test"/>
+          <include name="T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test"/>
+          <include name="T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test"/>
+          <include name="T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test"/>
+          <include name="start_info"/>
+          <include name="T15_make_payment_with_new_payment"/>
+          <include name="T3_verify_default_order_status_vehicle_tab_test"/>
+          <include name="T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test"/>
+          <include name="T2_pass_the_pre_order_check_test"/>
+          <include name="T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab"/>
+          <include name="T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test"/>
+          <include name="T10_complete_cash_purchase"/>
+          <include name="T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test"/>
+          <include name="T12_verify_default_status_acceptance_conditions_for_outright_purchase_flow"/>
+          <include name="T9_open_asset_funding_tab_and_verify_default_status_cash_purchase_pending"/>
+          <include name="T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test"/>
           <include name="setup"/>
           <include name="end"/>
-          <include name="T6_verify_default_order_status_vehicle_tab_test"/>
-          <include name="T15_make_payment_with_new_payment"/>
-          <include name="T12_verify_default_status_acceptance_conditions_for_ownbook_purchase_flow"/>
-          <include name="T8_verify_default_payment_status_on_vehicle_tab_test"/>
+          <include name="T13_verify_payment_section_values"/>
+          <include name="T5_verify_default_payment_status_on_vehicle_tab_test"/>
+          <include name="T11_verify_status_cash_purchase_completed"/>
+          <include name="T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test"/>
         </methods>
-      </class> <!-- orders.Orders_Verify_used_car_ownbook_business_purchase_funder_With_Customer_Flow_Test -->
+      </class> <!-- orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test -->
     </classes>
-  </test> <!-- Verify With Customer Flow For Ownbook Purchase Funder(failed) -->
+  </test> <!-- Verify Order Flow For Outright Purchase With Customer Flow For New Car(failed) -->
 </suite> <!-- Failed suite [Suite] -->

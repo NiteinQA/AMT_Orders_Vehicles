@@ -1,0 +1,576 @@
+<html>
+<head>
+<title>TestNG:  Verify Updated Values In Quote After Adding Funder In Asset Funding Tab For HPNR</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Verify Updated Values In Quote After Adding Funder In Asset Funding Tab For HPNR</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>17/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jan 30 23:45:03 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>1173 seconds (1173550 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_default_status_required_flow_test()'><b>verify_default_status_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br/>
+<a href="#Output-1587692706" onClick='toggleBox("Output-1587692706", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1587692706" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1587692706">
+<b></b> <br /><br/>
+<b>Started verifying Default Status for HPNR required flow</b> <br /><br/>
+<b>Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>16</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_OTR_calculation_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_OTR_calculation_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-1758653495" onClick='toggleBox("Output-1758653495", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1758653495" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1758653495">
+<b>Clicking on New quote</b> <br /><br/>
+<b>Clicked on Quote button </b> <br /><br/>
+<b>Manufacture =AUDI has been selected</b> <br /><br/>
+<b>Model range =A7 has been selected</b> <br /><br/>
+<b>Vehicle has been selected</b> <br /><br/>
+<b>Paint option has been selected</b> <br /><br/>
+<b>Interior option has been selected</b> <br /><br/>
+<b> Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
+<b> Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
+<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br /><br/>
+<b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
+<b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
+<b>Getting Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting   Discount - Paint value is   =0.00</b> <br /><br/>
+<b>Getting  Discount- Options value is   =0.00</b> <br /><br/>
+<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - paint value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - Options value is  =0.00</b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Started </b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Completed </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Subtotal After Discount from excel sheet is =47687.5</b> <br /><br/>
+<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br /><br/>
+<b> Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
+<b> Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
+<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br /><br/>
+<b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
+<b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
+<b>Getting Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting   Discount - Paint value is   =0.00</b> <br /><br/>
+<b>Getting  Discount- Options value is   =0.00</b> <br /><br/>
+<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - paint value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - Options value is  =0.00</b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Started </b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Completed </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Subtotal After Discount from excel sheet is =47687.5</b> <br /><br/>
+<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>160</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@66ea810</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-973754412" onClick='toggleBox("Output-973754412", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-973754412" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-973754412">
+<b>*********Customer Quote generated successfully and Quote_ref_no is=FNE30538</b> <br /><br/>
+<b>*************OTR Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Cost otr price from screen is 58535.0</b> <br /><br/>
+<b>Cost price ex vat and rfl from screen is 48237.5</b> <br /><br/>
+<b>Otr Vat from screen is 9647.5</b> <br /><br/>
+<b>Otr rfl and frf from screen is 650.0</b> <br /><br/>
+<b></b> <br /><br/>
+<b></b> <br /><br/>
+<b>Cost otr price from excel is 58535.0</b> <br /><br/>
+<b>Cost price ex vat and rfl from excel is 48237.5</b> <br /><br/>
+<b>Otr Vat from excel is 9647.5</b> <br /><br/>
+<b>Otr rfl and frf from excel is 650.0</b> <br /><br/>
+<b></b> <br /><br/>
+<b>OTR price compared</b> <br /><br/>
+<b>Cost price ex vat and rfl compared</b> <br /><br/>
+<b>VAT compared</b> <br /><br/>
+<b>RFL & FRF compared</b> <br /><br/>
+<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Holding cost Terms from screen36.0</b> <br /><br/>
+<b>Holding cost miles per annum from screen is 10000.0</b> <br /><br/>
+<b>Holding cost monthly finance cost from screen is 1080.08</b> <br /><br/>
+<b>Holding cost total monthly holding cost from screen is 1080.08</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Holding cost Terms from excel is 36.0</b> <br /><br/>
+<b>Holding cost miles per annum from excel is 10000.0</b> <br /><br/>
+<b>Holding cost monthly finance cost from excel is 1080.0798382813232</b> <br /><br/>
+<b>Holding cost total monthly holding cost from excel is 1080.0798382813232</b> <br /><br/>
+<b>terms compared</b> <br /><br/>
+<b>Miles per annum compared</b> <br /><br/>
+<b>Finance cost compared</b> <br /><br/>
+<b>Total Monthly Holding Cost compared</b> <br /><br/>
+<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Terms found OK</b> <br /><br/>
+<b>miles found OK</b> <br /><br/>
+<b>Basic Cash Price found OK</b> <br /><br/>
+<b>VAT found OK</b> <br /><br/>
+<b>Non VAT Items Value found OK</b> <br /><br/>
+<b>Total Cash Price found OK</b> <br /><br/>
+<b>Order Deposit found OK</b> <br /><br/>
+<b>Finance Deposit found OK</b> <br /><br/>
+<b>Total Deposit found OK</b> <br /><br/>
+<b>Part Exchange Value - found OK</b> <br /><br/>
+<b>Balance to Finance found OK</b> <br /><br/>
+<b>Finance Charges - found OK</b> <br /><br/>
+<b>Document Fee - found OK</b> <br /><br/>
+<b>Balance Payable - found OK</b> <br /><br/>
+<b>Option To Purchase Fee - found OK</b> <br /><br/>
+<b>Initial Cash Payment - found OK</b> <br /><br/>
+<b>Followed By months - found OK</b> <br /><br/>
+<b>Monthly Finance Payment - found OK</b> <br /><br/>
+<b>Balloon Value - found OK</b> <br /><br/>
+<b>Final Payment - found OK</b> <br /><br/>
+<b>Vehicle Commission - found OK</b> <br /><br/>
+<b>Default Finance Commission - found OK</b> <br /><br/>
+<b>Document Fee Commission - found OK</b> <br /><br/>
+<b>Total Commission - found OK</b> <br /><br/>
+<b>*************Configuration Values Verification on quote summary page has been started************</b> <br /><br/>
+<b>Base Interest Rate found OK</b> <br /><br/>
+<b>Finance Margin found OK</b> <br /><br/>
+<b>Deductions found OK</b> <br /><br/>
+<b>Additional Margin found OK</b> <br /><br/>
+<b>Total Margin found OK</b> <br /><br/>
+<b>Default Broker Margin percentage found OK</b> <br /><br/>
+<b>Customer Interest Rate found OK</b> <br /><br/>
+<b>Document Fee Margin found OK</b> <br /><br/>
+<b>Default Broker Margin found OK</b> <br /><br/>
+<b>*************Calculations for Quote Summary page gas been started************</b> <br /><br/>
+<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
+<b>Writing completed for some of the important required values to quote save excel sheet in the sheet HPNRHPNRQuoteNo</b> <br /><br/>
+<b>*********Customer Quote generated successfully and Quote_ref_no is=FNE30538</b> <br /><br/>
+<b> </b> <br /><br/>
+<b>*****Creating Order Started*****</b> <br /><br/>
+<b> </b> <br /><br/>
+<b>***** Order Created Successfully *****</b> <br /><br/>
+<b>Order ID FR-45238 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br /><br/>
+<b>*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>279</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@66ea810</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_holding_cost_shown_test()'><b>verify_holding_cost_shown_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br/>
+<a href="#Output-2057812271" onClick='toggleBox("Output-2057812271", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2057812271" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2057812271">
+<b></b> <br /><br/>
+<b>Started verifying Holding Cost Shown</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1080.08</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1080.0798382813232</b> <br /><br/>
+<b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-939410709" onClick='toggleBox("Output-939410709", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-939410709" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-939410709">
+<b>***********Entered in Customer Quote page ***********</b> <br /><br/>
+<b>Matrix credit type A1 Credit has been selected</b> <br /><br/>
+<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br /><br/>
+<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br /><br/>
+<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br /><br/>
+<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br /><br/>
+<b>Writing screen values to Excel for customer quote calculation -started</b> <br /><br/>
+<b>Writing screen values to Excel for customer quote calculation -completed</b> <br /><br/>
+<b>Actual Monthly Finance Payment from screen is 1406.16</b> <br /><br/>
+<b>Writing screen values to Excel for customer quote calculation -started</b> <br /><br/>
+<b>Writing screen values to Excel for customer quote calculation -completed</b> <br /><br/>
+<b>Expected Monthly Finannce Rental from excel is 1406.1645375273</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Started Verifying Sales price discount not to be greater than cost price discount</b> <br /><br/>
+<b>Sales discount price entered greater than Cost discount prices and verified that sales discount input field doesn't accept greater values than cost discount prices</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Started Updating Sales price discount</b> <br /><br/>
+<b>Actual Sales Total Price from screen (on updating sales discount prices) is 58535.0</b> <br /><br/>
+<b>Expected Sales Total Price from excel (on updating sales discount prices) is 58535.0</b> <br /><br/>
+<b>Actual Vehicle Profit from screen (on updating sales discount prices) is 0.0</b> <br /><br/>
+<b>Expected Vehicle Profit from excel (on updating sales discount prices) is 0.0</b> <br /><br/>
+<b>Actual Monthly Finance Payment from screen is 1406.16</b> <br /><br/>
+<b>Expected Monthly Finance Payment from excel is 1406.1645375273</b> <br /><br/>
+<b>1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , Verified on updating sales discount and found OK</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>145</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@66ea810</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test()'><b>verify_status_after_selecting_the_added_funder_in_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br/>
+<a href="#Output-1952269616" onClick='toggleBox("Output-1952269616", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1952269616" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1952269616">
+<b></b> <br /><br/>
+<b>Select a funder</b> <br /><br/>
+<b>Started verifying Quote Status after selecting a added funder in asset funding tab</b> <br /><br/>
+<b>Status after selecting an added funder Found OK i.e Quote Accepted</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_quote_values_updated_in_quote_after_saving_the_order()'><b>verify_quote_values_updated_in_quote_after_saving_the_order</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br>Parameters: REF001, 05/12/26, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
+<a href="#Output-829606685" onClick='toggleBox("Output-829606685", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-829606685" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-829606685">
+<b></b> <br /><br/>
+<b>Total monthly holding cost from screen =500.36</b> <br /><br/>
+<b>Total monthly holding cost from excel =500.3636363636364</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-267892327" onClick='toggleBox("Output-267892327", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-267892327" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-267892327">
+<b>***********Entered in holding cost page ***********</b> <br /><br/>
+<b>Clicked on holding cost summary</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Verifying Holding Cost Based on CAP data</b> <br /><br/>
+<b>Getting on screen values from Holding Cost Page</b> <br /><br/>
+<b>Duration(Terms) =36.0</b> <br /><br/>
+<b>Annual_mileage =10000.0</b> <br /><br/>
+<b>Cap_residual_value_from_screen =28575.0</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been started</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =900.75</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =900.7451652606776</b> <br /><br/>
+<b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Editing % CAP Residual Value used</b> <br /><br/>
+<b>Changing % CAP Residual Value (from test  data) to 50</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been started</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1199.55</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1199.5491466930368</b> <br /><br/>
+<b>Total Monthly Holding Cost After Editing % Residual Value is Verified and Found OK</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Editing Residual value used</b> <br /><br/>
+<b>Changing Residual value used to =20000</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been started</b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
+<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1080.08</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1080.0798382813232</b> <br /><br/>
+<b>Total Monthly Holding Cost After Editing Residual Value is Verified and Found OK</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>34</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@66ea810</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-1103830971" onClick='toggleBox("Output-1103830971", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1103830971" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1103830971">
+<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
+<b>Started getting On screen values from after discount table </b> <br /><br/>
+<b>Manufacture_delivery_charges =550.00</b> <br /><br/>
+<b>Road_tax_first_year =585.00</b> <br /><br/>
+<b>First_registration_fee =65.00</b> <br /><br/>
+<b>Rebate =0.00</b> <br /><br/>
+<b>Writing After discount values to excel has been started</b> <br /><br/>
+<b>Writing After discount values to excel has been completed</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
+<b>Expected on the road price from excel is =58535.0</b> <br /><br/>
+<b>Actual on the road price from screen is =58535.00</b> <br /><br/>
+<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
+<b>Started getting On screen values from after discount table </b> <br /><br/>
+<b>Manufacture_delivery_charges =550.00</b> <br /><br/>
+<b>Road_tax_first_year =585.00</b> <br /><br/>
+<b>First_registration_fee =65.00</b> <br /><br/>
+<b>Rebate =0.00</b> <br /><br/>
+<b>Writing After discount values to excel has been started</b> <br /><br/>
+<b>Writing After discount values to excel has been completed</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
+<b>Expected on the road price from excel is =58535.0</b> <br /><br/>
+<b>Actual on the road price from screen is =58535.00</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>9</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@66ea810</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_holding_cost_on_adding_funder()'><b>verify_holding_cost_on_adding_funder</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br>Parameters: REF001, 05/12/26, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
+<a href="#Output-1677191047" onClick='toggleBox("Output-1677191047", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1677191047" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1677191047">
+<b></b> <br /><br/>
+<b>Total monthly holding cost from screen =500.36</b> <br /><br/>
+<b>Total monthly holding cost from excel =500.3636363636364</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-633928057" onClick='toggleBox("Output-633928057", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-633928057" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-633928057">
+<b></b> <br /><br/>
+<b>Monthly Finance Payment Expected (with balloon payment toggle button off) is 2151.0259480122804</b> <br /><br/>
+<b>Monthly Finance Payment Actual (with balloon payment toggle button off) is 2151.03</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment verified after making balloon payment toggle button off</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@66ea810</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-879982277" onClick='toggleBox("Output-879982277", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-879982277" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-879982277">
+<b></b> <br /><br/>
+<b>Actual Monthly Finance Payment after editing vehicle profit = 1445.22</b> <br /><br/>
+<b>Expected  Monthly Finance Payment after editing vehicle profit = 1445.2188384680114</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment verified after editing vehicle profit</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price</b> <br /><br/>
+<b>Sending 70242.0 to sales total input field</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Vehicle Profit Expected is 9755.833333333334</b> <br /><br/>
+<b>Vehicle Profit Actual is 9755.83</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Total Payment Expected is 1787.17165827376</b> <br /><br/>
+<b>Monthly Total Payment Actual is 1787.17</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Vehicle profit and Total Monthly Payment verified on editing Vehicle Sales Price</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>58</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@66ea810</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-629274043" onClick='toggleBox("Output-629274043", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-629274043" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-629274043">
+<b>Clicked on Part Exchange panel</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Balance To Finance Expected is 67741.996</b> <br /><br/>
+<b>Balance To Finance Actual is 67742.0</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment Expected is 1705.8085313139313</b> <br /><br/>
+<b>Monthly Finance Payment Actual is 1705.81</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment verified after editing part exchange values and deposit values</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>105</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@66ea810</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test()'><b>add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br>Parameters: REF001, 05/12/26, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
+<a href="#Output-129600357" onClick='toggleBox("Output-129600357", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-129600357" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-129600357">
+<b></b> <br /><br/>
+<b>Quote is being opened and the quote no. is FNE30538</b> <br /><br/>
+<b>Switching to the new tab opened for quote</b> <br /><br/>
+<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br /><br/>
+<b>holding_cost_terms_from_screen33.0</b> <br /><br/>
+<b>holding_cost_miles_per_annum_from_screen5000.0</b> <br /><br/>
+<b>holding_cost_monthly_finance_cost_from_screen500.36</b> <br /><br/>
+<b>holding_cost_total_monthly_holding_cost_from_screen =500.36</b> <br /><br/>
+<b>terms compared</b> <br /><br/>
+<b>Miles per annum compared</b> <br /><br/>
+<b>Finance cost compared</b> <br /><br/>
+<b>Total Monthly Holding Cost compared</b> <br /><br/>
+<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Terms found OK</b> <br /><br/>
+<b>miles found OK</b> <br /><br/>
+<b>Basic Cash Price found wrong</b> <br /><br/>
+<b>VAT found wrong</b> <br /><br/>
+<b>Non VAT Items Value found OK</b> <br /><br/>
+<b>Total Cash Price found wrong</b> <br /><br/>
+<b>Order Deposit found wrong</b> <br /><br/>
+<b>Finance Deposit found wrong</b> <br /><br/>
+<b>Total Deposit found wrong</b> <br /><br/>
+<b>Balance to Finance found wrong</b> <br /><br/>
+<b>Finance Charges - found wrong</b> <br /><br/>
+<b>Document Fee - found OK</b> <br /><br/>
+<b>Balance Payable - found wrong</b> <br /><br/>
+<b>Option To Purchase Fee - found OK</b> <br /><br/>
+<b>Initial Cash Payment - found wrong</b> <br /><br/>
+<b>Followed By months - found OK</b> <br /><br/>
+<b>Monthly Finance Payment - found wrong</b> <br /><br/>
+<b>Final Payment - found OK</b> <br /><br/>
+<b>Vehicle Commission - found wrong</b> <br /><br/>
+<b>Default Finance Commission - found wrong</b> <br /><br/>
+<b>Document Fee Commission - found OK</b> <br /><br/>
+<b>Total Commission - found wrong</b> <br /><br/>
+<b>*************Configuration Values Verification on quote summary page has been started************</b> <br /><br/>
+<b>Base Interest Rate found OK</b> <br /><br/>
+<b>Finance Margin found wrong</b> <br /><br/>
+<b>Deductions found wrong</b> <br /><br/>
+<b>Additional Margin found OK</b> <br /><br/>
+<b>Total Margin found wrong</b> <br /><br/>
+<b>Default Broker Margin percentage found OK</b> <br /><br/>
+<b>Customer Interest Rate found wrong</b> <br /><br/>
+<b>Document Fee Margin found OK</b> <br /><br/>
+<b>Default Broker Margin  found wrong</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>123</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br/>
+<a href="#Output-250749103" onClick='toggleBox("Output-250749103", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-250749103" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-250749103">
+<b></b> <br /><br/>
+<b>Searching for Order ID FR-45238</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>95</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.add_funder()'><b>add_funder</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br>Parameters: REF001, 05/12/26, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
+<a href="#Output-410358795" onClick='toggleBox("Output-410358795", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-410358795" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-410358795">
+<b></b> <br /><br/>
+<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1,080.08</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br /><br/>
+<b>Funder Added Successfully</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>57</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test.verify_status_after_adding_funder_required_flow_test()'><b>verify_status_after_adding_funder_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test<br/>
+<a href="#Output-782017699" onClick='toggleBox("Output-782017699", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-782017699" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-782017699">
+<b></b> <br /><br/>
+<b>Started verifying Quote Status after adding a funder in asset funding tab</b> <br /><br/>
+<b>Quote Status after adding funder in required flow Found OK i.e Quote Received</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_in_asset_funding_and_verify_updated_values_in_quote_Test@6cd24612</td></tr>
+</table><p>
+</body>
+</html>

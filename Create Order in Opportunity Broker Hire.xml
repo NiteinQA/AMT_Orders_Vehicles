@@ -3,8 +3,8 @@
 <suite name="Suite">
   <test thread-count="5" name="Create Order From Opportunity Broker Hire">
     <classes>
-      <!-- <class name="acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test"/> 
-      <class name="opportunity.LOU_broker_business_hire_accept_flow_Test"/> -->
+      <class name="acquisition.Acquisition_Quotes_Broker_BCH_without_maintenance_Test"/> 
+      <class name="opportunity.LOU_broker_business_hire_accept_flow_Test"/>
       <class name="opportunity.Create_order_from_opportunity_Test"/>
      </classes>
   </test> <!-- Test -->

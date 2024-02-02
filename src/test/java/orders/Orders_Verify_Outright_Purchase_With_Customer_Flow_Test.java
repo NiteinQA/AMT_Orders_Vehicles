@@ -240,7 +240,7 @@ CustomerContractPage obj_customer_contract;
 		
 		obj_customer_contract = new CustomerContractPage();
 		
-		obj_customer_contract.make_payment();
+		obj_customer_contract.make_payment1();
 		
 	}
 	
