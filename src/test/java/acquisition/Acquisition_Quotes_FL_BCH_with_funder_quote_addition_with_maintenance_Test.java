@@ -167,27 +167,27 @@ System.out.println("");
 		
 		obj_quote_summary_page.save_quote();
 		
-//		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
-//		Assert.assertTrue(quote_summary_OTR_calculation1);
-//		
-//		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page.quote_summary_holding_cost_calculation_with_maintenance_for_funder(sheet_name);
-//		Assert.assertTrue(quote_summary_holding_cost_calculation1);
-//		
-//		boolean balance_due_value1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
-//		
-//		Assert.assertTrue(balance_due_value1);
-//		
-//		boolean quote_summary_customer_quote_calculation1= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
-//		Assert.assertTrue(quote_summary_customer_quote_calculation1);
-//		
-//		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page.quote_summary_configuration_value_verification_with_maintenance_for_funder(sheet_name);
-//		Assert.assertTrue(quote_summary_configuration_value_check1);
-//		
-//		boolean value_check_after_Finance_margin_change =obj_quote_summary_page.quote_summary_edit_finance_margin_value_verification_for_funder(sheet_name);
-//		Assert.assertTrue(value_check_after_Finance_margin_change);		
-//		
-//		boolean value_check_after_maint_margin_change = obj_quote_summary_page.quote_summary_edit_maintenance_margin_value_verification_for_funder(sheet_name);
-//		Assert.assertTrue(value_check_after_maint_margin_change);
+		boolean quote_summary_OTR_calculation1 = obj_quote_summary_page.quote_summary_OTR_calculation(sheet_name);
+		Assert.assertTrue(quote_summary_OTR_calculation1);
+		
+		boolean quote_summary_holding_cost_calculation1 = obj_quote_summary_page.quote_summary_holding_cost_calculation_with_maintenance_for_funder(sheet_name);
+		Assert.assertTrue(quote_summary_holding_cost_calculation1);
+		
+		boolean balance_due_value1 = obj_quote_summary_page.verify_balance_due_value(sheet_name);
+		
+		Assert.assertTrue(balance_due_value1);
+		
+		boolean quote_summary_customer_quote_calculation1= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_with_maintenance(sheet_name);
+		Assert.assertTrue(quote_summary_customer_quote_calculation1);
+		
+		boolean quote_summary_configuration_value_check1 = obj_quote_summary_page.quote_summary_configuration_value_verification_with_maintenance_for_funder(sheet_name);
+		Assert.assertTrue(quote_summary_configuration_value_check1);
+		
+		boolean value_check_after_Finance_margin_change =obj_quote_summary_page.quote_summary_edit_finance_margin_value_verification_for_funder(sheet_name);
+		Assert.assertTrue(value_check_after_Finance_margin_change);		
+		
+		boolean value_check_after_maint_margin_change = obj_quote_summary_page.quote_summary_edit_maintenance_margin_value_verification_for_funder(sheet_name);
+		Assert.assertTrue(value_check_after_maint_margin_change);
 		
 		 obj_common_class = new CommonClass();
 		 

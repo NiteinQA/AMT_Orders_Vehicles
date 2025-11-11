@@ -38,7 +38,7 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 	private List<WebElement> loading_icon;
 
 	// vehicle_discount_cost_price
-	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]//div//p")
+	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]/div/span")
 	private WebElement vehicle_discount_cost_price;
 
 	// vehicle_additional_discount_cost_price
@@ -141,9 +141,6 @@ public class CustomerQuotePageOutrightPCPPage extends TestBase {
 
 	@FindBy(xpath = "//*[contains(text(),' Part exchange & additional payments ')]")
 	private WebElement part_exchange_and_additional_payment_button;
-
-	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[5]/label/span")
-	private WebElement balloon_payment_toggle;
 
 	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")
 	private WebElement total_monthly_payment;

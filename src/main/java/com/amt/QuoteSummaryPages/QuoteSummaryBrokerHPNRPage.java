@@ -17,6 +17,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
+import com.amt.testUtil.ConfigConstants;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculation;
 import com.amt.testUtil.RemoveComma;
@@ -112,7 +113,7 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 	private WebElement quote_summary_customer_quote_summary_cash_deposit;
 	
 	//Balance to finance
-	@FindBy(xpath = "(//*[normalize-space()='Balance to finance']//ancestor::div[1]//div//strong)[2]")
+	@FindBy(xpath = "//*[normalize-space()='Balance to finance']//ancestor::div[1]//div//strong")
 	private WebElement quote_summary_customer_quote_summary_balance_to_finance;
 	
 	//Finance charges
@@ -157,8 +158,7 @@ public class QuoteSummaryBrokerHPNRPage extends TestBase {
 		
 		try {
 			 prop = new Properties();
-			FileInputStream ip = new FileInputStream(
-					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+			FileInputStream ip = new FileInputStream(ConfigConstants.EXCEL_VALUES_PROPERTY_FILE_PATH);
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

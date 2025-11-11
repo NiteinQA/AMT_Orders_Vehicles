@@ -176,6 +176,8 @@ public class HoldingCost_HPNR_PCHPage extends TestBase {
 		Click.on(driver, holding_cost, 30);
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		
+		Thread.sleep(10000);
 
 		Click.on(driver, common_maintenance_toggle, 30);
 
@@ -239,7 +241,7 @@ public class HoldingCost_HPNR_PCHPage extends TestBase {
 
 		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
 
-		Click.on(driver, contract_mileage, 30);
+//		
 
 		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
 
@@ -320,7 +322,7 @@ public class HoldingCost_HPNR_PCHPage extends TestBase {
 
 		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
 
-		Click.on(driver, contract_mileage, 30);
+		
 
 		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
 

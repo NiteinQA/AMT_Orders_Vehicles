@@ -94,7 +94,7 @@ CustomerContractPage obj_customer_contract;
 
 		obj_asset_funding = new AssetFundingPage();		
 		
-		Assert.assertTrue(obj_asset_funding.verify_that_same_funder_with_same_term_and_mileage_can_not_be_added_for_with_customer_flow(quoteRef, expiryDate,
+		Assert.assertTrue(obj_asset_funding.verify_that_same_funder_with_same_term_and_mileage_can_not_be_added_for_with_customer_flow_HPNR(quoteRef, expiryDate,
 				term, milesPerAnnum, cashDeposit,  financeCharges,  documentFee,
 				 monthlyPayment,  finalBalloonPayment,  optionToPurchaseFee,  sheet_name));		
 		

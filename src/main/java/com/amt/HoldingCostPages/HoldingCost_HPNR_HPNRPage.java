@@ -18,6 +18,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
+import com.amt.testUtil.ConfigConstants;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
@@ -170,8 +171,7 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 		
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(
-					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+			FileInputStream ip = new FileInputStream(ConfigConstants.EXCEL_VALUES_PROPERTY_FILE_PATH);
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -517,7 +517,7 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 
 		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
 
-		Click.on(driver, contract_mileage, 30);
+//		
 
 		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
 
@@ -603,7 +603,7 @@ public class HoldingCost_HPNR_HPNRPage extends TestBase {
 
 		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
 
-		Click.on(driver, contract_mileage, 30);
+		
 
 		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
 

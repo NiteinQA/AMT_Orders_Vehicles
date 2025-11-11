@@ -1,41 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite (10)]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Verify Order Flow For Outright Purchase With Customer Flow For New Car(failed)">
+  <test thread-count="5" name="Check Asset Funding Funder Related Cases with FL(failed)">
     <classes>
-      <class name="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test">
         <methods>
-          <include name="T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test"/>
-          <include name="T1_open_order_created_in_acquisition_test"/>
-          <include name="T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test"/>
-          <include name="T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test"/>
-          <include name="T14_verify_payment_default_status"/>
-          <include name="T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test"/>
-          <include name="T21_verify_payout_pack_statuses_on_customer_contract_tab_test"/>
-          <include name="T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test"/>
-          <include name="T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test"/>
-          <include name="T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test"/>
-          <include name="start_info"/>
-          <include name="T15_make_payment_with_new_payment"/>
-          <include name="T3_verify_default_order_status_vehicle_tab_test"/>
-          <include name="T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test"/>
-          <include name="T2_pass_the_pre_order_check_test"/>
-          <include name="T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab"/>
-          <include name="T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test"/>
-          <include name="T10_complete_cash_purchase"/>
-          <include name="T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test"/>
-          <include name="T12_verify_default_status_acceptance_conditions_for_outright_purchase_flow"/>
-          <include name="T9_open_asset_funding_tab_and_verify_default_status_cash_purchase_pending"/>
-          <include name="T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test"/>
-          <include name="setup"/>
+          <include name="verify_holding_cost_after_deselecting_funder_test"/>
           <include name="end"/>
-          <include name="T13_verify_payment_section_values"/>
-          <include name="T5_verify_default_payment_status_on_vehicle_tab_test"/>
-          <include name="T11_verify_status_cash_purchase_completed"/>
+          <include name="verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test"/>
+          <include name="verify_default_funder_is_not_deleted_test"/>
+          <include name="verify_selected_funder_can_not_be_edited_test"/>
+          <include name="start_info"/>
+          <include name="verify_default_status_required_flow_test"/>
           <include name="tearDown"/>
-          <include name="T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test"/>
+          <include name="verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder_test"/>
+          <include name="open_order_created_in_acquisition_test"/>
+          <include name="verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test -->
     </classes>
-  </test> <!-- Verify Order Flow For Outright Purchase With Customer Flow For New Car(failed) -->
+  </test> <!-- Check Asset Funding Funder Related Cases with FL(failed) -->
 </suite> <!-- Failed suite [Suite (10)] -->

@@ -40,7 +40,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	private WebElement quote_summary;
 
 	// vehicle_discount_cost_price
-	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]//div//p")
+	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]/div/span")
 	private WebElement vehicle_discount_cost_price;
 
 	// vehicle_additional_discount_cost_price
@@ -126,7 +126,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),' Part exchange & additional payments ')]")
 	private WebElement part_exchange_and_additional_payment_button;
 
-	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[5]/label/span")
+	@FindBy(xpath = "//*[@name='withBalloon']//ancestor::div[1]//span[@class='slider round']")
 	private WebElement balloon_payment_toggle;
 
 	@FindBy(xpath = "((//*[normalize-space()='On the road price']//ancestor::div[1])[1])//div[2]")
@@ -433,6 +433,12 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
 
+
+		obj_read_excel_calculation_page
+		.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
+				"HPNR (Formula 3) - HPNR");
+		
+
 //		//calling save method
 //		CustomerQuotePage_HPNR_HPRPage obj_cust_quote_class = new CustomerQuotePage_HPNR_HPRPage();		
 //		obj_cust_quote_class.save_changes_and_back_to_customer_quote_page();
@@ -545,7 +551,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+		String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -706,7 +712,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-		String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+		String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -794,7 +800,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+		String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -895,7 +901,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 			ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-			String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+			String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -974,7 +980,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+		String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -1669,7 +1675,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+		String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -1737,7 +1743,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		{
 			ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-			String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+			String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -1918,7 +1924,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 			ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-			String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+			String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -2007,7 +2013,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 			ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-			String term = customer_quote_summary_terms.getText().trim().substring(0, 2);
+			String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 			obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
@@ -2071,6 +2077,10 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		double monthly_finance_payment_expected_from_excel = obj_read_excel_calculation_page
 				.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
 						sheet_name);
+		
+		obj_read_excel_calculation_page
+		.get_monthly_finance_payment_after_editing_vehicle_profit(vehicle_additional_discount_copied,
+				"HPNR (Formula 3) - HPNR");
 
 		Click.on(driver, quote_summary, 30);
 
@@ -2220,71 +2230,76 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 			String given_part_exchange_value_from_excel, String less_finance_settlement_from_excel,
 			String order_deposit_from_excel, String finance_deposit_from_excel, String sheet_name)
 			throws UnsupportedFlavorException, IOException, InterruptedException {
+	
 		Actions act = new Actions(driver);
 
-		Click.on(driver, part_exchange_and_additional_payment_button, 30);
-		Thread.sleep(1000);
+		Thread.sleep(4000);
+		
+		LO.print("Entering the deposit Values");
+		System.out.println("Entering the deposit Values");
+		
+		
+		Click.on(driver, part_exchange_and_additional_payment_button, 20);
+		Thread.sleep(4000);
 
-		LO.print("Clicked on Part Exchange panel");
-		System.out.println("Clicked on Part Exchange panel");
-
-		Click.on(driver, given_part_exchange_value, 20);
-
-		given_part_exchange_value.clear();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Thread.sleep(2000);
-		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-
-		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Thread.sleep(2000);
-		Click.sendKeys(driver, funder_name, "Funder X", 20);
-		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Thread.sleep(2000);
-		Click.sendKeys(driver, agreement_number, "123", 20);
-		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Thread.sleep(2000);
-		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
-		less_finance_settlement.clear();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Thread.sleep(2000);
-		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
-		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		
+//		Click.on(driver, given_part_exchange_value, 20);
+//
+//		given_part_exchange_value.clear();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Thread.sleep(2000);
+//		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+//		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		JavascriptExecutor jse = (JavascriptExecutor) driver;
+//
+//		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Thread.sleep(2000);
+//		Click.sendKeys(driver, funder_name, "Funder X", 20);
+//		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Thread.sleep(2000);
+//		Click.sendKeys(driver, agreement_number, "123", 20);
+//		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Thread.sleep(2000);
+//		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+//		less_finance_settlement.clear();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Thread.sleep(2000);
+//		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+//		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		Thread.sleep(2000);
 		ExplicitWait.visibleElement(driver, order_Deposit, 20);
 		order_Deposit.clear();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		Thread.sleep(2000);
 		Click.sendKeys(driver, order_Deposit, order_deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		Thread.sleep(2000);
 		ExplicitWait.visibleElement(driver, finance_Deposit, 20);
 		finance_Deposit.clear();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		Thread.sleep(2000);
 		Click.sendKeys(driver, finance_Deposit, finance_deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 		Thread.sleep(2000);
@@ -2294,33 +2309,14 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		String document_fee_copied = document_fee.getAttribute("value");
 		act.sendKeys(Keys.TAB).perform();
 
-//		//calling save method
-//		CustomerQuotePage_HPNR_HPRPage obj_cust_quote_class = new CustomerQuotePage_HPNR_HPRPage();		
-//		obj_cust_quote_class.save_changes_and_back_to_customer_quote_page();
-
-//		try {
-//			HttpURLConnection c = (HttpURLConnection) new URL(prop.getProperty("calculate_purchase_ownBook"))
-//					.openConnection();
-//			c.setRequestMethod("HEAD");
-//			c.connect();
-//			int r = c.getResponseCode();
-//
-//			int i = 0;
-//			while (i <= 15 && r != 200 || r != 405) {
-//				Thread.sleep(1000);
-//				r = c.getResponseCode();
-//				i++;
-//			}
-//		} catch (Exception e) {
-//		}
 
 		Click.on(driver, quote_summary, 30);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		Click.on(driver, customer_quote, 30);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 
@@ -2387,59 +2383,64 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 			String less_finance_settlement_from_excel, String order_deposit_from_excel,
 			String finance_deposit_from_excel, String sheet_name)
 			throws UnsupportedFlavorException, IOException, InterruptedException {
-		ExplicitWait.clickableElement(driver, part_exchange_and_additional_payment_button, 50);
+
 		Thread.sleep(4000);
-		Click.on(driver, part_exchange_and_additional_payment_button, 70);
-		LO.print("Clicked on Part Exchange panel");
-		System.out.println("Clicked on Part Exchange panel");
+		
+		LO.print("Entering the deposit Values");
+		System.out.println("Entering the deposit Values");
+		
+		
 		Actions act = new Actions(driver);
+		
+		Click.on(driver, part_exchange_and_additional_payment_button, 20);
+		Thread.sleep(4000);
 
-		Click.on(driver, given_part_exchange_value, 20);
-
-		given_part_exchange_value.clear();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
-		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-
-		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Click.sendKeys(driver, funder_name, "Funder X", 20);
-		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Click.sendKeys(driver, agreement_number, "123", 20);
-		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
-		less_finance_settlement.clear();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
-		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+//		Click.on(driver, given_part_exchange_value, 20);
+//
+//		given_part_exchange_value.clear();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Click.sendKeys(driver, given_part_exchange_value, given_part_exchange_value_from_excel, 30);
+//		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		JavascriptExecutor jse = (JavascriptExecutor) driver;
+//
+//		jse.executeScript("arguments[0].click();", check_box_outstanding_finance, 20);
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Click.sendKeys(driver, funder_name, "Funder X", 20);
+//		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Click.sendKeys(driver, agreement_number, "123", 20);
+//		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		ExplicitWait.visibleElement(driver, less_finance_settlement, 20);
+//		less_finance_settlement.clear();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+//
+//		Click.sendKeys(driver, less_finance_settlement, less_finance_settlement_from_excel, 20);
+//		act.sendKeys(Keys.TAB).perform();
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		ExplicitWait.visibleElement(driver, order_Deposit, 20);
 		order_Deposit.clear();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		Click.sendKeys(driver, order_Deposit, order_deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		ExplicitWait.visibleElement(driver, finance_Deposit, 20);
 		finance_Deposit.clear();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		Click.sendKeys(driver, finance_Deposit, finance_deposit_from_excel, 30);
 		act.sendKeys(Keys.TAB).build().perform();
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		ExplicitWait.visibleElement(driver, document_fee, 30);
 
@@ -2449,34 +2450,17 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 		   String document_fee_copied = document_fee.getAttribute("value");
 		// driver.findElement(By.xpath("//*[@id='collapseThree']/div/div")).click();
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-
-//		// waiting till url responds 200
-//		try {
-//			HttpURLConnection c = (HttpURLConnection) new URL(prop.getProperty("calculate_purchase_ownBook"))
-//					.openConnection();
-//			c.setRequestMethod("HEAD");
-//			c.connect();
-//			int r = c.getResponseCode();
-//
-//			int i = 0;
-//			while (i <= 15 && r != 200 || r != 405) {
-//				Thread.sleep(1000);
-//				r = c.getResponseCode();
-//				i++;
-//			}
-//		} catch (Exception e) {
-//		}
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 		try {
 
 			Click.on(driver, quote_summary, 30);
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 			Click.on(driver, customer_quote, 30);
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 			ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 
@@ -2553,11 +2537,11 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 			Click.on(driver, quote_summary, 30);
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 			Click.on(driver, customer_quote, 30);
 
-			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
 			ExplicitWait.visibleElement(driver, balance_to_finance_value, 30);
 
@@ -2830,7 +2814,7 @@ public class CustomerQuotePage_HPNR_HPRPage extends TestBase {
 
 		ExplicitWait.visibleElement(driver, customer_quote_summary_terms, 20);
 
-		String term = customer_quote_summary_terms.getText().trim().substring(0, 1);
+		String term = customer_quote_summary_terms.getText().trim().split(" ")[0];
 
 		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 

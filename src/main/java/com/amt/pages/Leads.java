@@ -39,7 +39,7 @@ public class Leads extends TestBase {
 	
 	Properties prop;
 
-	@FindBy(xpath = "//*[contains(text(),'Leads')]")
+    @FindBy(xpath = "//*[contains(text(),'Leads')]")
 	private WebElement leads;
 
 	@FindBy(xpath = "//button[@title='Add Lead']")
@@ -60,7 +60,10 @@ public class Leads extends TestBase {
 	@FindBy(xpath = "//ul[@class='user-dd-list shadow ng-star-inserted']//li[@class='ng-star-inserted']")
 	private WebElement general_assigned_to_option;
 
-	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-add-leads[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/app-general-info[1]/div[1]/div[2]/div[1]/div[1]/textarea[1]")
+//	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-add-leads[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/app-general-info[1]/div[1]/div[2]/div[1]/div[1]/textarea[1]")
+//	private WebElement general_notes;
+	
+	@FindBy(xpath = "//label[text()='Notes']//ancestor::div[1]//div//textarea")
 	private WebElement general_notes;
 
 	@FindBy(xpath = "//select[@id='CustomerTypeId']")
@@ -193,29 +196,28 @@ public class Leads extends TestBase {
 
 // 	 	Map_New_quote_icon
 
-	@FindBy(xpath = "//*[@id='vehicleRequest2']/div/div/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div/table/tbody/tr/td[8]/div/a[3]/img")
+	@FindBy(xpath = "//*[@title='Map New Quote']")
 	private WebElement Map_New_quote_icon;
 
-	// *[@id="vehicleRequest2"]/div/div/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div/table/tbody/tr/td[9]/div/a[3]/img
 
-	//// *[@id="MapNewQuote"]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[2]/span
-
-//	@FindBy(xpath = "//*[@id='MapNewQuote']/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[1]/span/span[2]/span")
-//	private WebElement acquisition_contract_type;
-	
-	
 	
 	@FindBy(xpath = "//*[@placeholder='Select Acquisition contract']//span//span[1]")
 	private WebElement acquisition_contract_type;
 
 	
-	@FindBy(xpath = "//*[@id='MapNewQuote']/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div/ng-multiselect-dropdown/div/div[2]/ul[2]/li/div")
+	@FindBy(xpath = "//*[@placeholder='Select Acquisition contract']//*[text()='Broker']")
 	private WebElement acquisition_contract_type_broker_value;
 
 	// acquisition_contract_type_ownbook_value
 
-	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-add-leads[1]/app-map-new-quote[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ng-multiselect-dropdown[1]/div[1]/div[2]/ul[2]/li[4]/div[1]")
-	private WebElement acquisition_contract_type_ownbook_value;	
+	@FindBy(xpath = "//*[@placeholder='Select Acquisition contract']//*[text()='Hire Purchase Non-Regulated']")
+	private WebElement acquisition_contract_type_ownbook_hpnr_value;	
+	
+	@FindBy(xpath = "//*[@placeholder='Select Acquisition contract']//*[text()='Finance Lease']")
+	private WebElement acquisition_contract_type_ownbook_fl_value;	
+	
+	@FindBy(xpath = "//*[@placeholder='Select Acquisition contract']//*[text()='Contract Purchase']")
+	private WebElement acquisition_contract_type_ownbook_cp_value;
 	
 	
 	@FindBy(xpath = "//*[@placeholder='Select Acquisition contract']//*[text()='Outright Purchase']")
@@ -238,12 +240,26 @@ public class Leads extends TestBase {
 
 	@FindBy(xpath = "//div[contains(text(),'Business Contract Hire')]")
 	private WebElement customer_contract_type_bch_value;
-
-	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-add-leads[1]/app-map-new-quote[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ng-multiselect-dropdown[1]/div[1]/div[2]/ul[2]/li[1]/div[1]")
+	
+	
+	
+	@FindBy(xpath = "//*[@placeholder='Select customer contract']//*[text()='Business Contract Hire']")
 	private WebElement customer_business_contract_type_bch_value;
+	
+	@FindBy(xpath = "//*[@placeholder='Select customer contract']//*[text()='Finance Lease']")
+	private WebElement customer_business_contract_type_FL_value;
 
-	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-add-leads[1]/app-map-new-quote[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ng-multiselect-dropdown[1]/div[1]/div[2]/ul[2]/li[4]/div[1]")
+	@FindBy(xpath = "//*[@placeholder='Select customer contract']//*[text()='Hire Purchase Non-Regulated']")
 	private WebElement customer_business_contract_type_hpnr_value;
+	
+	@FindBy(xpath = "//*[@placeholder='Select customer contract']//*[text()='Contract Purchase']")
+	private WebElement customer_business_contract_type_cp_value;
+
+//	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-add-leads[1]/app-map-new-quote[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ng-multiselect-dropdown[1]/div[1]/div[2]/ul[2]/li[1]/div[1]")
+//	private WebElement customer_business_contract_type_bch_value;
+//
+//	@FindBy(xpath = "//body/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-add-leads[1]/app-map-new-quote[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ng-multiselect-dropdown[1]/div[1]/div[2]/ul[2]/li[4]/div[1]")
+//	private WebElement customer_business_contract_type_hpnr_value;
 
 	@FindBy(xpath = "//*[normalize-space()='Search']")
 	private WebElement map_new_quote_search;
@@ -509,11 +525,11 @@ public class Leads extends TestBase {
 
 		// Adding the General Notes
 
-		HelperClass.highlightElement(driver, general_notes);
-		Click.sendKeys(driver, general_notes, "TestNotes", 120);
-
-		LO.print("Added data in General Notes");
-		System.out.println("Added data in General Notes");
+//		HelperClass.highlightElement(driver, general_notes);
+//		Click.sendKeys(driver, general_notes, "TestNotes", 120);
+//
+//		LO.print("Added data in General Notes");
+//		System.out.println("Added data in General Notes");
 
 	}
 
@@ -583,25 +599,40 @@ public class Leads extends TestBase {
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		Thread.sleep(4000);
-		customer_name.sendKeys("A");
+//		customer_name.sendKeys("A");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("u");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("t");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("o");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("m");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("a");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("t");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("i");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("o");
+//		Thread.sleep(500);
+//		customer_name.sendKeys("n");
+//		Thread.sleep(500);
+		
+		
+		Thread.sleep(4000);
+		customer_name.sendKeys("d");
 		Thread.sleep(500);
 		customer_name.sendKeys("u");
 		Thread.sleep(500);
-		customer_name.sendKeys("t");
-		Thread.sleep(500);
-		customer_name.sendKeys("o");
+		customer_name.sendKeys("m");
 		Thread.sleep(500);
 		customer_name.sendKeys("m");
 		Thread.sleep(500);
-		customer_name.sendKeys("a");
+		customer_name.sendKeys("y");
 		Thread.sleep(500);
-		customer_name.sendKeys("t");
-		Thread.sleep(500);
-		customer_name.sendKeys("i");
-		Thread.sleep(500);
-		customer_name.sendKeys("o");
-		Thread.sleep(500);
-		customer_name.sendKeys("n");
+		customer_name.sendKeys(" ");
 		Thread.sleep(500);
 
 		Click.on(driver, customer_name_option, 120);
@@ -924,107 +955,11 @@ public class Leads extends TestBase {
 
 	}
 
-	public void lead_map_new_quote_ownbook_individual() throws Exception
-
-	{
-
-//Map New Quote 
-
-//Thread.sleep(5000);	
-		HelperClass.highlightElement(driver, Map_New_quote_icon);
-
-		LO.print("Click on Map New Quote icon");
-		System.out.println("Click on Map New Quote icon");
-
-//Thread.sleep(5000);
-		Click.on(driver, Map_New_quote_icon, 120);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		Click.on(driver, acquisition_contract_type_ownbook, 120);
-
-		LO.print("Click on acquisition contract type icon");
-		System.out.println("Click on acquisition contract type icon");
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-//Thread.sleep(5000);
-		Click.on(driver, acquisition_contract_type_ownbook_value, 120);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-
-//Thread.sleep(5000);
-		Click.on(driver, customer_contract_type, 120);
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-//Thread.sleep(5000);
-		Click.on(driver, customer_contract_type_pch_value, 120);
-
-		LO.print("Click on customer contract type icon");
-		System.out.println("Click on customer contract type icon");
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-		Thread.sleep(5000);
-		Click.on(driver, map_new_quote_search, 120);
-
-		LO.print("Click on search button");
-		System.out.println("Click on search button");
-
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
-//Thread.sleep(5000);
-		Click.on(driver, map_new_quote_createddate_sorting, 120);
-
-		LO.print("Click on created date button 1st ");
-		System.out.println("Click on created date button 1st");
-
-		Click.on(driver, map_new_quote_createddate_sorting, 120);
-
-		LO.print("Click on created date button 2nd");
-		System.out.println("Click on created date button 2nd");
-
-//Thread.sleep(5000);
-		Click.on(driver, select_new_quoted, 120);
-
-		Thread.sleep(5000);
-
-		Click.on(driver, select_new_quoted_save, 120);
-
-		try
-
-		{
-
-			if (lead_already_exits_quote_availbale.isEnabled())
-
-			{
-
-				System.out.println("click on OK button for lead already existing quote  ");
-				LO.print("click ok button on Map  new quote ");
-
-				Click.on(driver, lead_already_exits_quote_availbale, 20);
-
-				Thread.sleep(5000);
-
-				System.out.println("click on OK button for copy quote  ");
-				LO.print("click on OK button for copy quote ");
-
-				Click.on(driver, lead_already_exits_quote_availbale_second_popup_visible, 10);
-
-				System.out.println("New copy quote is mapped with this opportunity ");
-				// LO.print("New copy quote is mapped with this opportunity ");
-
-			}
-		}
-
-		catch (Exception e) {
-			// System.out.println( e );
-
-		}
-
-	}
-
 	public void lead_map_new_quote() throws Exception
 
 	{
 
-//Map New Quote 
+        //Map New Quote 
 		ExplicitWait.visibleElement(driver, Map_New_quote_icon, 30);
 
 		HelperClass.highlightElement(driver, Map_New_quote_icon);
@@ -1032,11 +967,17 @@ public class Leads extends TestBase {
 		LO.print("Click on Map New Quote icon");
 		System.out.println("Click on Map New Quote icon");
 
+		Thread.sleep(5000);
+		
 		Click.on(driver, Map_New_quote_icon, 120);
+		
+	
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
-		Thread.sleep(7000);
+		Thread.sleep(15000);
 		
 		Click.on(driver, acquisition_contract_type, 120);
 
@@ -1051,9 +992,21 @@ public class Leads extends TestBase {
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		}
 		
-		if (classOrMethodName.contains("ownbook"))
+		if (classOrMethodName.contains("ownbook_HPNR"))
 		{			
-		Click.on(driver, acquisition_contract_type_ownbook_value, 120);
+		Click.on(driver, acquisition_contract_type_ownbook_hpnr_value, 120);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		}
+		
+		if (classOrMethodName.contains("ownbook_FL"))
+		{			
+		Click.on(driver, acquisition_contract_type_ownbook_fl_value, 120);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+		}
+		
+		if (classOrMethodName.contains("ownbook_CP"))
+		{			
+		Click.on(driver, acquisition_contract_type_ownbook_cp_value, 120);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 		}
 		
@@ -1071,16 +1024,28 @@ public class Leads extends TestBase {
 		
 
 		if (classOrMethodName.contains("business_hire")) {
-			Click.on(driver, customer_business_contract_type_bch_value, 120);
+			
+			if (classOrMethodName.contains("FL_FL_business_hire")) {
+				Click.on(driver, customer_business_contract_type_FL_value, 120);
 
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+			}else {			
+			Click.on(driver, customer_business_contract_type_bch_value, 120);
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+			}
 		}
 
 		if (classOrMethodName.contains("business_purchase")) {
-
+			
+			if (classOrMethodName.contains("CP_CP_business_purchase")) {				
+				
+				Click.on(driver, customer_business_contract_type_cp_value, 120);
+				ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+				
+			}else {
 			Click.on(driver, customer_business_contract_type_hpnr_value, 120);
-
 			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+			}
 		}
 		
 		if (classOrMethodName.contains("individual_hire")) {
@@ -1158,7 +1123,7 @@ public class Leads extends TestBase {
 
 		Click.on(driver, select_new_quoted_save, 120);
 
-		Thread.sleep(7000);
+		Thread.sleep(5000);
 
 		try
 
@@ -1191,6 +1156,7 @@ public class Leads extends TestBase {
 
 	}
 
+
 	public boolean verify_table_values_on_lead_page() throws IOException, InterruptedException, ClassNotFoundException {
 
 		// part first -- getting actual values from screen --on lead page before saving
@@ -1200,34 +1166,33 @@ public class Leads extends TestBase {
 		// get quote ref no.
 
 		String quotRefNoActual = lead_page_table_elements_list.get(0).getText();
-		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(0));
+//		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(0));
 
 		// get Vehicle name
 		String vehicleNameActual = lead_page_table_elements_list.get(1).getText();
-		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(1));
+//		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(1));
 
 		// get contract type
 		String contractTypeActual = lead_page_table_elements_list.get(2).getText();
-		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(2));
+//		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(2));
 
 		// get monthly payment
 		String[] monthlyPayment = lead_page_table_elements_list.get(3).getText().split(" ");
-		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(3));
 		double monthlyFinanceRentalActual = Double.parseDouble(RemoveComma.of(monthlyPayment[1]));
 
 		// get mileage
 		String[] mileage = lead_page_table_elements_list.get(4).getText().split(" ");
-		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(4));
+//		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(4));
 		double mileageActual = Double.parseDouble(mileage[1]);
 
 		// get terms
 		String[] term = lead_page_table_elements_list.get(5).getText().split(" ");
-		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(5));
+//		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(5));
 		double termActual = Double.parseDouble(term[1]);
 
 		// get Expiry date
 		String[] ExpiryDate = lead_page_table_elements_list.get(6).getText().split(" ");
-		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(6));
+//		HelperClass.highlightElement(driver, lead_page_table_elements_list.get(6));
 		String expiryDateActual = RemoveComma.of(ExpiryDate[0]);
 
 		// part second -- Getting values from quote save excel sheet
@@ -1665,7 +1630,22 @@ public boolean verify_quote_no_and_sales_price_displayed_in_table() throws IOExc
 		LO.print("Click on Lead save and Convert button");
 		System.out.println("Click on Lead save and Convert button");
 
+		
+		try {
+			Thread.sleep(5000);
 		Click.on(driver, lead_update_convert_into_opp_button, 120);
+		
+		}catch(Exception e)
+		{
+			try {
+				Thread.sleep(5000);
+			Click.on(driver, lead_update_convert_into_opp_button, 120);
+			
+			}catch(Exception e1)
+			{
+			}
+
+		}
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
@@ -1683,6 +1663,8 @@ public boolean verify_quote_no_and_sales_price_displayed_in_table() throws IOExc
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
+		ExplicitWait.visibleElement(driver, lead_Opp_location, 20);
+		
 		String Lead_OpportunityId = lead_Opp_location.getText();
 
 		System.out.println("");

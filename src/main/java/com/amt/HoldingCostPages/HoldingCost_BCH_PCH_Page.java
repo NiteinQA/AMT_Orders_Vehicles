@@ -136,7 +136,7 @@ public class HoldingCost_BCH_PCH_Page extends TestBase {
 
 		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
 
-		Click.on(driver, contract_mileage, 30);
+		
 
 		Click.sendKeys(driver, monthly_finance_rental, monthlyFinanceRental, 30);
 
@@ -216,7 +216,7 @@ public class HoldingCost_BCH_PCH_Page extends TestBase {
 
 		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
 
-		Click.on(driver, contract_mileage, 30);
+		
 
 		Click.sendKeys(driver, monthly_finance_rental, monthlyFinanceRental, 30);
 

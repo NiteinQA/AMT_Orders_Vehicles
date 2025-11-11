@@ -60,7 +60,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_total_rental;
 
-	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
+	@FindBy(xpath = "//span[@class='slider round']")
 	private WebElement customer_quote_maintenance_toggle_button;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
@@ -153,13 +153,13 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
 	private WebElement less_finance_settlement;
 
-	@FindBy(xpath = "//*[@name='orderDeposit']")
+	@FindBy(xpath = "//*[@name='orderDeposit']|//*[@name='orderDepositHire']")
 	private WebElement order_Deposit;
 
 	@FindBy(xpath = "//*[@name='financeDeposit']")
 	private WebElement finance_Deposit;
 
-	@FindBy(xpath = "//*[@id='DocumentFee']")
+	@FindBy(xpath = "//*[@id='DocumentFee']|//*[@id='DocumentFeeHire']")
 	private WebElement document_fee;
 
 	@FindBy(xpath = "//*[@name='FunderName']")
@@ -909,7 +909,7 @@ public class CustomerQuotePage_HPNR_FL_Page extends TestBase {
 							actual_part_exchange_value_from_excel, given_part_exchange_value,
 							given_part_exchange_value_from_excel, less_finance_settlement,
 							less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
-							document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
+							document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,maintenance_required,
 							maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
 			
 		}else

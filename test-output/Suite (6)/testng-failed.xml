@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite (6)]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test">
+        <methods>
+          <include name="end"/>
+          <include name="aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test" invocation-numbers="0"/>
+          <include name="aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test"/>
+          <include name="aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test"/>
+          <include name="start_info"/>
+          <include name="aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test"/>
+          <include name="tearDown"/>
+          <include name="aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test -->
+      <class name="orders.Orders_Asset_Funding_Required_Flow_BCH_Test">
+        <methods>
+          <include name="end"/>
+          <include name="verify_payments_to_funder_statuses_for_required_flow_test"/>
+          <include name="open_order_created_in_acquisition_test"/>
+          <include name="verify_finance_documents_statuses_for_required_flow_test"/>
+          <include name="verify_default_status_required_flow_test"/>
+          <include name="start_info"/>
+          <include name="verify_completed_status_for_required_flow_test"/>
+          <include name="tearDown"/>
+          <include name="deliver_vehicle_tab_test"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_BCH_Test -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite (6)] -->

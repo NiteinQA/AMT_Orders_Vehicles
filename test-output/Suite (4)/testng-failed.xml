@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite (4)]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Check Stocking plan in Asset Funding Tab(failed)">
+    <classes>
+      <class name="orders.Orders_Asset_Funding_Add_Stocking_Plan_Test">
+        <methods>
+          <include name="end"/>
+          <include name="deliver_vehicle_tab_test"/>
+          <include name="add_stocking_plan_test"/>
+          <include name="start_info"/>
+          <include name="tearDown"/>
+          <include name="open_order_created_in_acquisition_test"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- orders.Orders_Asset_Funding_Add_Stocking_Plan_Test -->
+    </classes>
+  </test> <!-- Check Stocking plan in Asset Funding Tab(failed) -->
+</suite> <!-- Failed suite [Suite (4)] -->

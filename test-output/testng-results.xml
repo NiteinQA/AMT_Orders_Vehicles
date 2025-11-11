@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="6" total="45" passed="39" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="3" failed="1" skipped="1">
   <reporter-output>
     <line>
       <![CDATA[<b>Clicking on New quote</b> <br />]]>
@@ -23,13 +23,13 @@
       <![CDATA[<b>Interior option has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Acquisition Contract type option = Outright Purchase has been selected</b> <br />]]>
+      <![CDATA[<b> Acquisition Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b> Customer Contract type option = Outright Purchase has been selected</b> <br />]]>
+      <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
+      <![CDATA[<b>Getting Basic Price- Vehicle value is  =56579.17</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting Basic Price - Paint  value is  =0.00</b> <br />]]>
@@ -38,13 +38,13 @@
       <![CDATA[<b>Getting  Basic Price - Options value is   =833.33</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting Discount- Vehicle value is  =0.00</b> <br />]]>
+      <![CDATA[<b>Getting Discount- Vehicle value is  =2.00</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting   Discount - Paint value is   =0.00</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Getting  Discount- Options value is   =0.00</b> <br />]]>
+      <![CDATA[<b>Getting  Discount- Options value is   =2.00</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br />]]>
@@ -68,10 +68,19 @@
       <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Subtotal After Discount from excel sheet is =47687.5</b> <br />]]>
+      <![CDATA[<b>Subtotal After Discount from excel sheet is =56264.24999999999</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
+      <![CDATA[<b>Subtotal after discount actual value from screen =£ 56,264.25</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>****************************************************************</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>**********Assertion Passed For Subtotal After Discount**********</b> <br />]]>
+    </line>
+    <line>
+      <![CDATA[<b>****************************************************************</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>*********Calculations for On Road Price has been started***********</b> <br />]]>
@@ -80,16 +89,16 @@
       <![CDATA[<b>Started getting On screen values from after discount table </b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Manufacture_delivery_charges =550.00</b> <br />]]>
+      <![CDATA[<b>Manufacture_delivery_charges =150.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Road_tax_first_year =585.00</b> <br />]]>
+      <![CDATA[<b>Road_tax_first_year =645.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>First_registration_fee =65.00</b> <br />]]>
+      <![CDATA[<b>First_registration_fee =55.0</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Rebate =0.00</b> <br />]]>
+      <![CDATA[<b>Rebate =0.0</b> <br />]]>
     </line>
     <line>
       <![CDATA[<b>Writing After discount values to excel has been started</b> <br />]]>
@@ -104,799 +113,89 @@
       <![CDATA[<b>Reading On Road Price for invoice from excel has been completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Expected on the road price from excel is =58535.0</b> <br />]]>
+      <![CDATA[<b>Expected on the road price from excel is =68397.1</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Actual on the road price from screen is =58535.00</b> <br />]]>
+      <![CDATA[<b>Actual on the road price from screen is =68397.10</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>***********Entered in Customer Quote page ***********</b> <br />]]>
+      <![CDATA[<b>****************************************************************</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Vehicle profit 1000.0 added to OTR price 58535.0and sales price updated is 59735.0 i.e. true</b> <br />]]>
+      <![CDATA[<b>*****************Assertion Passed For OTR Price*****************</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Pending Amount from screen 58474.99 Verified Successfully with applied formula 58474.988 i.e. true</b> <br />]]>
+      <![CDATA[<b>****************************************************************</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>*************OTR Calulation on quote summary page has been started************</b> <br />]]>
+      <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Reading values from OTR calculation -Quote Summary Page</b> <br />]]>
+      <![CDATA[<b>Funder added successfully</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Cost otr price from screen =58535.0</b> <br />]]>
+      <![CDATA[<b>Holding cost verified successfully</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Cost price ex vat and rfl from screen =48237.5</b> <br />]]>
+      <![CDATA[<b>****************************************************************</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>OTR vat from screen =9647.5</b> <br />]]>
+      <![CDATA[<b>***************Assertion Passed For Holding Cost****************</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Cost price compared</b> <br />]]>
+      <![CDATA[<b>****************************************************************</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Quote no. PPB36817 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br />]]>
+      <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing Vehicle Sales Price to Excel</b> <br />]]>
+      <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Vehicle Sales Price from screen is 59735.00</b> <br />]]>
+      <![CDATA[<b>************Calculations for Customer Quote Page has been started***********</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Document Fee from screen is 199.99</b> <br />]]>
+      <![CDATA[<b>Payment Profile Monthly in Advance option has been selected</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Order Deposit from screen is 1000.00</b> <br />]]>
+      <![CDATA[<b>Writing values to Excel for customer quote calculation -started</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Pending Amount from screen is 58474.99</b> <br />]]>
+      <![CDATA[<b>Writing values to Excel for customer quote calculation -completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Writing completed for Vehicle Sales Price to quote save excel sheet in the sheet OP-OP</b> <br />]]>
+      <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -started</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Clicked on Leads on Side Menu</b> <br />]]>
+      <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -completed</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Clicked on add lead</b> <br />]]>
+      <![CDATA[<b>Monthly Finance Rental from Excel is =963.1950047062</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Lead is assigned</b> <br />]]>
+      <![CDATA[<b>Monthly Finance Rental from screen is 1219.06</b> <br />]]>
     </line>
     <line>
-      <![CDATA[<b>Added data in General Notes</b> <br />]]>
+      <![CDATA[<br>----------Screenshot---------<br>]]>
     </line>
     <line>
-      <![CDATA[<b>Customer type - Business selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicked on Add new vehicle request</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Channel- Retail Sales Selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Vehicle request for broker has been saved</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on Map New Quote icon</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on acquisition contract type icon</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on customer contract type icon</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on search button</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on created date button 1st </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on created date button 2nd</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>New Quote has been mapped with lead</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>click ok button on Map  new quote </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Verifying Quote no. and Sales Price Displayed in the Table</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Expected PPB36817 and Actual PPB36817 are equal , Hence Passed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Expected 59735.00 and Actual £ 59,735.00 are equal , Hence Passed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on Lead save and Convert button</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Verifying Quote no. and Sales Price Displayed in the Table</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Expected PPB36817 and Actual PPB36817 are equal , Hence Passed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Expected 59735.00 and Actual £ 59,735.00 are equal , Hence Passed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>In Lead created Opportunity Id is =ZG-0252</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicked on Opportunity link from Menu </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Enter the Opportunity id in Search Text box</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Opportunity Status value is = Open</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Proposal value is = Proposal Required</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Channel value is =  Draft</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of  Quote ref is = Draft</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status Verified : Before sending the proposal</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>click on Proposal icon</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Proposal page will display </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Send proposal to customer pop up  will open</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on Manual fill radio button - Yes</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on manually submit behalf of customer link</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Opportunity Status value is = Open</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Channel value is =  Draft</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of  Quote ref is = Draft</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>click on Send_Contract icon</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Channel value is =  Sent to customer</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of  Quote ref is = Sent to customer</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status Verified : Status Verified : Sent to customer</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status code 200 received </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Enter the Opportunity id in Search Text box</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of Channel value is =  Contract signed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Current Status of  Quote ref is = Contract signed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status Verified : Contract Signed </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicked on Opportunity link from Menu </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Enter the Opportunity id in Search Text box</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b> </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*****Creating Order Started*****</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b> </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>***** Order Created Successfully *****</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Order ID WN-28703 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Searching for Order ID WN-28703</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Checking pre-order checks</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Order -- Default Status - Found OK i.e Order Pending </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Order Status after uploading order form - Found OK i.e Order Confirmed </b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicking on PAYMENTS TO DEALER</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Payments to dealer -- Default Status - Found OK i.e Payment Required</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Click on a payments by dropdown and Select option AMT</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicking on PAYMENTS TO DEALER</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Payments to dealer -- Default Status - Found OK i.e Payment Required</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Payments to Supplier Status after selecting payment sent date - Found OK i.e Payment Sent</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Asset Funding Tab Opened</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default Status for Cash Purchase Verified and found OK i.e.Cash Purchase Pending</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicked on Complete Cash purchase</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Cash Purchase Completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status for Cash Purchase After Completing Cash Purchase Verified and found OK i.e.Cash Purchase Completed</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Opening Customer Contract Tab</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started verifying acceptance conditions default status</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Default status for acceptance condition  - Found OK i.e Satisfied</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started verifying payment values shown under payment section</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Vehicle Invoice Actual = 59735.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Vehicle Invoice Expected = 59735.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Actual = 199.99</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Document Fee Expected = 199.99</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Order Deposit Actual = 1000.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Order Deposit Expected = 1000.0</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Payment values shown under payment section have been verified and found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Started Verifying Payments  Statuses</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicking on PAYMENTS</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Payment -- Default Status - Found OK i.e Payment Required</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Generating Invoices</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Invoices Generated</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Invoices Generated</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicked On New Payment</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Selecting Invoices/Deposits</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Invoices/Deposits Selected</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>All Payments Done</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Status for Payment after making payment - Found OK i.e Payment Received</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicking on DELIVERY</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status after uploading the delivery note - Found OK i.e Delivered</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status are running in parallel for Customer Contract Tab and Vehicle Order Tab , Found OK</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status after selecting date payout pack uploaded - Found OK i.e Payout pack uploaded</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status after selecting date payout pack accepted - Found OK i.e Payout pack accepted</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b></b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Verifying delivery section gets enabled and delivery status is reversed to default when deliver to customer toggle button is made off</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery section is visible when direct to customer toggle button is made off</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status (after making direct to customer toggle off) gets reversed to default</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Clicking on DELIVERY</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked</b> <br />]]>
-    </line>
-    <line>
-      <![CDATA[<b>Delivery Status after uploading the delivery note - Found OK i.e Delivered</b> <br />]]>
+      <![CDATA[<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test_01_05_2025_07_51_52.png" height="800" width="1000">]]>
     </line>
   </reporter-output>
-  <suite started-at="2024-02-01T20:02:31 IST" name="Suite" finished-at="2024-02-01T20:29:58 IST" duration-ms="1647042">
+  <suite started-at="2025-05-01T19:48:16 IST" name="Default suite" finished-at="2025-05-01T19:51:52 IST" duration-ms="216339">
     <groups>
     </groups>
-    <test started-at="2024-02-01T20:02:31 IST" name="Verify Order Flow For Outright Purchase With Customer Flow For New Car" finished-at="2024-02-01T20:29:58 IST" duration-ms="1647042">
-      <class name="opportunity.Create_order_from_opportunity_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:opportunity.Create_order_from_opportunity_Test@cb0755b]" started-at="2024-02-01T20:14:50 IST" name="setup" finished-at="2024-02-01T20:15:08 IST" duration-ms="17726" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="create_order_from_opportunity_test()[pri:1, instance:opportunity.Create_order_from_opportunity_Test@cb0755b]" started-at="2024-02-01T20:15:08 IST" name="create_order_from_opportunity_test" finished-at="2024-02-01T20:16:28 IST" duration-ms="79320" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Clicked on Opportunity link from Menu </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Enter the Opportunity id in Search Text box</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b> </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*****Creating Order Started*****</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b> </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>***** Order Created Successfully *****</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Order ID WN-28703 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- create_order_from_opportunity_test -->
-      </class> <!-- opportunity.Create_order_from_opportunity_Test -->
-      <class name="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:16:28 IST" name="setup" finished-at="2024-02-01T20:16:38 IST" duration-ms="10437" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="T1_open_order_created_in_acquisition_test()[pri:1, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:16:38 IST" name="T1_open_order_created_in_acquisition_test" finished-at="2024-02-01T20:17:56 IST" duration-ms="78078" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Searching for Order ID WN-28703</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T1_open_order_created_in_acquisition_test -->
-        <test-method signature="T2_pass_the_pre_order_check_test()[pri:2, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:17:56 IST" name="T2_pass_the_pre_order_check_test" finished-at="2024-02-01T20:18:26 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T1_open_order_created_in_acquisition_test" duration-ms="30142" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Checking pre-order checks</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T2_pass_the_pre_order_check_test -->
-        <test-method signature="T3_verify_default_order_status_vehicle_tab_test()[pri:3, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:18:26 IST" name="T3_verify_default_order_status_vehicle_tab_test" finished-at="2024-02-01T20:18:37 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T2_pass_the_pre_order_check_test" duration-ms="10380" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Order -- Default Status - Found OK i.e Order Pending </b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T3_verify_default_order_status_vehicle_tab_test -->
-        <test-method signature="T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test()[pri:4, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:18:37 IST" name="T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test" finished-at="2024-02-01T20:20:21 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T3_verify_default_order_status_vehicle_tab_test" duration-ms="104250" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Order Status after uploading order form - Found OK i.e Order Confirmed </b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test -->
-        <test-method signature="T5_verify_default_payment_status_on_vehicle_tab_test()[pri:5, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:20:21 IST" name="T5_verify_default_payment_status_on_vehicle_tab_test" finished-at="2024-02-01T20:20:28 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T4_verify_order_status_after_uploading_order_form_in_vehicle_tab_test" duration-ms="6849" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Clicking on PAYMENTS TO DEALER</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Payments to dealer -- Default Status - Found OK i.e Payment Required</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T5_verify_default_payment_status_on_vehicle_tab_test -->
-        <test-method signature="T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test()[pri:6, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:20:28 IST" name="T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test" finished-at="2024-02-01T20:21:11 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T5_verify_default_payment_status_on_vehicle_tab_test" duration-ms="43429" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test -->
-        <test-method signature="T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test()[pri:7, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:21:11 IST" name="T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test" finished-at="2024-02-01T20:21:22 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T6_verify_payment_status_after_selecting_payment_sent_date_on_vehicle_tab_test" duration-ms="10950" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on a payments by dropdown and Select option AMT</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Clicking on PAYMENTS TO DEALER</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Payments to dealer -- Default Status - Found OK i.e Payment Required</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test -->
-        <test-method signature="T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test()[pri:8, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:21:22 IST" name="T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test" finished-at="2024-02-01T20:22:41 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T7_verify_payment_status_should_be_reversed_to_payment_required_after_selecting_payment_by_AMT_on_vehicle_tab_test" duration-ms="78465" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Payments to Supplier Status after selecting payment sent date - Found OK i.e Payment Sent</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test -->
-        <test-method signature="T9_open_asset_funding_tab_and_verify_default_status_cash_purchase_pending()[pri:9, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:22:41 IST" name="T9_open_asset_funding_tab_and_verify_default_status_cash_purchase_pending" finished-at="2024-02-01T20:22:47 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T8_verify_payment_status_after_selecting_payment_sent_date_for_amount_due_on_vehicle_tab_test" duration-ms="6201" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Asset Funding Tab Opened</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default Status for Cash Purchase Verified and found OK i.e.Cash Purchase Pending</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T9_open_asset_funding_tab_and_verify_default_status_cash_purchase_pending -->
-        <test-method signature="T10_complete_cash_purchase()[pri:10, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:22:47 IST" name="T10_complete_cash_purchase" finished-at="2024-02-01T20:23:09 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T9_open_asset_funding_tab_and_verify_default_status_cash_purchase_pending" duration-ms="22070" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Clicked on Complete Cash purchase</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Cash Purchase Completed</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T10_complete_cash_purchase -->
-        <test-method signature="T11_verify_status_cash_purchase_completed()[pri:11, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:23:09 IST" name="T11_verify_status_cash_purchase_completed" finished-at="2024-02-01T20:23:09 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T10_complete_cash_purchase" duration-ms="17" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Status for Cash Purchase After Completing Cash Purchase Verified and found OK i.e.Cash Purchase Completed</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T11_verify_status_cash_purchase_completed -->
-        <test-method signature="T12_verify_default_status_acceptance_conditions_for_outright_purchase_flow()[pri:12, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:23:09 IST" name="T12_verify_default_status_acceptance_conditions_for_outright_purchase_flow" finished-at="2024-02-01T20:23:25 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T11_verify_status_cash_purchase_completed" duration-ms="16303" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Opening Customer Contract Tab</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying acceptance conditions default status</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Default status for acceptance condition  - Found OK i.e Satisfied</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T12_verify_default_status_acceptance_conditions_for_outright_purchase_flow -->
-        <test-method signature="T13_verify_payment_section_values()[pri:13, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:23:25 IST" name="T13_verify_payment_section_values" finished-at="2024-02-01T20:23:25 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T12_verify_default_status_acceptance_conditions_for_outright_purchase_flow" duration-ms="186" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started verifying payment values shown under payment section</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Vehicle Invoice Actual = 59735.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Vehicle Invoice Expected = 59735.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Actual = 199.99</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Document Fee Expected = 199.99</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Order Deposit Actual = 1000.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Order Deposit Expected = 1000.0</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Payment values shown under payment section have been verified and found OK</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T13_verify_payment_section_values -->
-        <test-method signature="T14_verify_payment_default_status()[pri:14, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:23:25 IST" name="T14_verify_payment_default_status" finished-at="2024-02-01T20:23:30 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T13_verify_payment_section_values" duration-ms="4722" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Started Verifying Payments  Statuses</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Clicking on PAYMENTS</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Payment -- Default Status - Found OK i.e Payment Required</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T14_verify_payment_default_status -->
-        <test-method signature="T15_make_payment_with_new_payment()[pri:15, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:23:30 IST" name="T15_make_payment_with_new_payment" finished-at="2024-02-01T20:25:19 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T14_verify_payment_default_status" duration-ms="109197" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Generating Invoices</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Invoices Generated</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Invoices Generated</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Clicked On New Payment</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Selecting Invoices/Deposits</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Invoices/Deposits Selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>File is Uploaded Successfully</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>All Payments Done</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T15_make_payment_with_new_payment -->
-        <test-method signature="T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab()[pri:16, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:25:19 IST" name="T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab" finished-at="2024-02-01T20:25:23 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T15_make_payment_with_new_payment" duration-ms="4165" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status for Payment after making payment - Found OK i.e Payment Received</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab -->
-        <test-method signature="T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test()[pri:17, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:25:23 IST" name="T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test" finished-at="2024-02-01T20:26:13 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T16_verify_payment_status_after_making_a_payment_on_customer_contract_tab" duration-ms="49408" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Clicking on DELIVERY</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test -->
-        <test-method signature="T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test()[pri:18, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:26:13 IST" name="T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test" finished-at="2024-02-01T20:26:31 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T17_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_customer_contract_tab_test" duration-ms="18391" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test -->
-        <test-method signature="T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test()[pri:19, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:26:31 IST" name="T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test" finished-at="2024-02-01T20:27:01 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T18_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_customer_contract_test" duration-ms="29447" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Delivery Status after uploading the delivery note - Found OK i.e Delivered</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test -->
-        <test-method signature="T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test()[pri:20, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:27:01 IST" name="T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test" finished-at="2024-02-01T20:27:07 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T19_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_customer_contract_tab_test" duration-ms="6281" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Delivery Status are running in parallel for Customer Contract Tab and Vehicle Order Tab , Found OK</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test -->
-        <test-method signature="T21_verify_payout_pack_statuses_on_customer_contract_tab_test()[pri:21, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:27:07 IST" name="T21_verify_payout_pack_statuses_on_customer_contract_tab_test" finished-at="2024-02-01T20:28:08 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T20_verify_delivery_status_on_customer_contract_tab_and_vehicle_order_tab_are_same_when_deliver_to_customer_toggle_button_in_on_test" duration-ms="60908" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Delivery Status after selecting date payout pack uploaded - Found OK i.e Payout pack uploaded</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Delivery Status after selecting date payout pack accepted - Found OK i.e Payout pack accepted</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T21_verify_payout_pack_statuses_on_customer_contract_tab_test -->
-        <test-method signature="T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test()[pri:22, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:28:08 IST" name="T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test" finished-at="2024-02-01T20:28:18 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T21_verify_payout_pack_statuses_on_customer_contract_tab_test" duration-ms="9908" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Verifying delivery section gets enabled and delivery status is reversed to default when deliver to customer toggle button is made off</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Delivery section is visible when direct to customer toggle button is made off</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Delivery Status (after making direct to customer toggle off) gets reversed to default</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test -->
-        <test-method signature="T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test()[pri:23, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:28:18 IST" name="T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test" finished-at="2024-02-01T20:29:07 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T22_verify_delivery_section_gets_enabled_when_deliver_to_customer_toggle_button_is_made_off_test" duration-ms="49370" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Clicking on DELIVERY</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Delivery Status after selecting delivery date offered - Found OK i.e Awaiting Booking</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test -->
-        <test-method signature="T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test()[pri:24, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:29:07 IST" name="T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" finished-at="2024-02-01T20:29:25 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T23_verify_delivery_status_after_selecting_date_offered_in_delivery_section_of_vehicle_order_tab_test" duration-ms="18359" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Delivery Status after selecting confirmed delivery date - Found OK i.e Delivery Booked</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test -->
-        <test-method signature="T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test()[pri:25, instance:orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test@33065d67]" started-at="2024-02-01T20:29:25 IST" name="T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test" finished-at="2024-02-01T20:29:58 IST" depends-on-methods="orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test.T24_verify_delivery_status_after_selecting_confirmed_delivery_date_in_delivery_section_of_vehicle_tab_test" duration-ms="32550" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Delivery Status after uploading the delivery note - Found OK i.e Delivered</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- T25_verify_delivery_status_after_uploading_delivery_note_in_post_delivery_section_on_vehicle_order_tab_test -->
-      </class> <!-- orders.Orders_Verify_Outright_Purchase_With_Customer_Flow_Test -->
-      <class name="acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test">
-        <test-method is-config="true" signature="start_info()[pri:0, instance:acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c]" started-at="2024-02-01T20:02:31 IST" name="start_info" finished-at="2024-02-01T20:02:31 IST" duration-ms="7" status="PASS">
+    <test started-at="2025-05-01T19:48:16 IST" name="Default test" finished-at="2025-05-01T19:51:52 IST" duration-ms="216339">
+      <class name="acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test">
+        <test-method is-config="true" signature="start_info()[pri:0, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3]" started-at="2025-05-01T19:48:16 IST" name="start_info" finished-at="2025-05-01T19:48:16 IST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start_info -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c]" started-at="2024-02-01T20:02:31 IST" name="setup" finished-at="2024-02-01T20:02:42 IST" duration-ms="10527" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3]" started-at="2025-05-01T19:48:16 IST" name="setup" finished-at="2025-05-01T19:48:26 IST" duration-ms="9628" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="aquisition_quotes_OP_OP_OTR_calculation_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c]" started-at="2024-02-01T20:02:44 IST" name="aquisition_quotes_OP_OP_OTR_calculation_test" data-provider="testData" finished-at="2024-02-01T20:05:30 IST" duration-ms="165662" status="PASS">
+        <test-method signature="aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3]" started-at="2025-05-01T19:48:27 IST" name="aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test" data-provider="testData" finished-at="2025-05-01T19:50:46 IST" duration-ms="139370" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -910,57 +209,117 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[50000]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[630]]>
+                <![CDATA[05/12/26]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[5000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[500]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[500]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[10000]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[199.99]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[ContractPurchase]]>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[199.99]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[22]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[22000]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[NO]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[BCH (Formula 3) - BCH]]>
               </value>
             </param>
           </params>
@@ -987,13 +346,13 @@
               <![CDATA[<b>Interior option has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Acquisition Contract type option = Outright Purchase has been selected</b> <br />]]>
+              <![CDATA[<b> Acquisition Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b> Customer Contract type option = Outright Purchase has been selected</b> <br />]]>
+              <![CDATA[<b> Customer Contract type option = Business Contract Hire(BCH) has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br />]]>
+              <![CDATA[<b>Getting Basic Price- Vehicle value is  =56579.17</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting Basic Price - Paint  value is  =0.00</b> <br />]]>
@@ -1002,13 +361,13 @@
               <![CDATA[<b>Getting  Basic Price - Options value is   =833.33</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting Discount- Vehicle value is  =0.00</b> <br />]]>
+              <![CDATA[<b>Getting Discount- Vehicle value is  =2.00</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting   Discount - Paint value is   =0.00</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Getting  Discount- Options value is   =0.00</b> <br />]]>
+              <![CDATA[<b>Getting  Discount- Options value is   =2.00</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br />]]>
@@ -1032,14 +391,23 @@
               <![CDATA[<b>Reading Subtotal After Discount from excel sheet -Started </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Subtotal After Discount from excel sheet is =47687.5</b> <br />]]>
+              <![CDATA[<b>Subtotal After Discount from excel sheet is =56264.24999999999</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br />]]>
+              <![CDATA[<b>Subtotal after discount actual value from screen =£ 56,264.25</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>****************************************************************</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>**********Assertion Passed For Subtotal After Discount**********</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>****************************************************************</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_OTR_calculation_test -->
-        <test-method signature="aquisition_quotes_OP_OP_after_discount_calculations_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c]" started-at="2024-02-01T20:05:30 IST" name="aquisition_quotes_OP_OP_after_discount_calculations_test" data-provider="testData" finished-at="2024-02-01T20:05:35 IST" depends-on-methods="acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_OTR_calculation_test" duration-ms="4792" status="PASS">
+        </test-method> <!-- aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3]" started-at="2025-05-01T19:50:47 IST" name="aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test" data-provider="testData" finished-at="2025-05-01T19:50:51 IST" depends-on-methods="acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test.aquisition_quotes_BCH_BCH_OTR_calculation_without_maintenance_test" duration-ms="4240" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1053,57 +421,117 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[50000]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[630]]>
+                <![CDATA[05/12/26]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[5000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[500]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[500]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[10000]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[199.99]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[ContractPurchase]]>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[199.99]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[22]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[22000]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[NO]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[BCH (Formula 3) - BCH]]>
               </value>
             </param>
           </params>
@@ -1115,16 +543,16 @@
               <![CDATA[<b>Started getting On screen values from after discount table </b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Manufacture_delivery_charges =550.00</b> <br />]]>
+              <![CDATA[<b>Manufacture_delivery_charges =150.0</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Road_tax_first_year =585.00</b> <br />]]>
+              <![CDATA[<b>Road_tax_first_year =645.0</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>First_registration_fee =65.00</b> <br />]]>
+              <![CDATA[<b>First_registration_fee =55.0</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Rebate =0.00</b> <br />]]>
+              <![CDATA[<b>Rebate =0.0</b> <br />]]>
             </line>
             <line>
               <![CDATA[<b>Writing After discount values to excel has been started</b> <br />]]>
@@ -1139,14 +567,23 @@
               <![CDATA[<b>Reading On Road Price for invoice from excel has been completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Expected on the road price from excel is =58535.0</b> <br />]]>
+              <![CDATA[<b>Expected on the road price from excel is =68397.1</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Actual on the road price from screen is =58535.00</b> <br />]]>
+              <![CDATA[<b>Actual on the road price from screen is =68397.10</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>****************************************************************</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>*****************Assertion Passed For OTR Price*****************</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>****************************************************************</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_after_discount_calculations_test -->
-        <test-method signature="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c]" started-at="2024-02-01T20:05:35 IST" name="aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test" data-provider="testData" finished-at="2024-02-01T20:05:45 IST" depends-on-methods="acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_after_discount_calculations_test" duration-ms="10232" status="PASS">
+        </test-method> <!-- aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3]" started-at="2025-05-01T19:50:51 IST" name="aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test" data-provider="testData" finished-at="2025-05-01T19:51:19 IST" depends-on-methods="acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test.aquisition_quotes_BCH_BCH_after_discount_calculations_without_maintenance_test" duration-ms="27584" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1160,70 +597,142 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[50000]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[630]]>
+                <![CDATA[05/12/26]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[5000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[500]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[500]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[10000]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[199.99]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[ContractPurchase]]>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[199.99]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[22]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[22000]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[NO]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[BCH (Formula 3) - BCH]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[<b>***********Entered in Customer Quote page ***********</b> <br />]]>
+              <![CDATA[<b>***********Entered in holding cost page ***********</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Vehicle profit 1000.0 added to OTR price 58535.0and sales price updated is 59735.0 i.e. true</b> <br />]]>
+              <![CDATA[<b>Funder added successfully</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>Holding cost verified successfully</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>****************************************************************</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>***************Assertion Passed For Holding Cost****************</b> <br />]]>
+            </line>
+            <line>
+              <![CDATA[<b>****************************************************************</b> <br />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test -->
-        <test-method signature="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c]" started-at="2024-02-01T20:05:46 IST" name="aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test" data-provider="testData" finished-at="2024-02-01T20:06:39 IST" depends-on-methods="acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test" duration-ms="53640" status="PASS">
+        </test-method> <!-- aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3]" started-at="2025-05-01T19:51:19 IST" name="aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" data-provider="testData" finished-at="2025-05-01T19:51:52 IST" depends-on-methods="acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test.aquisition_quotes_BCH_BCH_holding_cost_calculations_without_maintenance_test" duration-ms="32896" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -1237,378 +746,236 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[50000]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[630]]>
+                <![CDATA[05/12/26]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[200]]>
+                <![CDATA[5000]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[500]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[12]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[500]]>
+                <![CDATA[1]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[10000]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[6000]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[199.99]]>
+                <![CDATA[2000]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[ContractPurchase]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Pending Amount from screen 58474.99 Verified Successfully with applied formula 58474.988 i.e. true</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test -->
-        <test-method signature="aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c]" started-at="2024-02-01T20:06:40 IST" name="aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test" data-provider="testData" finished-at="2024-02-01T20:07:28 IST" depends-on-methods="acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test" duration-ms="48582" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDI]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[A7]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[50000]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[630]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
                 <![CDATA[1000]]>
               </value>
             </param>
-            <param index="5">
+            <param index="13">
+              <value>
+                <![CDATA[199.99]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="15">
               <value>
                 <![CDATA[200]]>
               </value>
             </param>
-            <param index="6">
+            <param index="16">
               <value>
-                <![CDATA[2000]]>
+                <![CDATA[200]]>
               </value>
             </param>
-            <param index="7">
+            <param index="17">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[22]]>
               </value>
             </param>
-            <param index="8">
+            <param index="18">
               <value>
-                <![CDATA[500]]>
+                <![CDATA[22000]]>
               </value>
             </param>
-            <param index="9">
+            <param index="19">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[NO]]>
               </value>
             </param>
-            <param index="10">
+            <param index="20">
               <value>
-                <![CDATA[1000]]>
+                <![CDATA[0]]>
               </value>
             </param>
-            <param index="11">
+            <param index="21">
               <value>
-                <![CDATA[199.99]]>
+                <![CDATA[200]]>
               </value>
             </param>
-            <param index="12">
+            <param index="22">
               <value>
-                <![CDATA[ContractPurchase]]>
+                <![CDATA[YES]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[BCH (Formula 3) - BCH]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test.aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test(Acquisition_Quotes_BCH_BCH_without_maintenance_Test.java:145)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
             <line>
-              <![CDATA[<b>*************OTR Calulation on quote summary page has been started************</b> <br />]]>
+              <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Reading values from OTR calculation -Quote Summary Page</b> <br />]]>
+              <![CDATA[<b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Cost otr price from screen =58535.0</b> <br />]]>
+              <![CDATA[<b>************Calculations for Customer Quote Page has been started***********</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Cost price ex vat and rfl from screen =48237.5</b> <br />]]>
+              <![CDATA[<b>Payment Profile Monthly in Advance option has been selected</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>OTR vat from screen =9647.5</b> <br />]]>
+              <![CDATA[<b>Writing values to Excel for customer quote calculation -started</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Cost price compared</b> <br />]]>
+              <![CDATA[<b>Writing values to Excel for customer quote calculation -completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Quote no. PPB36817 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br />]]>
+              <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -started</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Writing Vehicle Sales Price to Excel</b> <br />]]>
+              <![CDATA[<b>Reading  Monthly Finance Rental from  Excel   -completed</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Vehicle Sales Price from screen is 59735.00</b> <br />]]>
+              <![CDATA[<b>Monthly Finance Rental from Excel is =963.1950047062</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Document Fee from screen is 199.99</b> <br />]]>
+              <![CDATA[<b>Monthly Finance Rental from screen is 1219.06</b> <br />]]>
             </line>
             <line>
-              <![CDATA[<b>Order Deposit from screen is 1000.00</b> <br />]]>
+              <![CDATA[<br>----------Screenshot---------<br>]]>
             </line>
             <line>
-              <![CDATA[<b>Pending Amount from screen is 58474.99</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Writing completed for Vehicle Sales Price to quote save excel sheet in the sheet OP-OP</b> <br />]]>
+              <![CDATA[<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test_01_05_2025_07_51_52.png" height="800" width="1000">]]>
             </line>
           </reporter-output>
-        </test-method> <!-- aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test -->
-        <test-method is-config="true" signature="end()[pri:0, instance:acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test@19e4653c]" started-at="2024-02-01T20:29:58 IST" name="end" finished-at="2024-02-01T20:29:58 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test -->
+        <test-method signature="aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3]" started-at="2025-05-01T19:51:52 IST" name="aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test" finished-at="2025-05-01T19:51:52 IST" depends-on-methods="acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test.aquisition_quotes_BCH_BCH_customer_quote_payment_profile_calculations_without_maintenance_test" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Acquisition_Quotes_BCH_BCH_without_maintenance_Test.aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Acquisition_Quotes_BCH_BCH_without_maintenance_Test.aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aquisition_quotes_BCH_BCH_quote_summary_values_verification_without_maintenance_test -->
+        <test-method is-config="true" signature="end()[pri:0, instance:acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test@470734c3]" started-at="2025-05-01T19:51:52 IST" name="end" finished-at="2025-05-01T19:51:52 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- acquisition.Acquisition_Quotes_OP_OP_For_With_Customer_Order_Flow_Test -->
-      <class name="opportunity.LOU_OP_OP_Business_Flow_Test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:07:28 IST" name="setup" finished-at="2024-02-01T20:07:38 IST" duration-ms="9683" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="L1_create_lead_for_Outright_Purchase_business()[pri:1, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:07:38 IST" name="L1_create_lead_for_Outright_Purchase_business" finished-at="2024-02-01T20:10:53 IST" duration-ms="194582" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Clicked on Leads on Side Menu</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Clicked on add lead</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Lead is assigned</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Added data in General Notes</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Customer type - Business selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Clicked on Add new vehicle request</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Channel- Retail Sales Selected</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Vehicle request for broker has been saved</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on Map New Quote icon</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on acquisition contract type icon</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on customer contract type icon</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on search button</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on created date button 1st </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on created date button 2nd</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>New Quote has been mapped with lead</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>click ok button on Map  new quote </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Verifying Quote no. and Sales Price Displayed in the Table</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Expected PPB36817 and Actual PPB36817 are equal , Hence Passed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Expected 59735.00 and Actual £ 59,735.00 are equal , Hence Passed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on Lead save and Convert button</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Verifying Quote no. and Sales Price Displayed in the Table</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Expected PPB36817 and Actual PPB36817 are equal , Hence Passed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Expected 59735.00 and Actual £ 59,735.00 are equal , Hence Passed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>In Lead created Opportunity Id is =ZG-0252</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b></b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- L1_create_lead_for_Outright_Purchase_business -->
-        <test-method signature="L2_current_status_before_sending_to_proposal()[pri:2, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:10:53 IST" name="L2_current_status_before_sending_to_proposal" finished-at="2024-02-01T20:11:24 IST" depends-on-methods="opportunity.LOU_OP_OP_Business_Flow_Test.L1_create_lead_for_Outright_Purchase_business" duration-ms="31661" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Clicked on Opportunity link from Menu </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Enter the Opportunity id in Search Text box</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of Opportunity Status value is = Open</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of Proposal value is = Proposal Required</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of Channel value is =  Draft</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of  Quote ref is = Draft</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status Verified : Before sending the proposal</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- L2_current_status_before_sending_to_proposal -->
-        <test-method signature="L3_fill_up_the_required_fields_for_sending_a_proposal()[pri:3, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:11:24 IST" name="L3_fill_up_the_required_fields_for_sending_a_proposal" finished-at="2024-02-01T20:13:13 IST" depends-on-methods="opportunity.LOU_OP_OP_Business_Flow_Test.L2_current_status_before_sending_to_proposal" duration-ms="109118" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>click on Proposal icon</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Proposal page will display </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Send proposal to customer pop up  will open</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on Manual fill radio button - Yes</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Click on manually submit behalf of customer link</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- L3_fill_up_the_required_fields_for_sending_a_proposal -->
-        <test-method signature="L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal()[pri:4, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:13:13 IST" name="L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal" finished-at="2024-02-01T20:13:14 IST" depends-on-methods="opportunity.LOU_OP_OP_Business_Flow_Test.L3_fill_up_the_required_fields_for_sending_a_proposal" duration-ms="207" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Current Status of Opportunity Status value is = Open</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of Channel value is =  Draft</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of  Quote ref is = Draft</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal -->
-        <test-method signature="L5_sending_contract()[pri:5, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:13:14 IST" name="L5_sending_contract" finished-at="2024-02-01T20:13:39 IST" depends-on-methods="opportunity.LOU_OP_OP_Business_Flow_Test.L4_ownbook_create_opportunity_business_current_status_after_sending_to_proposal" duration-ms="25779" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>click on Send_Contract icon</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- L5_sending_contract -->
-        <test-method signature="L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow()[pri:6, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:13:39 IST" name="L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow" finished-at="2024-02-01T20:13:46 IST" depends-on-methods="opportunity.LOU_OP_OP_Business_Flow_Test.L5_sending_contract" duration-ms="7175" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of Channel value is =  Sent to customer</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of  Quote ref is = Sent to customer</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status Verified : Status Verified : Sent to customer</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow -->
-        <test-method signature="L7_verify_signed_contract_status_with_api_call()[pri:7, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:13:46 IST" name="L7_verify_signed_contract_status_with_api_call" finished-at="2024-02-01T20:14:39 IST" depends-on-methods="opportunity.LOU_OP_OP_Business_Flow_Test.L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow" duration-ms="52898" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Status code 200 received </b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Enter the Opportunity id in Search Text box</b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- L7_verify_signed_contract_status_with_api_call -->
-        <test-method signature="L8_verify_status_after_contract_signed()[pri:8, instance:opportunity.LOU_OP_OP_Business_Flow_Test@53fb3dab]" started-at="2024-02-01T20:14:39 IST" name="L8_verify_status_after_contract_signed" finished-at="2024-02-01T20:14:50 IST" depends-on-methods="opportunity.LOU_OP_OP_Business_Flow_Test.L7_verify_signed_contract_status_with_api_call" duration-ms="11122" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<b>Current Status of Proposal value is = Proposal Received</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of Channel value is =  Contract signed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Current Status of  Quote ref is = Contract signed</b> <br />]]>
-            </line>
-            <line>
-              <![CDATA[<b>Status Verified : Contract Signed </b> <br />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- L8_verify_status_after_contract_signed -->
-      </class> <!-- opportunity.LOU_OP_OP_Business_Flow_Test -->
-    </test> <!-- Verify Order Flow For Outright Purchase With Customer Flow For New Car -->
-  </suite> <!-- Suite -->
+      </class> <!-- acquisition.Acquisition_Quotes_BCH_BCH_without_maintenance_Test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

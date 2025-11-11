@@ -88,7 +88,7 @@ VehicleOrderPage obj_vehicle_order_tab;
 	}
 	
 	
-	@Test(priority = 5, dependsOnMethods = { "verify_default_status_required_flow_test" })
+	@Test(priority = 5, dependsOnMethods = { "verify_default_funder_is_not_deleted_test" })
 	public void verify_selected_funder_can_not_be_edited_test() throws IOException, InterruptedException, AWTException {
 	
 	     System.out.println("");

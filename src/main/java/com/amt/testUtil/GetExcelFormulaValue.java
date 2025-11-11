@@ -19,7 +19,7 @@ public	static Properties prop;
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream(ConfigConstants.EXCEL_VALUES_PROPERTY_FILE_PATH);
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
@@ -46,7 +46,7 @@ public static double get_string_value(int rounum, int columnnum, String sheet_na
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream(ConfigConstants.EXCEL_VALUES_PROPERTY_FILE_PATH);
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
@@ -70,7 +70,7 @@ public static double get_string_value(int rounum, int columnnum, String sheet_na
 	
 		
 		prop=new Properties();
-		FileInputStream ip = new FileInputStream("D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+		FileInputStream ip = new FileInputStream(ConfigConstants.EXCEL_VALUES_PROPERTY_FILE_PATH);
 		prop.load(ip);
 	
 	FileInputStream fis = new FileInputStream(prop.getProperty("quote_save_excel_path"));
@@ -88,4 +88,30 @@ public static double get_string_value(int rounum, int columnnum, String sheet_na
 	return cell.getStringCellValue();
 
 }
+	
+	
+	public static String get_string_cell_value(int rounum, int columnnum, String sheet_name) throws IOException {
+	
+		
+		prop=new Properties();
+		FileInputStream ip = new FileInputStream(ConfigConstants.EXCEL_VALUES_PROPERTY_FILE_PATH);
+		prop.load(ip);
+	
+	FileInputStream fis = new FileInputStream(prop.getProperty("formula_excel_path"));
+	XSSFWorkbook book = new XSSFWorkbook(fis);
+
+	XSSFSheet sheet = book.getSheet(sheet_name);// selecting sheet with its name as a parameter
+	
+	
+	XSSFRow row = sheet.getRow(rounum);// read data from first row as 0th row contains header
+	XSSFCell cell = row.getCell(columnnum);// read data from first cell
+	FormulaEvaluator evaluator = book.getCreationHelper().createFormulaEvaluator();		
+	XSSFFormulaEvaluator.evaluateAllFormulaCells(book);// existing Sheet, Row, and Cell setup		
+	if (cell.getCellType() == CellType.STRING) {
+		evaluator.evaluateFormulaCell(cell);			
+	}
+	return cell.getStringCellValue();
+
+}
+
 }

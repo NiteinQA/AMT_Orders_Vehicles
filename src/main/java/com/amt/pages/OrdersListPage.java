@@ -37,7 +37,7 @@ public class OrdersListPage extends TestBase {
 	private WebElement orders_search_bar;
 
 	// Searched Order
-	@FindBy(xpath = "(//table//tbody//tr)[5]")
+	@FindBy(xpath = "(//table//tbody)[2]")
 	private WebElement orders_lists_search_output;
 	
 	// Order summary Element

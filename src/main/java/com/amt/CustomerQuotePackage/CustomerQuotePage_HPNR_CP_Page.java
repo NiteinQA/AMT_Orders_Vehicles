@@ -41,7 +41,7 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 	private List<WebElement> loading_icon;
 
 	// vehicle_discount_cost_price
-	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]//div//p")
+	@FindBy(xpath = "//*[@id='bdiscount']//ancestor::div[3]/div/span")
 	private WebElement vehicle_discount_cost_price;
 
 	// vehicle_additional_discount_cost_price
@@ -144,8 +144,9 @@ public class CustomerQuotePage_HPNR_CP_Page extends TestBase {
 
 	@FindBy(xpath = "//*[contains(text(),' Part exchange & additional payments ')]")
 	private WebElement part_exchange_and_additional_payment_button;
-
-	@FindBy(xpath = "//*[@id='collapseFirst']/div/div/div[5]/label/span")
+	
+	
+	@FindBy(xpath = "//*[@name='withBalloon']//ancestor::div[1]//span[@class='slider round']")
 	private WebElement balloon_payment_toggle;
 
 	@FindBy(xpath = "//app-purchase-customer-quote-summary-header/div/div[6]/div/p/strong")

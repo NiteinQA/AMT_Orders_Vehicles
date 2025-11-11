@@ -1,0 +1,237 @@
+<html>
+<head>
+<title>TestNG:  Check Cash Purchase in Asset Funding Tab</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Check Cash Purchase in Asset Funding Tab</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jun 19 19:27:59 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>430 seconds (430095 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_after_discount_calculations_test()'><b>aquisition_quotes_OP_OP_after_discount_calculations_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
+<a href="#Output-1569354238" onClick='toggleBox("Output-1569354238", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1569354238" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1569354238">
+<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
+<b>Started getting On screen values from after discount table </b> <br /><br/>
+<b>Manufacture_delivery_charges =645.83</b> <br /><br/>
+<b>Road_tax_first_year =585.00</b> <br /><br/>
+<b>First_registration_fee =65.00</b> <br /><br/>
+<b>Rebate =0.00</b> <br /><br/>
+<b>Writing After discount values to excel has been started</b> <br /><br/>
+<b>Writing After discount values to excel has been completed</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
+<b>Expected on the road price from excel is =69019.99</b> <br /><br/>
+<b>Actual on the road price from screen is =69019.99</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>acquisition.Acquisition_Quotes_OP_OP_Test@2cf3d63b</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test()'><b>aquisition_quotes_OP_OP_customer_quote_vehicle_profit_edit_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
+<a href="#Output-4699330" onClick='toggleBox("Output-4699330", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-4699330" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-4699330">
+<b>***********Entered in Customer Quote page ***********</b> <br /><br/>
+<b>Vehicle profit 1000.0 added to OTR price 69019.99and sales price updated is 70219.99 i.e. true</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>9</td>
+<td>acquisition.Acquisition_Quotes_OP_OP_Test@2cf3d63b</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Cash_Purchase_Test.open_asset_funding_tab_and_verify_default_status_cash_purchase_pending()'><b>open_asset_funding_tab_and_verify_default_status_cash_purchase_pending</b><br>Test class: orders.Orders_Asset_Funding_Cash_Purchase_Test<br/>
+<a href="#Output-99846614" onClick='toggleBox("Output-99846614", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-99846614" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-99846614">
+<b>Asset Funding Tab Opened</b> <br /><br/>
+<b>Default Status for Cash Purchase Verified and found OK i.e.Cash Purchase Pending</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>orders.Orders_Asset_Funding_Cash_Purchase_Test@2af004b</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_OTR_calculation_test()'><b>aquisition_quotes_OP_OP_OTR_calculation_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
+<a href="#Output-2050525584" onClick='toggleBox("Output-2050525584", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2050525584" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2050525584">
+<b>Clicking on New quote</b> <br /><br/>
+<b>Clicked on Quote button </b> <br /><br/>
+<b>Manufacture =AUDI has been selected</b> <br /><br/>
+<b>Model range =A7 has been selected</b> <br /><br/>
+<b>Vehicle has been selected</b> <br /><br/>
+<b>Paint option has been selected</b> <br /><br/>
+<b>Interior option has been selected</b> <br /><br/>
+<b> Acquisition Contract type option = Outright Purchase has been selected</b> <br /><br/>
+<b> Customer Contract type option = Outright Purchase has been selected</b> <br /><br/>
+<b>Getting Basic Price- Vehicle value is  =55495.83</b> <br /><br/>
+<b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
+<b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
+<b>Getting Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting   Discount - Paint value is   =0.00</b> <br /><br/>
+<b>Getting  Discount- Options value is   =0.00</b> <br /><br/>
+<b>Getting Additional Discount- Vehicle value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - paint value is  =0.00</b> <br /><br/>
+<b>Getting  Additional Discount - Options value is  =0.00</b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Started </b> <br /><br/>
+<b>Writing OTR table values to excel sheet -Completed </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
+<b>Subtotal After Discount from excel sheet is =56329.16</b> <br /><br/>
+<b>Subtotal after discount actual value from screen =£ 56,329.16</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>138</td>
+<td>acquisition.Acquisition_Quotes_OP_OP_Test@2cf3d63b</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Cash_Purchase_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Cash_Purchase_Test<br/>
+<a href="#Output-1499285205" onClick='toggleBox("Output-1499285205", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1499285205" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1499285205">
+<b></b> <br /><br/>
+<b>Searching for Order ID NB-86287</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>74</td>
+<td>orders.Orders_Asset_Funding_Cash_Purchase_Test@2af004b</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Cash_Purchase_Test.verify_status_cash_purchase_completed()'><b>verify_status_cash_purchase_completed</b><br>Test class: orders.Orders_Asset_Funding_Cash_Purchase_Test<br/>
+<a href="#Output-1151153013" onClick='toggleBox("Output-1151153013", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1151153013" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1151153013">
+<b>Status for Cash Purchase After Completing Cash Purchase Verified and found OK i.e.Cash Purchase Completed</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Cash_Purchase_Test@2af004b</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test()'><b>aquisition_quotes_OP_OP_customer_quote_part_exchange_value_edit_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
+<a href="#Output-1185169641" onClick='toggleBox("Output-1185169641", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1185169641" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1185169641">
+<b>Pending Amount from screen 69459.98 Verified Successfully with applied formula 69459.978 i.e. true</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>26</td>
+<td>acquisition.Acquisition_Quotes_OP_OP_Test@2cf3d63b</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Cash_Purchase_Test.complete_cash_purchase()'><b>complete_cash_purchase</b><br>Test class: orders.Orders_Asset_Funding_Cash_Purchase_Test<br/>
+<a href="#Output-996077715" onClick='toggleBox("Output-996077715", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-996077715" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-996077715">
+<b>Clicked on Complete Cash purchase</b> <br /><br/>
+<b>Cash Purchase Completed</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>22</td>
+<td>orders.Orders_Asset_Funding_Cash_Purchase_Test@2af004b</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_OP_OP_Test.aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test()'><b>aquisition_quotes_OP_OP_quote_summary_values_verification_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_OP_OP_Test<br>Parameters: AUDI, A7, 50000, 630, 1000, 200, 2000, 1000, 500, 1000, 1000, 199.99, ContractPurchase<br/>
+<a href="#Output-437559979" onClick='toggleBox("Output-437559979", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-437559979" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-437559979">
+<b>*************OTR Calulation on quote summary page has been started************</b> <br /><br/>
+<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
+<b>Cost otr price from screen =69019.99</b> <br /><br/>
+<b>Cost price ex vat and rfl from screen =56974.99</b> <br /><br/>
+<b>OTR vat from screen =11395.0</b> <br /><br/>
+<b>Cost price compared</b> <br /><br/>
+<b>Quote no. GDG90945 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br /><br/>
+<b> </b> <br /><br/>
+<b>*****Creating Order Started*****</b> <br /><br/>
+<b> </b> <br /><br/>
+<b>***** Order Created Successfully *****</b> <br /><br/>
+<b>Order ID NB-86287 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br /><br/>
+<b>*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>124</td>
+<td>acquisition.Acquisition_Quotes_OP_OP_Test@2cf3d63b</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,43 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite (12)]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Create Order From Opportunity Broker Hire(failed)">
+  <test thread-count="5" name="Verify selected funder can not be deleted and edited(failed)">
     <classes>
-      <class name="opportunity.LOU_broker_business_hire_accept_flow_Test">
+      <class name="orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test">
         <methods>
+          <include name="verify_holding_cost_after_deselecting_funder_test"/>
           <include name="end"/>
-          <include name="UW5_verify_underwriting_proposal_decision_with_accept"/>
+          <include name="verify_funder_is_deselected_after_selecting_the_other_matrix_cell_test"/>
+          <include name="verify_default_funder_is_not_deleted_test"/>
+          <include name="verify_selected_funder_can_not_be_edited_test"/>
           <include name="start_info"/>
+          <include name="verify_default_status_required_flow_test"/>
           <include name="tearDown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- opportunity.LOU_broker_business_hire_accept_flow_Test -->
-      <class name="orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test">
-        <methods>
-          <include name="verify_post_delivery_status_on_customer_contract_tab_test"/>
-          <include name="verify_the_vehicle_is_seen_in_sold_section_on_completing_the_order_on_customer_contract_page_test"/>
-          <include name="verify_finance_documents_statuses_for_required_flow_test"/>
-          <include name="deliver_vehicle_tab_test"/>
-          <include name="verify_payment_statuses_for_required_flow_test"/>
-          <include name="verify_statuses_on_order_completed_test"/>
-          <include name="setup"/>
+          <include name="verify_holding_cost_based_on_ownbook_calculation_on_toggling_in_funder_test"/>
           <include name="open_order_created_in_acquisition_test"/>
-          <include name="end"/>
-          <include name="start_info"/>
-          <include name="verify_delivery_status_on_customer_contract_tab_test"/>
-          <include name="tearDown"/>
-          <include name="pass_the_pre_order_check_test"/>
-        </methods>
-      </class> <!-- orders.Orders_Customer_Contract_Complete_Order_For_Broker_With_Customer_Flow_Test -->
-      <class name="opportunity.Create_order_from_opportunity_Test">
-        <methods>
-          <include name="end"/>
-          <include name="create_order_from_opportunity_test"/>
-          <include name="start_info"/>
-          <include name="tearDown"/>
+          <include name="verify_holding_cost_without_maintenance_based_on_ownbook_calculation_test"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- opportunity.Create_order_from_opportunity_Test -->
+      </class> <!-- orders.Orders_Asset_Funding_Required_Flow_FL_BCH_with_funder_with_maintenance_Test -->
     </classes>
-  </test> <!-- Create Order From Opportunity Broker Hire(failed) -->
+  </test> <!-- Verify selected funder can not be deleted and edited(failed) -->
 </suite> <!-- Failed suite [Suite (12)] -->

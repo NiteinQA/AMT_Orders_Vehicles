@@ -18,11 +18,17 @@ import org.openqa.selenium.support.ui.Select;
 import com.amt.testBase.TestBase;
 
 public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
+	
+	static Properties prop;
+	
+	CommonClass obj_common_class ;
+	
+	public ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
+	
 	public ReadExcelCalculationForPurchaseAgreement() {
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(
-					"D:\\Orders_Vehicles\\AMT_Orders_Vehicles\\src\\main\\java\\configs\\excelValues.properties");
+			FileInputStream ip = new FileInputStream(ConfigConstants.EXCEL_VALUES_PROPERTY_FILE_PATH);
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -30,10 +36,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
+		
 	public double adding_cap_monthly_maintenance_to_holding_cost_with_funder_scenario_hpnr(String capMonthlyMaintValue, String sheet_name) throws IOException, InterruptedException {
 
 
@@ -148,8 +151,6 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 	}
-
-	public ReadExcelCalculationForPurchaseAgreement obj_read_excel_calculation_page;
 
 	public double verify_OTR_for_calculation_after_adding_other_support_values_to_excel(double otherSupportValue,
 			String sheet_name) throws IOException {
@@ -2034,19 +2035,24 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			wb.getSheet(sheet_name).getRow(63).getCell(1)
 					.setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));
 		}
-		wb.getSheet(sheet_name).getRow(65).getCell(1)
-				.setCellValue(Double.parseDouble(prop.getProperty("min_margin_percentage_for_broker_vrb")));
 		
-		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("LCV")) {
-			wb.getSheet(sheet_name).getRow(81).getCell(1).setCellFormula("IF(A111=\"YES\",A40,0)*1.2");
-			wb.getSheet(sheet_name).getRow(81).getCell(6).setCellFormula("IF(A111=\"YES\",A40,0)*1.2");		
-		}else
-		{
-			wb.getSheet(sheet_name).getRow(81).getCell(1).setCellFormula("IF(A111=\"YES\",A40,0)");
-			wb.getSheet(sheet_name).getRow(81).getCell(6).setCellFormula("IF(A111=\"YES\",A40,0)");
-	
-		}
+		
+		
+		obj_common_class = new CommonClass();		
+		
+		double defaultBrokerMarginFromPercentageConfiguration = obj_common_class.get_the_default_broker_margin_value_from_excel_based_on_configurations_for_purchase_contract_types(term,matrixCreditType, prop.getProperty("Default_Broker_Margin_Values_sheet_name"));
 
+		
+		
+		wb.getSheet(sheet_name).getRow(65).getCell(1)
+				.setCellValue(defaultBrokerMarginFromPercentageConfiguration/100);
+
+		
+		wb.getSheet(sheet_name).getRow(81).getCell(1).setCellFormula("IF(A111=\"YES\",A40,0)");
+		
+		wb.getSheet(sheet_name).getRow(81).getCell(6).setCellFormula("IF(A111=\"YES\",A40,0)");
+
+		
 		
 		wb.getSheet(sheet_name).getRow(107).getCell(0)
 				.setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
@@ -2064,75 +2070,6 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		LO.print("Writing configuration values from property file to Excel for customer quote calculation -completed");
 		System.out.println(
 				"Writing configuration values from property file to Excel for customer quote calculation -completed");
-	}
-
-//	public void set_global_variables_to_excel_for_purchase_agreement_for_configuration(String matrixCreditType, String sheet_name) throws IOException {
-//		//write / take global variables and set to excel sheet for calculation
-//		 
-//		LO.print("Writing configuration values from property file to Excel for customer quote calculation -started" );
-//		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -started" );
-//		
-//		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
-//		XSSFWorkbook wb = new XSSFWorkbook(in);
-//		//rfl values fakt on hotya baki sarv comment hotya 
-//		wb.getSheet(sheet_name).getRow(258).getCell(5).setCellValue(Double.parseDouble(prop.getProperty("period_supplment")));
-//		if(matrixCreditType.contains("A1 Credit")) {wb.getSheet(sheet_name).getRow(258).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_A1")));}
-//		else{wb.getSheet(sheet_name).getRow(258).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));}
-//		wb.getSheet(sheet_name).getRow(265).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
-//		wb.getSheet(sheet_name).getRow(267).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
-//		wb.getSheet(sheet_name).getRow(269).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
-//		wb.getSheet(sheet_name).getRow(270).getCell(1).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
-//		wb.getSheet(sheet_name).getRow(265).getCell(5).setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
-//		
-//	
-//		
-//				
-//		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
-//		wb.write(out);	
-//		out.close();
-//		
-//		LO.print("Writing configuration values from property file to Excel for customer quote calculation -completed" );
-//		System.out.println("Writing configuration values from property file to Excel for customer quote calculation -completed" );
-//	}
-
-	public void write_basic_cash_price_to_excel_for_used_car_funder(double basic_cash_price, String sheet_name)
-			throws IOException, NumberFormatException, ClassNotFoundException {
-		// write_basic_cash_price_to_excel_for_used_car_funder
-
-		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
-		XSSFWorkbook wb = new XSSFWorkbook(in);
-
-		wb.getSheet(sheet_name).getRow(120).getCell(2).setCellValue(basic_cash_price);
-		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);
-
-		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
-		wb.write(out);
-		out.close();
-
-	}
-
-	public void write_basic_cash_price_to_excel_for_cp_used_car_funder(double basic_cash_price, String sheet_name)
-			throws IOException, NumberFormatException, ClassNotFoundException {
-		// write_basic_cash_price_to_excel_for_used_car_funder
-
-		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
-		XSSFWorkbook wb = new XSSFWorkbook(in);
-
-		wb.getSheet(sheet_name).getRow(129).getCell(2).setCellValue(basic_cash_price);
-		wb.getSheet(sheet_name).getRow(119).getCell(1).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(119).getCell(4).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(160).getCell(4).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(160).getCell(6).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(161).getCell(6).setCellValue(0);
-
-		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
-		wb.write(out);
-		out.close();
-
 	}
 
 	public void set_global_variables_to_excel_for_purchase_agreement_for_funder_addition(String terms, String DocFee,
@@ -2180,8 +2117,18 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			wb.getSheet(sheet_name).getRow(63).getCell(1)
 					.setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));
 		}
+		
+		
+		obj_common_class = new CommonClass();		
+		
+		double defaultBrokerMarginFromPercentageConfiguration = obj_common_class.get_the_default_broker_margin_value_from_excel_based_on_configurations_for_purchase_contract_types(term,matrixCreditType, prop.getProperty("Default_Broker_Margin_Values_sheet_name"));
+
+		
 		wb.getSheet(sheet_name).getRow(65).getCell(1)
-				.setCellValue(Double.parseDouble(prop.getProperty("min_margin_percentage_for_broker_vrb")));
+				.setCellValue(defaultBrokerMarginFromPercentageConfiguration/100);
+
+		
+		
 		wb.getSheet(sheet_name).getRow(107).getCell(0)
 				.setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
 		wb.getSheet(sheet_name).getRow(113).getCell(1).setCellValue(DocFee);
@@ -2202,7 +2149,7 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 				"Writing configuration values from property file to Excel for customer quote calculation -completed");
 	}
 
-	public void set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(String DocFee,
+    public void set_global_variables_to_excel_for_purchase_agreement_cp_for_funder_addition(String terms , String DocFee,
 			String matrixCreditType, String sheet_name)
 			throws IOException, NumberFormatException, ClassNotFoundException {
 		// write / take global variables and set to excel sheet for calculation
@@ -2231,8 +2178,16 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			wb.getSheet(sheet_name).getRow(72).getCell(1)
 					.setCellValue(Double.parseDouble(prop.getProperty("rate_over_base_rate_Limited")));
 		}
+		
+		double term = Double.parseDouble(terms);
+		
+		obj_common_class = new CommonClass();		
+		
+		double defaultBrokerMarginFromPercentageConfiguration = obj_common_class.get_the_default_broker_margin_value_from_excel_based_on_configurations_for_purchase_contract_types(term,matrixCreditType, prop.getProperty("Default_Broker_Margin_Values_sheet_name"));
+
+		
 		wb.getSheet(sheet_name).getRow(74).getCell(1)
-				.setCellValue(Double.parseDouble(prop.getProperty("min_margin_percentage_for_broker_vrb")));
+				.setCellValue(defaultBrokerMarginFromPercentageConfiguration/100);
 
 		wb.getSheet(sheet_name).getRow(116).getCell(0)
 				.setCellValue(Double.parseDouble(prop.getProperty("maintenance_margin")));
@@ -2254,6 +2209,15 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 			wb.getSheet(sheet_name).getRow(90).getCell(6).setCellFormula("IF(A111=\"YES\",A43,0)");
 		}
 		
+		if (Class.forName(Thread.currentThread().getStackTrace()[3].getClassName()).getName().contains("with_maintenance")) {
+			wb.getSheet(sheet_name).getRow(113).getCell(4).setCellValue("YES");
+		} 
+		else
+		{
+			wb.getSheet(sheet_name).getRow(113).getCell(4).setCellValue("NO");
+		}
+
+		
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 		out.close();
@@ -2262,6 +2226,49 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		System.out.println(
 				"Writing configuration values from property file to Excel for customer quote calculation -completed");
 	}
+
+	
+	
+	public void write_basic_cash_price_to_excel_for_used_car_funder(double basic_cash_price, String sheet_name)
+			throws IOException, NumberFormatException, ClassNotFoundException {
+		// write_basic_cash_price_to_excel_for_used_car_funder
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		wb.getSheet(sheet_name).getRow(120).getCell(2).setCellValue(basic_cash_price);
+		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		out.close();
+
+	}
+
+	public void write_basic_cash_price_to_excel_for_cp_used_car_funder(double basic_cash_price, String sheet_name)
+			throws IOException, NumberFormatException, ClassNotFoundException {
+		// write_basic_cash_price_to_excel_for_used_car_funder
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		wb.getSheet(sheet_name).getRow(129).getCell(2).setCellValue(basic_cash_price);
+		wb.getSheet(sheet_name).getRow(119).getCell(1).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(119).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(160).getCell(4).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(160).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(161).getCell(6).setCellValue(0);
+
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+		out.close();
+
+	}
+
 
 	public double get_monthly_finanace_payment_from_excel(String maintenance_status, String matrix_credit_type,
 			String balloon_payment_status, String order_deposit, String finance_deposit, String document_fee,
@@ -2564,6 +2571,8 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(122).getCell(2)
 				.setCellValue(Double.parseDouble(vehicle_additional_discount_copied));
+		
+		System.out.println(sheet_name);
 		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
 		wb.write(out);
 		out.close();
@@ -2591,8 +2600,8 @@ public class ReadExcelCalculationForPurchaseAgreement extends TestBase {
 		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		wb.getSheet(sheet_name).getRow(151).getCell(4).setCellValue(0);
-		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(Double.parseDouble(part_exchange_given));
-		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(Double.parseDouble(less_finance_settlement));
+		wb.getSheet(sheet_name).getRow(151).getCell(6).setCellValue(0);
+		wb.getSheet(sheet_name).getRow(152).getCell(6).setCellValue(0);
 		wb.getSheet(sheet_name).getRow(110).getCell(1).setCellValue(Double.parseDouble(order_deposit));
 		wb.getSheet(sheet_name).getRow(110).getCell(4).setCellValue(Double.parseDouble(finance_deposit));
 		wb.getSheet(sheet_name).getRow(113).getCell(1).setCellValue(document_fee_copied);

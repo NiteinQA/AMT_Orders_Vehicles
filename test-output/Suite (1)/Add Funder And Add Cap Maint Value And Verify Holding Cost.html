@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Add Funder And Add Cap Maint Value And Verify Holding Cost</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>16/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>6/2/8</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jan 30 21:43:41 IST 2024</td>
+<td>Started on:</td><td>Thu Jun 20 21:01:59 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>1119 seconds (1119026 ms)</td>
+<tr><td>Total time:</td><td>683 seconds (683141 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,125 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-1398462170" onClick='toggleBox("Output-1398462170", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1398462170" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1398462170">
+<b>Entering the deposit Values</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Balance To Finance Expected is 80323.98400000001</b> <br /><br/>
+<b>Balance To Finance Actual is 80823.98</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment Expected is 2115.2924861343286</b> <br /><br/>
+<b>Monthly Finance Payment Actual is 2131.56</b> <br /><br/>
+<b></b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test_20_06_2024_09_11_09.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test(Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.java:201)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1398462170", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1398462170'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test(Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.java:201)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>84</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_default_status_required_flow_test()'><b>verify_default_status_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br/>
+<a href="#Output-694347424" onClick='toggleBox("Output-694347424", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-694347424" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-694347424">
+<b></b> <br /><br/>
+<b>Started verifying Default Status for HPNR required flow</b> <br /><br/>
+<b>Default Status for HPNR required flow Found Wrong</b> <br /><br/>
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\verify_default_status_required_flow_test_20_06_2024_09_13_22.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_default_status_required_flow_test(Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.java:64)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace694347424", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace694347424'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_default_status_required_flow_test(Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.java:64)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>16</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,46 +194,86 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
-<a href="#Output-1258614790" onClick='toggleBox("Output-1258614790", this, "Show output", "Hide output");'>Show output</a>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br/>
+<a href="#Output-1081075215" onClick='toggleBox("Output-1081075215", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1258614790" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1258614790">
-<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
-<b>Started getting On screen values from after discount table </b> <br /><br/>
-<b>Manufacture_delivery_charges =550.00</b> <br /><br/>
-<b>Road_tax_first_year =585.00</b> <br /><br/>
-<b>First_registration_fee =65.00</b> <br /><br/>
-<b>Rebate =0.00</b> <br /><br/>
-<b>Writing After discount values to excel has been started</b> <br /><br/>
-<b>Writing After discount values to excel has been completed</b> <br /><br/>
-<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
-<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
-<b>Expected on the road price from excel is =58535.0</b> <br /><br/>
-<b>Actual on the road price from screen is =58535.00</b> <br /><br/>
-<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
-<b>Started getting On screen values from after discount table </b> <br /><br/>
-<b>Manufacture_delivery_charges =550.00</b> <br /><br/>
-<b>Road_tax_first_year =585.00</b> <br /><br/>
-<b>First_registration_fee =65.00</b> <br /><br/>
-<b>Rebate =0.00</b> <br /><br/>
-<b>Writing After discount values to excel has been started</b> <br /><br/>
-<b>Writing After discount values to excel has been completed</b> <br /><br/>
-<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
-<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
-<b>Expected on the road price from excel is =58535.0</b> <br /><br/>
-<b>Actual on the road price from screen is =58535.00</b> <br /><br/>
+<a href="#Output-1081075215" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1081075215">
+<b></b> <br /><br/>
+<b>Searching for Order ID IN-27928</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>9</td>
-<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@6c4906d3</td></tr>
+<td>106</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-246018413" onClick='toggleBox("Output-246018413", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-246018413" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-246018413">
+<b></b> <br /><br/>
+<b>Actual Monthly Finance Payment after editing vehicle profit = 1786.46</b> <br /><br/>
+<b>Expected  Monthly Finance Payment after editing vehicle profit = 1786.4554023945086</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Finance Payment verified after editing vehicle profit</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price</b> <br /><br/>
+<b>Sending 82823.98800000001 to sales total input field</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Vehicle Profit Expected is 11503.331666666672</b> <br /><br/>
+<b>Vehicle Profit Actual is 11503.33</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Monthly Total Payment Expected is 2196.6556130941485</b> <br /><br/>
+<b>Monthly Total Payment Actual is 2196.66</b> <br /><br/>
+<b></b> <br /><br/>
+<b>Vehicle profit and Total Monthly Payment verified on editing Vehicle Sales Price</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>82</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833</td></tr>
+<tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_after_discount_calculations_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
+<a href="#Output-1737951104" onClick='toggleBox("Output-1737951104", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1737951104" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1737951104">
+<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
+<b>Started getting On screen values from after discount table </b> <br /><br/>
+<b>Manufacture_delivery_charges =645.83</b> <br /><br/>
+<b>Road_tax_first_year =585.00</b> <br /><br/>
+<b>First_registration_fee =65.00</b> <br /><br/>
+<b>Rebate =0.00</b> <br /><br/>
+<b>Writing After discount values to excel has been started</b> <br /><br/>
+<b>Writing After discount values to excel has been completed</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
+<b>Expected on the road price from excel is =69019.99</b> <br /><br/>
+<b>Actual on the road price from screen is =69019.99</b> <br /><br/>
+<b>*********Calculations for On Road Price has been started***********</b> <br /><br/>
+<b>Started getting On screen values from after discount table </b> <br /><br/>
+<b>Manufacture_delivery_charges =645.83</b> <br /><br/>
+<b>Road_tax_first_year =585.00</b> <br /><br/>
+<b>First_registration_fee =65.00</b> <br /><br/>
+<b>Rebate =0.00</b> <br /><br/>
+<b>Writing After discount values to excel has been started</b> <br /><br/>
+<b>Writing After discount values to excel has been completed</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been Started</b> <br /><br/>
+<b>Reading On Road Price for invoice from excel has been completed</b> <br /><br/>
+<b>Expected on the road price from excel is =69019.99</b> <br /><br/>
+<b>Actual on the road price from screen is =69019.99</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833</td></tr>
 <tr>
 <td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_calculations_check_monthly_finance_payment_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
-<a href="#Output-284621717" onClick='toggleBox("Output-284621717", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-35163925" onClick='toggleBox("Output-35163925", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-284621717" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-284621717">
+<a href="#Output-35163925" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-35163925">
 <b>***********Entered in Customer Quote page ***********</b> <br /><br/>
 <b>Matrix credit type A1 Credit has been selected</b> <br /><br/>
 <b>Writing configuration values from property file to Excel for customer quote calculation -started</b> <br /><br/>
@@ -123,95 +282,33 @@ function toggleAllBoxes() {
 <b>Writing configuration values from property file to Excel for customer quote calculation -completed</b> <br /><br/>
 <b>Writing screen values to Excel for customer quote calculation -started</b> <br /><br/>
 <b>Writing screen values to Excel for customer quote calculation -completed</b> <br /><br/>
-<b>Actual Monthly Finance Payment from screen is 1406.16</b> <br /><br/>
+<b>Actual Monthly Finance Payment from screen is 1747.4</b> <br /><br/>
 <b>Writing screen values to Excel for customer quote calculation -started</b> <br /><br/>
 <b>Writing screen values to Excel for customer quote calculation -completed</b> <br /><br/>
-<b>Expected Monthly Finannce Rental from excel is 1406.1645375273</b> <br /><br/>
+<b>Expected Monthly Finannce Rental from excel is 1747.4011014537914</b> <br /><br/>
 <b></b> <br /><br/>
 <b>Started Verifying Sales price discount not to be greater than cost price discount</b> <br /><br/>
 <b>Sales discount price entered greater than Cost discount prices and verified that sales discount input field doesn't accept greater values than cost discount prices</b> <br /><br/>
 <b></b> <br /><br/>
 <b>Started Updating Sales price discount</b> <br /><br/>
-<b>Actual Sales Total Price from screen (on updating sales discount prices) is 58535.0</b> <br /><br/>
-<b>Expected Sales Total Price from excel (on updating sales discount prices) is 58535.0</b> <br /><br/>
+<b>Actual Sales Total Price from screen (on updating sales discount prices) is 69019.99</b> <br /><br/>
+<b>Expected Sales Total Price from excel (on updating sales discount prices) is 69019.98800000001</b> <br /><br/>
 <b>Actual Vehicle Profit from screen (on updating sales discount prices) is 0.0</b> <br /><br/>
 <b>Expected Vehicle Profit from excel (on updating sales discount prices) is 0.0</b> <br /><br/>
-<b>Actual Monthly Finance Payment from screen is 1406.16</b> <br /><br/>
-<b>Expected Monthly Finance Payment from excel is 1406.1645375273</b> <br /><br/>
+<b>Actual Monthly Finance Payment from screen is 1747.4</b> <br /><br/>
+<b>Expected Monthly Finance Payment from excel is 1747.4011014537914</b> <br /><br/>
 <b>1. Sales Total Price , 2.Vehicel Profit , 3.Monthly Finance Rental , Verified on updating sales discount and found OK</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>177</td>
-<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@6c4906d3</td></tr>
-<tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_shown_test()'><b>verify_holding_cost_shown_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br/>
-<a href="#Output-604402693" onClick='toggleBox("Output-604402693", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-604402693" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-604402693">
-<b></b> <br /><br/>
-<b>Started verifying Holding Cost Shown</b> <br /><br/>
-<b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
-<b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_screen =1080.08</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_excel =1080.0798382813232</b> <br /><br/>
-<b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>11</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@65987993</td></tr>
-<tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_funder_test()'><b>verify_holding_cost_on_adding_funder_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br>Parameters: REF001, 05/12/26, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
-<a href="#Output-525576564" onClick='toggleBox("Output-525576564", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-525576564" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-525576564">
-<b></b> <br /><br/>
-<b>Total monthly holding cost from screen =500.36</b> <br /><br/>
-<b>Total monthly holding cost from excel =500.3636363636364</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>5</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@65987993</td></tr>
-<tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_default_status_required_flow_test()'><b>verify_default_status_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br/>
-<a href="#Output-90928355" onClick='toggleBox("Output-90928355", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-90928355" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-90928355">
-<b></b> <br /><br/>
-<b>Started verifying Default Status for HPNR required flow</b> <br /><br/>
-<b>Default Status for HPNR required flow Found OK i.e Quote Requested because Funder is not added in the acquisition quote</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>16</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@65987993</td></tr>
-<tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.add_funder()'><b>add_funder</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br>Parameters: REF001, 05/12/26, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
-<a href="#Output-22271994" onClick='toggleBox("Output-22271994", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-22271994" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-22271994">
-<b></b> <br /><br/>
-<b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_screen =1,080.08</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_excel =500.3636363636364</b> <br /><br/>
-<b>Funder Added Successfully</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>57</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@65987993</td></tr>
+<td>157</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833</td></tr>
 <tr>
 <td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_OTR_calculation_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_OTR_calculation_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
-<a href="#Output-1965309966" onClick='toggleBox("Output-1965309966", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1542497886" onClick='toggleBox("Output-1542497886", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1965309966" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1965309966">
+<a href="#Output-1542497886" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1542497886">
 <b>Clicking on New quote</b> <br /><br/>
 <b>Clicked on Quote button </b> <br /><br/>
 <b>Manufacture =AUDI has been selected</b> <br /><br/>
@@ -221,7 +318,7 @@ function toggleAllBoxes() {
 <b>Interior option has been selected</b> <br /><br/>
 <b> Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
 <b> Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
-<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br /><br/>
+<b>Getting Basic Price- Vehicle value is  =55495.83</b> <br /><br/>
 <b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
 <b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
 <b>Getting Discount- Vehicle value is  =0.00</b> <br /><br/>
@@ -234,11 +331,11 @@ function toggleAllBoxes() {
 <b>Writing OTR table values to excel sheet -Completed </b> <br /><br/>
 <b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
 <b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
-<b>Subtotal After Discount from excel sheet is =47687.5</b> <br /><br/>
-<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br /><br/>
+<b>Subtotal After Discount from excel sheet is =56329.16</b> <br /><br/>
+<b>Subtotal after discount actual value from screen =£ 56,329.16</b> <br /><br/>
 <b> Acquisition Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
 <b> Customer Contract type option = Hire Purchase Non regulated (HPNR) has been selected</b> <br /><br/>
-<b>Getting Basic Price- Vehicle value is  =46854.17</b> <br /><br/>
+<b>Getting Basic Price- Vehicle value is  =55495.83</b> <br /><br/>
 <b>Getting Basic Price - Paint  value is  =0.00</b> <br /><br/>
 <b>Getting  Basic Price - Options value is   =833.33</b> <br /><br/>
 <b>Getting Discount- Vehicle value is  =0.00</b> <br /><br/>
@@ -251,19 +348,19 @@ function toggleAllBoxes() {
 <b>Writing OTR table values to excel sheet -Completed </b> <br /><br/>
 <b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
 <b>Reading Subtotal After Discount from excel sheet -Started </b> <br /><br/>
-<b>Subtotal After Discount from excel sheet is =47687.5</b> <br /><br/>
-<b>Subtotal after discount actual value from screen =£ 47,687.50</b> <br /><br/>
+<b>Subtotal After Discount from excel sheet is =56329.16</b> <br /><br/>
+<b>Subtotal after discount actual value from screen =£ 56,329.16</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>183</td>
-<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@6c4906d3</td></tr>
+<td>157</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833</td></tr>
 <tr>
 <td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_holding_cost_calculations_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
-<a href="#Output-281995744" onClick='toggleBox("Output-281995744", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-709627731" onClick='toggleBox("Output-709627731", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-281995744" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-281995744">
+<a href="#Output-709627731" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-709627731">
 <b>***********Entered in holding cost page ***********</b> <br /><br/>
 <b>Clicked on holding cost summary</b> <br /><br/>
 <b></b> <br /><br/>
@@ -271,13 +368,13 @@ function toggleAllBoxes() {
 <b>Getting on screen values from Holding Cost Page</b> <br /><br/>
 <b>Duration(Terms) =36.0</b> <br /><br/>
 <b>Annual_mileage =10000.0</b> <br /><br/>
-<b>Cap_residual_value_from_screen =28575.0</b> <br /><br/>
+<b>Cap_residual_value_from_screen =28050.0</b> <br /><br/>
 <b>Writing Holding Cost Summary values to excel has been started</b> <br /><br/>
 <b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
 <b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
 <b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_screen =900.75</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_excel =900.7451652606776</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1179.52</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1179.520195262566</b> <br /><br/>
 <b>Total Monthly Holding Cost based on CAP data is Verified and Found OK</b> <br /><br/>
 <b></b> <br /><br/>
 <b>Editing % CAP Residual Value used</b> <br /><br/>
@@ -286,8 +383,8 @@ function toggleAllBoxes() {
 <b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
 <b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
 <b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_screen =1199.55</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_excel =1199.5491466930368</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1472.83</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1472.834339765719</b> <br /><br/>
 <b>Total Monthly Holding Cost After Editing % Residual Value is Verified and Found OK</b> <br /><br/>
 <b></b> <br /><br/>
 <b>Editing Residual value used</b> <br /><br/>
@@ -296,226 +393,254 @@ function toggleAllBoxes() {
 <b>Writing Holding Cost Summary values to excel has been completed</b> <br /><br/>
 <b>Reading Monthly Holding Cost value from excel has been started</b> <br /><br/>
 <b>Reading Monthly Holding Cost value from excel has been completed</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_screen =1080.08</b> <br /><br/>
-<b>Total_monthly_holding_cost_from_excel =1080.0798382813232</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_screen =1347.88</b> <br /><br/>
+<b>Total_monthly_holding_cost_from_excel =1347.8751944248024</b> <br /><br/>
 <b>Total Monthly Holding Cost After Editing Residual Value is Verified and Found OK</b> <br /><br/>
 </div>
 </td>
 <td></td>
-<td>34</td>
-<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@6c4906d3</td></tr>
+<td>39</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
-<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
-<a href="#Output-563697014" onClick='toggleBox("Output-563697014", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-563697014" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-563697014">
-<b></b> <br /><br/>
-<b>Monthly Finance Payment Expected (with balloon payment toggle button off) is 2151.0259480122804</b> <br /><br/>
-<b>Monthly Finance Payment Actual (with balloon payment toggle button off) is 2151.03</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Monthly Finance Payment verified after making balloon payment toggle button off</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>21</td>
-<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@6c4906d3</td></tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace5157086", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace5157086'><pre>java.lang.Throwable: Method Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_maintenance_test()'><b>verify_holding_cost_on_adding_maintenance_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br>Parameters: REF001, 05/12/26, 33, 5000, 1000, 200, 12, 500, 6000, 20, HPNR (Formula 3) - HPNR<br/>
-<a href="#Output-297607339" onClick='toggleBox("Output-297607339", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-297607339" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-297607339">
-<b></b> <br /><br/>
-<b></b> <br /><br/>
-<b>Adding Cap Maintenance to funder</b> <br /><br/>
-<b>Total monthly holding cost from excel =514.1009090909091</b> <br /><br/>
-<b>Total monthly holding cost from screen =514.1</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>11</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@65987993</td></tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_funder_test()'><b>verify_holding_cost_on_adding_funder_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_funder_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace399464862", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace399464862'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_funder_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce</td></tr>
 <tr>
-<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_vehicle_profit_edit_check_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
-<a href="#Output-316249774" onClick='toggleBox("Output-316249774", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-316249774" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-316249774">
-<b></b> <br /><br/>
-<b>Actual Monthly Finance Payment after editing vehicle profit = 1445.22</b> <br /><br/>
-<b>Expected  Monthly Finance Payment after editing vehicle profit = 1445.2188384680114</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Monthly Finance Payment verified after editing vehicle profit</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Verifying Vehicle profit and Total Monthly Payment on editing Vehicle Sales Price</b> <br /><br/>
-<b>Sending 70242.0 to sales total input field</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Vehicle Profit Expected is 9755.833333333334</b> <br /><br/>
-<b>Vehicle Profit Actual is 9755.83</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Monthly Total Payment Expected is 1787.17165827376</b> <br /><br/>
-<b>Monthly Total Payment Actual is 1787.17</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Vehicle profit and Total Monthly Payment verified on editing Vehicle Sales Price</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>63</td>
-<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@6c4906d3</td></tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_shown_test()'><b>verify_holding_cost_shown_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_shown_test()[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace855278761", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace855278761'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_shown_test()[pri:4, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce</td></tr>
 <tr>
-<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_quote_summary_values_verification_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
-<a href="#Output-562123382" onClick='toggleBox("Output-562123382", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-562123382" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-562123382">
-<b>*********Customer Quote generated successfully and Quote_ref_no is=RQF42128</b> <br /><br/>
-<b>*************OTR Calulation on quote summary page has been started************</b> <br /><br/>
-<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Cost otr price from screen is 58535.0</b> <br /><br/>
-<b>Cost price ex vat and rfl from screen is 48237.5</b> <br /><br/>
-<b>Otr Vat from screen is 9647.5</b> <br /><br/>
-<b>Otr rfl and frf from screen is 650.0</b> <br /><br/>
-<b></b> <br /><br/>
-<b></b> <br /><br/>
-<b>Cost otr price from excel is 58535.0</b> <br /><br/>
-<b>Cost price ex vat and rfl from excel is 48237.5</b> <br /><br/>
-<b>Otr Vat from excel is 9647.5</b> <br /><br/>
-<b>Otr rfl and frf from excel is 650.0</b> <br /><br/>
-<b></b> <br /><br/>
-<b>OTR price compared</b> <br /><br/>
-<b>Cost price ex vat and rfl compared</b> <br /><br/>
-<b>VAT compared</b> <br /><br/>
-<b>RFL & FRF compared</b> <br /><br/>
-<b>*************Holding Cost Calulation on quote summary page has been started************</b> <br /><br/>
-<b>Reading values from Holding Cost summary -Quote Summary Page</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Holding cost Terms from screen36.0</b> <br /><br/>
-<b>Holding cost miles per annum from screen is 10000.0</b> <br /><br/>
-<b>Holding cost monthly finance cost from screen is 1080.08</b> <br /><br/>
-<b>Holding cost total monthly holding cost from screen is 1080.08</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Holding cost Terms from excel is 36.0</b> <br /><br/>
-<b>Holding cost miles per annum from excel is 10000.0</b> <br /><br/>
-<b>Holding cost monthly finance cost from excel is 1080.0798382813232</b> <br /><br/>
-<b>Holding cost total monthly holding cost from excel is 1080.0798382813232</b> <br /><br/>
-<b>terms compared</b> <br /><br/>
-<b>Miles per annum compared</b> <br /><br/>
-<b>Finance cost compared</b> <br /><br/>
-<b>Total Monthly Holding Cost compared</b> <br /><br/>
-<b>*************Customer Quote Calulation on quote summary page has been started************</b> <br /><br/>
-<b>Terms found OK</b> <br /><br/>
-<b>miles found OK</b> <br /><br/>
-<b>Basic Cash Price found OK</b> <br /><br/>
-<b>VAT found OK</b> <br /><br/>
-<b>Non VAT Items Value found OK</b> <br /><br/>
-<b>Total Cash Price found OK</b> <br /><br/>
-<b>Order Deposit found OK</b> <br /><br/>
-<b>Finance Deposit found OK</b> <br /><br/>
-<b>Total Deposit found OK</b> <br /><br/>
-<b>Part Exchange Value - found OK</b> <br /><br/>
-<b>Balance to Finance found OK</b> <br /><br/>
-<b>Finance Charges - found OK</b> <br /><br/>
-<b>Document Fee - found OK</b> <br /><br/>
-<b>Balance Payable - found OK</b> <br /><br/>
-<b>Option To Purchase Fee - found OK</b> <br /><br/>
-<b>Initial Cash Payment - found OK</b> <br /><br/>
-<b>Followed By months - found OK</b> <br /><br/>
-<b>Monthly Finance Payment - found OK</b> <br /><br/>
-<b>Balloon Value - found OK</b> <br /><br/>
-<b>Final Payment - found OK</b> <br /><br/>
-<b>Vehicle Commission - found OK</b> <br /><br/>
-<b>Default Finance Commission - found OK</b> <br /><br/>
-<b>Document Fee Commission - found OK</b> <br /><br/>
-<b>Total Commission - found OK</b> <br /><br/>
-<b>*************Configuration Values Verification on quote summary page has been started************</b> <br /><br/>
-<b>Base Interest Rate found OK</b> <br /><br/>
-<b>Finance Margin found OK</b> <br /><br/>
-<b>Deductions found OK</b> <br /><br/>
-<b>Additional Margin found OK</b> <br /><br/>
-<b>Total Margin found OK</b> <br /><br/>
-<b>Default Broker Margin percentage found OK</b> <br /><br/>
-<b>Customer Interest Rate found OK</b> <br /><br/>
-<b>Document Fee Margin found OK</b> <br /><br/>
-<b>Default Broker Margin found OK</b> <br /><br/>
-<b>*************Calculations for Quote Summary page gas been started************</b> <br /><br/>
-<b>Reading values from OTR calculation -Quote Summary Page</b> <br /><br/>
-<b>Writing completed for some of the important required values to quote save excel sheet in the sheet HPNRHPNRQuoteNo</b> <br /><br/>
-<b>*********Customer Quote generated successfully and Quote_ref_no is=RQF42128</b> <br /><br/>
-<b> </b> <br /><br/>
-<b>*****Creating Order Started*****</b> <br /><br/>
-<b> </b> <br /><br/>
-<b>***** Order Created Successfully *****</b> <br /><br/>
-<b>Order ID PF-99231 is saved to Excel sheet named Quote Save, in the sheet Order_ID</b> <br /><br/>
-<b>*****xxxxxxxxxxxxxxxxxxxxxxxxxxxxx*****</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>285</td>
-<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@6c4906d3</td></tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_maintenance_test()'><b>verify_holding_cost_on_adding_maintenance_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1821411638", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1821411638'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_holding_cost_on_adding_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br/>
-<a href="#Output-566879760" onClick='toggleBox("Output-566879760", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-566879760" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-566879760">
-<b></b> <br /><br/>
-<b>Searching for Order ID PF-99231</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>100</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@65987993</td></tr>
+<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1033031", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1033031'><pre>java.lang.Throwable: Method Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_monthly_finance_payment_after_balloon_payment_off_without_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@1a245833</td></tr>
 <tr>
-<td title='acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test.aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test()'><b>aquisition_quotes_HPNR_HPNR_customer_quote_part_exchange_value_edit_check_without_maintenance_test</b><br>Test class: acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test<br>Parameters: AUDI, A7, 50000, 630, 50, 20000, 35, 35000, 1000, 20, NO, A1 Credit, 100, YES, 2000, 1000, 500, 1000, 1000, 199.99, HirePurchaseNonRegulated<br/>
-<a href="#Output-1432953104" onClick='toggleBox("Output-1432953104", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1432953104" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1432953104">
-<b>Clicked on Part Exchange panel</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Balance To Finance Expected is 67741.996</b> <br /><br/>
-<b>Balance To Finance Actual is 67742.0</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Monthly Finance Payment Expected is 1705.8085313139313</b> <br /><br/>
-<b>Monthly Finance Payment Actual is 1705.81</b> <br /><br/>
-<b></b> <br /><br/>
-<b>Monthly Finance Payment verified after editing part exchange values and deposit values</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>103</td>
-<td>acquisition.Create_Order_in_Acquisition_Quotes_HPNR_HPNR_without_maintenance_Test@6c4906d3</td></tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.add_funder()'><b>add_funder</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.add_funder(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace277048376", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace277048376'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.add_funder(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test()'><b>verify_status_after_selecting_the_added_funder_in_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br/>
-<a href="#Output-63174490" onClick='toggleBox("Output-63174490", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-63174490" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-63174490">
-<b></b> <br /><br/>
-<b>Select a funder</b> <br /><br/>
-<b>Started verifying Quote Status after selecting a added funder in asset funding tab</b> <br /><br/>
-<b>Status after selecting an added funder Found OK i.e Quote Accepted</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>10</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@65987993</td></tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_adding_funder_required_flow_test()'><b>verify_status_after_adding_funder_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_adding_funder_required_flow_test()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1094450880", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1094450880'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_adding_funder_required_flow_test()[pri:6, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce</td></tr>
 <tr>
-<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_adding_funder_required_flow_test()'><b>verify_status_after_adding_funder_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test<br/>
-<a href="#Output-323680752" onClick='toggleBox("Output-323680752", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-323680752" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-323680752">
-<b></b> <br /><br/>
-<b>Started verifying Quote Status after adding a funder in asset funding tab</b> <br /><br/>
-<b>Quote Status after adding funder in required flow Found OK i.e Quote Received</b> <br /><br/>
-</div>
-</td>
-<td></td>
-<td>4</td>
-<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@65987993</td></tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test()'><b>verify_status_after_selecting_the_added_funder_in_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test</td>
+<td><div><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test()[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace971269435", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace971269435'><pre>java.lang.Throwable: Method Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test.verify_status_after_selecting_the_added_funder_in_required_flow_test()[pri:7, instance:orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_add_funder_and_add_cap_maint_and_verify_holding_cost_shown_Test@673fdbce</td></tr>
 </table><p>
 </body>
 </html>

@@ -56,7 +56,7 @@ public class CustomerQuotePage_BCH_PCH_Page extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_total_rental;
 
-	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
+	@FindBy(xpath = "//span[@class='slider round']")
 	private WebElement customer_quote_maintenance_toggle_button;
 
 
@@ -113,13 +113,13 @@ public class CustomerQuotePage_BCH_PCH_Page extends TestBase {
 	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
 	private WebElement less_finance_settlement;
 
-	@FindBy(xpath = "//*[@name='orderDeposit']")
+	@FindBy(xpath = "//*[@name='orderDeposit']|//*[@name='orderDepositHire']")
 	private WebElement order_Deposit;
 
 	@FindBy(xpath = "//*[@name='financeDeposit']")
 	private WebElement finance_Deposit;
 
-	@FindBy(xpath = "//*[@id='DocumentFee']")
+	@FindBy(xpath = "//*[@id='DocumentFee']|//*[@id='DocumentFeeHire']")
 	private WebElement document_fee;
 
 	@FindBy(xpath = "//*[@name='FunderName']")
@@ -139,6 +139,9 @@ public class CustomerQuotePage_BCH_PCH_Page extends TestBase {
 
 	@FindBy(xpath = "//*[@id='SupplierSettingFinance']")
 	private WebElement check_box_supplier_setting_finance;
+	
+	@FindBy(xpath = "//*[text()='OTR for invoice:']//ancestor::div[1]//p")
+	private WebElement otr_for_invoice;
 	
 	Properties prop;
 
@@ -585,7 +588,14 @@ public class CustomerQuotePage_BCH_PCH_Page extends TestBase {
 			throws IOException, NumberFormatException, ClassNotFoundException {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
-		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
+        ExplicitWait.visibleElement(driver, otr_for_invoice, 20);
+		
+		double otrForInvoice = Double
+				.parseDouble(RemoveComma.of(otr_for_invoice.getText().trim().split(" ")[1]));
+		
+		
+		
+		obj_read_excel_calculation_page.set_global_variables_to_excel(otrForInvoice, sheet_name);
 		return obj_read_excel_calculation_page
 				.verify_customer_quote_calculations_for_one_payment_options_without_maintenance_edited(driver,
 						customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,

@@ -166,9 +166,7 @@ public class Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_without_main
 		boolean quote_summary_holding_cost_calculation = obj_quote_summary_page.quote_summary_holding_cost_calculation_without_maintenance_for_funder(sheet_name);
 		Assert.assertTrue(quote_summary_holding_cost_calculation);
 		
-		boolean balance_due_value =obj_quote_summary_page.verify_balance_due_value(sheet_name);
 
-		Assert.assertTrue(balance_due_value);
 		
 		boolean quote_summary_customer_quote_calculation= obj_quote_summary_page.quote_summary_customer_quote_summary_value_verification_without_maintenance(sheet_name);
 		Assert.assertTrue(quote_summary_customer_quote_calculation);

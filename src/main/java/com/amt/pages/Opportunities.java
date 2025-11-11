@@ -1,8 +1,5 @@
 package com.amt.pages;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,7 +11,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
-import org.apache.commons.collections4.bag.SynchronizedSortedBag;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -22,8 +18,10 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -35,12 +33,13 @@ import com.amt.api.RestClient;
 import com.amt.api.pojo.OppStatusData;
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
+import com.amt.testUtil.CommonClass;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.Dropdown;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
 import com.amt.testUtil.HelperClass;
-import com.amt.testUtil.ReadExcelCalculationForPurchaseAgreement;
+import com.amt.testUtil.JavaScriptExecutor;
 import com.amt.testUtil.RemoveComma;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -50,15 +49,17 @@ public class Opportunities extends TestBase {
 
 	JavascriptExecutor js;
 	
+	CommonClass cC ;
+	
 	AcquisitionListingPage obj_acq_listing_page;
 
 	@FindBy(xpath = "//i[@class='icon-opportunity']")
 	private WebElement opportunities;
 
-	@FindBy(xpath = "//input[@placeholder='Search something here']")
+	@FindBy(xpath = "//input[@placeholder='Search something in the results']")
 	private WebElement search_bar;
 
-	@FindBy(xpath = "//tr[@class='ng-star-inserted']//td[9]")
+	@FindBy(xpath = "//tr[@class='ng-star-inserted']//td[8]")
 	private WebElement oppo_open_status;
 
 	@FindBy(xpath = "//div[@class='status']")
@@ -136,7 +137,7 @@ public class Opportunities extends TestBase {
 	@FindBy(xpath = "//select[@id='carScheme']")
 	private WebElement opp_opp_fact_find_no_of_carscheme;
 
-	@FindBy(xpath = "//*[normalize-space()='Update']")
+	@FindBy(xpath = "//*[normalize-space()='Save']")
 	private WebElement opp_opp_update_button;
 
 	@FindBy(xpath = "//*[normalize-space()='Proposal']")
@@ -145,13 +146,13 @@ public class Opportunities extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Documents']")
 	private WebElement opp_documents_button;
 
-	@FindBy(xpath = "//*[@id=\"cWraper\"]/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[8]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td[7]/div/div/div/span")
+	@FindBy(xpath = "//*[@class='status']")
 	private WebElement opp_find_channel_status;
 
-	@FindBy(xpath = "//*[@id=\"cWraper\"]/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td[8]/div/a[4]")
+	@FindBy(xpath = "//*[@title='Send Contract']")
 	private WebElement opp_find_send_contract_icon;
 
-	@FindBy(xpath = "//*[@id=\"sendcontractmodal\"]/div/div/div[3]/div/button[2]")
+	@FindBy(xpath = "//*[@id='sendcontractmodal']//*[text()='Send']")
 	private WebElement send_contract_to_customer_pop_up_send_button;
 
 	// Channel data
@@ -161,7 +162,7 @@ public class Opportunities extends TestBase {
 
 	// New status
 
-	@FindBy(xpath = "//tr[@class='ng-star-inserted']//td[9]")
+	@FindBy(xpath = "//tr[@class='ng-star-inserted']//td[8]")
 	private WebElement opp_current_status_open;
 
 	@FindBy(xpath = "//*[@class='status']")
@@ -316,6 +317,25 @@ public class Opportunities extends TestBase {
 
 	@FindBy(xpath = "//*[@id='cWraper']/div/app-opportunity-management/div[2]/div/div/div/app-grid/div[2]/div/div[2]/div[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]")
 	private WebElement underwriting_new_quote1;
+	
+	
+	@FindBy(xpath = "//*[contains(text(), 'not signed') or contains(text(), 'Draft')]//ancestor::tr[1]//*[@title='Order form']")
+	private WebElement opp_order_form_icon;
+	
+	@FindBy(xpath = "//*[contains(text(), 'Generate order form')]")
+	private WebElement opp_generate_order_form;
+	
+	@FindBy(xpath = "//*[@title='Send to Customer']")
+	private WebElement opp_send_contract_icon;
+	
+	
+	@FindBy(xpath = "//*[@id='uploadDoc']")
+	private WebElement opp_upload_order_form_button;
+	
+	//*[@id="generateCustomerFormModal"]/div[1]/div/div[1]/button
+	
+	@FindBy(xpath = "//*[@id='generateCustomerFormModal']/div[1]/div/div[1]/button")
+	private WebElement close_button_for_order_form_button;
 
 	Properties prop;
 
@@ -987,7 +1007,7 @@ public class Opportunities extends TestBase {
 
 			// String StausValuefromscreen = status.gettext();
 
-			if (StausValuefromscreen.equals("Underwriting accepted"))
+			if (StausValuefromscreen.contains("Underwriting accepted")||StausValuefromscreen.contains("Contract signed"))
 
 			{
 
@@ -1003,7 +1023,7 @@ public class Opportunities extends TestBase {
 
 			// Monthly Payment value from screen
 
-			if (StausValuefromscreen.equals("Underwriting accepted"))
+			if (StausValuefromscreen.contains("Underwriting accepted")||StausValuefromscreen.contains("Contract signed"))
 
 			{
 
@@ -1543,26 +1563,85 @@ public class Opportunities extends TestBase {
 		// Thread.sleep(5000);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
-		try{ExplicitWait.visibleElement(driver, opp_find_send_contract_icon, 10);}
+		try{ExplicitWait.visibleElement(driver, opp_order_form_icon, 10);}
 		catch(Exception e) { driver.navigate().refresh();
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
-		ExplicitWait.visibleElement(driver, opp_find_send_contract_icon, 10);
+		ExplicitWait.visibleElement(driver, opp_order_form_icon, 10);
 		}
 
-		LO.print("click on Send_Contract icon");
-		System.out.println("click on  Send_Contract icon");
+		LO.print("click on Order form icon");
+		System.out.println("click on Order form icon");
 
-		opp_find_send_contract_icon.click();
+		int retries = 2;
+		while (retries > 0) {
+		    try {
+		        Click.on(driver, opp_order_form_icon, 20);
+		        break; // success
+		    } catch (StaleElementReferenceException | ElementClickInterceptedException   e) {
+		        retries--;
+		        if (retries == 0) {
+		            throw e; // rethrow if no retries left
+		        }
+		        // Retry after re-locating
+		        opp_order_form_icon = driver.findElement(By.xpath("//*[contains(text(), 'not signed') or contains(text(), 'Draft')]//ancestor::tr[1]//*[@title='Order form']"));
+		    }
+		}
+	
+		
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		//Generate Order Form
+		
+		Click.on(driver, opp_generate_order_form, 20);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
-		ExplicitWait.visibleElement(driver, send_contract_to_customer_pop_up_send_button, 60);
+		
+		//send to customer
+		
+//        Click.on(driver, opp_send_contract_icon, 20);
+//		
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);	
+		
+		//----------------------------------
+		
+		//JavaScriptExecutor.click(driver, opp_upload_order_form_button);
+		
+//		Click.on(driver, opp_upload_order_form_button, 20);
+		
+		Actions actions = new Actions(driver);
+		WebElement uploadElement = driver.findElement(By.xpath("//*[@id='uploadDoc']"));
+		actions.moveToElement(uploadElement).click().build().perform();
+		
+		cC = new CommonClass();
+		
+		cC.upload_file(opp_upload_order_form_button, prop.getProperty("test_image_path"));
+		
+		//-----------------------------------		
 
-		send_contract_to_customer_pop_up_send_button.click();
+//		ExplicitWait.visibleElement(driver, opp_upload_order_form_button, 20);
+//		
+//		opp_upload_order_form_button.sendKeys(prop.getProperty("test_image_path"));
+//		
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
-
-
+		//pop up for sending mail
+		
+//		ExplicitWait.visibleElement(driver, send_contract_to_customer_pop_up_send_button, 60);
+//
+//		send_contract_to_customer_pop_up_send_button.click();
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 300);
+		
+		//close the pop up 	
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+	
+		JavaScriptExecutor.click(driver, close_button_for_order_form_button);
+			
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);	
+		
 
 	}
 

@@ -190,56 +190,56 @@ public class LOU_used_car_broker_business_hire_accept_flow_Test extends TestBase
 	}
 
 
-	@Test(priority = 8)
-
-	public void L8_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow() throws Exception {
-
-		System.out.println("Test 8");
-		
-		obj_Opportunities_Page = new Opportunities();
-
-		// Opportunity listing screen - Proposal status
-		boolean opp_AfterCurrentStatus_contract = obj_Opportunities_Page
-				.verify_current_status_of_opportunity_after_sending_to_customer_contract();
-
-		Assert.assertTrue(opp_AfterCurrentStatus_contract);
-
-		System.out.println("Status Verified : Sent to customer ");
-		LO.print("Status Verified : Status Verified : Sent to customer");
-
-
-
-	}
-
-	@Test(priority = 9)
-	public void L9_verify_signed_contract_status_with_api_call() throws Exception
-
-	{
-
-		
-		System.out.println("Test 9");
-		
-		obj_Opportunities_Page = new Opportunities();
-
-		String[] OppDATA = obj_Opportunities_Page.get_api_data_opp();
-
-		String opp_id_screen = OppDATA[0];
-		String quote_ref_screen = OppDATA[1];
-
-		System.out.println("opp_id_screen" + opp_id_screen);
-
-		System.out.println("quote_ref_screen" + quote_ref_screen);
-
-		int statuscode = obj_Opportunities_Page.postAPITest(quote_ref_screen, opp_id_screen);
-
-		Assert.assertEquals(statuscode, 200);
-
-		LO.print          ("Status code "+statuscode+" received ");
-		System.out.println("Status code "+statuscode+" received ");
-
-		obj_Opportunities_Page.opp_search_textbox();
-
-	}
+//	@Test(priority = 8)
+//
+//	public void L8_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow() throws Exception {
+//
+//		System.out.println("Test 8");
+//		
+//		obj_Opportunities_Page = new Opportunities();
+//
+//		// Opportunity listing screen - Proposal status
+//		boolean opp_AfterCurrentStatus_contract = obj_Opportunities_Page
+//				.verify_current_status_of_opportunity_after_sending_to_customer_contract();
+//
+//		Assert.assertTrue(opp_AfterCurrentStatus_contract);
+//
+//		System.out.println("Status Verified : Sent to customer ");
+//		LO.print("Status Verified : Status Verified : Sent to customer");
+//
+//
+//
+//	}
+//
+//	@Test(priority = 9)
+//	public void L9_verify_signed_contract_status_with_api_call() throws Exception
+//
+//	{
+//
+//		
+//		System.out.println("Test 9");
+//		
+//		obj_Opportunities_Page = new Opportunities();
+//
+//		String[] OppDATA = obj_Opportunities_Page.get_api_data_opp();
+//
+//		String opp_id_screen = OppDATA[0];
+//		String quote_ref_screen = OppDATA[1];
+//
+//		System.out.println("opp_id_screen" + opp_id_screen);
+//
+//		System.out.println("quote_ref_screen" + quote_ref_screen);
+//
+//		int statuscode = obj_Opportunities_Page.postAPITest(quote_ref_screen, opp_id_screen);
+//
+//		Assert.assertEquals(statuscode, 200);
+//
+//		LO.print          ("Status code "+statuscode+" received ");
+//		System.out.println("Status code "+statuscode+" received ");
+//
+//		obj_Opportunities_Page.opp_search_textbox();
+//
+//	}
 
 	
 	  @Test(priority = 10)

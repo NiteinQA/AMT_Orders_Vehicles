@@ -1,0 +1,393 @@
+<html>
+<head>
+<title>TestNG:  Verify Asset Funding Funder Related Cases For HPNR BCH</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Verify Asset Funding Funder Related Cases For HPNR BCH</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>8/1/4</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Jun 20 22:13:35 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>716 seconds (716328 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test<br>Parameters: AUDI, A7, REF001, 05/12/26, 12, 5000, 1000, 200, 12, 500, 6000, 20, 10000, 6000, 2000, 1000, 199.99, 500, 200, 200, 22, 22000, YES, 20, 200, YES, 0, HPNR (Formula 3) - BCH<br/>
+<a href="#Output-195594535" onClick='toggleBox("Output-195594535", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-195594535" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-195594535">
+<br>----------Screenshot---------<br><br/>
+<img src="D:\Orders_Vehicles\AMT_Orders_Vehicles\target\surefire-reports\html\failure_screenshots\aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test_20_06_2024_10_14_58.png" height="800" width="1000"><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (af5504f77fd29a99e5bdc335d8181b81)] -&gt; xpath: //*[contains(text(), &apos;Super Admin&apos;)]] (tried for 60 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 125.0.6422.141 (4b1e8393712..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57854}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57854/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: af5504f77fd29a99e5bdc335d8181b81
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.AcquisitionListingPage.aquisition_Listingpage_AddnewQuote(AcquisitionListingPage.java:135)
+	at acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test(Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.java:52)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace195594535", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace195594535'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (af5504f77fd29a99e5bdc335d8181b81)] -&gt; xpath: //*[contains(text(), &apos;Super Admin&apos;)]] (tried for 60 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.1.0&apos;, revision: &apos;87802e897b&apos;
+System info: host: &apos;DSK-4052&apos;, ip: &apos;172.16.1.80&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 125.0.6422.141 (4b1e8393712..., userDataDir: C:\Users\NITEIN~1.KUR\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57854}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57854/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: af5504f77fd29a99e5bdc335d8181b81
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.amt.testUtil.Click.on(Click.java:17)
+	at com.amt.pages.AcquisitionListingPage.aquisition_Listingpage_AddnewQuote(AcquisitionListingPage.java:135)
+	at acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_OTR_calculation_with_maintenance_test(Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.java:52)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>72</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.open_order_created_in_acquisition_test()'><b>open_order_created_in_acquisition_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1040171292" onClick='toggleBox("Output-1040171292", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1040171292" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1040171292">
+<b></b> <br /><br/>
+<b>Searching for Order ID SJ-11920</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>93</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@7d3e8655</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_selected_funder_can_not_be_edited_test()'><b>verify_selected_funder_can_not_be_edited_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1134762928" onClick='toggleBox("Output-1134762928", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1134762928" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1134762928">
+<b></b> <br /><br/>
+<b>Trying to edit the selected funder</b> <br /><br/>
+<b>Double Clicked on selected funder and we got warning message : A selected funder cannot be edited. Please remove funder selection before editing</b> <br /><br/>
+<b>Selected funder can not be edited</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@7d3e8655</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_default_status_required_flow_test()'><b>verify_default_status_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-223577765" onClick='toggleBox("Output-223577765", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-223577765" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-223577765">
+<b></b> <br /><br/>
+<b>Started verifying Default Status for BCH required flow</b> <br /><br/>
+<b>Default Status for BCH required flow Found OK i.e Quote Accepted because Funder is already added from acquisition quote</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@7d3e8655</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_default_funder_is_not_deleted_test()'><b>verify_default_funder_is_not_deleted_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1009813592" onClick='toggleBox("Output-1009813592", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1009813592" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1009813592">
+<b></b> <br /><br/>
+<b>Trying to delete funder</b> <br /><br/>
+<b>Default funder can not be deleted as Delete button for selected funder is not enabled</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@7d3e8655</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_payments_to_funder_statuses_for_required_flow_test()'><b>verify_payments_to_funder_statuses_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1264865053" onClick='toggleBox("Output-1264865053", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1264865053" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1264865053">
+<b></b> <br /><br/>
+<b>Sterted Verifying Payments to Funder Statuses for required flow</b> <br /><br/>
+<b>Clicking on PAYMENT</b> <br /><br/>
+<b>Payment to funder -- Default Status - Found OK i.e Payment Required</b> <br /><br/>
+<b>Status for Payment after selecting payment requested date- Found OK i.e Payment Requested</b> <br /><br/>
+<b>Status for Payment after selecting payment sent date- Found OK i.e Payment Sent</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>122</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@7d3e8655</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_finance_documents_statuses_for_required_flow_test()'><b>verify_finance_documents_statuses_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1295319416" onClick='toggleBox("Output-1295319416", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1295319416" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1295319416">
+<b></b> <br /><br/>
+<b>Sterted Verifying Finance Document Statuses for required flow</b> <br /><br/>
+<b>Finance Document Status after selecting agreement requested date- Found OK i.e Finance docs Requested</b> <br /><br/>
+<b>Finance Document Status after selecting agreement received date- Found OK i.e Finance Docs Received</b> <br /><br/>
+<b>Finance Document Status after uploading signed documents - Found OK i.e Finance Docs Signed</b> <br /><br/>
+<b>Finance Document Status after selecting uploaded to funder date- Found OK i.e Upload to Funder</b> <br /><br/>
+<b>Finance Document Status after selecting activation date- Found OK i.e Finance Activated</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>145</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@7d3e8655</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.verify_completed_status_for_required_flow_test()'><b>verify_completed_status_for_required_flow_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-589912452" onClick='toggleBox("Output-589912452", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-589912452" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-589912452">
+<b></b> <br /><br/>
+<b>Click on complete funding</b> <br /><br/>
+<b>Status for Asset Funding after completing funding found OK i.e.Completed</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>41</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@7d3e8655</td></tr>
+<tr>
+<td title='orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test.deliver_vehicle_tab_test()'><b>deliver_vehicle_tab_test</b><br>Test class: orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test<br/>
+<a href="#Output-1318937779" onClick='toggleBox("Output-1318937779", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1318937779" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1318937779">
+<b>File is Uploaded Successfully</b> <br /><br/>
+<b>Status updated is Delivered</b> <br /><br/>
+</div>
+</td>
+<td></td>
+<td>198</td>
+<td>orders.Orders_Asset_Funding_Required_Flow_HPNR_BCH_with_funder_with_maintenance_Test@7d3e8655</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1688926520", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1688926520'><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_after_discount_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2057742352", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2057742352'><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_customer_quote_payment_profile_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1606952483", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1606952483'><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_holding_cost_calculations_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6</td></tr>
+<tr>
+<td title='acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_quote_summary_values_verification_with_maintenance_test()'><b>aquisition_quotes_HPNR_BCH_quote_summary_values_verification_with_maintenance_test</b><br>Test class: acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test</td>
+<td><div><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1793244831", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1793244831'><pre>java.lang.Throwable: Method Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test.aquisition_quotes_HPNR_BCH_quote_summary_values_verification_with_maintenance_test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1207)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>acquisition.Acquisition_Quotes_HPNR_BCH_with_funder_quote_addition_with_maintenance_Test@6933b6c6</td></tr>
+</table><p>
+</body>
+</html>

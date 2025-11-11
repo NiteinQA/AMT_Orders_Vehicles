@@ -31,6 +31,9 @@ public class CustomerQuotePageOutrightPCHPage extends TestBase {
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
+	
+	@FindBy(xpath = "//*[text()='OTR for invoice:']//ancestor::div[1]//p")
+	private WebElement otr_for_invoice;
 
 	@FindBy(xpath = "//p[normalize-space()='Customer Quote']")
 	private WebElement customer_quote;
@@ -56,7 +59,7 @@ public class CustomerQuotePageOutrightPCHPage extends TestBase {
 	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//p//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//p//strong")
 	private WebElement customer_quote_monthly_total_rental;
 
-	@FindBy(xpath = "//label[@class='switch mr-1 ml-1']//span[@class='slider round']")
+	@FindBy(xpath = "//span[@class='slider round']")
 	private WebElement customer_quote_maintenance_toggle_button;
 
 	@FindBy(xpath = "//input[@name='monetaryAmount']")
@@ -111,13 +114,13 @@ public class CustomerQuotePageOutrightPCHPage extends TestBase {
 	@FindBy(xpath = "//*[@id='lessFinanceSettlement']")
 	private WebElement less_finance_settlement;
 
-	@FindBy(xpath = "//*[@name='orderDeposit']")
+	@FindBy(xpath = "//*[@name='orderDeposit']|//*[@name='orderDepositHire']")
 	private WebElement order_Deposit;
 
 	@FindBy(xpath = "//*[@name='financeDeposit']")
 	private WebElement finance_Deposit;
 
-	@FindBy(xpath = "//*[@id='DocumentFee']")
+	@FindBy(xpath = "//*[@id='DocumentFee']|//*[@id='DocumentFeeHire']")
 	private WebElement document_fee;
 
 	@FindBy(xpath = "//*[@name='FunderName']")
@@ -224,14 +227,21 @@ public class CustomerQuotePageOutrightPCHPage extends TestBase {
 		obj_read_excel_calculation_page = new ReadExcelCalculation();
 		Click.on(driver, customer_quote, 50);
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 60);
-		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
+       ExplicitWait.visibleElement(driver, otr_for_invoice, 20);
+		
+		double otrForInvoice = Double
+				.parseDouble(RemoveComma.of(otr_for_invoice.getText().split(" ")[0]));
+		
+		
+		
+		obj_read_excel_calculation_page.set_global_variables_to_excel(otrForInvoice, sheet_name);
 		return obj_read_excel_calculation_page
 				.verify_customer_quote_calculations_for_one_payment_options_without_maintenance(driver,
 						customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,
 						actual_part_exchange_value_from_excel, given_part_exchange_value,
 						given_part_exchange_value_from_excel, less_finance_settlement,
 						less_finance_settlement_from_excel, order_Deposit, order_Deposit_from_excel, document_fee,
-						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental, maintenance_required,
+						document_fee_from_excel, upsell, customer_quote_monthly_finance_rental,maintenance_required,
 						maintenance_margin, initial_payment, part_exchange_status, target_rental, sheet_name);
 
 	}
@@ -305,7 +315,14 @@ public class CustomerQuotePageOutrightPCHPage extends TestBase {
 		obj_read_excel_calculation_page.write_holding_cost_cap_values_to_excel_with_maintenance(duration,
 				annual_mileage, used_residual_value, total_cap_maintenance_value_converted,
 				percentage_cap_residual_value, percentage_cap_maintenance_cost, sheet_name);
-		obj_read_excel_calculation_page.set_global_variables_to_excel(sheet_name);
+ExplicitWait.visibleElement(driver, otr_for_invoice, 20);
+		
+		double otrForInvoice = Double
+				.parseDouble(RemoveComma.of(otr_for_invoice.getText().split(" ")[0]));
+		
+		
+		
+		obj_read_excel_calculation_page.set_global_variables_to_excel(otrForInvoice, sheet_name);
 		return obj_read_excel_calculation_page
 				.verify_customer_quote_calculations_for_one_payment_options_with_maintenance(driver,
 						customer_quote_payment_profile_dropdown, part_exchange_payment, actual_part_exchange_value,

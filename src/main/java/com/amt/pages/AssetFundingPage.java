@@ -45,6 +45,12 @@ public class AssetFundingPage extends TestBase {
 	JavascriptExecutor js;
 	
 	AssetFundingPage obj_asset_funding;
+	
+    // ANSI escape code for green color
+    String ansiGreen = "\u001B[32m";
+    
+    // ANSI escape code to reset the console color
+    String ansiReset = "\u001B[0m";
 
 	@FindBy(xpath = "//img[@alt='Loading...']")
 	private List<WebElement> loading_icon;
@@ -118,7 +124,10 @@ public class AssetFundingPage extends TestBase {
 
 	@FindBy(xpath = "//*[@class='slider round sliderRed']")
 	private WebElement maintenance_toggle_button;
+	
 
+	@FindBy(xpath = "//span[@class='slider round']")
+	private WebElement funder_maintenance_toggle_button;
 
 	// Status of the stocking plan
 	@FindBy(xpath = "//*[contains(text(),'Status')]//ancestor::div[1]//div//div")
@@ -297,6 +306,9 @@ public class AssetFundingPage extends TestBase {
 
 	@FindBy(xpath = "//button[normalize-space()='Select']")
 	private WebElement select_a_funder;
+	
+	@FindBy(xpath = "//button[normalize-space()='Select']")
+	private List<WebElement> select_a_funder_button_list_for_multiple_funders;
 
 	@FindBy(xpath = "//*[text()=' Required ']")
 	private WebElement asset_funding_status_required;
@@ -316,6 +328,8 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//*[text()=' Selected ']//ancestor::div[1]//button[2]|//*[text()=' Select ']//ancestor::div[1]//button[2]")
 	private WebElement selected_funder;
 	
+	//*[text()=' Select ']//ancestor::div[3]/table/tbody/tr/td
+	
 	@FindBy(xpath = "//tbody//tr")
 	private WebElement edit_funder;
 	
@@ -323,6 +337,10 @@ public class AssetFundingPage extends TestBase {
 	// selected button
 	@FindBy(xpath = "//*[text()=' Selected ']|//*[text()=' Select ']")
 	private WebElement selected_button;
+	
+    //Selected Button
+    @FindBy(xpath = "//button[normalize-space()='Selected']")
+    private WebElement selected_funder_button;
 
 //	// toaster message
 //	@FindBy(xpath = "//*[@id='toast-container']//*[contains(@class,'toast-message')]")
@@ -378,7 +396,7 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'Term')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_terms;
 
-	@FindBy(xpath = "//*[contains(text(),'Miles per annum')]//ancestor::div[1]//p//strong")
+	@FindBy(xpath = "//*[@id='headingCustomerQuote']//*[contains(text(),'Miles per annum')]//ancestor::div[1]//p//strong")
 	private WebElement holding_cost_summary_mileage;
 
 	@FindBy(xpath = "//*[contains(text(),'Total monthly holding cost')]//ancestor::div[1]//p//strong")
@@ -410,6 +428,10 @@ public class AssetFundingPage extends TestBase {
 
 	@FindBy(xpath = "//input[@role='combobox']")
 	private WebElement funder;
+	
+			
+	@FindBy(xpath = "//ng-dropdown-panel//*[@role='option']")
+	private List<WebElement> funder_options;
 
 	@FindBy(xpath = "//input[@id='quoteReferenceNo']")
 	private WebElement quote_ref;
@@ -471,7 +493,7 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//*[contains(text(),'CAP monthly maint. cost')]//ancestor::div[1]//p//strong")
 	private WebElement cap_monthly_maint_cost;
 
-	@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']")
+	@FindBy(xpath = "//input[@id='monthlyMaintenanceRental']|//input[@id='monthlyMaintenancePayment']")
 	private WebElement monthly_maintenance_rental;
 
 	@FindBy(xpath = "//input[@id='pencePerExcessMileageMaintenance']")
@@ -485,6 +507,10 @@ public class AssetFundingPage extends TestBase {
 
 	@FindBy(xpath = "//i[@class='btn-icon-addAddress-white']")
 	private WebElement add;
+	
+
+	@FindBy(xpath = "//input[@id='optionalFinalPayment']")
+	private WebElement optional_final_payment;
 
 	@FindBy(xpath = "//*[normalize-space()='Total CAP maint. value']//ancestor::div[1]//p/strong")
 	private WebElement total_cap_maintenance_cost;	
@@ -498,12 +524,20 @@ public class AssetFundingPage extends TestBase {
 	@FindBy(xpath = "//*[text()=' Save ']")
 	private WebElement save_button;
 	
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div/p/strong|//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div/p/strong")
+	private WebElement customer_contract_tab_customer_quote_monthly_finance_rental;
+	
 	@FindBy(xpath = "//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div/p/strong|//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div/p/strong")
 	private WebElement customer_contract_tab_customer_quote_monthly_total_rental;
 	
 	// Customer Contract
 	@FindBy(xpath = "//*[contains(text(),'Customer contract')]")
 	private WebElement customer_contract;
+	
+	
+	// Total Monthly payment
+	@FindBy(xpath = "//*[normalize-space()='Total monthly payment']//ancestor::div[1]//div//strong|//*[normalize-space()='Total monthly rental']//ancestor::div[1]//div//strong")
+	private WebElement customer_contract_tab_customer_quote_summary_total_monthly_payment;
 	
 	 
 	ReadExcelCalculation obj_read_excel_calculation_page;
@@ -1724,7 +1758,7 @@ public class AssetFundingPage extends TestBase {
 		return  obj_asset_funding.assert_the_toasters_message("Term and mileage combination should be same as selected cell");
 
 	}
-	public boolean verify_that_same_funder_with_same_term_and_mileage_can_not_be_added_for_with_customer_flow(String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
+	public boolean verify_that_same_funder_with_same_term_and_mileage_can_not_be_added_for_with_customer_flow_HPNR(String quoteRef, String expiryDate, String term, String milesPerAnnum, String cashDeposit,
 			String financeCharges, String documentFee, String monthlyPayment, String finalBalloonPayment,
 			String optionToPurchaseFee, String sheet_name) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
 		
@@ -1736,13 +1770,42 @@ public class AssetFundingPage extends TestBase {
 		  
 		  ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);		  
 		
-		 obj_asset_funding = new AssetFundingPage();	 
+		 obj_asset_funding = new AssetFundingPage();	
 		 
 		 obj_asset_funding.add_funder_in_asset_funding_tab_for_HPNR_for_with_customer_flow(quoteRef, expiryDate, term, milesPerAnnum, cashDeposit, financeCharges, documentFee, monthlyPayment, finalBalloonPayment, optionToPurchaseFee, sheet_name);
 
-		return  obj_asset_funding.assert_the_toasters_message("Funder quote already exists for this term and mileage combination");
+   		return  obj_asset_funding.assert_the_toasters_message("Funder quote already exists for this term and mileage combination");
 
+			
 	}
+	
+	public boolean verify_that_same_funder_with_same_term_and_mileage_can_not_be_added_for_with_customer_flow_CP(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		LO.print("");
+		System.out.println("");
+		
+		  Click.on(driver, asset_funding, 20);
+		  
+		  ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);		  
+		
+		 obj_asset_funding = new AssetFundingPage();	
+		 
+		 obj_asset_funding.add_funder_in_asset_funding_tab_for_CP_with_customer_flow( quoteRef,  expiryDate,
+					 term,             milesPerAnnum,        cashDeposit,          documentFee,
+					 monthlyPayment,  optionalFinalPayment,  optionToPurchaseFee,  monthlyMaintPayment,
+					 pencePerExcessMileFinance,  pencePerExcessMileMaintenance);
+
+   		return  obj_asset_funding.assert_the_toasters_message("Funder quote already exists for this term and mileage combination");
+
+			
+	}
+
+
+	
 
 	
 	
@@ -1861,7 +1924,7 @@ public class AssetFundingPage extends TestBase {
 				
 
 								if (toasterMessage.equalsIgnoreCase(expectedToasterMessage)) {
-					LO.print("Actual and Expected Message matches, hence test passed");
+					LO.print(ansiGreen+"Actual and Expected Message matches, hence test passed"+ansiReset);
 					System.out.println("Actual and Expected Message matches, hence test passed");
 
 					return true;
@@ -1887,12 +1950,25 @@ public class AssetFundingPage extends TestBase {
 
       
 		
-		if(methodName.contains("verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow_test"))
-		{
-			
-		}else {
-		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
-		}
+//		if(methodName.contains("verify_that_monthly_payment_does_not_changes_if_a_added_funder_is_selected_in_the_asset_funding_tab_for_with_customer_flow_test"))
+//		{
+//			
+//		}else {
+//		Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+//		}
+	    
+		WebElement toggleButtonInput = driver.findElement(By.name("useOwnBook"));
+
+        // Check the state of the toggle button
+        boolean isChecked = toggleButtonInput.isSelected();
+
+        if (isChecked) {  } 
+        else
+        {
+        	Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+        }    
+	
+		
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
 
 		Click.on(driver, funder, 30);
@@ -1967,7 +2043,1900 @@ public class AssetFundingPage extends TestBase {
 		
 	}
 
+	
+	public void add_funder_in_asset_funding_tab_for_CP_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		
+		Click.on(driver, add_funder_quote, 30);
 
+		Thread.sleep(3000);
+	
+	    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();      
+		
+		WebElement toggleButtonInput = driver.findElement(By.name("useOwnBook"));
+
+        // Check the state of the toggle button
+        boolean isChecked = toggleButtonInput.isSelected();
+
+        if (isChecked) {  } 
+        else
+        {
+        	Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+        }    
+
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		Click.on(driver, funder_maintenance_toggle_button, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		Click.on(driver, funder, 30);
+
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.ENTER).build().perform();
+
+		Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+		Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+		Click.sendKeys(driver, duration, term, 30);
+
+		Click.sendKeys(driver, miles_per_annum, milesPerAnnum, 30);
+
+		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+
+		Click.sendKeys(driver, document_fee, documentFee, 30);
+
+		Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+
+		Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+
+		Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 30);
+
+		Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
+
+		Thread.sleep(5000);
+
+		Click.on(driver, add, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+	}
+
+
+	public boolean verify_adding_the_ownbookside_funder_with_diff_term_and_mileage_with_maint_does_not_affect_the_monthly_payment_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		LO.print("");
+		System.out.println("");
+		
+		
+		 driver.navigate().refresh();
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+	
+		
+		LO.print("Started verifying monthly payment does not change after adding the ownbook side funder");
+		System.out.println("Started verifying monthly payment does not change after adding the ownbook side funder");
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+			
+
+			//get the monthly payment value from customer contract page
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 20);
+			
+			double monthlyRentalExpected = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+			
+	
+			
+			LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			
+			
+			
+			//go on Asset Funding tab and add funder 
+			
+			Click.on(driver, asset_funding, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			Thread.sleep(5000);
+			
+			LO.print          ("Adding funder ownbook based calculation for different term and mileage with maintenance");
+			System.out.println("Adding funder ownbook based calculation for different term and mileage with maintenance");
+			
+		
+			
+			obj_asset_funding = new AssetFundingPage();
+			
+			
+			obj_asset_funding.add_funder_in_asset_funding_tab_ownbook_side_different_term_and_mileage_with_maint_with_customer_flow
+			(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+			 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+			LO.print          ("Funder added successfully");
+			System.out.println("Funder added successfully");
+			
+			Click.on(driver, select_a_funder, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			LO.print          ("Funder selected successfully");
+			System.out.println("Funder selected successfully");	
+
+			
+     		LO.print          ("Now Getting the Monthly payment from customer contract tab");
+			System.out.println("Now Getting the Monthly payment from customer contract tab");
+			
+			LO.print          ("");
+			System.out.println("");
+			
+			
+			//Go on to the Customer contract tab and get the monthly payment value
+			
+	        Click.on(driver, customer_contract, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			try {
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			}catch(Exception e)
+			{
+				 Click.on(driver, customer_contract, 30);
+				 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			}
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			double monthlyRentalActual = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+
+			
+			LO.print          ("Monthly payment After adding the funder is "+monthlyRentalActual);
+			System.out.println("Monthly payment After adding the funder is "+monthlyRentalActual);
+			
+			LO.print          ("");
+			System.out.println("");
+
+	
+			
+			if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+			{
+				LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+				System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+	            return true;
+			}
+
+			else
+			{
+				LO.print("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				return false;
+			}
+			
+		}catch(Exception E)
+		{
+		//get the monthly payment value from customer contract page
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		
+		double monthlyRentalExpected = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		
+		LO.print          ("");
+		System.out.println("");
+
+		
+		
+		//go on Asset Funding tab and add funder 
+		
+		Click.on(driver, asset_funding, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Adding funder ownbook based calculation for different term and mileage with maintenance");
+		System.out.println("Adding funder ownbook based calculation for different term and mileage with maintenance");
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		
+		obj_asset_funding = new AssetFundingPage();
+		
+		
+		obj_asset_funding.add_funder_in_asset_funding_tab_ownbook_side_different_term_and_mileage_with_maint_with_customer_flow
+		(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+		 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+		LO.print          ("Funder added successfully");
+		System.out.println("Funder added successfully");
+		
+		Click.on(driver, select_a_funder, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Funder selected successfully");
+		System.out.println("Funder selected successfully");	
+
+		
+		LO.print          ("");
+		System.out.println("");
+
+		LO.print("Now Getting the Monthly payment from customer contract tab");
+		System.out.println("Now Getting the Monthly payment from customer contract tab");
+		
+		
+		//Go on to the Customer contract tab and get the monthly payment value
+		
+        Click.on(driver, customer_contract, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		}catch(Exception e)
+		{
+			 Click.on(driver, customer_contract, 30);
+			 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		double monthlyRentalActual = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		
+		LO.print("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+		System.out.println("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+
+	
+		
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+		{
+			LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+			System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+            return true;
+		}
+
+		else
+		{
+			LO.print          ("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			return false;
+		}
+		}		
+						
+	}
+
+	
+	public boolean verify_adding_the_ownbookside_funder_with_diff_term_and_mileage_without_maint_does_not_affect_the_monthly_payment_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		LO.print("");
+		System.out.println("");
+	
+	
+		LO.print("Started verifying monthly payment does not change after adding the ownbook side funder");
+		System.out.println("Started verifying monthly payment does not change after adding the ownbook side funder");
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+			
+
+			//get the monthly payment value from customer contract page
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 20);
+			
+			double monthlyRentalExpected = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+			
+	
+			
+			LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			
+			
+			
+			//go on Asset Funding tab and add funder 
+			
+			Click.on(driver, asset_funding, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			Thread.sleep(5000);
+			
+			LO.print          ("Adding funder ownbook based calculation for different term and mileage without maintenance");
+			System.out.println("Adding funder ownbook based calculation for different term and mileage without maintenance");
+			
+		
+			
+			obj_asset_funding = new AssetFundingPage();
+			
+			
+			obj_asset_funding.add_funder_in_asset_funding_tab_ownbook_side_different_term_and_mileage_without_maint_with_customer_flow
+			(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+			 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+			LO.print          ("Funder added successfully");
+			System.out.println("Funder added successfully");
+			
+			
+			ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+			
+			int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+			
+			WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+			
+			Click.on(driver, lastSelectButton , 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			LO.print          ("Funder selected successfully");
+			System.out.println("Funder selected successfully");	
+
+			
+     		LO.print          ("Now Getting the Monthly payment from customer contract tab");
+			System.out.println("Now Getting the Monthly payment from customer contract tab");
+			
+			LO.print          ("");
+			System.out.println("");
+			
+			
+			//Go on to the Customer contract tab and get the monthly payment value
+			
+	        Click.on(driver, customer_contract, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			try {
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			}catch(Exception e)
+			{
+				 Click.on(driver, customer_contract, 30);
+				 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			}
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			double monthlyRentalActual = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+
+			
+			LO.print          ("Monthly payment After adding the funder is "+monthlyRentalActual);
+			System.out.println("Monthly payment After adding the funder is "+monthlyRentalActual);
+			
+			LO.print          ("");
+			System.out.println("");
+
+	
+			
+			if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+			{
+				LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+				System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+	            return true;
+			}
+
+			else
+			{
+				LO.print("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				return false;
+			}
+			
+		}catch(Exception E)
+		{
+		//get the monthly payment value from customer contract page
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		
+		double monthlyRentalExpected = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		
+		LO.print          ("");
+		System.out.println("");
+
+		
+		
+		//go on Asset Funding tab and add funder 
+		
+		Click.on(driver, asset_funding, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Adding funder ownbook based calculation for different term and mileage without maintenance");
+		System.out.println("Adding funder ownbook based calculation for different term and mileage without maintenance");
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		
+		obj_asset_funding = new AssetFundingPage();
+		
+		
+		obj_asset_funding.add_funder_in_asset_funding_tab_ownbook_side_different_term_and_mileage_without_maint_with_customer_flow
+		(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+		 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+		LO.print          ("Funder added successfully");
+		System.out.println("Funder added successfully");
+		
+		ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+		
+		int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+		
+		WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+		
+		Click.on(driver, lastSelectButton , 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Funder selected successfully");
+		System.out.println("Funder selected successfully");	
+
+		
+		LO.print          ("");
+		System.out.println("");
+
+		LO.print("Now Getting the Monthly payment from customer contract tab");
+		System.out.println("Now Getting the Monthly payment from customer contract tab");
+		
+		
+		//Go on to the Customer contract tab and get the monthly payment value
+		
+        Click.on(driver, customer_contract, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		}catch(Exception e)
+		{
+			 Click.on(driver, customer_contract, 30);
+			 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		double monthlyRentalActual = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		
+		LO.print("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+		System.out.println("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+
+	
+		
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+		{
+			LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+			System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+            return true;
+		}
+
+		else
+		{
+			LO.print          ("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			return false;
+		}
+		}		
+						
+	}
+
+	public boolean verify_adding_the_ownbookside_funder_with_same_term_and_mileage_without_maint_does_not_affect_the_monthly_payment_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		LO.print("");
+		System.out.println("");
+	
+	
+		LO.print("Started verifying monthly payment does not change after adding the ownbook side funder");
+		System.out.println("Started verifying monthly payment does not change after adding the ownbook side funder");
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+			
+
+			//get the monthly payment value from customer contract page
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 20);
+			
+			double monthlyRentalExpected = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+			
+	
+			
+			LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			
+			
+			
+			//go on Asset Funding tab and add funder 
+			
+			Click.on(driver, asset_funding, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			Thread.sleep(5000);
+			
+			LO.print          ("Adding funder ownbook based calculation for same term and mileage without maintenance");
+			System.out.println("Adding funder ownbook based calculation for same term and mileage without maintenance");
+			
+		
+			
+			obj_asset_funding = new AssetFundingPage();
+			
+			
+			obj_asset_funding.add_funder_in_asset_funding_tab_ownbook_side_same_term_and_mileage_without_maint_with_customer_flow
+			(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+			 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+			LO.print          ("Funder added successfully");
+			System.out.println("Funder added successfully");
+			
+			
+			ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+			
+			int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+			
+			WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+			
+			Click.on(driver, lastSelectButton , 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			LO.print          ("Funder selected successfully");
+			System.out.println("Funder selected successfully");	
+
+			
+     		LO.print          ("Now Getting the Monthly payment from customer contract tab");
+			System.out.println("Now Getting the Monthly payment from customer contract tab");
+			
+			LO.print          ("");
+			System.out.println("");
+			
+			
+			//Go on to the Customer contract tab and get the monthly payment value
+			
+	        Click.on(driver, customer_contract, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			try {
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			}catch(Exception e)
+			{
+				 Click.on(driver, customer_contract, 30);
+				 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			}
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			double monthlyRentalActual = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+
+			
+			LO.print          ("Monthly payment After adding the funder is "+monthlyRentalActual);
+			System.out.println("Monthly payment After adding the funder is "+monthlyRentalActual);
+			
+			LO.print          ("");
+			System.out.println("");
+
+	
+			
+			if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+			{
+				LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+				System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+	            return true;
+			}
+
+			else
+			{
+				LO.print("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				return false;
+			}
+			
+		}catch(Exception E)
+		{
+		//get the monthly payment value from customer contract page
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		
+		double monthlyRentalExpected = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		
+		LO.print          ("");
+		System.out.println("");
+
+		
+		
+		//go on Asset Funding tab and add funder 
+		
+		Click.on(driver, asset_funding, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Adding funder ownbook based calculation for same term and mileage without maintenance");
+		System.out.println("Adding funder ownbook based calculation for same term and mileage without maintenance");
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		
+		obj_asset_funding = new AssetFundingPage();
+		
+		
+		obj_asset_funding.add_funder_in_asset_funding_tab_ownbook_side_same_term_and_mileage_without_maint_with_customer_flow
+		(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+		 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+		LO.print          ("Funder added successfully");
+		System.out.println("Funder added successfully");
+		
+		ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+		
+		int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+		
+		WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+		
+		Click.on(driver, lastSelectButton , 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Funder selected successfully");
+		System.out.println("Funder selected successfully");	
+
+		
+		LO.print          ("");
+		System.out.println("");
+
+		LO.print("Now Getting the Monthly payment from customer contract tab");
+		System.out.println("Now Getting the Monthly payment from customer contract tab");
+		
+		
+		//Go on to the Customer contract tab and get the monthly payment value
+		
+        Click.on(driver, customer_contract, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		}catch(Exception e)
+		{
+			 Click.on(driver, customer_contract, 30);
+			 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		double monthlyRentalActual = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		
+		LO.print("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+		System.out.println("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+
+	
+		
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+		{
+			LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+			System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+            return true;
+		}
+
+		else
+		{
+			LO.print          ("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			return false;
+		}
+		}		
+						
+	}
+
+	public boolean verify_adding_the_ownbookside_funder_with_same_term_and_mileage_with_maint_does_not_affect_the_monthly_payment_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		LO.print("");
+		System.out.println("");
+	
+	
+		LO.print("Started verifying monthly payment does not change after adding the ownbook side funder");
+		System.out.println("Started verifying monthly payment does not change after adding the ownbook side funder");
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+			
+
+			//get the monthly payment value from customer contract page
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 20);
+			
+			double monthlyRentalExpected = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+			
+	
+			
+			LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			
+			
+			
+			//go on Asset Funding tab and add funder 
+			
+			Click.on(driver, asset_funding, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			Thread.sleep(5000);
+			
+			LO.print          ("Adding funder ownbook based calculation for same term and mileage with maintenance");
+			System.out.println("Adding funder ownbook based calculation for same term and mileage with maintenance");
+			
+		
+			
+			obj_asset_funding = new AssetFundingPage();
+			
+			
+			obj_asset_funding.add_funder_in_asset_funding_tab_ownbook_side_same_term_and_mileage_with_maint_with_customer_flow
+			(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+			 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+			LO.print          ("Funder added successfully");
+			System.out.println("Funder added successfully");
+			
+			
+			ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+			
+			int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+			
+			WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+			
+			Click.on(driver, lastSelectButton , 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			LO.print          ("Funder selected successfully");
+			System.out.println("Funder selected successfully");	
+
+			
+     		LO.print          ("Now Getting the Monthly payment from customer contract tab");
+			System.out.println("Now Getting the Monthly payment from customer contract tab");
+			
+			LO.print          ("");
+			System.out.println("");
+			
+			
+			//Go on to the Customer contract tab and get the monthly payment value
+			
+	        Click.on(driver, customer_contract, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			try {
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			}catch(Exception e)
+			{
+				 Click.on(driver, customer_contract, 30);
+				 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			}
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			double monthlyRentalActual = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+
+			
+			LO.print          ("Monthly payment After adding the funder is "+monthlyRentalActual);
+			System.out.println("Monthly payment After adding the funder is "+monthlyRentalActual);
+			
+			LO.print          ("");
+			System.out.println("");
+
+	
+			
+			if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+			{
+				LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+				System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+	            return true;
+			}
+
+			else
+			{
+				LO.print("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				return false;
+			}
+			
+		}catch(Exception E)
+		{
+		//get the monthly payment value from customer contract page
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		
+		double monthlyRentalExpected = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		
+		LO.print          ("");
+		System.out.println("");
+
+		
+		
+		//go on Asset Funding tab and add funder 
+		
+		Click.on(driver, asset_funding, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Adding funder ownbook based calculation for same term and mileage with maintenance");
+		System.out.println("Adding funder ownbook based calculation for same term and mileage with maintenance");
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		
+		obj_asset_funding = new AssetFundingPage();
+		
+		
+		obj_asset_funding.add_funder_in_asset_funding_tab_ownbook_side_same_term_and_mileage_with_maint_with_customer_flow
+		(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+		 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+		LO.print          ("Funder added successfully");
+		System.out.println("Funder added successfully");
+		
+		ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+		
+		int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+		
+		WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+		
+		Click.on(driver, lastSelectButton , 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Funder selected successfully");
+		System.out.println("Funder selected successfully");	
+
+		
+		LO.print          ("");
+		System.out.println("");
+
+		LO.print("Now Getting the Monthly payment from customer contract tab");
+		System.out.println("Now Getting the Monthly payment from customer contract tab");
+		
+		
+		//Go on to the Customer contract tab and get the monthly payment value
+		
+        Click.on(driver, customer_contract, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		}catch(Exception e)
+		{
+			 Click.on(driver, customer_contract, 30);
+			 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		double monthlyRentalActual = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		
+		LO.print("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+		System.out.println("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+
+	
+		
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+		{
+			LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+			System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+            return true;
+		}
+
+		else
+		{
+			LO.print          ("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			return false;
+		}
+		}		
+						
+	}
+
+	
+	public boolean verify_adding_the_funder_side_funder_with_same_term_and_mileage_without_maint_does_not_affect_the_monthly_payment_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		LO.print("");
+		System.out.println("");
+	
+	
+		LO.print("Started verifying monthly payment does not change after adding the funder side funder");
+		System.out.println("Started verifying monthly payment does not change after adding the funder side funder");
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+			
+
+			//get the monthly payment value from customer contract page
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 20);
+			
+			double monthlyRentalExpected = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+			
+	
+			
+			LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			
+			
+			
+			//go on Asset Funding tab and add funder 
+			
+			Click.on(driver, asset_funding, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			Thread.sleep(5000);
+			
+			LO.print          ("Adding funder -Funder based calculation for same term and mileage without maintenance");
+			System.out.println("Adding funder -Funder based calculation for same term and mileage without maintenance");
+			
+		
+			
+			obj_asset_funding = new AssetFundingPage();
+			
+			
+			obj_asset_funding.add_funder_in_asset_funding_tab_funder_side_same_term_and_mileage_without_maint_with_customer_flow
+			(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+			 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+			LO.print          ("Funder added successfully");
+			System.out.println("Funder added successfully");
+			
+			
+			ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+			
+			int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+			
+			WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+			
+			Click.on(driver, lastSelectButton , 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			LO.print          ("Funder selected successfully");
+			System.out.println("Funder selected successfully");	
+
+			
+     		LO.print          ("Now Getting the Monthly payment from customer contract tab");
+			System.out.println("Now Getting the Monthly payment from customer contract tab");
+			
+			LO.print          ("");
+			System.out.println("");
+			
+			
+			//Go on to the Customer contract tab and get the monthly payment value
+			
+	        Click.on(driver, customer_contract, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			try {
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			}catch(Exception e)
+			{
+				 Click.on(driver, customer_contract, 30);
+				 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			}
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			double monthlyRentalActual = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+
+			
+			LO.print          ("Monthly payment After adding the funder is "+monthlyRentalActual);
+			System.out.println("Monthly payment After adding the funder is "+monthlyRentalActual);
+			
+			LO.print          ("");
+			System.out.println("");
+
+	
+			
+			if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+			{
+				LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+				System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+	            return true;
+			}
+
+			else
+			{
+				LO.print("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				return false;
+			}
+			
+		}catch(Exception E)
+		{
+		//get the monthly payment value from customer contract page
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		
+		double monthlyRentalExpected = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		
+		LO.print          ("");
+		System.out.println("");
+
+		
+		
+		//go on Asset Funding tab and add funder 
+		
+		Click.on(driver, asset_funding, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Adding funder -Funder based calculation for same term and mileage without maintenance");
+		System.out.println("Adding funder -Funder based calculation for same term and mileage without maintenance");
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		
+		obj_asset_funding = new AssetFundingPage();
+		
+		
+		obj_asset_funding.add_funder_in_asset_funding_tab_funder_side_same_term_and_mileage_without_maint_with_customer_flow
+		(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+		 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+		LO.print          ("Funder added successfully");
+		System.out.println("Funder added successfully");
+		
+		ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+		
+		int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+		
+		WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+		
+		Click.on(driver, lastSelectButton , 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Funder selected successfully");
+		System.out.println("Funder selected successfully");	
+
+		
+		LO.print          ("");
+		System.out.println("");
+
+		LO.print("Now Getting the Monthly payment from customer contract tab");
+		System.out.println("Now Getting the Monthly payment from customer contract tab");
+		
+		
+		//Go on to the Customer contract tab and get the monthly payment value
+		
+        Click.on(driver, customer_contract, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		}catch(Exception e)
+		{
+			 Click.on(driver, customer_contract, 30);
+			 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		double monthlyRentalActual = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		
+		LO.print("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+		System.out.println("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+
+	
+		
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+		{
+			LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+			System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+            return true;
+		}
+
+		else
+		{
+			LO.print          ("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			return false;
+		}
+		}		
+						
+	}
+
+	public boolean verify_adding_the_funder_side_funder_with_same_term_and_mileage_with_maint_does_not_affect_the_monthly_payment_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		LO.print("");
+		System.out.println("");
+	
+	
+		LO.print("Started verifying monthly payment does not change after adding the funder side funder");
+		System.out.println("Started verifying monthly payment does not change after adding the funder side funder");
+		
+		Click.on(driver, customer_contract, 20);
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+			
+
+			//get the monthly payment value from customer contract page
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 20);
+			
+			double monthlyRentalExpected = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+			
+	
+			
+			LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+			
+			
+			
+			//go on Asset Funding tab and add funder 
+			
+			Click.on(driver, asset_funding, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			Thread.sleep(5000);
+			
+			LO.print          ("Adding funder funder based calculation for same term and mileage with maintenance");
+			System.out.println("Adding funder funder based calculation for same term and mileage with maintenance");
+			
+		
+			
+			obj_asset_funding = new AssetFundingPage();
+			
+			
+			obj_asset_funding.add_funder_in_asset_funding_tab_funder_side_same_term_and_mileage_with_maint_with_customer_flow
+			(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+			 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+			LO.print          ("Funder added successfully");
+			System.out.println("Funder added successfully");
+			
+			
+			ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+			
+			int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+			
+			WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+			
+			Click.on(driver, lastSelectButton , 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			LO.print          ("Funder selected successfully");
+			System.out.println("Funder selected successfully");	
+
+			
+     		LO.print          ("Now Getting the Monthly payment from customer contract tab");
+			System.out.println("Now Getting the Monthly payment from customer contract tab");
+			
+			LO.print          ("");
+			System.out.println("");
+			
+			
+			//Go on to the Customer contract tab and get the monthly payment value
+			
+	        Click.on(driver, customer_contract, 30);
+			
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+			try {
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			}catch(Exception e)
+			{
+				 Click.on(driver, customer_contract, 30);
+				 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			}
+			
+			ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_summary_total_monthly_payment, 10);
+			double monthlyRentalActual = Double
+					.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+
+			
+			LO.print          ("Monthly payment After adding the funder is "+monthlyRentalActual);
+			System.out.println("Monthly payment After adding the funder is "+monthlyRentalActual);
+			
+			LO.print          ("");
+			System.out.println("");
+
+	
+			
+			if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+			{
+				LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+				System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+	            return true;
+			}
+
+			else
+			{
+				LO.print("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+				return false;
+			}
+			
+		}catch(Exception E)
+		{
+		//get the monthly payment value from customer contract page
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 20);
+		
+		double monthlyRentalExpected = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		LO.print          ("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		System.out.println("Monthly payment Before adding the funder is "+monthlyRentalExpected);
+		
+		LO.print          ("");
+		System.out.println("");
+
+		
+		
+		//go on Asset Funding tab and add funder 
+		
+		Click.on(driver, asset_funding, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Adding funder funder based calculation for same term and mileage with maintenance");
+		System.out.println("Adding funder funder based calculation for same term and mileage with maintenance");
+		
+		LO.print          ("");
+		System.out.println("");
+		
+		
+		obj_asset_funding = new AssetFundingPage();
+		
+		
+		obj_asset_funding.add_funder_in_asset_funding_tab_funder_side_same_term_and_mileage_with_maint_with_customer_flow
+		(quoteRef, expiryDate,term, milesPerAnnum, cashDeposit, documentFee, monthlyPayment, 
+		 optionalFinalPayment, optionToPurchaseFee, monthlyMaintPayment, pencePerExcessMileFinance, pencePerExcessMileMaintenance);
+
+		LO.print          ("Funder added successfully");
+		System.out.println("Funder added successfully");
+		
+		ExplicitWait.waitForListOfVisibleElements(driver, select_a_funder_button_list_for_multiple_funders, 10);			
+		
+		int noOfSelectbutton = select_a_funder_button_list_for_multiple_funders.size();
+		
+		WebElement lastSelectButton = select_a_funder_button_list_for_multiple_funders.get(noOfSelectbutton-1);
+		
+		Click.on(driver, lastSelectButton , 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		LO.print          ("Funder selected successfully");
+		System.out.println("Funder selected successfully");	
+
+		
+		LO.print          ("");
+		System.out.println("");
+
+		LO.print("Now Getting the Monthly payment from customer contract tab");
+		System.out.println("Now Getting the Monthly payment from customer contract tab");
+		
+		
+		//Go on to the Customer contract tab and get the monthly payment value
+		
+        Click.on(driver, customer_contract, 30);
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		try {
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		}catch(Exception e)
+		{
+			 Click.on(driver, customer_contract, 30);
+			 ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		}
+		
+		ExplicitWait.visibleElement(driver, customer_contract_tab_customer_quote_monthly_finance_rental, 10);
+		double monthlyRentalActual = Double
+				.parseDouble(RemoveComma.of(customer_contract_tab_customer_quote_monthly_finance_rental.getText().trim().substring(2)));
+
+		
+		LO.print("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+		System.out.println("Monthly payment After De-selecting the funder is "+monthlyRentalActual);
+
+	
+		
+		if(Difference.of_two_Double_Values(monthlyRentalExpected, monthlyRentalActual)<0.1)
+		{
+			LO.print(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+			System.out.println(ansiGreen+"Verified that monthly payment does not change after adding and selecting the funder on asset funding tab"+ansiReset);
+            return true;
+		}
+
+		else
+		{
+			LO.print          ("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			System.err.println("Monthly payment changed after adding and selecting the funder on asset funding tab");
+			return false;
+		}
+		}		
+						
+	}
+
+	
+    public void add_funder_in_asset_funding_tab_ownbook_side_different_term_and_mileage_without_maint_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+
+		double default_term = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));		
+		
+		Click.on(driver, add_funder_quote, 30);
+
+		Thread.sleep(3000);		
+		
+		WebElement toggleButtonInput = driver.findElement(By.name("useOwnBook"));
+
+        // Check the state of the toggle button
+        boolean isChecked = toggleButtonInput.isSelected();
+
+        if (isChecked) {  } 
+        else
+        {
+        	Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+        }    
+        
+        
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+//		Click.on(driver, funder_maintenance_toggle_button, 30);
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		Click.on(driver, funder, 30);
+
+		ExplicitWait.waitForListOfVisibleElements(driver, funder_options, 20);
+		
+		Click.on(driver, funder_options.get(2) , 20);		
+
+		Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+		Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+		Click.sendKeysdouble(driver, duration, (default_term+1)/10, 30);
+
+		Click.sendKeysdouble(driver, miles_per_annum, (annual_mileage+1000)/10, 30);
+
+		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+
+		Click.sendKeys(driver, document_fee, documentFee, 30);
+
+		Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+
+		Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+
+		Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+
+		try {
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 10);
+		}catch(Exception e) {}
+
+		Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+		try {
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
+	    }catch(Exception e) {}
+		Thread.sleep(5000);
+
+		Click.on(driver, add, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+	}
+
+    //done
+	public void add_funder_in_asset_funding_tab_ownbook_side_different_term_and_mileage_with_maint_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		try {
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+
+		double default_term = Double.parseDouble(holding_cost_summary_terms.getText().substring(0, 2));
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		double annual_mileage = Double.parseDouble(RemoveComma.of(holding_cost_summary_mileage.getText()));	
+		
+		Click.on(driver, add_funder_quote, 30);
+
+		Thread.sleep(3000);		
+		
+		WebElement toggleButtonInput = driver.findElement(By.name("useOwnBook"));
+
+        // Check the state of the toggle button
+        boolean isChecked = toggleButtonInput.isSelected();
+
+        if (isChecked) {  } 
+        else
+        {
+        	Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+        }    
+        
+        
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		Click.on(driver, funder_maintenance_toggle_button, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		Click.on(driver, funder, 30);
+
+		ExplicitWait.waitForListOfVisibleElements(driver, funder_options, 20);
+		
+		Click.on(driver, funder_options.get(3) , 20);		
+
+		Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+		Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+		Thread.sleep(2000);
+		
+		Click.sendKeysdouble(driver, duration, (default_term+10)/10, 30);
+		
+		Thread.sleep(2000);
+
+		Click.sendKeysdouble(driver, miles_per_annum, (annual_mileage+2000)/10, 30);
+
+		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+
+		Click.sendKeys(driver, document_fee, documentFee, 30);
+
+		Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+
+		Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+
+		Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+
+		try {
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 10);
+		}catch(Exception e) {}
+
+		Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+		try {
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
+	    }catch(Exception e) {}
+		Thread.sleep(5000);
+
+		Click.on(driver, add, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+		}catch(Exception e1)
+		{
+			e1.printStackTrace();
+		}
+		
+	}
+
+	//done
+    public void add_funder_in_asset_funding_tab_ownbook_side_same_term_and_mileage_without_maint_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+
+		String default_term = holding_cost_summary_terms.getText().substring(0, 2);
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		String annual_mileage = RemoveComma.of(holding_cost_summary_mileage.getText());		
+		
+		Click.on(driver, add_funder_quote, 30);
+
+		Thread.sleep(3000);		
+		
+		WebElement toggleButtonInput = driver.findElement(By.name("useOwnBook"));
+
+        // Check the state of the toggle button
+        boolean isChecked = toggleButtonInput.isSelected();
+
+        if (isChecked) {  } 
+        else
+        {
+        	Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+        }    
+        
+        
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+//		Click.on(driver, funder_maintenance_toggle_button, 30);
+//
+//		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		Click.on(driver, funder, 30);
+
+		ExplicitWait.waitForListOfVisibleElements(driver, funder_options, 20);
+		
+		Click.on(driver, funder_options.get(4) , 20);		
+
+		Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+		Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+		Click.sendKeys(driver, duration, default_term, 30);
+
+		Click.sendKeys(driver, miles_per_annum, annual_mileage, 30);
+
+		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+
+		Click.sendKeys(driver, document_fee, documentFee, 30);
+
+		Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+
+		Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+
+		Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+
+		try {
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 10);
+		}catch(Exception e) {}
+
+		Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+		try {
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 10);
+	    }catch(Exception e) {}
+		Thread.sleep(5000);
+
+		Click.on(driver, add, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+	}
+
+	//done
+	public void add_funder_in_asset_funding_tab_ownbook_side_same_term_and_mileage_with_maint_with_customer_flow(String quoteRef, String expiryDate,
+			String term, String milesPerAnnum, String cashDeposit, String documentFee,
+			String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+			String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+		
+		
+		ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+
+		String default_term = holding_cost_summary_terms.getText().substring(0, 2);
+
+		ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+		String annual_mileage = RemoveComma.of(holding_cost_summary_mileage.getText());		
+		
+		Click.on(driver, add_funder_quote, 30);
+
+		Thread.sleep(3000);		
+		
+		WebElement toggleButtonInput = driver.findElement(By.name("useOwnBook"));
+
+        // Check the state of the toggle button
+        boolean isChecked = toggleButtonInput.isSelected();
+
+        if (isChecked) {  } 
+        else
+        {
+        	Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+        }    
+        
+        
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+		
+		Click.on(driver, funder_maintenance_toggle_button, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+		Click.on(driver, funder, 30);
+
+		ExplicitWait.waitForListOfVisibleElements(driver, funder_options, 20);
+		
+		Click.on(driver, funder_options.get(5) , 20);		
+
+		Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+		Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+		Click.sendKeys(driver, duration, default_term, 30);
+
+		Click.sendKeys(driver, miles_per_annum, annual_mileage, 30);
+
+		Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+
+		Click.sendKeys(driver, document_fee, documentFee, 30);
+
+		Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+
+		Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+
+		Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+
+		try {
+		Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 10);
+		}catch(Exception e) {}
+
+		Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+		try {
+		Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
+	    }catch(Exception e) {}
+		Thread.sleep(5000);
+
+		Click.on(driver, add, 30);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+		
+	}
+
+	
+    public void add_funder_in_asset_funding_tab_funder_side_same_term_and_mileage_without_maint_with_customer_flow(String quoteRef, String expiryDate,
+				String term, String milesPerAnnum, String cashDeposit, String documentFee,
+				String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+				String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+			
+			
+			ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+
+			String default_term = holding_cost_summary_terms.getText().substring(0, 2);
+
+			ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+			String annual_mileage = RemoveComma.of(holding_cost_summary_mileage.getText());		
+			
+			Click.on(driver, add_funder_quote, 30);
+
+			Thread.sleep(3000);		
+			
+			WebElement toggleButtonInput = driver.findElement(By.name("useOwnBook"));
+
+	        // Check the state of the toggle button
+	        boolean isChecked = toggleButtonInput.isSelected();
+
+	        if (isChecked) { 
+	        	
+	        	Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+	        } 
+	        else
+	        {
+	        	
+	        }    
+	        
+	        
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+			
+//			Click.on(driver, funder_maintenance_toggle_button, 30);
+	//
+//			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+			Click.on(driver, funder, 30);
+
+			ExplicitWait.waitForListOfVisibleElements(driver, funder_options, 20);
+			
+			Click.on(driver, funder_options.get(6) , 20);		
+
+			Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+			Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+			Click.sendKeys(driver, duration, default_term, 30);
+
+			Click.sendKeys(driver, miles_per_annum, annual_mileage, 30);
+
+			Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+
+			Click.sendKeys(driver, document_fee, documentFee, 30);
+
+			Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+
+			Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+
+			Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+
+			try {
+			Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 10);
+			}catch(Exception e) {}
+
+			Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+			try {
+			Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 30);
+		    }catch(Exception e) {}
+			Thread.sleep(5000);
+
+			Click.on(driver, add, 30);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+		}
+
+		
+	public void add_funder_in_asset_funding_tab_funder_side_same_term_and_mileage_with_maint_with_customer_flow(String quoteRef, String expiryDate,
+				String term, String milesPerAnnum, String cashDeposit, String documentFee,
+				String monthlyPayment, String optionalFinalPayment, String optionToPurchaseFee, String monthlyMaintPayment,
+				String pencePerExcessMileFinance, String pencePerExcessMileMaintenance) throws InterruptedException, IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+			
+			
+			ExplicitWait.visibleElement(driver, holding_cost_summary_terms, 40);
+
+			String default_term = holding_cost_summary_terms.getText().substring(0, 2);
+
+			ExplicitWait.visibleElement(driver, holding_cost_summary_mileage, 30);
+
+			String annual_mileage = RemoveComma.of(holding_cost_summary_mileage.getText());		
+			
+			Click.on(driver, add_funder_quote, 30);
+
+			Thread.sleep(3000);		
+			
+			WebElement toggleButtonInput = driver.findElement(By.name("useOwnBook"));
+
+	        // Check the state of the toggle button
+	        boolean isChecked = toggleButtonInput.isSelected();
+
+	        if (isChecked) { 
+	        	
+	        	Click.on(driver, holding_cost_based_on_funder_quote_toggle_button, 30);
+	        } 
+	        else
+	        {
+	        	
+	        }  
+	        
+	        
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 30);
+			
+			Click.on(driver, funder_maintenance_toggle_button, 30);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+
+			Click.on(driver, funder, 30);
+
+			ExplicitWait.waitForListOfVisibleElements(driver, funder_options, 20);
+			
+			Click.on(driver, funder_options.get(7) , 20);		
+
+			Click.sendKeys(driver, quote_ref, quoteRef, 30);
+
+			Click.sendKeys(driver, expiry_date, expiryDate, 30);
+
+			Click.sendKeys(driver, duration, default_term, 30);
+
+			Click.sendKeys(driver, miles_per_annum, annual_mileage, 30);
+
+			Click.sendKeys(driver, cash_deposit, cashDeposit, 30);
+
+			Click.sendKeys(driver, document_fee, documentFee, 30);
+
+			Click.sendKeys(driver, monthly_payment, monthlyPayment, 30);
+
+			Click.sendKeys(driver, optional_final_payment, optionalFinalPayment, 30);
+
+			Click.sendKeys(driver, option_to_purchase_fee, optionToPurchaseFee, 30);
+
+			try {
+			Click.sendKeys(driver, monthly_maintenance_rental, monthlyMaintPayment, 10);
+			}catch(Exception e) {}
+
+			Click.sendKeys(driver, pense_per_excess_mile_finance, pencePerExcessMileFinance, 30);
+
+			try {
+			Click.sendKeys(driver, pense_per_excess_mile_maintenance, pencePerExcessMileMaintenance, 10);
+		    }catch(Exception e) {}
+			Thread.sleep(5000);
+
+			Click.on(driver, add, 30);
+
+			ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
+			
+		}
+
+	
+	
 	public boolean verify_holding_cost_on_adding_funder(String quoteRef, String expiryDate, String term,
 			String milesPerAnnum, String cashDeposit, String financeCharges, String documentFee, String monthlyPayment,
 			String finalBalloonPayment, String optionToPurchaseFee, String sheet_name)
@@ -2109,11 +4078,11 @@ public class AssetFundingPage extends TestBase {
 		LO.print("Trying to edit the selected funder");
 		System.out.println("Trying to edit the selected funder");
 
-		ExplicitWait.visibleElement(driver, selected_funder, 30);
+		ExplicitWait.visibleElement(driver, edit_funder, 30);
 
 		Actions act = new Actions(driver);
 
-		act.doubleClick(selected_funder).perform();
+		act.doubleClick(edit_funder).perform();
 
 		ExplicitWait.visibleElement(driver, toaster, 20);
 
@@ -2151,7 +4120,7 @@ public class AssetFundingPage extends TestBase {
 
 		Actions act = new Actions(driver);
 
-		act.doubleClick(selected_funder).perform();
+		act.doubleClick(edit_funder).perform();
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 
@@ -2350,7 +4319,7 @@ public class AssetFundingPage extends TestBase {
 		
 		Actions act = new Actions(driver);
 
-		act.doubleClick(selected_funder).perform();
+		act.doubleClick(edit_funder).perform();
 
 		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 200);
 		

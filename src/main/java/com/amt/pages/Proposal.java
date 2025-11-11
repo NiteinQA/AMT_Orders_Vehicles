@@ -232,7 +232,7 @@ private List<WebElement> loading_icon;
 	private WebElement 	proposal_update_button ;
 	
 	
-	@FindBy(xpath = "//button[normalize-space()='Update & Exit']")
+	@FindBy(xpath = "//button[normalize-space()='Save & Exit']")
 	private WebElement 	proposal_update_and_exit_button ;
 	
 
@@ -256,7 +256,7 @@ private List<WebElement> loading_icon;
 	private WebElement 	send_proposal_to_customer_pop_up_yes ;
 	
 	
-	@FindBy(xpath = "//*[@id='sendproposalmodal']/div/div/div[2]/div[3]/a")
+	@FindBy(xpath = "//*[text()='Click here to manually submit the proposal on behalf of the customer.']")
 	private WebElement 	click_manually_submit_behalf_of_customer_link ;
 	
 	@FindBy(xpath = "//*[@title='Next question']|//*[@title='Next section']")
@@ -450,7 +450,7 @@ private WebElement additional_info ;
 private WebElement proposal_save ;
 
  
- @FindBy(xpath = "//button[normalize-space()='Update & Exit']")
+ @FindBy(xpath = "//button[normalize-space()='Save & Exit']")
 	private WebElement  proposal_udpate_and_exit ;
  
  

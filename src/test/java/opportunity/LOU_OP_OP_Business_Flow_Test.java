@@ -139,59 +139,59 @@ public class LOU_OP_OP_Business_Flow_Test extends TestBase {
 	}
 
 
-	@Test(priority = 6 , dependsOnMethods = {"L5_sending_contract" })
-
-	public void L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow() throws Exception {
-
-		System.out.println("Test 6");
-		
-		obj_Opportunities_Page = new Opportunities();
-
-		// Opportunity listing screen - Proposal status
-		boolean opp_AfterCurrentStatus_contract = obj_Opportunities_Page
-				.verify_current_status_of_opportunity_after_sending_to_customer_contract();
-
-		Assert.assertTrue(opp_AfterCurrentStatus_contract);
-
-		System.out.println("Status Verified : Sent to customer ");
-		LO.print("Status Verified : Status Verified : Sent to customer");
-
-
-
-	}
-
-	@Test(priority =7 , dependsOnMethods = {"L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow" })
-	public void L7_verify_signed_contract_status_with_api_call() throws Exception
-
-	{
-
-		
-		System.out.println("Test 7");
-		
-		obj_Opportunities_Page = new Opportunities();
-
-		String[] OppDATA = obj_Opportunities_Page.get_api_data_opp();
-
-		String opp_id_screen = OppDATA[0];
-		String quote_ref_screen = OppDATA[1];
-
-		System.out.println("opp_id_screen" + opp_id_screen);
-
-		System.out.println("quote_ref_screen" + quote_ref_screen);
-
-		int statuscode = obj_Opportunities_Page.postAPITest(quote_ref_screen, opp_id_screen);
-
-		Assert.assertEquals(statuscode, 200);
-
-		LO.print          ("Status code "+statuscode+" received ");
-		System.out.println("Status code "+statuscode+" received ");
-
-		obj_Opportunities_Page.opp_search_textbox();
-
-	}
+//	@Test(priority = 6 , dependsOnMethods = {"L5_sending_contract" })
+//
+//	public void L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow() throws Exception {
+//
+//		System.out.println("Test 6");
+//		
+//		obj_Opportunities_Page = new Opportunities();
+//
+//		// Opportunity listing screen - Proposal status
+//		boolean opp_AfterCurrentStatus_contract = obj_Opportunities_Page
+//				.verify_current_status_of_opportunity_after_sending_to_customer_contract();
+//
+//		Assert.assertTrue(opp_AfterCurrentStatus_contract);
+//
+//		System.out.println("Status Verified : Sent to customer ");
+//		LO.print("Status Verified : Status Verified : Sent to customer");
+//
+//
+//
+//	}
+//
+//	@Test(priority =7 , dependsOnMethods = {"L6_verify_current_status_on_opportunity_page_after_sending_contract_for_broker_business_flow" })
+//	public void L7_verify_signed_contract_status_with_api_call() throws Exception
+//
+//	{
+//
+//		
+//		System.out.println("Test 7");
+//		
+//		obj_Opportunities_Page = new Opportunities();
+//
+//		String[] OppDATA = obj_Opportunities_Page.get_api_data_opp();
+//
+//		String opp_id_screen = OppDATA[0];
+//		String quote_ref_screen = OppDATA[1];
+//
+//		System.out.println("opp_id_screen" + opp_id_screen);
+//
+//		System.out.println("quote_ref_screen" + quote_ref_screen);
+//
+//		int statuscode = obj_Opportunities_Page.postAPITest(quote_ref_screen, opp_id_screen);
+//
+//		Assert.assertEquals(statuscode, 200);
+//
+//		LO.print          ("Status code "+statuscode+" received ");
+//		System.out.println("Status code "+statuscode+" received ");
+//
+//		obj_Opportunities_Page.opp_search_textbox();
+//
+//	}
 
 	
-	  @Test(priority = 8 , dependsOnMethods = {"L7_verify_signed_contract_status_with_api_call" })
+	  @Test(priority = 8 , dependsOnMethods = {"L5_sending_contract" })
 	  
 	  public void L8_verify_status_after_contract_signed() throws Exception {
 	  

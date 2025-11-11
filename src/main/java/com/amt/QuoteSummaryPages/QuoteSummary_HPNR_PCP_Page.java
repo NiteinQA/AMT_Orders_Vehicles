@@ -21,6 +21,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.amt.testBase.TestBase;
 import com.amt.testUtil.Click;
+import com.amt.testUtil.ConfigConstants;
 import com.amt.testUtil.Difference;
 import com.amt.testUtil.ExplicitWait;
 import com.amt.testUtil.GetExcelFormulaValue;
@@ -311,6 +312,14 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 
 	@FindBy(xpath = "//div[@class='row acquisition-menu']//div[3]//button[1]")
 	private WebElement quote_summary_save_button;
+	
+	// vehicle details
+	@FindBy(xpath = "//*[@class='heading ng-star-inserted']")
+	private WebElement quote_summary_vehicle_heading;	
+
+	// Monthly finance rental
+	@FindBy(xpath = "//*[normalize-space()='Monthly finance rental']//ancestor::div[1]//div//strong|//*[normalize-space()='Monthly finance payment']//ancestor::div[1]//div//strong")
+	private WebElement quote_summary_customer_quote_summary_monthly_finance_rental;
 
 	Properties prop;
 	
@@ -319,8 +328,7 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(
-					"D:\\Acquisition\\AMT_Automation_Acquisition\\src\\main\\java\\configs\\excelValues.properties");
+			FileInputStream ip = new FileInputStream(ConfigConstants.EXCEL_VALUES_PROPERTY_FILE_PATH);
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -330,472 +338,158 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		
 		PageFactory.initElements(driver, this);
 	}
+	
+public void quote_summary_HPNR_PCP_without_maintenance(String sheet_name) throws InterruptedException, IOException {
+					
+		
+		
+	    LO.print          ("*************Calculations for Quote Summary page gas been started************");
+		System.out.println("*************Calculations for Quote Summary page gas been started************");
 
-	public boolean quote_summary_configuration_value_verification_for_funder_with_maintenance(String sheet_name)
-			throws IOException, UnsupportedFlavorException {
-		LO.print("*************Configuration Values Verification on quote summary page has been started************");
-		System.out.println(
-				"*************Configuration Values Verification on quote summary page has been started************");
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
 
-		Click.on(driver, quote_summary_configuration, 30);
+		Click.on(driver, quote_summary, 90);
+		
+		//First collect OTR elements
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
 
-		// reading configuration values from screen
+		LO.print("Reading values from OTR calculation -Quote Summary Page");
+		System.out.println("Reading values from OTR calculation -Quote Summary Page");
 
-		ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
-		double baseInterestRateFromScreen = Double
-				.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
 
-		ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
-		double financeMarginFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+		//cust summary elements
+		
+		String customer_contract_type = quote_summary_customer_contract_type.getText();
+		
+		String customer_quote_summary_terms = quote_summary_customer_quote_summary_terms.getText().trim().substring(0,2);
 
-		ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
-		double deductionsFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+		String customer_quote_summary_miles = RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim());
 
-		ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
-		double additionalMarginFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+		String customer_quote_summary_monthly_finance_rental = RemoveComma.of(quote_summary_customer_quote_summary_monthly_finance_rental.getText().trim().substring(2));
+		
 
-		ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
-		double totalMarginFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
 
-		ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
-		double defaultBrokerMarginPercentageFromScreen = Double
-				.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0, 4));
+		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
 
-		ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
-		double customerInterestRateFromScreen = Double
-				.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 4));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		ExplicitWait.visibleElement(driver, quote_summary_maintenance_margin, 20);
-		double maintenanceMarginFromScreen = Double
-				.parseDouble(quote_summary_maintenance_margin.getText().trim().substring(2));
-
-		ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
-		double documentFeeMarginFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
-
-		// copying default broker margin from input field
-
-		ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
-		quote_summary_configuration_default_broker_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String temp_default_broker_margin_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-		double default_broker_margin_copied = Double.parseDouble(temp_default_broker_margin_copied);
-
-//					ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
-//					double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
-//
-//					ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
-//					double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
-//				
-//					ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
-//					double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
-//				
-
-		// getting values from excel
-
-		double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(265, 1, sheet_name);
-
-		double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
-
-		double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(268, 5, sheet_name);
-
-		double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(262, 5, sheet_name);
-
-		double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(263, 1, sheet_name);
-
-		double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(263, 5, sheet_name);
-
-		double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(269, 1, sheet_name);
-
-		double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
-
-		double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(268, 1, sheet_name);
-		double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
-
-		double maintenanceMarginFromExcel = GetExcelFormulaValue.get_formula_value(270, 5, sheet_name);
-
-		double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(271, 1, sheet_name);
-
-		double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(269, 5, sheet_name);
-
-//				  
-//				  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(266,5, sheet_name);
-//				  
-//				  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(267,5, sheet_name);
-//				  
-//				  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(268,5, sheet_name);
-//				  
-
-		// verifying actual and expected values
-
-		int count = 0;
-		boolean status = false;
-		// 1
-		if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
-			LO.print("Base Interest Rate found OK");
-			System.out.println("Base Interest Rate found OK");
-			count++;
-		} else {
-			LO.print("Base Interest Rate found wrong");
-			System.err.println("Base Interest Rate found wrong");
-		}
-
-		// 2
-		if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
-			LO.print("Finance Margin found OK");
-			System.out.println("Finance Margin found OK");
-			count++;
-		} else {
-			LO.print("Finance Margin found wrong");
-			System.err.println("Finance Margin found wrong");
-		}
-
-		// 3
-		if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
-			LO.print("Deductions found OK");
-			System.out.println("Deductions found OK");
-			count++;
-		} else {
-			LO.print("Deductions found wrong");
-			System.err.println("Deductions found wrong");
-		}
-
-		// 4
-		if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
-			LO.print("Additional Margin found OK");
-			System.out.println("Additional Margin found OK");
-			count++;
-		} else {
-			LO.print("Additional Margin found wrong");
-			System.err.println("Additional Margin found wrong");
-		}
-
-		// 5
-		if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
-			LO.print("Total Margin found OK");
-			System.out.println("Total Margin found OK");
-			count++;
-		} else {
-			LO.print("Total Margin found wrong");
-			System.err.println("Total Margin found wrong");
-		}
-
-		// 6
-		if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
-				defaultBrokerMarginPercentageFromScreen) < 0.2) {
-			LO.print("Default Broker Margin percentage found OK");
-			System.out.println("Default Broker Margin percentage found OK");
-			count++;
-		} else {
-			LO.print("Default Broker Margin percentage found wrong");
-			System.err.println("Default Broker Margin percentage found wrong");
-		}
-
-		// 7
-		if (Difference.of_two_Double_Values(customerInterestRateFromScreen, customerInterestRateFromExcel) < 0.2) {
-			LO.print("Customer Interest Rate found OK");
-			System.out.println("Customer Interest Rate found OK");
-			count++;
-		} else {
-			LO.print("Customer Interest Rate found wrong");
-			System.err.println("Customer Interest Rate found wrong");
-		}
-
-		// 8
-		if ((Difference.of_two_Double_Values(maintenanceMarginFromScreen, maintenanceMarginFromExcel)) < 0.2) {
-			LO.print("Maintenance Margin found OK");
-			System.out.println("Maintenance Margin found OK");
-			count++;
-		} else {
-			LO.print("Maintenance Margin found wrong");
-			System.err.println("Maintenance Margin  found wrong");
-		}
-		// 9
-		if ((Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2)) {
-			LO.print("Document Fee Margin found OK");
-			System.out.println("Document Fee Margin found OK");
-			count++;
-		} else {
-			LO.print("Document Fee Margin  found wrong");
-			System.err.println("Document Fee Margin  found wrong");
-		}
-
-		// 10
-		if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
-			LO.print("Default Broker Margin found OK");
-			System.out.println("Default Broker Margin found OK");
-			count++;
-		} else {
-			LO.print("Default Broker Margin  found wrong");
-			System.err.println("Default Broker Margin  found wrong");
-		}
-
-//			        //10
-//					if (trackerCostFromScreen==trackerCostFromExcel) {
-//						LO.print("Tracker Cost found OK");
-//						System.out.println("Tracker Cost found OK");
-//						count++;
-//					} else {
-//						LO.print("Tracker Cost  found wrong");
-//						System.err.println("Tracker Cost  found wrong");
-//					}
-//					
-//					//11
-//					if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
-//						LO.print("Insurance Tax found OK");
-//						System.out.println("Insurance Tax found OK");
-//						count++;
-//					} else {
-//						LO.print("Insurance Tax found wrong");
-//						System.err.println("Insurance Tax found wrong");
-//					}
-//					
-//					//12
-//					if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
-//						LO.print("Contingency Insurance Value found OK");
-//						System.out.println("Contingency Insurance Value found OK");
-//						count++;
-//					} else {
-//						LO.print("Contingency Insurance Value found wrong");
-//						System.err.println("Contingency Insurance Value found wrong");
-//					}
-
-		if (count == 10) {
-			status = true;
-		}
-		return status;
-	}
-
-	public boolean quote_summary_configuration_value_verification_without_maintenance(String sheet_name)
-			throws IOException, UnsupportedFlavorException {
-
-		LO.print("*************Configuration Values Verification on quote summary page has been started************");
-		System.out.println(
-				"*************Configuration Values Verification on quote summary page has been started************");
-
-		Click.on(driver, quote_summary_configuration, 30);
-
-		// reading configuration values from screen
-
-		ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
-		double baseInterestRateFromScreen = Double
-				.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
-
-		ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
-		double financeMarginFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
-
-		ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
-		double deductionsFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
-
-		ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
-		double additionalMarginFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
-
-		ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
-		double totalMarginFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
-
-		ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
-		double defaultBrokerMarginPercentageFromScreen = Double
-				.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0, 4));
-
-		ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
-		double customerInterestRateFromScreen = Double
-				.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 5));
-
-		ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
-		double documentFeeMarginFromScreen = Double
-				.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
-
-		// copying default broker margin from input field
-
-		ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
-		quote_summary_configuration_default_broker_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		String temp_default_broker_margin_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-		double default_broker_margin_copied = Double.parseDouble(temp_default_broker_margin_copied);
-
-//		ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
-//		double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
-//
-//		ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
-//		double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
-//	
-//		ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
-//		double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
-//	
-
-		// getting values from excel
-
-		double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 01, sheet_name);
-
-		double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
-
-		double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(259, 5, sheet_name);
-
-		double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(253, 5, sheet_name);
-
-		double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 1, sheet_name);
-
-		double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 5, sheet_name);
-
-		double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(260, 1, sheet_name);
-
-		double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
-
-		double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(259, 1, sheet_name);
-		double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
-
-		double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(262, 1, sheet_name);
-
-		double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(260, 5, sheet_name);
-
-//	  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(0,
-//	  0, sheet_name);
-//	  
-//	  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(0,
-//	  0, sheet_name);
-//	  
-//	  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(0,
-//	  0, sheet_name);
-//	  
-//	  
-		// verifying actual and expected values
-
-		int count = 0;
-		boolean status = false;
-		// 1
-		if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
-			LO.print("Base Interest Rate found OK");
-			System.out.println("Base Interest Rate found OK");
-			count++;
-		} else {
-			LO.print("Base Interest Rate found wrong");
-			System.err.println("Base Interest Rate found wrong");
-		}
-
-		// 2
-		if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
-			LO.print("Finance Margin found OK");
-			System.out.println("Finance Margin found OK");
-			count++;
-		} else {
-			LO.print("Finance Margin found wrong");
-			System.err.println("Finance Margin found wrong");
-		}
-
-		// 3
-		if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
-			LO.print("Deductions found OK");
-			System.out.println("Deductions found OK");
-			count++;
-		} else {
-			LO.print("Deductions found wrong");
-			System.err.println("Deductions found wrong");
-		}
-
-		// 4
-		if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
-			LO.print("Additional Margin found OK");
-			System.out.println("Additional Margin found OK");
-			count++;
-		} else {
-			LO.print("Additional Margin found wrong");
-			System.err.println("Additional Margin found wrong");
-		}
-
-		// 5
-		if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
-			LO.print("Total Margin found OK");
-			System.out.println("Total Margin found OK");
-			count++;
-		} else {
-			LO.print("Total Margin found wrong");
-			System.err.println("Total Margin found wrong");
-		}
-
-		// 6
-		if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel , defaultBrokerMarginPercentageFromScreen)<0.2) {
-			LO.print("Default Broker Margin percentage found OK");
-			System.out.println("Default Broker Margin percentage found OK");
-			count++;
-		} else {
-			LO.print("Default Broker Margin percentage found wrong");
-			System.err.println("Default Broker Margin percentage found wrong");
-		}
-
-		// 7
-		if (Difference.of_two_Double_Values(customerInterestRateFromScreen, customerInterestRateFromExcel)<0.2) {
-			LO.print("Customer Interest Rate found OK");
-			System.out.println("Customer Interest Rate found OK");
-			count++;
-		} else {
-			LO.print("Customer Interest Rate found wrong");
-			System.err.println("Customer Interest Rate found wrong");
-		}
-
-		// 8
-		if (Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2) {
-			LO.print("Document Fee Margin found OK");
-			System.out.println("Document Fee Margin found OK");
-			count++;
-		} else {
-			LO.print("Document Fee Margin  found wrong");
-			System.err.println("Document Fee Margin  found wrong");
-		}
-		// 9
-		if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
-			LO.print("Default Broker Margin found OK");
-			System.out.println("Default Broker Margin found OK");
-			count++;
-		} else {
-			LO.print("Default Broker Margin  found wrong");
-			System.err.println("Default Broker Margin  found wrong");
-		}
-
-//        //9
-//		if (trackerCostFromScreen==trackerCostFromExcel) {
-//			LO.print("Tracker Cost found OK");
-//			System.out.println("Tracker Cost found OK");
-//			count++;
-//		} else {
-//			LO.print("Tracker Cost  found wrong");
-//			System.err.println("Tracker Cost  found wrong");
-//		}
-//		
-//		//10
-//		if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
-//			LO.print("Insurance Tax found OK");
-//			System.out.println("Insurance Tax found OK");
-//			count++;
-//		} else {
-//			LO.print("Insurance Tax found wrong");
-//			System.err.println("Insurance Tax found wrong");
-//		}
-//		
-//		//11
-//		if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
-//			LO.print("Contingency Insurance Value found OK");
-//			System.out.println("Contingency Insurance Value found OK");
-//			count++;
-//		} else {
-//			LO.print("Contingency Insurance Value found wrong");
-//			System.err.println("Contingency Insurance Value found wrong");
-//		}
-
-		if (count == 9) {
-			status = true;
-		}
-		return status;
-	}
+		js.executeScript("arguments[0].click();", quote_summary_save_button);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		ExplicitWait.visibleElement(driver, quote_summary_vehicle_heading, 120);
+		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+
+		// Vehicle details
+		String vehicle_name = quote_summary_vehicle_heading.getText().trim();
+
+		// quote no.
+		String quote_ref_no = quote_summary_ref_no.getText();
+
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+	   //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(0).setCellValue(quote_ref_no);
+	    //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(10).setCellValue(vehicle_name);
+		
+		wb.getSheet(sheetname).getRow(4).getCell(1).setCellValue(customer_contract_type);
+		wb.getSheet(sheetname).getRow(4).getCell(3).setCellValue(customer_quote_summary_terms);
+		wb.getSheet(sheetname).getRow(6).getCell(1).setCellValue(customer_quote_summary_miles);
+		wb.getSheet(sheetname).getRow(6).getCell(3).setCellValue(customer_quote_summary_monthly_finance_rental);
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+		
+		
+		LO.print("Writing completed for some of the important required values to quote save excel sheet in the sheet "+sheetname);
+		System.out.println("Writing completed for some of the important required values to quote save excel sheet in the sheet "+sheetname);
+
+}
+
+	
+public void quote_summary_purchase_without_maintenance(String sheet_name) throws InterruptedException, IOException {
+					
+		
+		
+	    LO.print          ("*************Calculations for Quote Summary page gas been started************");
+		System.out.println("*************Calculations for Quote Summary page gas been started************");
+
+		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
+
+		Click.on(driver, quote_summary, 90);
+		
+		//First collect OTR elements
+		
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 120);
+
+		LO.print("Reading values from OTR calculation -Quote Summary Page");
+		System.out.println("Reading values from OTR calculation -Quote Summary Page");
+
+
+		//cust summary elements
+		
+		String customer_contract_type = quote_summary_customer_contract_type.getText();
+		
+		String customer_quote_summary_terms = quote_summary_customer_quote_summary_terms.getText().trim().substring(0,2);
+
+		String customer_quote_summary_miles = RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim());
+
+		String customer_quote_summary_monthly_finance_rental = RemoveComma.of(quote_summary_customer_quote_summary_monthly_finance_rental.getText().trim().substring(2));
+		
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+
+		ExplicitWait.visibleElement(driver, quote_summary_save_button, 30);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		js.executeScript("arguments[0].click();", quote_summary_save_button);
+
+		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 150);
+
+		ExplicitWait.visibleElement(driver, quote_summary_vehicle_heading, 120);
+		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
+
+		// Vehicle details
+		String vehicle_name = quote_summary_vehicle_heading.getText().trim();
+
+		// quote no.
+		String quote_ref_no = quote_summary_ref_no.getText();
+
+		
+		FileInputStream in = new FileInputStream(prop.getProperty("quote_save_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+
+		String sheetname = prop.getProperty(sheet_name);
+	   //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(0).setCellValue(quote_ref_no);
+	    //quote ref no 
+		wb.getSheet(sheetname).getRow(1).getCell(10).setCellValue(vehicle_name);
+		
+		wb.getSheet(sheetname).getRow(4).getCell(1).setCellValue(customer_contract_type);
+		wb.getSheet(sheetname).getRow(4).getCell(3).setCellValue(customer_quote_summary_terms);
+		wb.getSheet(sheetname).getRow(6).getCell(1).setCellValue(customer_quote_summary_miles);
+		wb.getSheet(sheetname).getRow(6).getCell(3).setCellValue(customer_quote_summary_monthly_finance_rental);
+		
+		
+		FileOutputStream out = new FileOutputStream(prop.getProperty("quote_save_excel_path"));
+		wb.write(out);
+		wb.close();
+		
+		
+		LO.print("Writing completed for some of the important required values to quote save excel sheet in the sheet "+sheetname);
+		System.out.println("Writing completed for some of the important required values to quote save excel sheet in the sheet "+sheetname);
+
+}
+
 
 	
 	public boolean quote_summary_OTR_calculation_for_used_vehicle(String sheet_name)
@@ -1341,1842 +1035,6 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 
 	}
 
-	public boolean quote_summary_customer_quote_summary_value_verification_without_maintenance(String sheet_name)
-			throws IOException {
-		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
-		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
-
-		// Clicking on Customer quote pannel
-		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 20);
-
-		// waiting for elements
-
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
-		try {
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_part_exchange_value, 20);
-		} catch (Exception e1) {
-		}
-
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
-		ExplicitWait.visibleElement(driver,
-				quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
-
-		// getting text from elements
-
-		double customer_quote_summary_terms = Double
-				.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
-
-		double customer_quote_summary_miles = Double
-				.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
-
-		double customer_quote_summary_basic_cash_price = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
-
-		double customer_quote_summary_vat = Double
-				.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
-
-		double customer_quote_summary_non_vat_items = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
-
-		double customer_quote_summary_total_cash_price = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
-
-		double customer_quote_summary_order_deposit = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
-
-		double customer_quote_summary_finance_deposit = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
-
-		double customer_quote_summary_total_deposit = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
-
-		double customer_quote_part_exchange_value = 0;
-		try {
-			customer_quote_part_exchange_value = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_part_exchange_value.getText().trim().substring(2)));
-		} catch (Exception e1) {
-		}
-
-		double customer_quote_summary_balance_to_finance = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
-
-		double customer_quote_summary_finance_charges = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
-
-		double customer_quote_summary_document_fee = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
-
-		double customer_quote_summary_balance_payable = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
-
-		double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
-
-		double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
-
-		double customer_payment_followed_by = Double
-				.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
-
-		double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
-
-		double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
-
-		double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee.getText()
-						.trim().substring(2)));
-
-		double customer_quote_summary_pence_per_excess_mile_finance = Double.parseDouble(RemoveComma.of(
-				quote_summary_customer_quote_summary_pence_per_excess_mile_finance.getText().trim().substring(0, 4)));
-
-		double customer_quote_summary_vehicle_comm = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
-
-		double customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
-
-		double customer_quote_summary_document_fee_comm = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
-
-		double customer_quote_summary_total_commission = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
-
-		// getting values from excel
-
-		double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
-		double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheet_name);
-
-		double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
-		double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
-		double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
-
-		double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
-		double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
-		double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
-
-		double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
-		double partExchangeValue = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
-		double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
-
-		double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
-		double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
-		double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
-
-		double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
-		double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
-		double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
-
-		double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
-
-		double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
-		double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
-
-		double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
-
-		double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
-		double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
-
-		double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
-		double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
-
-		// comparing actul and expected values
-
-		boolean status = false;
-
-		int count = 0;
-
-		// 1
-		if (terms == customer_quote_summary_terms) {
-			LO.print("Terms found OK");
-			System.out.println("Terms found OK");
-			count++;
-		} else {
-			LO.print("Terms found wrong");
-			System.err.println("Terms found wrong");
-		}
-
-		// 2
-		if (miles == customer_quote_summary_miles) {
-			LO.print("miles found OK");
-			System.out.println("miles found OK");
-			count++;
-		} else {
-			LO.print("miles found wrong");
-			System.err.println("miles found wrong");
-		}
-
-		// 3
-		if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
-			LO.print("Basic Cash Price found OK");
-			System.out.println("Basic Cash Price found OK");
-			count++;
-		} else {
-			LO.print("Basic Cash Price found wrong");
-			System.err.println("Basic Cash Price found wrong");
-		}
-
-		// 4
-		if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
-			LO.print("VAT found OK");
-			System.out.println("VAT found OK");
-			count++;
-		} else {
-			LO.print("VAT found wrong");
-			System.err.println("VAT found wrong");
-		}
-
-		// 5
-		if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
-			LO.print("Non VAT Items Value found OK");
-			System.out.println("Non VAT Items Value found OK");
-			count++;
-		} else {
-			LO.print("Non VAT Items Value found wrong");
-			System.err.println("Non VAT Items Value found wrong");
-		}
-
-		// 6
-		if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
-			LO.print("Total Cash Price found OK");
-			System.out.println("Total Cash Price found OK");
-			count++;
-		} else {
-			LO.print("Total Cash Price found wrong");
-			System.err.println("Total Cash Price found wrong");
-		}
-
-		// 7
-		if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
-			LO.print("Order Deposit found OK");
-			System.out.println("Order Deposit found OK");
-			count++;
-		} else {
-			LO.print("Order Deposit found wrong");
-			System.err.println("Order Deposit found wrong");
-		}
-
-		// 8
-		if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
-			LO.print("Finance Deposit found OK");
-			System.out.println("Finance Deposit found OK");
-			count++;
-		} else {
-			LO.print("Finance Deposit found wrong");
-			System.err.println("Finance Deposit found wrong");
-		}
-
-		// 9
-		if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
-			LO.print("Total Deposit found OK");
-			System.out.println("Total Deposit found OK");
-			count++;
-		} else {
-			LO.print("Total Deposit found wrong");
-			System.err.println("Total Deposit found wrong");
-		}
-
-		// 10
-		try {
-			if (partExchangeValue == customer_quote_part_exchange_value) {
-				LO.print("Part Exchange Value - found OK");
-				System.out.println("Part Exchange Value - found OK");
-				count++;
-			} else {
-				LO.print("Part Exchange Value - found wrong");
-				System.err.println("Part Exchange Value - found wrong");
-			}
-		} catch (Exception e1) {
-		}
-
-		// 11
-		if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
-			LO.print("Balance to Finance found OK");
-			System.out.println("Balance to Finance found OK");
-			count++;
-		} else {
-			LO.print("Balance to Finance found wrong");
-			System.err.println("Balance to Finance found wrong");
-		}
-
-		// 12
-		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
-			LO.print("Finance Charges - found OK");
-			System.out.println("Finance Charges - found OK");
-			count++;
-		} else {
-			LO.print("Finance Charges - found wrong");
-			System.err.println("Finance Charges - found wrong");
-		}
-
-		// 13
-		if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
-			LO.print("Document Fee - found OK");
-			System.out.println("Document Fee - found OK");
-			count++;
-		} else {
-			LO.print("Document Fee - found wrong");
-			System.err.println("Document Fee - found wrong");
-		}
-
-		// 14
-		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
-			LO.print("Balance Payable - found OK");
-			System.out.println("Balance Payable - found OK");
-			count++;
-		} else {
-			LO.print("Balance Payable - found wrong");
-			System.err.println("Balance Payable - found wrong");
-		}
-
-		// 15
-		if ((Difference.of_two_Double_Values(optionToPurchaseFee,
-				customer_quote_summary_option_to_purchase_fee)) < 0.2) {
-			LO.print("Option To Purchase Fee - found OK");
-			System.out.println("Option To Purchase Fee - found OK");
-			count++;
-		} else {
-			LO.print("Option To Purchase Fee - found wrong");
-			System.err.println("Option To Purchase Fee - found wrong");
-		}
-
-		// 16
-		if ((Difference.of_two_Double_Values(initialCashPayment, customer_quote_summary_initial_cash_payment)) < 0.2) {
-			LO.print("Initial Cash Payment - found OK");
-			System.out.println("Initial Cash Payment - found OK");
-			count++;
-		} else {
-			LO.print("Initial Cash Payment - found wrong");
-			System.err.println("Initial Cash Payment - found wrong");
-		}
-
-		// 17
-		if (followedBy == customer_payment_followed_by) {
-			LO.print("Followed By months - found OK");
-			System.out.println("Followed By months - found OK");
-			count++;
-		} else {
-			LO.print("Followed By months - found wrong");
-			System.err.println("Followed By months - found wrong");
-		}
-
-		// 18
-		if ((Difference.of_two_Double_Values(monthlyFinancePayment,
-				customer_quote_summary_monthly_finance_payment)) < 0.2) {
-			LO.print("Monthly Finance Payment - found OK");
-			System.out.println("Monthly Finance Payment - found OK");
-			count++;
-		} else {
-			LO.print("Monthly Finance Payment - found wrong");
-			System.err.println("Monthly Finance Payment - found wrong");
-		}
-
-		// 19
-		if ((Difference.of_two_Double_Values(guaranteedFutureValue,
-				customer_quote_summary_guaranteed_future_value)) < 0.2) {
-			LO.print("Guaranteed Future Value - found OK");
-			System.out.println("Guaranteed Future Value - found OK");
-			count++;
-		} else {
-			LO.print("Guaranteed Future Value - found wrong");
-			System.err.println("Guaranteed Future Value - found wrong");
-		}
-
-		// 20
-		if ((Difference.of_two_Double_Values(optionalFinalPayment,
-				customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
-			LO.print("Optional Final Payment - found OK");
-			System.out.println("Optional Final Payment - found OK");
-			count++;
-		} else {
-			LO.print("Optional Final Payment - found wrong");
-			System.err.println("Optional Final Payment - found wrong");
-		}
-
-		// 21
-		if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
-				customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
-			LO.print("Pence Per Excess Mile Finance - found OK");
-			System.out.println("Pence Per Excess Mile Finance - found OK");
-			count++;
-		} else {
-			LO.print("Pence Per Excess Mile Finance - found wrong");
-			System.err.println("Pence Per Excess Mile Finance - found wrong");
-		}
-
-		// 22
-		if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
-			LO.print("Vehicle Commission - found OK");
-			System.out.println("Vehicle Commission - found OK");
-			count++;
-		} else {
-			LO.print("Vehicle Commission - found wrong");
-			System.err.println("Vehicle Commission - found wrong");
-		}
-
-		// 23
-		if ((Difference.of_two_Double_Values(defaultFinanceCommission,
-				customer_quote_summary_default_finance_comm)) < 0.2) {
-			LO.print("Default Finance Commission - found OK");
-			System.out.println("Default Finance Commission - found OK");
-			count++;
-		} else {
-			LO.print("Default Finance Commission - found wrong");
-			System.err.println("Default Finance Commission - found wrong");
-		}
-
-		// 24
-		if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
-			LO.print("Document Fee Commission - found OK");
-			System.out.println("Document Fee Commission - found OK");
-			count++;
-		} else {
-			LO.print("Document Fee Commission - found wrong");
-			System.err.println("Document Fee Commission - found wrong");
-		}
-
-		// 25
-		if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
-			LO.print("Total Commission - found OK");
-			System.out.println("Total Commission - found OK");
-			count++;
-		} else {
-			LO.print("Total Commission - found wrong");
-			System.err.println("Total Commission - found wrong");
-		}
-
-		if (count == 25) {
-			status = true;
-		}
-		return status;
-	}
-
-	public boolean quote_summary_customer_quote_summary_value_verification_with_maintenance(String sheet_name)
-			throws IOException {
-
-		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
-		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
-
-		// Clicking on Customer quote pannel
-		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 20);
-
-		// waiting for elements
-		try {
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
-			try {
-				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_part_exchange_value, 20);
-			} catch (Exception e) {
-			}
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_maint_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_monthly_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
-			ExplicitWait.visibleElement(driver,
-					quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_maint, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_total, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_maintenance_commision, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
-
-			// getting text from elements
-
-			double customer_quote_summary_terms = Double
-					.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
-
-			double customer_quote_summary_miles = Double
-					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
-
-			double customer_quote_summary_basic_cash_price = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
-
-			double customer_quote_summary_vat = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
-
-			double customer_quote_summary_non_vat_items = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_cash_price = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
-
-			double customer_quote_summary_order_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_finance_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
-
-			double customer_quote_part_exchange_value = 0;
-			try {
-				customer_quote_part_exchange_value = Double.parseDouble(RemoveComma
-						.of(quote_summary_customer_quote_summary_part_exchange_value.getText().trim().substring(2)));
-			} catch (Exception e) {
-			}
-
-			double customer_quote_summary_balance_to_finance = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
-
-			double customer_quote_summary_finance_charges = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
-
-			double customer_quote_summary_document_fee = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
-
-			double customer_quote_summary_balance_payable = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
-
-			System.out.println("customer_quote_summary_balance_payable" + customer_quote_summary_balance_payable);
-
-			double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
-
-			double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
-
-			double customer_payment_followed_by = Double
-					.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
-
-			double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
-
-			double customer_quote_summary_monthly_maint_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_monthly_maint_payment.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_monthly_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
-
-			double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
-
-			double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee
-							.getText().trim().substring(2)));
-
-			double customer_quote_summary_pence_per_excess_mile_finance = Double
-					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance
-							.getText().trim().substring(0, 4)));
-
-			double customer_quote_summary_pence_per_excess_mile_maint = Double.parseDouble(RemoveComma.of(
-					quote_summary_customer_quote_summary_pence_per_excess_mile_maint.getText().trim().substring(0, 4)));
-
-			double customer_quote_summary_pence_per_excess_mile_total = Double.parseDouble(RemoveComma.of(
-					quote_summary_customer_quote_summary_pence_per_excess_mile_total.getText().trim().substring(0, 4)));
-
-			double customer_quote_summary_vehicle_comm = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_maintenance_commision = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_maintenance_commision.getText().trim().substring(2)));
-
-			double customer_quote_summary_document_fee_comm = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_commission = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
-
-			// getting values from excel
-
-			double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
-			double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheet_name);
-
-			double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
-			double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
-			double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
-
-			double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
-			double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
-			double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
-
-			double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
-			double partExchangeValue = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
-			double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
-
-			double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
-			double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
-			double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
-
-			double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
-			double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
-			double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
-
-			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
-			double monthlyMaintenancePayment = GetExcelFormulaValue.get_formula_value(229, 1, sheet_name);
-			double totalMonthlyPayment = GetExcelFormulaValue.get_formula_value(229, 4, sheet_name);
-
-			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
-			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
-			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
-			double pencePerExcessMileMaintenance = GetExcelFormulaValue.get_formula_value(235, 0, sheet_name);
-			double pencePerExcessMileTotal = GetExcelFormulaValue.get_formula_value(235, 1, sheet_name);
-
-			double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
-			double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
-			double maintCommission = GetExcelFormulaValue.get_formula_value(239, 4, sheet_name);
-
-			double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
-			double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
-
-			// comparing actul and expected values
-
-			boolean status = false;
-
-			int count = 0;
-
-			// 1
-			if (terms == customer_quote_summary_terms) {
-				LO.print("Terms found OK");
-				System.out.println("Terms found OK");
-				count++;
-			} else {
-				LO.print("Terms found wrong");
-				System.err.println("Terms found wrong");
-			}
-
-			// 2
-			if (miles == customer_quote_summary_miles) {
-				LO.print("miles found OK");
-				System.out.println("miles found OK");
-				count++;
-			} else {
-				LO.print("miles found wrong");
-				System.err.println("miles found wrong");
-			}
-
-			// 3
-			if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
-				LO.print("Basic Cash Price found OK");
-				System.out.println("Basic Cash Price found OK");
-				count++;
-			} else {
-				LO.print("Basic Cash Price found wrong");
-				System.err.println("Basic Cash Price found wrong");
-			}
-
-			// 4
-			if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
-				LO.print("VAT found OK");
-				System.out.println("VAT found OK");
-				count++;
-			} else {
-				LO.print("VAT found wrong");
-				System.err.println("VAT found wrong");
-			}
-
-			// 5
-			if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
-				LO.print("Non VAT Items Value found OK");
-				System.out.println("Non VAT Items Value found OK");
-				count++;
-			} else {
-				LO.print("Non VAT Items Value found wrong");
-				System.err.println("Non VAT Items Value found wrong");
-			}
-
-			// 6
-			if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
-				LO.print("Total Cash Price found OK");
-				System.out.println("Total Cash Price found OK");
-				count++;
-			} else {
-				LO.print("Total Cash Price found wrong");
-				System.err.println("Total Cash Price found wrong");
-			}
-
-			// 7
-			if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
-				LO.print("Order Deposit found OK");
-				System.out.println("Order Deposit found OK");
-				count++;
-			} else {
-				LO.print("Order Deposit found wrong");
-				System.err.println("Order Deposit found wrong");
-			}
-
-			// 8
-			if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
-				LO.print("Finance Deposit found OK");
-				System.out.println("Finance Deposit found OK");
-				count++;
-			} else {
-				LO.print("Finance Deposit found wrong");
-				System.err.println("Finance Deposit found wrong");
-			}
-
-			// 9
-			if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
-				LO.print("Total Deposit found OK");
-				System.out.println("Total Deposit found OK");
-				count++;
-			} else {
-				LO.print("Total Deposit found wrong");
-				System.err.println("Total Deposit found wrong");
-			}
-
-			// 10
-			try {
-				if (partExchangeValue == customer_quote_part_exchange_value) {
-					LO.print("Part Exchange Value - found OK");
-					System.out.println("Part Exchange Value - found OK");
-					count++;
-				} else {
-					LO.print("Part Exchange Value - found wrong");
-					System.err.println("Part Exchange Value - found wrong");
-				}
-			} catch (Exception e) {
-			}
-
-			// 11
-			if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
-				LO.print("Balance to Finance found OK");
-				System.out.println("Balance to Finance found OK");
-				count++;
-			} else {
-				LO.print("Balance to Finance found wrong");
-				System.err.println("Balance to Finance found wrong");
-			}
-
-			// 12
-			if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
-				LO.print("Finance Charges - found OK");
-				System.out.println("Finance Charges - found OK");
-				count++;
-			} else {
-				LO.print("Finance Charges - found wrong");
-				System.err.println("Finance Charges - found wrong");
-			}
-
-			// 13
-			if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
-				LO.print("Document Fee - found OK");
-				System.out.println("Document Fee - found OK");
-				count++;
-			} else {
-				LO.print("Document Fee - found wrong");
-				System.err.println("Document Fee - found wrong");
-			}
-
-			// 14
-			if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
-				LO.print("Balance Payable - found OK");
-				System.out.println("Balance Payable - found OK");
-				count++;
-			} else {
-				LO.print("Balance Payable - found wrong");
-				System.err.println("Balance Payable - found wrong");
-			}
-
-			// 15
-			if ((Difference.of_two_Double_Values(optionToPurchaseFee,
-					customer_quote_summary_option_to_purchase_fee)) < 0.2) {
-				LO.print("Option To Purchase Fee - found OK");
-				System.out.println("Option To Purchase Fee - found OK");
-				count++;
-			} else {
-				LO.print("Option To Purchase Fee - found wrong");
-				System.err.println("Option To Purchase Fee - found wrong");
-			}
-
-			// 16
-			if ((Difference.of_two_Double_Values(initialCashPayment,
-					customer_quote_summary_initial_cash_payment)) < 0.2) {
-				LO.print("Initial Cash Payment - found OK");
-				System.out.println("Initial Cash Payment - found OK");
-				count++;
-			} else {
-				LO.print("Initial Cash Payment - found wrong");
-				System.err.println("Initial Cash Payment - found wrong");
-			}
-
-			// 17
-			if (followedBy == customer_payment_followed_by) {
-				LO.print("Followed By months - found OK");
-				System.out.println("Followed By months - found OK");
-				count++;
-			} else {
-				LO.print("Followed By months - found wrong");
-				System.err.println("Followed By months - found wrong");
-			}
-
-			// 18
-			if ((Difference.of_two_Double_Values(monthlyFinancePayment,
-					customer_quote_summary_monthly_finance_payment)) < 0.2) {
-				LO.print("Monthly Finance Payment - found OK");
-				System.out.println("Monthly Finance Payment - found OK");
-				count++;
-			} else {
-				LO.print("Monthly Finance Payment - found wrong");
-				System.err.println("Monthly Finance Payment - found wrong");
-			}
-
-			// 19
-			if ((Difference.of_two_Double_Values(monthlyMaintenancePayment,
-					customer_quote_summary_monthly_maint_payment)) < 0.2) {
-				LO.print("Monthly Maint Payment - found OK");
-				System.out.println("Monthly Maint Payment - found OK");
-				count++;
-			} else {
-				LO.print("Monthly Maint Payment - found wrong");
-				System.err.println("Monthly Maint Payment - found wrong");
-			}
-
-			// 20
-			if ((Difference.of_two_Double_Values(totalMonthlyPayment,
-					customer_quote_summary_total_monthly_payment)) < 0.2) {
-				LO.print("Monthly Total Payment - found OK");
-				System.out.println("Monthly Total Payment - found OK");
-				count++;
-			} else {
-				LO.print("Monthly Total Payment - found wrong");
-				System.err.println("Monthly Total Payment - found wrong");
-			}
-
-			// 21
-			if ((Difference.of_two_Double_Values(guaranteedFutureValue,
-					customer_quote_summary_guaranteed_future_value)) < 0.2) {
-				LO.print("Guaranteed Future Value - found OK");
-				System.out.println("Guaranteed Future Value - found OK");
-				count++;
-			} else {
-				LO.print("Guaranteed Future Value - found wrong");
-				System.err.println("Guaranteed Future Value - found wrong");
-			}
-
-			// 22
-			if ((Difference.of_two_Double_Values(optionalFinalPayment,
-					customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
-				LO.print("Optional Final Payment - found OK");
-				System.out.println("Optional Final Payment - found OK");
-				count++;
-			} else {
-				LO.print("Optional Final Payment - found wrong");
-				System.err.println("Optional Final Payment - found wrong");
-			}
-
-			// 23
-			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
-					customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
-				LO.print("Pence Per Excess Mile Finance - found OK");
-				System.out.println("Pence Per Excess Mile Finance - found OK");
-				count++;
-			} else {
-				LO.print("Pence Per Excess Mile Finance - found wrong");
-				System.err.println("Pence Per Excess Mile Finance - found wrong");
-			}
-
-			// 24
-			if ((Difference.of_two_Double_Values(pencePerExcessMileMaintenance,
-					customer_quote_summary_pence_per_excess_mile_maint)) < 0.2) {
-				LO.print("Pence Per Excess Mile Maintenance - found OK");
-				System.out.println("Pence Per Excess Mile Maintenance - found OK");
-				count++;
-			} else {
-				LO.print("Pence Per Excess Mile Maintenance - found wrong");
-				System.err.println("Pence Per Excess Mile Maintenance - found wrong");
-			}
-
-			// 25
-			if ((Difference.of_two_Double_Values(pencePerExcessMileTotal,
-					customer_quote_summary_pence_per_excess_mile_total)) < 0.2) {
-				LO.print("Pence Per Excess Mile Total - found OK");
-				System.out.println("Pence Per Excess Mile Total - found OK");
-				count++;
-			} else {
-				LO.print("Pence Per Excess Mile Total - found wrong");
-				System.err.println("Pence Per Excess Mile Total - found wrong");
-			}
-
-			// 26
-			if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
-				LO.print("Vehicle Commission - found OK");
-				System.out.println("Vehicle Commission - found OK");
-				count++;
-			} else {
-				LO.print("Vehicle Commission - found wrong");
-				System.err.println("Vehicle Commission - found wrong");
-			}
-
-			// 27
-			if ((Difference.of_two_Double_Values(defaultFinanceCommission,
-					customer_quote_summary_default_finance_comm)) < 0.2) {
-				LO.print("Default Finance Commission - found OK");
-				System.out.println("Default Finance Commission - found OK");
-				count++;
-			} else {
-				LO.print("Default Finance Commission - found wrong");
-				System.err.println("Default Finance Commission - found wrong");
-			}
-
-			// 28
-			if ((Difference.of_two_Double_Values(maintCommission,
-					customer_quote_summary_maintenance_commision)) < 0.2) {
-				LO.print("Maintenance Commission - found OK");
-				System.out.println("Maintenance Commission - found OK");
-				count++;
-			} else {
-				LO.print("Maintenance Commission - found wrong");
-				System.err.println("Maintenance Commission - found wrong");
-			}
-
-			// 29
-			if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
-				LO.print("Document Fee Commission - found OK");
-				System.out.println("Document Fee Commission - found OK");
-				count++;
-			} else {
-				LO.print("Document Fee Commission - found wrong");
-				System.err.println("Document Fee Commission - found wrong");
-			}
-
-			// 30
-			if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
-				LO.print("Total Commission - found OK");
-				System.out.println("Total Commission - found OK");
-				count++;
-			} else {
-				LO.print("Total Commission - found wrong");
-				System.err.println("Total Commission - found wrong");
-			}
-
-			if (count == 30) {
-				status = true;
-			}
-			return status;
-		} catch (Exception e) {
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
-			try {
-				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_part_exchange_value, 20);
-			} catch (Exception e1) {
-			}
-
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
-			ExplicitWait.visibleElement(driver,
-					quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
-
-			// getting text from elements
-
-			double customer_quote_summary_terms = Double
-					.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
-
-			double customer_quote_summary_miles = Double
-					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
-
-			double customer_quote_summary_basic_cash_price = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
-
-			double customer_quote_summary_vat = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
-
-			double customer_quote_summary_non_vat_items = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_cash_price = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
-
-			double customer_quote_summary_order_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_finance_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
-
-			double customer_quote_part_exchange_value = 0;
-			try {
-				customer_quote_part_exchange_value = Double.parseDouble(RemoveComma
-						.of(quote_summary_customer_quote_summary_part_exchange_value.getText().trim().substring(2)));
-			} catch (Exception e1) {
-			}
-
-			double customer_quote_summary_balance_to_finance = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
-
-			double customer_quote_summary_finance_charges = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
-
-			double customer_quote_summary_document_fee = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
-
-			double customer_quote_summary_balance_payable = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
-
-			double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
-
-			double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
-
-			double customer_payment_followed_by = Double
-					.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
-
-			double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
-
-			double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
-
-			double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee
-							.getText().trim().substring(2)));
-
-			double customer_quote_summary_pence_per_excess_mile_finance = Double
-					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance
-							.getText().trim().substring(0, 4)));
-
-			double customer_quote_summary_vehicle_comm = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_document_fee_comm = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_commission = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
-
-			// getting values from excel
-
-			double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
-			double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheet_name);
-
-			double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
-			double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
-			double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
-
-			double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
-			double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
-			double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
-
-			double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
-			double partExchangeValue = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
-			double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
-
-			double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
-			double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
-			double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
-
-			double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
-			double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
-			double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
-
-			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
-
-			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
-			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
-
-			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
-
-			double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
-			double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
-
-			double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
-			double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
-
-			// comparing actul and expected values
-
-			boolean status = false;
-
-			int count = 0;
-
-			// 1
-			if (terms == customer_quote_summary_terms) {
-				LO.print("Terms found OK");
-				System.out.println("Terms found OK");
-				count++;
-			} else {
-				LO.print("Terms found wrong");
-				System.err.println("Terms found wrong");
-			}
-
-			// 2
-			if (miles == customer_quote_summary_miles) {
-				LO.print("miles found OK");
-				System.out.println("miles found OK");
-				count++;
-			} else {
-				LO.print("miles found wrong");
-				System.err.println("miles found wrong");
-			}
-
-			// 3
-			if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
-				LO.print("Basic Cash Price found OK");
-				System.out.println("Basic Cash Price found OK");
-				count++;
-			} else {
-				LO.print("Basic Cash Price found wrong");
-				System.err.println("Basic Cash Price found wrong");
-			}
-
-			// 4
-			if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
-				LO.print("VAT found OK");
-				System.out.println("VAT found OK");
-				count++;
-			} else {
-				LO.print("VAT found wrong");
-				System.err.println("VAT found wrong");
-			}
-
-			// 5
-			if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
-				LO.print("Non VAT Items Value found OK");
-				System.out.println("Non VAT Items Value found OK");
-				count++;
-			} else {
-				LO.print("Non VAT Items Value found wrong");
-				System.err.println("Non VAT Items Value found wrong");
-			}
-
-			// 6
-			if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
-				LO.print("Total Cash Price found OK");
-				System.out.println("Total Cash Price found OK");
-				count++;
-			} else {
-				LO.print("Total Cash Price found wrong");
-				System.err.println("Total Cash Price found wrong");
-			}
-
-			// 7
-			if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
-				LO.print("Order Deposit found OK");
-				System.out.println("Order Deposit found OK");
-				count++;
-			} else {
-				LO.print("Order Deposit found wrong");
-				System.err.println("Order Deposit found wrong");
-			}
-
-			// 8
-			if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
-				LO.print("Finance Deposit found OK");
-				System.out.println("Finance Deposit found OK");
-				count++;
-			} else {
-				LO.print("Finance Deposit found wrong");
-				System.err.println("Finance Deposit found wrong");
-			}
-
-			// 9
-			if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
-				LO.print("Total Deposit found OK");
-				System.out.println("Total Deposit found OK");
-				count++;
-			} else {
-				LO.print("Total Deposit found wrong");
-				System.err.println("Total Deposit found wrong");
-			}
-
-			// 10
-			try {
-				if (partExchangeValue == customer_quote_part_exchange_value) {
-					LO.print("Part Exchange Value - found OK");
-					System.out.println("Part Exchange Value - found OK");
-					count++;
-				} else {
-					LO.print("Part Exchange Value - found wrong");
-					System.err.println("Part Exchange Value - found wrong");
-				}
-			} catch (Exception e1) {
-			}
-
-			// 11
-			if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
-				LO.print("Balance to Finance found OK");
-				System.out.println("Balance to Finance found OK");
-				count++;
-			} else {
-				LO.print("Balance to Finance found wrong");
-				System.err.println("Balance to Finance found wrong");
-			}
-
-			// 12
-			if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
-				LO.print("Finance Charges - found OK");
-				System.out.println("Finance Charges - found OK");
-				count++;
-			} else {
-				LO.print("Finance Charges - found wrong");
-				System.err.println("Finance Charges - found wrong");
-			}
-
-			// 13
-			if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
-				LO.print("Document Fee - found OK");
-				System.out.println("Document Fee - found OK");
-				count++;
-			} else {
-				LO.print("Document Fee - found wrong");
-				System.err.println("Document Fee - found wrong");
-			}
-
-			// 14
-			if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
-				LO.print("Balance Payable - found OK");
-				System.out.println("Balance Payable - found OK");
-				count++;
-			} else {
-				LO.print("Balance Payable - found wrong");
-				System.err.println("Balance Payable - found wrong");
-			}
-
-			// 15
-			if ((Difference.of_two_Double_Values(optionToPurchaseFee,
-					customer_quote_summary_option_to_purchase_fee)) < 0.2) {
-				LO.print("Option To Purchase Fee - found OK");
-				System.out.println("Option To Purchase Fee - found OK");
-				count++;
-			} else {
-				LO.print("Option To Purchase Fee - found wrong");
-				System.err.println("Option To Purchase Fee - found wrong");
-			}
-
-			// 16
-			if ((Difference.of_two_Double_Values(initialCashPayment,
-					customer_quote_summary_initial_cash_payment)) < 0.2) {
-				LO.print("Initial Cash Payment - found OK");
-				System.out.println("Initial Cash Payment - found OK");
-				count++;
-			} else {
-				LO.print("Initial Cash Payment - found wrong");
-				System.err.println("Initial Cash Payment - found wrong");
-			}
-
-			// 17
-			if (followedBy == customer_payment_followed_by) {
-				LO.print("Followed By months - found OK");
-				System.out.println("Followed By months - found OK");
-				count++;
-			} else {
-				LO.print("Followed By months - found wrong");
-				System.err.println("Followed By months - found wrong");
-			}
-
-			// 18
-			if ((Difference.of_two_Double_Values(monthlyFinancePayment,
-					customer_quote_summary_monthly_finance_payment)) < 0.2) {
-				LO.print("Monthly Finance Payment - found OK");
-				System.out.println("Monthly Finance Payment - found OK");
-				count++;
-			} else {
-				LO.print("Monthly Finance Payment - found wrong");
-				System.err.println("Monthly Finance Payment - found wrong");
-			}
-
-			// 19
-			if ((Difference.of_two_Double_Values(guaranteedFutureValue,
-					customer_quote_summary_guaranteed_future_value)) < 0.2) {
-				LO.print("Guaranteed Future Value - found OK");
-				System.out.println("Guaranteed Future Value - found OK");
-				count++;
-			} else {
-				LO.print("Guaranteed Future Value - found wrong");
-				System.err.println("Guaranteed Future Value - found wrong");
-			}
-
-			// 20
-			if ((Difference.of_two_Double_Values(optionalFinalPayment,
-					customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
-				LO.print("Optional Final Payment - found OK");
-				System.out.println("Optional Final Payment - found OK");
-				count++;
-			} else {
-				LO.print("Optional Final Payment - found wrong");
-				System.err.println("Optional Final Payment - found wrong");
-			}
-
-			// 21
-			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
-					customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
-				LO.print("Pence Per Excess Mile Finance - found OK");
-				System.out.println("Pence Per Excess Mile Finance - found OK");
-				count++;
-			} else {
-				LO.print("Pence Per Excess Mile Finance - found wrong");
-				System.err.println("Pence Per Excess Mile Finance - found wrong");
-			}
-
-			// 22
-			if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
-				LO.print("Vehicle Commission - found OK");
-				System.out.println("Vehicle Commission - found OK");
-				count++;
-			} else {
-				LO.print("Vehicle Commission - found wrong");
-				System.err.println("Vehicle Commission - found wrong");
-			}
-
-			// 23
-			if ((Difference.of_two_Double_Values(defaultFinanceCommission,
-					customer_quote_summary_default_finance_comm)) < 0.2) {
-				LO.print("Default Finance Commission - found OK");
-				System.out.println("Default Finance Commission - found OK");
-				count++;
-			} else {
-				LO.print("Default Finance Commission - found wrong");
-				System.err.println("Default Finance Commission - found wrong");
-			}
-
-			// 24
-			if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
-				LO.print("Document Fee Commission - found OK");
-				System.out.println("Document Fee Commission - found OK");
-				count++;
-			} else {
-				LO.print("Document Fee Commission - found wrong");
-				System.err.println("Document Fee Commission - found wrong");
-			}
-
-			// 25
-			if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
-				LO.print("Total Commission - found OK");
-				System.out.println("Total Commission - found OK");
-				count++;
-			} else {
-				LO.print("Total Commission - found wrong");
-				System.err.println("Total Commission - found wrong");
-			}
-
-			if (count == 25) {
-				status = true;
-			}
-			return status;
-
-		}
-
-	}
-
-	
-	public boolean quote_summary_configuration_value_verification_with_maintenance(String sheet_name)
-			throws IOException, UnsupportedFlavorException {
-		LO.print("*************Configuration Values Verification on quote summary page has been started************");
-		System.out.println(
-				"*************Configuration Values Verification on quote summary page has been started************");
-
-		Click.on(driver, quote_summary_configuration, 30);
-
-		try {
-			// reading configuration values from screen
-
-			ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
-			double baseInterestRateFromScreen = Double
-					.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
-
-			ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
-			double financeMarginFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
-
-			ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
-			double deductionsFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
-
-			ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
-			double additionalMarginFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
-
-			ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
-			double totalMarginFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
-
-			ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
-			double defaultBrokerMarginPercentageFromScreen = Double
-					.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0, 4));
-
-			ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
-			double customerInterestRateFromScreen = Double
-					.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 4));
-
-			ExplicitWait.visibleElement(driver, quote_summary_maintenance_margin, 20);
-			double maintenanceMarginFromScreen = Double
-					.parseDouble(quote_summary_maintenance_margin.getText().trim().substring(2));
-
-			ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
-			double documentFeeMarginFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
-
-			// copying default broker margin from input field
-
-			ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
-			quote_summary_configuration_default_broker_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-			String temp_default_broker_margin_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-			double default_broker_margin_copied = Double.parseDouble(temp_default_broker_margin_copied);
-
-//					ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
-//					double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
-//
-//					ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
-//					double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
-//				
-//					ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
-//					double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
-//				
-
-			// getting values from excel
-
-			double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 1, sheet_name);
-
-			double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
-
-			double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(259, 5, sheet_name);
-
-			double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(253, 5, sheet_name);
-
-			double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 1, sheet_name);
-
-			double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 5, sheet_name);
-
-			double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(260, 1,
-					sheet_name);
-
-			double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
-
-			double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(259, 1, sheet_name);
-			double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
-
-			double maintenanceMarginFromExcel = GetExcelFormulaValue.get_formula_value(261, 5, sheet_name);
-
-			double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(262, 1, sheet_name);
-
-			double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(260, 5, sheet_name);
-
-//				  
-//				  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(266,5, sheet_name);
-//				  
-//				  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(267,5, sheet_name);
-//				  
-//				  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(268,5, sheet_name);
-//				  
-
-			// verifying actual and expected values
-
-			int count = 0;
-			boolean status = false;
-			// 1
-			if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
-				LO.print("Base Interest Rate found OK");
-				System.out.println("Base Interest Rate found OK");
-				count++;
-			} else {
-				LO.print("Base Interest Rate found wrong");
-				System.err.println("Base Interest Rate found wrong");
-			}
-
-			// 2
-			if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
-				LO.print("Finance Margin found OK");
-				System.out.println("Finance Margin found OK");
-				count++;
-			} else {
-				LO.print("Finance Margin found wrong");
-				System.err.println("Finance Margin found wrong");
-			}
-
-			// 3
-			if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
-				LO.print("Deductions found OK");
-				System.out.println("Deductions found OK");
-				count++;
-			} else {
-				LO.print("Deductions found wrong");
-				System.err.println("Deductions found wrong");
-			}
-
-			// 4
-			if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
-				LO.print("Additional Margin found OK");
-				System.out.println("Additional Margin found OK");
-				count++;
-			} else {
-				LO.print("Additional Margin found wrong");
-				System.err.println("Additional Margin found wrong");
-			}
-
-			// 5
-			if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
-				LO.print("Total Margin found OK");
-				System.out.println("Total Margin found OK");
-				count++;
-			} else {
-				LO.print("Total Margin found wrong");
-				System.err.println("Total Margin found wrong");
-			}
-
-			// 6
-			if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
-					defaultBrokerMarginPercentageFromScreen) < 0.2) {
-				LO.print("Default Broker Margin percentage found OK");
-				System.out.println("Default Broker Margin percentage found OK");
-				count++;
-			} else {
-				LO.print("Default Broker Margin percentage found wrong");
-				System.err.println("Default Broker Margin percentage found wrong");
-			}
-
-			// 7
-			if (Difference.of_two_Double_Values(customerInterestRateFromScreen, customerInterestRateFromExcel) < 0.2) {
-				LO.print("Customer Interest Rate found OK");
-				System.out.println("Customer Interest Rate found OK");
-				count++;
-			} else {
-				LO.print("Customer Interest Rate found wrong");
-				System.err.println("Customer Interest Rate found wrong");
-			}
-
-			// 8
-			if ((Difference.of_two_Double_Values(maintenanceMarginFromScreen, maintenanceMarginFromExcel)) < 0.2) {
-				LO.print("Maintenance Margin found OK");
-				System.out.println("Maintenance Margin found OK");
-				count++;
-			} else {
-				LO.print("Maintenance Margin found wrong");
-				System.err.println("Maintenance Margin  found wrong");
-			}
-			// 9
-			if ((Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2)) {
-				LO.print("Document Fee Margin found OK");
-				System.out.println("Document Fee Margin found OK");
-				count++;
-			} else {
-				LO.print("Document Fee Margin  found wrong");
-				System.err.println("Document Fee Margin  found wrong");
-			}
-
-			// 10
-			if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
-				LO.print("Default Broker Margin found OK");
-				System.out.println("Default Broker Margin found OK");
-				count++;
-			} else {
-				LO.print("Default Broker Margin  found wrong");
-				System.err.println("Default Broker Margin  found wrong");
-			}
-
-//			        //10
-//					if (trackerCostFromScreen==trackerCostFromExcel) {
-//						LO.print("Tracker Cost found OK");
-//						System.out.println("Tracker Cost found OK");
-//						count++;
-//					} else {
-//						LO.print("Tracker Cost  found wrong");
-//						System.err.println("Tracker Cost  found wrong");
-//					}
-//					
-//					//11
-//					if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
-//						LO.print("Insurance Tax found OK");
-//						System.out.println("Insurance Tax found OK");
-//						count++;
-//					} else {
-//						LO.print("Insurance Tax found wrong");
-//						System.err.println("Insurance Tax found wrong");
-//					}
-//					
-//					//12
-//					if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
-//						LO.print("Contingency Insurance Value found OK");
-//						System.out.println("Contingency Insurance Value found OK");
-//						count++;
-//					} else {
-//						LO.print("Contingency Insurance Value found wrong");
-//						System.err.println("Contingency Insurance Value found wrong");
-//					}
-
-			if (count == 10) {
-				status = true;
-			}
-			return status;
-		} catch (Exception e) {
-
-			// reading configuration values from screen
-
-			ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
-			double baseInterestRateFromScreen = Double
-					.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
-
-			ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
-			double financeMarginFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
-
-			ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
-			double deductionsFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
-
-			ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
-			double additionalMarginFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
-
-			ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
-			double totalMarginFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
-
-			ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
-			double defaultBrokerMarginPercentageFromScreen = Double
-					.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0, 4));
-
-			ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
-			double customerInterestRateFromScreen = Double
-					.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 5));
-
-			ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
-			double documentFeeMarginFromScreen = Double
-					.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
-
-			// copying default broker margin from input field
-
-			ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
-			quote_summary_configuration_default_broker_margin_input.sendKeys(Keys.chord(Keys.CONTROL, "a", "c"));
-
-			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-			String temp_default_broker_margin_copied = (String) clipboard.getData(DataFlavor.stringFlavor);
-			double default_broker_margin_copied = Double.parseDouble(temp_default_broker_margin_copied);
-
-//			ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
-//			double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
-			//
-//			ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
-//			double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
-			//
-//			ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
-//			double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
-			//
-
-			// getting values from excel
-
-			double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 01, sheet_name);
-
-			double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
-
-			double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(259, 5, sheet_name);
-
-			double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(253, 5, sheet_name);
-
-			double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 1, sheet_name);
-
-			double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 5, sheet_name);
-
-			double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(260, 1,
-					sheet_name);
-
-			double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
-
-			double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(259, 1, sheet_name);
-			double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
-
-			double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(262, 1, sheet_name);
-
-			double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(260, 5, sheet_name);
-
-//		  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(0,
-//		  0, sheet_name);
-//		  
-//		  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(0,
-//		  0, sheet_name);
-//		  
-//		  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(0,
-//		  0, sheet_name);
-//		  
-//		  
-			// verifying actual and expected values
-
-			int count = 0;
-			boolean status = false;
-			// 1
-			if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
-				LO.print("Base Interest Rate found OK");
-				System.out.println("Base Interest Rate found OK");
-				count++;
-			} else {
-				LO.print("Base Interest Rate found wrong");
-				System.err.println("Base Interest Rate found wrong");
-			}
-
-			// 2
-			if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
-				LO.print("Finance Margin found OK");
-				System.out.println("Finance Margin found OK");
-				count++;
-			} else {
-				LO.print("Finance Margin found wrong");
-				System.err.println("Finance Margin found wrong");
-			}
-
-			// 3
-			if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
-				LO.print("Deductions found OK");
-				System.out.println("Deductions found OK");
-				count++;
-			} else {
-				LO.print("Deductions found wrong");
-				System.err.println("Deductions found wrong");
-			}
-
-			// 4
-			if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
-				LO.print("Additional Margin found OK");
-				System.out.println("Additional Margin found OK");
-				count++;
-			} else {
-				LO.print("Additional Margin found wrong");
-				System.err.println("Additional Margin found wrong");
-			}
-
-			// 5
-			if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
-				LO.print("Total Margin found OK");
-				System.out.println("Total Margin found OK");
-				count++;
-			} else {
-				LO.print("Total Margin found wrong");
-				System.err.println("Total Margin found wrong");
-			}
-
-			// 6
-			if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
-					defaultBrokerMarginPercentageFromScreen) < 0.2) {
-				LO.print("Default Broker Margin percentage found OK");
-				System.out.println("Default Broker Margin percentage found OK");
-				count++;
-			} else {
-				LO.print("Default Broker Margin percentage found wrong");
-				System.err.println("Default Broker Margin percentage found wrong");
-			}
-
-			// 7
-			if (Difference.of_two_Double_Values(customerInterestRateFromScreen, customerInterestRateFromExcel) < 0.2) {
-				LO.print("Customer Interest Rate found OK");
-				System.out.println("Customer Interest Rate found OK");
-				count++;
-			} else {
-				LO.print("Customer Interest Rate found wrong");
-				System.err.println("Customer Interest Rate found wrong");
-			}
-
-			// 8
-			if (Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2) {
-				LO.print("Document Fee Margin found OK");
-				System.out.println("Document Fee Margin found OK");
-				count++;
-			} else {
-				LO.print("Document Fee Margin  found wrong");
-				System.err.println("Document Fee Margin  found wrong");
-			}
-			// 9
-			if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
-				LO.print("Default Broker Margin found OK");
-				System.out.println("Default Broker Margin found OK");
-				count++;
-			} else {
-				LO.print("Default Broker Margin  found wrong");
-				System.err.println("Default Broker Margin  found wrong");
-			}
-
-//	        //9
-//			if (trackerCostFromScreen==trackerCostFromExcel) {
-//				LO.print("Tracker Cost found OK");
-//				System.out.println("Tracker Cost found OK");
-//				count++;
-//			} else {
-//				LO.print("Tracker Cost  found wrong");
-//				System.err.println("Tracker Cost  found wrong");
-//			}
-//			
-//			//10
-//			if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
-//				LO.print("Insurance Tax found OK");
-//				System.out.println("Insurance Tax found OK");
-//				count++;
-//			} else {
-//				LO.print("Insurance Tax found wrong");
-//				System.err.println("Insurance Tax found wrong");
-//			}
-//			
-//			//11
-//			if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
-//				LO.print("Contingency Insurance Value found OK");
-//				System.out.println("Contingency Insurance Value found OK");
-//				count++;
-//			} else {
-//				LO.print("Contingency Insurance Value found wrong");
-//				System.err.println("Contingency Insurance Value found wrong");
-//			}
-
-			if (count == 9) {
-				status = true;
-			}
-			return status;
-
-		}
-	}
 
 	public boolean quote_summary_edit_base_int_rate_value_verification_without_maintenance(String sheet_name)
 			throws IOException, InterruptedException {
@@ -4059,1327 +1917,6 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 
 	}
 
-	public boolean quote_summary_customer_quote_summary_value_verification_for_funder_with_maintenance(
-			String sheet_name) throws IOException {
-
-		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
-		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
-
-		// Clicking on Customer quote pannel
-		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 20);
-
-		try {
-			// waiting for elements
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_maint_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_monthly_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
-			ExplicitWait.visibleElement(driver,
-					quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_maint, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_total, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_maintenance_commision, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
-
-			// getting text from elements
-
-			double customer_quote_summary_terms = Double
-					.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
-
-			double customer_quote_summary_miles = Double
-					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
-
-			double customer_quote_summary_basic_cash_price = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
-
-			double customer_quote_summary_vat = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
-
-			double customer_quote_summary_non_vat_items = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_cash_price = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
-
-			double customer_quote_summary_order_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_finance_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_balance_to_finance = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
-
-			double customer_quote_summary_finance_charges = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
-
-			double customer_quote_summary_document_fee = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
-
-			double customer_quote_summary_balance_payable = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
-
-			double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
-
-			double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
-
-			double customer_payment_followed_by = Double
-					.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
-
-			double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
-
-			double customer_quote_summary_monthly_maint_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_monthly_maint_payment.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_monthly_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
-			double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
-
-			double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee
-							.getText().trim().substring(2)));
-
-			double customer_quote_summary_pence_per_excess_mile_finance = Double
-					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance
-							.getText().trim().substring(0, 4)));
-
-			double customer_quote_summary_pence_per_excess_mile_maint = Double.parseDouble(RemoveComma.of(
-					quote_summary_customer_quote_summary_pence_per_excess_mile_maint.getText().trim().substring(0, 4)));
-
-			double customer_quote_summary_pence_per_excess_mile_total = Double.parseDouble(RemoveComma.of(
-					quote_summary_customer_quote_summary_pence_per_excess_mile_total.getText().trim().substring(0, 4)));
-
-			double customer_quote_summary_vehicle_comm = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_maintenance_commision = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_maintenance_commision.getText().trim().substring(2)));
-
-			double customer_quote_summary_document_fee_comm = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_commission = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
-
-			// writing balloon value to excel
-
-			FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
-			XSSFWorkbook wb = new XSSFWorkbook(in);
-			wb.getSheet(sheet_name).getRow(169).getCell(4).setCellValue(customer_quote_summary_guaranteed_future_value);
-			FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
-			wb.write(out);
-
-			// getting values from excel
-
-			double terms = GetExcelFormulaValue.get_string_value(208, 1, sheet_name);
-			double miles = GetExcelFormulaValue.get_string_value(208, 4, sheet_name);
-
-			double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
-			double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
-			double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
-
-			double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
-			double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
-			double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
-
-			double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
-			double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
-
-			double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
-			double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
-			double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
-
-			double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
-			double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
-			double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
-
-			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
-			double monthlyMaintenancePayment = GetExcelFormulaValue.get_formula_value(229, 1, sheet_name);
-			double totalMonthlyPayment = GetExcelFormulaValue.get_formula_value(229, 4, sheet_name);
-
-			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
-			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
-			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
-			double pencePerExcessMileMaintenance = GetExcelFormulaValue.get_formula_value(235, 0, sheet_name);
-			double pencePerExcessMileTotal = GetExcelFormulaValue.get_formula_value(235, 1, sheet_name);
-
-			double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
-			double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
-			double maintCommission = GetExcelFormulaValue.get_formula_value(239, 4, sheet_name);
-
-			double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
-			double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
-
-			// comparing actul and expected values
-
-			boolean status = false;
-
-			int count = 0;
-
-			// 1
-			if (terms == customer_quote_summary_terms) {
-				LO.print("Terms found OK");
-				System.out.println("Terms found OK");
-				count++;
-			} else {
-				LO.print("Terms found wrong");
-				System.err.println("Terms found wrong");
-			}
-
-			// 2
-			if (miles == customer_quote_summary_miles) {
-				LO.print("miles found OK");
-				System.out.println("miles found OK");
-				count++;
-			} else {
-				LO.print("miles found wrong");
-				System.err.println("miles found wrong");
-			}
-
-			// 3
-			if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
-				LO.print("Basic Cash Price found OK");
-				System.out.println("Basic Cash Price found OK");
-				count++;
-			} else {
-				LO.print("Basic Cash Price found wrong");
-				System.err.println("Basic Cash Price found wrong");
-			}
-
-			// 4
-			if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
-				LO.print("VAT found OK");
-				System.out.println("VAT found OK");
-				count++;
-			} else {
-				LO.print("VAT found wrong");
-				System.err.println("VAT found wrong");
-			}
-
-			// 5
-			if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
-				LO.print("Non VAT Items Value found OK");
-				System.out.println("Non VAT Items Value found OK");
-				count++;
-			} else {
-				LO.print("Non VAT Items Value found wrong");
-				System.err.println("Non VAT Items Value found wrong");
-			}
-
-			// 6
-			if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
-				LO.print("Total Cash Price found OK");
-				System.out.println("Total Cash Price found OK");
-				count++;
-			} else {
-				LO.print("Total Cash Price found wrong");
-				System.err.println("Total Cash Price found wrong");
-			}
-
-			// 7
-			if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
-				LO.print("Order Deposit found OK");
-				System.out.println("Order Deposit found OK");
-				count++;
-			} else {
-				LO.print("Order Deposit found wrong");
-				System.err.println("Order Deposit found wrong");
-			}
-
-			// 8
-			if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
-				LO.print("Finance Deposit found OK");
-				System.out.println("Finance Deposit found OK");
-				count++;
-			} else {
-				LO.print("Finance Deposit found wrong");
-				System.err.println("Finance Deposit found wrong");
-			}
-
-			// 9
-			if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
-				LO.print("Total Deposit found OK");
-				System.out.println("Total Deposit found OK");
-				count++;
-			} else {
-				LO.print("Total Deposit found wrong");
-				System.err.println("Total Deposit found wrong");
-			}
-
-			// 10
-			if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
-				LO.print("Balance to Finance found OK");
-				System.out.println("Balance to Finance found OK");
-				count++;
-			} else {
-				LO.print("Balance to Finance found wrong");
-				System.err.println("Balance to Finance found wrong");
-			}
-
-			// 11
-			if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
-				LO.print("Finance Charges - found OK");
-				System.out.println("Finance Charges - found OK");
-				count++;
-			} else {
-				LO.print("Finance Charges - found wrong");
-				System.err.println("Finance Charges - found wrong");
-			}
-
-			// 12
-			if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
-				LO.print("Document Fee - found OK");
-				System.out.println("Document Fee - found OK");
-				count++;
-			} else {
-				LO.print("Document Fee - found wrong");
-				System.err.println("Document Fee - found wrong");
-			}
-
-			// 13
-			if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
-				LO.print("Balance Payable - found OK");
-				System.out.println("Balance Payable - found OK");
-				count++;
-			} else {
-				LO.print("Balance Payable - found wrong");
-				System.err.println("Balance Payable - found wrong");
-			}
-
-			// 14
-			if ((Difference.of_two_Double_Values(optionToPurchaseFee,
-					customer_quote_summary_option_to_purchase_fee)) < 0.2) {
-				LO.print("Option To Purchase Fee - found OK");
-				System.out.println("Option To Purchase Fee - found OK");
-				count++;
-			} else {
-				LO.print("Option To Purchase Fee - found wrong");
-				System.err.println("Option To Purchase Fee - found wrong");
-			}
-
-			// 15
-			if ((Difference.of_two_Double_Values(initialCashPayment,
-					customer_quote_summary_initial_cash_payment)) < 0.2) {
-				LO.print("Initial Cash Payment - found OK");
-				System.out.println("Initial Cash Payment - found OK");
-				count++;
-			} else {
-				LO.print("Initial Cash Payment - found wrong");
-				System.err.println("Initial Cash Payment - found wrong");
-			}
-
-			// 16
-			if (followedBy == customer_payment_followed_by) {
-				LO.print("Followed By months - found OK");
-				System.out.println("Followed By months - found OK");
-				count++;
-			} else {
-				LO.print("Followed By months - found wrong");
-				System.err.println("Followed By months - found wrong");
-			}
-
-			// 17
-			if ((Difference.of_two_Double_Values(monthlyFinancePayment,
-					customer_quote_summary_monthly_finance_payment)) < 0.2) {
-				LO.print("Monthly Finance Payment - found OK");
-				System.out.println("Monthly Finance Payment - found OK");
-				count++;
-			} else {
-				LO.print("Monthly Finance Payment - found wrong");
-				System.err.println("Monthly Finance Payment - found wrong");
-			}
-
-			// 18
-			if ((Difference.of_two_Double_Values(monthlyMaintenancePayment,
-					customer_quote_summary_monthly_maint_payment)) < 0.2) {
-				LO.print("Monthly Maint Payment - found OK");
-				System.out.println("Monthly Maint Payment - found OK");
-				count++;
-			} else {
-				LO.print("Monthly Maint Payment - found wrong");
-				System.err.println("Monthly Maint Payment - found wrong");
-			}
-
-			// 19
-			if ((Difference.of_two_Double_Values(totalMonthlyPayment,
-					customer_quote_summary_total_monthly_payment)) < 0.2) {
-				LO.print("Monthly Total Payment - found OK");
-				System.out.println("Monthly Total Payment - found OK");
-				count++;
-			} else {
-				LO.print("Monthly Total Payment - found wrong");
-				System.err.println("Monthly Total Payment - found wrong");
-			}
-
-			// 20
-			if ((Difference.of_two_Double_Values(guaranteedFutureValue,
-					customer_quote_summary_guaranteed_future_value)) < 0.2) {
-				LO.print("Balloon Value - found OK");
-				System.out.println("Balloon Value - found OK");
-				count++;
-			} else {
-				LO.print("Balloon Value - found wrong");
-				System.err.println("Balloon Value - found wrong");
-			}
-
-			// 21
-			if ((Difference.of_two_Double_Values(optionalFinalPayment,
-					customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
-				LO.print("Final Payment - found OK");
-				System.out.println("Final Payment - found OK");
-				count++;
-			} else {
-				LO.print("Final Payment - found wrong");
-				System.err.println("Final Payment - found wrong");
-			}
-
-			// 22
-			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
-					customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
-				LO.print("Pence Per Excess Mile Finance - found OK");
-				System.out.println("Pence Per Excess Mile Finance - found OK");
-				count++;
-			} else {
-				LO.print("Pence Per Excess Mile Finance - found wrong");
-				System.err.println("Pence Per Excess Mile Finance - found wrong");
-			}
-
-			// 23
-			if ((Difference.of_two_Double_Values(pencePerExcessMileMaintenance,
-					customer_quote_summary_pence_per_excess_mile_maint)) < 0.2) {
-				LO.print("Pence Per Excess Mile Maintenance - found OK");
-				System.out.println("Pence Per Excess Mile Maintenance - found OK");
-				count++;
-			} else {
-				LO.print("Pence Per Excess Mile Maintenance - found wrong");
-				System.err.println("Pence Per Excess Mile Maintenance - found wrong");
-			}
-
-			// 24
-			if ((Difference.of_two_Double_Values(pencePerExcessMileTotal,
-					customer_quote_summary_pence_per_excess_mile_total)) < 0.2) {
-				LO.print("Pence Per Excess Mile Total - found OK");
-				System.out.println("Pence Per Excess Mile Total - found OK");
-				count++;
-			} else {
-				LO.print("Pence Per Excess Mile Total - found wrong");
-				System.err.println("Pence Per Excess Mile Total - found wrong");
-			}
-
-			// 25
-			if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
-				LO.print("Vehicle Commission - found OK");
-				System.out.println("Vehicle Commission - found OK");
-				count++;
-			} else {
-				LO.print("Vehicle Commission - found wrong");
-				System.err.println("Vehicle Commission - found wrong");
-			}
-
-			// 26
-			if ((Difference.of_two_Double_Values(defaultFinanceCommission,
-					customer_quote_summary_default_finance_comm)) < 0.2) {
-				LO.print("Default Finance Commission - found OK");
-				System.out.println("Default Finance Commission - found OK");
-				count++;
-			} else {
-				LO.print("Default Finance Commission - found wrong");
-				System.err.println("Default Finance Commission - found wrong");
-			}
-
-			// 27
-			if ((Difference.of_two_Double_Values(maintCommission,
-					customer_quote_summary_maintenance_commision)) < 0.2) {
-				LO.print("Maintenance Commission - found OK");
-				System.out.println("Maintenance Commission - found OK");
-				count++;
-			} else {
-				LO.print("Maintenance Commission - found wrong");
-				System.err.println("Maintenance Commission - found wrong");
-			}
-
-			// 28
-			if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
-				LO.print("Document Fee Commission - found OK");
-				System.out.println("Document Fee Commission - found OK");
-				count++;
-			} else {
-				LO.print("Document Fee Commission - found wrong");
-				System.err.println("Document Fee Commission - found wrong");
-			}
-
-			// 29
-			if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
-				LO.print("Total Commission - found OK");
-				System.out.println("Total Commission - found OK");
-				count++;
-			} else {
-				LO.print("Total Commission - found wrong");
-				System.err.println("Total Commission - found wrong");
-			}
-
-			if (count == 29) {
-				status = true;
-			}
-			return status;
-		} catch (Exception e) {
-
-			// waiting for elements
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
-			ExplicitWait.visibleElement(driver,
-					quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
-
-			// getting text from elements
-
-			double customer_quote_summary_terms = Double
-					.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
-
-			double customer_quote_summary_miles = Double
-					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
-
-			double customer_quote_summary_basic_cash_price = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
-
-			double customer_quote_summary_vat = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
-
-			double customer_quote_summary_non_vat_items = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_cash_price = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
-
-			double customer_quote_summary_order_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_finance_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_deposit = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
-
-			double customer_quote_summary_balance_to_finance = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
-
-			double customer_quote_summary_finance_charges = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
-
-			double customer_quote_summary_document_fee = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
-
-			double customer_quote_summary_balance_payable = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
-
-			System.out.println("customer_quote_summary_balance_payable" + customer_quote_summary_balance_payable);
-
-			double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
-
-			double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
-
-			double customer_payment_followed_by = Double
-					.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
-
-			double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
-
-			double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
-
-			double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee
-							.getText().trim().substring(2)));
-
-			double customer_quote_summary_pence_per_excess_mile_finance = Double
-					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance
-							.getText().trim().substring(0, 4)));
-
-			double customer_quote_summary_vehicle_comm = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_document_fee_comm = Double.parseDouble(RemoveComma
-					.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
-
-			double customer_quote_summary_total_commission = Double.parseDouble(
-					RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
-
-			// writing balloon value to excel
-
-			FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
-			XSSFWorkbook wb = new XSSFWorkbook(in);
-			wb.getSheet(sheet_name).getRow(169).getCell(4).setCellValue(customer_quote_summary_guaranteed_future_value);
-			FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
-			wb.write(out);
-
-			// getting values from excel
-
-			double terms = GetExcelFormulaValue.get_string_value(208, 1, sheet_name);
-			double miles = GetExcelFormulaValue.get_string_value(208, 4, sheet_name);
-
-			double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
-			double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
-			double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
-
-			double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
-			double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
-			double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
-
-			double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
-			double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
-
-			double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
-			double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
-			double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
-
-			double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
-			double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
-			double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
-
-			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
-
-			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
-			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
-			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
-
-			double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
-			double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
-
-			double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
-			double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
-
-			// comparing actul and expected values
-
-			boolean status = false;
-
-			int count = 0;
-
-			// 1
-			if (terms == customer_quote_summary_terms) {
-				LO.print("Terms found OK");
-				System.out.println("Terms found OK");
-				count++;
-			} else {
-				LO.print("Terms found wrong");
-				System.err.println("Terms found wrong");
-			}
-
-			// 2
-			if (miles == customer_quote_summary_miles) {
-				LO.print("miles found OK");
-				System.out.println("miles found OK");
-				count++;
-			} else {
-				LO.print("miles found wrong");
-				System.err.println("miles found wrong");
-			}
-
-			// 3
-			if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
-				LO.print("Basic Cash Price found OK");
-				System.out.println("Basic Cash Price found OK");
-				count++;
-			} else {
-				LO.print("Basic Cash Price found wrong");
-				System.err.println("Basic Cash Price found wrong");
-			}
-
-			// 4
-			if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
-				LO.print("VAT found OK");
-				System.out.println("VAT found OK");
-				count++;
-			} else {
-				LO.print("VAT found wrong");
-				System.err.println("VAT found wrong");
-			}
-
-			// 5
-			if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
-				LO.print("Non VAT Items Value found OK");
-				System.out.println("Non VAT Items Value found OK");
-				count++;
-			} else {
-				LO.print("Non VAT Items Value found wrong");
-				System.err.println("Non VAT Items Value found wrong");
-			}
-
-			// 6
-			if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
-				LO.print("Total Cash Price found OK");
-				System.out.println("Total Cash Price found OK");
-				count++;
-			} else {
-				LO.print("Total Cash Price found wrong");
-				System.err.println("Total Cash Price found wrong");
-			}
-
-			// 7
-			if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
-				LO.print("Order Deposit found OK");
-				System.out.println("Order Deposit found OK");
-				count++;
-			} else {
-				LO.print("Order Deposit found wrong");
-				System.err.println("Order Deposit found wrong");
-			}
-
-			// 8
-			if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
-				LO.print("Finance Deposit found OK");
-				System.out.println("Finance Deposit found OK");
-				count++;
-			} else {
-				LO.print("Finance Deposit found wrong");
-				System.err.println("Finance Deposit found wrong");
-			}
-
-			// 9
-			if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
-				LO.print("Total Deposit found OK");
-				System.out.println("Total Deposit found OK");
-				count++;
-			} else {
-				LO.print("Total Deposit found wrong");
-				System.err.println("Total Deposit found wrong");
-			}
-
-			// 10
-			if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
-				LO.print("Balance to Finance found OK");
-				System.out.println("Balance to Finance found OK");
-				count++;
-			} else {
-				LO.print("Balance to Finance found wrong");
-				System.err.println("Balance to Finance found wrong");
-			}
-
-			// 11
-			if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
-				LO.print("Finance Charges - found OK");
-				System.out.println("Finance Charges - found OK");
-				count++;
-			} else {
-				LO.print("Finance Charges - found wrong");
-				System.err.println("Finance Charges - found wrong");
-			}
-
-			// 12
-			if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
-				LO.print("Document Fee - found OK");
-				System.out.println("Document Fee - found OK");
-				count++;
-			} else {
-				LO.print("Document Fee - found wrong");
-				System.err.println("Document Fee - found wrong");
-			}
-
-			// 13
-			if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
-				LO.print("Balance Payable - found OK");
-				System.out.println("Balance Payable - found OK");
-				count++;
-			} else {
-				LO.print("Balance Payable - found wrong");
-				System.err.println("Balance Payable - found wrong");
-			}
-
-			// 14
-			if ((Difference.of_two_Double_Values(optionToPurchaseFee,
-					customer_quote_summary_option_to_purchase_fee)) < 0.2) {
-				LO.print("Option To Purchase Fee - found OK");
-				System.out.println("Option To Purchase Fee - found OK");
-				count++;
-			} else {
-				LO.print("Option To Purchase Fee - found wrong");
-				System.err.println("Option To Purchase Fee - found wrong");
-			}
-
-			// 15
-			if ((Difference.of_two_Double_Values(initialCashPayment,
-					customer_quote_summary_initial_cash_payment)) < 0.2) {
-				LO.print("Initial Cash Payment - found OK");
-				System.out.println("Initial Cash Payment - found OK");
-				count++;
-			} else {
-				LO.print("Initial Cash Payment - found wrong");
-				System.err.println("Initial Cash Payment - found wrong");
-			}
-
-			// 16
-			if (followedBy == customer_payment_followed_by) {
-				LO.print("Followed By months - found OK");
-				System.out.println("Followed By months - found OK");
-				count++;
-			} else {
-				LO.print("Followed By months - found wrong");
-				System.err.println("Followed By months - found wrong");
-			}
-
-			// 17
-			if ((Difference.of_two_Double_Values(monthlyFinancePayment,
-					customer_quote_summary_monthly_finance_payment)) < 0.2) {
-				LO.print("Monthly Finance Payment - found OK");
-				System.out.println("Monthly Finance Payment - found OK");
-				count++;
-			} else {
-				LO.print("Monthly Finance Payment - found wrong");
-				System.err.println("Monthly Finance Payment - found wrong");
-			}
-
-			// 18
-			if ((Difference.of_two_Double_Values(guaranteedFutureValue,
-					customer_quote_summary_guaranteed_future_value)) < 0.2) {
-				LO.print("Guaranteed Future Value - found OK");
-				System.out.println("Guaranteed Future Value - found OK");
-				count++;
-			} else {
-				LO.print("Guaranteed Future Value - found wrong");
-				System.err.println("Guaranteed Future Value - found wrong");
-			}
-
-			// 19
-			if ((Difference.of_two_Double_Values(optionalFinalPayment,
-					customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
-				LO.print("Optional Final Payment - found OK");
-				System.out.println("Optional Final Payment - found OK");
-				count++;
-			} else {
-				LO.print("Optional Final Payment - found wrong");
-				System.err.println("Optional Final Payment - found wrong");
-			}
-
-			// 20
-			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
-					customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
-				LO.print("Pence Per Excess Mile Finance - found OK");
-				System.out.println("Pence Per Excess Mile Finance - found OK");
-				count++;
-			} else {
-				LO.print("Pence Per Excess Mile Finance - found wrong");
-				System.err.println("Pence Per Excess Mile Finance - found wrong");
-			}
-
-			// 21
-			if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
-				LO.print("Vehicle Commission - found OK");
-				System.out.println("Vehicle Commission - found OK");
-				count++;
-			} else {
-				LO.print("Vehicle Commission - found wrong");
-				System.err.println("Vehicle Commission - found wrong");
-			}
-
-			// 22
-			if ((Difference.of_two_Double_Values(defaultFinanceCommission,
-					customer_quote_summary_default_finance_comm)) < 0.2) {
-				LO.print("Default Finance Commission - found OK");
-				System.out.println("Default Finance Commission - found OK");
-				count++;
-			} else {
-				LO.print("Default Finance Commission - found wrong");
-				System.err.println("Default Finance Commission - found wrong");
-			}
-
-			// 23
-			if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
-				LO.print("Document Fee Commission - found OK");
-				System.out.println("Document Fee Commission - found OK");
-				count++;
-			} else {
-				LO.print("Document Fee Commission - found wrong");
-				System.err.println("Document Fee Commission - found wrong");
-			}
-
-			// 24
-			if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
-				LO.print("Total Commission - found OK");
-				System.out.println("Total Commission - found OK");
-				count++;
-			} else {
-				LO.print("Total Commission - found wrong");
-				System.err.println("Total Commission - found wrong");
-			}
-
-			if (count == 24) {
-				status = true;
-			}
-			return status;
-
-		}
-
-	}
-
-	public boolean quote_summary_customer_quote_summary_value_verification_for_funder_without_maintenance(
-			String sheet_name) throws IOException {
-
-		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
-		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
-
-		// Clicking on Customer quote pannel
-		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 20);
-
-		// waiting for elements
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
-		ExplicitWait.visibleElement(driver,
-				quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
-
-		// getting text from elements
-
-		double customer_quote_summary_terms = Double
-				.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
-
-		double customer_quote_summary_miles = Double
-				.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
-
-		double customer_quote_summary_basic_cash_price = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
-
-		double customer_quote_summary_vat = Double
-				.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
-
-		double customer_quote_summary_non_vat_items = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
-
-		double customer_quote_summary_total_cash_price = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
-
-		double customer_quote_summary_order_deposit = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
-
-		double customer_quote_summary_finance_deposit = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
-
-		double customer_quote_summary_total_deposit = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
-
-		double customer_quote_summary_balance_to_finance = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
-
-		double customer_quote_summary_finance_charges = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
-
-		double customer_quote_summary_document_fee = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
-
-		double customer_quote_summary_balance_payable = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
-
-		System.out.println("customer_quote_summary_balance_payable" + customer_quote_summary_balance_payable);
-
-		double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
-
-		double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
-
-		double customer_payment_followed_by = Double
-				.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
-
-		double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
-
-		double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
-
-		double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee.getText()
-						.trim().substring(2)));
-
-		double customer_quote_summary_pence_per_excess_mile_finance = Double.parseDouble(RemoveComma.of(
-				quote_summary_customer_quote_summary_pence_per_excess_mile_finance.getText().trim().substring(0, 4)));
-
-		double customer_quote_summary_vehicle_comm = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
-
-		double customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
-				.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
-
-		double customer_quote_summary_document_fee_comm = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
-
-		double customer_quote_summary_total_commission = Double.parseDouble(
-				RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
-
-		// writing balloon value to excel
-
-		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
-		XSSFWorkbook wb = new XSSFWorkbook(in);
-		wb.getSheet(sheet_name).getRow(169).getCell(4).setCellValue(customer_quote_summary_guaranteed_future_value);
-		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
-		wb.write(out);
-
-		// getting values from excel
-
-		double terms = GetExcelFormulaValue.get_string_value(208, 1, sheet_name);
-		double miles = GetExcelFormulaValue.get_string_value(208, 4, sheet_name);
-
-		double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
-		double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
-		double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
-
-		double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
-		double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
-		double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
-
-		double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
-		double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
-
-		double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
-		double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
-		double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
-
-		double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
-		double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
-		double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
-
-		double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
-
-		double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
-		double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
-		double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
-
-		double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
-		double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
-
-		double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
-		double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
-
-		// comparing actul and expected values
-
-		boolean status = false;
-
-		int count = 0;
-
-		// 1
-		if (terms == customer_quote_summary_terms) {
-			LO.print("Terms found OK");
-			System.out.println("Terms found OK");
-			count++;
-		} else {
-			LO.print("Terms found wrong");
-			System.err.println("Terms found wrong");
-		}
-
-		// 2
-		if (miles == customer_quote_summary_miles) {
-			LO.print("miles found OK");
-			System.out.println("miles found OK");
-			count++;
-		} else {
-			LO.print("miles found wrong");
-			System.err.println("miles found wrong");
-		}
-
-		// 3
-		if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
-			LO.print("Basic Cash Price found OK");
-			System.out.println("Basic Cash Price found OK");
-			count++;
-		} else {
-			LO.print("Basic Cash Price found wrong");
-			System.err.println("Basic Cash Price found wrong");
-		}
-
-		// 4
-		if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
-			LO.print("VAT found OK");
-			System.out.println("VAT found OK");
-			count++;
-		} else {
-			LO.print("VAT found wrong");
-			System.err.println("VAT found wrong");
-		}
-
-		// 5
-		if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
-			LO.print("Non VAT Items Value found OK");
-			System.out.println("Non VAT Items Value found OK");
-			count++;
-		} else {
-			LO.print("Non VAT Items Value found wrong");
-			System.err.println("Non VAT Items Value found wrong");
-		}
-
-		// 6
-		if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
-			LO.print("Total Cash Price found OK");
-			System.out.println("Total Cash Price found OK");
-			count++;
-		} else {
-			LO.print("Total Cash Price found wrong");
-			System.err.println("Total Cash Price found wrong");
-		}
-
-		// 7
-		if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
-			LO.print("Order Deposit found OK");
-			System.out.println("Order Deposit found OK");
-			count++;
-		} else {
-			LO.print("Order Deposit found wrong");
-			System.err.println("Order Deposit found wrong");
-		}
-
-		// 8
-		if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
-			LO.print("Finance Deposit found OK");
-			System.out.println("Finance Deposit found OK");
-			count++;
-		} else {
-			LO.print("Finance Deposit found wrong");
-			System.err.println("Finance Deposit found wrong");
-		}
-
-		// 9
-		if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
-			LO.print("Total Deposit found OK");
-			System.out.println("Total Deposit found OK");
-			count++;
-		} else {
-			LO.print("Total Deposit found wrong");
-			System.err.println("Total Deposit found wrong");
-		}
-
-		// 10
-		if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
-			LO.print("Balance to Finance found OK");
-			System.out.println("Balance to Finance found OK");
-			count++;
-		} else {
-			LO.print("Balance to Finance found wrong");
-			System.err.println("Balance to Finance found wrong");
-		}
-
-		// 11
-		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
-			LO.print("Finance Charges - found OK");
-			System.out.println("Finance Charges - found OK");
-			count++;
-		} else {
-			LO.print("Finance Charges - found wrong");
-			System.err.println("Finance Charges - found wrong");
-		}
-
-		// 12
-		if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
-			LO.print("Document Fee - found OK");
-			System.out.println("Document Fee - found OK");
-			count++;
-		} else {
-			LO.print("Document Fee - found wrong");
-			System.err.println("Document Fee - found wrong");
-		}
-
-		// 13
-		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
-			LO.print("Balance Payable - found OK");
-			System.out.println("Balance Payable - found OK");
-			count++;
-		} else {
-			LO.print("Balance Payable - found wrong");
-			System.err.println("Balance Payable - found wrong");
-		}
-
-		// 14
-		if ((Difference.of_two_Double_Values(optionToPurchaseFee,
-				customer_quote_summary_option_to_purchase_fee)) < 0.2) {
-			LO.print("Option To Purchase Fee - found OK");
-			System.out.println("Option To Purchase Fee - found OK");
-			count++;
-		} else {
-			LO.print("Option To Purchase Fee - found wrong");
-			System.err.println("Option To Purchase Fee - found wrong");
-		}
-
-		// 15
-		if ((Difference.of_two_Double_Values(initialCashPayment, customer_quote_summary_initial_cash_payment)) < 0.2) {
-			LO.print("Initial Cash Payment - found OK");
-			System.out.println("Initial Cash Payment - found OK");
-			count++;
-		} else {
-			LO.print("Initial Cash Payment - found wrong");
-			System.err.println("Initial Cash Payment - found wrong");
-		}
-
-		// 16
-		if (followedBy == customer_payment_followed_by) {
-			LO.print("Followed By months - found OK");
-			System.out.println("Followed By months - found OK");
-			count++;
-		} else {
-			LO.print("Followed By months - found wrong");
-			System.err.println("Followed By months - found wrong");
-		}
-
-		// 17
-		if ((Difference.of_two_Double_Values(monthlyFinancePayment,
-				customer_quote_summary_monthly_finance_payment)) < 0.2) {
-			LO.print("Monthly Finance Payment - found OK");
-			System.out.println("Monthly Finance Payment - found OK");
-			count++;
-		} else {
-			LO.print("Monthly Finance Payment - found wrong");
-			System.err.println("Monthly Finance Payment - found wrong");
-		}
-
-		// 18
-		if ((Difference.of_two_Double_Values(guaranteedFutureValue,
-				customer_quote_summary_guaranteed_future_value)) < 0.2) {
-			LO.print("Guaranteed Future Value - found OK");
-			System.out.println("Guaranteed Future Value - found OK");
-			count++;
-		} else {
-			LO.print("Guaranteed Future Value - found wrong");
-			System.err.println("Guaranteed Future Value - found wrong");
-		}
-
-		// 19
-		if ((Difference.of_two_Double_Values(optionalFinalPayment,
-				customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
-			LO.print("Optional Final Payment - found OK");
-			System.out.println("Optional Final Payment - found OK");
-			count++;
-		} else {
-			LO.print("Optional Final Payment - found wrong");
-			System.err.println("Optional Final Payment - found wrong");
-		}
-
-		// 20
-		if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
-				customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
-			LO.print("Pence Per Excess Mile Finance - found OK");
-			System.out.println("Pence Per Excess Mile Finance - found OK");
-			count++;
-		} else {
-			LO.print("Pence Per Excess Mile Finance - found wrong");
-			System.err.println("Pence Per Excess Mile Finance - found wrong");
-		}
-
-		// 21
-		if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
-			LO.print("Vehicle Commission - found OK");
-			System.out.println("Vehicle Commission - found OK");
-			count++;
-		} else {
-			LO.print("Vehicle Commission - found wrong");
-			System.err.println("Vehicle Commission - found wrong");
-		}
-
-		// 22
-		if ((Difference.of_two_Double_Values(defaultFinanceCommission,
-				customer_quote_summary_default_finance_comm)) < 0.2) {
-			LO.print("Default Finance Commission - found OK");
-			System.out.println("Default Finance Commission - found OK");
-			count++;
-		} else {
-			LO.print("Default Finance Commission - found wrong");
-			System.err.println("Default Finance Commission - found wrong");
-		}
-
-		// 23
-		if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
-			LO.print("Document Fee Commission - found OK");
-			System.out.println("Document Fee Commission - found OK");
-			count++;
-		} else {
-			LO.print("Document Fee Commission - found wrong");
-			System.err.println("Document Fee Commission - found wrong");
-		}
-
-		// 24
-		if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
-			LO.print("Total Commission - found OK");
-			System.out.println("Total Commission - found OK");
-			count++;
-		} else {
-			LO.print("Total Commission - found wrong");
-			System.err.println("Total Commission - found wrong");
-		}
-
-		if (count == 24) {
-			status = true;
-		}
-		return status;
-
-	}
 
 	public boolean quote_summary_edit_base_int_rate_value_verification_for_funder_without_maintenance(String sheet_name)
 			throws IOException, InterruptedException {
@@ -5826,359 +2363,3674 @@ public class QuoteSummary_HPNR_PCP_Page extends TestBase {
 		}
 	}
 
-	public boolean quote_summary_HPNR_PCP_for_funder_quote_without_maintenance(String sheet_name)
-			throws InterruptedException, IOException {
 
-		LO.print("*************Calculations for Quote Summary page has been started************");
-		System.out.println("*************Calculations for Quote Summary page has been started************");
 
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		Thread.sleep(2000);
+	
+	
+	public boolean quote_summary_customer_quote_summary_value_verification_without_maintenance(String sheet_name)
+			throws IOException {
+		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
+		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
 
-		Click.on(driver, quote_summary, 60);
+		// Clicking on Customer quote pannel
+		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 20);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+		// waiting for elements
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		if (js.executeScript("return document.readyState").toString().equals("complete")) {
-
-			Thread.sleep(2000);
-			ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
-			ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
-			ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
-			ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
-			ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
-			ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
+		try {
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_part_exchange_value, 20);
+		} catch (Exception e1) {
 		}
-		LO.print("Reading values from sceen -Quote Summary Page");
-		System.out.println("Reading values from sceen -Quote Summary Page");
 
-		String quote_ref_no = quote_summary_ref_no.getText();
-		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_without_maintenance
-				.getText().trim().substring(2);
-		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
-				.substring(2);
-		String acq_contract_type = quote_summary_acq_contract_type.getText();
-		String customer_contract_type = quote_summary_customer_contract_type.getText();
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
+		ExplicitWait.visibleElement(driver,
+				quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
 
-		LO.print("Getting values from screen");
-		System.out.println("Getting values from screen");
+		try {
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
+		}catch(Exception e1) {}
+		
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
 
-		LO.print("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-		System.out.println("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
+		// getting text from elements
 
-		LO.print("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-		System.out
-				.println("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
+		double customer_quote_summary_terms = Double
+				.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
 
-		LO.print("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
+		double customer_quote_summary_miles = Double
+				.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
 
-		LO.print("Acquisition contract_type =" + acq_contract_type);
-		System.out.println("Acquisition contract_type =" + acq_contract_type);
+		double customer_quote_summary_basic_cash_price = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
 
-		LO.print("Customer contract_type =" + customer_contract_type);
-		System.out.println("Customer contract_type =" + customer_contract_type);
+		double customer_quote_summary_vat = Double
+				.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
 
-		LO.print("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-		System.out.println("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
+		double customer_quote_summary_non_vat_items = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
 
-		String quote_summary_cost_otr_price_from_screen = RemoveComma.of(temp_quote_summary_cost_otr_price);
-		String quote_summary_total_monthly_holding_cost_from_screen = RemoveComma
-				.of(temp_quote_summary_total_monthly_holding_cost);
-		String quote_summary_monthly_finance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_finance_rental);
+		double customer_quote_summary_total_cash_price = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
 
-		double quote_summary_cost_otr_price_from_screen_converted = Double
-				.parseDouble(quote_summary_cost_otr_price_from_screen);
-		double quote_summary_total_monthly_holding_cost_from_screen_converted = Double
-				.parseDouble(quote_summary_total_monthly_holding_cost_from_screen);
-		double quote_summary_monthly_finance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_finance_rental_from_screen);
+		double customer_quote_summary_order_deposit = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
 
-		return obj_read_excel_calculation_page
-				.verify_quote_summary_values_from_excel_for_funder_quote_addition_without_maintenance(
-						quote_summary_cost_otr_price_from_screen_converted,
-						quote_summary_total_monthly_holding_cost_from_screen_converted,
-						quote_summary_monthly_finance_rental_from_screen_converted, sheet_name);
+		double customer_quote_summary_finance_deposit = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
+
+		double customer_quote_summary_total_deposit = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
+
+		double customer_quote_part_exchange_value = 0;
+		try {
+			customer_quote_part_exchange_value = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_part_exchange_value.getText().trim().substring(2)));
+		} catch (Exception e1) {
+		}
+
+		double customer_quote_summary_balance_to_finance = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
+
+		double customer_quote_summary_finance_charges = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
+
+		double customer_quote_summary_document_fee = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
+
+		double customer_quote_summary_balance_payable = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
+
+		double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
+
+		double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
+
+		double customer_payment_followed_by = Double
+				.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
+
+		double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
+
+		double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
+
+		double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee.getText()
+						.trim().substring(2)));
+
+		double customer_quote_summary_pence_per_excess_mile_finance = Double.parseDouble(RemoveComma.of(
+				quote_summary_customer_quote_summary_pence_per_excess_mile_finance.getText().trim().substring(0, 4)));
+
+		double customer_quote_summary_vehicle_comm = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
+
+		double customer_quote_summary_default_finance_comm =0;
+		try {
+		customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
+		}catch(Exception e3) {}	
+
+		double customer_quote_summary_document_fee_comm = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
+
+		double customer_quote_summary_total_commission = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
+
+		// getting values from excel
+
+		double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
+		double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheet_name);
+
+		double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
+		double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
+		double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
+
+		double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
+		double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
+		double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
+
+		double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
+		double partExchangeValue = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
+		double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+		double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
+		double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
+		double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
+
+		double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
+		double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
+		double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
+
+		double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
+
+		double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+		double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+
+		double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+
+		double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
+		double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
+
+		double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
+		double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
+
+		// comparing actul and expected values
+
+		boolean status = false;
+
+		int count = 0;
+
+		// 1
+		if (terms == customer_quote_summary_terms) {
+			LO.print("Terms found OK");
+			System.out.println("Terms found OK");
+			count++;
+		} else {
+			LO.print("Terms found wrong");
+			System.err.println("Terms found wrong");
+		}
+
+		// 2
+		if (miles == customer_quote_summary_miles) {
+			LO.print("miles found OK");
+			System.out.println("miles found OK");
+			count++;
+		} else {
+			LO.print("miles found wrong");
+			System.err.println("miles found wrong");
+		}
+
+		// 3
+		if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
+			LO.print("Basic Cash Price found OK");
+			System.out.println("Basic Cash Price found OK");
+			count++;
+		} else {
+			LO.print("Basic Cash Price found wrong");
+			System.err.println("Basic Cash Price found wrong");
+		}
+
+		// 4
+		if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
+			LO.print("VAT found OK");
+			System.out.println("VAT found OK");
+			count++;
+		} else {
+			LO.print("VAT found wrong");
+			System.err.println("VAT found wrong");
+		}
+
+		// 5
+		if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
+			LO.print("Non VAT Items Value found OK");
+			System.out.println("Non VAT Items Value found OK");
+			count++;
+		} else {
+			LO.print("Non VAT Items Value found wrong");
+			System.err.println("Non VAT Items Value found wrong");
+		}
+
+		// 6
+		if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
+			LO.print("Total Cash Price found OK");
+			System.out.println("Total Cash Price found OK");
+			count++;
+		} else {
+			LO.print("Total Cash Price found wrong");
+			System.err.println("Total Cash Price found wrong");
+		}
+
+		// 7
+		if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
+			LO.print("Order Deposit found OK");
+			System.out.println("Order Deposit found OK");
+			count++;
+		} else {
+			LO.print("Order Deposit found wrong");
+			System.err.println("Order Deposit found wrong");
+		}
+
+		// 8
+		if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
+			LO.print("Finance Deposit found OK");
+			System.out.println("Finance Deposit found OK");
+			count++;
+		} else {
+			LO.print("Finance Deposit found wrong");
+			System.err.println("Finance Deposit found wrong");
+		}
+
+		// 9
+		if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
+			LO.print("Total Deposit found OK");
+			System.out.println("Total Deposit found OK");
+			count++;
+		} else {
+			LO.print("Total Deposit found wrong");
+			System.err.println("Total Deposit found wrong");
+		}
+
+		// 10
+		try {
+			if (partExchangeValue == customer_quote_part_exchange_value) {
+				LO.print("Part Exchange Value - found OK");
+				System.out.println("Part Exchange Value - found OK");
+				count++;
+			} else {
+				LO.print("Part Exchange Value - found wrong");
+				System.err.println("Part Exchange Value - found wrong");
+			}
+		} catch (Exception e1) {
+		}
+
+		// 11
+		if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
+			LO.print("Balance to Finance found OK");
+			System.out.println("Balance to Finance found OK");
+			count++;
+		} else {
+			LO.print("Balance to Finance found wrong");
+			System.err.println("Balance to Finance found wrong");
+		}
+
+		// 12
+		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+			LO.print("Finance Charges - found OK");
+			System.out.println("Finance Charges - found OK");
+			count++;
+		} else {
+			LO.print("Finance Charges - found wrong");
+			System.err.println("Finance Charges - found wrong");
+		}
+
+		// 13
+		if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
+			LO.print("Document Fee - found OK");
+			System.out.println("Document Fee - found OK");
+			count++;
+		} else {
+			LO.print("Document Fee - found wrong");
+			System.err.println("Document Fee - found wrong");
+		}
+
+		// 14
+		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+			LO.print("Balance Payable - found OK");
+			System.out.println("Balance Payable - found OK");
+			count++;
+		} else {
+			LO.print("Balance Payable - found wrong");
+			System.err.println("Balance Payable - found wrong");
+		}
+
+		// 15
+		if ((Difference.of_two_Double_Values(optionToPurchaseFee,
+				customer_quote_summary_option_to_purchase_fee)) < 0.2) {
+			LO.print("Option To Purchase Fee - found OK");
+			System.out.println("Option To Purchase Fee - found OK");
+			count++;
+		} else {
+			LO.print("Option To Purchase Fee - found wrong");
+			System.err.println("Option To Purchase Fee - found wrong");
+		}
+
+		// 16
+		if ((Difference.of_two_Double_Values(initialCashPayment, customer_quote_summary_initial_cash_payment)) < 0.2) {
+			LO.print("Initial Cash Payment - found OK");
+			System.out.println("Initial Cash Payment - found OK");
+			count++;
+		} else {
+			LO.print("Initial Cash Payment - found wrong");
+			System.err.println("Initial Cash Payment - found wrong");
+		}
+
+		// 17
+		if (followedBy == customer_payment_followed_by) {
+			LO.print("Followed By months - found OK");
+			System.out.println("Followed By months - found OK");
+			count++;
+		} else {
+			LO.print("Followed By months - found wrong");
+			System.err.println("Followed By months - found wrong");
+		}
+
+		// 18
+		if ((Difference.of_two_Double_Values(monthlyFinancePayment,
+				customer_quote_summary_monthly_finance_payment)) < 0.2) {
+			LO.print("Monthly Finance Payment - found OK");
+			System.out.println("Monthly Finance Payment - found OK");
+			count++;
+		} else {
+			LO.print("Monthly Finance Payment - found wrong");
+			System.err.println("Monthly Finance Payment - found wrong");
+		}
+
+		// 19
+		if ((Difference.of_two_Double_Values(guaranteedFutureValue,
+				customer_quote_summary_guaranteed_future_value)) < 0.2) {
+			LO.print("Guaranteed Future Value - found OK");
+			System.out.println("Guaranteed Future Value - found OK");
+			count++;
+		} else {
+			LO.print("Guaranteed Future Value - found wrong");
+			System.err.println("Guaranteed Future Value - found wrong");
+		}
+
+		// 20
+		if ((Difference.of_two_Double_Values(optionalFinalPayment,
+				customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
+			LO.print("Optional Final Payment - found OK");
+			System.out.println("Optional Final Payment - found OK");
+			count++;
+		} else {
+			LO.print("Optional Final Payment - found wrong");
+			System.err.println("Optional Final Payment - found wrong");
+		}
+
+		// 21
+		if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
+				customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
+			LO.print("Pence Per Excess Mile Finance - found OK");
+			System.out.println("Pence Per Excess Mile Finance - found OK");
+			count++;
+		} else {
+			LO.print("Pence Per Excess Mile Finance - found wrong");
+			System.err.println("Pence Per Excess Mile Finance - found wrong");
+		}
+
+		// 22
+		if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
+			LO.print("Vehicle Commission - found OK");
+			System.out.println("Vehicle Commission - found OK");
+			count++;
+		} else {
+			LO.print("Vehicle Commission - found wrong");
+			System.err.println("Vehicle Commission - found wrong");
+		}
+
+		// 23
+		if ((Difference.of_two_Double_Values(defaultFinanceCommission,
+				customer_quote_summary_default_finance_comm)) < 0.2) {
+			LO.print("Default Finance Commission - found OK");
+			System.out.println("Default Finance Commission - found OK");
+			count++;
+		} else {
+			LO.print("Default Finance Commission - found wrong");
+			System.err.println("Default Finance Commission - found wrong");
+		}
+
+		// 24
+		if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
+			LO.print("Document Fee Commission - found OK");
+			System.out.println("Document Fee Commission - found OK");
+			count++;
+		} else {
+			LO.print("Document Fee Commission - found wrong");
+			System.err.println("Document Fee Commission - found wrong");
+		}
+
+		// 25
+		if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
+			LO.print("Total Commission - found OK");
+			System.out.println("Total Commission - found OK");
+			count++;
+		} else {
+			LO.print("Total Commission - found wrong");
+			System.err.println("Total Commission - found wrong");
+		}
+
+		if (count == 25) {
+			status = true;
+		}
+		return status;
+	}
+
+	public boolean quote_summary_customer_quote_summary_value_verification_with_maintenance(String sheet_name)
+			throws IOException {
+
+		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
+		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
+
+		// Clicking on Customer quote pannel
+		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 20);
+
+		// waiting for elements
+		try {
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
+			try {
+				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_part_exchange_value, 20);
+			} catch (Exception e) {
+			}
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_maint_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_monthly_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
+			ExplicitWait.visibleElement(driver,
+					quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_maint, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_total, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
+
+			try {
+				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
+				}catch(Exception e1) {}
+			
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_maintenance_commision, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
+
+			// getting text from elements
+
+			double customer_quote_summary_terms = Double
+					.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
+
+			double customer_quote_summary_miles = Double
+					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
+
+			double customer_quote_summary_basic_cash_price = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
+
+			double customer_quote_summary_vat = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
+
+			double customer_quote_summary_non_vat_items = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_cash_price = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
+
+			double customer_quote_summary_order_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
+
+			double customer_quote_summary_finance_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
+
+			double customer_quote_part_exchange_value = 0;
+			try {
+				customer_quote_part_exchange_value = Double.parseDouble(RemoveComma
+						.of(quote_summary_customer_quote_summary_part_exchange_value.getText().trim().substring(2)));
+			} catch (Exception e) {
+			}
+
+			double customer_quote_summary_balance_to_finance = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
+
+			double customer_quote_summary_finance_charges = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
+
+			double customer_quote_summary_document_fee = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
+
+			double customer_quote_summary_balance_payable = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
+
+ 			double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
+
+			double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
+
+			double customer_payment_followed_by = Double
+					.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
+
+			double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
+
+			double customer_quote_summary_monthly_maint_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_monthly_maint_payment.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_monthly_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+
+			double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
+
+			double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee
+							.getText().trim().substring(2)));
+
+			double customer_quote_summary_pence_per_excess_mile_finance = Double
+					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance
+							.getText().trim().substring(0, 4)));
+
+			double customer_quote_summary_pence_per_excess_mile_maint = Double.parseDouble(RemoveComma.of(
+					quote_summary_customer_quote_summary_pence_per_excess_mile_maint.getText().trim().substring(0, 4)));
+
+			double customer_quote_summary_pence_per_excess_mile_total = Double.parseDouble(RemoveComma.of(
+					quote_summary_customer_quote_summary_pence_per_excess_mile_total.getText().trim().substring(0, 4)));
+
+			double customer_quote_summary_vehicle_comm = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
+
+			double customer_quote_summary_default_finance_comm =0;
+			try {
+			customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
+			}catch(Exception e3) {}	
+
+			double customer_quote_summary_maintenance_commision = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_maintenance_commision.getText().trim().substring(2)));
+
+			double customer_quote_summary_document_fee_comm = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_commission = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
+
+			// getting values from excel
+
+			double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
+			double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheet_name);
+
+			double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
+			double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
+			double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
+
+			double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
+			double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
+			double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
+
+			double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
+			double partExchangeValue = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
+			double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+			double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
+			double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
+			double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
+
+			double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
+			double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
+			double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
+
+			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
+			double monthlyMaintenancePayment = GetExcelFormulaValue.get_formula_value(229, 1, sheet_name);
+			double totalMonthlyPayment = GetExcelFormulaValue.get_formula_value(229, 4, sheet_name);
+
+			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+			double pencePerExcessMileMaintenance = GetExcelFormulaValue.get_formula_value(235, 0, sheet_name);
+			double pencePerExcessMileTotal = GetExcelFormulaValue.get_formula_value(235, 1, sheet_name);
+
+			double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
+			double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
+			double maintCommission = GetExcelFormulaValue.get_formula_value(239, 4, sheet_name);
+
+			double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
+			double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
+
+			// comparing actul and expected values
+
+			boolean status = false;
+
+			int count = 0;
+
+			// 1
+			if (terms == customer_quote_summary_terms) {
+				LO.print("Terms found OK");
+				System.out.println("Terms found OK");
+				count++;
+			} else {
+				LO.print("Terms found wrong");
+				System.err.println("Terms found wrong");
+			}
+
+			// 2
+			if (miles == customer_quote_summary_miles) {
+				LO.print("miles found OK");
+				System.out.println("miles found OK");
+				count++;
+			} else {
+				LO.print("miles found wrong");
+				System.err.println("miles found wrong");
+			}
+
+			// 3
+			if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
+				LO.print("Basic Cash Price found OK");
+				System.out.println("Basic Cash Price found OK");
+				count++;
+			} else {
+				LO.print("Basic Cash Price found wrong");
+				System.err.println("Basic Cash Price found wrong");
+			}
+
+			// 4
+			if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
+				LO.print("VAT found OK");
+				System.out.println("VAT found OK");
+				count++;
+			} else {
+				LO.print("VAT found wrong");
+				System.err.println("VAT found wrong");
+			}
+
+			// 5
+			if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
+				LO.print("Non VAT Items Value found OK");
+				System.out.println("Non VAT Items Value found OK");
+				count++;
+			} else {
+				LO.print("Non VAT Items Value found wrong");
+				System.err.println("Non VAT Items Value found wrong");
+			}
+
+			// 6
+			if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
+				LO.print("Total Cash Price found OK");
+				System.out.println("Total Cash Price found OK");
+				count++;
+			} else {
+				LO.print("Total Cash Price found wrong");
+				System.err.println("Total Cash Price found wrong");
+			}
+
+			// 7
+			if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
+				LO.print("Order Deposit found OK");
+				System.out.println("Order Deposit found OK");
+				count++;
+			} else {
+				LO.print("Order Deposit found wrong");
+				System.err.println("Order Deposit found wrong");
+			}
+
+			// 8
+			if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
+				LO.print("Finance Deposit found OK");
+				System.out.println("Finance Deposit found OK");
+				count++;
+			} else {
+				LO.print("Finance Deposit found wrong");
+				System.err.println("Finance Deposit found wrong");
+			}
+
+			// 9
+			if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
+				LO.print("Total Deposit found OK");
+				System.out.println("Total Deposit found OK");
+				count++;
+			} else {
+				LO.print("Total Deposit found wrong");
+				System.err.println("Total Deposit found wrong");
+			}
+
+			// 10
+			try {
+				if (partExchangeValue == customer_quote_part_exchange_value) {
+					LO.print("Part Exchange Value - found OK");
+					System.out.println("Part Exchange Value - found OK");
+					count++;
+				} else {
+					LO.print("Part Exchange Value - found wrong");
+					System.err.println("Part Exchange Value - found wrong");
+				}
+			} catch (Exception e) {
+			}
+
+			// 11
+			if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
+				LO.print("Balance to Finance found OK");
+				System.out.println("Balance to Finance found OK");
+				count++;
+			} else {
+				LO.print("Balance to Finance found wrong");
+				System.err.println("Balance to Finance found wrong");
+			}
+
+			// 12
+			if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+				LO.print("Finance Charges - found OK");
+				System.out.println("Finance Charges - found OK");
+				count++;
+			} else {
+				LO.print("Finance Charges - found wrong");
+				System.err.println("Finance Charges - found wrong");
+			}
+
+			// 13
+			if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
+				LO.print("Document Fee - found OK");
+				System.out.println("Document Fee - found OK");
+				count++;
+			} else {
+				LO.print("Document Fee - found wrong");
+				System.err.println("Document Fee - found wrong");
+			}
+
+			// 14
+			if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+				LO.print("Balance Payable - found OK");
+				System.out.println("Balance Payable - found OK");
+				count++;
+			} else {
+				LO.print("Balance Payable - found wrong");
+				System.err.println("Balance Payable - found wrong");
+			}
+
+			// 15
+			if ((Difference.of_two_Double_Values(optionToPurchaseFee,
+					customer_quote_summary_option_to_purchase_fee)) < 0.2) {
+				LO.print("Option To Purchase Fee - found OK");
+				System.out.println("Option To Purchase Fee - found OK");
+				count++;
+			} else {
+				LO.print("Option To Purchase Fee - found wrong");
+				System.err.println("Option To Purchase Fee - found wrong");
+			}
+
+			// 16
+			if ((Difference.of_two_Double_Values(initialCashPayment,
+					customer_quote_summary_initial_cash_payment)) < 0.2) {
+				LO.print("Initial Cash Payment - found OK");
+				System.out.println("Initial Cash Payment - found OK");
+				count++;
+			} else {
+				LO.print("Initial Cash Payment - found wrong");
+				System.err.println("Initial Cash Payment - found wrong");
+			}
+
+			// 17
+			if (followedBy == customer_payment_followed_by) {
+				LO.print("Followed By months - found OK");
+				System.out.println("Followed By months - found OK");
+				count++;
+			} else {
+				LO.print("Followed By months - found wrong");
+				System.err.println("Followed By months - found wrong");
+			}
+
+			// 18
+			if ((Difference.of_two_Double_Values(monthlyFinancePayment,
+					customer_quote_summary_monthly_finance_payment)) < 0.2) {
+				LO.print("Monthly Finance Payment - found OK");
+				System.out.println("Monthly Finance Payment - found OK");
+				count++;
+			} else {
+				LO.print("Monthly Finance Payment - found wrong");
+				System.err.println("Monthly Finance Payment - found wrong");
+			}
+
+			// 19
+			if ((Difference.of_two_Double_Values(monthlyMaintenancePayment,
+					customer_quote_summary_monthly_maint_payment)) < 0.2) {
+				LO.print("Monthly Maint Payment - found OK");
+				System.out.println("Monthly Maint Payment - found OK");
+				count++;
+			} else {
+				LO.print("Monthly Maint Payment - found wrong");
+				System.err.println("Monthly Maint Payment - found wrong");
+			}
+
+			// 20
+			if ((Difference.of_two_Double_Values(totalMonthlyPayment,
+					customer_quote_summary_total_monthly_payment)) < 0.2) {
+				LO.print("Monthly Total Payment - found OK");
+				System.out.println("Monthly Total Payment - found OK");
+				count++;
+			} else {
+				LO.print("Monthly Total Payment - found wrong");
+				System.err.println("Monthly Total Payment - found wrong");
+			}
+
+			// 21
+			if ((Difference.of_two_Double_Values(guaranteedFutureValue,
+					customer_quote_summary_guaranteed_future_value)) < 0.2) {
+				LO.print("Guaranteed Future Value - found OK");
+				System.out.println("Guaranteed Future Value - found OK");
+				count++;
+			} else {
+				LO.print("Guaranteed Future Value - found wrong");
+				System.err.println("Guaranteed Future Value - found wrong");
+			}
+
+			// 22
+			if ((Difference.of_two_Double_Values(optionalFinalPayment,
+					customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
+				LO.print("Optional Final Payment - found OK");
+				System.out.println("Optional Final Payment - found OK");
+				count++;
+			} else {
+				LO.print("Optional Final Payment - found wrong");
+				System.err.println("Optional Final Payment - found wrong");
+			}
+
+			// 23
+			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
+					customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
+				LO.print("Pence Per Excess Mile Finance - found OK");
+				System.out.println("Pence Per Excess Mile Finance - found OK");
+				count++;
+			} else {
+				LO.print("Pence Per Excess Mile Finance - found wrong");
+				System.err.println("Pence Per Excess Mile Finance - found wrong");
+			}
+
+			// 24
+			if ((Difference.of_two_Double_Values(pencePerExcessMileMaintenance,
+					customer_quote_summary_pence_per_excess_mile_maint)) < 0.2) {
+				LO.print("Pence Per Excess Mile Maintenance - found OK");
+				System.out.println("Pence Per Excess Mile Maintenance - found OK");
+				count++;
+			} else {
+				LO.print("Pence Per Excess Mile Maintenance - found wrong");
+				System.err.println("Pence Per Excess Mile Maintenance - found wrong");
+			}
+
+			// 25
+			if ((Difference.of_two_Double_Values(pencePerExcessMileTotal,
+					customer_quote_summary_pence_per_excess_mile_total)) < 0.2) {
+				LO.print("Pence Per Excess Mile Total - found OK");
+				System.out.println("Pence Per Excess Mile Total - found OK");
+				count++;
+			} else {
+				LO.print("Pence Per Excess Mile Total - found wrong");
+				System.err.println("Pence Per Excess Mile Total - found wrong");
+			}
+
+			// 26
+			if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
+				LO.print("Vehicle Commission - found OK");
+				System.out.println("Vehicle Commission - found OK");
+				count++;
+			} else {
+				LO.print("Vehicle Commission - found wrong");
+				System.err.println("Vehicle Commission - found wrong");
+			}
+
+			// 27
+			if ((Difference.of_two_Double_Values(defaultFinanceCommission,
+					customer_quote_summary_default_finance_comm)) < 0.2) {
+				LO.print("Default Finance Commission - found OK");
+				System.out.println("Default Finance Commission - found OK");
+				count++;
+			} else {
+				LO.print("Default Finance Commission - found wrong");
+				System.err.println("Default Finance Commission - found wrong");
+			}
+
+			// 28
+			if ((Difference.of_two_Double_Values(maintCommission,
+					customer_quote_summary_maintenance_commision)) < 0.2) {
+				LO.print("Maintenance Commission - found OK");
+				System.out.println("Maintenance Commission - found OK");
+				count++;
+			} else {
+				LO.print("Maintenance Commission - found wrong");
+				System.err.println("Maintenance Commission - found wrong");
+			}
+
+			// 29
+			if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
+				LO.print("Document Fee Commission - found OK");
+				System.out.println("Document Fee Commission - found OK");
+				count++;
+			} else {
+				LO.print("Document Fee Commission - found wrong");
+				System.err.println("Document Fee Commission - found wrong");
+			}
+
+			// 30
+			if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
+				LO.print("Total Commission - found OK");
+				System.out.println("Total Commission - found OK");
+				count++;
+			} else {
+				LO.print("Total Commission - found wrong");
+				System.err.println("Total Commission - found wrong");
+			}
+
+			if (count == 30) {
+				status = true;
+			}
+			return status;
+		} catch (Exception e) {
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
+			try {
+				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_part_exchange_value, 20);
+			} catch (Exception e1) {
+			}
+
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
+			ExplicitWait.visibleElement(driver,
+					quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
+
+			try {
+				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
+				}catch(Exception e1) {}
+			
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
+
+			// getting text from elements
+
+			double customer_quote_summary_terms = Double
+					.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
+
+			double customer_quote_summary_miles = Double
+					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
+
+			double customer_quote_summary_basic_cash_price = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
+
+			double customer_quote_summary_vat = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
+
+			double customer_quote_summary_non_vat_items = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_cash_price = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
+
+			double customer_quote_summary_order_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
+
+			double customer_quote_summary_finance_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
+
+			double customer_quote_part_exchange_value = 0;
+			try {
+				customer_quote_part_exchange_value = Double.parseDouble(RemoveComma
+						.of(quote_summary_customer_quote_summary_part_exchange_value.getText().trim().substring(2)));
+			} catch (Exception e1) {
+			}
+
+			double customer_quote_summary_balance_to_finance = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
+
+			double customer_quote_summary_finance_charges = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
+
+			double customer_quote_summary_document_fee = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
+
+			double customer_quote_summary_balance_payable = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
+
+			double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
+
+			double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
+
+			double customer_payment_followed_by = Double
+					.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
+
+			double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
+
+			double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
+
+			double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee
+							.getText().trim().substring(2)));
+
+			double customer_quote_summary_pence_per_excess_mile_finance = Double
+					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance
+							.getText().trim().substring(0, 4)));
+
+			double customer_quote_summary_vehicle_comm = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
+
+			double customer_quote_summary_default_finance_comm =0;
+			try {
+			customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
+			}catch(Exception e3) {}	
+
+			double customer_quote_summary_document_fee_comm = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_commission = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
+
+			// getting values from excel
+
+			double terms = GetExcelFormulaValue.get_formula_value(208, 1, sheet_name);
+			double miles = GetExcelFormulaValue.get_formula_value(208, 4, sheet_name);
+
+			double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
+			double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
+			double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
+
+			double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
+			double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
+			double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
+
+			double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
+			double partExchangeValue = GetExcelFormulaValue.get_formula_value(220, 1, sheet_name);
+			double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+			double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
+			double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
+			double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
+
+			double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
+			double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
+			double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
+
+			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
+
+			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+
+			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+
+			double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
+			double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
+
+			double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
+			double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
+
+			// comparing actul and expected values
+
+			boolean status = false;
+
+			int count = 0;
+
+			// 1
+			if (terms == customer_quote_summary_terms) {
+				LO.print("Terms found OK");
+				System.out.println("Terms found OK");
+				count++;
+			} else {
+				LO.print("Terms found wrong");
+				System.err.println("Terms found wrong");
+			}
+
+			// 2
+			if (miles == customer_quote_summary_miles) {
+				LO.print("miles found OK");
+				System.out.println("miles found OK");
+				count++;
+			} else {
+				LO.print("miles found wrong");
+				System.err.println("miles found wrong");
+			}
+
+			// 3
+			if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
+				LO.print("Basic Cash Price found OK");
+				System.out.println("Basic Cash Price found OK");
+				count++;
+			} else {
+				LO.print("Basic Cash Price found wrong");
+				System.err.println("Basic Cash Price found wrong");
+			}
+
+			// 4
+			if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
+				LO.print("VAT found OK");
+				System.out.println("VAT found OK");
+				count++;
+			} else {
+				LO.print("VAT found wrong");
+				System.err.println("VAT found wrong");
+			}
+
+			// 5
+			if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
+				LO.print("Non VAT Items Value found OK");
+				System.out.println("Non VAT Items Value found OK");
+				count++;
+			} else {
+				LO.print("Non VAT Items Value found wrong");
+				System.err.println("Non VAT Items Value found wrong");
+			}
+
+			// 6
+			if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
+				LO.print("Total Cash Price found OK");
+				System.out.println("Total Cash Price found OK");
+				count++;
+			} else {
+				LO.print("Total Cash Price found wrong");
+				System.err.println("Total Cash Price found wrong");
+			}
+
+			// 7
+			if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
+				LO.print("Order Deposit found OK");
+				System.out.println("Order Deposit found OK");
+				count++;
+			} else {
+				LO.print("Order Deposit found wrong");
+				System.err.println("Order Deposit found wrong");
+			}
+
+			// 8
+			if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
+				LO.print("Finance Deposit found OK");
+				System.out.println("Finance Deposit found OK");
+				count++;
+			} else {
+				LO.print("Finance Deposit found wrong");
+				System.err.println("Finance Deposit found wrong");
+			}
+
+			// 9
+			if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
+				LO.print("Total Deposit found OK");
+				System.out.println("Total Deposit found OK");
+				count++;
+			} else {
+				LO.print("Total Deposit found wrong");
+				System.err.println("Total Deposit found wrong");
+			}
+
+			// 10
+			try {
+				if (partExchangeValue == customer_quote_part_exchange_value) {
+					LO.print("Part Exchange Value - found OK");
+					System.out.println("Part Exchange Value - found OK");
+					count++;
+				} else {
+					LO.print("Part Exchange Value - found wrong");
+					System.err.println("Part Exchange Value - found wrong");
+				}
+			} catch (Exception e1) {
+			}
+
+			// 11
+			if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
+				LO.print("Balance to Finance found OK");
+				System.out.println("Balance to Finance found OK");
+				count++;
+			} else {
+				LO.print("Balance to Finance found wrong");
+				System.err.println("Balance to Finance found wrong");
+			}
+
+			// 12
+			if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+				LO.print("Finance Charges - found OK");
+				System.out.println("Finance Charges - found OK");
+				count++;
+			} else {
+				LO.print("Finance Charges - found wrong");
+				System.err.println("Finance Charges - found wrong");
+			}
+
+			// 13
+			if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
+				LO.print("Document Fee - found OK");
+				System.out.println("Document Fee - found OK");
+				count++;
+			} else {
+				LO.print("Document Fee - found wrong");
+				System.err.println("Document Fee - found wrong");
+			}
+
+			// 14
+			if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+				LO.print("Balance Payable - found OK");
+				System.out.println("Balance Payable - found OK");
+				count++;
+			} else {
+				LO.print("Balance Payable - found wrong");
+				System.err.println("Balance Payable - found wrong");
+			}
+
+			// 15
+			if ((Difference.of_two_Double_Values(optionToPurchaseFee,
+					customer_quote_summary_option_to_purchase_fee)) < 0.2) {
+				LO.print("Option To Purchase Fee - found OK");
+				System.out.println("Option To Purchase Fee - found OK");
+				count++;
+			} else {
+				LO.print("Option To Purchase Fee - found wrong");
+				System.err.println("Option To Purchase Fee - found wrong");
+			}
+
+			// 16
+			if ((Difference.of_two_Double_Values(initialCashPayment,
+					customer_quote_summary_initial_cash_payment)) < 0.2) {
+				LO.print("Initial Cash Payment - found OK");
+				System.out.println("Initial Cash Payment - found OK");
+				count++;
+			} else {
+				LO.print("Initial Cash Payment - found wrong");
+				System.err.println("Initial Cash Payment - found wrong");
+			}
+
+			// 17
+			if (followedBy == customer_payment_followed_by) {
+				LO.print("Followed By months - found OK");
+				System.out.println("Followed By months - found OK");
+				count++;
+			} else {
+				LO.print("Followed By months - found wrong");
+				System.err.println("Followed By months - found wrong");
+			}
+
+			// 18
+			if ((Difference.of_two_Double_Values(monthlyFinancePayment,
+					customer_quote_summary_monthly_finance_payment)) < 0.2) {
+				LO.print("Monthly Finance Payment - found OK");
+				System.out.println("Monthly Finance Payment - found OK");
+				count++;
+			} else {
+				LO.print("Monthly Finance Payment - found wrong");
+				System.err.println("Monthly Finance Payment - found wrong");
+			}
+
+			// 19
+			if ((Difference.of_two_Double_Values(guaranteedFutureValue,
+					customer_quote_summary_guaranteed_future_value)) < 0.2) {
+				LO.print("Guaranteed Future Value - found OK");
+				System.out.println("Guaranteed Future Value - found OK");
+				count++;
+			} else {
+				LO.print("Guaranteed Future Value - found wrong");
+				System.err.println("Guaranteed Future Value - found wrong");
+			}
+
+			// 20
+			if ((Difference.of_two_Double_Values(optionalFinalPayment,
+					customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
+				LO.print("Optional Final Payment - found OK");
+				System.out.println("Optional Final Payment - found OK");
+				count++;
+			} else {
+				LO.print("Optional Final Payment - found wrong");
+				System.err.println("Optional Final Payment - found wrong");
+			}
+
+			// 21
+			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
+					customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
+				LO.print("Pence Per Excess Mile Finance - found OK");
+				System.out.println("Pence Per Excess Mile Finance - found OK");
+				count++;
+			} else {
+				LO.print("Pence Per Excess Mile Finance - found wrong");
+				System.err.println("Pence Per Excess Mile Finance - found wrong");
+			}
+
+			// 22
+			if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
+				LO.print("Vehicle Commission - found OK");
+				System.out.println("Vehicle Commission - found OK");
+				count++;
+			} else {
+				LO.print("Vehicle Commission - found wrong");
+				System.err.println("Vehicle Commission - found wrong");
+			}
+
+			// 23
+			if ((Difference.of_two_Double_Values(defaultFinanceCommission,
+					customer_quote_summary_default_finance_comm)) < 0.2) {
+				LO.print("Default Finance Commission - found OK");
+				System.out.println("Default Finance Commission - found OK");
+				count++;
+			} else {
+				LO.print("Default Finance Commission - found wrong");
+				System.err.println("Default Finance Commission - found wrong");
+			}
+
+			// 24
+			if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
+				LO.print("Document Fee Commission - found OK");
+				System.out.println("Document Fee Commission - found OK");
+				count++;
+			} else {
+				LO.print("Document Fee Commission - found wrong");
+				System.err.println("Document Fee Commission - found wrong");
+			}
+
+			// 25
+			if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
+				LO.print("Total Commission - found OK");
+				System.out.println("Total Commission - found OK");
+				count++;
+			} else {
+				LO.print("Total Commission - found wrong");
+				System.err.println("Total Commission - found wrong");
+			}
+
+			if (count == 25) {
+				status = true;
+			}
+			return status;
+
+		}
 
 	}
 
-	public boolean quote_summary_HPNR_PCP_for_funder_quote_with_maintenance(String sheet_name)
-			throws InterruptedException, IOException {
+	public boolean quote_summary_customer_quote_summary_value_verification_for_funder_with_maintenance(
+			String sheet_name) throws IOException {
 
-		LO.print("*************Calculations for Quote Summary page has been started************");
-		System.out.println("*************Calculations for Quote Summary page has been started************");
+		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
+		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
 
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		Click.on(driver, quote_summary, 60);
+		// Clicking on Customer quote pannel
+		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 20);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		try {
+			// waiting for elements
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_maint_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_monthly_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
+			ExplicitWait.visibleElement(driver,
+					quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_maint, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_total, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
+			
+			
+			try {
+				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
+				}catch(Exception e1) {}
+			
+			
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_maintenance_commision, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
 
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+			// getting text from elements
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
-		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_with_maintenance, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 120);
+			double customer_quote_summary_terms = Double
+					.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
 
-		LO.print("Reading values from sceen -Quote Summary Page");
-		System.out.println("Reading values from sceen -Quote Summary Page");
+			double customer_quote_summary_miles = Double
+					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
 
-		String quote_ref_no = quote_summary_ref_no.getText();
-		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_with_maintenance
-				.getText().trim().substring(2);
-		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
-				.substring(2);
-		String temp_quote_summary_monthly_maintenance_rental = quote_summary_monthly_maintenance_rental.getText().trim()
-				.substring(2);
-		String temp_quote_summary_monthly_total_rental = quote_summary_monthly_total_rental.getText().trim()
-				.substring(2);
-		String acq_contract_type = quote_summary_acq_contract_type.getText();
-		String customer_contract_type = quote_summary_customer_contract_type.getText();
+			double customer_quote_summary_basic_cash_price = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
 
-		LO.print("Getting values from screen");
-		System.out.println("Getting values from screen");
+			double customer_quote_summary_vat = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-		System.out.println("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
+			double customer_quote_summary_non_vat_items = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-		System.out
-				.println("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
+			double customer_quote_summary_total_cash_price = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
+			double customer_quote_summary_order_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_monthly_maintenance_rental =" + temp_quote_summary_monthly_maintenance_rental);
-		System.out
-				.println("Quote_summary_monthly_maintenance_rental =" + temp_quote_summary_monthly_maintenance_rental);
+			double customer_quote_summary_finance_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_monthly_total_rental =" + temp_quote_summary_monthly_total_rental);
-		System.out.println("Quote_summary_monthly_total_rental =" + temp_quote_summary_monthly_total_rental);
+			double customer_quote_summary_total_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
 
-		LO.print("Acquisition contract_type =" + acq_contract_type);
-		System.out.println("Acquisition contract_type =" + acq_contract_type);
+			double customer_quote_summary_balance_to_finance = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
 
-		LO.print("Customer contract_type =" + customer_contract_type);
-		System.out.println("Customer contract_type =" + customer_contract_type);
+			double customer_quote_summary_finance_charges = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
 
-		LO.print("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-		System.out.println("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
+			double customer_quote_summary_document_fee = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
 
-		String quote_summary_cost_otr_price_from_screen = RemoveComma.of(temp_quote_summary_cost_otr_price);
-		String quote_summary_total_monthly_holding_cost_from_screen = RemoveComma
-				.of(temp_quote_summary_total_monthly_holding_cost);
-		String quote_summary_monthly_finance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_finance_rental);
-		String quote_summary_monthly_maintenance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_maintenance_rental);
-		String quote_summary_monthly_total_rental_from_screen = RemoveComma.of(temp_quote_summary_monthly_total_rental);
+			double customer_quote_summary_balance_payable = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
 
-		double quote_summary_cost_otr_price_from_screen_converted = Double
-				.parseDouble(quote_summary_cost_otr_price_from_screen);
-		double quote_summary_total_monthly_holding_cost_from_screen_converted = Double
-				.parseDouble(quote_summary_total_monthly_holding_cost_from_screen);
-		double quote_summary_monthly_finance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_finance_rental_from_screen);
-		double quote_summary_monthly_maintenance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_maintenance_rental_from_screen);
-		double quote_summary_monthly_total_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_total_rental_from_screen);
+			double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
 
-		return obj_read_excel_calculation_page
-				.verify_quote_summary_values_from_excel_for_funder_quote_addition_with_maintenance(
-						quote_summary_cost_otr_price_from_screen_converted,
-						quote_summary_total_monthly_holding_cost_from_screen_converted,
-						quote_summary_monthly_finance_rental_from_screen_converted,
-						quote_summary_monthly_maintenance_rental_from_screen_converted,
-						quote_summary_monthly_total_rental_from_screen_converted, sheet_name);
+			double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
+
+			double customer_payment_followed_by = Double
+					.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
+
+			double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
+
+			double customer_quote_summary_monthly_maint_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_monthly_maint_payment.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_monthly_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_total_monthly_payment.getText().trim().substring(2)));
+			double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
+
+			double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee
+							.getText().trim().substring(2)));
+
+			double customer_quote_summary_pence_per_excess_mile_finance = Double
+					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance
+							.getText().trim().substring(0, 4)));
+
+			double customer_quote_summary_pence_per_excess_mile_maint = Double.parseDouble(RemoveComma.of(
+					quote_summary_customer_quote_summary_pence_per_excess_mile_maint.getText().trim().substring(0, 4)));
+
+			double customer_quote_summary_pence_per_excess_mile_total = Double.parseDouble(RemoveComma.of(
+					quote_summary_customer_quote_summary_pence_per_excess_mile_total.getText().trim().substring(0, 4)));
+
+			double customer_quote_summary_vehicle_comm = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
+			
+			double customer_quote_summary_default_finance_comm =0;
+			try {
+			customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
+			}catch(Exception e3) {}	
+
+			double customer_quote_summary_maintenance_commision = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_maintenance_commision.getText().trim().substring(2)));
+
+			double customer_quote_summary_document_fee_comm = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_commission = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
+
+			// writing balloon value to excel
+
+			FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+			XSSFWorkbook wb = new XSSFWorkbook(in);
+			wb.getSheet(sheet_name).getRow(169).getCell(4).setCellValue(customer_quote_summary_guaranteed_future_value);
+			FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+			wb.write(out);
+
+			// getting values from excel
+
+			double terms = GetExcelFormulaValue.get_string_value(208, 1, sheet_name);
+			double miles = GetExcelFormulaValue.get_string_value(208, 4, sheet_name);
+
+			double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
+			double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
+			double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
+
+			double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
+			double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
+			double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
+
+			double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
+			double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+			double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
+			double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
+			double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
+
+			double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
+			double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
+			double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
+
+			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
+			double monthlyMaintenancePayment = GetExcelFormulaValue.get_formula_value(229, 1, sheet_name);
+			double totalMonthlyPayment = GetExcelFormulaValue.get_formula_value(229, 4, sheet_name);
+
+			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+			double pencePerExcessMileMaintenance = GetExcelFormulaValue.get_formula_value(235, 0, sheet_name);
+			double pencePerExcessMileTotal = GetExcelFormulaValue.get_formula_value(235, 1, sheet_name);
+
+			double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
+			double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
+			double maintCommission = GetExcelFormulaValue.get_formula_value(239, 4, sheet_name);
+
+			double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
+			double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
+
+			// comparing actul and expected values
+
+			boolean status = false;
+
+			int count = 0;
+
+			// 1
+			if (terms == customer_quote_summary_terms) {
+				LO.print("Terms found OK");
+				System.out.println("Terms found OK");
+				count++;
+			} else {
+				LO.print("Terms found wrong");
+				System.err.println("Terms found wrong");
+			}
+
+			// 2
+			if (miles == customer_quote_summary_miles) {
+				LO.print("miles found OK");
+				System.out.println("miles found OK");
+				count++;
+			} else {
+				LO.print("miles found wrong");
+				System.err.println("miles found wrong");
+			}
+
+			// 3
+			if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
+				LO.print("Basic Cash Price found OK");
+				System.out.println("Basic Cash Price found OK");
+				count++;
+			} else {
+				LO.print("Basic Cash Price found wrong");
+				System.err.println("Basic Cash Price found wrong");
+			}
+
+			// 4
+			if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
+				LO.print("VAT found OK");
+				System.out.println("VAT found OK");
+				count++;
+			} else {
+				LO.print("VAT found wrong");
+				System.err.println("VAT found wrong");
+			}
+
+			// 5
+			if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
+				LO.print("Non VAT Items Value found OK");
+				System.out.println("Non VAT Items Value found OK");
+				count++;
+			} else {
+				LO.print("Non VAT Items Value found wrong");
+				System.err.println("Non VAT Items Value found wrong");
+			}
+
+			// 6
+			if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
+				LO.print("Total Cash Price found OK");
+				System.out.println("Total Cash Price found OK");
+				count++;
+			} else {
+				LO.print("Total Cash Price found wrong");
+				System.err.println("Total Cash Price found wrong");
+			}
+
+			// 7
+			if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
+				LO.print("Order Deposit found OK");
+				System.out.println("Order Deposit found OK");
+				count++;
+			} else {
+				LO.print("Order Deposit found wrong");
+				System.err.println("Order Deposit found wrong");
+			}
+
+			// 8
+			if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
+				LO.print("Finance Deposit found OK");
+				System.out.println("Finance Deposit found OK");
+				count++;
+			} else {
+				LO.print("Finance Deposit found wrong");
+				System.err.println("Finance Deposit found wrong");
+			}
+
+			// 9
+			if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
+				LO.print("Total Deposit found OK");
+				System.out.println("Total Deposit found OK");
+				count++;
+			} else {
+				LO.print("Total Deposit found wrong");
+				System.err.println("Total Deposit found wrong");
+			}
+
+			// 10
+			if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
+				LO.print("Balance to Finance found OK");
+				System.out.println("Balance to Finance found OK");
+				count++;
+			} else {
+				LO.print("Balance to Finance found wrong");
+				System.err.println("Balance to Finance found wrong");
+			}
+
+			// 11
+			if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+				LO.print("Finance Charges - found OK");
+				System.out.println("Finance Charges - found OK");
+				count++;
+			} else {
+				LO.print("Finance Charges - found wrong");
+				System.err.println("Finance Charges - found wrong");
+			}
+
+			// 12
+			if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
+				LO.print("Document Fee - found OK");
+				System.out.println("Document Fee - found OK");
+				count++;
+			} else {
+				LO.print("Document Fee - found wrong");
+				System.err.println("Document Fee - found wrong");
+			}
+
+			// 13
+			if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+				LO.print("Balance Payable - found OK");
+				System.out.println("Balance Payable - found OK");
+				count++;
+			} else {
+				LO.print("Balance Payable - found wrong");
+				System.err.println("Balance Payable - found wrong");
+			}
+
+			// 14
+			if ((Difference.of_two_Double_Values(optionToPurchaseFee,
+					customer_quote_summary_option_to_purchase_fee)) < 0.2) {
+				LO.print("Option To Purchase Fee - found OK");
+				System.out.println("Option To Purchase Fee - found OK");
+				count++;
+			} else {
+				LO.print("Option To Purchase Fee - found wrong");
+				System.err.println("Option To Purchase Fee - found wrong");
+			}
+
+			// 15
+			if ((Difference.of_two_Double_Values(initialCashPayment,
+					customer_quote_summary_initial_cash_payment)) < 0.2) {
+				LO.print("Initial Cash Payment - found OK");
+				System.out.println("Initial Cash Payment - found OK");
+				count++;
+			} else {
+				LO.print("Initial Cash Payment - found wrong");
+				System.err.println("Initial Cash Payment - found wrong");
+			}
+
+			// 16
+			if (followedBy == customer_payment_followed_by) {
+				LO.print("Followed By months - found OK");
+				System.out.println("Followed By months - found OK");
+				count++;
+			} else {
+				LO.print("Followed By months - found wrong");
+				System.err.println("Followed By months - found wrong");
+			}
+
+			// 17
+			if ((Difference.of_two_Double_Values(monthlyFinancePayment,
+					customer_quote_summary_monthly_finance_payment)) < 0.2) {
+				LO.print("Monthly Finance Payment - found OK");
+				System.out.println("Monthly Finance Payment - found OK");
+				count++;
+			} else {
+				LO.print("Monthly Finance Payment - found wrong");
+				System.err.println("Monthly Finance Payment - found wrong");
+			}
+
+			// 18
+			if ((Difference.of_two_Double_Values(monthlyMaintenancePayment,
+					customer_quote_summary_monthly_maint_payment)) < 0.2) {
+				LO.print("Monthly Maint Payment - found OK");
+				System.out.println("Monthly Maint Payment - found OK");
+				count++;
+			} else {
+				LO.print("Monthly Maint Payment - found wrong");
+				System.err.println("Monthly Maint Payment - found wrong");
+			}
+
+			// 19
+			if ((Difference.of_two_Double_Values(totalMonthlyPayment,
+					customer_quote_summary_total_monthly_payment)) < 0.2) {
+				LO.print("Monthly Total Payment - found OK");
+				System.out.println("Monthly Total Payment - found OK");
+				count++;
+			} else {
+				LO.print("Monthly Total Payment - found wrong");
+				System.err.println("Monthly Total Payment - found wrong");
+			}
+
+			// 20
+			if ((Difference.of_two_Double_Values(guaranteedFutureValue,
+					customer_quote_summary_guaranteed_future_value)) < 0.2) {
+				LO.print("Balloon Value - found OK");
+				System.out.println("Balloon Value - found OK");
+				count++;
+			} else {
+				LO.print("Balloon Value - found wrong");
+				System.err.println("Balloon Value - found wrong");
+			}
+
+			// 21
+			if ((Difference.of_two_Double_Values(optionalFinalPayment,
+					customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
+				LO.print("Final Payment - found OK");
+				System.out.println("Final Payment - found OK");
+				count++;
+			} else {
+				LO.print("Final Payment - found wrong");
+				System.err.println("Final Payment - found wrong");
+			}
+
+			// 22
+			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
+					customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
+				LO.print("Pence Per Excess Mile Finance - found OK");
+				System.out.println("Pence Per Excess Mile Finance - found OK");
+				count++;
+			} else {
+				LO.print("Pence Per Excess Mile Finance - found wrong");
+				System.err.println("Pence Per Excess Mile Finance - found wrong");
+			}
+
+			// 23
+			if ((Difference.of_two_Double_Values(pencePerExcessMileMaintenance,
+					customer_quote_summary_pence_per_excess_mile_maint)) < 0.2) {
+				LO.print("Pence Per Excess Mile Maintenance - found OK");
+				System.out.println("Pence Per Excess Mile Maintenance - found OK");
+				count++;
+			} else {
+				LO.print("Pence Per Excess Mile Maintenance - found wrong");
+				System.err.println("Pence Per Excess Mile Maintenance - found wrong");
+			}
+
+			// 24
+			if ((Difference.of_two_Double_Values(pencePerExcessMileTotal,
+					customer_quote_summary_pence_per_excess_mile_total)) < 0.2) {
+				LO.print("Pence Per Excess Mile Total - found OK");
+				System.out.println("Pence Per Excess Mile Total - found OK");
+				count++;
+			} else {
+				LO.print("Pence Per Excess Mile Total - found wrong");
+				System.err.println("Pence Per Excess Mile Total - found wrong");
+			}
+
+			// 25
+			if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
+				LO.print("Vehicle Commission - found OK");
+				System.out.println("Vehicle Commission - found OK");
+				count++;
+			} else {
+				LO.print("Vehicle Commission - found wrong");
+				System.err.println("Vehicle Commission - found wrong");
+			}
+
+			// 26
+			if ((Difference.of_two_Double_Values(defaultFinanceCommission,
+					customer_quote_summary_default_finance_comm)) < 0.2) {
+				LO.print("Default Finance Commission - found OK");
+				System.out.println("Default Finance Commission - found OK");
+				count++;
+			} else {
+				LO.print("Default Finance Commission - found wrong");
+				System.err.println("Default Finance Commission - found wrong");
+			}
+
+			// 27
+			if ((Difference.of_two_Double_Values(maintCommission,
+					customer_quote_summary_maintenance_commision)) < 0.2) {
+				LO.print("Maintenance Commission - found OK");
+				System.out.println("Maintenance Commission - found OK");
+				count++;
+			} else {
+				LO.print("Maintenance Commission - found wrong");
+				System.err.println("Maintenance Commission - found wrong");
+			}
+
+			// 28
+			if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
+				LO.print("Document Fee Commission - found OK");
+				System.out.println("Document Fee Commission - found OK");
+				count++;
+			} else {
+				LO.print("Document Fee Commission - found wrong");
+				System.err.println("Document Fee Commission - found wrong");
+			}
+
+			// 29
+			if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
+				LO.print("Total Commission - found OK");
+				System.out.println("Total Commission - found OK");
+				count++;
+			} else {
+				LO.print("Total Commission - found wrong");
+				System.err.println("Total Commission - found wrong");
+			}
+
+			if (count == 29) {
+				status = true;
+			}
+			return status;
+		} catch (Exception e) {
+
+			// waiting for elements
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
+			ExplicitWait.visibleElement(driver,
+					quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
+			
+			try {
+				ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
+				}catch(Exception e1) {}
+			
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
+			ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
+
+			// getting text from elements
+
+			double customer_quote_summary_terms = Double
+					.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
+
+			double customer_quote_summary_miles = Double
+					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
+
+			double customer_quote_summary_basic_cash_price = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
+
+			double customer_quote_summary_vat = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
+
+			double customer_quote_summary_non_vat_items = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_cash_price = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
+
+			double customer_quote_summary_order_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
+
+			double customer_quote_summary_finance_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_deposit = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
+
+			double customer_quote_summary_balance_to_finance = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
+
+			double customer_quote_summary_finance_charges = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
+
+			double customer_quote_summary_document_fee = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
+
+			double customer_quote_summary_balance_payable = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
+
+			
+			double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
+
+			double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
+
+			double customer_payment_followed_by = Double
+					.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
+
+			double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
+
+			double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
+
+			double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee
+							.getText().trim().substring(2)));
+
+			double customer_quote_summary_pence_per_excess_mile_finance = Double
+					.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_pence_per_excess_mile_finance
+							.getText().trim().substring(0, 4)));
+
+			double customer_quote_summary_vehicle_comm = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
+
+			double customer_quote_summary_default_finance_comm =0;
+			try {
+			customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
+			}catch(Exception e3) {}	
+
+			double customer_quote_summary_document_fee_comm = Double.parseDouble(RemoveComma
+					.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
+
+			double customer_quote_summary_total_commission = Double.parseDouble(
+					RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
+
+			// writing balloon value to excel
+
+			FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+			XSSFWorkbook wb = new XSSFWorkbook(in);
+			wb.getSheet(sheet_name).getRow(169).getCell(4).setCellValue(customer_quote_summary_guaranteed_future_value);
+			FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+			wb.write(out);
+
+			// getting values from excel
+
+			double terms = GetExcelFormulaValue.get_string_value(208, 1, sheet_name);
+			double miles = GetExcelFormulaValue.get_string_value(208, 4, sheet_name);
+
+			double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
+			double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
+			double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
+
+			double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
+			double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
+			double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
+
+			double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
+			double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+			double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
+			double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
+			double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
+
+			double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
+			double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
+			double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
+
+			double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
+
+			double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+			double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+			double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+
+			double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
+			double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
+
+			double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
+			double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
+
+			// comparing actul and expected values
+
+			boolean status = false;
+
+			int count = 0;
+
+			// 1
+			if (terms == customer_quote_summary_terms) {
+				LO.print("Terms found OK");
+				System.out.println("Terms found OK");
+				count++;
+			} else {
+				LO.print("Terms found wrong");
+				System.err.println("Terms found wrong");
+			}
+
+			// 2
+			if (miles == customer_quote_summary_miles) {
+				LO.print("miles found OK");
+				System.out.println("miles found OK");
+				count++;
+			} else {
+				LO.print("miles found wrong");
+				System.err.println("miles found wrong");
+			}
+
+			// 3
+			if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
+				LO.print("Basic Cash Price found OK");
+				System.out.println("Basic Cash Price found OK");
+				count++;
+			} else {
+				LO.print("Basic Cash Price found wrong");
+				System.err.println("Basic Cash Price found wrong");
+			}
+
+			// 4
+			if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
+				LO.print("VAT found OK");
+				System.out.println("VAT found OK");
+				count++;
+			} else {
+				LO.print("VAT found wrong");
+				System.err.println("VAT found wrong");
+			}
+
+			// 5
+			if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
+				LO.print("Non VAT Items Value found OK");
+				System.out.println("Non VAT Items Value found OK");
+				count++;
+			} else {
+				LO.print("Non VAT Items Value found wrong");
+				System.err.println("Non VAT Items Value found wrong");
+			}
+
+			// 6
+			if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
+				LO.print("Total Cash Price found OK");
+				System.out.println("Total Cash Price found OK");
+				count++;
+			} else {
+				LO.print("Total Cash Price found wrong");
+				System.err.println("Total Cash Price found wrong");
+			}
+
+			// 7
+			if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
+				LO.print("Order Deposit found OK");
+				System.out.println("Order Deposit found OK");
+				count++;
+			} else {
+				LO.print("Order Deposit found wrong");
+				System.err.println("Order Deposit found wrong");
+			}
+
+			// 8
+			if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
+				LO.print("Finance Deposit found OK");
+				System.out.println("Finance Deposit found OK");
+				count++;
+			} else {
+				LO.print("Finance Deposit found wrong");
+				System.err.println("Finance Deposit found wrong");
+			}
+
+			// 9
+			if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
+				LO.print("Total Deposit found OK");
+				System.out.println("Total Deposit found OK");
+				count++;
+			} else {
+				LO.print("Total Deposit found wrong");
+				System.err.println("Total Deposit found wrong");
+			}
+
+			// 10
+			if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
+				LO.print("Balance to Finance found OK");
+				System.out.println("Balance to Finance found OK");
+				count++;
+			} else {
+				LO.print("Balance to Finance found wrong");
+				System.err.println("Balance to Finance found wrong");
+			}
+
+			// 11
+			if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+				LO.print("Finance Charges - found OK");
+				System.out.println("Finance Charges - found OK");
+				count++;
+			} else {
+				LO.print("Finance Charges - found wrong");
+				System.err.println("Finance Charges - found wrong");
+			}
+
+			// 12
+			if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
+				LO.print("Document Fee - found OK");
+				System.out.println("Document Fee - found OK");
+				count++;
+			} else {
+				LO.print("Document Fee - found wrong");
+				System.err.println("Document Fee - found wrong");
+			}
+
+			// 13
+			if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+				LO.print("Balance Payable - found OK");
+				System.out.println("Balance Payable - found OK");
+				count++;
+			} else {
+				LO.print("Balance Payable - found wrong");
+				System.err.println("Balance Payable - found wrong");
+			}
+
+			// 14
+			if ((Difference.of_two_Double_Values(optionToPurchaseFee,
+					customer_quote_summary_option_to_purchase_fee)) < 0.2) {
+				LO.print("Option To Purchase Fee - found OK");
+				System.out.println("Option To Purchase Fee - found OK");
+				count++;
+			} else {
+				LO.print("Option To Purchase Fee - found wrong");
+				System.err.println("Option To Purchase Fee - found wrong");
+			}
+
+			// 15
+			if ((Difference.of_two_Double_Values(initialCashPayment,
+					customer_quote_summary_initial_cash_payment)) < 0.2) {
+				LO.print("Initial Cash Payment - found OK");
+				System.out.println("Initial Cash Payment - found OK");
+				count++;
+			} else {
+				LO.print("Initial Cash Payment - found wrong");
+				System.err.println("Initial Cash Payment - found wrong");
+			}
+
+			// 16
+			if (followedBy == customer_payment_followed_by) {
+				LO.print("Followed By months - found OK");
+				System.out.println("Followed By months - found OK");
+				count++;
+			} else {
+				LO.print("Followed By months - found wrong");
+				System.err.println("Followed By months - found wrong");
+			}
+
+			// 17
+			if ((Difference.of_two_Double_Values(monthlyFinancePayment,
+					customer_quote_summary_monthly_finance_payment)) < 0.2) {
+				LO.print("Monthly Finance Payment - found OK");
+				System.out.println("Monthly Finance Payment - found OK");
+				count++;
+			} else {
+				LO.print("Monthly Finance Payment - found wrong");
+				System.err.println("Monthly Finance Payment - found wrong");
+			}
+
+			// 18
+			if ((Difference.of_two_Double_Values(guaranteedFutureValue,
+					customer_quote_summary_guaranteed_future_value)) < 0.2) {
+				LO.print("Guaranteed Future Value - found OK");
+				System.out.println("Guaranteed Future Value - found OK");
+				count++;
+			} else {
+				LO.print("Guaranteed Future Value - found wrong");
+				System.err.println("Guaranteed Future Value - found wrong");
+			}
+
+			// 19
+			if ((Difference.of_two_Double_Values(optionalFinalPayment,
+					customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
+				LO.print("Optional Final Payment - found OK");
+				System.out.println("Optional Final Payment - found OK");
+				count++;
+			} else {
+				LO.print("Optional Final Payment - found wrong");
+				System.err.println("Optional Final Payment - found wrong");
+			}
+
+			// 20
+			if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
+					customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
+				LO.print("Pence Per Excess Mile Finance - found OK");
+				System.out.println("Pence Per Excess Mile Finance - found OK");
+				count++;
+			} else {
+				LO.print("Pence Per Excess Mile Finance - found wrong");
+				System.err.println("Pence Per Excess Mile Finance - found wrong");
+			}
+
+			// 21
+			if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
+				LO.print("Vehicle Commission - found OK");
+				System.out.println("Vehicle Commission - found OK");
+				count++;
+			} else {
+				LO.print("Vehicle Commission - found wrong");
+				System.err.println("Vehicle Commission - found wrong");
+			}
+
+			// 22
+			if ((Difference.of_two_Double_Values(defaultFinanceCommission,
+					customer_quote_summary_default_finance_comm)) < 0.2) {
+				LO.print("Default Finance Commission - found OK");
+				System.out.println("Default Finance Commission - found OK");
+				count++;
+			} else {
+				LO.print("Default Finance Commission - found wrong");
+				System.err.println("Default Finance Commission - found wrong");
+			}
+
+			// 23
+			if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
+				LO.print("Document Fee Commission - found OK");
+				System.out.println("Document Fee Commission - found OK");
+				count++;
+			} else {
+				LO.print("Document Fee Commission - found wrong");
+				System.err.println("Document Fee Commission - found wrong");
+			}
+
+			// 24
+			if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
+				LO.print("Total Commission - found OK");
+				System.out.println("Total Commission - found OK");
+				count++;
+			} else {
+				LO.print("Total Commission - found wrong");
+				System.err.println("Total Commission - found wrong");
+			}
+
+			if (count == 24) {
+				status = true;
+			}
+			return status;
+
+		}
 
 	}
 
-	public boolean quote_summary_HPNR_PCP_without_maintenance(String sheet_name)
-			throws InterruptedException, IOException {
+	public boolean quote_summary_customer_quote_summary_value_verification_for_funder_without_maintenance(
+			String sheet_name) throws IOException {
 
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		Click.on(driver, quote_summary, 60);
+		LO.print("*************Customer Quote Calulation on quote summary page has been started************");
+		System.out.println("*************Customer Quote Calulation on quote summary page has been started************");
 
-		LO.print("*************Calculations for Quote Summary page has been started************");
-		System.out.println("*************Calculations for Quote Summary page has been started************");
+		// Clicking on Customer quote pannel
+		Click.on(driver, quote_summary_customer_quote_summary_value_verification, 20);
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		// waiting for elements
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_terms, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_miles_per_annum, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_basic_cash_price, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vat, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_non_vat_items, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_cash_price, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_order_deposit, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_deposit, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_deposit, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_to_finance, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_finance_charges, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_balance_payable, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_option_to_purchase_fee, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_initial_cash_payment, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_followed_by, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_monthly_finance_payment, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_guaranteed_future_value, 20);
+		ExplicitWait.visibleElement(driver,
+				quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_pence_per_excess_mile_finance, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_vehicle_comm, 20);
+		
+		try {
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_default_finance_comm, 20);
+		}catch(Exception e1) {}
+		
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_document_fee_comm, 20);
+		ExplicitWait.visibleElement(driver, quote_summary_customer_quote_summary_total_comm, 20);
 
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+		// getting text from elements
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		double customer_quote_summary_terms = Double
+				.parseDouble(quote_summary_customer_quote_summary_terms.getText().trim().substring(0, 2));
 
-		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_without_maintenance, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 60);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 60);
+		double customer_quote_summary_miles = Double
+				.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_miles_per_annum.getText().trim()));
 
-		LO.print("Reading values from sceen -Quote Summary Page");
-		System.out.println("Reading values from sceen -Quote Summary Page");
+		double customer_quote_summary_basic_cash_price = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_basic_cash_price.getText().trim().substring(2)));
 
-		String quote_ref_no = quote_summary_ref_no.getText();
-		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_without_maintenance
-				.getText().trim().substring(2);
-		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
-				.substring(2);
-		String acq_contract_type = quote_summary_acq_contract_type.getText();
-		String customer_contract_type = quote_summary_customer_contract_type.getText();
+		double customer_quote_summary_vat = Double
+				.parseDouble(RemoveComma.of(quote_summary_customer_quote_summary_vat.getText().trim().substring(2)));
 
-		LO.print("Getting values from screen");
-		System.out.println("Getting values from screen");
+		double customer_quote_summary_non_vat_items = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_non_vat_items.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-		System.out.println("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
+		double customer_quote_summary_total_cash_price = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_total_cash_price.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-		System.out
-				.println("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
+		double customer_quote_summary_order_deposit = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_order_deposit.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
+		double customer_quote_summary_finance_deposit = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_finance_deposit.getText().trim().substring(2)));
 
-		LO.print("Acquisition contract_type =" + acq_contract_type);
-		System.out.println("Acquisition contract_type =" + acq_contract_type);
+		double customer_quote_summary_total_deposit = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_total_deposit.getText().trim().substring(2)));
 
-		LO.print("Customer contract_type =" + customer_contract_type);
-		System.out.println("Customer contract_type =" + customer_contract_type);
+		double customer_quote_summary_balance_to_finance = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_balance_to_finance.getText().trim().substring(2)));
 
-		LO.print("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-		System.out.println("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
+		double customer_quote_summary_finance_charges = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_finance_charges.getText().trim().substring(2)));
 
-		String quote_summary_cost_otr_price_from_screen = RemoveComma.of(temp_quote_summary_cost_otr_price);
-		String quote_summary_total_monthly_holding_cost_from_screen = RemoveComma
-				.of(temp_quote_summary_total_monthly_holding_cost);
-		String quote_summary_monthly_finance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_finance_rental);
+		double customer_quote_summary_document_fee = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_document_fee.getText().trim().substring(2)));
 
-		double quote_summary_cost_otr_price_from_screen_converted = Double
-				.parseDouble(quote_summary_cost_otr_price_from_screen);
-		double quote_summary_total_monthly_holding_cost_from_screen_converted = Double
-				.parseDouble(quote_summary_total_monthly_holding_cost_from_screen);
-		double quote_summary_monthly_finance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_finance_rental_from_screen);
+		double customer_quote_summary_balance_payable = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_balance_payable.getText().trim().substring(2)));
 
-		return obj_read_excel_calculation_page.verify_quote_summary_values_from_excel_without_maintenance(
-				quote_summary_cost_otr_price_from_screen_converted,
-				quote_summary_total_monthly_holding_cost_from_screen_converted,
-				quote_summary_monthly_finance_rental_from_screen_converted, sheet_name);
+		System.out.println("customer_quote_summary_balance_payable" + customer_quote_summary_balance_payable);
+
+		double customer_quote_summary_option_to_purchase_fee = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_option_to_purchase_fee.getText().trim().substring(2)));
+
+		double customer_quote_summary_initial_cash_payment = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_initial_cash_payment.getText().trim().substring(2)));
+
+		double customer_payment_followed_by = Double
+				.parseDouble(quote_summary_customer_quote_summary_followed_by.getText().substring(0, 2));
+
+		double customer_quote_summary_monthly_finance_payment = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_monthly_finance_payment.getText().trim().substring(2)));
+
+		double customer_quote_summary_guaranteed_future_value = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_guaranteed_future_value.getText().trim().substring(2)));
+
+		double customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_final_payment_inc_option_to_purchase_fee.getText()
+						.trim().substring(2)));
+
+		double customer_quote_summary_pence_per_excess_mile_finance = Double.parseDouble(RemoveComma.of(
+				quote_summary_customer_quote_summary_pence_per_excess_mile_finance.getText().trim().substring(0, 4)));
+
+		double customer_quote_summary_vehicle_comm = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_vehicle_comm.getText().trim().substring(2)));
+
+		double customer_quote_summary_default_finance_comm =0;
+		try {
+		customer_quote_summary_default_finance_comm = Double.parseDouble(RemoveComma
+				.of(quote_summary_customer_quote_summary_default_finance_comm.getText().trim().substring(2)));
+		}catch(Exception e3) {}	
+
+		double customer_quote_summary_document_fee_comm = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_document_fee_comm.getText().trim().substring(2)));
+
+		double customer_quote_summary_total_commission = Double.parseDouble(
+				RemoveComma.of(quote_summary_customer_quote_summary_total_comm.getText().trim().substring(2)));
+
+		// writing balloon value to excel
+
+		FileInputStream in = new FileInputStream(prop.getProperty("formula_excel_path"));
+		XSSFWorkbook wb = new XSSFWorkbook(in);
+		wb.getSheet(sheet_name).getRow(169).getCell(4).setCellValue(customer_quote_summary_guaranteed_future_value);
+		FileOutputStream out = new FileOutputStream(prop.getProperty("formula_excel_path"));
+		wb.write(out);
+
+		// getting values from excel
+
+		double terms = GetExcelFormulaValue.get_string_value(208, 1, sheet_name);
+		double miles = GetExcelFormulaValue.get_string_value(208, 4, sheet_name);
+
+		double basicCashPrice = GetExcelFormulaValue.get_formula_value(214, 0, sheet_name);
+		double vat = GetExcelFormulaValue.get_formula_value(214, 1, sheet_name);
+		double nonVATItems = GetExcelFormulaValue.get_formula_value(214, 4, sheet_name);
+
+		double totalCashPrice = GetExcelFormulaValue.get_formula_value(217, 0, sheet_name);
+		double orderDeposit = GetExcelFormulaValue.get_formula_value(217, 1, sheet_name);
+		double financeDeposit = GetExcelFormulaValue.get_formula_value(217, 4, sheet_name);
+
+		double totalDeposit = GetExcelFormulaValue.get_formula_value(220, 0, sheet_name);
+		double balanceToFinance = GetExcelFormulaValue.get_formula_value(220, 4, sheet_name);
+
+		double financeCharges = GetExcelFormulaValue.get_formula_value(223, 0, sheet_name);
+		double documentFee = GetExcelFormulaValue.get_string_value(223, 1, sheet_name);
+		double balancePayable = GetExcelFormulaValue.get_formula_value(223, 4, sheet_name);
+
+		double optionToPurchaseFee = GetExcelFormulaValue.get_formula_value(226, 0, sheet_name);
+		double initialCashPayment = GetExcelFormulaValue.get_formula_value(226, 1, sheet_name);
+		double followedBy = GetExcelFormulaValue.get_formula_value(226, 4, sheet_name);
+
+		double monthlyFinancePayment = GetExcelFormulaValue.get_formula_value(229, 0, sheet_name);
+
+		double guaranteedFutureValue = GetExcelFormulaValue.get_formula_value(232, 0, sheet_name);
+		double optionalFinalPayment = GetExcelFormulaValue.get_formula_value(232, 1, sheet_name);
+		double pencePerExcessMileFinance = GetExcelFormulaValue.get_formula_value(232, 4, sheet_name);
+
+		double vehicleCommission = GetExcelFormulaValue.get_formula_value(239, 0, sheet_name);
+		double defaultFinanceCommission = GetExcelFormulaValue.get_formula_value(239, 1, sheet_name);
+
+		double docFeeCommission = GetExcelFormulaValue.get_formula_value(242, 0, sheet_name);
+		double totalCommission = GetExcelFormulaValue.get_formula_value(242, 1, sheet_name);
+
+		// comparing actul and expected values
+
+		boolean status = false;
+
+		int count = 0;
+
+		// 1
+		if (terms == customer_quote_summary_terms) {
+			LO.print("Terms found OK");
+			System.out.println("Terms found OK");
+			count++;
+		} else {
+			LO.print("Terms found wrong");
+			System.err.println("Terms found wrong");
+		}
+
+		// 2
+		if (miles == customer_quote_summary_miles) {
+			LO.print("miles found OK");
+			System.out.println("miles found OK");
+			count++;
+		} else {
+			LO.print("miles found wrong");
+			System.err.println("miles found wrong");
+		}
+
+		// 3
+		if ((Difference.of_two_Double_Values(basicCashPrice, customer_quote_summary_basic_cash_price)) < 0.2) {
+			LO.print("Basic Cash Price found OK");
+			System.out.println("Basic Cash Price found OK");
+			count++;
+		} else {
+			LO.print("Basic Cash Price found wrong");
+			System.err.println("Basic Cash Price found wrong");
+		}
+
+		// 4
+		if ((Difference.of_two_Double_Values(vat, customer_quote_summary_vat)) < 0.2) {
+			LO.print("VAT found OK");
+			System.out.println("VAT found OK");
+			count++;
+		} else {
+			LO.print("VAT found wrong");
+			System.err.println("VAT found wrong");
+		}
+
+		// 5
+		if ((Difference.of_two_Double_Values(nonVATItems, customer_quote_summary_non_vat_items)) < 0.2) {
+			LO.print("Non VAT Items Value found OK");
+			System.out.println("Non VAT Items Value found OK");
+			count++;
+		} else {
+			LO.print("Non VAT Items Value found wrong");
+			System.err.println("Non VAT Items Value found wrong");
+		}
+
+		// 6
+		if ((Difference.of_two_Double_Values(totalCashPrice, customer_quote_summary_total_cash_price)) < 0.2) {
+			LO.print("Total Cash Price found OK");
+			System.out.println("Total Cash Price found OK");
+			count++;
+		} else {
+			LO.print("Total Cash Price found wrong");
+			System.err.println("Total Cash Price found wrong");
+		}
+
+		// 7
+		if ((Difference.of_two_Double_Values(orderDeposit, customer_quote_summary_order_deposit)) < 0.2) {
+			LO.print("Order Deposit found OK");
+			System.out.println("Order Deposit found OK");
+			count++;
+		} else {
+			LO.print("Order Deposit found wrong");
+			System.err.println("Order Deposit found wrong");
+		}
+
+		// 8
+		if ((Difference.of_two_Double_Values(financeDeposit, customer_quote_summary_finance_deposit)) < 0.2) {
+			LO.print("Finance Deposit found OK");
+			System.out.println("Finance Deposit found OK");
+			count++;
+		} else {
+			LO.print("Finance Deposit found wrong");
+			System.err.println("Finance Deposit found wrong");
+		}
+
+		// 9
+		if ((Difference.of_two_Double_Values(totalDeposit, customer_quote_summary_total_deposit)) < 0.2) {
+			LO.print("Total Deposit found OK");
+			System.out.println("Total Deposit found OK");
+			count++;
+		} else {
+			LO.print("Total Deposit found wrong");
+			System.err.println("Total Deposit found wrong");
+		}
+
+		// 10
+		if ((Difference.of_two_Double_Values(balanceToFinance, customer_quote_summary_balance_to_finance)) < 0.2) {
+			LO.print("Balance to Finance found OK");
+			System.out.println("Balance to Finance found OK");
+			count++;
+		} else {
+			LO.print("Balance to Finance found wrong");
+			System.err.println("Balance to Finance found wrong");
+		}
+
+		// 11
+		if ((Difference.of_two_Double_Values(financeCharges, customer_quote_summary_finance_charges)) < 0.2) {
+			LO.print("Finance Charges - found OK");
+			System.out.println("Finance Charges - found OK");
+			count++;
+		} else {
+			LO.print("Finance Charges - found wrong");
+			System.err.println("Finance Charges - found wrong");
+		}
+
+		// 12
+		if ((Difference.of_two_Double_Values(documentFee, customer_quote_summary_document_fee)) < 0.2) {
+			LO.print("Document Fee - found OK");
+			System.out.println("Document Fee - found OK");
+			count++;
+		} else {
+			LO.print("Document Fee - found wrong");
+			System.err.println("Document Fee - found wrong");
+		}
+
+		// 13
+		if ((Difference.of_two_Double_Values(balancePayable, customer_quote_summary_balance_payable)) < 0.2) {
+			LO.print("Balance Payable - found OK");
+			System.out.println("Balance Payable - found OK");
+			count++;
+		} else {
+			LO.print("Balance Payable - found wrong");
+			System.err.println("Balance Payable - found wrong");
+		}
+
+		// 14
+		if ((Difference.of_two_Double_Values(optionToPurchaseFee,
+				customer_quote_summary_option_to_purchase_fee)) < 0.2) {
+			LO.print("Option To Purchase Fee - found OK");
+			System.out.println("Option To Purchase Fee - found OK");
+			count++;
+		} else {
+			LO.print("Option To Purchase Fee - found wrong");
+			System.err.println("Option To Purchase Fee - found wrong");
+		}
+
+		// 15
+		if ((Difference.of_two_Double_Values(initialCashPayment, customer_quote_summary_initial_cash_payment)) < 0.2) {
+			LO.print("Initial Cash Payment - found OK");
+			System.out.println("Initial Cash Payment - found OK");
+			count++;
+		} else {
+			LO.print("Initial Cash Payment - found wrong");
+			System.err.println("Initial Cash Payment - found wrong");
+		}
+
+		// 16
+		if (followedBy == customer_payment_followed_by) {
+			LO.print("Followed By months - found OK");
+			System.out.println("Followed By months - found OK");
+			count++;
+		} else {
+			LO.print("Followed By months - found wrong");
+			System.err.println("Followed By months - found wrong");
+		}
+
+		// 17
+		if ((Difference.of_two_Double_Values(monthlyFinancePayment,
+				customer_quote_summary_monthly_finance_payment)) < 0.2) {
+			LO.print("Monthly Finance Payment - found OK");
+			System.out.println("Monthly Finance Payment - found OK");
+			count++;
+		} else {
+			LO.print("Monthly Finance Payment - found wrong");
+			System.err.println("Monthly Finance Payment - found wrong");
+		}
+
+		// 18
+		if ((Difference.of_two_Double_Values(guaranteedFutureValue,
+				customer_quote_summary_guaranteed_future_value)) < 0.2) {
+			LO.print("Guaranteed Future Value - found OK");
+			System.out.println("Guaranteed Future Value - found OK");
+			count++;
+		} else {
+			LO.print("Guaranteed Future Value - found wrong");
+			System.err.println("Guaranteed Future Value - found wrong");
+		}
+
+		// 19
+		if ((Difference.of_two_Double_Values(optionalFinalPayment,
+				customer_quote_summary_optional_final_payment_inc_option_to_purchase_fee)) < 0.2) {
+			LO.print("Optional Final Payment - found OK");
+			System.out.println("Optional Final Payment - found OK");
+			count++;
+		} else {
+			LO.print("Optional Final Payment - found wrong");
+			System.err.println("Optional Final Payment - found wrong");
+		}
+
+		// 20
+		if ((Difference.of_two_Double_Values(pencePerExcessMileFinance,
+				customer_quote_summary_pence_per_excess_mile_finance)) < 0.2) {
+			LO.print("Pence Per Excess Mile Finance - found OK");
+			System.out.println("Pence Per Excess Mile Finance - found OK");
+			count++;
+		} else {
+			LO.print("Pence Per Excess Mile Finance - found wrong");
+			System.err.println("Pence Per Excess Mile Finance - found wrong");
+		}
+
+		// 21
+		if ((Difference.of_two_Double_Values(vehicleCommission, customer_quote_summary_vehicle_comm)) < 0.2) {
+			LO.print("Vehicle Commission - found OK");
+			System.out.println("Vehicle Commission - found OK");
+			count++;
+		} else {
+			LO.print("Vehicle Commission - found wrong");
+			System.err.println("Vehicle Commission - found wrong");
+		}
+
+		// 22
+		if ((Difference.of_two_Double_Values(defaultFinanceCommission,
+				customer_quote_summary_default_finance_comm)) < 0.2) {
+			LO.print("Default Finance Commission - found OK");
+			System.out.println("Default Finance Commission - found OK");
+			count++;
+		} else {
+			LO.print("Default Finance Commission - found wrong");
+			System.err.println("Default Finance Commission - found wrong");
+		}
+
+		// 23
+		if ((Difference.of_two_Double_Values(docFeeCommission, customer_quote_summary_document_fee_comm)) < 0.2) {
+			LO.print("Document Fee Commission - found OK");
+			System.out.println("Document Fee Commission - found OK");
+			count++;
+		} else {
+			LO.print("Document Fee Commission - found wrong");
+			System.err.println("Document Fee Commission - found wrong");
+		}
+
+		// 24
+		if ((Difference.of_two_Double_Values(totalCommission, customer_quote_summary_total_commission)) < 0.2) {
+			LO.print("Total Commission - found OK");
+			System.out.println("Total Commission - found OK");
+			count++;
+		} else {
+			LO.print("Total Commission - found wrong");
+			System.err.println("Total Commission - found wrong");
+		}
+
+		if (count == 24) {
+			status = true;
+		}
+		return status;
 
 	}
 
-	public boolean quote_summary_HPNR_PCP_with_maintenance(String sheet_name) throws InterruptedException, IOException {
+	public boolean quote_summary_configuration_value_verification_for_funder_with_maintenance(String sheet_name)
+			throws IOException, UnsupportedFlavorException {
+		LO.print("*************Configuration Values Verification on quote summary page has been started************");
+		System.out.println(
+				"*************Configuration Values Verification on quote summary page has been started************");
 
-		LO.print("*************Calculations for Quote Summary page has been started************");
-		System.out.println("*************Calculations for Quote Summary page has been started************");
+		Click.on(driver, quote_summary_configuration, 30);
 
-		obj_read_excel_calculation_page = new ReadExcelCalculationForPurchaseAgreement();
-		Click.on(driver, quote_summary, 60);
+		// reading configuration values from screen
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
+		double baseInterestRateFromScreen = Double
+				.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
 
-		Actions act = new Actions(driver);
-		act.sendKeys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER).build().perform();
+		ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
+		double financeMarginFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
 
-		ExplicitWait.waitTillLoadingIconDisappears(driver, loading_icon, 35);
+		ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
+		double deductionsFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
 
-		ExplicitWait.visibleElement(driver, quote_summary_ref_no, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_cost_otr_price, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_total_monthly_holding_cost_with_maintenance, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_finance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_monthly_maintenance_rental, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_acq_contract_type, 120);
-		ExplicitWait.visibleElement(driver, quote_summary_customer_contract_type, 120);
+		ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
+		double additionalMarginFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
 
-		LO.print("Reading values from sceen -Quote Summary Page");
-		System.out.println("Reading values from sceen -Quote Summary Page");
+		ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
+		double totalMarginFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
 
-		String quote_ref_no = quote_summary_ref_no.getText();
-		String temp_quote_summary_cost_otr_price = quote_summary_cost_otr_price.getText().trim().substring(2);
-		String temp_quote_summary_total_monthly_holding_cost = quote_summary_total_monthly_holding_cost_with_maintenance
-				.getText().trim().substring(2);
-		String temp_quote_summary_monthly_finance_rental = quote_summary_monthly_finance_rental.getText().trim()
-				.substring(2);
-		String temp_quote_summary_monthly_maintenance_rental = quote_summary_monthly_maintenance_rental.getText().trim()
-				.substring(2);
-		String temp_quote_summary_monthly_total_rental = quote_summary_monthly_total_rental.getText().trim()
-				.substring(2);
-		String acq_contract_type = quote_summary_acq_contract_type.getText();
-		String customer_contract_type = quote_summary_customer_contract_type.getText();
+		ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
+		double defaultBrokerMarginPercentageFromScreen = Double
+				.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().substring(0, 4));
 
-		LO.print("Getting values from screen");
-		System.out.println("Getting values from screen");
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
+		double customerInterestRateFromScreen = Double
+				.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 4));
 
-		LO.print("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
-		System.out.println("Quote_summary_cost_otr_price =" + temp_quote_summary_cost_otr_price);
+		ExplicitWait.visibleElement(driver, quote_summary_maintenance_margin, 20);
+		double maintenanceMarginFromScreen = Double
+				.parseDouble(quote_summary_maintenance_margin.getText().trim().substring(2));
 
-		LO.print("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
-		System.out
-				.println("Quote_summary_total_monthly_holding_cost =" + temp_quote_summary_total_monthly_holding_cost);
+		ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
+		double documentFeeMarginFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
 
-		LO.print("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
-		System.out.println("Quote_summary_monthly_finance_rental =" + temp_quote_summary_monthly_finance_rental);
+		// copying default broker margin from input field
 
-		LO.print("Quote_summary_monthly_maintenance_rental =" + temp_quote_summary_monthly_maintenance_rental);
-		System.out
-				.println("Quote_summary_monthly_maintenance_rental =" + temp_quote_summary_monthly_maintenance_rental);
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
+		double default_broker_margin_copied =  Double.parseDouble(quote_summary_configuration_default_broker_margin_input.getAttribute("value"));
+		
+		
+//					ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
+//					double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
+//
+//					ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
+//					double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
+//				
+//					ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
+//					double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
+//				
 
-		LO.print("Quote_summary_monthly_total_rental =" + temp_quote_summary_monthly_total_rental);
-		System.out.println("Quote_summary_monthly_total_rental =" + temp_quote_summary_monthly_total_rental);
+		// getting values from excel
 
-		LO.print("Acquisition contract_type =" + acq_contract_type);
-		System.out.println("Acquisition contract_type =" + acq_contract_type);
+		double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(265, 1, sheet_name);
 
-		LO.print("Customer contract_type =" + customer_contract_type);
-		System.out.println("Customer contract_type =" + customer_contract_type);
+		double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
 
-		LO.print("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
-		System.out.println("Customer Quote generated successfully and Quote_ref_no =" + quote_ref_no);
+		double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(263, 1, sheet_name);
 
-		String quote_summary_cost_otr_price_from_screen = RemoveComma.of(temp_quote_summary_cost_otr_price);
-		String quote_summary_total_monthly_holding_cost_from_screen = RemoveComma
-				.of(temp_quote_summary_total_monthly_holding_cost);
-		String quote_summary_monthly_finance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_finance_rental);
-		String quote_summary_monthly_maintenance_rental_from_screen = RemoveComma
-				.of(temp_quote_summary_monthly_maintenance_rental);
-		String quote_summary_monthly_total_rental_from_screen = RemoveComma.of(temp_quote_summary_monthly_total_rental);
+		double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(262, 5, sheet_name);
 
-		double quote_summary_cost_otr_price_from_screen_converted = Double
-				.parseDouble(quote_summary_cost_otr_price_from_screen);
-		double quote_summary_total_monthly_holding_cost_from_screen_converted = Double
-				.parseDouble(quote_summary_total_monthly_holding_cost_from_screen);
-		double quote_summary_monthly_finance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_finance_rental_from_screen);
-		double quote_summary_monthly_maintenance_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_maintenance_rental_from_screen);
-		double quote_summary_monthly_total_rental_from_screen_converted = Double
-				.parseDouble(quote_summary_monthly_total_rental_from_screen);
+		double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(263, 1, sheet_name);
 
-		return obj_read_excel_calculation_page.verify_quote_summary_values_from_excel_with_maintenance(
-				quote_summary_cost_otr_price_from_screen_converted,
-				quote_summary_total_monthly_holding_cost_from_screen_converted,
-				quote_summary_monthly_finance_rental_from_screen_converted,
-				quote_summary_monthly_maintenance_rental_from_screen_converted,
-				quote_summary_monthly_total_rental_from_screen_converted, sheet_name);
+		double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(263, 5, sheet_name);
 
+		double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(269, 1, sheet_name);
+
+		double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
+
+		double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(268, 1, sheet_name);
+		double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
+
+		double maintenanceMarginFromExcel = GetExcelFormulaValue.get_formula_value(270, 5, sheet_name);
+
+		double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(271, 1, sheet_name);
+
+		double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(269, 5, sheet_name);
+
+//				  
+//				  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(266,5, sheet_name);
+//				  
+//				  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(267,5, sheet_name);
+//				  
+//				  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(268,5, sheet_name);
+//				  
+
+		// verifying actual and expected values
+
+		int count = 0;
+		boolean status = false;
+		// 1
+		if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
+			LO.print("Base Interest Rate found OK");
+			System.out.println("Base Interest Rate found OK");
+			count++;
+		} else {
+			LO.print("Base Interest Rate found wrong");
+			System.err.println("Base Interest Rate found wrong");
+		}
+
+		// 2
+		if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
+			LO.print("Finance Margin found OK");
+			System.out.println("Finance Margin found OK");
+			count++;
+		} else {
+			LO.print("Finance Margin found wrong");
+			System.err.println("Finance Margin found wrong");
+		}
+
+		// 3
+		if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
+			LO.print("Deductions found OK");
+			System.out.println("Deductions found OK");
+			count++;
+		} else {
+			LO.print("Deductions found wrong");
+			System.err.println("Deductions found wrong");
+		}
+
+		// 4
+		if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
+			LO.print("Additional Margin found OK");
+			System.out.println("Additional Margin found OK");
+			count++;
+		} else {
+			LO.print("Additional Margin found wrong");
+			System.err.println("Additional Margin found wrong");
+		}
+
+		// 5
+		if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
+			LO.print("Total Margin found OK");
+			System.out.println("Total Margin found OK");
+			count++;
+		} else {
+			LO.print("Total Margin found wrong");
+			System.err.println("Total Margin found wrong");
+		}
+
+		// 6
+		if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
+				defaultBrokerMarginPercentageFromScreen) < 0.2) {
+			LO.print("Default Broker Margin percentage found OK");
+			System.out.println("Default Broker Margin percentage found OK");
+			count++;
+		} else {
+			LO.print("Default Broker Margin percentage found wrong");
+			System.err.println("Default Broker Margin percentage found wrong");
+		}
+
+		// 7
+		if (Difference.of_two_Double_Values(customerInterestRateFromScreen, customerInterestRateFromExcel) < 0.2) {
+			LO.print("Customer Interest Rate found OK");
+			System.out.println("Customer Interest Rate found OK");
+			count++;
+		} else {
+			LO.print("Customer Interest Rate found wrong");
+			System.err.println("Customer Interest Rate found wrong");
+		}
+
+		// 8
+		if ((Difference.of_two_Double_Values(maintenanceMarginFromScreen, maintenanceMarginFromExcel)) < 0.2) {
+			LO.print("Maintenance Margin found OK");
+			System.out.println("Maintenance Margin found OK");
+			count++;
+		} else {
+			LO.print("Maintenance Margin found wrong");
+			System.err.println("Maintenance Margin  found wrong");
+		}
+		// 9
+		if ((Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2)) {
+			LO.print("Document Fee Margin found OK");
+			System.out.println("Document Fee Margin found OK");
+			count++;
+		} else {
+			LO.print("Document Fee Margin  found wrong");
+			System.err.println("Document Fee Margin  found wrong");
+		}
+
+		// 10
+		if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
+			LO.print("Default Broker Margin found OK");
+			System.out.println("Default Broker Margin found OK");
+			count++;
+		} else {
+			LO.print("Default Broker Margin  found wrong");
+			System.err.println("Default Broker Margin  found wrong");
+		}
+
+//			        //10
+//					if (trackerCostFromScreen==trackerCostFromExcel) {
+//						LO.print("Tracker Cost found OK");
+//						System.out.println("Tracker Cost found OK");
+//						count++;
+//					} else {
+//						LO.print("Tracker Cost  found wrong");
+//						System.err.println("Tracker Cost  found wrong");
+//					}
+//					
+//					//11
+//					if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
+//						LO.print("Insurance Tax found OK");
+//						System.out.println("Insurance Tax found OK");
+//						count++;
+//					} else {
+//						LO.print("Insurance Tax found wrong");
+//						System.err.println("Insurance Tax found wrong");
+//					}
+//					
+//					//12
+//					if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
+//						LO.print("Contingency Insurance Value found OK");
+//						System.out.println("Contingency Insurance Value found OK");
+//						count++;
+//					} else {
+//						LO.print("Contingency Insurance Value found wrong");
+//						System.err.println("Contingency Insurance Value found wrong");
+//					}
+
+		if (count == 10) {
+			status = true;
+		}
+		return status;
+	}
+
+	public boolean quote_summary_configuration_value_verification_without_maintenance(String sheet_name)
+			throws IOException, UnsupportedFlavorException {
+
+		LO.print("*************Configuration Values Verification on quote summary page has been started************");
+		System.out.println(
+				"*************Configuration Values Verification on quote summary page has been started************");
+
+		Click.on(driver, quote_summary_configuration, 30);
+
+		// reading configuration values from screen
+
+		ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
+		double baseInterestRateFromScreen = Double
+				.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
+
+		ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
+		double financeMarginFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+
+		ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
+		double deductionsFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+
+		ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
+		double additionalMarginFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+
+		ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
+		double totalMarginFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+
+
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
+		double customerInterestRateFromScreen = Double
+				.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 5));
+
+		ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
+		double documentFeeMarginFromScreen = Double
+				.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
+
+		// copying default broker margin from input field
+
+
+		double defaultBrokerMarginPercentageFromScreen =0;
+		double default_broker_margin_copied =0;
+		
+		try {
+		ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
+		defaultBrokerMarginPercentageFromScreen = Double
+				.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().split(" ")[0]);
+		
+		ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
+		default_broker_margin_copied =  Double.parseDouble(quote_summary_configuration_default_broker_margin_input.getAttribute("value"));
+		}catch(Exception e) {}
+//		ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
+//		double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
+//
+//		ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
+//		double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
+//	
+//		ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
+//		double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
+//	
+
+		// getting values from excel
+
+		double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 01, sheet_name);
+
+		double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
+
+		double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(253, 1, sheet_name);
+
+		double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(253, 5, sheet_name);
+
+		double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 1, sheet_name);
+
+		double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 5, sheet_name);
+
+		double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(260, 1, sheet_name);
+
+		double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
+
+		double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(259, 1, sheet_name);
+		double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
+
+		double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(262, 1, sheet_name);
+
+		double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(260, 5, sheet_name);
+
+//	  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//	  0, sheet_name);
+//	  
+//	  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//	  0, sheet_name);
+//	  
+//	  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//	  0, sheet_name);
+//	  
+//	  
+		// verifying actual and expected values
+
+		int count = 0;
+		boolean status = false;
+		// 1
+		if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
+			LO.print("Base Interest Rate found OK");
+			System.out.println("Base Interest Rate found OK");
+			count++;
+		} else {
+			LO.print("Base Interest Rate found wrong");
+			System.err.println("Base Interest Rate found wrong");
+		}
+
+		// 2
+		if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
+			LO.print("Finance Margin found OK");
+			System.out.println("Finance Margin found OK");
+			count++;
+		} else {
+			LO.print("Finance Margin found wrong");
+			System.err.println("Finance Margin found wrong");
+		}
+
+		// 3
+		if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
+			LO.print("Deductions found OK");
+			System.out.println("Deductions found OK");
+			count++;
+		} else {
+			LO.print("Deductions found wrong");
+			System.err.println("Deductions found wrong");
+		}
+
+		// 4
+		if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
+			LO.print("Additional Margin found OK");
+			System.out.println("Additional Margin found OK");
+			count++;
+		} else {
+			LO.print("Additional Margin found wrong");
+			System.err.println("Additional Margin found wrong");
+		}
+
+		// 5
+		if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
+			LO.print("Total Margin found OK");
+			System.out.println("Total Margin found OK");
+			count++;
+		} else {
+			LO.print("Total Margin found wrong");
+			System.err.println("Total Margin found wrong");
+		}
+
+		// 6
+		if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel , defaultBrokerMarginPercentageFromScreen)<0.2) {
+			LO.print("Default Broker Margin percentage found OK");
+			System.out.println("Default Broker Margin percentage found OK");
+			count++;
+		} else {
+			LO.print("Default Broker Margin percentage found wrong");
+			System.err.println("Default Broker Margin percentage found wrong");
+		}
+
+		// 7
+		if (Difference.of_two_Double_Values(customerInterestRateFromScreen, customerInterestRateFromExcel)<0.2) {
+			LO.print("Customer Interest Rate found OK");
+			System.out.println("Customer Interest Rate found OK");
+			count++;
+		} else {
+			LO.print("Customer Interest Rate found wrong");
+			System.err.println("Customer Interest Rate found wrong");
+		}
+
+		// 8
+		if (Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2) {
+			LO.print("Document Fee Margin found OK");
+			System.out.println("Document Fee Margin found OK");
+			count++;
+		} else {
+			LO.print("Document Fee Margin  found wrong");
+			System.err.println("Document Fee Margin  found wrong");
+		}
+		// 9
+		if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
+			LO.print("Default Broker Margin found OK");
+			System.out.println("Default Broker Margin found OK");
+			count++;
+		} else {
+			LO.print("Default Broker Margin  found wrong");
+			System.err.println("Default Broker Margin  found wrong");
+		}
+
+//        //9
+//		if (trackerCostFromScreen==trackerCostFromExcel) {
+//			LO.print("Tracker Cost found OK");
+//			System.out.println("Tracker Cost found OK");
+//			count++;
+//		} else {
+//			LO.print("Tracker Cost  found wrong");
+//			System.err.println("Tracker Cost  found wrong");
+//		}
+//		
+//		//10
+//		if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
+//			LO.print("Insurance Tax found OK");
+//			System.out.println("Insurance Tax found OK");
+//			count++;
+//		} else {
+//			LO.print("Insurance Tax found wrong");
+//			System.err.println("Insurance Tax found wrong");
+//		}
+//		
+//		//11
+//		if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
+//			LO.print("Contingency Insurance Value found OK");
+//			System.out.println("Contingency Insurance Value found OK");
+//			count++;
+//		} else {
+//			LO.print("Contingency Insurance Value found wrong");
+//			System.err.println("Contingency Insurance Value found wrong");
+//		}
+
+		if (count == 9) {
+			status = true;
+		}
+		return status;
+	}
+	
+	public boolean quote_summary_configuration_value_verification_with_maintenance(String sheet_name)
+			throws IOException, UnsupportedFlavorException {
+		LO.print("*************Configuration Values Verification on quote summary page has been started************");
+		System.out.println(
+				"*************Configuration Values Verification on quote summary page has been started************");
+
+		Click.on(driver, quote_summary_configuration, 30);
+
+		try {
+			// reading configuration values from screen
+
+			ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
+			double baseInterestRateFromScreen = Double
+					.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
+
+			ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
+			double financeMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
+			double deductionsFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
+			double additionalMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
+			double totalMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
+			double customerInterestRateFromScreen = Double
+					.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 4));
+
+			ExplicitWait.visibleElement(driver, quote_summary_maintenance_margin, 20);
+			double maintenanceMarginFromScreen = Double
+					.parseDouble(quote_summary_maintenance_margin.getText().trim().substring(2));
+
+			ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
+			double documentFeeMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
+
+			// copying default broker margin from input field
+
+
+			double defaultBrokerMarginPercentageFromScreen =0;
+			double default_broker_margin_copied =0;
+			
+			try {
+			ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
+			defaultBrokerMarginPercentageFromScreen = Double
+					.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().split(" ")[0]);
+			
+			ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
+			default_broker_margin_copied =  Double.parseDouble(quote_summary_configuration_default_broker_margin_input.getAttribute("value"));
+			}catch(Exception e) {}
+			
+//					ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
+//					double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
+//
+//					ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
+//					double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
+//				
+//					ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
+//					double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
+//				
+
+			// getting values from excel
+
+			double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 1, sheet_name);
+
+			double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
+
+			double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(253, 1, sheet_name);
+
+			double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(253, 5, sheet_name);
+
+			double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 1, sheet_name);
+
+			double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 5, sheet_name);
+
+			double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(260, 1,
+					sheet_name);
+
+			double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
+
+			double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(259, 1, sheet_name);
+			double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
+
+			double maintenanceMarginFromExcel = GetExcelFormulaValue.get_formula_value(261, 5, sheet_name);
+
+			double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(262, 1, sheet_name);
+
+			double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(260, 5, sheet_name);
+
+//				  
+//				  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(266,5, sheet_name);
+//				  
+//				  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(267,5, sheet_name);
+//				  
+//				  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(268,5, sheet_name);
+//				  
+
+			// verifying actual and expected values
+
+			int count = 0;
+			boolean status = false;
+			// 1
+			if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
+				LO.print("Base Interest Rate found OK");
+				System.out.println("Base Interest Rate found OK");
+				count++;
+			} else {
+				LO.print("Base Interest Rate found wrong");
+				System.err.println("Base Interest Rate found wrong");
+			}
+
+			// 2
+			if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
+				LO.print("Finance Margin found OK");
+				System.out.println("Finance Margin found OK");
+				count++;
+			} else {
+				LO.print("Finance Margin found wrong");
+				System.err.println("Finance Margin found wrong");
+			}
+
+			// 3
+			if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
+				LO.print("Deductions found OK");
+				System.out.println("Deductions found OK");
+				count++;
+			} else {
+				LO.print("Deductions found wrong");
+				System.err.println("Deductions found wrong");
+			}
+
+			// 4
+			if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
+				LO.print("Additional Margin found OK");
+				System.out.println("Additional Margin found OK");
+				count++;
+			} else {
+				LO.print("Additional Margin found wrong");
+				System.err.println("Additional Margin found wrong");
+			}
+
+			// 5
+			if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
+				LO.print("Total Margin found OK");
+				System.out.println("Total Margin found OK");
+				count++;
+			} else {
+				LO.print("Total Margin found wrong");
+				System.err.println("Total Margin found wrong");
+			}
+
+			// 6
+			if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
+					defaultBrokerMarginPercentageFromScreen) < 0.2) {
+				LO.print("Default Broker Margin percentage found OK");
+				System.out.println("Default Broker Margin percentage found OK");
+				count++;
+			} else {
+				LO.print("Default Broker Margin percentage found wrong");
+				System.err.println("Default Broker Margin percentage found wrong");
+			}
+
+			// 7
+			if (Difference.of_two_Double_Values(customerInterestRateFromScreen, customerInterestRateFromExcel) < 0.2) {
+				LO.print("Customer Interest Rate found OK");
+				System.out.println("Customer Interest Rate found OK");
+				count++;
+			} else {
+				LO.print("Customer Interest Rate found wrong");
+				System.err.println("Customer Interest Rate found wrong");
+			}
+
+			// 8
+			if ((Difference.of_two_Double_Values(maintenanceMarginFromScreen, maintenanceMarginFromExcel)) < 0.2) {
+				LO.print("Maintenance Margin found OK");
+				System.out.println("Maintenance Margin found OK");
+				count++;
+			} else {
+				LO.print("Maintenance Margin found wrong");
+				System.err.println("Maintenance Margin  found wrong");
+			}
+			// 9
+			if ((Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2)) {
+				LO.print("Document Fee Margin found OK");
+				System.out.println("Document Fee Margin found OK");
+				count++;
+			} else {
+				LO.print("Document Fee Margin  found wrong");
+				System.err.println("Document Fee Margin  found wrong");
+			}
+
+			// 10
+			if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
+				LO.print("Default Broker Margin found OK");
+				System.out.println("Default Broker Margin found OK");
+				count++;
+			} else {
+				LO.print("Default Broker Margin  found wrong");
+				System.err.println("Default Broker Margin  found wrong");
+			}
+
+//			        //10
+//					if (trackerCostFromScreen==trackerCostFromExcel) {
+//						LO.print("Tracker Cost found OK");
+//						System.out.println("Tracker Cost found OK");
+//						count++;
+//					} else {
+//						LO.print("Tracker Cost  found wrong");
+//						System.err.println("Tracker Cost  found wrong");
+//					}
+//					
+//					//11
+//					if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
+//						LO.print("Insurance Tax found OK");
+//						System.out.println("Insurance Tax found OK");
+//						count++;
+//					} else {
+//						LO.print("Insurance Tax found wrong");
+//						System.err.println("Insurance Tax found wrong");
+//					}
+//					
+//					//12
+//					if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
+//						LO.print("Contingency Insurance Value found OK");
+//						System.out.println("Contingency Insurance Value found OK");
+//						count++;
+//					} else {
+//						LO.print("Contingency Insurance Value found wrong");
+//						System.err.println("Contingency Insurance Value found wrong");
+//					}
+
+			if (count == 10) {
+				status = true;
+			}
+			return status;
+		} catch (Exception e) {
+
+			// reading configuration values from screen
+
+			ExplicitWait.visibleElement(driver, quote_summary_base_interest_rate, 20);
+			double baseInterestRateFromScreen = Double
+					.parseDouble(quote_summary_base_interest_rate.getText().trim().substring(0, 5));
+
+			ExplicitWait.visibleElement(driver, quote_summary_finance_margin, 20);
+			double financeMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_finance_margin.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_deductions, 20);
+			double deductionsFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_deductions.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_additional_margin, 20);
+			double additionalMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_additional_margin.getText().trim().substring(2)));
+
+			ExplicitWait.visibleElement(driver, quote_summary_total_margin, 20);
+			double totalMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_total_margin.getText().trim().substring(2)));
+
+
+			ExplicitWait.visibleElement(driver, quote_summary_configuration_customer_interest_rate, 20);
+			double customerInterestRateFromScreen = Double
+					.parseDouble(quote_summary_configuration_customer_interest_rate.getText().trim().substring(0, 5));
+
+			ExplicitWait.visibleElement(driver, quote_summary_decument_fee_margin, 20);
+			double documentFeeMarginFromScreen = Double
+					.parseDouble(RemoveComma.of(quote_summary_decument_fee_margin.getText().trim().substring(2)));
+
+			// copying default broker margin from input field
+			double defaultBrokerMarginPercentageFromScreen =0;
+			double default_broker_margin_copied =0;
+			
+			try {
+			ExplicitWait.visibleElement(driver, quote_summary_default_broker_margin_percentage, 20);
+			defaultBrokerMarginPercentageFromScreen = Double
+					.parseDouble(quote_summary_default_broker_margin_percentage.getText().trim().split(" ")[0]);
+			
+			ExplicitWait.visibleElement(driver, quote_summary_configuration_default_broker_margin_input, 30);
+			default_broker_margin_copied =  Double.parseDouble(quote_summary_configuration_default_broker_margin_input.getAttribute("value"));
+			}catch(Exception e1) {}
+//			ExplicitWait.visibleElement(driver, quote_summary_configuration_total_tracker_cost, 20);
+//			double trackerCostFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_total_tracker_cost.getText().trim().substring(2)));
+			//
+//			ExplicitWait.visibleElement(driver, quote_summary_configuration_insurance_tax, 20);
+//			double insuranceTaxFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_insurance_tax.getText().trim().substring(0,4)));
+			//
+//			ExplicitWait.visibleElement(driver, quote_summary_configuration_contingency_insurance_value, 20);
+//			double contingencyInsuranceValueFromScreen = Double.parseDouble(RemoveComma.of(quote_summary_configuration_contingency_insurance_value.getText().trim().substring(2)));
+			//
+
+			// getting values from excel
+
+			double tempbaseInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(256, 01, sheet_name);
+
+			double baseInterestRateFromExcel = (tempbaseInterestRateFromExcel * 100);
+
+			double financeMarginFromExcel = GetExcelFormulaValue.get_formula_value(253, 1, sheet_name);
+
+			double deductionsFromExcel = GetExcelFormulaValue.get_formula_value(253, 5, sheet_name);
+
+			double additionalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 1, sheet_name);
+
+			double totalMarginFromExcel = GetExcelFormulaValue.get_formula_value(254, 5, sheet_name);
+
+			double tempdefaualtBrokerMarginPercentageFromExcel = GetExcelFormulaValue.get_formula_value(260, 1,
+					sheet_name);
+
+			double defaualtBrokerMarginPercentageFromExcel = (tempdefaualtBrokerMarginPercentageFromExcel * 100);
+
+			double tempcustomerInterestRateFromExcel = GetExcelFormulaValue.get_formula_value(259, 1, sheet_name);
+			double customerInterestRateFromExcel = (tempcustomerInterestRateFromExcel * 100);
+
+			double documentFeeMarginFromExcel = GetExcelFormulaValue.get_formula_value(262, 1, sheet_name);
+
+			double defaultBrokerMarginFromExcel = GetExcelFormulaValue.get_formula_value(260, 5, sheet_name);
+
+//		  double trackerCostFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//		  0, sheet_name);
+//		  
+//		  double insuranceTaxFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//		  0, sheet_name);
+//		  
+//		  double contingencyInsuranceValueFromExcel = GetExcelFormulaValue.get_formula_value(0,
+//		  0, sheet_name);
+//		  
+//		  
+			// verifying actual and expected values
+
+			int count = 0;
+			boolean status = false;
+			// 1
+			if (baseInterestRateFromExcel == baseInterestRateFromScreen) {
+				LO.print("Base Interest Rate found OK");
+				System.out.println("Base Interest Rate found OK");
+				count++;
+			} else {
+				LO.print("Base Interest Rate found wrong");
+				System.err.println("Base Interest Rate found wrong");
+			}
+
+			// 2
+			if (Difference.of_two_Double_Values(financeMarginFromScreen, financeMarginFromExcel) < 0.2) {
+				LO.print("Finance Margin found OK");
+				System.out.println("Finance Margin found OK");
+				count++;
+			} else {
+				LO.print("Finance Margin found wrong");
+				System.err.println("Finance Margin found wrong");
+			}
+
+			// 3
+			if (Difference.of_two_Double_Values(deductionsFromScreen, deductionsFromExcel) < 0.2) {
+				LO.print("Deductions found OK");
+				System.out.println("Deductions found OK");
+				count++;
+			} else {
+				LO.print("Deductions found wrong");
+				System.err.println("Deductions found wrong");
+			}
+
+			// 4
+			if (Difference.of_two_Double_Values(additionalMarginFromScreen, additionalMarginFromExcel) < 0.2) {
+				LO.print("Additional Margin found OK");
+				System.out.println("Additional Margin found OK");
+				count++;
+			} else {
+				LO.print("Additional Margin found wrong");
+				System.err.println("Additional Margin found wrong");
+			}
+
+			// 5
+			if (Difference.of_two_Double_Values(totalMarginFromScreen, totalMarginFromExcel) < 0.2) {
+				LO.print("Total Margin found OK");
+				System.out.println("Total Margin found OK");
+				count++;
+			} else {
+				LO.print("Total Margin found wrong");
+				System.err.println("Total Margin found wrong");
+			}
+
+			// 6
+			if (Difference.of_two_Double_Values(defaualtBrokerMarginPercentageFromExcel,
+					defaultBrokerMarginPercentageFromScreen) < 0.2) {
+				LO.print("Default Broker Margin percentage found OK");
+				System.out.println("Default Broker Margin percentage found OK");
+				count++;
+			} else {
+				LO.print("Default Broker Margin percentage found wrong");
+				System.err.println("Default Broker Margin percentage found wrong");
+			}
+
+			// 7
+			if (Difference.of_two_Double_Values(customerInterestRateFromScreen, customerInterestRateFromExcel) < 0.2) {
+				LO.print("Customer Interest Rate found OK");
+				System.out.println("Customer Interest Rate found OK");
+				count++;
+			} else {
+				LO.print("Customer Interest Rate found wrong");
+				System.err.println("Customer Interest Rate found wrong");
+			}
+
+			// 8
+			if (Difference.of_two_Double_Values(documentFeeMarginFromScreen, documentFeeMarginFromExcel) < 0.2) {
+				LO.print("Document Fee Margin found OK");
+				System.out.println("Document Fee Margin found OK");
+				count++;
+			} else {
+				LO.print("Document Fee Margin  found wrong");
+				System.err.println("Document Fee Margin  found wrong");
+			}
+			// 9
+			if ((Difference.of_two_Double_Values(default_broker_margin_copied, defaultBrokerMarginFromExcel) < 0.2)) {
+				LO.print("Default Broker Margin found OK");
+				System.out.println("Default Broker Margin found OK");
+				count++;
+			} else {
+				LO.print("Default Broker Margin  found wrong");
+				System.err.println("Default Broker Margin  found wrong");
+			}
+
+//	        //9
+//			if (trackerCostFromScreen==trackerCostFromExcel) {
+//				LO.print("Tracker Cost found OK");
+//				System.out.println("Tracker Cost found OK");
+//				count++;
+//			} else {
+//				LO.print("Tracker Cost  found wrong");
+//				System.err.println("Tracker Cost  found wrong");
+//			}
+//			
+//			//10
+//			if (insuranceTaxFromScreen==insuranceTaxFromExcel) {
+//				LO.print("Insurance Tax found OK");
+//				System.out.println("Insurance Tax found OK");
+//				count++;
+//			} else {
+//				LO.print("Insurance Tax found wrong");
+//				System.err.println("Insurance Tax found wrong");
+//			}
+//			
+//			//11
+//			if (contingencyInsuranceValueFromScreen==contingencyInsuranceValueFromExcel) {
+//				LO.print("Contingency Insurance Value found OK");
+//				System.out.println("Contingency Insurance Value found OK");
+//				count++;
+//			} else {
+//				LO.print("Contingency Insurance Value found wrong");
+//				System.err.println("Contingency Insurance Value found wrong");
+//			}
+
+			if (count == 9) {
+				status = true;
+			}
+			return status;
+
+		}
 	}
 
 }

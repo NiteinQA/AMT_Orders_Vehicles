@@ -43,11 +43,11 @@ public class ContractTypesAndOTR_HPNR_HPNR_Page extends TestBase {
 	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[2]")
 	private WebElement acq_contractTypes_calculation_table_basic_price;
 
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[3]")
-	private WebElement acq_contractTypes_calculation_table_discount;
-
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[2]/div[2]/div[1]/app-aquisition-generic[1]/form[1]/div[1]/div[1]/div[1]/app-aquisition-otr[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/app-acquisition-common-otr-calculations[1]/form[1]/div[1]/div[1]/div[4]")
-	private WebElement acq_contractTypes_calculation_table_additional_discount;
+	@FindBy(xpath = "//*[@id='collapseTwo']//*[normalize-space(text())='Discount']//ancestor::div[1]")
+	private WebElement acq_contractTypes_calculation_table_discount;	
+	
+	@FindBy(xpath = "//*[@id='collapseTwo']//*[normalize-space(text())='Additional discount']//ancestor::div[1]")
+	private WebElement acq_contractTypes_calculation_table_additional_discount;	
 
 	@FindBy(xpath = "(//p[contains(text(),'Hire Purchase Non-Regulated')])[2]")
 	private WebElement acq_contractTypes_customer_contract_HPNR;
